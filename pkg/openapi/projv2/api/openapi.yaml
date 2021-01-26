@@ -1,0 +1,10 @@
+openapi: 3.0.1
+info:
+  title: Teamwork.com Projects API
+  version: "3.0"
+servers:
+- url: /
+paths: {}
+components:
+  schemas: {}
+x-original-swagger-version: "2.0"

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Eventtype** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Eventtype** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 
 ## Methods
 

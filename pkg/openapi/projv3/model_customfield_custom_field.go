@@ -22,7 +22,7 @@ type CustomfieldCustomField struct {
 	IsPrivate *bool `json:"isPrivate,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Options *map[string]interface{} `json:"options,omitempty"`
-	Privacy *PayloadPrivacy `json:"privacy,omitempty"`
+	Privacy *PayloadUserGroups `json:"privacy,omitempty"`
 	ProjectId *int32 `json:"projectId,omitempty"`
 	Required *bool `json:"required,omitempty"`
 	Type *string `json:"type,omitempty"`
@@ -207,9 +207,9 @@ func (o *CustomfieldCustomField) SetOptions(v map[string]interface{}) {
 }
 
 // GetPrivacy returns the Privacy field value if set, zero value otherwise.
-func (o *CustomfieldCustomField) GetPrivacy() PayloadPrivacy {
+func (o *CustomfieldCustomField) GetPrivacy() PayloadUserGroups {
 	if o == nil || o.Privacy == nil {
-		var ret PayloadPrivacy
+		var ret PayloadUserGroups
 		return ret
 	}
 	return *o.Privacy
@@ -217,7 +217,7 @@ func (o *CustomfieldCustomField) GetPrivacy() PayloadPrivacy {
 
 // GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomfieldCustomField) GetPrivacyOk() (*PayloadPrivacy, bool) {
+func (o *CustomfieldCustomField) GetPrivacyOk() (*PayloadUserGroups, bool) {
 	if o == nil || o.Privacy == nil {
 		return nil, false
 	}
@@ -233,8 +233,8 @@ func (o *CustomfieldCustomField) HasPrivacy() bool {
 	return false
 }
 
-// SetPrivacy gets a reference to the given PayloadPrivacy and assigns it to the Privacy field.
-func (o *CustomfieldCustomField) SetPrivacy(v PayloadPrivacy) {
+// SetPrivacy gets a reference to the given PayloadUserGroups and assigns it to the Privacy field.
+func (o *CustomfieldCustomField) SetPrivacy(v PayloadUserGroups) {
 	o.Privacy = &v
 }
 

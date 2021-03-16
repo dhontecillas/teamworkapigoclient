@@ -26,7 +26,7 @@ type TasksIdRemindersJsonReminder struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTasksIdRemindersJsonReminder(dateTimeUtc string, note string, userId string, ) *TasksIdRemindersJsonReminder {
+func NewTasksIdRemindersJsonReminder(dateTimeUtc string, note string, userId string) *TasksIdRemindersJsonReminder {
 	this := TasksIdRemindersJsonReminder{}
 	this.DateTimeUtc = dateTimeUtc
 	this.Note = note
@@ -44,7 +44,7 @@ func NewTasksIdRemindersJsonReminderWithDefaults() *TasksIdRemindersJsonReminder
 
 // GetDateTimeUtc returns the DateTimeUtc field value
 func (o *TasksIdRemindersJsonReminder) GetDateTimeUtc() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -68,7 +68,7 @@ func (o *TasksIdRemindersJsonReminder) SetDateTimeUtc(v string) {
 
 // GetNote returns the Note field value
 func (o *TasksIdRemindersJsonReminder) GetNote() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -124,7 +124,7 @@ func (o *TasksIdRemindersJsonReminder) SetType(v string) {
 
 // GetUserId returns the UserId field value
 func (o *TasksIdRemindersJsonReminder) GetUserId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

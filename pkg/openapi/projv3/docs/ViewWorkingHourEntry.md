@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **TaskHours** | Pointer to **float32** |  | [optional] 
 **Timezone** | Pointer to **string** |  | [optional] 
 **Weekday** | Pointer to **string** |  | [optional] 
-**WorkingHour** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**WorkingHour** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **WorkingHourId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Expense** | Pointer to [**ExpensesIdJsonExpense**](_expenses__id__json_expense.md) |  | [optional] 
+**Expense** | Pointer to [**ExpensesIdJsonExpense**](ExpensesIdJsonExpense.md) |  | [optional] 
 
 ## Methods
 

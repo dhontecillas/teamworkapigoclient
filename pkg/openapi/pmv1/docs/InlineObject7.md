@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClockIn** | [**ClockinJsonClockIn**](_clockin_json_clockIn.md) |  | 
+**ClockIn** | [**ClockinJsonClockIn**](ClockinJsonClockIn.md) |  | 
 
 ## Methods
 

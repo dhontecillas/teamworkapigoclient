@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | Pointer to [**ProjectsIdFilesJsonFile**](_projects__id__files_json_file.md) |  | [optional] 
+**File** | Pointer to [**ProjectsIdFilesJsonFile**](ProjectsIdFilesJsonFile.md) |  | [optional] 
 
 ## Methods
 

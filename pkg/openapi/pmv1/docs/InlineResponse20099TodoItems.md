@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DLM** | Pointer to **int32** |  | [optional] 
 **AttachmentsCount** | Pointer to **int32** |  | [optional] 
-**BoardColumn** | Pointer to [**InlineResponse20054Category**](inline_response_200_54_category.md) |  | [optional] 
+**BoardColumn** | Pointer to [**InlineResponse20054Category**](InlineResponse20054Category.md) |  | [optional] 
 **CanComplete** | Pointer to **bool** |  | [optional] 
 **CanEdit** | Pointer to **bool** |  | [optional] 
 **CanLogTime** | Pointer to **bool** |  | [optional] 

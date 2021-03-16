@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **Archived** | Pointer to **bool** |  | [optional] 
 **BoardId** | Pointer to **string** |  | [optional] 
 **CanEdit** | Pointer to **bool** |  | [optional] 
-**Category** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Category** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 **ColumnId** | Pointer to **string** |  | [optional] 
-**Company** | Pointer to [**InlineResponse2002People12345Company**](inline_response_200_2_people_12345_company.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse2002People12345Company**](InlineResponse2002People12345Company.md) |  | [optional] 
 **DateCreated** | Pointer to **string** |  | [optional] 
 **DateUpdated** | Pointer to **string** |  | [optional] 
 **Deleted** | Pointer to **bool** |  | [optional] 
@@ -19,14 +19,14 @@ Name | Type | Description | Notes
 **EndDate** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Owner** | Pointer to [**InlineResponse20045CardOwner**](inline_response_200_45_card_owner.md) |  | [optional] 
+**Owner** | Pointer to [**InlineResponse20045CardOwner**](InlineResponse20045CardOwner.md) |  | [optional] 
 **Progress** | Pointer to **map[string]interface{}** |  | [optional] 
 **ProjectId** | Pointer to **string** |  | [optional] 
 **Starred** | Pointer to **bool** |  | [optional] 
 **StartDate** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **[]map[string]interface{}** |  | [optional] 
-**Update** | Pointer to [**InlineResponse20045CardUpdate**](inline_response_200_45_card_update.md) |  | [optional] 
+**Update** | Pointer to [**InlineResponse20045CardUpdate**](InlineResponse20045CardUpdate.md) |  | [optional] 
 
 ## Methods
 

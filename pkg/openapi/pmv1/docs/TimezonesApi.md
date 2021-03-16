@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiGETTimezonesJsonRequest st
 
 ### Return type
 
-[**InlineResponse200113**](inline_response_200_113.md)
+[**InlineResponse200113**](InlineResponse200113.md)
 
 ### Authorization
 

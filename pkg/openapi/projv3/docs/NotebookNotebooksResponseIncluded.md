@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NotebookCategories** | Pointer to [**map[string]ViewNotebookCategory**](view.NotebookCategory.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Tags** | Pointer to [**map[string]ViewTag**](view.Tag.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**NotebookCategories** | Pointer to [**map[string]ViewNotebookCategory**](ViewNotebookCategory.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Tags** | Pointer to [**map[string]ViewTag**](ViewTag.md) |  | [optional] 
+**Teams** | Pointer to [**map[string]ViewTeam**](ViewTeam.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 
@@ -27,6 +29,31 @@ will change when the set of required properties is changed
 NewNotebookNotebooksResponseIncludedWithDefaults instantiates a new NotebookNotebooksResponseIncluded object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCompanies
+
+`func (o *NotebookNotebooksResponseIncluded) GetCompanies() map[string]ViewCompany`
+
+GetCompanies returns the Companies field if non-nil, zero value otherwise.
+
+### GetCompaniesOk
+
+`func (o *NotebookNotebooksResponseIncluded) GetCompaniesOk() (*map[string]ViewCompany, bool)`
+
+GetCompaniesOk returns a tuple with the Companies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompanies
+
+`func (o *NotebookNotebooksResponseIncluded) SetCompanies(v map[string]ViewCompany)`
+
+SetCompanies sets Companies field to given value.
+
+### HasCompanies
+
+`func (o *NotebookNotebooksResponseIncluded) HasCompanies() bool`
+
+HasCompanies returns a boolean if a field has been set.
 
 ### GetNotebookCategories
 
@@ -102,6 +129,31 @@ SetTags sets Tags field to given value.
 `func (o *NotebookNotebooksResponseIncluded) HasTags() bool`
 
 HasTags returns a boolean if a field has been set.
+
+### GetTeams
+
+`func (o *NotebookNotebooksResponseIncluded) GetTeams() map[string]ViewTeam`
+
+GetTeams returns the Teams field if non-nil, zero value otherwise.
+
+### GetTeamsOk
+
+`func (o *NotebookNotebooksResponseIncluded) GetTeamsOk() (*map[string]ViewTeam, bool)`
+
+GetTeamsOk returns a tuple with the Teams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTeams
+
+`func (o *NotebookNotebooksResponseIncluded) SetTeams(v map[string]ViewTeam)`
+
+SetTeams sets Teams field to given value.
+
+### HasTeams
+
+`func (o *NotebookNotebooksResponseIncluded) HasTeams() bool`
+
+HasTeams returns a boolean if a field has been set.
 
 ### GetUsers
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

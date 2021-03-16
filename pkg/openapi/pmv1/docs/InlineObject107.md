@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Webhook** | Pointer to [**WebhooksJsonWebhook**](_webhooks_json_webhook.md) |  | [optional] 
+**Webhook** | Pointer to [**WebhooksJsonWebhook**](WebhooksJsonWebhook.md) |  | [optional] 
 
 ## Methods
 

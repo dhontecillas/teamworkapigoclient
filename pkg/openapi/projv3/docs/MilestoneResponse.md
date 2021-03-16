@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**MilestoneMilestonesResponseIncluded**](milestone_MilestonesResponse_included.md) |  | [optional] 
-**Milestone** | Pointer to [**ViewMilestone**](view.Milestone.md) |  | [optional] 
+**Included** | Pointer to [**MilestoneMilestonesResponseIncluded**](MilestoneMilestonesResponseIncluded.md) |  | [optional] 
+**Milestone** | Pointer to [**ViewMilestone**](ViewMilestone.md) |  | [optional] 
 
 ## Methods
 

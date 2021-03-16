@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
 **Cards** | Pointer to [**[]InlineResponse20046Cards**](InlineResponse20046Cards.md) |  | [optional] 
-**Column** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Column** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 
 ## Methods
 

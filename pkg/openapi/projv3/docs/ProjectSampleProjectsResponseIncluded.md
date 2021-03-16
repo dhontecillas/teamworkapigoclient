@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectCategories** | Pointer to [**map[string]ViewProjectCategory**](view.ProjectCategory.md) |  | [optional] 
+**ProjectCategories** | Pointer to [**map[string]ViewProjectCategory**](ViewProjectCategory.md) |  | [optional] 
 
 ## Methods
 

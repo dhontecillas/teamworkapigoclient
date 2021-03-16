@@ -27,7 +27,7 @@ type CommentsIdJsonComment struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCommentsIdJsonComment(body string, ) *CommentsIdJsonComment {
+func NewCommentsIdJsonComment(body string) *CommentsIdJsonComment {
 	this := CommentsIdJsonComment{}
 	this.Body = body
 	return &this
@@ -43,7 +43,7 @@ func NewCommentsIdJsonCommentWithDefaults() *CommentsIdJsonComment {
 
 // GetBody returns the Body field value
 func (o *CommentsIdJsonComment) GetBody() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

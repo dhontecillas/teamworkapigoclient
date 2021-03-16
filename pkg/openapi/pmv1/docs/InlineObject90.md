@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TodoList** | Pointer to [**TasklistsIdJsonTodoList**](_tasklists__id__json_todo_list.md) |  | [optional] 
+**TodoList** | Pointer to [**TasklistsIdJsonTodoList**](TasklistsIdJsonTodoList.md) |  | [optional] 
 
 ## Methods
 

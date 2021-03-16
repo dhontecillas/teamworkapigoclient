@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GETProjectsApiV3StatusesJson
 
-> StatusTimelineResponse GETProjectsApiV3StatusesJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowEveryone(showEveryone).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).FieldsStatuses(fieldsStatuses).Execute()
+> StatusTimelineResponse GETProjectsApiV3StatusesJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowEveryone(showEveryone).ShowDeleted(showDeleted).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).FieldsStatuses(fieldsStatuses).Execute()
 
 Get all statuses
 
@@ -38,6 +38,7 @@ func main() {
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 100)
     page := int32(56) // int32 | page number (optional) (default to 1)
     showEveryone := true // bool | show also users without status (optional)
+    showDeleted := true // bool | showDeleted statuses (optional) (default to false)
     includeSubteams := true // bool | also include statuses from subteams (optional)
     include := []string{"Inner_example"} // []string | include (optional)
     fieldsUsers := []string{"Inner_example"} // []string |  (optional)
@@ -45,7 +46,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.PeopleStatusApi.GETProjectsApiV3StatusesJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowEveryone(showEveryone).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).FieldsStatuses(fieldsStatuses).Execute()
+    resp, r, err := api_client.PeopleStatusApi.GETProjectsApiV3StatusesJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowEveryone(showEveryone).ShowDeleted(showDeleted).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).FieldsStatuses(fieldsStatuses).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PeopleStatusApi.GETProjectsApiV3StatusesJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -72,6 +73,7 @@ Name | Type | Description  | Notes
  **pageSize** | **int32** | number of items in a page | [default to 100]
  **page** | **int32** | page number | [default to 1]
  **showEveryone** | **bool** | show also users without status | 
+ **showDeleted** | **bool** | showDeleted statuses | [default to false]
  **includeSubteams** | **bool** | also include statuses from subteams | 
  **include** | **[]string** | include | 
  **fieldsUsers** | **[]string** |  | 
@@ -79,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusTimelineResponse**](status.TimelineResponse.md)
+[**StatusTimelineResponse**](StatusTimelineResponse.md)
 
 ### Authorization
 
@@ -97,7 +99,7 @@ No authorization required
 
 ## GETProjectsApiV3StatusesTimelineJson
 
-> StatusTimelineResponse GETProjectsApiV3StatusesTimelineJson(ctx).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
+> StatusTimelineResponse GETProjectsApiV3StatusesTimelineJson(ctx).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
 
 Get the people statuses timeline.
 
@@ -120,13 +122,14 @@ func main() {
     teamId := int32(56) // int32 | filter by team (optional)
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 50)
     page := int32(56) // int32 | page number (optional) (default to 1)
+    showDeleted := true // bool | showDeleted statuses (optional) (default to false)
     includeSubteams := true // bool | also include statuses from subteams (optional)
     include := []string{"Inner_example"} // []string | include (optional)
     fieldsUsers := []string{"Inner_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.PeopleStatusApi.GETProjectsApiV3StatusesTimelineJson(context.Background()).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
+    resp, r, err := api_client.PeopleStatusApi.GETProjectsApiV3StatusesTimelineJson(context.Background()).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PeopleStatusApi.GETProjectsApiV3StatusesTimelineJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -151,13 +154,14 @@ Name | Type | Description  | Notes
  **teamId** | **int32** | filter by team | 
  **pageSize** | **int32** | number of items in a page | [default to 50]
  **page** | **int32** | page number | [default to 1]
+ **showDeleted** | **bool** | showDeleted statuses | [default to false]
  **includeSubteams** | **bool** | also include statuses from subteams | 
  **include** | **[]string** | include | 
  **fieldsUsers** | **[]string** |  | 
 
 ### Return type
 
-[**StatusTimelineResponse**](status.TimelineResponse.md)
+[**StatusTimelineResponse**](StatusTimelineResponse.md)
 
 ### Authorization
 
@@ -175,7 +179,7 @@ No authorization required
 
 ## GETProjectsApiV3TeamsTeamIdStatusesTimelineJson
 
-> StatusTimelineResponse GETProjectsApiV3TeamsTeamIdStatusesTimelineJson(ctx).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
+> StatusTimelineResponse GETProjectsApiV3TeamsTeamIdStatusesTimelineJson(ctx).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
 
 Get statuses timeline for a specific team
 
@@ -198,13 +202,14 @@ func main() {
     teamId := int32(56) // int32 | filter by team (optional)
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 50)
     page := int32(56) // int32 | page number (optional) (default to 1)
+    showDeleted := true // bool | showDeleted statuses (optional) (default to false)
     includeSubteams := true // bool | also include statuses from subteams (optional)
     include := []string{"Inner_example"} // []string | include (optional)
     fieldsUsers := []string{"Inner_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.PeopleStatusApi.GETProjectsApiV3TeamsTeamIdStatusesTimelineJson(context.Background()).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
+    resp, r, err := api_client.PeopleStatusApi.GETProjectsApiV3TeamsTeamIdStatusesTimelineJson(context.Background()).SearchTerm(searchTerm).TeamId(teamId).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).IncludeSubteams(includeSubteams).Include(include).FieldsUsers(fieldsUsers).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PeopleStatusApi.GETProjectsApiV3TeamsTeamIdStatusesTimelineJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -229,13 +234,14 @@ Name | Type | Description  | Notes
  **teamId** | **int32** | filter by team | 
  **pageSize** | **int32** | number of items in a page | [default to 50]
  **page** | **int32** | page number | [default to 1]
+ **showDeleted** | **bool** | showDeleted statuses | [default to false]
  **includeSubteams** | **bool** | also include statuses from subteams | 
  **include** | **[]string** | include | 
  **fieldsUsers** | **[]string** |  | 
 
 ### Return type
 
-[**StatusTimelineResponse**](status.TimelineResponse.md)
+[**StatusTimelineResponse**](StatusTimelineResponse.md)
 
 ### Authorization
 

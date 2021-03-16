@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**TimeEntry** | Pointer to [**InlineResponse200112TimeEntry**](inline_response_200_112_time_entry.md) |  | [optional] 
+**TimeEntry** | Pointer to [**InlineResponse200112TimeEntry**](InlineResponse200112TimeEntry.md) |  | [optional] 
 
 ## Methods
 

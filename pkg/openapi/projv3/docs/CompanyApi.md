@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3CompaniesI
 
 ### Return type
 
-[**CompanyResponse**](company.Response.md)
+[**CompanyResponse**](CompanyResponse.md)
 
 ### Authorization
 

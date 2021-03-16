@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Everyone** | Pointer to [**SummaryTaskResponse**](summary.TaskResponse.md) |  | [optional] 
-**Mine** | Pointer to [**SummaryTaskResponse**](summary.TaskResponse.md) |  | [optional] 
-**User** | Pointer to [**SummaryTaskResponse**](summary.TaskResponse.md) |  | [optional] 
+**Everyone** | Pointer to [**SummaryTaskResponse**](SummaryTaskResponse.md) |  | [optional] 
+**Mine** | Pointer to [**SummaryTaskResponse**](SummaryTaskResponse.md) |  | [optional] 
+**User** | Pointer to [**SummaryTaskResponse**](SummaryTaskResponse.md) |  | [optional] 
 
 ## Methods
 

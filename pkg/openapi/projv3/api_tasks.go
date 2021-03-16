@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"time"
 )
 
 // Linger please
@@ -25,6 +26,989 @@ var (
 
 // TasksApiService TasksApi service
 type TasksApiService service
+
+type ApiGETProjectsApiV3TasksIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *TasksApiService
+}
+
+
+func (r ApiGETProjectsApiV3TasksIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TasksIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3TasksIdJson Get a specific task.
+ * Returns the information about a specific task.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiGETProjectsApiV3TasksIdJsonRequest
+ */
+func (a *TasksApiService) GETProjectsApiV3TasksIdJson(ctx _context.Context) ApiGETProjectsApiV3TasksIdJsonRequest {
+	return ApiGETProjectsApiV3TasksIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TaskResponse
+ */
+func (a *TasksApiService) GETProjectsApiV3TasksIdJsonExecute(r ApiGETProjectsApiV3TasksIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TaskResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.GETProjectsApiV3TasksIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tasks/:id.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3TasksJsonRequest struct {
+	ctx _context.Context
+	ApiService *TasksApiService
+	updatedAfter *string
+	today *time.Time
+	taskIncludedSet *string
+	taskFilter *string
+	status *string
+	startDate *string
+	searchTerm *string
+	projectStatuses *string
+	priority *string
+	orderMode *string
+	orderBy *string
+	endDate *string
+	deletedAfter *time.Time
+	createdFilter *string
+	createdDateCode *string
+	createdBefore *string
+	createdAfter *time.Time
+	completedBefore *time.Time
+	completedAfter *time.Time
+	projectHealths *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	includeTaskId *int32
+	completedByUserId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	searchCompaniesTeams *bool
+	searchAssignees *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyStarredProjects *bool
+	onlyAdminProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllExcludedTags *bool
+	includeUpdate *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
+	includeTasksFromDeletedLists *bool
+	includeReminders *bool
+	includeRelatedTasks *bool
+	includePrivateItems *bool
+	includeOverdueTasks *bool
+	includeOriginalDueDate *bool
+	includeLoggedTime *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCRMDealIds *bool
+	includeBlocked *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeAllComments *bool
+	groupByTasklist *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	onlyTasksWithEstimatedTime *bool
+	tasklistIds *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCRMDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	include *[]string
+	ids *[]int32
+	followedByUserIds *[]int32
+	filterBoardColumnIds *[]int32
+	fieldsUsers *[]string
+	fieldsTeams *[]string
+	fieldsTasks *[]string
+	fieldsTasklists *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsMilestones *[]string
+	fieldsCompanies *[]string
+	fieldsComments *[]string
+	fieldsColumns *[]string
+	fieldsCards *[]string
+	excludeTagIds *[]int32
+	customFields *[]string
+	crmDealIds *[]int32
+	createdByUserIds *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
+}
+
+func (r ApiGETProjectsApiV3TasksJsonRequest) UpdatedAfter(updatedAfter string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.updatedAfter = &updatedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Today(today time.Time) ApiGETProjectsApiV3TasksJsonRequest {
+	r.today = &today
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) TaskIncludedSet(taskIncludedSet string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.taskIncludedSet = &taskIncludedSet
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) TaskFilter(taskFilter string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.taskFilter = &taskFilter
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Status(status string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.status = &status
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.startDate = &startDate
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Priority(priority string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.priority = &priority
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.orderMode = &orderMode
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.endDate = &endDate
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) DeletedAfter(deletedAfter time.Time) ApiGETProjectsApiV3TasksJsonRequest {
+	r.deletedAfter = &deletedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.createdFilter = &createdFilter
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.createdDateCode = &createdDateCode
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CreatedBefore(createdBefore string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.createdBefore = &createdBefore
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CreatedAfter(createdAfter time.Time) ApiGETProjectsApiV3TasksJsonRequest {
+	r.createdAfter = &createdAfter
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CompletedBefore(completedBefore time.Time) ApiGETProjectsApiV3TasksJsonRequest {
+	r.completedBefore = &completedBefore
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CompletedAfter(completedAfter time.Time) ApiGETProjectsApiV3TasksJsonRequest {
+	r.completedAfter = &completedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.parentTaskId = &parentTaskId
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Page(page int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeTaskId = &includeTaskId
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CompletedByUserId(completedByUserId int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.completedByUserId = &completedByUserId
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.useAllProjects = &useAllProjects
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.showCompletedLists = &showCompletedLists
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) SearchCompaniesTeams(searchCompaniesTeams bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.searchCompaniesTeams = &searchCompaniesTeams
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.onlyUntaggedTasks = &onlyUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.onlyTasksWithTickets = &onlyTasksWithTickets
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.nestSubTasks = &nestSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.matchAllExcludedTags = &matchAllExcludedTags
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeUpdate = &includeUpdate
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeUntaggedTasks = &includeUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeToday = &includeToday
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeTasksWithCards = &includeTasksWithCards
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeReminders = &includeReminders
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeRelatedTasks(includeRelatedTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeRelatedTasks = &includeRelatedTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includePrivateItems = &includePrivateItems
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeOverdueTasks(includeOverdueTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeOverdueTasks = &includeOverdueTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeOriginalDueDate(includeOriginalDueDate bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeOriginalDueDate = &includeOriginalDueDate
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeLoggedTime = &includeLoggedTime
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeCompletedTasks = &includeCompletedTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeCompletedSubtasks = &includeCompletedSubtasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeCRMDealIds(includeCRMDealIds bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeCRMDealIds = &includeCRMDealIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeBlocked(includeBlocked bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeBlocked = &includeBlocked
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeAssigneeTeams = &includeAssigneeTeams
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeAssigneeCompanies = &includeAssigneeCompanies
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.includeAllComments = &includeAllComments
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) GroupByTasklist(groupByTasklist bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.groupByTasklist = &groupByTasklist
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.getSubTasks = &getSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) GetFiles(getFiles bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.getFiles = &getFiles
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV3TasksJsonRequest {
+	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) TasklistIds(tasklistIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.tasklistIds = &tasklistIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Tags(tags []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.tags = &tags
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) SkipCRMDealIds(skipCRMDealIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.skipCRMDealIds = &skipCRMDealIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.responsiblePartyIds = &responsiblePartyIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Include(include []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.ids = &ids
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FollowedByUserIds(followedByUserIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.followedByUserIds = &followedByUserIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.filterBoardColumnIds = &filterBoardColumnIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsTeams = &fieldsTeams
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsTasks = &fieldsTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsTasklists = &fieldsTasklists
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsMilestones = &fieldsMilestones
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsComments(fieldsComments []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsComments = &fieldsComments
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsColumns(fieldsColumns []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsColumns = &fieldsColumns
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) FieldsCards(fieldsCards []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.fieldsCards = &fieldsCards
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.excludeTagIds = &excludeTagIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CustomFields(customFields []string) ApiGETProjectsApiV3TasksJsonRequest {
+	r.customFields = &customFields
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.crmDealIds = &crmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) CreatedByUserIds(createdByUserIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.createdByUserIds = &createdByUserIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.assigneeTeamIds = &assigneeTeamIds
+	return r
+}
+func (r ApiGETProjectsApiV3TasksJsonRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV3TasksJsonRequest {
+	r.assigneeCompanyIds = &assigneeCompanyIds
+	return r
+}
+
+func (r ApiGETProjectsApiV3TasksJsonRequest) Execute() (TaskTasksResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TasksJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3TasksJson Get all tasks.
+ * Return multiple tasks according to the provided filter.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiGETProjectsApiV3TasksJsonRequest
+ */
+func (a *TasksApiService) GETProjectsApiV3TasksJson(ctx _context.Context) ApiGETProjectsApiV3TasksJsonRequest {
+	return ApiGETProjectsApiV3TasksJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TaskTasksResponse
+ */
+func (a *TasksApiService) GETProjectsApiV3TasksJsonExecute(r ApiGETProjectsApiV3TasksJsonRequest) (TaskTasksResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TaskTasksResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.GETProjectsApiV3TasksJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tasks.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfter != nil {
+		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
+	}
+	if r.today != nil {
+		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
+	}
+	if r.taskIncludedSet != nil {
+		localVarQueryParams.Add("taskIncludedSet", parameterToString(*r.taskIncludedSet, ""))
+	}
+	if r.taskFilter != nil {
+		localVarQueryParams.Add("taskFilter", parameterToString(*r.taskFilter, ""))
+	}
+	if r.status != nil {
+		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	}
+	if r.startDate != nil {
+		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
+	if r.priority != nil {
+		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
+	}
+	if r.orderMode != nil {
+		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.endDate != nil {
+		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
+	}
+	if r.deletedAfter != nil {
+		localVarQueryParams.Add("deletedAfter", parameterToString(*r.deletedAfter, ""))
+	}
+	if r.createdFilter != nil {
+		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
+	}
+	if r.createdDateCode != nil {
+		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
+	}
+	if r.createdBefore != nil {
+		localVarQueryParams.Add("createdBefore", parameterToString(*r.createdBefore, ""))
+	}
+	if r.createdAfter != nil {
+		localVarQueryParams.Add("createdAfter", parameterToString(*r.createdAfter, ""))
+	}
+	if r.completedBefore != nil {
+		localVarQueryParams.Add("completedBefore", parameterToString(*r.completedBefore, ""))
+	}
+	if r.completedAfter != nil {
+		localVarQueryParams.Add("completedAfter", parameterToString(*r.completedAfter, ""))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
+	}
+	if r.parentTaskId != nil {
+		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.includeTaskId != nil {
+		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
+	}
+	if r.completedByUserId != nil {
+		localVarQueryParams.Add("completedByUserId", parameterToString(*r.completedByUserId, ""))
+	}
+	if r.useStartDatesForTodaysTasks != nil {
+		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
+	}
+	if r.useAllProjects != nil {
+		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.showCompletedLists != nil {
+		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
+	}
+	if r.searchCompaniesTeams != nil {
+		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
+	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
+	if r.onlyUntaggedTasks != nil {
+		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
+	}
+	if r.onlyTasksWithUnreadComments != nil {
+		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
+	}
+	if r.onlyTasksWithTickets != nil {
+		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
+	if r.nestSubTasks != nil {
+		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.matchAllExcludedTags != nil {
+		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
+	}
+	if r.includeUntaggedTasks != nil {
+		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
+	}
+	if r.includeToday != nil {
+		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
+	}
+	if r.includeTasksWithoutDueDates != nil {
+		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
+	}
+	if r.includeTasksWithCards != nil {
+		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
+	}
+	if r.includeTasksFromDeletedLists != nil {
+		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
+	}
+	if r.includeReminders != nil {
+		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
+	}
+	if r.includeRelatedTasks != nil {
+		localVarQueryParams.Add("includeRelatedTasks", parameterToString(*r.includeRelatedTasks, ""))
+	}
+	if r.includePrivateItems != nil {
+		localVarQueryParams.Add("includePrivateItems", parameterToString(*r.includePrivateItems, ""))
+	}
+	if r.includeOverdueTasks != nil {
+		localVarQueryParams.Add("includeOverdueTasks", parameterToString(*r.includeOverdueTasks, ""))
+	}
+	if r.includeOriginalDueDate != nil {
+		localVarQueryParams.Add("includeOriginalDueDate", parameterToString(*r.includeOriginalDueDate, ""))
+	}
+	if r.includeLoggedTime != nil {
+		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
+	}
+	if r.includeCompletedTasks != nil {
+		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
+	}
+	if r.includeCompletedSubtasks != nil {
+		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
+	}
+	if r.includeCRMDealIds != nil {
+		localVarQueryParams.Add("includeCRMDealIds", parameterToString(*r.includeCRMDealIds, ""))
+	}
+	if r.includeBlocked != nil {
+		localVarQueryParams.Add("includeBlocked", parameterToString(*r.includeBlocked, ""))
+	}
+	if r.includeAssigneeTeams != nil {
+		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
+	}
+	if r.includeAssigneeCompanies != nil {
+		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
+	}
+	if r.includeAllComments != nil {
+		localVarQueryParams.Add("includeAllComments", parameterToString(*r.includeAllComments, ""))
+	}
+	if r.groupByTasklist != nil {
+		localVarQueryParams.Add("groupByTasklist", parameterToString(*r.groupByTasklist, ""))
+	}
+	if r.getSubTasks != nil {
+		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
+	}
+	if r.getFiles != nil {
+		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
+	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
+	if r.onlyTasksWithEstimatedTime != nil {
+		localVarQueryParams.Add("OnlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
+	}
+	if r.tasklistIds != nil {
+		localVarQueryParams.Add("tasklistIds", parameterToString(*r.tasklistIds, "csv"))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.skipCRMDealIds != nil {
+		localVarQueryParams.Add("skipCRMDealIds", parameterToString(*r.skipCRMDealIds, "csv"))
+	}
+	if r.responsiblePartyIds != nil {
+		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.ids != nil {
+		localVarQueryParams.Add("ids", parameterToString(*r.ids, "csv"))
+	}
+	if r.followedByUserIds != nil {
+		localVarQueryParams.Add("followedByUserIds", parameterToString(*r.followedByUserIds, "csv"))
+	}
+	if r.filterBoardColumnIds != nil {
+		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTeams != nil {
+		localVarQueryParams.Add("fields[teams]", parameterToString(*r.fieldsTeams, "csv"))
+	}
+	if r.fieldsTasks != nil {
+		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
+	}
+	if r.fieldsTasklists != nil {
+		localVarQueryParams.Add("fields[tasklists]", parameterToString(*r.fieldsTasklists, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsMilestones != nil {
+		localVarQueryParams.Add("fields[milestones]", parameterToString(*r.fieldsMilestones, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
+	}
+	if r.fieldsComments != nil {
+		localVarQueryParams.Add("fields[comments]", parameterToString(*r.fieldsComments, "csv"))
+	}
+	if r.fieldsColumns != nil {
+		localVarQueryParams.Add("fields[columns]", parameterToString(*r.fieldsColumns, "csv"))
+	}
+	if r.fieldsCards != nil {
+		localVarQueryParams.Add("fields[cards]", parameterToString(*r.fieldsCards, "csv"))
+	}
+	if r.excludeTagIds != nil {
+		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
+	}
+	if r.customFields != nil {
+		localVarQueryParams.Add("customFields", parameterToString(*r.customFields, "csv"))
+	}
+	if r.crmDealIds != nil {
+		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
+	}
+	if r.createdByUserIds != nil {
+		localVarQueryParams.Add("createdByUserIds", parameterToString(*r.createdByUserIds, "csv"))
+	}
+	if r.assigneeTeamIds != nil {
+		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
+	}
+	if r.assigneeCompanyIds != nil {
+		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiGETProjectsApiV3TasksMetricsCompleteJsonRequest struct {
 	ctx _context.Context
@@ -227,6 +1211,137 @@ func (a *TasksApiService) GETProjectsApiV3TasksMetricsLateJsonExecute(r ApiGETPr
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest struct {
+	ctx _context.Context
+	ApiService *TasksApiService
+	taskRequest *TaskRequest
+}
+
+func (r ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest {
+	r.taskRequest = &taskRequest
+	return r
+}
+
+func (r ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3TasklistsTasklistIdTasksJsonExecute(r)
+}
+
+/*
+ * POSTProjectsApiV3TasklistsTasklistIdTasksJson Creates a task.
+ * Create a new task in the provided task list.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest
+ */
+func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJson(ctx _context.Context) ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest {
+	return ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TaskResponse
+ */
+func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJsonExecute(r ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TaskResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.POSTProjectsApiV3TasklistsTasklistIdTasksJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tasklists/:tasklistId/tasks.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+	if r.taskRequest == nil {
+		return localVarReturnValue, nil, reportError("taskRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.taskRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ViewErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Capacity** | Pointer to **float32** | percentage | [optional] 
-**EstimateMinutesTotal** | Pointer to **int32** |  | [optional] 
+**EstimateMinutesTotal** | Pointer to **float32** |  | [optional] 
 **LengthOfDayMinutes** | Pointer to **float32** |  | [optional] 
 **Tasks** | Pointer to [**[]PlannerWorkloadPlannerCapacityTask**](PlannerWorkloadPlannerCapacityTask.md) |  | [optional] 
 
@@ -55,20 +55,20 @@ HasCapacity returns a boolean if a field has been set.
 
 ### GetEstimateMinutesTotal
 
-`func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotal() int32`
+`func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotal() float32`
 
 GetEstimateMinutesTotal returns the EstimateMinutesTotal field if non-nil, zero value otherwise.
 
 ### GetEstimateMinutesTotalOk
 
-`func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotalOk() (*int32, bool)`
+`func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotalOk() (*float32, bool)`
 
 GetEstimateMinutesTotalOk returns a tuple with the EstimateMinutesTotal field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEstimateMinutesTotal
 
-`func (o *PlannerWorkloadPlannerCapacity) SetEstimateMinutesTotal(v int32)`
+`func (o *PlannerWorkloadPlannerCapacity) SetEstimateMinutesTotal(v float32)`
 
 SetEstimateMinutesTotal sets EstimateMinutesTotal field to given value.
 

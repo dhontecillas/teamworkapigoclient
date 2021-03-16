@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Risk** | Pointer to [**InlineResponse20087Risk**](inline_response_200_87_risk.md) |  | [optional] 
+**Risk** | Pointer to [**InlineResponse20087Risk**](InlineResponse20087Risk.md) |  | [optional] 
 
 ## Methods
 

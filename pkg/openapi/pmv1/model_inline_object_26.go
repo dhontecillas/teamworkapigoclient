@@ -23,7 +23,7 @@ type InlineObject26 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject26(category MessageCategoriesIdJsonCategory, ) *InlineObject26 {
+func NewInlineObject26(category MessageCategoriesIdJsonCategory) *InlineObject26 {
 	this := InlineObject26{}
 	this.Category = category
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject26WithDefaults() *InlineObject26 {
 
 // GetCategory returns the Category field value
 func (o *InlineObject26) GetCategory() MessageCategoriesIdJsonCategory {
-	if o == nil  {
+	if o == nil {
 		var ret MessageCategoriesIdJsonCategory
 		return ret
 	}

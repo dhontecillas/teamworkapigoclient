@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Column** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Column** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ColumnId** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

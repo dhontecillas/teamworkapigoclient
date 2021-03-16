@@ -35,7 +35,7 @@ type CompaniesJsonCompany struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCompaniesJsonCompany(name string, ) *CompaniesJsonCompany {
+func NewCompaniesJsonCompany(name string) *CompaniesJsonCompany {
 	this := CompaniesJsonCompany{}
 	this.Name = name
 	return &this
@@ -307,7 +307,7 @@ func (o *CompaniesJsonCompany) SetFax(v string) {
 
 // GetName returns the Name field value
 func (o *CompaniesJsonCompany) GetName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

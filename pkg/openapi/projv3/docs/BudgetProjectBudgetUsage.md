@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BudgetSummary** | Pointer to [**BudgetProjectBudgetSummary**](budget.ProjectBudgetSummary.md) |  | [optional] 
+**BudgetSummary** | Pointer to [**BudgetProjectBudgetSummary**](BudgetProjectBudgetSummary.md) |  | [optional] 
 **UsageTimeline** | Pointer to [**[]BudgetCapacityUsedAtDate**](BudgetCapacityUsedAtDate.md) |  | [optional] 
 
 ## Methods

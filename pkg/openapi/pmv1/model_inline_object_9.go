@@ -23,7 +23,7 @@ type InlineObject9 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject9(comment CommentsIdJsonComment, ) *InlineObject9 {
+func NewInlineObject9(comment CommentsIdJsonComment) *InlineObject9 {
 	this := InlineObject9{}
 	this.Comment = comment
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject9WithDefaults() *InlineObject9 {
 
 // GetComment returns the Comment field value
 func (o *InlineObject9) GetComment() CommentsIdJsonComment {
-	if o == nil  {
+	if o == nil {
 		var ret CommentsIdJsonComment
 		return ret
 	}

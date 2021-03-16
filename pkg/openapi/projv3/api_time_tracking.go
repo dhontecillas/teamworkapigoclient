@@ -155,6 +155,7 @@ type ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest struct {
 	startDate *string
 	selectedColumns *string
 	reportFormat *string
+	projectStatuses *string
 	projectStatus *string
 	orderMode *string
 	orderBy *string
@@ -207,6 +208,10 @@ func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) SelectedColum
 }
 func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
 	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+	r.projectStatuses = &projectStatuses
 	return r
 }
 func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
@@ -408,6 +413,9 @@ func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsAllocationIdTimeJson
 	}
 	if r.reportFormat != nil {
 		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
 	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
@@ -818,6 +826,7 @@ type ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest struct {
 	startDate *string
 	selectedColumns *string
 	reportFormat *string
+	projectStatuses *string
 	projectStatus *string
 	orderMode *string
 	orderBy *string
@@ -870,6 +879,10 @@ func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) SelectedColumns(sel
 }
 func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
 	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+	r.projectStatuses = &projectStatuses
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
@@ -1072,6 +1085,9 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJsonExecut
 	if r.reportFormat != nil {
 		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
 	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}
@@ -1246,6 +1262,7 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJsonExecut
 type ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	projectStatuses *string
 	projectStatus *string
 	userId *int32
 	tasklistId *int32
@@ -1264,6 +1281,10 @@ type ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest struct {
 	companyIds *[]int32
 }
 
+func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
@@ -1370,6 +1391,9 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeTotalJsonE
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}
@@ -1488,6 +1512,7 @@ type ApiGETProjectsApiV3TimeJsonRequest struct {
 	startDate *string
 	selectedColumns *string
 	reportFormat *string
+	projectStatuses *string
 	projectStatus *string
 	orderMode *string
 	orderBy *string
@@ -1540,6 +1565,10 @@ func (r ApiGETProjectsApiV3TimeJsonRequest) SelectedColumns(selectedColumns stri
 }
 func (r ApiGETProjectsApiV3TimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3TimeJsonRequest {
 	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV3TimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3TimeJsonRequest {
+	r.projectStatuses = &projectStatuses
 	return r
 }
 func (r ApiGETProjectsApiV3TimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3TimeJsonRequest {
@@ -1742,6 +1771,9 @@ func (a *TimeTrackingApiService) GETProjectsApiV3TimeJsonExecute(r ApiGETProject
 	if r.reportFormat != nil {
 		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
 	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}
@@ -1916,6 +1948,7 @@ func (a *TimeTrackingApiService) GETProjectsApiV3TimeJsonExecute(r ApiGETProject
 type ApiGETProjectsApiV3TimeTotalJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	projectStatuses *string
 	projectStatus *string
 	userId *int32
 	tasklistId *int32
@@ -1934,6 +1967,10 @@ type ApiGETProjectsApiV3TimeTotalJsonRequest struct {
 	companyIds *[]int32
 }
 
+func (r ApiGETProjectsApiV3TimeTotalJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3TimeTotalJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
 func (r ApiGETProjectsApiV3TimeTotalJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3TimeTotalJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
@@ -2040,6 +2077,9 @@ func (a *TimeTrackingApiService) GETProjectsApiV3TimeTotalJsonExecute(r ApiGETPr
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}

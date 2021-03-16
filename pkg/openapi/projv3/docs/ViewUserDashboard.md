@@ -16,11 +16,11 @@ Name | Type | Description | Notes
 **DisplayOrder** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **IsDefault** | Pointer to **bool** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

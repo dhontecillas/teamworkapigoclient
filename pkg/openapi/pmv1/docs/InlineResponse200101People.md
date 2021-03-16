@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Var1** | Pointer to [**InlineResponse200101People1**](inline_response_200_101_people_1.md) |  | [optional] 
+**Var1** | Pointer to [**InlineResponse200101People1**](InlineResponse200101People1.md) |  | [optional] 
 
 ## Methods
 

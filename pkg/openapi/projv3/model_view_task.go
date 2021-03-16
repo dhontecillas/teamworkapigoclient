@@ -17,26 +17,42 @@ import (
 // ViewTask Task defines how entity.Task should be rendered.
 type ViewTask struct {
 	AssigneeCompanies *[]ViewRelationship `json:"assigneeCompanies,omitempty"`
-	AssigneeCompanyIDs *[]int32 `json:"assigneeCompanyIDs,omitempty"`
-	AssigneeTeamIDs *[]int32 `json:"assigneeTeamIDs,omitempty"`
+	AssigneeCompanyIds *[]int32 `json:"assigneeCompanyIds,omitempty"`
+	AssigneeTeamIds *[]int32 `json:"assigneeTeamIds,omitempty"`
 	AssigneeTeams *[]ViewRelationship `json:"assigneeTeams,omitempty"`
-	AssigneeUserIDs *[]int32 `json:"assigneeUserIDs,omitempty"`
+	AssigneeUserIds *[]int32 `json:"assigneeUserIds,omitempty"`
 	AssigneeUsers *[]ViewRelationship `json:"assigneeUsers,omitempty"`
+	CompletedBy *int32 `json:"completedBy,omitempty"`
+	CompletedOn *string `json:"completedOn,omitempty"`
 	CreatedBy *int32 `json:"createdBy,omitempty"`
-	CreatedByUserID *int32 `json:"createdByUserID,omitempty"`
+	CreatedByUserId *int32 `json:"createdByUserId,omitempty"`
+	CrmDealIds *[]int32 `json:"crmDealIds,omitempty"`
 	DateUpdated *string `json:"dateUpdated,omitempty"`
+	DependencyIds *[]int32 `json:"dependencyIds,omitempty"`
+	Description *string `json:"description,omitempty"`
+	DisplayOrder *int32 `json:"displayOrder,omitempty"`
 	DueDate *string `json:"dueDate,omitempty"`
 	EstimateMinutes *int32 `json:"estimateMinutes,omitempty"`
+	HasDeskTickets *bool `json:"hasDeskTickets,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	IsPrivate *int32 `json:"isPrivate,omitempty"`
+	LatestUpdates *[]ViewAudit `json:"latestUpdates,omitempty"`
 	Name *string `json:"name,omitempty"`
+	// Date represents a Unified API Spec date format.
+	OriginalDueDate *map[string]interface{} `json:"originalDueDate,omitempty"`
 	ParentTask *ViewRelationship `json:"parentTask,omitempty"`
 	ParentTaskId *int32 `json:"parentTaskId,omitempty"`
+	PredecessorIds *[]int32 `json:"predecessorIds,omitempty"`
+	Priority *string `json:"priority,omitempty"`
+	Progress *int32 `json:"progress,omitempty"`
 	StartDate *string `json:"startDate,omitempty"`
 	Status *string `json:"status,omitempty"`
+	SubTaskIds *[]int32 `json:"subTaskIds,omitempty"`
+	TagIds *[]int32 `json:"tagIds,omitempty"`
 	Tasklist *ViewRelationship `json:"tasklist,omitempty"`
 	TasklistId *int32 `json:"tasklistId,omitempty"`
 	UpdatedAt *string `json:"updatedAt,omitempty"`
+	UpdatedBy *int32 `json:"updatedBy,omitempty"`
 	UserPermissions *ViewTaskPermissions `json:"userPermissions,omitempty"`
 }
 
@@ -89,68 +105,68 @@ func (o *ViewTask) SetAssigneeCompanies(v []ViewRelationship) {
 	o.AssigneeCompanies = &v
 }
 
-// GetAssigneeCompanyIDs returns the AssigneeCompanyIDs field value if set, zero value otherwise.
-func (o *ViewTask) GetAssigneeCompanyIDs() []int32 {
-	if o == nil || o.AssigneeCompanyIDs == nil {
+// GetAssigneeCompanyIds returns the AssigneeCompanyIds field value if set, zero value otherwise.
+func (o *ViewTask) GetAssigneeCompanyIds() []int32 {
+	if o == nil || o.AssigneeCompanyIds == nil {
 		var ret []int32
 		return ret
 	}
-	return *o.AssigneeCompanyIDs
+	return *o.AssigneeCompanyIds
 }
 
-// GetAssigneeCompanyIDsOk returns a tuple with the AssigneeCompanyIDs field value if set, nil otherwise
+// GetAssigneeCompanyIdsOk returns a tuple with the AssigneeCompanyIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewTask) GetAssigneeCompanyIDsOk() (*[]int32, bool) {
-	if o == nil || o.AssigneeCompanyIDs == nil {
+func (o *ViewTask) GetAssigneeCompanyIdsOk() (*[]int32, bool) {
+	if o == nil || o.AssigneeCompanyIds == nil {
 		return nil, false
 	}
-	return o.AssigneeCompanyIDs, true
+	return o.AssigneeCompanyIds, true
 }
 
-// HasAssigneeCompanyIDs returns a boolean if a field has been set.
-func (o *ViewTask) HasAssigneeCompanyIDs() bool {
-	if o != nil && o.AssigneeCompanyIDs != nil {
+// HasAssigneeCompanyIds returns a boolean if a field has been set.
+func (o *ViewTask) HasAssigneeCompanyIds() bool {
+	if o != nil && o.AssigneeCompanyIds != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAssigneeCompanyIDs gets a reference to the given []int32 and assigns it to the AssigneeCompanyIDs field.
-func (o *ViewTask) SetAssigneeCompanyIDs(v []int32) {
-	o.AssigneeCompanyIDs = &v
+// SetAssigneeCompanyIds gets a reference to the given []int32 and assigns it to the AssigneeCompanyIds field.
+func (o *ViewTask) SetAssigneeCompanyIds(v []int32) {
+	o.AssigneeCompanyIds = &v
 }
 
-// GetAssigneeTeamIDs returns the AssigneeTeamIDs field value if set, zero value otherwise.
-func (o *ViewTask) GetAssigneeTeamIDs() []int32 {
-	if o == nil || o.AssigneeTeamIDs == nil {
+// GetAssigneeTeamIds returns the AssigneeTeamIds field value if set, zero value otherwise.
+func (o *ViewTask) GetAssigneeTeamIds() []int32 {
+	if o == nil || o.AssigneeTeamIds == nil {
 		var ret []int32
 		return ret
 	}
-	return *o.AssigneeTeamIDs
+	return *o.AssigneeTeamIds
 }
 
-// GetAssigneeTeamIDsOk returns a tuple with the AssigneeTeamIDs field value if set, nil otherwise
+// GetAssigneeTeamIdsOk returns a tuple with the AssigneeTeamIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewTask) GetAssigneeTeamIDsOk() (*[]int32, bool) {
-	if o == nil || o.AssigneeTeamIDs == nil {
+func (o *ViewTask) GetAssigneeTeamIdsOk() (*[]int32, bool) {
+	if o == nil || o.AssigneeTeamIds == nil {
 		return nil, false
 	}
-	return o.AssigneeTeamIDs, true
+	return o.AssigneeTeamIds, true
 }
 
-// HasAssigneeTeamIDs returns a boolean if a field has been set.
-func (o *ViewTask) HasAssigneeTeamIDs() bool {
-	if o != nil && o.AssigneeTeamIDs != nil {
+// HasAssigneeTeamIds returns a boolean if a field has been set.
+func (o *ViewTask) HasAssigneeTeamIds() bool {
+	if o != nil && o.AssigneeTeamIds != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAssigneeTeamIDs gets a reference to the given []int32 and assigns it to the AssigneeTeamIDs field.
-func (o *ViewTask) SetAssigneeTeamIDs(v []int32) {
-	o.AssigneeTeamIDs = &v
+// SetAssigneeTeamIds gets a reference to the given []int32 and assigns it to the AssigneeTeamIds field.
+func (o *ViewTask) SetAssigneeTeamIds(v []int32) {
+	o.AssigneeTeamIds = &v
 }
 
 // GetAssigneeTeams returns the AssigneeTeams field value if set, zero value otherwise.
@@ -185,36 +201,36 @@ func (o *ViewTask) SetAssigneeTeams(v []ViewRelationship) {
 	o.AssigneeTeams = &v
 }
 
-// GetAssigneeUserIDs returns the AssigneeUserIDs field value if set, zero value otherwise.
-func (o *ViewTask) GetAssigneeUserIDs() []int32 {
-	if o == nil || o.AssigneeUserIDs == nil {
+// GetAssigneeUserIds returns the AssigneeUserIds field value if set, zero value otherwise.
+func (o *ViewTask) GetAssigneeUserIds() []int32 {
+	if o == nil || o.AssigneeUserIds == nil {
 		var ret []int32
 		return ret
 	}
-	return *o.AssigneeUserIDs
+	return *o.AssigneeUserIds
 }
 
-// GetAssigneeUserIDsOk returns a tuple with the AssigneeUserIDs field value if set, nil otherwise
+// GetAssigneeUserIdsOk returns a tuple with the AssigneeUserIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewTask) GetAssigneeUserIDsOk() (*[]int32, bool) {
-	if o == nil || o.AssigneeUserIDs == nil {
+func (o *ViewTask) GetAssigneeUserIdsOk() (*[]int32, bool) {
+	if o == nil || o.AssigneeUserIds == nil {
 		return nil, false
 	}
-	return o.AssigneeUserIDs, true
+	return o.AssigneeUserIds, true
 }
 
-// HasAssigneeUserIDs returns a boolean if a field has been set.
-func (o *ViewTask) HasAssigneeUserIDs() bool {
-	if o != nil && o.AssigneeUserIDs != nil {
+// HasAssigneeUserIds returns a boolean if a field has been set.
+func (o *ViewTask) HasAssigneeUserIds() bool {
+	if o != nil && o.AssigneeUserIds != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAssigneeUserIDs gets a reference to the given []int32 and assigns it to the AssigneeUserIDs field.
-func (o *ViewTask) SetAssigneeUserIDs(v []int32) {
-	o.AssigneeUserIDs = &v
+// SetAssigneeUserIds gets a reference to the given []int32 and assigns it to the AssigneeUserIds field.
+func (o *ViewTask) SetAssigneeUserIds(v []int32) {
+	o.AssigneeUserIds = &v
 }
 
 // GetAssigneeUsers returns the AssigneeUsers field value if set, zero value otherwise.
@@ -249,6 +265,70 @@ func (o *ViewTask) SetAssigneeUsers(v []ViewRelationship) {
 	o.AssigneeUsers = &v
 }
 
+// GetCompletedBy returns the CompletedBy field value if set, zero value otherwise.
+func (o *ViewTask) GetCompletedBy() int32 {
+	if o == nil || o.CompletedBy == nil {
+		var ret int32
+		return ret
+	}
+	return *o.CompletedBy
+}
+
+// GetCompletedByOk returns a tuple with the CompletedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetCompletedByOk() (*int32, bool) {
+	if o == nil || o.CompletedBy == nil {
+		return nil, false
+	}
+	return o.CompletedBy, true
+}
+
+// HasCompletedBy returns a boolean if a field has been set.
+func (o *ViewTask) HasCompletedBy() bool {
+	if o != nil && o.CompletedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedBy gets a reference to the given int32 and assigns it to the CompletedBy field.
+func (o *ViewTask) SetCompletedBy(v int32) {
+	o.CompletedBy = &v
+}
+
+// GetCompletedOn returns the CompletedOn field value if set, zero value otherwise.
+func (o *ViewTask) GetCompletedOn() string {
+	if o == nil || o.CompletedOn == nil {
+		var ret string
+		return ret
+	}
+	return *o.CompletedOn
+}
+
+// GetCompletedOnOk returns a tuple with the CompletedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetCompletedOnOk() (*string, bool) {
+	if o == nil || o.CompletedOn == nil {
+		return nil, false
+	}
+	return o.CompletedOn, true
+}
+
+// HasCompletedOn returns a boolean if a field has been set.
+func (o *ViewTask) HasCompletedOn() bool {
+	if o != nil && o.CompletedOn != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedOn gets a reference to the given string and assigns it to the CompletedOn field.
+func (o *ViewTask) SetCompletedOn(v string) {
+	o.CompletedOn = &v
+}
+
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
 func (o *ViewTask) GetCreatedBy() int32 {
 	if o == nil || o.CreatedBy == nil {
@@ -281,36 +361,68 @@ func (o *ViewTask) SetCreatedBy(v int32) {
 	o.CreatedBy = &v
 }
 
-// GetCreatedByUserID returns the CreatedByUserID field value if set, zero value otherwise.
-func (o *ViewTask) GetCreatedByUserID() int32 {
-	if o == nil || o.CreatedByUserID == nil {
+// GetCreatedByUserId returns the CreatedByUserId field value if set, zero value otherwise.
+func (o *ViewTask) GetCreatedByUserId() int32 {
+	if o == nil || o.CreatedByUserId == nil {
 		var ret int32
 		return ret
 	}
-	return *o.CreatedByUserID
+	return *o.CreatedByUserId
 }
 
-// GetCreatedByUserIDOk returns a tuple with the CreatedByUserID field value if set, nil otherwise
+// GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewTask) GetCreatedByUserIDOk() (*int32, bool) {
-	if o == nil || o.CreatedByUserID == nil {
+func (o *ViewTask) GetCreatedByUserIdOk() (*int32, bool) {
+	if o == nil || o.CreatedByUserId == nil {
 		return nil, false
 	}
-	return o.CreatedByUserID, true
+	return o.CreatedByUserId, true
 }
 
-// HasCreatedByUserID returns a boolean if a field has been set.
-func (o *ViewTask) HasCreatedByUserID() bool {
-	if o != nil && o.CreatedByUserID != nil {
+// HasCreatedByUserId returns a boolean if a field has been set.
+func (o *ViewTask) HasCreatedByUserId() bool {
+	if o != nil && o.CreatedByUserId != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedByUserID gets a reference to the given int32 and assigns it to the CreatedByUserID field.
-func (o *ViewTask) SetCreatedByUserID(v int32) {
-	o.CreatedByUserID = &v
+// SetCreatedByUserId gets a reference to the given int32 and assigns it to the CreatedByUserId field.
+func (o *ViewTask) SetCreatedByUserId(v int32) {
+	o.CreatedByUserId = &v
+}
+
+// GetCrmDealIds returns the CrmDealIds field value if set, zero value otherwise.
+func (o *ViewTask) GetCrmDealIds() []int32 {
+	if o == nil || o.CrmDealIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.CrmDealIds
+}
+
+// GetCrmDealIdsOk returns a tuple with the CrmDealIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetCrmDealIdsOk() (*[]int32, bool) {
+	if o == nil || o.CrmDealIds == nil {
+		return nil, false
+	}
+	return o.CrmDealIds, true
+}
+
+// HasCrmDealIds returns a boolean if a field has been set.
+func (o *ViewTask) HasCrmDealIds() bool {
+	if o != nil && o.CrmDealIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCrmDealIds gets a reference to the given []int32 and assigns it to the CrmDealIds field.
+func (o *ViewTask) SetCrmDealIds(v []int32) {
+	o.CrmDealIds = &v
 }
 
 // GetDateUpdated returns the DateUpdated field value if set, zero value otherwise.
@@ -343,6 +455,102 @@ func (o *ViewTask) HasDateUpdated() bool {
 // SetDateUpdated gets a reference to the given string and assigns it to the DateUpdated field.
 func (o *ViewTask) SetDateUpdated(v string) {
 	o.DateUpdated = &v
+}
+
+// GetDependencyIds returns the DependencyIds field value if set, zero value otherwise.
+func (o *ViewTask) GetDependencyIds() []int32 {
+	if o == nil || o.DependencyIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.DependencyIds
+}
+
+// GetDependencyIdsOk returns a tuple with the DependencyIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetDependencyIdsOk() (*[]int32, bool) {
+	if o == nil || o.DependencyIds == nil {
+		return nil, false
+	}
+	return o.DependencyIds, true
+}
+
+// HasDependencyIds returns a boolean if a field has been set.
+func (o *ViewTask) HasDependencyIds() bool {
+	if o != nil && o.DependencyIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDependencyIds gets a reference to the given []int32 and assigns it to the DependencyIds field.
+func (o *ViewTask) SetDependencyIds(v []int32) {
+	o.DependencyIds = &v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise.
+func (o *ViewTask) GetDescription() string {
+	if o == nil || o.Description == nil {
+		var ret string
+		return ret
+	}
+	return *o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetDescriptionOk() (*string, bool) {
+	if o == nil || o.Description == nil {
+		return nil, false
+	}
+	return o.Description, true
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *ViewTask) HasDescription() bool {
+	if o != nil && o.Description != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given string and assigns it to the Description field.
+func (o *ViewTask) SetDescription(v string) {
+	o.Description = &v
+}
+
+// GetDisplayOrder returns the DisplayOrder field value if set, zero value otherwise.
+func (o *ViewTask) GetDisplayOrder() int32 {
+	if o == nil || o.DisplayOrder == nil {
+		var ret int32
+		return ret
+	}
+	return *o.DisplayOrder
+}
+
+// GetDisplayOrderOk returns a tuple with the DisplayOrder field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetDisplayOrderOk() (*int32, bool) {
+	if o == nil || o.DisplayOrder == nil {
+		return nil, false
+	}
+	return o.DisplayOrder, true
+}
+
+// HasDisplayOrder returns a boolean if a field has been set.
+func (o *ViewTask) HasDisplayOrder() bool {
+	if o != nil && o.DisplayOrder != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDisplayOrder gets a reference to the given int32 and assigns it to the DisplayOrder field.
+func (o *ViewTask) SetDisplayOrder(v int32) {
+	o.DisplayOrder = &v
 }
 
 // GetDueDate returns the DueDate field value if set, zero value otherwise.
@@ -409,6 +617,38 @@ func (o *ViewTask) SetEstimateMinutes(v int32) {
 	o.EstimateMinutes = &v
 }
 
+// GetHasDeskTickets returns the HasDeskTickets field value if set, zero value otherwise.
+func (o *ViewTask) GetHasDeskTickets() bool {
+	if o == nil || o.HasDeskTickets == nil {
+		var ret bool
+		return ret
+	}
+	return *o.HasDeskTickets
+}
+
+// GetHasDeskTicketsOk returns a tuple with the HasDeskTickets field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetHasDeskTicketsOk() (*bool, bool) {
+	if o == nil || o.HasDeskTickets == nil {
+		return nil, false
+	}
+	return o.HasDeskTickets, true
+}
+
+// HasHasDeskTickets returns a boolean if a field has been set.
+func (o *ViewTask) HasHasDeskTickets() bool {
+	if o != nil && o.HasDeskTickets != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHasDeskTickets gets a reference to the given bool and assigns it to the HasDeskTickets field.
+func (o *ViewTask) SetHasDeskTickets(v bool) {
+	o.HasDeskTickets = &v
+}
+
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *ViewTask) GetId() int32 {
 	if o == nil || o.Id == nil {
@@ -473,6 +713,38 @@ func (o *ViewTask) SetIsPrivate(v int32) {
 	o.IsPrivate = &v
 }
 
+// GetLatestUpdates returns the LatestUpdates field value if set, zero value otherwise.
+func (o *ViewTask) GetLatestUpdates() []ViewAudit {
+	if o == nil || o.LatestUpdates == nil {
+		var ret []ViewAudit
+		return ret
+	}
+	return *o.LatestUpdates
+}
+
+// GetLatestUpdatesOk returns a tuple with the LatestUpdates field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetLatestUpdatesOk() (*[]ViewAudit, bool) {
+	if o == nil || o.LatestUpdates == nil {
+		return nil, false
+	}
+	return o.LatestUpdates, true
+}
+
+// HasLatestUpdates returns a boolean if a field has been set.
+func (o *ViewTask) HasLatestUpdates() bool {
+	if o != nil && o.LatestUpdates != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLatestUpdates gets a reference to the given []ViewAudit and assigns it to the LatestUpdates field.
+func (o *ViewTask) SetLatestUpdates(v []ViewAudit) {
+	o.LatestUpdates = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ViewTask) GetName() string {
 	if o == nil || o.Name == nil {
@@ -503,6 +775,38 @@ func (o *ViewTask) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ViewTask) SetName(v string) {
 	o.Name = &v
+}
+
+// GetOriginalDueDate returns the OriginalDueDate field value if set, zero value otherwise.
+func (o *ViewTask) GetOriginalDueDate() map[string]interface{} {
+	if o == nil || o.OriginalDueDate == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return *o.OriginalDueDate
+}
+
+// GetOriginalDueDateOk returns a tuple with the OriginalDueDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetOriginalDueDateOk() (*map[string]interface{}, bool) {
+	if o == nil || o.OriginalDueDate == nil {
+		return nil, false
+	}
+	return o.OriginalDueDate, true
+}
+
+// HasOriginalDueDate returns a boolean if a field has been set.
+func (o *ViewTask) HasOriginalDueDate() bool {
+	if o != nil && o.OriginalDueDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetOriginalDueDate gets a reference to the given map[string]interface{} and assigns it to the OriginalDueDate field.
+func (o *ViewTask) SetOriginalDueDate(v map[string]interface{}) {
+	o.OriginalDueDate = &v
 }
 
 // GetParentTask returns the ParentTask field value if set, zero value otherwise.
@@ -569,6 +873,102 @@ func (o *ViewTask) SetParentTaskId(v int32) {
 	o.ParentTaskId = &v
 }
 
+// GetPredecessorIds returns the PredecessorIds field value if set, zero value otherwise.
+func (o *ViewTask) GetPredecessorIds() []int32 {
+	if o == nil || o.PredecessorIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.PredecessorIds
+}
+
+// GetPredecessorIdsOk returns a tuple with the PredecessorIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetPredecessorIdsOk() (*[]int32, bool) {
+	if o == nil || o.PredecessorIds == nil {
+		return nil, false
+	}
+	return o.PredecessorIds, true
+}
+
+// HasPredecessorIds returns a boolean if a field has been set.
+func (o *ViewTask) HasPredecessorIds() bool {
+	if o != nil && o.PredecessorIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPredecessorIds gets a reference to the given []int32 and assigns it to the PredecessorIds field.
+func (o *ViewTask) SetPredecessorIds(v []int32) {
+	o.PredecessorIds = &v
+}
+
+// GetPriority returns the Priority field value if set, zero value otherwise.
+func (o *ViewTask) GetPriority() string {
+	if o == nil || o.Priority == nil {
+		var ret string
+		return ret
+	}
+	return *o.Priority
+}
+
+// GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetPriorityOk() (*string, bool) {
+	if o == nil || o.Priority == nil {
+		return nil, false
+	}
+	return o.Priority, true
+}
+
+// HasPriority returns a boolean if a field has been set.
+func (o *ViewTask) HasPriority() bool {
+	if o != nil && o.Priority != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPriority gets a reference to the given string and assigns it to the Priority field.
+func (o *ViewTask) SetPriority(v string) {
+	o.Priority = &v
+}
+
+// GetProgress returns the Progress field value if set, zero value otherwise.
+func (o *ViewTask) GetProgress() int32 {
+	if o == nil || o.Progress == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Progress
+}
+
+// GetProgressOk returns a tuple with the Progress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetProgressOk() (*int32, bool) {
+	if o == nil || o.Progress == nil {
+		return nil, false
+	}
+	return o.Progress, true
+}
+
+// HasProgress returns a boolean if a field has been set.
+func (o *ViewTask) HasProgress() bool {
+	if o != nil && o.Progress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetProgress gets a reference to the given int32 and assigns it to the Progress field.
+func (o *ViewTask) SetProgress(v int32) {
+	o.Progress = &v
+}
+
 // GetStartDate returns the StartDate field value if set, zero value otherwise.
 func (o *ViewTask) GetStartDate() string {
 	if o == nil || o.StartDate == nil {
@@ -631,6 +1031,70 @@ func (o *ViewTask) HasStatus() bool {
 // SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *ViewTask) SetStatus(v string) {
 	o.Status = &v
+}
+
+// GetSubTaskIds returns the SubTaskIds field value if set, zero value otherwise.
+func (o *ViewTask) GetSubTaskIds() []int32 {
+	if o == nil || o.SubTaskIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.SubTaskIds
+}
+
+// GetSubTaskIdsOk returns a tuple with the SubTaskIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetSubTaskIdsOk() (*[]int32, bool) {
+	if o == nil || o.SubTaskIds == nil {
+		return nil, false
+	}
+	return o.SubTaskIds, true
+}
+
+// HasSubTaskIds returns a boolean if a field has been set.
+func (o *ViewTask) HasSubTaskIds() bool {
+	if o != nil && o.SubTaskIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSubTaskIds gets a reference to the given []int32 and assigns it to the SubTaskIds field.
+func (o *ViewTask) SetSubTaskIds(v []int32) {
+	o.SubTaskIds = &v
+}
+
+// GetTagIds returns the TagIds field value if set, zero value otherwise.
+func (o *ViewTask) GetTagIds() []int32 {
+	if o == nil || o.TagIds == nil {
+		var ret []int32
+		return ret
+	}
+	return *o.TagIds
+}
+
+// GetTagIdsOk returns a tuple with the TagIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetTagIdsOk() (*[]int32, bool) {
+	if o == nil || o.TagIds == nil {
+		return nil, false
+	}
+	return o.TagIds, true
+}
+
+// HasTagIds returns a boolean if a field has been set.
+func (o *ViewTask) HasTagIds() bool {
+	if o != nil && o.TagIds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTagIds gets a reference to the given []int32 and assigns it to the TagIds field.
+func (o *ViewTask) SetTagIds(v []int32) {
+	o.TagIds = &v
 }
 
 // GetTasklist returns the Tasklist field value if set, zero value otherwise.
@@ -729,6 +1193,38 @@ func (o *ViewTask) SetUpdatedAt(v string) {
 	o.UpdatedAt = &v
 }
 
+// GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise.
+func (o *ViewTask) GetUpdatedBy() int32 {
+	if o == nil || o.UpdatedBy == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UpdatedBy
+}
+
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewTask) GetUpdatedByOk() (*int32, bool) {
+	if o == nil || o.UpdatedBy == nil {
+		return nil, false
+	}
+	return o.UpdatedBy, true
+}
+
+// HasUpdatedBy returns a boolean if a field has been set.
+func (o *ViewTask) HasUpdatedBy() bool {
+	if o != nil && o.UpdatedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedBy gets a reference to the given int32 and assigns it to the UpdatedBy field.
+func (o *ViewTask) SetUpdatedBy(v int32) {
+	o.UpdatedBy = &v
+}
+
 // GetUserPermissions returns the UserPermissions field value if set, zero value otherwise.
 func (o *ViewTask) GetUserPermissions() ViewTaskPermissions {
 	if o == nil || o.UserPermissions == nil {
@@ -766,29 +1262,47 @@ func (o ViewTask) MarshalJSON() ([]byte, error) {
 	if o.AssigneeCompanies != nil {
 		toSerialize["assigneeCompanies"] = o.AssigneeCompanies
 	}
-	if o.AssigneeCompanyIDs != nil {
-		toSerialize["assigneeCompanyIDs"] = o.AssigneeCompanyIDs
+	if o.AssigneeCompanyIds != nil {
+		toSerialize["assigneeCompanyIds"] = o.AssigneeCompanyIds
 	}
-	if o.AssigneeTeamIDs != nil {
-		toSerialize["assigneeTeamIDs"] = o.AssigneeTeamIDs
+	if o.AssigneeTeamIds != nil {
+		toSerialize["assigneeTeamIds"] = o.AssigneeTeamIds
 	}
 	if o.AssigneeTeams != nil {
 		toSerialize["assigneeTeams"] = o.AssigneeTeams
 	}
-	if o.AssigneeUserIDs != nil {
-		toSerialize["assigneeUserIDs"] = o.AssigneeUserIDs
+	if o.AssigneeUserIds != nil {
+		toSerialize["assigneeUserIds"] = o.AssigneeUserIds
 	}
 	if o.AssigneeUsers != nil {
 		toSerialize["assigneeUsers"] = o.AssigneeUsers
 	}
+	if o.CompletedBy != nil {
+		toSerialize["completedBy"] = o.CompletedBy
+	}
+	if o.CompletedOn != nil {
+		toSerialize["completedOn"] = o.CompletedOn
+	}
 	if o.CreatedBy != nil {
 		toSerialize["createdBy"] = o.CreatedBy
 	}
-	if o.CreatedByUserID != nil {
-		toSerialize["createdByUserID"] = o.CreatedByUserID
+	if o.CreatedByUserId != nil {
+		toSerialize["createdByUserId"] = o.CreatedByUserId
+	}
+	if o.CrmDealIds != nil {
+		toSerialize["crmDealIds"] = o.CrmDealIds
 	}
 	if o.DateUpdated != nil {
 		toSerialize["dateUpdated"] = o.DateUpdated
+	}
+	if o.DependencyIds != nil {
+		toSerialize["dependencyIds"] = o.DependencyIds
+	}
+	if o.Description != nil {
+		toSerialize["description"] = o.Description
+	}
+	if o.DisplayOrder != nil {
+		toSerialize["displayOrder"] = o.DisplayOrder
 	}
 	if o.DueDate != nil {
 		toSerialize["dueDate"] = o.DueDate
@@ -796,14 +1310,23 @@ func (o ViewTask) MarshalJSON() ([]byte, error) {
 	if o.EstimateMinutes != nil {
 		toSerialize["estimateMinutes"] = o.EstimateMinutes
 	}
+	if o.HasDeskTickets != nil {
+		toSerialize["hasDeskTickets"] = o.HasDeskTickets
+	}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
 	if o.IsPrivate != nil {
 		toSerialize["isPrivate"] = o.IsPrivate
 	}
+	if o.LatestUpdates != nil {
+		toSerialize["latestUpdates"] = o.LatestUpdates
+	}
 	if o.Name != nil {
 		toSerialize["name"] = o.Name
+	}
+	if o.OriginalDueDate != nil {
+		toSerialize["originalDueDate"] = o.OriginalDueDate
 	}
 	if o.ParentTask != nil {
 		toSerialize["parentTask"] = o.ParentTask
@@ -811,11 +1334,26 @@ func (o ViewTask) MarshalJSON() ([]byte, error) {
 	if o.ParentTaskId != nil {
 		toSerialize["parentTaskId"] = o.ParentTaskId
 	}
+	if o.PredecessorIds != nil {
+		toSerialize["predecessorIds"] = o.PredecessorIds
+	}
+	if o.Priority != nil {
+		toSerialize["priority"] = o.Priority
+	}
+	if o.Progress != nil {
+		toSerialize["progress"] = o.Progress
+	}
 	if o.StartDate != nil {
 		toSerialize["startDate"] = o.StartDate
 	}
 	if o.Status != nil {
 		toSerialize["status"] = o.Status
+	}
+	if o.SubTaskIds != nil {
+		toSerialize["subTaskIds"] = o.SubTaskIds
+	}
+	if o.TagIds != nil {
+		toSerialize["tagIds"] = o.TagIds
 	}
 	if o.Tasklist != nil {
 		toSerialize["tasklist"] = o.Tasklist
@@ -825,6 +1363,9 @@ func (o ViewTask) MarshalJSON() ([]byte, error) {
 	}
 	if o.UpdatedAt != nil {
 		toSerialize["updatedAt"] = o.UpdatedAt
+	}
+	if o.UpdatedBy != nil {
+		toSerialize["updatedBy"] = o.UpdatedBy
 	}
 	if o.UserPermissions != nil {
 		toSerialize["userPermissions"] = o.UserPermissions

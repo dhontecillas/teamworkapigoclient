@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comments** | Pointer to [**[]CommentFullComment**](CommentFullComment.md) |  | [optional] 
-**Included** | Pointer to [**CommentCommentsResponseIncluded**](comment_CommentsResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**CommentCommentsResponseIncluded**](CommentCommentsResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**File** | Pointer to [**FilesIdJsonFile**](_files__id__json_file.md) |  | [optional] 
+**File** | Pointer to [**FilesIdJsonFile**](FilesIdJsonFile.md) |  | [optional] 
 
 ## Methods
 

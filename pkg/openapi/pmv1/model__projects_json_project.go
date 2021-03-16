@@ -33,7 +33,7 @@ type ProjectsJsonProject struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectsJsonProject(name string, ) *ProjectsJsonProject {
+func NewProjectsJsonProject(name string) *ProjectsJsonProject {
 	this := ProjectsJsonProject{}
 	this.Name = name
 	return &this
@@ -209,7 +209,7 @@ func (o *ProjectsJsonProject) SetHarvestTimersEnabled(v string) {
 
 // GetName returns the Name field value
 func (o *ProjectsJsonProject) GetName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

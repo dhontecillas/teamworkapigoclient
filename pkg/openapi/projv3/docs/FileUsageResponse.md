@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilesUsage** | Pointer to [**FileUsageResponseFilesUsage**](file_UsageResponse_filesUsage.md) |  | [optional] 
-**Included** | Pointer to [**FileUsageResponseIncluded**](file_UsageResponse_included.md) |  | [optional] 
+**FilesUsage** | Pointer to [**FileUsageResponseFilesUsage**](FileUsageResponseFilesUsage.md) |  | [optional] 
+**Included** | Pointer to [**FileUsageResponseIncluded**](FileUsageResponseIncluded.md) |  | [optional] 
 
 ## Methods
 

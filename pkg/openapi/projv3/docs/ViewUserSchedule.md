@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **LoggedTotalMinutes** | Pointer to **int32** |  | [optional] 
 **ProjectIds** | Pointer to **[]int32** |  | [optional] 
 **Projects** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
-**Schedule** | Pointer to [**map[string]ViewScheduleEntry**](view.ScheduleEntry.md) |  | [optional] 
+**Schedule** | Pointer to [**map[string]ViewScheduleEntry**](ViewScheduleEntry.md) |  | [optional] 
 **UnavailableTotalMinutes** | Pointer to **int32** |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

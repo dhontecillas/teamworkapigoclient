@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserEvents** | Pointer to [**map[string]ViewUserEvents**](view.UserEvents.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**UserEvents** | Pointer to [**map[string]ViewUserEvents**](ViewUserEvents.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

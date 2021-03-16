@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | Pointer to [**CompaniesIdJsonCompany**](_companies__id__json_company.md) |  | [optional] 
+**Company** | Pointer to [**CompaniesIdJsonCompany**](CompaniesIdJsonCompany.md) |  | [optional] 
 
 ## Methods
 

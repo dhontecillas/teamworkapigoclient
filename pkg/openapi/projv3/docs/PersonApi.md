@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PeopleResponse**](people.Response.md)
+[**PeopleResponse**](PeopleResponse.md)
 
 ### Authorization
 

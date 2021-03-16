@@ -16,9 +16,11 @@ import (
 
 // NotebookNotebooksResponseIncluded struct for NotebookNotebooksResponseIncluded
 type NotebookNotebooksResponseIncluded struct {
+	Companies *map[string]ViewCompany `json:"companies,omitempty"`
 	NotebookCategories *map[string]ViewNotebookCategory `json:"notebookCategories,omitempty"`
 	Projects *map[string]ViewProject `json:"projects,omitempty"`
 	Tags *map[string]ViewTag `json:"tags,omitempty"`
+	Teams *map[string]ViewTeam `json:"teams,omitempty"`
 	Users *map[string]ViewUser `json:"users,omitempty"`
 }
 
@@ -37,6 +39,38 @@ func NewNotebookNotebooksResponseIncluded() *NotebookNotebooksResponseIncluded {
 func NewNotebookNotebooksResponseIncludedWithDefaults() *NotebookNotebooksResponseIncluded {
 	this := NotebookNotebooksResponseIncluded{}
 	return &this
+}
+
+// GetCompanies returns the Companies field value if set, zero value otherwise.
+func (o *NotebookNotebooksResponseIncluded) GetCompanies() map[string]ViewCompany {
+	if o == nil || o.Companies == nil {
+		var ret map[string]ViewCompany
+		return ret
+	}
+	return *o.Companies
+}
+
+// GetCompaniesOk returns a tuple with the Companies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NotebookNotebooksResponseIncluded) GetCompaniesOk() (*map[string]ViewCompany, bool) {
+	if o == nil || o.Companies == nil {
+		return nil, false
+	}
+	return o.Companies, true
+}
+
+// HasCompanies returns a boolean if a field has been set.
+func (o *NotebookNotebooksResponseIncluded) HasCompanies() bool {
+	if o != nil && o.Companies != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCompanies gets a reference to the given map[string]ViewCompany and assigns it to the Companies field.
+func (o *NotebookNotebooksResponseIncluded) SetCompanies(v map[string]ViewCompany) {
+	o.Companies = &v
 }
 
 // GetNotebookCategories returns the NotebookCategories field value if set, zero value otherwise.
@@ -135,6 +169,38 @@ func (o *NotebookNotebooksResponseIncluded) SetTags(v map[string]ViewTag) {
 	o.Tags = &v
 }
 
+// GetTeams returns the Teams field value if set, zero value otherwise.
+func (o *NotebookNotebooksResponseIncluded) GetTeams() map[string]ViewTeam {
+	if o == nil || o.Teams == nil {
+		var ret map[string]ViewTeam
+		return ret
+	}
+	return *o.Teams
+}
+
+// GetTeamsOk returns a tuple with the Teams field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NotebookNotebooksResponseIncluded) GetTeamsOk() (*map[string]ViewTeam, bool) {
+	if o == nil || o.Teams == nil {
+		return nil, false
+	}
+	return o.Teams, true
+}
+
+// HasTeams returns a boolean if a field has been set.
+func (o *NotebookNotebooksResponseIncluded) HasTeams() bool {
+	if o != nil && o.Teams != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTeams gets a reference to the given map[string]ViewTeam and assigns it to the Teams field.
+func (o *NotebookNotebooksResponseIncluded) SetTeams(v map[string]ViewTeam) {
+	o.Teams = &v
+}
+
 // GetUsers returns the Users field value if set, zero value otherwise.
 func (o *NotebookNotebooksResponseIncluded) GetUsers() map[string]ViewUser {
 	if o == nil || o.Users == nil {
@@ -169,6 +235,9 @@ func (o *NotebookNotebooksResponseIncluded) SetUsers(v map[string]ViewUser) {
 
 func (o NotebookNotebooksResponseIncluded) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Companies != nil {
+		toSerialize["companies"] = o.Companies
+	}
 	if o.NotebookCategories != nil {
 		toSerialize["notebookCategories"] = o.NotebookCategories
 	}
@@ -177,6 +246,9 @@ func (o NotebookNotebooksResponseIncluded) MarshalJSON() ([]byte, error) {
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.Teams != nil {
+		toSerialize["teams"] = o.Teams
 	}
 	if o.Users != nil {
 		toSerialize["users"] = o.Users

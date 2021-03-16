@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**CompleteTaskMetricComplete**](complete.TaskMetricComplete.md) |  | [optional] 
+**Data** | Pointer to [**CompleteTaskMetricComplete**](CompleteTaskMetricComplete.md) |  | [optional] 
 
 ## Methods
 

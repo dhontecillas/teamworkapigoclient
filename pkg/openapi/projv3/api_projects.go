@@ -40,6 +40,7 @@ type ApiGETProjectsApiV3ProjectsCsvRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -50,6 +51,7 @@ type ApiGETProjectsApiV3ProjectsCsvRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -112,6 +114,10 @@ func (r ApiGETProjectsApiV3ProjectsCsvRequest) MaxLastActivityDate(maxLastActivi
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsCsvRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsCsvRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsCsvRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsCsvRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -150,6 +156,10 @@ func (r ApiGETProjectsApiV3ProjectsCsvRequest) IncludeProjectUserInfo(includePro
 }
 func (r ApiGETProjectsApiV3ProjectsCsvRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsCsvRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsCsvRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsCsvRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsCsvRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsCsvRequest {
@@ -331,6 +341,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsCsvExecute(r ApiGETProjects
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -360,6 +373,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsCsvExecute(r ApiGETProjects
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
@@ -498,6 +514,7 @@ type ApiGETProjectsApiV3ProjectsHtmlRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -508,6 +525,7 @@ type ApiGETProjectsApiV3ProjectsHtmlRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -570,6 +588,10 @@ func (r ApiGETProjectsApiV3ProjectsHtmlRequest) MaxLastActivityDate(maxLastActiv
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsHtmlRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsHtmlRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsHtmlRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsHtmlRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -608,6 +630,10 @@ func (r ApiGETProjectsApiV3ProjectsHtmlRequest) IncludeProjectUserInfo(includePr
 }
 func (r ApiGETProjectsApiV3ProjectsHtmlRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsHtmlRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsHtmlRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsHtmlRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsHtmlRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsHtmlRequest {
@@ -789,6 +815,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsHtmlExecute(r ApiGETProject
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -818,6 +847,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsHtmlExecute(r ApiGETProject
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
@@ -956,6 +988,7 @@ type ApiGETProjectsApiV3ProjectsJsonRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -966,6 +999,7 @@ type ApiGETProjectsApiV3ProjectsJsonRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -1028,6 +1062,10 @@ func (r ApiGETProjectsApiV3ProjectsJsonRequest) MaxLastActivityDate(maxLastActiv
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsJsonRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -1066,6 +1104,10 @@ func (r ApiGETProjectsApiV3ProjectsJsonRequest) IncludeProjectUserInfo(includePr
 }
 func (r ApiGETProjectsApiV3ProjectsJsonRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsJsonRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsJsonRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsJsonRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsJsonRequest {
@@ -1248,6 +1290,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsJsonExecute(r ApiGETProject
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -1277,6 +1322,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsJsonExecute(r ApiGETProject
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
@@ -1662,6 +1710,7 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsMetricsBillableJsonExecute(
 type ApiGETProjectsApiV3ProjectsMetricsHealthsJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectsApiService
+	projectStatuses *string
 	projectStatus *string
 	projectHealths *int32
 	onlyStarredProjects *bool
@@ -1673,6 +1722,10 @@ type ApiGETProjectsApiV3ProjectsMetricsHealthsJsonRequest struct {
 	projectCategoryIds *[]int32
 }
 
+func (r ApiGETProjectsApiV3ProjectsMetricsHealthsJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsMetricsHealthsJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsMetricsHealthsJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsMetricsHealthsJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
@@ -1753,6 +1806,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsMetricsHealthsJsonExecute(r
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}
@@ -2447,6 +2503,7 @@ type ApiGETProjectsApiV3ProjectsPdfRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -2457,6 +2514,7 @@ type ApiGETProjectsApiV3ProjectsPdfRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -2519,6 +2577,10 @@ func (r ApiGETProjectsApiV3ProjectsPdfRequest) MaxLastActivityDate(maxLastActivi
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsPdfRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsPdfRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsPdfRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsPdfRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -2557,6 +2619,10 @@ func (r ApiGETProjectsApiV3ProjectsPdfRequest) IncludeProjectUserInfo(includePro
 }
 func (r ApiGETProjectsApiV3ProjectsPdfRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsPdfRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsPdfRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsPdfRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsPdfRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsPdfRequest {
@@ -2738,6 +2804,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsPdfExecute(r ApiGETProjects
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -2767,6 +2836,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsPdfExecute(r ApiGETProjects
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
@@ -3074,6 +3146,7 @@ type ApiGETProjectsApiV3ProjectsTemplatesJsonRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -3084,6 +3157,7 @@ type ApiGETProjectsApiV3ProjectsTemplatesJsonRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -3146,6 +3220,10 @@ func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) MaxLastActivityDate(max
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsTemplatesJsonRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsTemplatesJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -3184,6 +3262,10 @@ func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) IncludeProjectUserInfo(
 }
 func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsTemplatesJsonRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsTemplatesJsonRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsTemplatesJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsTemplatesJsonRequest {
@@ -3366,6 +3448,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsTemplatesJsonExecute(r ApiG
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -3395,6 +3480,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsTemplatesJsonExecute(r ApiG
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
@@ -3542,6 +3630,7 @@ type ApiGETProjectsApiV3ProjectsXlsxRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -3552,6 +3641,7 @@ type ApiGETProjectsApiV3ProjectsXlsxRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -3614,6 +3704,10 @@ func (r ApiGETProjectsApiV3ProjectsXlsxRequest) MaxLastActivityDate(maxLastActiv
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsXlsxRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsXlsxRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsXlsxRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsXlsxRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -3652,6 +3746,10 @@ func (r ApiGETProjectsApiV3ProjectsXlsxRequest) IncludeProjectUserInfo(includePr
 }
 func (r ApiGETProjectsApiV3ProjectsXlsxRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsXlsxRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsXlsxRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsXlsxRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsXlsxRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsXlsxRequest {
@@ -3833,6 +3931,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsXlsxExecute(r ApiGETProject
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -3862,6 +3963,9 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsXlsxExecute(r ApiGETProject
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))

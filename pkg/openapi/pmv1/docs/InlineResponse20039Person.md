@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | Pointer to [**InlineResponse20013Address**](inline_response_200_13_address.md) |  | [optional] 
+**Address** | Pointer to [**InlineResponse20013Address**](InlineResponse20013Address.md) |  | [optional] 
 **Administrator** | Pointer to **bool** |  | [optional] 
 **AvatarUrl** | Pointer to **string** |  | [optional] 
 **CompanyId** | Pointer to **string** |  | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **ImHandle** | Pointer to **string** |  | [optional] 
 **ImService** | Pointer to **string** |  | [optional] 
 **InOwnerCompany** | Pointer to **string** |  | [optional] 
-**Integrations** | Pointer to [**InlineResponse20039PersonIntegrations**](inline_response_200_39_person_integrations.md) |  | [optional] 
+**Integrations** | Pointer to [**InlineResponse20039PersonIntegrations**](InlineResponse20039PersonIntegrations.md) |  | [optional] 
 **LastChangedOn** | Pointer to **string** |  | [optional] 
 **LastLogin** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
@@ -32,11 +32,11 @@ Name | Type | Description | Notes
 **MarketoId** | Pointer to **string** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **OpenId** | Pointer to **string** |  | [optional] 
-**Permissions** | Pointer to [**InlineResponse20039PersonPermissions**](inline_response_200_39_person_permissions.md) |  | [optional] 
+**Permissions** | Pointer to [**InlineResponse20039PersonPermissions**](InlineResponse20039PersonPermissions.md) |  | [optional] 
 **PhoneNumberFax** | Pointer to **string** |  | [optional] 
 **PhoneNumberHome** | Pointer to **string** |  | [optional] 
 **PhoneNumberMobile** | Pointer to **string** |  | [optional] 
-**PhoneNumberMobileParts** | Pointer to [**InlineResponse20013PhoneNumberMobileParts**](inline_response_200_13_phone_number_mobile_parts.md) |  | [optional] 
+**PhoneNumberMobileParts** | Pointer to [**InlineResponse20013PhoneNumberMobileParts**](InlineResponse20013PhoneNumberMobileParts.md) |  | [optional] 
 **PhoneNumberOffice** | Pointer to **string** |  | [optional] 
 **PhoneNumberOfficeExt** | Pointer to **string** |  | [optional] 
 **Pid** | Pointer to **string** |  | [optional] 

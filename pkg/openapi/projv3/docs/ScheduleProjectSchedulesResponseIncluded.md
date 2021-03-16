@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Allocations** | Pointer to [**map[string]ViewAllocation**](view.Allocation.md) |  | [optional] 
-**CalendarEvents** | Pointer to [**map[string]ViewCalendarEvent**](view.CalendarEvent.md) |  | [optional] 
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Milestones** | Pointer to [**map[string]ViewMilestone**](view.Milestone.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Timelogs** | Pointer to [**map[string]ViewTimelog**](view.Timelog.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Allocations** | Pointer to [**map[string]ViewAllocation**](ViewAllocation.md) |  | [optional] 
+**CalendarEvents** | Pointer to [**map[string]ViewCalendarEvent**](ViewCalendarEvent.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Milestones** | Pointer to [**map[string]ViewMilestone**](ViewMilestone.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Timelogs** | Pointer to [**map[string]ViewTimelog**](ViewTimelog.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

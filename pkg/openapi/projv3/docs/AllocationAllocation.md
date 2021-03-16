@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **DistributeType** | Pointer to **string** |  | [optional] 
 **Duration** | Pointer to **int32** | in minutes | [optional] 
 **EndedAt** | Pointer to **map[string]interface{}** | Date unmarshals represents a Unified API Spec date format. | [optional] 
-**HoursPerDay** | Pointer to **int32** |  | [optional] 
+**HoursPerDay** | Pointer to **float32** |  | [optional] 
 **IgnoreCollisions** | Pointer to **bool** |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
-**RecurringRule** | Pointer to [**PayloadNullableRRule**](payload.NullableRRule.md) |  | [optional] 
+**RecurringRule** | Pointer to [**PayloadNullableRRule**](PayloadNullableRRule.md) |  | [optional] 
 **StartedAt** | Pointer to **map[string]interface{}** | Date unmarshals represents a Unified API Spec date format. | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 
@@ -188,20 +188,20 @@ HasEndedAt returns a boolean if a field has been set.
 
 ### GetHoursPerDay
 
-`func (o *AllocationAllocation) GetHoursPerDay() int32`
+`func (o *AllocationAllocation) GetHoursPerDay() float32`
 
 GetHoursPerDay returns the HoursPerDay field if non-nil, zero value otherwise.
 
 ### GetHoursPerDayOk
 
-`func (o *AllocationAllocation) GetHoursPerDayOk() (*int32, bool)`
+`func (o *AllocationAllocation) GetHoursPerDayOk() (*float32, bool)`
 
 GetHoursPerDayOk returns a tuple with the HoursPerDay field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHoursPerDay
 
-`func (o *AllocationAllocation) SetHoursPerDay(v int32)`
+`func (o *AllocationAllocation) SetHoursPerDay(v float32)`
 
 SetHoursPerDay sets HoursPerDay field to given value.
 

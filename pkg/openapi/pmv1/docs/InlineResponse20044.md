@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Board** | Pointer to [**InlineResponse20043Board**](inline_response_200_43_board.md) |  | [optional] 
+**Board** | Pointer to [**InlineResponse20043Board**](InlineResponse20043Board.md) |  | [optional] 
 **Columns** | Pointer to [**[]InlineResponse20044Columns**](InlineResponse20044Columns.md) |  | [optional] 
 
 ## Methods

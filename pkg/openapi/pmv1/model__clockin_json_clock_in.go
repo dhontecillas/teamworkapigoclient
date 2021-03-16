@@ -27,7 +27,7 @@ type ClockinJsonClockIn struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClockinJsonClockIn(userId int32, ) *ClockinJsonClockIn {
+func NewClockinJsonClockIn(userId int32) *ClockinJsonClockIn {
 	this := ClockinJsonClockIn{}
 	this.UserId = userId
 	return &this
@@ -171,7 +171,7 @@ func (o *ClockinJsonClockIn) SetClockOutInfo(v string) {
 
 // GetUserId returns the UserId field value
 func (o *ClockinJsonClockIn) GetUserId() int32 {
-	if o == nil  {
+	if o == nil {
 		var ret int32
 		return ret
 	}

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Budgets** | Pointer to [**[]ViewProjectBudget**](ViewProjectBudget.md) |  | [optional] 
-**Included** | Pointer to [**BudgetProjectBudgetsResponseIncluded**](budget_ProjectBudgetsResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**BudgetProjectBudgetsResponseIncluded**](BudgetProjectBudgetsResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

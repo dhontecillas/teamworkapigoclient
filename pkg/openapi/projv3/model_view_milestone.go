@@ -34,7 +34,9 @@ type ViewMilestone struct {
 	Deadline *string `json:"deadline,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Id *int32 `json:"id,omitempty"`
+	IsDeleted *bool `json:"isDeleted,omitempty"`
 	LastChangedOn *string `json:"lastChangedOn,omitempty"`
+	LatestUpdates *[]ViewAudit `json:"latestUpdates,omitempty"`
 	Lockdown *ViewRelationship `json:"lockdown,omitempty"`
 	LockdownId *int32 `json:"lockdownId,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -54,6 +56,7 @@ type ViewMilestone struct {
 	Tags *[]ViewRelationship `json:"tags,omitempty"`
 	TasklistIds *[]int32 `json:"tasklistIds,omitempty"`
 	Tasklists *[]ViewRelationship `json:"tasklists,omitempty"`
+	UpdatedBy *int32 `json:"updatedBy,omitempty"`
 	UserFollowingChanges *bool `json:"userFollowingChanges,omitempty"`
 	UserFollowingComments *bool `json:"userFollowingComments,omitempty"`
 }
@@ -619,6 +622,38 @@ func (o *ViewMilestone) SetId(v int32) {
 	o.Id = &v
 }
 
+// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+func (o *ViewMilestone) GetIsDeleted() bool {
+	if o == nil || o.IsDeleted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewMilestone) GetIsDeletedOk() (*bool, bool) {
+	if o == nil || o.IsDeleted == nil {
+		return nil, false
+	}
+	return o.IsDeleted, true
+}
+
+// HasIsDeleted returns a boolean if a field has been set.
+func (o *ViewMilestone) HasIsDeleted() bool {
+	if o != nil && o.IsDeleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+func (o *ViewMilestone) SetIsDeleted(v bool) {
+	o.IsDeleted = &v
+}
+
 // GetLastChangedOn returns the LastChangedOn field value if set, zero value otherwise.
 func (o *ViewMilestone) GetLastChangedOn() string {
 	if o == nil || o.LastChangedOn == nil {
@@ -649,6 +684,38 @@ func (o *ViewMilestone) HasLastChangedOn() bool {
 // SetLastChangedOn gets a reference to the given string and assigns it to the LastChangedOn field.
 func (o *ViewMilestone) SetLastChangedOn(v string) {
 	o.LastChangedOn = &v
+}
+
+// GetLatestUpdates returns the LatestUpdates field value if set, zero value otherwise.
+func (o *ViewMilestone) GetLatestUpdates() []ViewAudit {
+	if o == nil || o.LatestUpdates == nil {
+		var ret []ViewAudit
+		return ret
+	}
+	return *o.LatestUpdates
+}
+
+// GetLatestUpdatesOk returns a tuple with the LatestUpdates field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewMilestone) GetLatestUpdatesOk() (*[]ViewAudit, bool) {
+	if o == nil || o.LatestUpdates == nil {
+		return nil, false
+	}
+	return o.LatestUpdates, true
+}
+
+// HasLatestUpdates returns a boolean if a field has been set.
+func (o *ViewMilestone) HasLatestUpdates() bool {
+	if o != nil && o.LatestUpdates != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLatestUpdates gets a reference to the given []ViewAudit and assigns it to the LatestUpdates field.
+func (o *ViewMilestone) SetLatestUpdates(v []ViewAudit) {
+	o.LatestUpdates = &v
 }
 
 // GetLockdown returns the Lockdown field value if set, zero value otherwise.
@@ -1227,6 +1294,38 @@ func (o *ViewMilestone) SetTasklists(v []ViewRelationship) {
 	o.Tasklists = &v
 }
 
+// GetUpdatedBy returns the UpdatedBy field value if set, zero value otherwise.
+func (o *ViewMilestone) GetUpdatedBy() int32 {
+	if o == nil || o.UpdatedBy == nil {
+		var ret int32
+		return ret
+	}
+	return *o.UpdatedBy
+}
+
+// GetUpdatedByOk returns a tuple with the UpdatedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewMilestone) GetUpdatedByOk() (*int32, bool) {
+	if o == nil || o.UpdatedBy == nil {
+		return nil, false
+	}
+	return o.UpdatedBy, true
+}
+
+// HasUpdatedBy returns a boolean if a field has been set.
+func (o *ViewMilestone) HasUpdatedBy() bool {
+	if o != nil && o.UpdatedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedBy gets a reference to the given int32 and assigns it to the UpdatedBy field.
+func (o *ViewMilestone) SetUpdatedBy(v int32) {
+	o.UpdatedBy = &v
+}
+
 // GetUserFollowingChanges returns the UserFollowingChanges field value if set, zero value otherwise.
 func (o *ViewMilestone) GetUserFollowingChanges() bool {
 	if o == nil || o.UserFollowingChanges == nil {
@@ -1344,8 +1443,14 @@ func (o ViewMilestone) MarshalJSON() ([]byte, error) {
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
+	if o.IsDeleted != nil {
+		toSerialize["isDeleted"] = o.IsDeleted
+	}
 	if o.LastChangedOn != nil {
 		toSerialize["lastChangedOn"] = o.LastChangedOn
+	}
+	if o.LatestUpdates != nil {
+		toSerialize["latestUpdates"] = o.LatestUpdates
 	}
 	if o.Lockdown != nil {
 		toSerialize["lockdown"] = o.Lockdown
@@ -1400,6 +1505,9 @@ func (o ViewMilestone) MarshalJSON() ([]byte, error) {
 	}
 	if o.Tasklists != nil {
 		toSerialize["tasklists"] = o.Tasklists
+	}
+	if o.UpdatedBy != nil {
+		toSerialize["updatedBy"] = o.UpdatedBy
 	}
 	if o.UserFollowingChanges != nil {
 		toSerialize["userFollowingChanges"] = o.UserFollowingChanges

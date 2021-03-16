@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**All** | Pointer to [**SummaryTimeCounterResponse**](summary.TimeCounterResponse.md) |  | [optional] 
-**Mine** | Pointer to [**SummaryTimeCounterResponse**](summary.TimeCounterResponse.md) |  | [optional] 
+**All** | Pointer to [**SummaryTimeCounterResponse**](SummaryTimeCounterResponse.md) |  | [optional] 
+**Mine** | Pointer to [**SummaryTimeCounterResponse**](SummaryTimeCounterResponse.md) |  | [optional] 
 
 ## Methods
 

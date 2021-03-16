@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cost** | Pointer to **int32** |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

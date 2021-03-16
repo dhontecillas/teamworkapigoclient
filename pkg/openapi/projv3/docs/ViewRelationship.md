@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
+**Meta** | Pointer to **map[string]interface{}** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -50,6 +51,31 @@ SetId sets Id field to given value.
 `func (o *ViewRelationship) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetMeta
+
+`func (o *ViewRelationship) GetMeta() map[string]interface{}`
+
+GetMeta returns the Meta field if non-nil, zero value otherwise.
+
+### GetMetaOk
+
+`func (o *ViewRelationship) GetMetaOk() (*map[string]interface{}, bool)`
+
+GetMetaOk returns a tuple with the Meta field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMeta
+
+`func (o *ViewRelationship) SetMeta(v map[string]interface{})`
+
+SetMeta sets Meta field to given value.
+
+### HasMeta
+
+`func (o *ViewRelationship) HasMeta() bool`
+
+HasMeta returns a boolean if a field has been set.
 
 ### GetType
 

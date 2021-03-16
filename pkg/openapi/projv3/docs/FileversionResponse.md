@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fileversion** | Pointer to [**ViewFileversion**](view.Fileversion.md) |  | [optional] 
-**Included** | Pointer to [**FileversionResponseIncluded**](fileversion_Response_included.md) |  | [optional] 
+**Fileversion** | Pointer to [**ViewFileversion**](ViewFileversion.md) |  | [optional] 
+**Included** | Pointer to [**FileversionResponseIncluded**](FileversionResponseIncluded.md) |  | [optional] 
 
 ## Methods
 

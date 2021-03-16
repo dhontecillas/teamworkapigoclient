@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | Pointer to [**[]OwnerProjectMetricOwner**](OwnerProjectMetricOwner.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

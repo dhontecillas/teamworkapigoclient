@@ -23,7 +23,7 @@ type InlineObject7 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject7(clockIn ClockinJsonClockIn, ) *InlineObject7 {
+func NewInlineObject7(clockIn ClockinJsonClockIn) *InlineObject7 {
 	this := InlineObject7{}
 	this.ClockIn = clockIn
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject7WithDefaults() *InlineObject7 {
 
 // GetClockIn returns the ClockIn field value
 func (o *InlineObject7) GetClockIn() ClockinJsonClockIn {
-	if o == nil  {
+	if o == nil {
 		var ret ClockinJsonClockIn
 		return ret
 	}

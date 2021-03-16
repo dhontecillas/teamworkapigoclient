@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
 **LastUpdatedDate** | Pointer to **string** |  | [optional] 
-**Parent** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Parent** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ParentId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Counts** | Pointer to [**ViewReactionsForObjectCounter**](view.ReactionsForObjectCounter.md) |  | [optional] 
+**Counts** | Pointer to [**ViewReactionsForObjectCounter**](ViewReactionsForObjectCounter.md) |  | [optional] 
 **Mine** | Pointer to **string** |  | [optional] 
 
 ## Methods

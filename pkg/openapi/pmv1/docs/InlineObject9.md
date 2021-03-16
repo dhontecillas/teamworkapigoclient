@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | [**CommentsIdJsonComment**](_comments__id__json_comment.md) |  | 
+**Comment** | [**CommentsIdJsonComment**](CommentsIdJsonComment.md) |  | 
 
 ## Methods
 

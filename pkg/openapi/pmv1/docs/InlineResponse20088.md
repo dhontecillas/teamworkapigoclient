@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** | Pointer to [**InlineResponse20088Role**](inline_response_200_88_role.md) |  | [optional] 
+**Role** | Pointer to [**InlineResponse20088Role**](InlineResponse20088Role.md) |  | [optional] 
 
 ## Methods
 

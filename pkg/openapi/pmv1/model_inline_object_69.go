@@ -23,7 +23,7 @@ type InlineObject69 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject69(post ProjectsIdPostsJsonPost, ) *InlineObject69 {
+func NewInlineObject69(post ProjectsIdPostsJsonPost) *InlineObject69 {
 	this := InlineObject69{}
 	this.Post = post
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject69WithDefaults() *InlineObject69 {
 
 // GetPost returns the Post field value
 func (o *InlineObject69) GetPost() ProjectsIdPostsJsonPost {
-	if o == nil  {
+	if o == nil {
 		var ret ProjectsIdPostsJsonPost
 		return ret
 	}

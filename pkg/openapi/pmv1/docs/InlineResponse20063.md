@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Emailaddress** | Pointer to [**InlineResponse20063Emailaddress**](inline_response_200_63_emailaddress.md) |  | [optional] 
+**Emailaddress** | Pointer to [**InlineResponse20063Emailaddress**](InlineResponse20063Emailaddress.md) |  | [optional] 
 
 ## Methods
 

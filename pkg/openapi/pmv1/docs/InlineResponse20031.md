@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Category** | Pointer to [**InlineResponse20020Category**](inline_response_200_20_category.md) |  | [optional] 
+**Category** | Pointer to [**InlineResponse20020Category**](InlineResponse20020Category.md) |  | [optional] 
 
 ## Methods
 

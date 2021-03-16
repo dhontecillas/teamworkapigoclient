@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvatarUrl** | Pointer to **string** |  | [optional] 
-**Company** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Company** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **CompanyId** | Pointer to **int32** |  | [optional] 
 **Email** | Pointer to **string** |  | [optional] 
 **FirstName** | Pointer to **string** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **LengthOfDay** | Pointer to **float32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
-**WorkingHour** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**WorkingHour** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **WorkingHoursId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

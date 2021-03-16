@@ -5,27 +5,42 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssigneeCompanies** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
-**AssigneeCompanyIDs** | Pointer to **[]int32** |  | [optional] 
-**AssigneeTeamIDs** | Pointer to **[]int32** |  | [optional] 
+**AssigneeCompanyIds** | Pointer to **[]int32** |  | [optional] 
+**AssigneeTeamIds** | Pointer to **[]int32** |  | [optional] 
 **AssigneeTeams** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
-**AssigneeUserIDs** | Pointer to **[]int32** |  | [optional] 
+**AssigneeUserIds** | Pointer to **[]int32** |  | [optional] 
 **AssigneeUsers** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
+**CompletedBy** | Pointer to **int32** |  | [optional] 
+**CompletedOn** | Pointer to **string** |  | [optional] 
 **CreatedBy** | Pointer to **int32** |  | [optional] 
-**CreatedByUserID** | Pointer to **int32** |  | [optional] 
+**CreatedByUserId** | Pointer to **int32** |  | [optional] 
+**CrmDealIds** | Pointer to **[]int32** |  | [optional] 
 **DateUpdated** | Pointer to **string** |  | [optional] 
+**DependencyIds** | Pointer to **[]int32** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**DisplayOrder** | Pointer to **int32** |  | [optional] 
 **DueDate** | Pointer to **string** |  | [optional] 
 **EstimateMinutes** | Pointer to **int32** |  | [optional] 
+**HasDeskTickets** | Pointer to **bool** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **IsPrivate** | Pointer to **int32** |  | [optional] 
+**LatestUpdates** | Pointer to [**[]ViewAudit**](ViewAudit.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**ParentTask** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**OriginalDueDate** | Pointer to **map[string]interface{}** | Date represents a Unified API Spec date format. | [optional] 
+**ParentTask** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ParentTaskId** | Pointer to **int32** |  | [optional] 
+**PredecessorIds** | Pointer to **[]int32** |  | [optional] 
+**Priority** | Pointer to **string** |  | [optional] 
+**Progress** | Pointer to **int32** |  | [optional] 
 **StartDate** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
-**Tasklist** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**SubTaskIds** | Pointer to **[]int32** |  | [optional] 
+**TagIds** | Pointer to **[]int32** |  | [optional] 
+**Tasklist** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **TasklistId** | Pointer to **int32** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
-**UserPermissions** | Pointer to [**ViewTaskPermissions**](view.TaskPermissions.md) |  | [optional] 
+**UpdatedBy** | Pointer to **int32** |  | [optional] 
+**UserPermissions** | Pointer to [**ViewTaskPermissions**](ViewTaskPermissions.md) |  | [optional] 
 
 ## Methods
 
@@ -71,55 +86,55 @@ SetAssigneeCompanies sets AssigneeCompanies field to given value.
 
 HasAssigneeCompanies returns a boolean if a field has been set.
 
-### GetAssigneeCompanyIDs
+### GetAssigneeCompanyIds
 
-`func (o *ViewTask) GetAssigneeCompanyIDs() []int32`
+`func (o *ViewTask) GetAssigneeCompanyIds() []int32`
 
-GetAssigneeCompanyIDs returns the AssigneeCompanyIDs field if non-nil, zero value otherwise.
+GetAssigneeCompanyIds returns the AssigneeCompanyIds field if non-nil, zero value otherwise.
 
-### GetAssigneeCompanyIDsOk
+### GetAssigneeCompanyIdsOk
 
-`func (o *ViewTask) GetAssigneeCompanyIDsOk() (*[]int32, bool)`
+`func (o *ViewTask) GetAssigneeCompanyIdsOk() (*[]int32, bool)`
 
-GetAssigneeCompanyIDsOk returns a tuple with the AssigneeCompanyIDs field if it's non-nil, zero value otherwise
+GetAssigneeCompanyIdsOk returns a tuple with the AssigneeCompanyIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAssigneeCompanyIDs
+### SetAssigneeCompanyIds
 
-`func (o *ViewTask) SetAssigneeCompanyIDs(v []int32)`
+`func (o *ViewTask) SetAssigneeCompanyIds(v []int32)`
 
-SetAssigneeCompanyIDs sets AssigneeCompanyIDs field to given value.
+SetAssigneeCompanyIds sets AssigneeCompanyIds field to given value.
 
-### HasAssigneeCompanyIDs
+### HasAssigneeCompanyIds
 
-`func (o *ViewTask) HasAssigneeCompanyIDs() bool`
+`func (o *ViewTask) HasAssigneeCompanyIds() bool`
 
-HasAssigneeCompanyIDs returns a boolean if a field has been set.
+HasAssigneeCompanyIds returns a boolean if a field has been set.
 
-### GetAssigneeTeamIDs
+### GetAssigneeTeamIds
 
-`func (o *ViewTask) GetAssigneeTeamIDs() []int32`
+`func (o *ViewTask) GetAssigneeTeamIds() []int32`
 
-GetAssigneeTeamIDs returns the AssigneeTeamIDs field if non-nil, zero value otherwise.
+GetAssigneeTeamIds returns the AssigneeTeamIds field if non-nil, zero value otherwise.
 
-### GetAssigneeTeamIDsOk
+### GetAssigneeTeamIdsOk
 
-`func (o *ViewTask) GetAssigneeTeamIDsOk() (*[]int32, bool)`
+`func (o *ViewTask) GetAssigneeTeamIdsOk() (*[]int32, bool)`
 
-GetAssigneeTeamIDsOk returns a tuple with the AssigneeTeamIDs field if it's non-nil, zero value otherwise
+GetAssigneeTeamIdsOk returns a tuple with the AssigneeTeamIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAssigneeTeamIDs
+### SetAssigneeTeamIds
 
-`func (o *ViewTask) SetAssigneeTeamIDs(v []int32)`
+`func (o *ViewTask) SetAssigneeTeamIds(v []int32)`
 
-SetAssigneeTeamIDs sets AssigneeTeamIDs field to given value.
+SetAssigneeTeamIds sets AssigneeTeamIds field to given value.
 
-### HasAssigneeTeamIDs
+### HasAssigneeTeamIds
 
-`func (o *ViewTask) HasAssigneeTeamIDs() bool`
+`func (o *ViewTask) HasAssigneeTeamIds() bool`
 
-HasAssigneeTeamIDs returns a boolean if a field has been set.
+HasAssigneeTeamIds returns a boolean if a field has been set.
 
 ### GetAssigneeTeams
 
@@ -146,30 +161,30 @@ SetAssigneeTeams sets AssigneeTeams field to given value.
 
 HasAssigneeTeams returns a boolean if a field has been set.
 
-### GetAssigneeUserIDs
+### GetAssigneeUserIds
 
-`func (o *ViewTask) GetAssigneeUserIDs() []int32`
+`func (o *ViewTask) GetAssigneeUserIds() []int32`
 
-GetAssigneeUserIDs returns the AssigneeUserIDs field if non-nil, zero value otherwise.
+GetAssigneeUserIds returns the AssigneeUserIds field if non-nil, zero value otherwise.
 
-### GetAssigneeUserIDsOk
+### GetAssigneeUserIdsOk
 
-`func (o *ViewTask) GetAssigneeUserIDsOk() (*[]int32, bool)`
+`func (o *ViewTask) GetAssigneeUserIdsOk() (*[]int32, bool)`
 
-GetAssigneeUserIDsOk returns a tuple with the AssigneeUserIDs field if it's non-nil, zero value otherwise
+GetAssigneeUserIdsOk returns a tuple with the AssigneeUserIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAssigneeUserIDs
+### SetAssigneeUserIds
 
-`func (o *ViewTask) SetAssigneeUserIDs(v []int32)`
+`func (o *ViewTask) SetAssigneeUserIds(v []int32)`
 
-SetAssigneeUserIDs sets AssigneeUserIDs field to given value.
+SetAssigneeUserIds sets AssigneeUserIds field to given value.
 
-### HasAssigneeUserIDs
+### HasAssigneeUserIds
 
-`func (o *ViewTask) HasAssigneeUserIDs() bool`
+`func (o *ViewTask) HasAssigneeUserIds() bool`
 
-HasAssigneeUserIDs returns a boolean if a field has been set.
+HasAssigneeUserIds returns a boolean if a field has been set.
 
 ### GetAssigneeUsers
 
@@ -196,6 +211,56 @@ SetAssigneeUsers sets AssigneeUsers field to given value.
 
 HasAssigneeUsers returns a boolean if a field has been set.
 
+### GetCompletedBy
+
+`func (o *ViewTask) GetCompletedBy() int32`
+
+GetCompletedBy returns the CompletedBy field if non-nil, zero value otherwise.
+
+### GetCompletedByOk
+
+`func (o *ViewTask) GetCompletedByOk() (*int32, bool)`
+
+GetCompletedByOk returns a tuple with the CompletedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompletedBy
+
+`func (o *ViewTask) SetCompletedBy(v int32)`
+
+SetCompletedBy sets CompletedBy field to given value.
+
+### HasCompletedBy
+
+`func (o *ViewTask) HasCompletedBy() bool`
+
+HasCompletedBy returns a boolean if a field has been set.
+
+### GetCompletedOn
+
+`func (o *ViewTask) GetCompletedOn() string`
+
+GetCompletedOn returns the CompletedOn field if non-nil, zero value otherwise.
+
+### GetCompletedOnOk
+
+`func (o *ViewTask) GetCompletedOnOk() (*string, bool)`
+
+GetCompletedOnOk returns a tuple with the CompletedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompletedOn
+
+`func (o *ViewTask) SetCompletedOn(v string)`
+
+SetCompletedOn sets CompletedOn field to given value.
+
+### HasCompletedOn
+
+`func (o *ViewTask) HasCompletedOn() bool`
+
+HasCompletedOn returns a boolean if a field has been set.
+
 ### GetCreatedBy
 
 `func (o *ViewTask) GetCreatedBy() int32`
@@ -221,30 +286,55 @@ SetCreatedBy sets CreatedBy field to given value.
 
 HasCreatedBy returns a boolean if a field has been set.
 
-### GetCreatedByUserID
+### GetCreatedByUserId
 
-`func (o *ViewTask) GetCreatedByUserID() int32`
+`func (o *ViewTask) GetCreatedByUserId() int32`
 
-GetCreatedByUserID returns the CreatedByUserID field if non-nil, zero value otherwise.
+GetCreatedByUserId returns the CreatedByUserId field if non-nil, zero value otherwise.
 
-### GetCreatedByUserIDOk
+### GetCreatedByUserIdOk
 
-`func (o *ViewTask) GetCreatedByUserIDOk() (*int32, bool)`
+`func (o *ViewTask) GetCreatedByUserIdOk() (*int32, bool)`
 
-GetCreatedByUserIDOk returns a tuple with the CreatedByUserID field if it's non-nil, zero value otherwise
+GetCreatedByUserIdOk returns a tuple with the CreatedByUserId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCreatedByUserID
+### SetCreatedByUserId
 
-`func (o *ViewTask) SetCreatedByUserID(v int32)`
+`func (o *ViewTask) SetCreatedByUserId(v int32)`
 
-SetCreatedByUserID sets CreatedByUserID field to given value.
+SetCreatedByUserId sets CreatedByUserId field to given value.
 
-### HasCreatedByUserID
+### HasCreatedByUserId
 
-`func (o *ViewTask) HasCreatedByUserID() bool`
+`func (o *ViewTask) HasCreatedByUserId() bool`
 
-HasCreatedByUserID returns a boolean if a field has been set.
+HasCreatedByUserId returns a boolean if a field has been set.
+
+### GetCrmDealIds
+
+`func (o *ViewTask) GetCrmDealIds() []int32`
+
+GetCrmDealIds returns the CrmDealIds field if non-nil, zero value otherwise.
+
+### GetCrmDealIdsOk
+
+`func (o *ViewTask) GetCrmDealIdsOk() (*[]int32, bool)`
+
+GetCrmDealIdsOk returns a tuple with the CrmDealIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCrmDealIds
+
+`func (o *ViewTask) SetCrmDealIds(v []int32)`
+
+SetCrmDealIds sets CrmDealIds field to given value.
+
+### HasCrmDealIds
+
+`func (o *ViewTask) HasCrmDealIds() bool`
+
+HasCrmDealIds returns a boolean if a field has been set.
 
 ### GetDateUpdated
 
@@ -270,6 +360,81 @@ SetDateUpdated sets DateUpdated field to given value.
 `func (o *ViewTask) HasDateUpdated() bool`
 
 HasDateUpdated returns a boolean if a field has been set.
+
+### GetDependencyIds
+
+`func (o *ViewTask) GetDependencyIds() []int32`
+
+GetDependencyIds returns the DependencyIds field if non-nil, zero value otherwise.
+
+### GetDependencyIdsOk
+
+`func (o *ViewTask) GetDependencyIdsOk() (*[]int32, bool)`
+
+GetDependencyIdsOk returns a tuple with the DependencyIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDependencyIds
+
+`func (o *ViewTask) SetDependencyIds(v []int32)`
+
+SetDependencyIds sets DependencyIds field to given value.
+
+### HasDependencyIds
+
+`func (o *ViewTask) HasDependencyIds() bool`
+
+HasDependencyIds returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *ViewTask) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ViewTask) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ViewTask) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ViewTask) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetDisplayOrder
+
+`func (o *ViewTask) GetDisplayOrder() int32`
+
+GetDisplayOrder returns the DisplayOrder field if non-nil, zero value otherwise.
+
+### GetDisplayOrderOk
+
+`func (o *ViewTask) GetDisplayOrderOk() (*int32, bool)`
+
+GetDisplayOrderOk returns a tuple with the DisplayOrder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayOrder
+
+`func (o *ViewTask) SetDisplayOrder(v int32)`
+
+SetDisplayOrder sets DisplayOrder field to given value.
+
+### HasDisplayOrder
+
+`func (o *ViewTask) HasDisplayOrder() bool`
+
+HasDisplayOrder returns a boolean if a field has been set.
 
 ### GetDueDate
 
@@ -321,6 +486,31 @@ SetEstimateMinutes sets EstimateMinutes field to given value.
 
 HasEstimateMinutes returns a boolean if a field has been set.
 
+### GetHasDeskTickets
+
+`func (o *ViewTask) GetHasDeskTickets() bool`
+
+GetHasDeskTickets returns the HasDeskTickets field if non-nil, zero value otherwise.
+
+### GetHasDeskTicketsOk
+
+`func (o *ViewTask) GetHasDeskTicketsOk() (*bool, bool)`
+
+GetHasDeskTicketsOk returns a tuple with the HasDeskTickets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasDeskTickets
+
+`func (o *ViewTask) SetHasDeskTickets(v bool)`
+
+SetHasDeskTickets sets HasDeskTickets field to given value.
+
+### HasHasDeskTickets
+
+`func (o *ViewTask) HasHasDeskTickets() bool`
+
+HasHasDeskTickets returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *ViewTask) GetId() int32`
@@ -371,6 +561,31 @@ SetIsPrivate sets IsPrivate field to given value.
 
 HasIsPrivate returns a boolean if a field has been set.
 
+### GetLatestUpdates
+
+`func (o *ViewTask) GetLatestUpdates() []ViewAudit`
+
+GetLatestUpdates returns the LatestUpdates field if non-nil, zero value otherwise.
+
+### GetLatestUpdatesOk
+
+`func (o *ViewTask) GetLatestUpdatesOk() (*[]ViewAudit, bool)`
+
+GetLatestUpdatesOk returns a tuple with the LatestUpdates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLatestUpdates
+
+`func (o *ViewTask) SetLatestUpdates(v []ViewAudit)`
+
+SetLatestUpdates sets LatestUpdates field to given value.
+
+### HasLatestUpdates
+
+`func (o *ViewTask) HasLatestUpdates() bool`
+
+HasLatestUpdates returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *ViewTask) GetName() string`
@@ -395,6 +610,31 @@ SetName sets Name field to given value.
 `func (o *ViewTask) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetOriginalDueDate
+
+`func (o *ViewTask) GetOriginalDueDate() map[string]interface{}`
+
+GetOriginalDueDate returns the OriginalDueDate field if non-nil, zero value otherwise.
+
+### GetOriginalDueDateOk
+
+`func (o *ViewTask) GetOriginalDueDateOk() (*map[string]interface{}, bool)`
+
+GetOriginalDueDateOk returns a tuple with the OriginalDueDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOriginalDueDate
+
+`func (o *ViewTask) SetOriginalDueDate(v map[string]interface{})`
+
+SetOriginalDueDate sets OriginalDueDate field to given value.
+
+### HasOriginalDueDate
+
+`func (o *ViewTask) HasOriginalDueDate() bool`
+
+HasOriginalDueDate returns a boolean if a field has been set.
 
 ### GetParentTask
 
@@ -446,6 +686,81 @@ SetParentTaskId sets ParentTaskId field to given value.
 
 HasParentTaskId returns a boolean if a field has been set.
 
+### GetPredecessorIds
+
+`func (o *ViewTask) GetPredecessorIds() []int32`
+
+GetPredecessorIds returns the PredecessorIds field if non-nil, zero value otherwise.
+
+### GetPredecessorIdsOk
+
+`func (o *ViewTask) GetPredecessorIdsOk() (*[]int32, bool)`
+
+GetPredecessorIdsOk returns a tuple with the PredecessorIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPredecessorIds
+
+`func (o *ViewTask) SetPredecessorIds(v []int32)`
+
+SetPredecessorIds sets PredecessorIds field to given value.
+
+### HasPredecessorIds
+
+`func (o *ViewTask) HasPredecessorIds() bool`
+
+HasPredecessorIds returns a boolean if a field has been set.
+
+### GetPriority
+
+`func (o *ViewTask) GetPriority() string`
+
+GetPriority returns the Priority field if non-nil, zero value otherwise.
+
+### GetPriorityOk
+
+`func (o *ViewTask) GetPriorityOk() (*string, bool)`
+
+GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriority
+
+`func (o *ViewTask) SetPriority(v string)`
+
+SetPriority sets Priority field to given value.
+
+### HasPriority
+
+`func (o *ViewTask) HasPriority() bool`
+
+HasPriority returns a boolean if a field has been set.
+
+### GetProgress
+
+`func (o *ViewTask) GetProgress() int32`
+
+GetProgress returns the Progress field if non-nil, zero value otherwise.
+
+### GetProgressOk
+
+`func (o *ViewTask) GetProgressOk() (*int32, bool)`
+
+GetProgressOk returns a tuple with the Progress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProgress
+
+`func (o *ViewTask) SetProgress(v int32)`
+
+SetProgress sets Progress field to given value.
+
+### HasProgress
+
+`func (o *ViewTask) HasProgress() bool`
+
+HasProgress returns a boolean if a field has been set.
+
 ### GetStartDate
 
 `func (o *ViewTask) GetStartDate() string`
@@ -495,6 +810,56 @@ SetStatus sets Status field to given value.
 `func (o *ViewTask) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
+
+### GetSubTaskIds
+
+`func (o *ViewTask) GetSubTaskIds() []int32`
+
+GetSubTaskIds returns the SubTaskIds field if non-nil, zero value otherwise.
+
+### GetSubTaskIdsOk
+
+`func (o *ViewTask) GetSubTaskIdsOk() (*[]int32, bool)`
+
+GetSubTaskIdsOk returns a tuple with the SubTaskIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubTaskIds
+
+`func (o *ViewTask) SetSubTaskIds(v []int32)`
+
+SetSubTaskIds sets SubTaskIds field to given value.
+
+### HasSubTaskIds
+
+`func (o *ViewTask) HasSubTaskIds() bool`
+
+HasSubTaskIds returns a boolean if a field has been set.
+
+### GetTagIds
+
+`func (o *ViewTask) GetTagIds() []int32`
+
+GetTagIds returns the TagIds field if non-nil, zero value otherwise.
+
+### GetTagIdsOk
+
+`func (o *ViewTask) GetTagIdsOk() (*[]int32, bool)`
+
+GetTagIdsOk returns a tuple with the TagIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTagIds
+
+`func (o *ViewTask) SetTagIds(v []int32)`
+
+SetTagIds sets TagIds field to given value.
+
+### HasTagIds
+
+`func (o *ViewTask) HasTagIds() bool`
+
+HasTagIds returns a boolean if a field has been set.
 
 ### GetTasklist
 
@@ -570,6 +935,31 @@ SetUpdatedAt sets UpdatedAt field to given value.
 `func (o *ViewTask) HasUpdatedAt() bool`
 
 HasUpdatedAt returns a boolean if a field has been set.
+
+### GetUpdatedBy
+
+`func (o *ViewTask) GetUpdatedBy() int32`
+
+GetUpdatedBy returns the UpdatedBy field if non-nil, zero value otherwise.
+
+### GetUpdatedByOk
+
+`func (o *ViewTask) GetUpdatedByOk() (*int32, bool)`
+
+GetUpdatedByOk returns a tuple with the UpdatedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedBy
+
+`func (o *ViewTask) SetUpdatedBy(v int32)`
+
+SetUpdatedBy sets UpdatedBy field to given value.
+
+### HasUpdatedBy
+
+`func (o *ViewTask) HasUpdatedBy() bool`
+
+HasUpdatedBy returns a boolean if a field has been set.
 
 ### GetUserPermissions
 

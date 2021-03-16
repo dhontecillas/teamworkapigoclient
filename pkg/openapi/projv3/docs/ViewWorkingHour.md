@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **EntryIds** | Pointer to **[]int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Object** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Object** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ObjectId** | Pointer to **int32** |  | [optional] 
 **ObjectType** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 

@@ -30,7 +30,7 @@ type ProjectsIdTimeEntriesJsonTimeEntry struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectsIdTimeEntriesJsonTimeEntry(date string, hours string, minutes string, time string, ) *ProjectsIdTimeEntriesJsonTimeEntry {
+func NewProjectsIdTimeEntriesJsonTimeEntry(date string, hours string, minutes string, time string) *ProjectsIdTimeEntriesJsonTimeEntry {
 	this := ProjectsIdTimeEntriesJsonTimeEntry{}
 	this.Date = date
 	this.Hours = hours
@@ -49,7 +49,7 @@ func NewProjectsIdTimeEntriesJsonTimeEntryWithDefaults() *ProjectsIdTimeEntriesJ
 
 // GetDate returns the Date field value
 func (o *ProjectsIdTimeEntriesJsonTimeEntry) GetDate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -105,7 +105,7 @@ func (o *ProjectsIdTimeEntriesJsonTimeEntry) SetDescription(v string) {
 
 // GetHours returns the Hours field value
 func (o *ProjectsIdTimeEntriesJsonTimeEntry) GetHours() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -161,7 +161,7 @@ func (o *ProjectsIdTimeEntriesJsonTimeEntry) SetIsbillable(v string) {
 
 // GetMinutes returns the Minutes field value
 func (o *ProjectsIdTimeEntriesJsonTimeEntry) GetMinutes() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -249,7 +249,7 @@ func (o *ProjectsIdTimeEntriesJsonTimeEntry) SetTags(v string) {
 
 // GetTime returns the Time field value
 func (o *ProjectsIdTimeEntriesJsonTimeEntry) GetTime() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

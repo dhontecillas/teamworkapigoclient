@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Dashboards** | Pointer to [**[]ViewUserDashboard**](ViewUserDashboard.md) |  | [optional] 
-**Included** | Pointer to [**DashboardUserDashboardsResponseIncluded**](dashboard_UserDashboardsResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**DashboardUserDashboardsResponseIncluded**](DashboardUserDashboardsResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

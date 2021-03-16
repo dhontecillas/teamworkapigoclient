@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**TodoItem** | Pointer to [**InlineResponse200100TodoItem**](inline_response_200_100_todo_item.md) |  | [optional] 
+**TodoItem** | Pointer to [**InlineResponse200100TodoItem**](InlineResponse200100TodoItem.md) |  | [optional] 
 
 ## Methods
 

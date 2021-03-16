@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GETProjectsApiV3ProjectsprojectIdSummaryJson
 
-> SummaryProjectResponse GETProjectsApiV3ProjectsprojectIdSummaryJson(ctx, projectId).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).Health(health).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
+> SummaryProjectResponse GETProjectsApiV3ProjectsprojectIdSummaryJson(ctx, projectId).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).Health(health).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
 
 Get project summary dashboard
 
@@ -36,7 +36,8 @@ func main() {
     timeRangeStart := time.Now() // time.Time | filter by start datetime (optional)
     timeRangeEnd := time.Now() // time.Time | filter by end datetime (optional)
     timeRange := "timeRange_example" // string | filter by time range. It will be ignored if timeRangeStart and timeRangeEnd were informed. (optional)
-    status := "status_example" // string | project status (deprecated, use projectStatus) (optional)
+    status := "status_example" // string | project status (deprecated, use projectStatuses) (optional)
+    projectStatuses := "projectStatuses_example" // string | project statuses (optional)
     projectStatus := "projectStatus_example" // string | project status (optional)
     projectHealths := int32(56) // int32 | project healths  0: not set 1: bad 2: ok 3: good (optional)
     projectHealth := int32(56) // int32 | project health (deprecated, use projectHealths)  0: not set 1: bad 2: ok 3: good (optional)
@@ -78,7 +79,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.SummaryApi.GETProjectsApiV3ProjectsprojectIdSummaryJson(context.Background(), projectId).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).Health(health).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
+    resp, r, err := api_client.SummaryApi.GETProjectsApiV3ProjectsprojectIdSummaryJson(context.Background(), projectId).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).Health(health).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SummaryApi.GETProjectsApiV3ProjectsprojectIdSummaryJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -108,7 +109,8 @@ Name | Type | Description  | Notes
  **timeRangeStart** | **time.Time** | filter by start datetime | 
  **timeRangeEnd** | **time.Time** | filter by end datetime | 
  **timeRange** | **string** | filter by time range. It will be ignored if timeRangeStart and timeRangeEnd were informed. | 
- **status** | **string** | project status (deprecated, use projectStatus) | 
+ **status** | **string** | project status (deprecated, use projectStatuses) | 
+ **projectStatuses** | **string** | project statuses | 
  **projectStatus** | **string** | project status | 
  **projectHealths** | **int32** | project healths  0: not set 1: bad 2: ok 3: good | 
  **projectHealth** | **int32** | project health (deprecated, use projectHealths)  0: not set 1: bad 2: ok 3: good | 
@@ -150,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SummaryProjectResponse**](summary.ProjectResponse.md)
+[**SummaryProjectResponse**](SummaryProjectResponse.md)
 
 ### Authorization
 
@@ -168,7 +170,7 @@ No authorization required
 
 ## GETProjectsApiV3SummaryJson
 
-> SummaryResponse GETProjectsApiV3SummaryJson(ctx).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
+> SummaryResponse GETProjectsApiV3SummaryJson(ctx).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
 
 Get installation summary dashboard
 
@@ -192,7 +194,8 @@ func main() {
     timeRangeStart := time.Now() // time.Time | filter by start datetime (optional)
     timeRangeEnd := time.Now() // time.Time | filter by end datetime (optional)
     timeRange := "timeRange_example" // string | filter by time range. It will be ignored if timeRangeStart and timeRangeEnd are provided. (optional)
-    status := "status_example" // string | project status (deprecated, use projectStatus) (optional)
+    status := "status_example" // string | project status (deprecated, use projectStatuses) (optional)
+    projectStatuses := "projectStatuses_example" // string | project statuses (optional)
     projectStatus := "projectStatus_example" // string | project status (optional)
     projectHealths := int32(56) // int32 | project healths  0: not set 1: bad 2: ok 3: good (optional)
     projectHealth := int32(56) // int32 | project healths (deprecated, use projectHealths)  0: not set 1: bad 2: ok 3: good (optional)
@@ -233,7 +236,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.SummaryApi.GETProjectsApiV3SummaryJson(context.Background()).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
+    resp, r, err := api_client.SummaryApi.GETProjectsApiV3SummaryJson(context.Background()).Until(until).TimeRangeStart(timeRangeStart).TimeRangeEnd(timeRangeEnd).TimeRange(timeRange).Status(status).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).ProjectHealths(projectHealths).ProjectHealth(projectHealth).EventsDaysAhead(eventsDaysAhead).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UnreadMessagesMineOnly(unreadMessagesMineOnly).UnreadCommentsMineOnly(unreadCommentsMineOnly).OnlyStarredProjects(onlyStarredProjects).OnlyProjectEvents(onlyProjectEvents).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeArchivedProjects(includeArchivedProjects).EventsAttendingOnly(eventsAttendingOnly).ApplyTaskAssigneeUsersToSince(applyTaskAssigneeUsersToSince).ApplySinceOnUnread(applySinceOnUnread).UserIds(userIds).TimeLoggedByUserIds(timeLoggedByUserIds).TaskAssigneeUserIds(taskAssigneeUserIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).MilestoneAssigneeUserIds(milestoneAssigneeUserIds).FilterTagIds(filterTagIds).FieldsUnread(fieldsUnread).FieldsTime(fieldsTime).FieldsTasks(fieldsTasks).FieldsSince(fieldsSince).FieldsRisks(fieldsRisks).FieldsMilestones(fieldsMilestones).FieldsHealth(fieldsHealth).FieldsEvents(fieldsEvents).FieldsColumns(fieldsColumns).CompanyIds(companyIds).AssigneeUserIds(assigneeUserIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SummaryApi.GETProjectsApiV3SummaryJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -258,7 +261,8 @@ Name | Type | Description  | Notes
  **timeRangeStart** | **time.Time** | filter by start datetime | 
  **timeRangeEnd** | **time.Time** | filter by end datetime | 
  **timeRange** | **string** | filter by time range. It will be ignored if timeRangeStart and timeRangeEnd are provided. | 
- **status** | **string** | project status (deprecated, use projectStatus) | 
+ **status** | **string** | project status (deprecated, use projectStatuses) | 
+ **projectStatuses** | **string** | project statuses | 
  **projectStatus** | **string** | project status | 
  **projectHealths** | **int32** | project healths  0: not set 1: bad 2: ok 3: good | 
  **projectHealth** | **int32** | project healths (deprecated, use projectHealths)  0: not set 1: bad 2: ok 3: good | 
@@ -299,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SummaryResponse**](summary.Response.md)
+[**SummaryResponse**](SummaryResponse.md)
 
 ### Authorization
 

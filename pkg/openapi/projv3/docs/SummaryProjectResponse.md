@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Columns** | Pointer to [**SummaryColumnResponse**](summary.ColumnResponse.md) |  | [optional] 
-**Events** | Pointer to [**SummaryEventResponse**](summary.EventResponse.md) |  | [optional] 
-**Health** | Pointer to [**SummaryHealthResponse**](summary.HealthResponse.md) |  | [optional] 
-**Milestones** | Pointer to [**SummaryMilestoneResponse**](summary.MilestoneResponse.md) |  | [optional] 
-**Risks** | Pointer to [**SummaryRiskResponse**](summary.RiskResponse.md) |  | [optional] 
-**Since** | Pointer to [**SummarySinceResponse**](summary.SinceResponse.md) |  | [optional] 
-**Tasks** | Pointer to [**SummaryProjectTasksResponse**](summary.ProjectTasksResponse.md) |  | [optional] 
-**Time** | Pointer to [**SummaryTimeResponse**](summary.TimeResponse.md) |  | [optional] 
-**Unread** | Pointer to [**SummaryUnreadResponse**](summary.UnreadResponse.md) |  | [optional] 
+**Columns** | Pointer to [**SummaryColumnResponse**](SummaryColumnResponse.md) |  | [optional] 
+**Events** | Pointer to [**SummaryEventResponse**](SummaryEventResponse.md) |  | [optional] 
+**Health** | Pointer to [**SummaryHealthResponse**](SummaryHealthResponse.md) |  | [optional] 
+**Milestones** | Pointer to [**SummaryMilestoneResponse**](SummaryMilestoneResponse.md) |  | [optional] 
+**Risks** | Pointer to [**SummaryRiskResponse**](SummaryRiskResponse.md) |  | [optional] 
+**Since** | Pointer to [**SummarySinceResponse**](SummarySinceResponse.md) |  | [optional] 
+**Tasks** | Pointer to [**SummaryProjectTasksResponse**](SummaryProjectTasksResponse.md) |  | [optional] 
+**Time** | Pointer to [**SummaryTimeResponse**](SummaryTimeResponse.md) |  | [optional] 
+**Unread** | Pointer to [**SummaryUnreadResponse**](SummaryUnreadResponse.md) |  | [optional] 
 
 ## Methods
 

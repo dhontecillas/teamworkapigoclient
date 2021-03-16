@@ -24,7 +24,7 @@ type AllocationAllocation struct {
 	Duration *int32 `json:"duration,omitempty"`
 	// Date unmarshals represents a Unified API Spec date format.
 	EndedAt *map[string]interface{} `json:"endedAt,omitempty"`
-	HoursPerDay *int32 `json:"hoursPerDay,omitempty"`
+	HoursPerDay *float32 `json:"hoursPerDay,omitempty"`
 	IgnoreCollisions *bool `json:"ignoreCollisions,omitempty"`
 	ProjectId *int32 `json:"projectId,omitempty"`
 	RecurringRule *PayloadNullableRRule `json:"recurringRule,omitempty"`
@@ -243,9 +243,9 @@ func (o *AllocationAllocation) SetEndedAt(v map[string]interface{}) {
 }
 
 // GetHoursPerDay returns the HoursPerDay field value if set, zero value otherwise.
-func (o *AllocationAllocation) GetHoursPerDay() int32 {
+func (o *AllocationAllocation) GetHoursPerDay() float32 {
 	if o == nil || o.HoursPerDay == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 	return *o.HoursPerDay
@@ -253,7 +253,7 @@ func (o *AllocationAllocation) GetHoursPerDay() int32 {
 
 // GetHoursPerDayOk returns a tuple with the HoursPerDay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AllocationAllocation) GetHoursPerDayOk() (*int32, bool) {
+func (o *AllocationAllocation) GetHoursPerDayOk() (*float32, bool) {
 	if o == nil || o.HoursPerDay == nil {
 		return nil, false
 	}
@@ -269,8 +269,8 @@ func (o *AllocationAllocation) HasHoursPerDay() bool {
 	return false
 }
 
-// SetHoursPerDay gets a reference to the given int32 and assigns it to the HoursPerDay field.
-func (o *AllocationAllocation) SetHoursPerDay(v int32) {
+// SetHoursPerDay gets a reference to the given float32 and assigns it to the HoursPerDay field.
+func (o *AllocationAllocation) SetHoursPerDay(v float32) {
 	o.HoursPerDay = &v
 }
 

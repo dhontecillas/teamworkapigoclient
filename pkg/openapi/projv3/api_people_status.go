@@ -36,6 +36,7 @@ type ApiGETProjectsApiV3StatusesJsonRequest struct {
 	pageSize *int32
 	page *int32
 	showEveryone *bool
+	showDeleted *bool
 	includeSubteams *bool
 	include *[]string
 	fieldsUsers *[]string
@@ -64,6 +65,10 @@ func (r ApiGETProjectsApiV3StatusesJsonRequest) Page(page int32) ApiGETProjectsA
 }
 func (r ApiGETProjectsApiV3StatusesJsonRequest) ShowEveryone(showEveryone bool) ApiGETProjectsApiV3StatusesJsonRequest {
 	r.showEveryone = &showEveryone
+	return r
+}
+func (r ApiGETProjectsApiV3StatusesJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3StatusesJsonRequest {
+	r.showDeleted = &showDeleted
 	return r
 }
 func (r ApiGETProjectsApiV3StatusesJsonRequest) IncludeSubteams(includeSubteams bool) ApiGETProjectsApiV3StatusesJsonRequest {
@@ -143,6 +148,9 @@ func (a *PeopleStatusApiService) GETProjectsApiV3StatusesJsonExecute(r ApiGETPro
 	}
 	if r.showEveryone != nil {
 		localVarQueryParams.Add("showEveryone", parameterToString(*r.showEveryone, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
 	}
 	if r.includeSubteams != nil {
 		localVarQueryParams.Add("includeSubteams", parameterToString(*r.includeSubteams, ""))
@@ -226,6 +234,7 @@ type ApiGETProjectsApiV3StatusesTimelineJsonRequest struct {
 	teamId *int32
 	pageSize *int32
 	page *int32
+	showDeleted *bool
 	includeSubteams *bool
 	include *[]string
 	fieldsUsers *[]string
@@ -245,6 +254,10 @@ func (r ApiGETProjectsApiV3StatusesTimelineJsonRequest) PageSize(pageSize int32)
 }
 func (r ApiGETProjectsApiV3StatusesTimelineJsonRequest) Page(page int32) ApiGETProjectsApiV3StatusesTimelineJsonRequest {
 	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3StatusesTimelineJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3StatusesTimelineJsonRequest {
+	r.showDeleted = &showDeleted
 	return r
 }
 func (r ApiGETProjectsApiV3StatusesTimelineJsonRequest) IncludeSubteams(includeSubteams bool) ApiGETProjectsApiV3StatusesTimelineJsonRequest {
@@ -313,6 +326,9 @@ func (a *PeopleStatusApiService) GETProjectsApiV3StatusesTimelineJsonExecute(r A
 	}
 	if r.page != nil {
 		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
 	}
 	if r.includeSubteams != nil {
 		localVarQueryParams.Add("includeSubteams", parameterToString(*r.includeSubteams, ""))
@@ -393,6 +409,7 @@ type ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest struct {
 	teamId *int32
 	pageSize *int32
 	page *int32
+	showDeleted *bool
 	includeSubteams *bool
 	include *[]string
 	fieldsUsers *[]string
@@ -412,6 +429,10 @@ func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) PageSize(page
 }
 func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) Page(page int32) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
 	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+	r.showDeleted = &showDeleted
 	return r
 }
 func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) IncludeSubteams(includeSubteams bool) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
@@ -481,6 +502,9 @@ func (a *PeopleStatusApiService) GETProjectsApiV3TeamsTeamIdStatusesTimelineJson
 	}
 	if r.page != nil {
 		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
 	}
 	if r.includeSubteams != nil {
 		localVarQueryParams.Add("includeSubteams", parameterToString(*r.includeSubteams, ""))

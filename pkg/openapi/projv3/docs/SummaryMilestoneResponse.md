@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Everyone** | Pointer to [**SummaryMilestoneCountsResponse**](summary.MilestoneCountsResponse.md) |  | [optional] 
-**Mine** | Pointer to [**SummaryMilestoneCountsResponse**](summary.MilestoneCountsResponse.md) |  | [optional] 
+**Everyone** | Pointer to [**SummaryMilestoneCountsResponse**](SummaryMilestoneCountsResponse.md) |  | [optional] 
+**Mine** | Pointer to [**SummaryMilestoneCountsResponse**](SummaryMilestoneCountsResponse.md) |  | [optional] 
 
 ## Methods
 

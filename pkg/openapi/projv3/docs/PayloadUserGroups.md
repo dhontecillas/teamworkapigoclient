@@ -1,104 +1,104 @@
-# PayloadPrivacy
+# PayloadUserGroups
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CompanyIds** | Pointer to **[]int32** |  | [optional] 
-**TeamIds** | Pointer to **[]int32** |  | [optional] 
-**UserIds** | Pointer to **[]int32** |  | [optional] 
+**CompanyIds** | Pointer to [**PayloadNullableInt64Slice**](PayloadNullableInt64Slice.md) |  | [optional] 
+**TeamIds** | Pointer to [**PayloadNullableInt64Slice**](PayloadNullableInt64Slice.md) |  | [optional] 
+**UserIds** | Pointer to [**PayloadNullableInt64Slice**](PayloadNullableInt64Slice.md) |  | [optional] 
 
 ## Methods
 
-### NewPayloadPrivacy
+### NewPayloadUserGroups
 
-`func NewPayloadPrivacy() *PayloadPrivacy`
+`func NewPayloadUserGroups() *PayloadUserGroups`
 
-NewPayloadPrivacy instantiates a new PayloadPrivacy object
+NewPayloadUserGroups instantiates a new PayloadUserGroups object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewPayloadPrivacyWithDefaults
+### NewPayloadUserGroupsWithDefaults
 
-`func NewPayloadPrivacyWithDefaults() *PayloadPrivacy`
+`func NewPayloadUserGroupsWithDefaults() *PayloadUserGroups`
 
-NewPayloadPrivacyWithDefaults instantiates a new PayloadPrivacy object
+NewPayloadUserGroupsWithDefaults instantiates a new PayloadUserGroups object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetCompanyIds
 
-`func (o *PayloadPrivacy) GetCompanyIds() []int32`
+`func (o *PayloadUserGroups) GetCompanyIds() PayloadNullableInt64Slice`
 
 GetCompanyIds returns the CompanyIds field if non-nil, zero value otherwise.
 
 ### GetCompanyIdsOk
 
-`func (o *PayloadPrivacy) GetCompanyIdsOk() (*[]int32, bool)`
+`func (o *PayloadUserGroups) GetCompanyIdsOk() (*PayloadNullableInt64Slice, bool)`
 
 GetCompanyIdsOk returns a tuple with the CompanyIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompanyIds
 
-`func (o *PayloadPrivacy) SetCompanyIds(v []int32)`
+`func (o *PayloadUserGroups) SetCompanyIds(v PayloadNullableInt64Slice)`
 
 SetCompanyIds sets CompanyIds field to given value.
 
 ### HasCompanyIds
 
-`func (o *PayloadPrivacy) HasCompanyIds() bool`
+`func (o *PayloadUserGroups) HasCompanyIds() bool`
 
 HasCompanyIds returns a boolean if a field has been set.
 
 ### GetTeamIds
 
-`func (o *PayloadPrivacy) GetTeamIds() []int32`
+`func (o *PayloadUserGroups) GetTeamIds() PayloadNullableInt64Slice`
 
 GetTeamIds returns the TeamIds field if non-nil, zero value otherwise.
 
 ### GetTeamIdsOk
 
-`func (o *PayloadPrivacy) GetTeamIdsOk() (*[]int32, bool)`
+`func (o *PayloadUserGroups) GetTeamIdsOk() (*PayloadNullableInt64Slice, bool)`
 
 GetTeamIdsOk returns a tuple with the TeamIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTeamIds
 
-`func (o *PayloadPrivacy) SetTeamIds(v []int32)`
+`func (o *PayloadUserGroups) SetTeamIds(v PayloadNullableInt64Slice)`
 
 SetTeamIds sets TeamIds field to given value.
 
 ### HasTeamIds
 
-`func (o *PayloadPrivacy) HasTeamIds() bool`
+`func (o *PayloadUserGroups) HasTeamIds() bool`
 
 HasTeamIds returns a boolean if a field has been set.
 
 ### GetUserIds
 
-`func (o *PayloadPrivacy) GetUserIds() []int32`
+`func (o *PayloadUserGroups) GetUserIds() PayloadNullableInt64Slice`
 
 GetUserIds returns the UserIds field if non-nil, zero value otherwise.
 
 ### GetUserIdsOk
 
-`func (o *PayloadPrivacy) GetUserIdsOk() (*[]int32, bool)`
+`func (o *PayloadUserGroups) GetUserIdsOk() (*PayloadNullableInt64Slice, bool)`
 
 GetUserIdsOk returns a tuple with the UserIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserIds
 
-`func (o *PayloadPrivacy) SetUserIds(v []int32)`
+`func (o *PayloadUserGroups) SetUserIds(v PayloadNullableInt64Slice)`
 
 SetUserIds sets UserIds field to given value.
 
 ### HasUserIds
 
-`func (o *PayloadPrivacy) HasUserIds() bool`
+`func (o *PayloadUserGroups) HasUserIds() bool`
 
 HasUserIds returns a boolean if a field has been set.
 

@@ -16,7 +16,7 @@ import (
 
 // PayloadNotify Notify defines the access lists.
 type PayloadNotify struct {
-	Ids *EntityUserGroups `json:"ids,omitempty"`
+	Ids *PayloadUserGroups `json:"ids,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
@@ -38,9 +38,9 @@ func NewPayloadNotifyWithDefaults() *PayloadNotify {
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise.
-func (o *PayloadNotify) GetIds() EntityUserGroups {
+func (o *PayloadNotify) GetIds() PayloadUserGroups {
 	if o == nil || o.Ids == nil {
-		var ret EntityUserGroups
+		var ret PayloadUserGroups
 		return ret
 	}
 	return *o.Ids
@@ -48,7 +48,7 @@ func (o *PayloadNotify) GetIds() EntityUserGroups {
 
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PayloadNotify) GetIdsOk() (*EntityUserGroups, bool) {
+func (o *PayloadNotify) GetIdsOk() (*PayloadUserGroups, bool) {
 	if o == nil || o.Ids == nil {
 		return nil, false
 	}
@@ -64,8 +64,8 @@ func (o *PayloadNotify) HasIds() bool {
 	return false
 }
 
-// SetIds gets a reference to the given EntityUserGroups and assigns it to the Ids field.
-func (o *PayloadNotify) SetIds(v EntityUserGroups) {
+// SetIds gets a reference to the given PayloadUserGroups and assigns it to the Ids field.
+func (o *PayloadNotify) SetIds(v PayloadUserGroups) {
 	o.Ids = &v
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EstimateMinutes** | Pointer to **int32** |  | [optional] 
+**EstimateMinutes** | Pointer to **float32** |  | [optional] 
 **TaskId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEstimateMinutes
 
-`func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutes() int32`
+`func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutes() float32`
 
 GetEstimateMinutes returns the EstimateMinutes field if non-nil, zero value otherwise.
 
 ### GetEstimateMinutesOk
 
-`func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutesOk() (*int32, bool)`
+`func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutesOk() (*float32, bool)`
 
 GetEstimateMinutesOk returns a tuple with the EstimateMinutes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEstimateMinutes
 
-`func (o *PlannerWorkloadPlannerCapacityTask) SetEstimateMinutes(v int32)`
+`func (o *PlannerWorkloadPlannerCapacityTask) SetEstimateMinutes(v float32)`
 
 SetEstimateMinutes sets EstimateMinutes field to given value.
 

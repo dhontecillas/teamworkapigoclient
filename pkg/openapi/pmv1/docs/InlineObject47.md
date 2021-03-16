@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Post** | [**PostsIdJsonPost**](_posts__id__json_post.md) |  | 
+**Post** | [**PostsIdJsonPost**](PostsIdJsonPost.md) |  | 
 
 ## Methods
 

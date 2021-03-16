@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Customfields** | Pointer to [**map[string]ViewCustomField**](view.CustomField.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
+**Customfields** | Pointer to [**map[string]ViewCustomField**](ViewCustomField.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
 
 ## Methods
 

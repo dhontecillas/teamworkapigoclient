@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**NotebookVersionResponseIncluded**](notebook_VersionResponse_included.md) |  | [optional] 
-**Version** | Pointer to [**ViewNotebookVersion**](view.NotebookVersion.md) |  | [optional] 
+**Included** | Pointer to [**NotebookVersionResponseIncluded**](NotebookVersionResponseIncluded.md) |  | [optional] 
+**Version** | Pointer to [**ViewNotebookVersion**](ViewNotebookVersion.md) |  | [optional] 
 
 ## Methods
 

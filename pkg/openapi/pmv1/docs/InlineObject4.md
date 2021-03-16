@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Event** | Pointer to [**CalendareventsJsonEvent**](_calendarevents_json_event.md) |  | [optional] 
+**Event** | Pointer to [**CalendareventsJsonEvent**](CalendareventsJsonEvent.md) |  | [optional] 
 
 ## Methods
 

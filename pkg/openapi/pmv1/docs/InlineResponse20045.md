@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Card** | Pointer to [**InlineResponse20045Card**](inline_response_200_45_card.md) |  | [optional] 
-**Column** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Card** | Pointer to [**InlineResponse20045Card**](InlineResponse20045Card.md) |  | [optional] 
+**Column** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 
 ## Methods
 

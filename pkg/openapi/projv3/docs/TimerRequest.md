@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Timer** | Pointer to [**TimerTimer**](timer.Timer.md) |  | [optional] 
+**Timer** | Pointer to [**TimerTimer**](TimerTimer.md) |  | [optional] 
 
 ## Methods
 

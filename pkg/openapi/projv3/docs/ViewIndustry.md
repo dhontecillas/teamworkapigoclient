@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DisplayOrder** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**IndustryCategory** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**IndustryCategory** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **IndustryCategoryId** | Pointer to **int32** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
 **IsPublished** | Pointer to **bool** |  | [optional] 

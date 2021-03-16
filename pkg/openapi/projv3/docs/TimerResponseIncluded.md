@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Tasklists** | Pointer to [**map[string]ViewTasklist**](view.Tasklist.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Tasklists** | Pointer to [**map[string]ViewTasklist**](ViewTasklist.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

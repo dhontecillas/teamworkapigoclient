@@ -51,7 +51,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsTe
 
 ### Return type
 
-[**CategoryCategoriesResponse**](category.CategoriesResponse.md)
+[**CategoryCategoriesResponse**](CategoryCategoriesResponse.md)
 
 ### Authorization
 

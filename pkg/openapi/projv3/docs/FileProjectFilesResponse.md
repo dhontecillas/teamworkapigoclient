@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Files** | Pointer to [**[]ViewProjectFile**](ViewProjectFile.md) |  | [optional] 
-**Included** | Pointer to [**FileProjectFilesResponseIncluded**](file_ProjectFilesResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**FileProjectFilesResponseIncluded**](FileProjectFilesResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**TodoList** | Pointer to [**InlineResponse20096TodoList**](inline_response_200_96_todo_list.md) |  | [optional] 
+**TodoList** | Pointer to [**InlineResponse20096TodoList**](InlineResponse20096TodoList.md) |  | [optional] 
 
 ## Methods
 

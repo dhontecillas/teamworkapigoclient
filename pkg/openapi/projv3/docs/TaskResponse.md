@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomfieldTask** | Pointer to [**ViewCustomFieldTask**](view.CustomFieldTask.md) |  | [optional] 
+**Included** | Pointer to [**TaskResponseIncluded**](TaskResponseIncluded.md) |  | [optional] 
+**Task** | Pointer to [**ViewTask**](ViewTask.md) |  | [optional] 
 
 ## Methods
 
@@ -25,30 +26,55 @@ NewTaskResponseWithDefaults instantiates a new TaskResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCustomfieldTask
+### GetIncluded
 
-`func (o *TaskResponse) GetCustomfieldTask() ViewCustomFieldTask`
+`func (o *TaskResponse) GetIncluded() TaskResponseIncluded`
 
-GetCustomfieldTask returns the CustomfieldTask field if non-nil, zero value otherwise.
+GetIncluded returns the Included field if non-nil, zero value otherwise.
 
-### GetCustomfieldTaskOk
+### GetIncludedOk
 
-`func (o *TaskResponse) GetCustomfieldTaskOk() (*ViewCustomFieldTask, bool)`
+`func (o *TaskResponse) GetIncludedOk() (*TaskResponseIncluded, bool)`
 
-GetCustomfieldTaskOk returns a tuple with the CustomfieldTask field if it's non-nil, zero value otherwise
+GetIncludedOk returns a tuple with the Included field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCustomfieldTask
+### SetIncluded
 
-`func (o *TaskResponse) SetCustomfieldTask(v ViewCustomFieldTask)`
+`func (o *TaskResponse) SetIncluded(v TaskResponseIncluded)`
 
-SetCustomfieldTask sets CustomfieldTask field to given value.
+SetIncluded sets Included field to given value.
 
-### HasCustomfieldTask
+### HasIncluded
 
-`func (o *TaskResponse) HasCustomfieldTask() bool`
+`func (o *TaskResponse) HasIncluded() bool`
 
-HasCustomfieldTask returns a boolean if a field has been set.
+HasIncluded returns a boolean if a field has been set.
+
+### GetTask
+
+`func (o *TaskResponse) GetTask() ViewTask`
+
+GetTask returns the Task field if non-nil, zero value otherwise.
+
+### GetTaskOk
+
+`func (o *TaskResponse) GetTaskOk() (*ViewTask, bool)`
+
+GetTaskOk returns a tuple with the Task field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTask
+
+`func (o *TaskResponse) SetTask(v ViewTask)`
+
+SetTask sets Task field to given value.
+
+### HasTask
+
+`func (o *TaskResponse) HasTask() bool`
+
+HasTask returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

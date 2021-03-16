@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rates** | Pointer to [**ProjectsIdRatesJsonRates**](_projects__id__rates_json_rates.md) |  | [optional] 
+**Rates** | Pointer to [**ProjectsIdRatesJsonRates**](ProjectsIdRatesJsonRates.md) |  | [optional] 
 
 ## Methods
 

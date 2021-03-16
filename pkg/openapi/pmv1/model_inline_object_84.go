@@ -23,7 +23,7 @@ type InlineObject84 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject84(risk ProjectsIdRisksJsonRisk, ) *InlineObject84 {
+func NewInlineObject84(risk ProjectsIdRisksJsonRisk) *InlineObject84 {
 	this := InlineObject84{}
 	this.Risk = risk
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject84WithDefaults() *InlineObject84 {
 
 // GetRisk returns the Risk field value
 func (o *InlineObject84) GetRisk() ProjectsIdRisksJsonRisk {
-	if o == nil  {
+	if o == nil {
 		var ret ProjectsIdRisksJsonRisk
 		return ret
 	}

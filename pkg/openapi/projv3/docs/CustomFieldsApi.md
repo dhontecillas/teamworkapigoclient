@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomfieldResponse**](customfield.Response.md)
+[**CustomfieldResponse**](CustomfieldResponse.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomfieldCustomFieldsResponse**](customfield.CustomFieldsResponse.md)
+[**CustomfieldCustomFieldsResponse**](CustomfieldCustomFieldsResponse.md)
 
 ### Authorization
 
@@ -462,7 +462,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsPr
 
 ### Return type
 
-[**ProjectResponse**](project.Response.md)
+[**ProjectResponse**](ProjectResponse.md)
 
 ### Authorization
 
@@ -480,7 +480,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsProjectIdCustomfieldsJson
 
-> ProjectCustomFieldProjectsResponse GETProjectsApiV3ProjectsProjectIdCustomfieldsJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> ProjectCustomFieldProjectsResponse GETProjectsApiV3ProjectsProjectIdCustomfieldsJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Project custom field values.
 
@@ -510,6 +510,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -520,6 +521,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -543,7 +545,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CustomFieldsApi.GETProjectsApiV3ProjectsProjectIdCustomfieldsJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.CustomFieldsApi.GETProjectsApiV3ProjectsProjectIdCustomfieldsJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomFieldsApi.GETProjectsApiV3ProjectsProjectIdCustomfieldsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -574,6 +576,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -584,6 +587,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 
@@ -607,7 +611,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectCustomFieldProjectsResponse**](project.CustomFieldProjectsResponse.md)
+[**ProjectCustomFieldProjectsResponse**](ProjectCustomFieldProjectsResponse.md)
 
 ### Authorization
 
@@ -668,7 +672,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3TasksTaskI
 
 ### Return type
 
-[**TaskResponse**](task.Response.md)
+[**TaskResponse**](TaskResponse.md)
 
 ### Authorization
 
@@ -748,7 +752,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaskCustomFieldTasksResponse**](task.CustomFieldTasksResponse.md)
+[**TaskCustomFieldTasksResponse**](TaskCustomFieldTasksResponse.md)
 
 ### Authorization
 
@@ -814,7 +818,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomfieldResponse**](customfield.Response.md)
+[**CustomfieldResponse**](CustomfieldResponse.md)
 
 ### Authorization
 
@@ -880,7 +884,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectResponse**](project.Response.md)
+[**ProjectResponse**](ProjectResponse.md)
 
 ### Authorization
 
@@ -946,7 +950,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaskResponse**](task.Response.md)
+[**TaskResponse**](TaskResponse.md)
 
 ### Authorization
 
@@ -1076,7 +1080,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomfieldResponse**](customfield.Response.md)
+[**CustomfieldResponse**](CustomfieldResponse.md)
 
 ### Authorization
 
@@ -1206,7 +1210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectCustomFieldProjectsResponse**](project.CustomFieldProjectsResponse.md)
+[**ProjectCustomFieldProjectsResponse**](ProjectCustomFieldProjectsResponse.md)
 
 ### Authorization
 
@@ -1272,7 +1276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectResponse**](project.Response.md)
+[**ProjectResponse**](ProjectResponse.md)
 
 ### Authorization
 
@@ -1402,7 +1406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaskCustomFieldTasksResponse**](task.CustomFieldTasksResponse.md)
+[**TaskCustomFieldTasksResponse**](TaskCustomFieldTasksResponse.md)
 
 ### Authorization
 
@@ -1468,7 +1472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaskResponse**](task.Response.md)
+[**TaskResponse**](TaskResponse.md)
 
 ### Authorization
 
@@ -1534,7 +1538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomfieldResponse**](customfield.Response.md)
+[**CustomfieldResponse**](CustomfieldResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tags** | Pointer to [**ResourceIdTagsJsonTags**](__resource___id__tags_json_tags.md) |  | [optional] 
+**Tags** | Pointer to [**ResourceIdTagsJsonTags**](ResourceIdTagsJsonTags.md) |  | [optional] 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Availability** | Pointer to [**ViewUserAvailability**](view.UserAvailability.md) |  | [optional] 
-**Included** | Pointer to [**AvailabilityResponseIncluded**](availability_Response_included.md) |  | [optional] 
+**Availability** | Pointer to [**ViewUserAvailability**](ViewUserAvailability.md) |  | [optional] 
+**Included** | Pointer to [**AvailabilityResponseIncluded**](AvailabilityResponseIncluded.md) |  | [optional] 
 
 ## Methods
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | Pointer to [**PeopleJsonPersonAddress**](_people_json_person_address.md) |  | [optional] 
+**Address** | Pointer to [**PeopleJsonPersonAddress**](PeopleJsonPersonAddress.md) |  | [optional] 
 **Administrator** | Pointer to **bool** |  | [optional] 
 **AllowEmailNotifications** | Pointer to **bool** |  | [optional] 
 **AutoGiveProjectAccess** | Pointer to **bool** |  | [optional] 

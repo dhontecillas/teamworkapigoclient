@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Notify** | Pointer to **bool** |  | [optional] 
 **Private** | Pointer to **bool** |  | [optional] 
 **TasklistId** | Pointer to **int32** |  | [optional] 
-**TodoItem** | Pointer to [**ProjectsProjidTasksQuickaddJsonTodoItem**](_projects__projid__tasks_quickadd_json_todo_item.md) |  | [optional] 
+**TodoItem** | Pointer to [**ProjectsProjidTasksQuickaddJsonTodoItem**](ProjectsProjidTasksQuickaddJsonTodoItem.md) |  | [optional] 
 
 ## Methods
 

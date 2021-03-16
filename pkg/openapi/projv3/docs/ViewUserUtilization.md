@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | Pointer to [**[]ViewUserUtilizationData**](ViewUserUtilizationData.md) |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

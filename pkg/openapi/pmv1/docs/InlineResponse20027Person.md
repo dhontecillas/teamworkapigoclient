@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | Pointer to [**InlineResponse20013Address**](inline_response_200_13_address.md) |  | [optional] 
+**Address** | Pointer to [**InlineResponse20013Address**](InlineResponse20013Address.md) |  | [optional] 
 **Administrator** | Pointer to **bool** |  | [optional] 
 **AvatarUrl** | Pointer to **string** |  | [optional] 
 **CompanyId** | Pointer to **string** |  | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **LastChangedOn** | Pointer to **string** |  | [optional] 
 **LastLogin** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
-**Permissions** | Pointer to [**InlineResponse20027PersonPermissions**](inline_response_200_27_person_permissions.md) |  | [optional] 
+**Permissions** | Pointer to [**InlineResponse20027PersonPermissions**](InlineResponse20027PersonPermissions.md) |  | [optional] 
 **PhoneNumberFax** | Pointer to **string** |  | [optional] 
 **PhoneNumberHome** | Pointer to **string** |  | [optional] 
 **PhoneNumberMobile** | Pointer to **string** |  | [optional] 

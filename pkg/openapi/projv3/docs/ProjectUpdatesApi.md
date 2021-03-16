@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateProjectUpdatesResponse**](update.ProjectUpdatesResponse.md)
+[**UpdateProjectUpdatesResponse**](UpdateProjectUpdatesResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateProjectUpdatesResponse**](update.ProjectUpdatesResponse.md)
+[**UpdateProjectUpdatesResponse**](UpdateProjectUpdatesResponse.md)
 
 ### Authorization
 

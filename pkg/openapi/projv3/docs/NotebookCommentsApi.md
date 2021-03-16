@@ -51,7 +51,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3NotebooksI
 
 ### Return type
 
-[**CommentCommentsResponse**](comment.CommentsResponse.md)
+[**CommentCommentsResponse**](CommentCommentsResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Notebook** | Pointer to [**NotebookNotebook**](notebook.Notebook.md) |  | [optional] 
+**Notebook** | Pointer to [**NotebookNotebook**](NotebookNotebook.md) |  | [optional] 
 
 ## Methods
 

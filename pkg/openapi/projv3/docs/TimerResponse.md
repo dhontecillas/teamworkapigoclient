@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**TimerResponseIncluded**](timer_Response_included.md) |  | [optional] 
-**Timer** | Pointer to [**ViewTimer**](view.Timer.md) |  | [optional] 
+**Included** | Pointer to [**TimerResponseIncluded**](TimerResponseIncluded.md) |  | [optional] 
+**Timer** | Pointer to [**ViewTimer**](ViewTimer.md) |  | [optional] 
 
 ## Methods
 

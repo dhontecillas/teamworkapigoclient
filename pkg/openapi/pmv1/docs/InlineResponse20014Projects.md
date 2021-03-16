@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Announcement** | Pointer to **string** |  | [optional] 
-**Category** | Pointer to [**InlineResponse2002People12345Company**](inline_response_200_2_people_12345_company.md) |  | [optional] 
-**Company** | Pointer to [**InlineResponse20014Company**](inline_response_200_14_company.md) |  | [optional] 
+**Category** | Pointer to [**InlineResponse2002People12345Company**](InlineResponse2002People12345Company.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse20014Company**](InlineResponse20014Company.md) |  | [optional] 
 **CreatedOn** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **EndDate** | Pointer to **string** |  | [optional] 

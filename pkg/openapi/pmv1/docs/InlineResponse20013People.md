@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | Pointer to [**InlineResponse20013Address**](inline_response_200_13_address.md) |  | [optional] 
+**Address** | Pointer to [**InlineResponse20013Address**](InlineResponse20013Address.md) |  | [optional] 
 **AddressCity** | Pointer to **string** |  | [optional] 
 **AddressCountry** | Pointer to **string** |  | [optional] 
 **AddressLine1** | Pointer to **string** |  | [optional] 
@@ -35,11 +35,11 @@ Name | Type | Description | Notes
 **LoginCount** | Pointer to **string** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **OpenId** | Pointer to **string** |  | [optional] 
-**Permissions** | Pointer to [**InlineResponse20013Permissions**](inline_response_200_13_permissions.md) |  | [optional] 
+**Permissions** | Pointer to [**InlineResponse20013Permissions**](InlineResponse20013Permissions.md) |  | [optional] 
 **PhoneNumberFax** | Pointer to **string** |  | [optional] 
 **PhoneNumberHome** | Pointer to **string** |  | [optional] 
 **PhoneNumberMobile** | Pointer to **string** |  | [optional] 
-**PhoneNumberMobileParts** | Pointer to [**InlineResponse20013PhoneNumberMobileParts**](inline_response_200_13_phone_number_mobile_parts.md) |  | [optional] 
+**PhoneNumberMobileParts** | Pointer to [**InlineResponse20013PhoneNumberMobileParts**](InlineResponse20013PhoneNumberMobileParts.md) |  | [optional] 
 **PhoneNumberOffice** | Pointer to **string** |  | [optional] 
 **PhoneNumberOfficeExt** | Pointer to **string** |  | [optional] 
 **Pid** | Pointer to **string** |  | [optional] 

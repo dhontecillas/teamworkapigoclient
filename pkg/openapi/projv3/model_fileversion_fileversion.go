@@ -27,7 +27,7 @@ type FileversionFileversion struct {
 	Notify *PayloadNotify `json:"notify,omitempty"`
 	NotifyCurrentUser *bool `json:"notifyCurrentUser,omitempty"`
 	PendingFileRef *string `json:"pendingFileRef,omitempty"`
-	Privacy *PayloadPrivacy `json:"privacy,omitempty"`
+	Privacy *PayloadUserGroups `json:"privacy,omitempty"`
 	Private *bool `json:"private,omitempty"`
 	ProjectId *int32 `json:"projectId,omitempty"`
 }
@@ -402,9 +402,9 @@ func (o *FileversionFileversion) SetPendingFileRef(v string) {
 }
 
 // GetPrivacy returns the Privacy field value if set, zero value otherwise.
-func (o *FileversionFileversion) GetPrivacy() PayloadPrivacy {
+func (o *FileversionFileversion) GetPrivacy() PayloadUserGroups {
 	if o == nil || o.Privacy == nil {
-		var ret PayloadPrivacy
+		var ret PayloadUserGroups
 		return ret
 	}
 	return *o.Privacy
@@ -412,7 +412,7 @@ func (o *FileversionFileversion) GetPrivacy() PayloadPrivacy {
 
 // GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FileversionFileversion) GetPrivacyOk() (*PayloadPrivacy, bool) {
+func (o *FileversionFileversion) GetPrivacyOk() (*PayloadUserGroups, bool) {
 	if o == nil || o.Privacy == nil {
 		return nil, false
 	}
@@ -428,8 +428,8 @@ func (o *FileversionFileversion) HasPrivacy() bool {
 	return false
 }
 
-// SetPrivacy gets a reference to the given PayloadPrivacy and assigns it to the Privacy field.
-func (o *FileversionFileversion) SetPrivacy(v PayloadPrivacy) {
+// SetPrivacy gets a reference to the given PayloadUserGroups and assigns it to the Privacy field.
+func (o *FileversionFileversion) SetPrivacy(v PayloadUserGroups) {
 	o.Privacy = &v
 }
 

@@ -28,7 +28,7 @@ type ProjectsIdInvoicesJsonInvoice struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectsIdInvoicesJsonInvoice(displayDate string, number string, ) *ProjectsIdInvoicesJsonInvoice {
+func NewProjectsIdInvoicesJsonInvoice(displayDate string, number string) *ProjectsIdInvoicesJsonInvoice {
 	this := ProjectsIdInvoicesJsonInvoice{}
 	this.DisplayDate = displayDate
 	this.Number = number
@@ -109,7 +109,7 @@ func (o *ProjectsIdInvoicesJsonInvoice) SetDescription(v string) {
 
 // GetDisplayDate returns the DisplayDate field value
 func (o *ProjectsIdInvoicesJsonInvoice) GetDisplayDate() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -165,7 +165,7 @@ func (o *ProjectsIdInvoicesJsonInvoice) SetFixedCost(v string) {
 
 // GetNumber returns the Number field value
 func (o *ProjectsIdInvoicesJsonInvoice) GetNumber() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

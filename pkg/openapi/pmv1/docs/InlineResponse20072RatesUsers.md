@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Var12345** | Pointer to [**InlineResponse20072RatesUsers12345**](inline_response_200_72_rates_users_12345.md) |  | [optional] 
+**Var12345** | Pointer to [**InlineResponse20072RatesUsers12345**](InlineResponse20072RatesUsers12345.md) |  | [optional] 
 
 ## Methods
 

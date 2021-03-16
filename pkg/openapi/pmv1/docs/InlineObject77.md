@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TodoItem** | Pointer to [**ProjectsProjIdTasksJsonTodoItem**](_projects__projId__tasks_json_todo_item.md) |  | [optional] 
+**TodoItem** | Pointer to [**ProjectsProjIdTasksJsonTodoItem**](ProjectsProjIdTasksJsonTodoItem.md) |  | [optional] 
 
 ## Methods
 

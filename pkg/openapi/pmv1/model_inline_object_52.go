@@ -23,7 +23,7 @@ type InlineObject52 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject52(project ProjectsTemplateTemplateIDJsonProject, ) *InlineObject52 {
+func NewInlineObject52(project ProjectsTemplateTemplateIDJsonProject) *InlineObject52 {
 	this := InlineObject52{}
 	this.Project = project
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject52WithDefaults() *InlineObject52 {
 
 // GetProject returns the Project field value
 func (o *InlineObject52) GetProject() ProjectsTemplateTemplateIDJsonProject {
-	if o == nil  {
+	if o == nil {
 		var ret ProjectsTemplateTemplateIDJsonProject
 		return ret
 	}

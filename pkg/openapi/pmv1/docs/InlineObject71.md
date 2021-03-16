@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Risk** | Pointer to [**ProjectsIdRisksJsonRisk**](_projects__id__risks_json_risk.md) |  | [optional] 
+**Risk** | Pointer to [**ProjectsIdRisksJsonRisk**](ProjectsIdRisksJsonRisk.md) |  | [optional] 
 
 ## Methods
 

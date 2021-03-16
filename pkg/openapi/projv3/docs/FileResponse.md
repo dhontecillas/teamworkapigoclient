@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | Pointer to [**ViewProjectFile**](view.ProjectFile.md) |  | [optional] 
-**Included** | Pointer to [**FileProjectFilesResponseIncluded**](file_ProjectFilesResponse_included.md) |  | [optional] 
+**File** | Pointer to [**ViewProjectFile**](ViewProjectFile.md) |  | [optional] 
+**Included** | Pointer to [**FileProjectFilesResponseIncluded**](FileProjectFilesResponseIncluded.md) |  | [optional] 
 
 ## Methods
 

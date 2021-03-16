@@ -40,6 +40,8 @@ type ViewNotebook struct {
 	Lockdown *ViewRelationship `json:"lockdown,omitempty"`
 	LockdownId *int32 `json:"lockdownId,omitempty"`
 	Locked *bool `json:"locked,omitempty"`
+	LockedAt *string `json:"lockedAt,omitempty"`
+	LockedBy *int32 `json:"lockedBy,omitempty"`
 	Name *string `json:"name,omitempty"`
 	NotebookVersion *ViewRelationship `json:"notebookVersion,omitempty"`
 	NotebookVersionCreatedDateTime *string `json:"notebookVersionCreatedDateTime,omitempty"`
@@ -846,6 +848,70 @@ func (o *ViewNotebook) SetLocked(v bool) {
 	o.Locked = &v
 }
 
+// GetLockedAt returns the LockedAt field value if set, zero value otherwise.
+func (o *ViewNotebook) GetLockedAt() string {
+	if o == nil || o.LockedAt == nil {
+		var ret string
+		return ret
+	}
+	return *o.LockedAt
+}
+
+// GetLockedAtOk returns a tuple with the LockedAt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewNotebook) GetLockedAtOk() (*string, bool) {
+	if o == nil || o.LockedAt == nil {
+		return nil, false
+	}
+	return o.LockedAt, true
+}
+
+// HasLockedAt returns a boolean if a field has been set.
+func (o *ViewNotebook) HasLockedAt() bool {
+	if o != nil && o.LockedAt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLockedAt gets a reference to the given string and assigns it to the LockedAt field.
+func (o *ViewNotebook) SetLockedAt(v string) {
+	o.LockedAt = &v
+}
+
+// GetLockedBy returns the LockedBy field value if set, zero value otherwise.
+func (o *ViewNotebook) GetLockedBy() int32 {
+	if o == nil || o.LockedBy == nil {
+		var ret int32
+		return ret
+	}
+	return *o.LockedBy
+}
+
+// GetLockedByOk returns a tuple with the LockedBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewNotebook) GetLockedByOk() (*int32, bool) {
+	if o == nil || o.LockedBy == nil {
+		return nil, false
+	}
+	return o.LockedBy, true
+}
+
+// HasLockedBy returns a boolean if a field has been set.
+func (o *ViewNotebook) HasLockedBy() bool {
+	if o != nil && o.LockedBy != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLockedBy gets a reference to the given int32 and assigns it to the LockedBy field.
+func (o *ViewNotebook) SetLockedBy(v int32) {
+	o.LockedBy = &v
+}
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ViewNotebook) GetName() string {
 	if o == nil || o.Name == nil {
@@ -1527,6 +1593,12 @@ func (o ViewNotebook) MarshalJSON() ([]byte, error) {
 	}
 	if o.Locked != nil {
 		toSerialize["locked"] = o.Locked
+	}
+	if o.LockedAt != nil {
+		toSerialize["lockedAt"] = o.LockedAt
+	}
+	if o.LockedBy != nil {
+		toSerialize["lockedBy"] = o.LockedBy
 	}
 	if o.Name != nil {
 		toSerialize["name"] = o.Name

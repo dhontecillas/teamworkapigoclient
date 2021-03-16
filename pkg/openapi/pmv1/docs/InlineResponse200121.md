@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Project** | Pointer to [**InlineResponse200121Project**](inline_response_200_121_project.md) |  | [optional] 
+**Project** | Pointer to [**InlineResponse200121Project**](InlineResponse200121Project.md) |  | [optional] 
 
 ## Methods
 

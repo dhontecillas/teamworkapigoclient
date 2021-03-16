@@ -53,7 +53,7 @@ Other parameters are passed through a pointer to a apiGETAccountJsonRequest stru
 
 ### Return type
 
-[**InlineResponse200**](inline_response_200.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

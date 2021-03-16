@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **Private** | Pointer to **bool** |  | [optional] 
 **Progress** | Pointer to **int32** |  | [optional] 
 **RemoveOtherFiles** | Pointer to **bool** |  | [optional] 
-**RepeatOptions** | Pointer to [**TasklistsIdTasksJsonTodoItemRepeatOptions**](_tasklists__id__tasks_json_todo_item_repeatOptions.md) |  | [optional] 
+**RepeatOptions** | Pointer to [**TasklistsIdTasksJsonTodoItemRepeatOptions**](TasklistsIdTasksJsonTodoItemRepeatOptions.md) |  | [optional] 
 **ResponsiblePartyId** | Pointer to **string** |  | [optional] 
 **StartDate** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **string** |  | [optional] 

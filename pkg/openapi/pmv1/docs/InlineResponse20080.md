@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Update** | Pointer to [**InlineResponse20080Update**](inline_response_200_80_update.md) |  | [optional] 
+**Update** | Pointer to [**InlineResponse20080Update**](InlineResponse20080Update.md) |  | [optional] 
 
 ## Methods
 

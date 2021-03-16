@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Webhook** | Pointer to [**InlineResponse200117Webhooks**](inline_response_200_117_webhooks.md) |  | [optional] 
+**Webhook** | Pointer to [**InlineResponse200117Webhooks**](InlineResponse200117Webhooks.md) |  | [optional] 
 
 ## Methods
 

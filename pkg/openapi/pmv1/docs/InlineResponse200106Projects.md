@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | Pointer to [**InlineResponse2002People12345Company**](inline_response_200_2_people_12345_company.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse2002People12345Company**](InlineResponse2002People12345Company.md) |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Tasklist** | Pointer to [**InlineResponse200106Tasklist**](inline_response_200_106_tasklist.md) |  | [optional] 
+**Tasklist** | Pointer to [**InlineResponse200106Tasklist**](InlineResponse200106Tasklist.md) |  | [optional] 
 
 ## Methods
 

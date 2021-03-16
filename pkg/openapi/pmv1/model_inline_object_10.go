@@ -23,7 +23,7 @@ type InlineObject10 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject10(company CompaniesJsonCompany, ) *InlineObject10 {
+func NewInlineObject10(company CompaniesJsonCompany) *InlineObject10 {
 	this := InlineObject10{}
 	this.Company = company
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject10WithDefaults() *InlineObject10 {
 
 // GetCompany returns the Company field value
 func (o *InlineObject10) GetCompany() CompaniesJsonCompany {
-	if o == nil  {
+	if o == nil {
 		var ret CompaniesJsonCompany
 		return ret
 	}

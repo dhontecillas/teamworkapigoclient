@@ -31,7 +31,7 @@ type ProjectsIdPostsJsonPost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectsIdPostsJsonPost(body string, title string, ) *ProjectsIdPostsJsonPost {
+func NewProjectsIdPostsJsonPost(body string, title string) *ProjectsIdPostsJsonPost {
 	this := ProjectsIdPostsJsonPost{}
 	this.Body = body
 	this.Title = title
@@ -80,7 +80,7 @@ func (o *ProjectsIdPostsJsonPost) SetAttachments(v string) {
 
 // GetBody returns the Body field value
 func (o *ProjectsIdPostsJsonPost) GetBody() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}
@@ -264,7 +264,7 @@ func (o *ProjectsIdPostsJsonPost) SetTags(v string) {
 
 // GetTitle returns the Title field value
 func (o *ProjectsIdPostsJsonPost) GetTitle() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

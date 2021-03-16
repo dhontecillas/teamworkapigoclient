@@ -23,6 +23,7 @@ type ViewProjectUpdate struct {
 	DeletedAt *string `json:"deletedAt,omitempty"`
 	DeletedBy *int32 `json:"deletedBy,omitempty"`
 	Health *int32 `json:"health,omitempty"`
+	HealthLabel *string `json:"healthLabel,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	LikeFromUserIDs *[]int32 `json:"likeFromUserIDs,omitempty"`
 	LikeFromUsers *[]ViewRelationship `json:"likeFromUsers,omitempty"`
@@ -272,6 +273,38 @@ func (o *ViewProjectUpdate) HasHealth() bool {
 // SetHealth gets a reference to the given int32 and assigns it to the Health field.
 func (o *ViewProjectUpdate) SetHealth(v int32) {
 	o.Health = &v
+}
+
+// GetHealthLabel returns the HealthLabel field value if set, zero value otherwise.
+func (o *ViewProjectUpdate) GetHealthLabel() string {
+	if o == nil || o.HealthLabel == nil {
+		var ret string
+		return ret
+	}
+	return *o.HealthLabel
+}
+
+// GetHealthLabelOk returns a tuple with the HealthLabel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewProjectUpdate) GetHealthLabelOk() (*string, bool) {
+	if o == nil || o.HealthLabel == nil {
+		return nil, false
+	}
+	return o.HealthLabel, true
+}
+
+// HasHealthLabel returns a boolean if a field has been set.
+func (o *ViewProjectUpdate) HasHealthLabel() bool {
+	if o != nil && o.HealthLabel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHealthLabel gets a reference to the given string and assigns it to the HealthLabel field.
+func (o *ViewProjectUpdate) SetHealthLabel(v string) {
+	o.HealthLabel = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -552,6 +585,9 @@ func (o ViewProjectUpdate) MarshalJSON() ([]byte, error) {
 	}
 	if o.Health != nil {
 		toSerialize["health"] = o.Health
+	}
+	if o.HealthLabel != nil {
+		toSerialize["healthLabel"] = o.HealthLabel
 	}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id

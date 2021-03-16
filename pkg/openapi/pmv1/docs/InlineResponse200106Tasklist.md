@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Task** | Pointer to [**InlineResponse20098Tasklist**](inline_response_200_98_tasklist.md) |  | [optional] 
+**Task** | Pointer to [**InlineResponse20098Tasklist**](InlineResponse20098Tasklist.md) |  | [optional] 
 
 ## Methods
 

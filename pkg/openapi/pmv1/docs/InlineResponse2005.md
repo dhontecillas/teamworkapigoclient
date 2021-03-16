@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Event** | Pointer to [**InlineResponse2005Event**](inline_response_200_5_event.md) |  | [optional] 
+**Event** | Pointer to [**InlineResponse2005Event**](InlineResponse2005Event.md) |  | [optional] 
 
 ## Methods
 

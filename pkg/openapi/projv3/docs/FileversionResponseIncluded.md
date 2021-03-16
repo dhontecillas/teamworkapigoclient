@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Files** | Pointer to [**map[string]ViewProjectFile**](view.ProjectFile.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Files** | Pointer to [**map[string]ViewProjectFile**](ViewProjectFile.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

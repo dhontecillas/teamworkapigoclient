@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Lineitems** | Pointer to [**InvoicesIdLineitemsJsonLineitems**](_invoices__id__lineitems_json_lineitems.md) |  | [optional] 
+**Lineitems** | Pointer to [**InvoicesIdLineitemsJsonLineitems**](InvoicesIdLineitemsJsonLineitems.md) |  | [optional] 
 
 ## Methods
 

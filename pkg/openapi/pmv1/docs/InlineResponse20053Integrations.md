@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MicrosoftConnectors** | Pointer to [**InlineResponse20039PersonIntegrationsMicrosoftConnector**](inline_response_200_39_person_integrations_microsoftConnector.md) |  | [optional] 
-**Onedrivebusiness** | Pointer to [**InlineResponse20053IntegrationsOnedrivebusiness**](inline_response_200_53_integrations_onedrivebusiness.md) |  | [optional] 
-**Sharepoint** | Pointer to [**InlineResponse20053IntegrationsOnedrivebusiness**](inline_response_200_53_integrations_onedrivebusiness.md) |  | [optional] 
-**Xero** | Pointer to [**InlineResponse20053IntegrationsXero**](inline_response_200_53_integrations_xero.md) |  | [optional] 
+**MicrosoftConnectors** | Pointer to [**InlineResponse20039PersonIntegrationsMicrosoftConnector**](InlineResponse20039PersonIntegrationsMicrosoftConnector.md) |  | [optional] 
+**Onedrivebusiness** | Pointer to [**InlineResponse20053IntegrationsOnedrivebusiness**](InlineResponse20053IntegrationsOnedrivebusiness.md) |  | [optional] 
+**Sharepoint** | Pointer to [**InlineResponse20053IntegrationsOnedrivebusiness**](InlineResponse20053IntegrationsOnedrivebusiness.md) |  | [optional] 
+**Xero** | Pointer to [**InlineResponse20053IntegrationsXero**](InlineResponse20053IntegrationsXero.md) |  | [optional] 
 
 ## Methods
 

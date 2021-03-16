@@ -14,15 +14,15 @@ Name | Type | Description | Notes
 **LastChangedOn** | Pointer to **string** |  | [optional] 
 **NotifyUserIds** | Pointer to **string** |  | [optional] 
 **NotifyUserNames** | Pointer to **string** |  | [optional] 
-**Owner** | Pointer to [**InlineResponse2003Owner**](inline_response_200_3_owner.md) |  | [optional] 
-**Privacy** | Pointer to [**InlineResponse2003Privacy**](inline_response_200_3_privacy.md) |  | [optional] 
+**Owner** | Pointer to [**InlineResponse2003Owner**](InlineResponse2003Owner.md) |  | [optional] 
+**Privacy** | Pointer to [**InlineResponse2003Privacy**](InlineResponse2003Privacy.md) |  | [optional] 
 **ProjectUsersCanEdit** | Pointer to **bool** |  | [optional] 
 **Reminders** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **Repeat** | Pointer to **map[string]interface{}** |  | [optional] 
 **ShowAsBusy** | Pointer to **bool** |  | [optional] 
 **Start** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Type** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 **Where** | Pointer to **string** |  | [optional] 
 
 ## Methods

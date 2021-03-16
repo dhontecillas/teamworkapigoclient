@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**TimeEstimates** | Pointer to [**InlineResponse20098TasklistTimeEstimates**](inline_response_200_98_tasklist_time_estimates.md) |  | [optional] 
-**TimeTotals** | Pointer to [**InlineResponse20098TasklistTimeTotals**](inline_response_200_98_tasklist_time_totals.md) |  | [optional] 
+**TimeEstimates** | Pointer to [**InlineResponse20098TasklistTimeEstimates**](InlineResponse20098TasklistTimeEstimates.md) |  | [optional] 
+**TimeTotals** | Pointer to [**InlineResponse20098TasklistTimeTotals**](InlineResponse20098TasklistTimeTotals.md) |  | [optional] 
 
 ## Methods
 

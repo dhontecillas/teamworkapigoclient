@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Billing** | Pointer to [**InlineResponse20075StatsBilling**](inline_response_200_75_stats_billing.md) |  | [optional] 
-**Columns** | Pointer to [**InlineResponse20075StatsColumns**](inline_response_200_75_stats_columns.md) |  | [optional] 
-**Events** | Pointer to [**InlineResponse20075StatsEvents**](inline_response_200_75_stats_events.md) |  | [optional] 
-**Milestones** | Pointer to [**InlineResponse20075StatsMilestones**](inline_response_200_75_stats_milestones.md) |  | [optional] 
-**Tasks** | Pointer to [**InlineResponse20075StatsTasks**](inline_response_200_75_stats_tasks.md) |  | [optional] 
+**Billing** | Pointer to [**InlineResponse20075StatsBilling**](InlineResponse20075StatsBilling.md) |  | [optional] 
+**Columns** | Pointer to [**InlineResponse20075StatsColumns**](InlineResponse20075StatsColumns.md) |  | [optional] 
+**Events** | Pointer to [**InlineResponse20075StatsEvents**](InlineResponse20075StatsEvents.md) |  | [optional] 
+**Milestones** | Pointer to [**InlineResponse20075StatsMilestones**](InlineResponse20075StatsMilestones.md) |  | [optional] 
+**Tasks** | Pointer to [**InlineResponse20075StatsTasks**](InlineResponse20075StatsTasks.md) |  | [optional] 
 
 ## Methods
 

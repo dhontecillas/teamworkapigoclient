@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**CustomfieldProjects** | Pointer to [**map[string]ViewCustomFieldProject**](view.CustomFieldProject.md) |  | [optional] 
-**Customfields** | Pointer to [**map[string]ViewCustomField**](view.CustomField.md) |  | [optional] 
-**PortfolioBoards** | Pointer to [**map[string]ViewPortfolioBoard**](view.PortfolioBoard.md) |  | [optional] 
-**PortfolioCards** | Pointer to [**map[string]ViewPortfolioCard**](view.PortfolioCard.md) |  | [optional] 
-**PortfolioColumns** | Pointer to [**map[string]ViewPortfolioColumn**](view.PortfolioColumn.md) |  | [optional] 
-**ProjectBudgets** | Pointer to [**map[string]ViewProjectBudget**](view.ProjectBudget.md) |  | [optional] 
-**ProjectCategories** | Pointer to [**map[string]ViewProjectCategory**](view.ProjectCategory.md) |  | [optional] 
-**ProjectTaskStats** | Pointer to [**map[string]ViewProjectTaskStats**](view.ProjectTaskStats.md) |  | [optional] 
-**ProjectUpdates** | Pointer to [**map[string]ViewProjectUpdate**](view.ProjectUpdate.md) |  | [optional] 
-**Tags** | Pointer to [**map[string]ViewTag**](view.Tag.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**CustomfieldProjects** | Pointer to [**map[string]ViewCustomFieldProject**](ViewCustomFieldProject.md) |  | [optional] 
+**Customfields** | Pointer to [**map[string]ViewCustomField**](ViewCustomField.md) |  | [optional] 
+**PortfolioBoards** | Pointer to [**map[string]ViewPortfolioBoard**](ViewPortfolioBoard.md) |  | [optional] 
+**PortfolioCards** | Pointer to [**map[string]ViewPortfolioCard**](ViewPortfolioCard.md) |  | [optional] 
+**PortfolioColumns** | Pointer to [**map[string]ViewPortfolioColumn**](ViewPortfolioColumn.md) |  | [optional] 
+**ProjectBudgets** | Pointer to [**map[string]ViewProjectBudget**](ViewProjectBudget.md) |  | [optional] 
+**ProjectCategories** | Pointer to [**map[string]ViewProjectCategory**](ViewProjectCategory.md) |  | [optional] 
+**ProjectTaskStats** | Pointer to [**map[string]ViewProjectTaskStats**](ViewProjectTaskStats.md) |  | [optional] 
+**ProjectUpdates** | Pointer to [**map[string]ViewProjectUpdate**](ViewProjectUpdate.md) |  | [optional] 
+**Tags** | Pointer to [**map[string]ViewTag**](ViewTag.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Available** | Pointer to [**FileAvailableResponseAvailable**](file_AvailableResponse_available.md) |  | [optional] 
+**Available** | Pointer to [**FileAvailableResponseAvailable**](FileAvailableResponseAvailable.md) |  | [optional] 
 
 ## Methods
 

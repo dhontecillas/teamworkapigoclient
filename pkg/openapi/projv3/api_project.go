@@ -27,6 +27,116 @@ var (
 // ProjectApiService ProjectApi service
 type ProjectApiService service
 
+type ApiGETProjectsApiV3ProjectsIdFeaturesorderJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectApiService
+}
+
+
+func (r ApiGETProjectsApiV3ProjectsIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsIdFeaturesorderJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3ProjectsIdFeaturesorderJson Returns a project features order to display in tab
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiGETProjectsApiV3ProjectsIdFeaturesorderJsonRequest
+ */
+func (a *ProjectApiService) GETProjectsApiV3ProjectsIdFeaturesorderJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsIdFeaturesorderJsonRequest {
+	return ApiGETProjectsApiV3ProjectsIdFeaturesorderJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectFeatureOrderResponse
+ */
+func (a *ProjectApiService) GETProjectsApiV3ProjectsIdFeaturesorderJsonExecute(r ApiGETProjectsApiV3ProjectsIdFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectFeatureOrderResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectApiService.GETProjectsApiV3ProjectsIdFeaturesorderJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/:id/featuresorder.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGETProjectsApiV3ProjectsIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectApiService
@@ -40,6 +150,7 @@ type ApiGETProjectsApiV3ProjectsIdJsonRequest struct {
 	orderBy *string
 	minLastActivityDate *string
 	maxLastActivityDate *string
+	userId *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -50,6 +161,7 @@ type ApiGETProjectsApiV3ProjectsIdJsonRequest struct {
 	isReportDownload *bool
 	includeProjectUserInfo *bool
 	includeCustomFields *bool
+	includeCompletedStatus *bool
 	includeArchivedProjects *bool
 	hideObservedProjects *bool
 	projectTagIds *[]int32
@@ -112,6 +224,10 @@ func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) MaxLastActivityDate(maxLastAct
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsIdJsonRequest {
+	r.userId = &userId
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsIdJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
@@ -150,6 +266,10 @@ func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) IncludeProjectUserInfo(include
 }
 func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsIdJsonRequest {
 	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsIdJsonRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsIdJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsIdJsonRequest {
@@ -328,6 +448,9 @@ func (a *ProjectApiService) GETProjectsApiV3ProjectsIdJsonExecute(r ApiGETProjec
 	if r.maxLastActivityDate != nil {
 		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
 	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
 	}
@@ -357,6 +480,9 @@ func (a *ProjectApiService) GETProjectsApiV3ProjectsIdJsonExecute(r ApiGETProjec
 	}
 	if r.includeCustomFields != nil {
 		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
 	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
@@ -476,6 +602,246 @@ func (a *ProjectApiService) GETProjectsApiV3ProjectsIdJsonExecute(r ApiGETProjec
 			}
 			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectApiService
+}
+
+
+func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r)
+}
+
+/*
+ * PUTProjectsApiV3ProjectsFeaturesorderJson Sets the default features order to display in tab
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest
+ */
+func (a *ProjectApiService) PUTProjectsApiV3ProjectsFeaturesorderJson(ctx _context.Context) ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest {
+	return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectFeatureOrderResponse
+ */
+func (a *ProjectApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectFeatureOrderResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectApiService.PUTProjectsApiV3ProjectsFeaturesorderJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/featuresorder.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPUTProjectsApiV3ProjectsIdFeaturesorderJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectApiService
+}
+
+
+func (r ApiPUTProjectsApiV3ProjectsIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3ProjectsIdFeaturesorderJsonExecute(r)
+}
+
+/*
+ * PUTProjectsApiV3ProjectsIdFeaturesorderJson Sets the the features order to display in tab
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiPUTProjectsApiV3ProjectsIdFeaturesorderJsonRequest
+ */
+func (a *ProjectApiService) PUTProjectsApiV3ProjectsIdFeaturesorderJson(ctx _context.Context) ApiPUTProjectsApiV3ProjectsIdFeaturesorderJsonRequest {
+	return ApiPUTProjectsApiV3ProjectsIdFeaturesorderJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectFeatureOrderResponse
+ */
+func (a *ProjectApiService) PUTProjectsApiV3ProjectsIdFeaturesorderJsonExecute(r ApiPUTProjectsApiV3ProjectsIdFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectFeatureOrderResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectApiService.PUTProjectsApiV3ProjectsIdFeaturesorderJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/:id/featuresorder.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

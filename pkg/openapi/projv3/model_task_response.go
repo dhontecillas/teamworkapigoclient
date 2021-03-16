@@ -14,9 +14,10 @@ import (
 	"encoding/json"
 )
 
-// TaskResponse Response contains information about a specific task custom field value.
+// TaskResponse Response contains information about a specific task.
 type TaskResponse struct {
-	CustomfieldTask *ViewCustomFieldTask `json:"customfieldTask,omitempty"`
+	Included *TaskResponseIncluded `json:"included,omitempty"`
+	Task *ViewTask `json:"task,omitempty"`
 }
 
 // NewTaskResponse instantiates a new TaskResponse object
@@ -36,42 +37,77 @@ func NewTaskResponseWithDefaults() *TaskResponse {
 	return &this
 }
 
-// GetCustomfieldTask returns the CustomfieldTask field value if set, zero value otherwise.
-func (o *TaskResponse) GetCustomfieldTask() ViewCustomFieldTask {
-	if o == nil || o.CustomfieldTask == nil {
-		var ret ViewCustomFieldTask
+// GetIncluded returns the Included field value if set, zero value otherwise.
+func (o *TaskResponse) GetIncluded() TaskResponseIncluded {
+	if o == nil || o.Included == nil {
+		var ret TaskResponseIncluded
 		return ret
 	}
-	return *o.CustomfieldTask
+	return *o.Included
 }
 
-// GetCustomfieldTaskOk returns a tuple with the CustomfieldTask field value if set, nil otherwise
+// GetIncludedOk returns a tuple with the Included field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskResponse) GetCustomfieldTaskOk() (*ViewCustomFieldTask, bool) {
-	if o == nil || o.CustomfieldTask == nil {
+func (o *TaskResponse) GetIncludedOk() (*TaskResponseIncluded, bool) {
+	if o == nil || o.Included == nil {
 		return nil, false
 	}
-	return o.CustomfieldTask, true
+	return o.Included, true
 }
 
-// HasCustomfieldTask returns a boolean if a field has been set.
-func (o *TaskResponse) HasCustomfieldTask() bool {
-	if o != nil && o.CustomfieldTask != nil {
+// HasIncluded returns a boolean if a field has been set.
+func (o *TaskResponse) HasIncluded() bool {
+	if o != nil && o.Included != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomfieldTask gets a reference to the given ViewCustomFieldTask and assigns it to the CustomfieldTask field.
-func (o *TaskResponse) SetCustomfieldTask(v ViewCustomFieldTask) {
-	o.CustomfieldTask = &v
+// SetIncluded gets a reference to the given TaskResponseIncluded and assigns it to the Included field.
+func (o *TaskResponse) SetIncluded(v TaskResponseIncluded) {
+	o.Included = &v
+}
+
+// GetTask returns the Task field value if set, zero value otherwise.
+func (o *TaskResponse) GetTask() ViewTask {
+	if o == nil || o.Task == nil {
+		var ret ViewTask
+		return ret
+	}
+	return *o.Task
+}
+
+// GetTaskOk returns a tuple with the Task field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskResponse) GetTaskOk() (*ViewTask, bool) {
+	if o == nil || o.Task == nil {
+		return nil, false
+	}
+	return o.Task, true
+}
+
+// HasTask returns a boolean if a field has been set.
+func (o *TaskResponse) HasTask() bool {
+	if o != nil && o.Task != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTask gets a reference to the given ViewTask and assigns it to the Task field.
+func (o *TaskResponse) SetTask(v ViewTask) {
+	o.Task = &v
 }
 
 func (o TaskResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CustomfieldTask != nil {
-		toSerialize["customfieldTask"] = o.CustomfieldTask
+	if o.Included != nil {
+		toSerialize["included"] = o.Included
+	}
+	if o.Task != nil {
+		toSerialize["task"] = o.Task
 	}
 	return json.Marshal(toSerialize)
 }

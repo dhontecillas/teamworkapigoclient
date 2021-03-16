@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OneDriveBusiness** | Pointer to [**ViewProjectIntegrationsOneDriveBusiness**](view_Project_integrations_oneDriveBusiness.md) |  | [optional] 
-**Sharepoint** | Pointer to [**ViewProjectIntegrationsOneDriveBusiness**](view_Project_integrations_oneDriveBusiness.md) |  | [optional] 
-**Xero** | Pointer to [**ViewProjectIntegrationsXero**](view_Project_integrations_xero.md) |  | [optional] 
+**OneDriveBusiness** | Pointer to [**ViewProjectIntegrationsOneDriveBusiness**](ViewProjectIntegrationsOneDriveBusiness.md) |  | [optional] 
+**Sharepoint** | Pointer to [**ViewProjectIntegrationsOneDriveBusiness**](ViewProjectIntegrationsOneDriveBusiness.md) |  | [optional] 
+**Xero** | Pointer to [**ViewProjectIntegrationsXero**](ViewProjectIntegrationsXero.md) |  | [optional] 
 
 ## Methods
 

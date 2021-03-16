@@ -21,8 +21,10 @@ Name | Type | Description | Notes
 **Deadline** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
+**IsDeleted** | Pointer to **bool** |  | [optional] 
 **LastChangedOn** | Pointer to **string** |  | [optional] 
-**Lockdown** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**LatestUpdates** | Pointer to [**[]ViewAudit**](ViewAudit.md) |  | [optional] 
+**Lockdown** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **LockdownId** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NumCommentsRead** | Pointer to **int32** |  | [optional] 
@@ -30,7 +32,7 @@ Name | Type | Description | Notes
 **PercentageComplete** | Pointer to **int32** |  | [optional] 
 **PercentageTasksCompleted** | Pointer to **int32** |  | [optional] 
 **Private** | Pointer to **bool** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **Reminder** | Pointer to **bool** |  | [optional] 
 **ResponsibleParties** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
@@ -40,6 +42,7 @@ Name | Type | Description | Notes
 **Tags** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **TasklistIds** | Pointer to **[]int32** |  | [optional] 
 **Tasklists** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
+**UpdatedBy** | Pointer to **int32** |  | [optional] 
 **UserFollowingChanges** | Pointer to **bool** |  | [optional] 
 **UserFollowingComments** | Pointer to **bool** |  | [optional] 
 
@@ -487,6 +490,31 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### GetIsDeleted
+
+`func (o *ViewMilestone) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *ViewMilestone) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *ViewMilestone) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
+
+### HasIsDeleted
+
+`func (o *ViewMilestone) HasIsDeleted() bool`
+
+HasIsDeleted returns a boolean if a field has been set.
+
 ### GetLastChangedOn
 
 `func (o *ViewMilestone) GetLastChangedOn() string`
@@ -511,6 +539,31 @@ SetLastChangedOn sets LastChangedOn field to given value.
 `func (o *ViewMilestone) HasLastChangedOn() bool`
 
 HasLastChangedOn returns a boolean if a field has been set.
+
+### GetLatestUpdates
+
+`func (o *ViewMilestone) GetLatestUpdates() []ViewAudit`
+
+GetLatestUpdates returns the LatestUpdates field if non-nil, zero value otherwise.
+
+### GetLatestUpdatesOk
+
+`func (o *ViewMilestone) GetLatestUpdatesOk() (*[]ViewAudit, bool)`
+
+GetLatestUpdatesOk returns a tuple with the LatestUpdates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLatestUpdates
+
+`func (o *ViewMilestone) SetLatestUpdates(v []ViewAudit)`
+
+SetLatestUpdates sets LatestUpdates field to given value.
+
+### HasLatestUpdates
+
+`func (o *ViewMilestone) HasLatestUpdates() bool`
+
+HasLatestUpdates returns a boolean if a field has been set.
 
 ### GetLockdown
 
@@ -961,6 +1014,31 @@ SetTasklists sets Tasklists field to given value.
 `func (o *ViewMilestone) HasTasklists() bool`
 
 HasTasklists returns a boolean if a field has been set.
+
+### GetUpdatedBy
+
+`func (o *ViewMilestone) GetUpdatedBy() int32`
+
+GetUpdatedBy returns the UpdatedBy field if non-nil, zero value otherwise.
+
+### GetUpdatedByOk
+
+`func (o *ViewMilestone) GetUpdatedByOk() (*int32, bool)`
+
+GetUpdatedByOk returns a tuple with the UpdatedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedBy
+
+`func (o *ViewMilestone) SetUpdatedBy(v int32)`
+
+SetUpdatedBy sets UpdatedBy field to given value.
+
+### HasUpdatedBy
+
+`func (o *ViewMilestone) HasUpdatedBy() bool`
+
+HasUpdatedBy returns a boolean if a field has been set.
 
 ### GetUserFollowingChanges
 

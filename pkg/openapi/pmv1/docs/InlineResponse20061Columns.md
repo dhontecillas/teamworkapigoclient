@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Color** | Pointer to **string** |  | [optional] 
 **DateCreated** | Pointer to **string** |  | [optional] 
 **DateUpdated** | Pointer to **string** |  | [optional] 
-**DefaultTasklist** | Pointer to [**InlineResponse20061DefaultTasklist**](inline_response_200_61_defaultTasklist.md) |  | [optional] 
+**DefaultTasklist** | Pointer to [**InlineResponse20061DefaultTasklist**](InlineResponse20061DefaultTasklist.md) |  | [optional] 
 **Deleted** | Pointer to **bool** |  | [optional] 
 **DeletedDate** | Pointer to **string** |  | [optional] 
 **DisplayOrder** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **ProjectId** | Pointer to **string** |  | [optional] 
-**Settings** | Pointer to [**InlineResponse20061Settings**](inline_response_200_61_settings.md) |  | [optional] 
+**Settings** | Pointer to [**InlineResponse20061Settings**](InlineResponse20061Settings.md) |  | [optional] 
 **Sort** | Pointer to **string** |  | [optional] 
 **SortOrder** | Pointer to **string** |  | [optional] 
 

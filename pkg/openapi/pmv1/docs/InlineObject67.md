@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Add** | Pointer to [**ProjectsIdPeopleJsonAdd**](_projects__id__people_json_add.md) |  | [optional] 
-**Remove** | Pointer to [**ProjectsIdPeopleJsonAdd**](_projects__id__people_json_add.md) |  | [optional] 
+**Add** | Pointer to [**ProjectsIdPeopleJsonAdd**](ProjectsIdPeopleJsonAdd.md) |  | [optional] 
+**Remove** | Pointer to [**ProjectsIdPeopleJsonAdd**](ProjectsIdPeopleJsonAdd.md) |  | [optional] 
 
 ## Methods
 

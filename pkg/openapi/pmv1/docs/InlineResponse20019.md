@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Expense** | Pointer to [**InlineResponse20017Expenses**](inline_response_200_17_expenses.md) |  | [optional] 
+**Expense** | Pointer to [**InlineResponse20017Expenses**](InlineResponse20017Expenses.md) |  | [optional] 
 
 ## Methods
 

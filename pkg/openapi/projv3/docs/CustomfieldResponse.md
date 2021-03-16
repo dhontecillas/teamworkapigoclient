@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Count** | Pointer to **int32** |  | [optional] 
-**Customfield** | Pointer to [**ViewCustomField**](view.CustomField.md) |  | [optional] 
+**Customfield** | Pointer to [**ViewCustomField**](ViewCustomField.md) |  | [optional] 
 
 ## Methods
 

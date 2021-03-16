@@ -88,7 +88,7 @@ No authorization required
 
 ## GETProjectsApiV3AllocationsAllocationIdTimeJson
 
-> TimelogTimelogsResponse GETProjectsApiV3AllocationsAllocationIdTimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> TimelogTimelogsResponse GETProjectsApiV3AllocationsAllocationIdTimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get time entries for a specific allocation
 
@@ -112,6 +112,7 @@ func main() {
     startDate := time.Now() // string | filter by a starting date (optional)
     selectedColumns := "selectedColumns_example" // string | customise the report by selecting columns (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
+    projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
     projectStatus := "projectStatus_example" // string | filter by project status (optional)
     orderMode := "orderMode_example" // string | order mode (optional) (default to "asc")
     orderBy := "orderBy_example" // string | sort order (optional) (default to "date")
@@ -151,7 +152,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3AllocationsAllocationIdTimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3AllocationsAllocationIdTimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3AllocationsAllocationIdTimeJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -176,6 +177,7 @@ Name | Type | Description  | Notes
  **startDate** | **string** | filter by a starting date | 
  **selectedColumns** | **string** | customise the report by selecting columns | 
  **reportFormat** | **string** | define the format of the report | 
+ **projectStatuses** | **string** | filter by project statuses | 
  **projectStatus** | **string** | filter by project status | 
  **orderMode** | **string** | order mode | [default to &quot;asc&quot;]
  **orderBy** | **string** | sort order | [default to &quot;date&quot;]
@@ -215,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelogTimelogsResponse**](timelog.TimelogsResponse.md)
+[**TimelogTimelogsResponse**](TimelogTimelogsResponse.md)
 
 ### Authorization
 
@@ -310,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimerTimersResponse**](timer.TimersResponse.md)
+[**TimerTimersResponse**](TimerTimersResponse.md)
 
 ### Authorization
 
@@ -328,7 +330,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsProjectIdTimeJson
 
-> TimelogTimelogsResponse GETProjectsApiV3ProjectsProjectIdTimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> TimelogTimelogsResponse GETProjectsApiV3ProjectsProjectIdTimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get time entries for a specific project
 
@@ -352,6 +354,7 @@ func main() {
     startDate := time.Now() // string | filter by a starting date (optional)
     selectedColumns := "selectedColumns_example" // string | customise the report by selecting columns (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
+    projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
     projectStatus := "projectStatus_example" // string | filter by project status (optional)
     orderMode := "orderMode_example" // string | order mode (optional) (default to "asc")
     orderBy := "orderBy_example" // string | sort order (optional) (default to "date")
@@ -391,7 +394,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -416,6 +419,7 @@ Name | Type | Description  | Notes
  **startDate** | **string** | filter by a starting date | 
  **selectedColumns** | **string** | customise the report by selecting columns | 
  **reportFormat** | **string** | define the format of the report | 
+ **projectStatuses** | **string** | filter by project statuses | 
  **projectStatus** | **string** | filter by project status | 
  **orderMode** | **string** | order mode | [default to &quot;asc&quot;]
  **orderBy** | **string** | sort order | [default to &quot;date&quot;]
@@ -455,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelogTimelogsResponse**](timelog.TimelogsResponse.md)
+[**TimelogTimelogsResponse**](TimelogTimelogsResponse.md)
 
 ### Authorization
 
@@ -473,7 +477,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsProjectIdTimeTotalJson
 
-> TimelogTotalsResponse GETProjectsApiV3ProjectsProjectIdTimeTotalJson(ctx).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
+> TimelogTotalsResponse GETProjectsApiV3ProjectsProjectIdTimeTotalJson(ctx).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
 
 Get timelog totals.
 
@@ -490,6 +494,7 @@ import (
 )
 
 func main() {
+    projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
     projectStatus := "projectStatus_example" // string | filter by project status (optional)
     userId := int32(56) // int32 | filter by user id (optional)
     tasklistId := int32(56) // int32 | filter by tasklist id (optional)
@@ -509,7 +514,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeTotalJson(context.Background()).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeTotalJson(context.Background()).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeTotalJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -530,6 +535,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsPr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **projectStatuses** | **string** | filter by project statuses | 
  **projectStatus** | **string** | filter by project status | 
  **userId** | **int32** | filter by user id | 
  **tasklistId** | **int32** | filter by tasklist id | 
@@ -549,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelogTotalsResponse**](timelog.TotalsResponse.md)
+[**TimelogTotalsResponse**](TimelogTotalsResponse.md)
 
 ### Authorization
 
@@ -567,7 +573,7 @@ No authorization required
 
 ## GETProjectsApiV3TimeJson
 
-> TimelogTimelogsResponse GETProjectsApiV3TimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> TimelogTimelogsResponse GETProjectsApiV3TimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get all time entries
 
@@ -591,6 +597,7 @@ func main() {
     startDate := time.Now() // string | filter by a starting date (optional)
     selectedColumns := "selectedColumns_example" // string | customise the report by selecting columns (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
+    projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
     projectStatus := "projectStatus_example" // string | filter by project status (optional)
     orderMode := "orderMode_example" // string | order mode (optional) (default to "asc")
     orderBy := "orderBy_example" // string | sort order (optional) (default to "date")
@@ -630,7 +637,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3TimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3TimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3TimeJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -655,6 +662,7 @@ Name | Type | Description  | Notes
  **startDate** | **string** | filter by a starting date | 
  **selectedColumns** | **string** | customise the report by selecting columns | 
  **reportFormat** | **string** | define the format of the report | 
+ **projectStatuses** | **string** | filter by project statuses | 
  **projectStatus** | **string** | filter by project status | 
  **orderMode** | **string** | order mode | [default to &quot;asc&quot;]
  **orderBy** | **string** | sort order | [default to &quot;date&quot;]
@@ -694,7 +702,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelogTimelogsResponse**](timelog.TimelogsResponse.md)
+[**TimelogTimelogsResponse**](TimelogTimelogsResponse.md)
 
 ### Authorization
 
@@ -712,7 +720,7 @@ No authorization required
 
 ## GETProjectsApiV3TimeTotalJson
 
-> TimelogTotalsResponse GETProjectsApiV3TimeTotalJson(ctx).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
+> TimelogTotalsResponse GETProjectsApiV3TimeTotalJson(ctx).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
 
 Get timelog totals.
 
@@ -729,6 +737,7 @@ import (
 )
 
 func main() {
+    projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
     projectStatus := "projectStatus_example" // string | filter by project status (optional)
     userId := int32(56) // int32 | filter by user id (optional)
     tasklistId := int32(56) // int32 | filter by tasklist id (optional)
@@ -748,7 +757,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3TimeTotalJson(context.Background()).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3TimeTotalJson(context.Background()).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3TimeTotalJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -769,6 +778,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3TimeTotalJ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **projectStatuses** | **string** | filter by project statuses | 
  **projectStatus** | **string** | filter by project status | 
  **userId** | **int32** | filter by user id | 
  **tasklistId** | **int32** | filter by tasklist id | 
@@ -788,7 +798,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimelogTotalsResponse**](timelog.TotalsResponse.md)
+[**TimelogTotalsResponse**](TimelogTotalsResponse.md)
 
 ### Authorization
 
@@ -868,7 +878,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimerResponse**](timer.Response.md)
+[**TimerResponse**](TimerResponse.md)
 
 ### Authorization
 
@@ -963,7 +973,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimerTimersResponse**](timer.TimersResponse.md)
+[**TimerTimersResponse**](TimerTimersResponse.md)
 
 ### Authorization
 
@@ -1029,7 +1039,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimerResponse**](timer.Response.md)
+[**TimerResponse**](TimerResponse.md)
 
 ### Authorization
 
@@ -1090,7 +1100,7 @@ Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersId
 
 ### Return type
 
-[**TimerResponse**](timer.Response.md)
+[**TimerResponse**](TimerResponse.md)
 
 ### Authorization
 
@@ -1156,7 +1166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TimerResponse**](timer.Response.md)
+[**TimerResponse**](TimerResponse.md)
 
 ### Authorization
 
@@ -1217,7 +1227,7 @@ Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersId
 
 ### Return type
 
-[**TimerResponse**](timer.Response.md)
+[**TimerResponse**](TimerResponse.md)
 
 ### Authorization
 
@@ -1278,7 +1288,7 @@ Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersId
 
 ### Return type
 
-[**TimerResponse**](timer.Response.md)
+[**TimerResponse**](TimerResponse.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Companies** | Pointer to **map[string]interface{}** |  | [optional] 
 **CreatedByUserId** | Pointer to **int32** |  | [optional] 
 **CreatedTime** | Pointer to **string** |  | [optional] 
-**People** | Pointer to [**InlineResponse200101People**](inline_response_200_101_people.md) |  | [optional] 
+**People** | Pointer to [**InlineResponse200101People**](InlineResponse200101People.md) |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **map[string]interface{}** |  | [optional] 
 **Tasklists** | Pointer to **map[string]interface{}** |  | [optional] 

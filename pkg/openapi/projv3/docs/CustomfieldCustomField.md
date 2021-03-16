@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **IsPrivate** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Options** | Pointer to **map[string]interface{}** |  | [optional] 
-**Privacy** | Pointer to [**PayloadPrivacy**](payload.Privacy.md) |  | [optional] 
+**Privacy** | Pointer to [**PayloadUserGroups**](PayloadUserGroups.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **Required** | Pointer to **bool** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
@@ -161,20 +161,20 @@ HasOptions returns a boolean if a field has been set.
 
 ### GetPrivacy
 
-`func (o *CustomfieldCustomField) GetPrivacy() PayloadPrivacy`
+`func (o *CustomfieldCustomField) GetPrivacy() PayloadUserGroups`
 
 GetPrivacy returns the Privacy field if non-nil, zero value otherwise.
 
 ### GetPrivacyOk
 
-`func (o *CustomfieldCustomField) GetPrivacyOk() (*PayloadPrivacy, bool)`
+`func (o *CustomfieldCustomField) GetPrivacyOk() (*PayloadUserGroups, bool)`
 
 GetPrivacyOk returns a tuple with the Privacy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacy
 
-`func (o *CustomfieldCustomField) SetPrivacy(v PayloadPrivacy)`
+`func (o *CustomfieldCustomField) SetPrivacy(v PayloadUserGroups)`
 
 SetPrivacy sets Privacy field to given value.
 

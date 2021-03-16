@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CalendarEvents** | Pointer to [**map[string]ViewCalendarEvent**](view.CalendarEvent.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
-**WorkingHourEntries** | Pointer to [**map[string]ViewWorkingHourEntry**](view.WorkingHourEntry.md) |  | [optional] 
-**WorkingHours** | Pointer to [**map[string]ViewWorkingHour**](view.WorkingHour.md) |  | [optional] 
+**CalendarEvents** | Pointer to [**map[string]ViewCalendarEvent**](ViewCalendarEvent.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
+**WorkingHourEntries** | Pointer to [**map[string]ViewWorkingHourEntry**](ViewWorkingHourEntry.md) |  | [optional] 
+**WorkingHours** | Pointer to [**map[string]ViewWorkingHour**](ViewWorkingHour.md) |  | [optional] 
 
 ## Methods
 

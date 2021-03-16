@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | [**LinkCategoriesIdJsonCategory**](_linkCategories__id__json_category.md) |  | 
+**Category** | [**LinkCategoriesIdJsonCategory**](LinkCategoriesIdJsonCategory.md) |  | 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Var12345** | Pointer to [**ProjectsIdRatesJsonRatesUsers12345**](_projects__id__rates_json_rates_users_12345.md) |  | [optional] 
-**Var12346** | Pointer to [**ProjectsIdRatesJsonRatesUsers12345**](_projects__id__rates_json_rates_users_12345.md) |  | [optional] 
+**Var12345** | Pointer to [**ProjectsIdRatesJsonRatesUsers12345**](ProjectsIdRatesJsonRatesUsers12345.md) |  | [optional] 
+**Var12346** | Pointer to [**ProjectsIdRatesJsonRatesUsers12345**](ProjectsIdRatesJsonRatesUsers12345.md) |  | [optional] 
 
 ## Methods
 

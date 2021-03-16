@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tag** | Pointer to [**TagTag**](tag.Tag.md) |  | [optional] 
+**Tag** | Pointer to [**TagTag**](TagTag.md) |  | [optional] 
 
 ## Methods
 

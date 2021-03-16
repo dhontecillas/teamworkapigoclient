@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomfieldProjects** | Pointer to [**[]ViewCustomFieldProject**](ViewCustomFieldProject.md) |  | [optional] 
-**Included** | Pointer to [**ProjectCustomFieldProjectsResponseIncluded**](project_CustomFieldProjectsResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**ProjectCustomFieldProjectsResponseIncluded**](ProjectCustomFieldProjectsResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

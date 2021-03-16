@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Tag** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Tag** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 
 ## Methods
 

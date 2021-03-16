@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Account** | Pointer to [**InlineResponse200Account**](inline_response_200_account.md) |  | [optional] 
+**Account** | Pointer to [**InlineResponse200Account**](InlineResponse200Account.md) |  | [optional] 
 
 ## Methods
 

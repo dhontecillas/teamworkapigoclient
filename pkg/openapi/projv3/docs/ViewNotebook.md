@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Category** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **CategoryId** | Pointer to **int32** |  | [optional] 
-**ChangeFollowers** | Pointer to [**ViewUserGroups**](view.UserGroups.md) |  | [optional] 
-**CommentFollowers** | Pointer to [**ViewUserGroups**](view.UserGroups.md) |  | [optional] 
+**ChangeFollowers** | Pointer to [**ViewUserGroups**](ViewUserGroups.md) |  | [optional] 
+**CommentFollowers** | Pointer to [**ViewUserGroups**](ViewUserGroups.md) |  | [optional] 
 **CommentsCount** | Pointer to **int32** |  | [optional] 
 **ContentHTML** | Pointer to **string** |  | [optional] 
 **Contents** | Pointer to **string** |  | [optional] 
@@ -25,16 +25,18 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** |  | [optional] 
 **IsPrivate** | Pointer to **bool** |  | [optional] 
 **LatestVersionNo** | Pointer to **int32** |  | [optional] 
-**Lockdown** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Lockdown** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **LockdownId** | Pointer to **int32** |  | [optional] 
 **Locked** | Pointer to **bool** |  | [optional] 
+**LockedAt** | Pointer to **string** |  | [optional] 
+**LockedBy** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**NotebookVersion** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**NotebookVersion** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **NotebookVersionCreatedDateTime** | Pointer to **string** |  | [optional] 
 **NotebookVersionID** | Pointer to **int32** |  | [optional] 
 **NotebookVersionUpdatedDateTime** | Pointer to **string** |  | [optional] 
-**Privacy** | Pointer to [**ViewUserGroups**](view.UserGroups.md) |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Privacy** | Pointer to [**ViewUserGroups**](ViewUserGroups.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **ReadCommentsCount** | Pointer to **int32** |  | [optional] 
 **SecureContent** | Pointer to **bool** |  | [optional] 
@@ -666,6 +668,56 @@ SetLocked sets Locked field to given value.
 `func (o *ViewNotebook) HasLocked() bool`
 
 HasLocked returns a boolean if a field has been set.
+
+### GetLockedAt
+
+`func (o *ViewNotebook) GetLockedAt() string`
+
+GetLockedAt returns the LockedAt field if non-nil, zero value otherwise.
+
+### GetLockedAtOk
+
+`func (o *ViewNotebook) GetLockedAtOk() (*string, bool)`
+
+GetLockedAtOk returns a tuple with the LockedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLockedAt
+
+`func (o *ViewNotebook) SetLockedAt(v string)`
+
+SetLockedAt sets LockedAt field to given value.
+
+### HasLockedAt
+
+`func (o *ViewNotebook) HasLockedAt() bool`
+
+HasLockedAt returns a boolean if a field has been set.
+
+### GetLockedBy
+
+`func (o *ViewNotebook) GetLockedBy() int32`
+
+GetLockedBy returns the LockedBy field if non-nil, zero value otherwise.
+
+### GetLockedByOk
+
+`func (o *ViewNotebook) GetLockedByOk() (*int32, bool)`
+
+GetLockedByOk returns a tuple with the LockedBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLockedBy
+
+`func (o *ViewNotebook) SetLockedBy(v int32)`
+
+SetLockedBy sets LockedBy field to given value.
+
+### HasLockedBy
+
+`func (o *ViewNotebook) HasLockedBy() bool`
+
+HasLockedBy returns a boolean if a field has been set.
 
 ### GetName
 

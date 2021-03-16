@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Rates** | Pointer to [**InlineResponse20072Rates**](inline_response_200_72_rates.md) |  | [optional] 
+**Rates** | Pointer to [**InlineResponse20072Rates**](InlineResponse20072Rates.md) |  | [optional] 
 
 ## Methods
 

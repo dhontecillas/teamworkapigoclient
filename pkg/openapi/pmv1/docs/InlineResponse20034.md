@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Milestone** | Pointer to [**InlineResponse20034Milestone**](inline_response_200_34_milestone.md) |  | [optional] 
+**Milestone** | Pointer to [**InlineResponse20034Milestone**](InlineResponse20034Milestone.md) |  | [optional] 
 
 ## Methods
 

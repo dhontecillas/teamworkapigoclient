@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TodoItem** | Pointer to [**CalendareventsIdJsonEventType**](_calendarevents__id__json_event_type.md) |  | [optional] 
+**TodoItem** | Pointer to [**CalendareventsIdJsonEventType**](CalendareventsIdJsonEventType.md) |  | [optional] 
 
 ## Methods
 

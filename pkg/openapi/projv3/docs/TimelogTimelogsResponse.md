@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**TimelogTimelogsResponseIncluded**](timelog_TimelogsResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**TimelogTimelogsResponseIncluded**](TimelogTimelogsResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 **Timelogs** | Pointer to [**[]ViewTimelog**](ViewTimelog.md) |  | [optional] 
 
 ## Methods

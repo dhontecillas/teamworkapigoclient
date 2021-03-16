@@ -42,7 +42,7 @@ type ProjectsTemplateJsonProject struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectsTemplateJsonProject(templateDateTargetDefault string, ) *ProjectsTemplateJsonProject {
+func NewProjectsTemplateJsonProject(templateDateTargetDefault string) *ProjectsTemplateJsonProject {
 	this := ProjectsTemplateJsonProject{}
 	this.TemplateDateTargetDefault = templateDateTargetDefault
 	return &this
@@ -282,7 +282,7 @@ func (o *ProjectsTemplateJsonProject) SetTags(v string) {
 
 // GetTemplateDateTargetDefault returns the TemplateDateTargetDefault field value
 func (o *ProjectsTemplateJsonProject) GetTemplateDateTargetDefault() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

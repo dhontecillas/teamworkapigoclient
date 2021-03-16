@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RiskRisksResponse**](risk.RisksResponse.md)
+[**RiskRisksResponse**](RiskRisksResponse.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RiskRisksResponse**](risk.RisksResponse.md)
+[**RiskRisksResponse**](RiskRisksResponse.md)
 
 ### Authorization
 

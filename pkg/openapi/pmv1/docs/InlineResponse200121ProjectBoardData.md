@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Board** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
-**Card** | Pointer to [**CalendareventsIdJsonEventType**](_calendarevents__id__json_event_type.md) |  | [optional] 
-**Column** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
+**Board** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
+**Card** | Pointer to [**CalendareventsIdJsonEventType**](CalendareventsIdJsonEventType.md) |  | [optional] 
+**Column** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
 
 ## Methods
 

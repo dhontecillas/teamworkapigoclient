@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**LateTaskMetricLate**](late.TaskMetricLate.md) |  | [optional] 
+**Data** | Pointer to [**LateTaskMetricLate**](LateTaskMetricLate.md) |  | [optional] 
 
 ## Methods
 

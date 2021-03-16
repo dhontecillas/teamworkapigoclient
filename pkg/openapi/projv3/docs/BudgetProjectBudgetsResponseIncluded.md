@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Notifications** | Pointer to [**map[string]ViewProjectBudgetNotification**](view.ProjectBudgetNotification.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Teams** | Pointer to [**map[string]ViewTeam**](view.Team.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Notifications** | Pointer to [**map[string]ViewProjectBudgetNotification**](ViewProjectBudgetNotification.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Teams** | Pointer to [**map[string]ViewTeam**](ViewTeam.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeTotals** | Pointer to [**ViewTimelogTotals**](view.TimelogTotals.md) |  | [optional] 
+**TimeTotals** | Pointer to [**ViewTimelogTotals**](ViewTimelogTotals.md) |  | [optional] 
 
 ## Methods
 

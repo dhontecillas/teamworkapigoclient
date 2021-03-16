@@ -18,7 +18,7 @@ import (
 type PlannerWorkloadPlannerCapacity struct {
 	// percentage
 	Capacity *float32 `json:"capacity,omitempty"`
-	EstimateMinutesTotal *int32 `json:"estimateMinutesTotal,omitempty"`
+	EstimateMinutesTotal *float32 `json:"estimateMinutesTotal,omitempty"`
 	LengthOfDayMinutes *float32 `json:"lengthOfDayMinutes,omitempty"`
 	Tasks *[]PlannerWorkloadPlannerCapacityTask `json:"tasks,omitempty"`
 }
@@ -73,9 +73,9 @@ func (o *PlannerWorkloadPlannerCapacity) SetCapacity(v float32) {
 }
 
 // GetEstimateMinutesTotal returns the EstimateMinutesTotal field value if set, zero value otherwise.
-func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotal() int32 {
+func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotal() float32 {
 	if o == nil || o.EstimateMinutesTotal == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 	return *o.EstimateMinutesTotal
@@ -83,7 +83,7 @@ func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotal() int32 {
 
 // GetEstimateMinutesTotalOk returns a tuple with the EstimateMinutesTotal field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotalOk() (*int32, bool) {
+func (o *PlannerWorkloadPlannerCapacity) GetEstimateMinutesTotalOk() (*float32, bool) {
 	if o == nil || o.EstimateMinutesTotal == nil {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *PlannerWorkloadPlannerCapacity) HasEstimateMinutesTotal() bool {
 	return false
 }
 
-// SetEstimateMinutesTotal gets a reference to the given int32 and assigns it to the EstimateMinutesTotal field.
-func (o *PlannerWorkloadPlannerCapacity) SetEstimateMinutesTotal(v int32) {
+// SetEstimateMinutesTotal gets a reference to the given float32 and assigns it to the EstimateMinutesTotal field.
+func (o *PlannerWorkloadPlannerCapacity) SetEstimateMinutesTotal(v float32) {
 	o.EstimateMinutesTotal = &v
 }
 

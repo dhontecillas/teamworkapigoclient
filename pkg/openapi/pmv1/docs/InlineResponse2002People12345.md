@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AvatarUrl** | Pointer to **string** |  | [optional] 
-**Company** | Pointer to [**InlineResponse2002People12345Company**](inline_response_200_2_people_12345_company.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse2002People12345Company**](InlineResponse2002People12345Company.md) |  | [optional] 
 **FirstName** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Notebook** | Pointer to [**InlineResponse20036Notebook**](inline_response_200_36_notebook.md) |  | [optional] 
+**Notebook** | Pointer to [**InlineResponse20036Notebook**](InlineResponse20036Notebook.md) |  | [optional] 
 
 ## Methods
 

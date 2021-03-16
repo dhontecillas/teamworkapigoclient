@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | Pointer to [**ColumnBoardColumnMetaUser**](column_BoardColumnMeta_user.md) |  | [optional] 
+**User** | Pointer to [**ColumnBoardColumnMetaUser**](ColumnBoardColumnMetaUser.md) |  | [optional] 
 
 ## Methods
 

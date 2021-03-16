@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Permissions** | Pointer to [**InlineResponse20071Permissions**](inline_response_200_71_permissions.md) |  | [optional] 
+**Permissions** | Pointer to [**InlineResponse20071Permissions**](InlineResponse20071Permissions.md) |  | [optional] 
 
 ## Methods
 

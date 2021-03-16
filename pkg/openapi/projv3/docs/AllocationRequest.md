@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Allocation** | Pointer to [**AllocationAllocation**](allocation.Allocation.md) |  | [optional] 
+**Allocation** | Pointer to [**AllocationAllocation**](AllocationAllocation.md) |  | [optional] 
 
 ## Methods
 

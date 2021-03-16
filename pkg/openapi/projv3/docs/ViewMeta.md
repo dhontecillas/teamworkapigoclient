@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Page** | Pointer to [**ViewMetaPage**](view.MetaPage.md) |  | [optional] 
+**Page** | Pointer to [**ViewMetaPage**](ViewMetaPage.md) |  | [optional] 
 
 ## Methods
 

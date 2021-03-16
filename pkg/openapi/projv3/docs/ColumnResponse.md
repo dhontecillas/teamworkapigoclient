@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Column** | Pointer to [**ViewBoardColumn**](view.BoardColumn.md) |  | [optional] 
-**Included** | Pointer to [**ColumnResponseIncluded**](column_Response_included.md) |  | [optional] 
-**Meta** | Pointer to [**ColumnBoardColumnMeta**](column.BoardColumnMeta.md) |  | [optional] 
+**Column** | Pointer to [**ViewBoardColumn**](ViewBoardColumn.md) |  | [optional] 
+**Included** | Pointer to [**ColumnResponseIncluded**](ColumnResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ColumnBoardColumnMeta**](ColumnBoardColumnMeta.md) |  | [optional] 
 
 ## Methods
 

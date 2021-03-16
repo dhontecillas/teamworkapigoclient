@@ -89,6 +89,11 @@ Class | Method | HTTP request | Description
 *AllocationsApi* | [**PUTProjectsApiV3AllocationsIdJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsidjson) | **Put** /projects/api/v3/allocations/:id.json | Update an existing allocation.
 *AllocationsApi* | [**PUTProjectsApiV3AllocationsIdRestoreJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsidrestorejson) | **Put** /projects/api/v3/allocations/:id/restore.json | Restore a soft deleted allocation.
 *AllocationsApi* | [**PUTProjectsApiV3AllocationsIdSplitJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsidsplitjson) | **Put** /projects/api/v3/allocations/:id/split.json | Split an allocation in two
+*AppsApi* | [**GETProjectsApiV3AppsIdJson**](docs/AppsApi.md#getprojectsapiv3appsidjson) | **Get** /projects/api/v3/apps/:id.json | Get a specific app.
+*AppsApi* | [**GETProjectsApiV3AppsJson**](docs/AppsApi.md#getprojectsapiv3appsjson) | **Get** /projects/api/v3/apps.json | Get all apps.
+*AppsApi* | [**POSTProjectsApiV3AppsAppidInstallJson**](docs/AppsApi.md#postprojectsapiv3appsappidinstalljson) | **Post** /projects/api/v3/apps/:appid/install.json | Install an app onto an installation
+*AppsApi* | [**POSTProjectsApiV3AppsIdUninstallJson**](docs/AppsApi.md#postprojectsapiv3appsiduninstalljson) | **Post** /projects/api/v3/apps/:id/uninstall.json | Uninstall an app from an installation
+*AppsSettingsApi* | [**PUTProjectsApiV3AppsAppidSettingsSettingidJson**](docs/AppsSettingsApi.md#putprojectsapiv3appsappidsettingssettingidjson) | **Put** /projects/api/v3/apps/:appid/settings/:settingid.json | Update an existing setting.
 *BETAApi* | [**GETProjectsApiV3ColumnsIdJson**](docs/BETAApi.md#getprojectsapiv3columnsidjson) | **Get** /projects/api/v3/columns/:id.json | Get a specific column.
 *BETAApi* | [**GETProjectsApiV3RatesInstallationJson**](docs/BETAApi.md#getprojectsapiv3ratesinstallationjson) | **Get** /projects/api/v3/rates/installation.json | Get an installation default rate.
 *BETAApi* | [**GETProjectsApiV3RatesInstallationUsersJson**](docs/BETAApi.md#getprojectsapiv3ratesinstallationusersjson) | **Get** /projects/api/v3/rates/installation/users.json | Get a specific rates.
@@ -150,6 +155,18 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**PATCHProjectsApiV3FilesIdJson**](docs/FilesApi.md#patchprojectsapiv3filesidjson) | **Patch** /projects/api/v3/files/:id.json | Update an existing file
 *FilesApi* | [**POSTProjectsApiV3FilesArchiveJson**](docs/FilesApi.md#postprojectsapiv3filesarchivejson) | **Post** /projects/api/v3/files/archive.json | Returns an URL for multiple files
 *FilesApi* | [**POSTProjectsApiV3FilesProjectFileIdJson**](docs/FilesApi.md#postprojectsapiv3filesprojectfileidjson) | **Post** /projects/api/v3/files/:projectFileId.json | Create a new fileversion for the project file id.
+*FormsApi* | [**DELETEProjectsApiV3FormsIdJson**](docs/FormsApi.md#deleteprojectsapiv3formsidjson) | **Delete** /projects/api/v3/forms/:id.json | Delete an existing form.
+*FormsApi* | [**GETProjectsApiV3FormsIdDraftJson**](docs/FormsApi.md#getprojectsapiv3formsiddraftjson) | **Get** /projects/api/v3/forms/:id/draft.json | Get the draft version of a specific form.
+*FormsApi* | [**GETProjectsApiV3FormsIdJson**](docs/FormsApi.md#getprojectsapiv3formsidjson) | **Get** /projects/api/v3/forms/:id.json | Get a specific form.
+*FormsApi* | [**GETProjectsApiV3FormsJson**](docs/FormsApi.md#getprojectsapiv3formsjson) | **Get** /projects/api/v3/forms.json | Get all forms.
+*FormsApi* | [**PATCHProjectsApiV3FormsIdJson**](docs/FormsApi.md#patchprojectsapiv3formsidjson) | **Patch** /projects/api/v3/forms/:id.json | Update an existing form.
+*FormsApi* | [**POSTProjectsApiV3FormsJson**](docs/FormsApi.md#postprojectsapiv3formsjson) | **Post** /projects/api/v3/forms.json | Create a new form.
+*FormsAssigneesApi* | [**GETProjectsApiV3FormsIdAssigneesJson**](docs/FormsAssigneesApi.md#getprojectsapiv3formsidassigneesjson) | **Get** /projects/api/v3/forms/:id/assignees.json | Get all assignees for a given form.
+*FormsAssigneesApi* | [**PUTProjectsApiV3FormIdAssigneesJson**](docs/FormsAssigneesApi.md#putprojectsapiv3formidassigneesjson) | **Put** /projects/api/v3/form/:id/assignees.json | Update the existing assignees.
+*FormsPublicApi* | [**GETProjectsApiV3FormsPublicTokenJson**](docs/FormsPublicApi.md#getprojectsapiv3formspublictokenjson) | **Get** /projects/api/v3/forms/public/:token.json | Get a forms via its token.
+*FormsPublicApi* | [**POSTProjectsApiV3FormsPublicTokenSubmitJson**](docs/FormsPublicApi.md#postprojectsapiv3formspublictokensubmitjson) | **Post** /projects/api/v3/forms/public/:token/submit.json | Submit a form response
+*FormsTokenApi* | [**PATCHProjectsApiV3FormsIdTokenJson**](docs/FormsTokenApi.md#patchprojectsapiv3formsidtokenjson) | **Patch** /projects/api/v3/forms/:id/token.json | Update an existing token.
+*FormsTokenApi* | [**PUTProjectsApiV3FormsIdTokenRefreshJson**](docs/FormsTokenApi.md#putprojectsapiv3formsidtokenrefreshjson) | **Put** /projects/api/v3/forms/:id/token/refresh.json | Refresh the value of a token
 *ImportersApi* | [**GETProjectsApiV3ImporterStatsJson**](docs/ImportersApi.md#getprojectsapiv3importerstatsjson) | **Get** /projects/api/v3/importer/stats.json | Get stats about Importers
 *LockdownsApi* | [**GETProjectsApiV3LockdownsIdJson**](docs/LockdownsApi.md#getprojectsapiv3lockdownsidjson) | **Get** /projects/api/v3/lockdowns/:id.json | Get a specific lockdown.
 *MessagesApi* | [**PATCHProjectsApiV3MessagesIdJson**](docs/MessagesApi.md#patchprojectsapiv3messagesidjson) | **Patch** /projects/api/v3/messages/:id.json | Edit a message.
@@ -165,6 +182,7 @@ Class | Method | HTTP request | Description
 *NotebookCommentsApi* | [**GETProjectsApiV3NotebooksIdCommentsJson**](docs/NotebookCommentsApi.md#getprojectsapiv3notebooksidcommentsjson) | **Get** /projects/api/v3/notebooks/:id/comments.json | Get a list of comments for a notebook
 *NotebooksApi* | [**DELETEProjectsApiV3NotebooksIdJson**](docs/NotebooksApi.md#deleteprojectsapiv3notebooksidjson) | **Delete** /projects/api/v3/notebooks/:id.json | Delete an existing notebook.
 *NotebooksApi* | [**DELETEProjectsApiV3NotebooksIdVersionsJson**](docs/NotebooksApi.md#deleteprojectsapiv3notebooksidversionsjson) | **Delete** /projects/api/v3/notebooks/:id/versions.json | Delete notebook versions.
+*NotebooksApi* | [**GETProjectsApiV3NotebooksIdCompareJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksidcomparejson) | **Get** /projects/api/v3/notebooks/:id/compare.json | Compare 2 notebook versions
 *NotebooksApi* | [**GETProjectsApiV3NotebooksIdJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksidjson) | **Get** /projects/api/v3/notebooks/:id.json | Get a specific notebook.
 *NotebooksApi* | [**GETProjectsApiV3NotebooksIdVersionsJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksidversionsjson) | **Get** /projects/api/v3/notebooks/:id/versions.json | Get notebook versions
 *NotebooksApi* | [**GETProjectsApiV3NotebooksJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksjson) | **Get** /projects/api/v3/notebooks.json | Get a list of notebooks.
@@ -181,7 +199,10 @@ Class | Method | HTTP request | Description
 *PeopleStatusApi* | [**GETProjectsApiV3StatusesTimelineJson**](docs/PeopleStatusApi.md#getprojectsapiv3statusestimelinejson) | **Get** /projects/api/v3/statuses/timeline.json | Get the people statuses timeline.
 *PeopleStatusApi* | [**GETProjectsApiV3TeamsTeamIdStatusesTimelineJson**](docs/PeopleStatusApi.md#getprojectsapiv3teamsteamidstatusestimelinejson) | **Get** /projects/api/v3/teams/:teamId/statuses/timeline.json | Get statuses timeline for a specific team
 *PersonApi* | [**GETProjectsApiV3PeopleIdJson**](docs/PersonApi.md#getprojectsapiv3peopleidjson) | **Get** /projects/api/v3/people/:id.json | Returns a person
+*ProjectApi* | [**GETProjectsApiV3ProjectsIdFeaturesorderJson**](docs/ProjectApi.md#getprojectsapiv3projectsidfeaturesorderjson) | **Get** /projects/api/v3/projects/:id/featuresorder.json | Returns a project features order to display in tab
 *ProjectApi* | [**GETProjectsApiV3ProjectsIdJson**](docs/ProjectApi.md#getprojectsapiv3projectsidjson) | **Get** /projects/api/v3/projects/:id.json | Returns a project
+*ProjectApi* | [**PUTProjectsApiV3ProjectsFeaturesorderJson**](docs/ProjectApi.md#putprojectsapiv3projectsfeaturesorderjson) | **Put** /projects/api/v3/projects/featuresorder.json | Sets the default features order to display in tab
+*ProjectApi* | [**PUTProjectsApiV3ProjectsIdFeaturesorderJson**](docs/ProjectApi.md#putprojectsapiv3projectsidfeaturesorderjson) | **Put** /projects/api/v3/projects/:id/featuresorder.json | Sets the the features order to display in tab
 *ProjectUpdatesApi* | [**GETProjectsApiV3ProjectsProjectIdsUpdatesJson**](docs/ProjectUpdatesApi.md#getprojectsapiv3projectsprojectidsupdatesjson) | **Get** /projects/api/v3/projects/:projectIds/updates.json | Get all updates from a specific project
 *ProjectUpdatesApi* | [**GETProjectsApiV3ProjectsUpdatesJson**](docs/ProjectUpdatesApi.md#getprojectsapiv3projectsupdatesjson) | **Get** /projects/api/v3/projects/updates.json | Get all project updates
 *ProjectsApi* | [**GETProjectsApiV3ProjectsCsv**](docs/ProjectsApi.md#getprojectsapiv3projectscsv) | **Get** /projects/api/v3/projects.csv | Generate project report in CSV format
@@ -213,8 +234,11 @@ Class | Method | HTTP request | Description
 *TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsHtml**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistshtml) | **Get** /projects/api/v3/projects/:projectId/tasklists.html | Generate tasklist report in HTML format
 *TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsPdf**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistspdf) | **Get** /projects/api/v3/projects/:projectId/tasklists.pdf | Generate tasklist report in PDF format
 *TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsXlsx**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistsxlsx) | **Get** /projects/api/v3/projects/:projectId/tasklists.xlsx | Generate tasklist report in XLSX format
+*TasksApi* | [**GETProjectsApiV3TasksIdJson**](docs/TasksApi.md#getprojectsapiv3tasksidjson) | **Get** /projects/api/v3/tasks/:id.json | Get a specific task.
+*TasksApi* | [**GETProjectsApiV3TasksJson**](docs/TasksApi.md#getprojectsapiv3tasksjson) | **Get** /projects/api/v3/tasks.json | Get all tasks.
 *TasksApi* | [**GETProjectsApiV3TasksMetricsCompleteJson**](docs/TasksApi.md#getprojectsapiv3tasksmetricscompletejson) | **Get** /projects/api/v3/tasks/metrics/complete.json | Total count of completed tasks
 *TasksApi* | [**GETProjectsApiV3TasksMetricsLateJson**](docs/TasksApi.md#getprojectsapiv3tasksmetricslatejson) | **Get** /projects/api/v3/tasks/metrics/late.json | Get total count of late tasks
+*TasksApi* | [**POSTProjectsApiV3TasklistsTasklistIdTasksJson**](docs/TasksApi.md#postprojectsapiv3taskliststasklistidtasksjson) | **Post** /projects/api/v3/tasklists/:tasklistId/tasks.json | Creates a task.
 *TimeTrackingApi* | [**DELETEProjectsApiV3MeTimersIdJson**](docs/TimeTrackingApi.md#deleteprojectsapiv3metimersidjson) | **Delete** /projects/api/v3/me/timers/:id.json | Delete a timer by ID
 *TimeTrackingApi* | [**GETProjectsApiV3AllocationsAllocationIdTimeJson**](docs/TimeTrackingApi.md#getprojectsapiv3allocationsallocationidtimejson) | **Get** /projects/api/v3/allocations/:allocationId/time.json | Get time entries for a specific allocation
 *TimeTrackingApi* | [**GETProjectsApiV3MeTimersJson**](docs/TimeTrackingApi.md#getprojectsapiv3metimersjson) | **Get** /projects/api/v3/me/timers.json | Get all your running timers
@@ -251,6 +275,15 @@ Class | Method | HTTP request | Description
  - [AllocationRequest](docs/AllocationRequest.md)
  - [AllocationResponse](docs/AllocationResponse.md)
  - [AllocationSplitRequest](docs/AllocationSplitRequest.md)
+ - [ApierrorsBulkError](docs/ApierrorsBulkError.md)
+ - [AppAppsResponse](docs/AppAppsResponse.md)
+ - [AppAppsResponseIncluded](docs/AppAppsResponseIncluded.md)
+ - [AppResponse](docs/AppResponse.md)
+ - [AssigneeFormAssignee](docs/AssigneeFormAssignee.md)
+ - [AssigneeFormAssigneesResponse](docs/AssigneeFormAssigneesResponse.md)
+ - [AssigneeFormAssigneesResponseIncluded](docs/AssigneeFormAssigneesResponseIncluded.md)
+ - [AssigneeRequest](docs/AssigneeRequest.md)
+ - [AssigneeResponse](docs/AssigneeResponse.md)
  - [AvailabilityResponse](docs/AvailabilityResponse.md)
  - [AvailabilityResponseIncluded](docs/AvailabilityResponseIncluded.md)
  - [BillableProjectMetricBillable](docs/BillableProjectMetricBillable.md)
@@ -290,7 +323,6 @@ Class | Method | HTTP request | Description
  - [DashboardUserDashboardsResponseIncluded](docs/DashboardUserDashboardsResponseIncluded.md)
  - [DeadlineMilestoneMetricDeadline](docs/DeadlineMilestoneMetricDeadline.md)
  - [DeadlineMilestoneMetricDeadlinesResponse](docs/DeadlineMilestoneMetricDeadlinesResponse.md)
- - [EntityUserGroups](docs/EntityUserGroups.md)
  - [FileArchiveRequest](docs/FileArchiveRequest.md)
  - [FileArchiveResponse](docs/FileArchiveResponse.md)
  - [FileAvailableResponse](docs/FileAvailableResponse.md)
@@ -308,6 +340,17 @@ Class | Method | HTTP request | Description
  - [FileversionRequest](docs/FileversionRequest.md)
  - [FileversionResponse](docs/FileversionResponse.md)
  - [FileversionResponseIncluded](docs/FileversionResponseIncluded.md)
+ - [FormBanner](docs/FormBanner.md)
+ - [FormContent](docs/FormContent.md)
+ - [FormForm](docs/FormForm.md)
+ - [FormFormsResponse](docs/FormFormsResponse.md)
+ - [FormHostObject](docs/FormHostObject.md)
+ - [FormHostObjectMeta](docs/FormHostObjectMeta.md)
+ - [FormPublicResponse](docs/FormPublicResponse.md)
+ - [FormRequest](docs/FormRequest.md)
+ - [FormResponse](docs/FormResponse.md)
+ - [FormSubmission](docs/FormSubmission.md)
+ - [FormSubmissionRequest](docs/FormSubmissionRequest.md)
  - [HealthProjectMetricHealth](docs/HealthProjectMetricHealth.md)
  - [HealthProjectMetricHealthsResponse](docs/HealthProjectMetricHealthsResponse.md)
  - [ImporterImporter](docs/ImporterImporter.md)
@@ -338,7 +381,7 @@ Class | Method | HTTP request | Description
  - [PayloadNotify](docs/PayloadNotify.md)
  - [PayloadNullableInt64Slice](docs/PayloadNullableInt64Slice.md)
  - [PayloadNullableRRule](docs/PayloadNullableRRule.md)
- - [PayloadPrivacy](docs/PayloadPrivacy.md)
+ - [PayloadUserGroups](docs/PayloadUserGroups.md)
  - [PeopleMultiResponse](docs/PeopleMultiResponse.md)
  - [PeopleMultiResponseIncluded](docs/PeopleMultiResponseIncluded.md)
  - [PeopleResponse](docs/PeopleResponse.md)
@@ -355,6 +398,8 @@ Class | Method | HTTP request | Description
  - [ProjectCustomFieldProjectsResponse](docs/ProjectCustomFieldProjectsResponse.md)
  - [ProjectCustomFieldProjectsResponseIncluded](docs/ProjectCustomFieldProjectsResponseIncluded.md)
  - [ProjectEditCustomFieldProject](docs/ProjectEditCustomFieldProject.md)
+ - [ProjectFeatureOrder](docs/ProjectFeatureOrder.md)
+ - [ProjectFeatureOrderResponse](docs/ProjectFeatureOrderResponse.md)
  - [ProjectProjectsResponse](docs/ProjectProjectsResponse.md)
  - [ProjectProjectsResponseIncluded](docs/ProjectProjectsResponseIncluded.md)
  - [ProjectRequest](docs/ProjectRequest.md)
@@ -371,6 +416,9 @@ Class | Method | HTTP request | Description
  - [ScheduleProjectSchedulesResponseIncluded](docs/ScheduleProjectSchedulesResponseIncluded.md)
  - [ScheduleUserSchedulesResponse](docs/ScheduleUserSchedulesResponse.md)
  - [ScheduleUserSchedulesResponseIncluded](docs/ScheduleUserSchedulesResponseIncluded.md)
+ - [SettingAppSetting](docs/SettingAppSetting.md)
+ - [SettingRequest](docs/SettingRequest.md)
+ - [SettingResponse](docs/SettingResponse.md)
  - [StatusTimelineResponse](docs/StatusTimelineResponse.md)
  - [StatusTimelineResponseIncluded](docs/StatusTimelineResponseIncluded.md)
  - [SummaryColumnCardResponse](docs/SummaryColumnCardResponse.md)
@@ -399,12 +447,24 @@ Class | Method | HTTP request | Description
  - [TagTagsResponse](docs/TagTagsResponse.md)
  - [TaskBulkDeleteRequest](docs/TaskBulkDeleteRequest.md)
  - [TaskBulkUpdateRequest](docs/TaskBulkUpdateRequest.md)
+ - [TaskCard](docs/TaskCard.md)
  - [TaskCustomFieldTask](docs/TaskCustomFieldTask.md)
  - [TaskCustomFieldTasksResponse](docs/TaskCustomFieldTasksResponse.md)
  - [TaskCustomFieldTasksResponseIncluded](docs/TaskCustomFieldTasksResponseIncluded.md)
  - [TaskEditCustomFieldTask](docs/TaskEditCustomFieldTask.md)
+ - [TaskFile](docs/TaskFile.md)
+ - [TaskPendingFile](docs/TaskPendingFile.md)
+ - [TaskPredecessor](docs/TaskPredecessor.md)
+ - [TaskReminder](docs/TaskReminder.md)
+ - [TaskRepeatOptions](docs/TaskRepeatOptions.md)
  - [TaskRequest](docs/TaskRequest.md)
+ - [TaskRequestAttachmentOptions](docs/TaskRequestAttachmentOptions.md)
+ - [TaskRequestAttachments](docs/TaskRequestAttachments.md)
+ - [TaskRequestTaskOptions](docs/TaskRequestTaskOptions.md)
  - [TaskResponse](docs/TaskResponse.md)
+ - [TaskResponseIncluded](docs/TaskResponseIncluded.md)
+ - [TaskTask](docs/TaskTask.md)
+ - [TaskTasksResponse](docs/TaskTasksResponse.md)
  - [TimelogTimelogsResponse](docs/TimelogTimelogsResponse.md)
  - [TimelogTimelogsResponseIncluded](docs/TimelogTimelogsResponseIncluded.md)
  - [TimelogTotalsResponse](docs/TimelogTotalsResponse.md)
@@ -414,12 +474,19 @@ Class | Method | HTTP request | Description
  - [TimerResponseIncluded](docs/TimerResponseIncluded.md)
  - [TimerTimer](docs/TimerTimer.md)
  - [TimerTimersResponse](docs/TimerTimersResponse.md)
+ - [TokenFormToken](docs/TokenFormToken.md)
+ - [TokenRequest](docs/TokenRequest.md)
+ - [TokenResponse](docs/TokenResponse.md)
  - [UnbilledProjectMetricUnbilledResponse](docs/UnbilledProjectMetricUnbilledResponse.md)
  - [UpdateProjectUpdatesResponse](docs/UpdateProjectUpdatesResponse.md)
  - [UsercostRequest](docs/UsercostRequest.md)
  - [UsercostResponse](docs/UsercostResponse.md)
  - [UtilizationResponse](docs/UtilizationResponse.md)
  - [ViewAllocation](docs/ViewAllocation.md)
+ - [ViewApp](docs/ViewApp.md)
+ - [ViewAppSetting](docs/ViewAppSetting.md)
+ - [ViewAudit](docs/ViewAudit.md)
+ - [ViewBanner](docs/ViewBanner.md)
  - [ViewBoardColumn](docs/ViewBoardColumn.md)
  - [ViewBoardColumnSettings](docs/ViewBoardColumnSettings.md)
  - [ViewCalendarEvent](docs/ViewCalendarEvent.md)
@@ -427,6 +494,7 @@ Class | Method | HTTP request | Description
  - [ViewColumnStats](docs/ViewColumnStats.md)
  - [ViewComment](docs/ViewComment.md)
  - [ViewCompany](docs/ViewCompany.md)
+ - [ViewContent](docs/ViewContent.md)
  - [ViewCountry](docs/ViewCountry.md)
  - [ViewCustomField](docs/ViewCustomField.md)
  - [ViewCustomFieldProject](docs/ViewCustomFieldProject.md)
@@ -435,6 +503,9 @@ Class | Method | HTTP request | Description
  - [ViewErrorResponse](docs/ViewErrorResponse.md)
  - [ViewFilePermissions](docs/ViewFilePermissions.md)
  - [ViewFileversion](docs/ViewFileversion.md)
+ - [ViewForm](docs/ViewForm.md)
+ - [ViewFormAssignee](docs/ViewFormAssignee.md)
+ - [ViewFormToken](docs/ViewFormToken.md)
  - [ViewIndustry](docs/ViewIndustry.md)
  - [ViewInstallationUserRate](docs/ViewInstallationUserRate.md)
  - [ViewLinkItem](docs/ViewLinkItem.md)
@@ -465,6 +536,7 @@ Class | Method | HTTP request | Description
  - [ViewProjectScheduleEntry](docs/ViewProjectScheduleEntry.md)
  - [ViewProjectTaskStats](docs/ViewProjectTaskStats.md)
  - [ViewProjectUpdate](docs/ViewProjectUpdate.md)
+ - [ViewPublicForm](docs/ViewPublicForm.md)
  - [ViewReaction](docs/ViewReaction.md)
  - [ViewReactionsForObject](docs/ViewReactionsForObject.md)
  - [ViewReactionsForObjectCounter](docs/ViewReactionsForObjectCounter.md)
@@ -475,13 +547,16 @@ Class | Method | HTTP request | Description
  - [ViewStatus](docs/ViewStatus.md)
  - [ViewTag](docs/ViewTag.md)
  - [ViewTask](docs/ViewTask.md)
+ - [ViewTaskCard](docs/ViewTaskCard.md)
  - [ViewTaskPermissions](docs/ViewTaskPermissions.md)
+ - [ViewTaskTimeTotals](docs/ViewTaskTimeTotals.md)
  - [ViewTasklist](docs/ViewTasklist.md)
  - [ViewTeam](docs/ViewTeam.md)
  - [ViewTimelog](docs/ViewTimelog.md)
  - [ViewTimelogTotals](docs/ViewTimelogTotals.md)
  - [ViewTimer](docs/ViewTimer.md)
  - [ViewTimerInterval](docs/ViewTimerInterval.md)
+ - [ViewToken](docs/ViewToken.md)
  - [ViewUser](docs/ViewUser.md)
  - [ViewUserAvailability](docs/ViewUserAvailability.md)
  - [ViewUserAvailabilityDate](docs/ViewUserAvailabilityDate.md)

@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | Pointer to **string** |  | [optional] 
 **CreatedBy** | Pointer to **int32** |  | [optional] 
-**Customfield** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Customfield** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **CustomfieldId** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**Task** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Task** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **TaskId** | Pointer to **int32** |  | [optional] 
 **Value** | Pointer to **map[string]interface{}** |  | [optional] 
 

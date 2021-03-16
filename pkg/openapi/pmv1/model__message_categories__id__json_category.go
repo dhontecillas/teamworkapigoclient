@@ -25,7 +25,7 @@ type MessageCategoriesIdJsonCategory struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMessageCategoriesIdJsonCategory(name string, ) *MessageCategoriesIdJsonCategory {
+func NewMessageCategoriesIdJsonCategory(name string) *MessageCategoriesIdJsonCategory {
 	this := MessageCategoriesIdJsonCategory{}
 	this.Name = name
 	return &this
@@ -41,7 +41,7 @@ func NewMessageCategoriesIdJsonCategoryWithDefaults() *MessageCategoriesIdJsonCa
 
 // GetName returns the Name field value
 func (o *MessageCategoriesIdJsonCategory) GetName() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

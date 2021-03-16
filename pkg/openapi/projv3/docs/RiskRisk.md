@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **MitigationPlan** | Pointer to **string** |  | [optional] 
 **Probability** | Pointer to **string** |  | [optional] 
 **ProbabilityValue** | Pointer to **int32** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **Result** | Pointer to **int32** |  | [optional] 
 **Source** | Pointer to **string** |  | [optional] 

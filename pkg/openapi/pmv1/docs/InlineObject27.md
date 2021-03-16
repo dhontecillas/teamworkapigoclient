@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Messagereply** | Pointer to [**MessageRepliesIdJsonMessagereply**](_messageReplies__id__json_messagereply.md) |  | [optional] 
+**Messagereply** | Pointer to [**MessageRepliesIdJsonMessagereply**](MessageRepliesIdJsonMessagereply.md) |  | [optional] 
 
 ## Methods
 

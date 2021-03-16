@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DashboardPanelSettings** | Pointer to [**map[string]ViewUserDashboardPanelSetting**](view.UserDashboardPanelSetting.md) |  | [optional] 
-**DashboardPanels** | Pointer to [**map[string]ViewUserDashboardPanel**](view.UserDashboardPanel.md) |  | [optional] 
-**DashboardSettings** | Pointer to [**map[string]ViewUserDashboardSetting**](view.UserDashboardSetting.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**DashboardPanelSettings** | Pointer to [**map[string]ViewUserDashboardPanelSetting**](ViewUserDashboardPanelSetting.md) |  | [optional] 
+**DashboardPanels** | Pointer to [**map[string]ViewUserDashboardPanel**](ViewUserDashboardPanel.md) |  | [optional] 
+**DashboardSettings** | Pointer to [**map[string]ViewUserDashboardSetting**](ViewUserDashboardSetting.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

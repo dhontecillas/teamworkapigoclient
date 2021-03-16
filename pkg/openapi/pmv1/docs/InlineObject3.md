@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Card** | Pointer to [**BoardsColumnsIdCardsJsonCard**](_boards_columns__id__cards_json_card.md) |  | [optional] 
+**Card** | Pointer to [**BoardsColumnsIdCardsJsonCard**](BoardsColumnsIdCardsJsonCard.md) |  | [optional] 
 **PositionAfterId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

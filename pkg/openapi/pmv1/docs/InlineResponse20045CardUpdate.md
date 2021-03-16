@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** |  | [optional] 
 **ProjectId** | Pointer to **string** |  | [optional] 
 **Text** | Pointer to **string** |  | [optional] 
-**User** | Pointer to [**InlineResponse20045CardOwner**](inline_response_200_45_card_owner.md) |  | [optional] 
+**User** | Pointer to [**InlineResponse20045CardOwner**](InlineResponse20045CardOwner.md) |  | [optional] 
 
 ## Methods
 

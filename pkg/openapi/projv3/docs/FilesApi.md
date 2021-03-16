@@ -122,7 +122,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3FilesAvail
 
 ### Return type
 
-[**FileAvailableResponse**](file.AvailableResponse.md)
+[**FileAvailableResponse**](FileAvailableResponse.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeChangesResponse**](change.ChangesResponse.md)
+[**ChangeChangesResponse**](ChangeChangesResponse.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileResponse**](file.Response.md)
+[**FileResponse**](FileResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileProjectFilesResponse**](file.ProjectFilesResponse.md)
+[**FileProjectFilesResponse**](FileProjectFilesResponse.md)
 
 ### Authorization
 
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileUsageResponse**](file.UsageResponse.md)
+[**FileUsageResponse**](FileUsageResponse.md)
 
 ### Authorization
 
@@ -635,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileversionResponse**](fileversion.Response.md)
+[**FileversionResponse**](FileversionResponse.md)
 
 ### Authorization
 
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileUsageResponse**](file.UsageResponse.md)
+[**FileUsageResponse**](FileUsageResponse.md)
 
 ### Authorization
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileResponse**](file.Response.md)
+[**FileResponse**](FileResponse.md)
 
 ### Authorization
 
@@ -837,7 +837,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileArchiveResponse**](file.ArchiveResponse.md)
+[**FileArchiveResponse**](FileArchiveResponse.md)
 
 ### Authorization
 
@@ -903,7 +903,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FileversionResponse**](fileversion.Response.md)
+[**FileversionResponse**](FileversionResponse.md)
 
 ### Authorization
 

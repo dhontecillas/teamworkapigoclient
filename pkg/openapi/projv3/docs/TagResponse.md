@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tag** | Pointer to [**ViewTag**](view.Tag.md) |  | [optional] 
+**Tag** | Pointer to [**ViewTag**](ViewTag.md) |  | [optional] 
 
 ## Methods
 

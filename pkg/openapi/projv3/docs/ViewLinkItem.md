@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Category** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **CategoryId** | Pointer to **int32** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Height** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **IsPrivate** | Pointer to **bool** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **Provider** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 

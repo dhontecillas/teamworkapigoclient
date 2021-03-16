@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Company** | Pointer to [**InlineResponse20011Companies**](inline_response_200_11_companies.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse20011Companies**](InlineResponse20011Companies.md) |  | [optional] 
 
 ## Methods
 

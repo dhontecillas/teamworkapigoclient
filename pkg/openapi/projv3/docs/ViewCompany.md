@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **EmailTwo** | Pointer to **string** |  | [optional] 
 **Fax** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**Industry** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Industry** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **IndustryId** | Pointer to **int32** |  | [optional] 
 **IsOwner** | Pointer to **bool** |  | [optional] 
 **LogoUrl** | Pointer to **string** |  | [optional] 

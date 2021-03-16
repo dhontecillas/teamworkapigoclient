@@ -23,7 +23,7 @@ type InlineObject36 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject36(file map[string]interface{}, ) *InlineObject36 {
+func NewInlineObject36(file map[string]interface{}) *InlineObject36 {
 	this := InlineObject36{}
 	this.File = file
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject36WithDefaults() *InlineObject36 {
 
 // GetFile returns the File field value
 func (o *InlineObject36) GetFile() map[string]interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}

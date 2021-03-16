@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Board** | Pointer to [**PortfolioBoardsJsonBoard**](_portfolio_boards_json_board.md) |  | [optional] 
+**Board** | Pointer to [**PortfolioBoardsJsonBoard**](PortfolioBoardsJsonBoard.md) |  | [optional] 
 
 ## Methods
 

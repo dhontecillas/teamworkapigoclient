@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**SearchResult** | Pointer to [**InlineResponse20089SearchResult**](inline_response_200_89_searchResult.md) |  | [optional] 
+**SearchResult** | Pointer to [**InlineResponse20089SearchResult**](InlineResponse20089SearchResult.md) |  | [optional] 
 
 ## Methods
 

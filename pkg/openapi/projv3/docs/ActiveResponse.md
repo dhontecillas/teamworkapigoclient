@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**ActiveProjectMetricActive**](active.ProjectMetricActive.md) |  | [optional] 
+**Data** | Pointer to [**ActiveProjectMetricActive**](ActiveProjectMetricActive.md) |  | [optional] 
 
 ## Methods
 

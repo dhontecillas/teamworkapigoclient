@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LockdownResponse**](lockdown.Response.md)
+[**LockdownResponse**](LockdownResponse.md)
 
 ### Authorization
 

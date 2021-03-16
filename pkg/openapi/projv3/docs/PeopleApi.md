@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PeopleMultiResponse**](people.MultiResponse.md)
+[**PeopleMultiResponse**](PeopleMultiResponse.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PerformancePeopleMetricPerformancesResponse**](performance.PeopleMetricPerformancesResponse.md)
+[**PerformancePeopleMetricPerformancesResponse**](PerformancePeopleMetricPerformancesResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AvailabilityResponse**](availability.Response.md)
+[**AvailabilityResponse**](AvailabilityResponse.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UtilizationResponse**](utilization.Response.md)
+[**UtilizationResponse**](UtilizationResponse.md)
 
 ### Authorization
 

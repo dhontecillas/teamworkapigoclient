@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActivePages** | Pointer to [**InlineResponse20060ProjectActivePages**](inline_response_200_60_project_active_pages.md) |  | [optional] 
+**ActivePages** | Pointer to [**InlineResponse20060ProjectActivePages**](InlineResponse20060ProjectActivePages.md) |  | [optional] 
 **BoardData** | Pointer to **map[string]interface{}** |  | [optional] 
-**Category** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
-**Company** | Pointer to [**InlineResponse2002People12345Company**](inline_response_200_2_people_12345_company.md) |  | [optional] 
+**Category** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse2002People12345Company**](InlineResponse2002People12345Company.md) |  | [optional] 
 **CreatedOn** | Pointer to **string** |  | [optional] 
 **DefaultPrivacy** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **FilesAutoNewVersion** | Pointer to **bool** |  | [optional] 
 **HarvestTimersEnabled** | Pointer to **bool** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
-**Integrations** | Pointer to [**InlineResponse20060ProjectIntegrations**](inline_response_200_60_project_integrations.md) |  | [optional] 
+**Integrations** | Pointer to [**InlineResponse20060ProjectIntegrations**](InlineResponse20060ProjectIntegrations.md) |  | [optional] 
 **LastChangedOn** | Pointer to **string** |  | [optional] 
 **Logo** | Pointer to **string** |  | [optional] 
 **LogoFromCompany** | Pointer to **bool** |  | [optional] 

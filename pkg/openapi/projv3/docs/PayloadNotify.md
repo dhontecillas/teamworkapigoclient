@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to [**EntityUserGroups**](entity.UserGroups.md) |  | [optional] 
+**Ids** | Pointer to [**PayloadUserGroups**](PayloadUserGroups.md) |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIds
 
-`func (o *PayloadNotify) GetIds() EntityUserGroups`
+`func (o *PayloadNotify) GetIds() PayloadUserGroups`
 
 GetIds returns the Ids field if non-nil, zero value otherwise.
 
 ### GetIdsOk
 
-`func (o *PayloadNotify) GetIdsOk() (*EntityUserGroups, bool)`
+`func (o *PayloadNotify) GetIdsOk() (*PayloadUserGroups, bool)`
 
 GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIds
 
-`func (o *PayloadNotify) SetIds(v EntityUserGroups)`
+`func (o *PayloadNotify) SetIds(v PayloadUserGroups)`
 
 SetIds sets Ids field to given value.
 

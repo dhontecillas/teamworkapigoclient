@@ -78,10 +78,93 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CFPortApi* | [**GETProjectsApiV2CompaniesCompanyIdPeople**](docs/CFPortApi.md#getprojectsapiv2companiescompanyidpeople) | **Get** /projects/api/v2/companies/:companyId/people&quot; | Retrieves the details for all the people from the submitted company (excluding those you don’t have permission to see).
+*CFPortApi* | [**GETProjectsApiV2CompaniesCompnayIdProjects**](docs/CFPortApi.md#getprojectsapiv2companiescompnayidprojects) | **Get** /projects/api/v2/companies/:compnayId/projects | Returns the company projects
+*CFPortApi* | [**GETProjectsApiV2Defaultprojects**](docs/CFPortApi.md#getprojectsapiv2defaultprojects) | **Get** /projects/api/v2/defaultprojects | Returns the project defaults
+*CFPortApi* | [**GETProjectsApiV2FilesObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2filesobjectidproject) | **Get** /projects/api/v2/files/:objectId/project | Get the project for the file
+*CFPortApi* | [**GETProjectsApiV2Fullsearch**](docs/CFPortApi.md#getprojectsapiv2fullsearch) | **Get** /projects/api/v2/fullsearch | Perform a full search
+*CFPortApi* | [**GETProjectsApiV2LinksObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2linksobjectidproject) | **Get** /projects/api/v2/links/:objectId/project | Get the project for the link
+*CFPortApi* | [**GETProjectsApiV2Me**](docs/CFPortApi.md#getprojectsapiv2me) | **Get** /projects/api/v2/me | Returns the details for the account you’re currently logged in with.
+*CFPortApi* | [**GETProjectsApiV2MessagesObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2messagesobjectidproject) | **Get** /projects/api/v2/messages/:objectId/project | Get the project for the message
+*CFPortApi* | [**GETProjectsApiV2MilestonesObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2milestonesobjectidproject) | **Get** /projects/api/v2/milestones/:objectId/project | Get the project for the milestone
+*CFPortApi* | [**GETProjectsApiV2NotebooksObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2notebooksobjectidproject) | **Get** /projects/api/v2/notebooks/:objectId/project | Get the project for the notebook
+*CFPortApi* | [**GETProjectsApiV2People**](docs/CFPortApi.md#getprojectsapiv2people) | **Get** /projects/api/v2/people | All people visible to the user will be returned, including the user themselves. By default 100 records are returned at a time.
+*CFPortApi* | [**GETProjectsApiV2PeopleUserId**](docs/CFPortApi.md#getprojectsapiv2peopleuserid) | **Get** /projects/api/v2/people/:userId | Retrieves the user details for the ID submitted.
+*CFPortApi* | [**GETProjectsApiV2PeopleUserIdProjects**](docs/CFPortApi.md#getprojectsapiv2peopleuseridprojects) | **Get** /projects/api/v2/people/:userId/projects | APICall_GET_projects
+*CFPortApi* | [**GETProjectsApiV2ProjectcategoriesProjectCategoryIdTasks**](docs/CFPortApi.md#getprojectsapiv2projectcategoriesprojectcategoryidtasks) | **Get** /projects/api/v2/projectcategories/:projectCategoryId/tasks | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2Projects**](docs/CFPortApi.md#getprojectsapiv2projects) | **Get** /projects/api/v2/projects | APICall_GET_projects
+*CFPortApi* | [**GETProjectsApiV2ProjectsArchived**](docs/CFPortApi.md#getprojectsapiv2projectsarchived) | **Get** /projects/api/v2/projects/archived | Returns the project defaults
+*CFPortApi* | [**GETProjectsApiV2ProjectsChart**](docs/CFPortApi.md#getprojectsapiv2projectschart) | **Get** /projects/api/v2/projects/chart | Returns the project chart
+*CFPortApi* | [**GETProjectsApiV2ProjectsChartoverview**](docs/CFPortApi.md#getprojectsapiv2projectschartoverview) | **Get** /projects/api/v2/projects/chartoverview | Returns the project defaults (Objective: To deprecate getProjectsChart)
+*CFPortApi* | [**GETProjectsApiV2ProjectsEstimatedtimeTotal**](docs/CFPortApi.md#getprojectsapiv2projectsestimatedtimetotal) | **Get** /projects/api/v2/projects/estimatedtime/total | APICall_GET_projects
+*CFPortApi* | [**GETProjectsApiV2ProjectsLatest**](docs/CFPortApi.md#getprojectsapiv2projectslatest) | **Get** /projects/api/v2/projects/latest | Get latest project
+*CFPortApi* | [**GETProjectsApiV2ProjectsMeLatest**](docs/CFPortApi.md#getprojectsapiv2projectsmelatest) | **Get** /projects/api/v2/projects/me/latest | Returns the latest project
+*CFPortApi* | [**GETProjectsApiV2ProjectsNew**](docs/CFPortApi.md#getprojectsapiv2projectsnew) | **Get** /projects/api/v2/projects/new | Returns the project defaults
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectId**](docs/CFPortApi.md#getprojectsapiv2projectsprojectid) | **Get** /projects/api/v2/projects/:projectId | Returns the project defaults
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdBillingTime**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidbillingtime) | **Get** /projects/api/v2/projects/:projectId/billing/time | APICall_GET_projects_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdEmailaddress**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidemailaddress) | **Get** /projects/api/v2/projects/:projectId/emailaddress | Returns the details for the account you’re currently logged in with.
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdPeople**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidpeople) | **Get** /projects/api/v2/projects/:projectId/people | Retrieves all of the people in a given project.
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdPredecessors**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidpredecessors) | **Get** /projects/api/v2/projects/:projectId/predecessors | Get Predecessor
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdSummary**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidsummary) | **Get** /projects/api/v2/projects/:projectId/summary | APICall_GET_summary
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdTaskids**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidtaskids) | **Get** /projects/api/v2/projects/:projectId/taskids | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdTasks**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidtasks) | **Get** /projects/api/v2/projects/:projectId/tasks | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdTime**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidtime) | **Get** /projects/api/v2/projects/:projectId/time | APICall_GET_projects_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdTimeEntries**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidtimeentries) | **Get** /projects/api/v2/projects/:projectId/time_entries | APICall_GET_projects_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjectIdTimelogs**](docs/CFPortApi.md#getprojectsapiv2projectsprojectidtimelogs) | **Get** /projects/api/v2/projects/:projectId/timelogs | APICall_GET_projects_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2ProjectsProjejctIdAssingLaterRoles**](docs/CFPortApi.md#getprojectsapiv2projectsprojejctidassinglaterroles) | **Get** /projects/api/v2/projects/:projejctId/assing_later_roles | Get assign later roles
+*CFPortApi* | [**GETProjectsApiV2ProjectsStarred**](docs/CFPortApi.md#getprojectsapiv2projectsstarred) | **Get** /projects/api/v2/projects/starred | Returns the starred projects
+*CFPortApi* | [**GETProjectsApiV2ProjectsTemplates**](docs/CFPortApi.md#getprojectsapiv2projectstemplates) | **Get** /projects/api/v2/projects/templates | Returns the project defaults
+*CFPortApi* | [**GETProjectsApiV2ProjectsTimeTotal**](docs/CFPortApi.md#getprojectsapiv2projectstimetotal) | **Get** /projects/api/v2/projects/time/total | Get Projects Total Time
+*CFPortApi* | [**GETProjectsApiV2Quicksearch**](docs/CFPortApi.md#getprojectsapiv2quicksearch) | **Get** /projects/api/v2/quicksearch | APICall_POST_quicksearch
+*CFPortApi* | [**GETProjectsApiV2Summary**](docs/CFPortApi.md#getprojectsapiv2summary) | **Get** /projects/api/v2/summary | APICall_GET_summary
+*CFPortApi* | [**GETProjectsApiV2TasklistsObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2tasklistsobjectidproject) | **Get** /projects/api/v2/tasklists/:objectId/project | Get the project for the tasklist
+*CFPortApi* | [**GETProjectsApiV2TasklistsTasklistIdTaskids**](docs/CFPortApi.md#getprojectsapiv2taskliststasklistidtaskids) | **Get** /projects/api/v2/tasklists/:tasklistId/taskids | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2TasklistsTasklistIdTasks**](docs/CFPortApi.md#getprojectsapiv2taskliststasklistidtasks) | **Get** /projects/api/v2/tasklists/:tasklistId/tasks | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2Tasks**](docs/CFPortApi.md#getprojectsapiv2tasks) | **Get** /projects/api/v2/tasks | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2TasksDependentTaskIdPredecessors**](docs/CFPortApi.md#getprojectsapiv2tasksdependenttaskidpredecessors) | **Get** /projects/api/v2/tasks/:dependentTaskId/predecessors | Get Predecessor
+*CFPortApi* | [**GETProjectsApiV2TasksObjectIdProject**](docs/CFPortApi.md#getprojectsapiv2tasksobjectidproject) | **Get** /projects/api/v2/tasks/:objectId/project | Get the project for the task
+*CFPortApi* | [**GETProjectsApiV2TasksTaskId**](docs/CFPortApi.md#getprojectsapiv2taskstaskid) | **Get** /projects/api/v2/tasks/:taskId | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2TasksTaskIdEstimatedtime**](docs/CFPortApi.md#getprojectsapiv2taskstaskidestimatedtime) | **Get** /projects/api/v2/tasks/:taskId/estimatedtime | Will return the total for all sub-tasks
+*CFPortApi* | [**GETProjectsApiV2TasksTaskIdSubtasks**](docs/CFPortApi.md#getprojectsapiv2taskstaskidsubtasks) | **Get** /projects/api/v2/tasks/:taskId/subtasks | Get Tasks
+*CFPortApi* | [**GETProjectsApiV2TasksTaskIdTime**](docs/CFPortApi.md#getprojectsapiv2taskstaskidtime) | **Get** /projects/api/v2/tasks/:taskId/time | APICall_GET_todo_items_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2TasksTaskIdTimeEntries**](docs/CFPortApi.md#getprojectsapiv2taskstaskidtimeentries) | **Get** /projects/api/v2/tasks/:taskId/time_entries | APICall_GET_todo_items_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2Time**](docs/CFPortApi.md#getprojectsapiv2time) | **Get** /projects/api/v2/time | Get all timelogs
+*CFPortApi* | [**GETProjectsApiV2TimeEntries**](docs/CFPortApi.md#getprojectsapiv2timeentries) | **Get** /projects/api/v2/time_entries | Get all time entries
+*CFPortApi* | [**GETProjectsApiV2TimeEntriesMe**](docs/CFPortApi.md#getprojectsapiv2timeentriesme) | **Get** /projects/api/v2/time_entries/me | APICall_GET_time_entries_currentUser
+*CFPortApi* | [**GETProjectsApiV2TimeEntriesTimeLogId**](docs/CFPortApi.md#getprojectsapiv2timeentriestimelogid) | **Get** /projects/api/v2/time_entries/:timeLogId | Get time entries for a timelogId
+*CFPortApi* | [**GETProjectsApiV2TimeMe**](docs/CFPortApi.md#getprojectsapiv2timeme) | **Get** /projects/api/v2/time/me | APICall_GET_time_entries_currentUser
+*CFPortApi* | [**GETProjectsApiV2TimeTimeLogId**](docs/CFPortApi.md#getprojectsapiv2timetimelogid) | **Get** /projects/api/v2/time/:timeLogId | Get timelog for a timelogId
+*CFPortApi* | [**GETProjectsApiV2TodoItemsTaskIdTime**](docs/CFPortApi.md#getprojectsapiv2todoitemstaskidtime) | **Get** /projects/api/v2/todo_items/:taskId/time | APICall_GET_todo_items_id_time_entries
+*CFPortApi* | [**GETProjectsApiV2TodoItemsTaskIdTimeEntries**](docs/CFPortApi.md#getprojectsapiv2todoitemstaskidtimeentries) | **Get** /projects/api/v2/todo_items/:taskId/time_entries | APICall_GET_todo_items_id_time_entries
+*DefaultApi* | [**GETProjectsApiV2PeopleUserIdAvatar**](docs/DefaultApi.md#getprojectsapiv2peopleuseridavatar) | **Get** /projects/api/v2/people/:userId/avatar | Get user avatar
+*DefaultApi* | [**GETProjectsApiV2ProjectsProjectIdPeopleUserIds**](docs/DefaultApi.md#getprojectsapiv2projectsprojectidpeopleuserids) | **Get** /projects/api/v2/projects/:projectId/people/:userIds | Get people project
+*DefaultApi* | [**GETProjectsApiV2ProjectsProjectIdTasksGantt**](docs/DefaultApi.md#getprojectsapiv2projectsprojectidtasksgantt) | **Get** /projects/api/v2/projects/:projectId/tasks/gantt | Will return the total for all sub-tasks
 
 
 ## Documentation For Models
 
+ - [PeopleAddress](docs/PeopleAddress.md)
+ - [PeopleAuthData](docs/PeopleAuthData.md)
+ - [PeopleCompany](docs/PeopleCompany.md)
+ - [PeopleCompanyResponse](docs/PeopleCompanyResponse.md)
+ - [PeopleImpersonating](docs/PeopleImpersonating.md)
+ - [PeopleIntegrationEnabled](docs/PeopleIntegrationEnabled.md)
+ - [PeopleIntegrations](docs/PeopleIntegrations.md)
+ - [PeopleLocalization](docs/PeopleLocalization.md)
+ - [PeopleNotifications](docs/PeopleNotifications.md)
+ - [PeopleNotifyDefaults](docs/PeopleNotifyDefaults.md)
+ - [PeoplePermissions](docs/PeoplePermissions.md)
+ - [PeoplePersonOfPeople](docs/PeoplePersonOfPeople.md)
+ - [PeoplePersonResponse](docs/PeoplePersonResponse.md)
+ - [PeoplePhoneParts](docs/PeoplePhoneParts.md)
+ - [PeopleResponse](docs/PeopleResponse.md)
+ - [PeopleSocial](docs/PeopleSocial.md)
+ - [PeopleSpecificPerson](docs/PeopleSpecificPerson.md)
+ - [PeopleWorkingHours](docs/PeopleWorkingHours.md)
+ - [PeopleWorkingHoursEntry](docs/PeopleWorkingHoursEntry.md)
+ - [TwcoreTagsTag](docs/TwcoreTagsTag.md)
+ - [TwcoreusersbaseAccount](docs/TwcoreusersbaseAccount.md)
+ - [TwdataaccountAnnouncementResponse](docs/TwdataaccountAnnouncementResponse.md)
 
 
 ## Documentation For Authorization
@@ -106,5 +189,6 @@ Each of these functions takes a value of the given basic type and returns a poin
 * `PtrTime`
 
 ## Author
+
 
 

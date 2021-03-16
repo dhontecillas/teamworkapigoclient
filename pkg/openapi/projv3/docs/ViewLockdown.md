@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GrantAccessTo** | Pointer to [**ViewUserGroups**](view.UserGroups.md) |  | [optional] 
+**GrantAccessTo** | Pointer to [**ViewUserGroups**](ViewUserGroups.md) |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**Item** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Item** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ItemID** | Pointer to **int32** |  | [optional] 
 **ItemType** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserID** | Pointer to **int32** |  | [optional] 
 
 ## Methods

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Link** | Pointer to [**InlineResponse20026Link**](inline_response_200_26_link.md) |  | [optional] 
+**Link** | Pointer to [**InlineResponse20026Link**](InlineResponse20026Link.md) |  | [optional] 
 
 ## Methods
 

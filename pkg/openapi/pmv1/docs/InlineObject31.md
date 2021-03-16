@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Milestone** | Pointer to [**MilestonesIdJsonMilestone**](_milestones__id__json_milestone.md) |  | [optional] 
+**Milestone** | Pointer to [**MilestonesIdJsonMilestone**](MilestonesIdJsonMilestone.md) |  | [optional] 
 **MoveUpcomingMilestones** | Pointer to **bool** |  | [optional] 
 **MoveUpcomingMilestonesOffWeekends** | Pointer to **bool** |  | [optional] 
 

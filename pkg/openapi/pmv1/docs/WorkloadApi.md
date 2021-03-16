@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200120**](inline_response_200_120.md)
+[**InlineResponse200120**](InlineResponse200120.md)
 
 ### Authorization
 

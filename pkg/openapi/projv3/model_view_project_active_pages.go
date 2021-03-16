@@ -17,13 +17,18 @@ import (
 // ViewProjectActivePages struct for ViewProjectActivePages
 type ViewProjectActivePages struct {
 	Billing *bool `json:"billing,omitempty"`
+	Board *bool `json:"board,omitempty"`
 	Comments *bool `json:"comments,omitempty"`
 	Files *bool `json:"files,omitempty"`
+	Forms *bool `json:"forms,omitempty"`
+	Gantt *bool `json:"gantt,omitempty"`
 	Links *bool `json:"links,omitempty"`
+	List *bool `json:"list,omitempty"`
 	Messages *bool `json:"messages,omitempty"`
 	Milestones *bool `json:"milestones,omitempty"`
 	Notebooks *bool `json:"notebooks,omitempty"`
 	RiskRegister *bool `json:"riskRegister,omitempty"`
+	Table *bool `json:"table,omitempty"`
 	Tasks *bool `json:"tasks,omitempty"`
 	Time *bool `json:"time,omitempty"`
 }
@@ -75,6 +80,38 @@ func (o *ViewProjectActivePages) HasBilling() bool {
 // SetBilling gets a reference to the given bool and assigns it to the Billing field.
 func (o *ViewProjectActivePages) SetBilling(v bool) {
 	o.Billing = &v
+}
+
+// GetBoard returns the Board field value if set, zero value otherwise.
+func (o *ViewProjectActivePages) GetBoard() bool {
+	if o == nil || o.Board == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Board
+}
+
+// GetBoardOk returns a tuple with the Board field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewProjectActivePages) GetBoardOk() (*bool, bool) {
+	if o == nil || o.Board == nil {
+		return nil, false
+	}
+	return o.Board, true
+}
+
+// HasBoard returns a boolean if a field has been set.
+func (o *ViewProjectActivePages) HasBoard() bool {
+	if o != nil && o.Board != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBoard gets a reference to the given bool and assigns it to the Board field.
+func (o *ViewProjectActivePages) SetBoard(v bool) {
+	o.Board = &v
 }
 
 // GetComments returns the Comments field value if set, zero value otherwise.
@@ -141,6 +178,70 @@ func (o *ViewProjectActivePages) SetFiles(v bool) {
 	o.Files = &v
 }
 
+// GetForms returns the Forms field value if set, zero value otherwise.
+func (o *ViewProjectActivePages) GetForms() bool {
+	if o == nil || o.Forms == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Forms
+}
+
+// GetFormsOk returns a tuple with the Forms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewProjectActivePages) GetFormsOk() (*bool, bool) {
+	if o == nil || o.Forms == nil {
+		return nil, false
+	}
+	return o.Forms, true
+}
+
+// HasForms returns a boolean if a field has been set.
+func (o *ViewProjectActivePages) HasForms() bool {
+	if o != nil && o.Forms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetForms gets a reference to the given bool and assigns it to the Forms field.
+func (o *ViewProjectActivePages) SetForms(v bool) {
+	o.Forms = &v
+}
+
+// GetGantt returns the Gantt field value if set, zero value otherwise.
+func (o *ViewProjectActivePages) GetGantt() bool {
+	if o == nil || o.Gantt == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Gantt
+}
+
+// GetGanttOk returns a tuple with the Gantt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewProjectActivePages) GetGanttOk() (*bool, bool) {
+	if o == nil || o.Gantt == nil {
+		return nil, false
+	}
+	return o.Gantt, true
+}
+
+// HasGantt returns a boolean if a field has been set.
+func (o *ViewProjectActivePages) HasGantt() bool {
+	if o != nil && o.Gantt != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGantt gets a reference to the given bool and assigns it to the Gantt field.
+func (o *ViewProjectActivePages) SetGantt(v bool) {
+	o.Gantt = &v
+}
+
 // GetLinks returns the Links field value if set, zero value otherwise.
 func (o *ViewProjectActivePages) GetLinks() bool {
 	if o == nil || o.Links == nil {
@@ -171,6 +272,38 @@ func (o *ViewProjectActivePages) HasLinks() bool {
 // SetLinks gets a reference to the given bool and assigns it to the Links field.
 func (o *ViewProjectActivePages) SetLinks(v bool) {
 	o.Links = &v
+}
+
+// GetList returns the List field value if set, zero value otherwise.
+func (o *ViewProjectActivePages) GetList() bool {
+	if o == nil || o.List == nil {
+		var ret bool
+		return ret
+	}
+	return *o.List
+}
+
+// GetListOk returns a tuple with the List field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewProjectActivePages) GetListOk() (*bool, bool) {
+	if o == nil || o.List == nil {
+		return nil, false
+	}
+	return o.List, true
+}
+
+// HasList returns a boolean if a field has been set.
+func (o *ViewProjectActivePages) HasList() bool {
+	if o != nil && o.List != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetList gets a reference to the given bool and assigns it to the List field.
+func (o *ViewProjectActivePages) SetList(v bool) {
+	o.List = &v
 }
 
 // GetMessages returns the Messages field value if set, zero value otherwise.
@@ -301,6 +434,38 @@ func (o *ViewProjectActivePages) SetRiskRegister(v bool) {
 	o.RiskRegister = &v
 }
 
+// GetTable returns the Table field value if set, zero value otherwise.
+func (o *ViewProjectActivePages) GetTable() bool {
+	if o == nil || o.Table == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Table
+}
+
+// GetTableOk returns a tuple with the Table field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewProjectActivePages) GetTableOk() (*bool, bool) {
+	if o == nil || o.Table == nil {
+		return nil, false
+	}
+	return o.Table, true
+}
+
+// HasTable returns a boolean if a field has been set.
+func (o *ViewProjectActivePages) HasTable() bool {
+	if o != nil && o.Table != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTable gets a reference to the given bool and assigns it to the Table field.
+func (o *ViewProjectActivePages) SetTable(v bool) {
+	o.Table = &v
+}
+
 // GetTasks returns the Tasks field value if set, zero value otherwise.
 func (o *ViewProjectActivePages) GetTasks() bool {
 	if o == nil || o.Tasks == nil {
@@ -370,14 +535,26 @@ func (o ViewProjectActivePages) MarshalJSON() ([]byte, error) {
 	if o.Billing != nil {
 		toSerialize["billing"] = o.Billing
 	}
+	if o.Board != nil {
+		toSerialize["board"] = o.Board
+	}
 	if o.Comments != nil {
 		toSerialize["comments"] = o.Comments
 	}
 	if o.Files != nil {
 		toSerialize["files"] = o.Files
 	}
+	if o.Forms != nil {
+		toSerialize["forms"] = o.Forms
+	}
+	if o.Gantt != nil {
+		toSerialize["gantt"] = o.Gantt
+	}
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
+	}
+	if o.List != nil {
+		toSerialize["list"] = o.List
 	}
 	if o.Messages != nil {
 		toSerialize["messages"] = o.Messages
@@ -390,6 +567,9 @@ func (o ViewProjectActivePages) MarshalJSON() ([]byte, error) {
 	}
 	if o.RiskRegister != nil {
 		toSerialize["riskRegister"] = o.RiskRegister
+	}
+	if o.Table != nil {
+		toSerialize["table"] = o.Table
 	}
 	if o.Tasks != nil {
 		toSerialize["tasks"] = o.Tasks

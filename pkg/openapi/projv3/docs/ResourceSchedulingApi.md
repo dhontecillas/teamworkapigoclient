@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScheduleUserSchedulesResponse**](schedule.UserSchedulesResponse.md)
+[**ScheduleUserSchedulesResponse**](ScheduleUserSchedulesResponse.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScheduleProjectSchedulesResponse**](schedule.ProjectSchedulesResponse.md)
+[**ScheduleProjectSchedulesResponse**](ScheduleProjectSchedulesResponse.md)
 
 ### Authorization
 

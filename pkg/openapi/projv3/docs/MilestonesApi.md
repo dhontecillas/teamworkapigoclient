@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## GETProjectsApiV3MilestonesCsv
 
-> GETProjectsApiV3MilestonesCsv(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3MilestonesCsv(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate milestone report in CSV format
 
@@ -59,16 +59,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -99,7 +103,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesCsv(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesCsv(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3MilestonesCsv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -140,16 +144,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -198,7 +206,7 @@ No authorization required
 
 ## GETProjectsApiV3MilestonesHtml
 
-> GETProjectsApiV3MilestonesHtml(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3MilestonesHtml(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate milestone report in HTML format
 
@@ -240,16 +248,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -280,7 +292,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesHtml(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesHtml(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3MilestonesHtml``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -321,16 +333,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -379,7 +395,7 @@ No authorization required
 
 ## GETProjectsApiV3MilestonesIdJson
 
-> MilestoneResponse GETProjectsApiV3MilestonesIdJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> MilestoneResponse GETProjectsApiV3MilestonesIdJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get a milestone by id.
 
@@ -421,16 +437,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -461,7 +481,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesIdJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesIdJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3MilestonesIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -504,16 +524,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -544,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MilestoneResponse**](milestone.Response.md)
+[**MilestoneResponse**](MilestoneResponse.md)
 
 ### Authorization
 
@@ -562,7 +586,7 @@ No authorization required
 
 ## GETProjectsApiV3MilestonesJson
 
-> MilestoneMilestonesResponse GETProjectsApiV3MilestonesJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> MilestoneMilestonesResponse GETProjectsApiV3MilestonesJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get all milestones
 
@@ -604,16 +628,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -644,7 +672,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3MilestonesJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -687,16 +715,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -727,7 +759,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MilestoneMilestonesResponse**](milestone.MilestonesResponse.md)
+[**MilestoneMilestonesResponse**](MilestoneMilestonesResponse.md)
 
 ### Authorization
 
@@ -796,7 +828,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeadlineMilestoneMetricDeadlinesResponse**](deadline.MilestoneMetricDeadlinesResponse.md)
+[**DeadlineMilestoneMetricDeadlinesResponse**](DeadlineMilestoneMetricDeadlinesResponse.md)
 
 ### Authorization
 
@@ -814,7 +846,7 @@ No authorization required
 
 ## GETProjectsApiV3MilestonesPdf
 
-> GETProjectsApiV3MilestonesPdf(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3MilestonesPdf(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate milestone report in PDF format
 
@@ -856,16 +888,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -896,7 +932,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesPdf(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesPdf(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3MilestonesPdf``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -937,16 +973,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -995,7 +1035,7 @@ No authorization required
 
 ## GETProjectsApiV3MilestonesXlsx
 
-> GETProjectsApiV3MilestonesXlsx(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3MilestonesXlsx(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate milestone report in XLSX format
 
@@ -1037,16 +1077,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -1077,7 +1121,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesXlsx(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3MilestonesXlsx(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3MilestonesXlsx``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1118,16 +1162,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -1176,7 +1224,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsProjectIdMilestonesJson
 
-> MilestoneMilestonesResponse GETProjectsApiV3ProjectsProjectIdMilestonesJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> MilestoneMilestonesResponse GETProjectsApiV3ProjectsProjectIdMilestonesJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get milestones in a project
 
@@ -1218,16 +1266,20 @@ func main() {
     showDeleted := true // bool | include deleted items (optional) (default to false)
     showAttachedTasklists := true // bool | show attached tasklists (optional)
     searchCompaniesTeams := true // bool | include companies and teams in the search term (optional)
+    searchAssignees := true // bool | include assignees in the search (optional)
     progress := true // bool | include progress of each milestone (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     onlyMyProjects := true // bool | filter by projects that the logged-in user is related (optional) (default to false)
+    onlyAdminProjects := true // bool | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. (optional)
     matchAllTags := true // bool | match all milestone tags (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
     isReportDownload := true // bool | generate a report document (optional)
+    includeUpdate := true // bool | include milestones latest update action (optional)
     includeToday := true // bool | include today when milestone status is upcoming (optional) (default to true)
     includeTeamUserIds := true // bool | include team users to the responsible party ids (optional) (default to true)
     includeTags := true // bool | include tags in the reports (optional) (default to true)
     includeProgress := true // bool | include percentage of tasks completed for all linked tasklists (optional)
+    includeCompleted := true // bool | optional to include completed milestones (optional)
     includeCompanyUserIds := true // bool | include company users to the responsible party ids (optional) (default to true)
     includeAssigneeTeams := true // bool | include teams related to the responsible user ids (optional)
     includeAssigneeCompanies := true // bool | include companies related to the responsible user ids (optional)
@@ -1258,7 +1310,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3ProjectsProjectIdMilestonesJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.MilestonesApi.GETProjectsApiV3ProjectsProjectIdMilestonesJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Status(status).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).DueBeforeDate(dueBeforeDate).DueBefore(dueBefore).DueAfterDate(dueAfterDate).DueAfter(dueAfter).ProjectHealths(projectHealths).ProjectHealth(projectHealth).PageSize(pageSize).Page(page).ShowPrivate(showPrivate).ShowPercentageCompleted(showPercentageCompleted).ShowDeleted(showDeleted).ShowAttachedTasklists(showAttachedTasklists).SearchCompaniesTeams(searchCompaniesTeams).SearchAssignees(searchAssignees).Progress(progress).OnlyStarredProjects(onlyStarredProjects).OnlyMyProjects(onlyMyProjects).OnlyAdminProjects(onlyAdminProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeUpdate(includeUpdate).IncludeToday(includeToday).IncludeTeamUserIds(includeTeamUserIds).IncludeTags(includeTags).IncludeProgress(includeProgress).IncludeCompleted(includeCompleted).IncludeCompanyUserIds(includeCompanyUserIds).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).Emoji(emoji).CountUnreadComments(countUnreadComments).Calendar(calendar).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FollowerIds(followerIds).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsMilestones(fieldsMilestones).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MilestonesApi.GETProjectsApiV3ProjectsProjectIdMilestonesJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1301,16 +1353,20 @@ Name | Type | Description  | Notes
  **showDeleted** | **bool** | include deleted items | [default to false]
  **showAttachedTasklists** | **bool** | show attached tasklists | 
  **searchCompaniesTeams** | **bool** | include companies and teams in the search term | 
+ **searchAssignees** | **bool** | include assignees in the search | 
  **progress** | **bool** | include progress of each milestone | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **onlyMyProjects** | **bool** | filter by projects that the logged-in user is related | [default to false]
+ **onlyAdminProjects** | **bool** | only include milestones from projects where the user is strictly a project admin. site admins have visibility to all projects. | 
  **matchAllTags** | **bool** | match all milestone tags | 
  **matchAllProjectTags** | **bool** | match all project tags | 
  **isReportDownload** | **bool** | generate a report document | 
+ **includeUpdate** | **bool** | include milestones latest update action | 
  **includeToday** | **bool** | include today when milestone status is upcoming | [default to true]
  **includeTeamUserIds** | **bool** | include team users to the responsible party ids | [default to true]
  **includeTags** | **bool** | include tags in the reports | [default to true]
  **includeProgress** | **bool** | include percentage of tasks completed for all linked tasklists | 
+ **includeCompleted** | **bool** | optional to include completed milestones | 
  **includeCompanyUserIds** | **bool** | include company users to the responsible party ids | [default to true]
  **includeAssigneeTeams** | **bool** | include teams related to the responsible user ids | 
  **includeAssigneeCompanies** | **bool** | include companies related to the responsible user ids | 
@@ -1341,7 +1397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MilestoneMilestonesResponse**](milestone.MilestonesResponse.md)
+[**MilestoneMilestonesResponse**](MilestoneMilestonesResponse.md)
 
 ### Authorization
 

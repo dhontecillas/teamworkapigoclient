@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**StatusTimelineResponseIncluded**](status_TimelineResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**StatusTimelineResponseIncluded**](StatusTimelineResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 **Statuses** | Pointer to [**[]ViewStatus**](ViewStatus.md) |  | [optional] 
 
 ## Methods

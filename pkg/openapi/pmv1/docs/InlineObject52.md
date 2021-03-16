@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Project** | [**ProjectsTemplateTemplateIDJsonProject**](_projects_template__TemplateID__json_project.md) |  | 
+**Project** | [**ProjectsTemplateTemplateIDJsonProject**](ProjectsTemplateTemplateIDJsonProject.md) |  | 
 
 ## Methods
 

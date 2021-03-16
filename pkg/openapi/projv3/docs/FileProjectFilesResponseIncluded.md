@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** | Pointer to [**map[string]ViewComment**](view.Comment.md) |  | [optional] 
-**FileCategories** | Pointer to [**map[string]ViewProjectFileCategory**](view.ProjectFileCategory.md) |  | [optional] 
-**Messages** | Pointer to [**map[string]ViewProjectMessage**](view.ProjectMessage.md) |  | [optional] 
-**Permissions** | Pointer to [**map[string]ViewFilePermissions**](view.FilePermissions.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Tags** | Pointer to [**map[string]ViewTag**](view.Tag.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Comments** | Pointer to [**map[string]ViewComment**](ViewComment.md) |  | [optional] 
+**FileCategories** | Pointer to [**map[string]ViewProjectFileCategory**](ViewProjectFileCategory.md) |  | [optional] 
+**Messages** | Pointer to [**map[string]ViewProjectMessage**](ViewProjectMessage.md) |  | [optional] 
+**Permissions** | Pointer to [**map[string]ViewFilePermissions**](ViewFilePermissions.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Tags** | Pointer to [**map[string]ViewTag**](ViewTag.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

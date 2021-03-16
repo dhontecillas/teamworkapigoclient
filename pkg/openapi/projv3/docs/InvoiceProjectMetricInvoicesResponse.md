@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**InvoiceProjectMetricInvoicesResponseData**](invoice_ProjectMetricInvoicesResponse_data.md) |  | [optional] 
+**Data** | Pointer to [**InvoiceProjectMetricInvoicesResponseData**](InvoiceProjectMetricInvoicesResponseData.md) |  | [optional] 
 
 ## Methods
 

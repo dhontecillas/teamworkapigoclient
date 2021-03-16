@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Cards** | Pointer to [**SummaryColumnCardResponse**](summary.ColumnCardResponse.md) |  | [optional] 
+**Cards** | Pointer to [**SummaryColumnCardResponse**](SummaryColumnCardResponse.md) |  | [optional] 
 **Color** | Pointer to **string** |  | [optional] 
-**EstimatedTime** | Pointer to [**SummaryColumnEstimatedResponse**](summary.ColumnEstimatedResponse.md) |  | [optional] 
+**EstimatedTime** | Pointer to [**SummaryColumnEstimatedResponse**](SummaryColumnEstimatedResponse.md) |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 

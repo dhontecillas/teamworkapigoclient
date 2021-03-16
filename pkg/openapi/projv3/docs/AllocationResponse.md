@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Allocation** | Pointer to [**ViewAllocation**](view.Allocation.md) |  | [optional] 
+**Allocation** | Pointer to [**ViewAllocation**](ViewAllocation.md) |  | [optional] 
 
 ## Methods
 

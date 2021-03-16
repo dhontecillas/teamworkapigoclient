@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Notification** | Pointer to [**ViewProjectBudgetNotification**](view.ProjectBudgetNotification.md) |  | [optional] 
+**Notification** | Pointer to [**ViewProjectBudgetNotification**](ViewProjectBudgetNotification.md) |  | [optional] 
 
 ## Methods
 

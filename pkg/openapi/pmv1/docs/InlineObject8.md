@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClockIn** | Pointer to [**ClockinClockinIdJsonClockIn**](_clockin__clockinId__json_clockIn.md) |  | [optional] 
+**ClockIn** | Pointer to [**ClockinClockinIdJsonClockIn**](ClockinClockinIdJsonClockIn.md) |  | [optional] 
 
 ## Methods
 

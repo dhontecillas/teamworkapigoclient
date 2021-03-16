@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Milestone** | Pointer to [**ProjectsIdMilestonesJsonMilestone**](_projects__id__milestones_json_milestone.md) |  | [optional] 
+**Milestone** | Pointer to [**ProjectsIdMilestonesJsonMilestone**](ProjectsIdMilestonesJsonMilestone.md) |  | [optional] 
 
 ## Methods
 

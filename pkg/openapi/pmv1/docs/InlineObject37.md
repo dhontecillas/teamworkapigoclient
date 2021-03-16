@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Person** | Pointer to [**PeopleJsonPerson**](_people_json_person.md) |  | [optional] 
+**Person** | Pointer to [**PeopleJsonPerson**](PeopleJsonPerson.md) |  | [optional] 
 
 ## Methods
 

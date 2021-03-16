@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeEntry** | Pointer to [**ProjectsIdTimeEntriesJsonTimeEntry**](_projects__id__time_entries_json_time_entry.md) |  | [optional] 
+**TimeEntry** | Pointer to [**ProjectsIdTimeEntriesJsonTimeEntry**](ProjectsIdTimeEntriesJsonTimeEntry.md) |  | [optional] 
 
 ## Methods
 

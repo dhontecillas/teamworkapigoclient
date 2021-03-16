@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Project** | [**ProjectsJsonProject**](_projects_json_project.md) |  | 
+**Project** | [**ProjectsJsonProject**](ProjectsJsonProject.md) |  | 
 
 ## Methods
 

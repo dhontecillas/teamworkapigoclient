@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tasklists** | Pointer to [**map[string]ViewTasklist**](view.Tasklist.md) |  | [optional] 
+**Tasklists** | Pointer to [**map[string]ViewTasklist**](ViewTasklist.md) |  | [optional] 
 
 ## Methods
 

@@ -61,7 +61,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ColumnsIdJ
 
 ### Return type
 
-[**ColumnResponse**](column.Response.md)
+[**ColumnResponse**](ColumnResponse.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3RatesInsta
 
 ### Return type
 
-[**RatesRateResponse**](rates.RateResponse.md)
+[**RatesRateResponse**](RatesRateResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RatesInstallationUserRateResponse**](rates.InstallationUserRateResponse.md)
+[**RatesInstallationUserRateResponse**](RatesInstallationUserRateResponse.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3RatesProje
 
 ### Return type
 
-[**RatesRateResponse**](rates.RateResponse.md)
+[**RatesRateResponse**](RatesRateResponse.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3RatesUserU
 
 ### Return type
 
-[**RatesRateResponse**](rates.RateResponse.md)
+[**RatesRateResponse**](RatesRateResponse.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsercostResponse**](usercost.Response.md)
+[**UsercostResponse**](UsercostResponse.md)
 
 ### Authorization
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RatesRateResponse**](rates.RateResponse.md)
+[**RatesRateResponse**](RatesRateResponse.md)
 
 ### Authorization
 
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RatesRateResponse**](rates.RateResponse.md)
+[**RatesRateResponse**](RatesRateResponse.md)
 
 ### Authorization
 
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RatesRateResponse**](rates.RateResponse.md)
+[**RatesRateResponse**](RatesRateResponse.md)
 
 ### Authorization
 

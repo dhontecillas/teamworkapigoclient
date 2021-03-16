@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Invoice** | [**ProjectsIdInvoicesJsonInvoice**](_projects__id__invoices_json_invoice.md) |  | 
+**Invoice** | [**ProjectsIdInvoicesJsonInvoice**](ProjectsIdInvoicesJsonInvoice.md) |  | 
 
 ## Methods
 

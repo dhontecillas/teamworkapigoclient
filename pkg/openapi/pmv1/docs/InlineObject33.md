@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Notebook** | Pointer to [**NotebooksIdJsonNotebook**](_notebooks__id__json_notebook.md) |  | [optional] 
+**Notebook** | Pointer to [**NotebooksIdJsonNotebook**](NotebooksIdJsonNotebook.md) |  | [optional] 
 
 ## Methods
 

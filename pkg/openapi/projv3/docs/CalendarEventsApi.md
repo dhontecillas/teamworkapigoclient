@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalendarEventsResponse**](calendar.EventsResponse.md)
+[**CalendarEventsResponse**](CalendarEventsResponse.md)
 
 ### Authorization
 

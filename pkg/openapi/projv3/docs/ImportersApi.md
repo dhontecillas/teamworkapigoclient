@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ImporterImportersResponse**](importer.ImportersResponse.md)
+[**ImporterImportersResponse**](ImporterImportersResponse.md)
 
 ### Authorization
 

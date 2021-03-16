@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CapacityUsed** | Pointer to **int32** |  | [optional] 
 **EndDateTime** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **StartDateTime** | Pointer to **string** |  | [optional] 
 **TimelogType** | Pointer to **string** |  | [optional] 

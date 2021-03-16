@@ -25,7 +25,7 @@ type NotebookNotebook struct {
 	NewVersion *bool `json:"newVersion,omitempty"`
 	Notify *PayloadNotify `json:"notify,omitempty"`
 	NotifyCurrentUser *bool `json:"notifyCurrentUser,omitempty"`
-	Privacy *PayloadPrivacy `json:"privacy,omitempty"`
+	Privacy *PayloadUserGroups `json:"privacy,omitempty"`
 	SecureContent *bool `json:"secureContent,omitempty"`
 	SendDiff *bool `json:"sendDiff,omitempty"`
 	TagIds *[]int32 `json:"tagIds,omitempty"`
@@ -338,9 +338,9 @@ func (o *NotebookNotebook) SetNotifyCurrentUser(v bool) {
 }
 
 // GetPrivacy returns the Privacy field value if set, zero value otherwise.
-func (o *NotebookNotebook) GetPrivacy() PayloadPrivacy {
+func (o *NotebookNotebook) GetPrivacy() PayloadUserGroups {
 	if o == nil || o.Privacy == nil {
-		var ret PayloadPrivacy
+		var ret PayloadUserGroups
 		return ret
 	}
 	return *o.Privacy
@@ -348,7 +348,7 @@ func (o *NotebookNotebook) GetPrivacy() PayloadPrivacy {
 
 // GetPrivacyOk returns a tuple with the Privacy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NotebookNotebook) GetPrivacyOk() (*PayloadPrivacy, bool) {
+func (o *NotebookNotebook) GetPrivacyOk() (*PayloadUserGroups, bool) {
 	if o == nil || o.Privacy == nil {
 		return nil, false
 	}
@@ -364,8 +364,8 @@ func (o *NotebookNotebook) HasPrivacy() bool {
 	return false
 }
 
-// SetPrivacy gets a reference to the given PayloadPrivacy and assigns it to the Privacy field.
-func (o *NotebookNotebook) SetPrivacy(v PayloadPrivacy) {
+// SetPrivacy gets a reference to the given PayloadUserGroups and assigns it to the Privacy field.
+func (o *NotebookNotebook) SetPrivacy(v PayloadUserGroups) {
 	o.Privacy = &v
 }
 

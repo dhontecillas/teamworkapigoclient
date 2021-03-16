@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Risk** | [**ProjectsIdRisksJsonRisk**](_projects__id__risks_json_risk.md) |  | 
+**Risk** | [**ProjectsIdRisksJsonRisk**](ProjectsIdRisksJsonRisk.md) |  | 
 
 ## Methods
 

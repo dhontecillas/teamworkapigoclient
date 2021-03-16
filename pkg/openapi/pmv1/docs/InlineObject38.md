@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Userstatus** | Pointer to [**MeStatusJsonUserstatus**](_me_status_json_userstatus.md) |  | [optional] 
+**Userstatus** | Pointer to [**MeStatusJsonUserstatus**](MeStatusJsonUserstatus.md) |  | [optional] 
 
 ## Methods
 

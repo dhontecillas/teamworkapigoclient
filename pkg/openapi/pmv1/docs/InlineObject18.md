@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fileversion** | Pointer to [**FilesIdJsonFileversion**](_files__id__json_fileversion.md) |  | [optional] 
+**Fileversion** | Pointer to [**FilesIdJsonFileversion**](FilesIdJsonFileversion.md) |  | [optional] 
 
 ## Methods
 

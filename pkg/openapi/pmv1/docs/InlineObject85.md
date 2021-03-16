@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** | Pointer to [**ProjectsIdRolesJsonRole**](_projects__id__roles_json_role.md) |  | [optional] 
+**Role** | Pointer to [**ProjectsIdRolesJsonRole**](ProjectsIdRolesJsonRole.md) |  | [optional] 
 
 ## Methods
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**PeopleMultiResponseIncluded**](people_MultiResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**PeopleMultiResponseIncluded**](PeopleMultiResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 **People** | Pointer to [**[]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods

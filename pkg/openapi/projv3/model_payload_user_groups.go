@@ -14,34 +14,34 @@ import (
 	"encoding/json"
 )
 
-// PayloadPrivacy Privacy defines the access lists.
-type PayloadPrivacy struct {
-	CompanyIds *[]int32 `json:"companyIds,omitempty"`
-	TeamIds *[]int32 `json:"teamIds,omitempty"`
-	UserIds *[]int32 `json:"userIds,omitempty"`
+// PayloadUserGroups UserGroups are common lists for storing users, companies and teams ids together.
+type PayloadUserGroups struct {
+	CompanyIds *PayloadNullableInt64Slice `json:"companyIds,omitempty"`
+	TeamIds *PayloadNullableInt64Slice `json:"teamIds,omitempty"`
+	UserIds *PayloadNullableInt64Slice `json:"userIds,omitempty"`
 }
 
-// NewPayloadPrivacy instantiates a new PayloadPrivacy object
+// NewPayloadUserGroups instantiates a new PayloadUserGroups object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPayloadPrivacy() *PayloadPrivacy {
-	this := PayloadPrivacy{}
+func NewPayloadUserGroups() *PayloadUserGroups {
+	this := PayloadUserGroups{}
 	return &this
 }
 
-// NewPayloadPrivacyWithDefaults instantiates a new PayloadPrivacy object
+// NewPayloadUserGroupsWithDefaults instantiates a new PayloadUserGroups object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPayloadPrivacyWithDefaults() *PayloadPrivacy {
-	this := PayloadPrivacy{}
+func NewPayloadUserGroupsWithDefaults() *PayloadUserGroups {
+	this := PayloadUserGroups{}
 	return &this
 }
 
 // GetCompanyIds returns the CompanyIds field value if set, zero value otherwise.
-func (o *PayloadPrivacy) GetCompanyIds() []int32 {
+func (o *PayloadUserGroups) GetCompanyIds() PayloadNullableInt64Slice {
 	if o == nil || o.CompanyIds == nil {
-		var ret []int32
+		var ret PayloadNullableInt64Slice
 		return ret
 	}
 	return *o.CompanyIds
@@ -49,7 +49,7 @@ func (o *PayloadPrivacy) GetCompanyIds() []int32 {
 
 // GetCompanyIdsOk returns a tuple with the CompanyIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PayloadPrivacy) GetCompanyIdsOk() (*[]int32, bool) {
+func (o *PayloadUserGroups) GetCompanyIdsOk() (*PayloadNullableInt64Slice, bool) {
 	if o == nil || o.CompanyIds == nil {
 		return nil, false
 	}
@@ -57,7 +57,7 @@ func (o *PayloadPrivacy) GetCompanyIdsOk() (*[]int32, bool) {
 }
 
 // HasCompanyIds returns a boolean if a field has been set.
-func (o *PayloadPrivacy) HasCompanyIds() bool {
+func (o *PayloadUserGroups) HasCompanyIds() bool {
 	if o != nil && o.CompanyIds != nil {
 		return true
 	}
@@ -65,15 +65,15 @@ func (o *PayloadPrivacy) HasCompanyIds() bool {
 	return false
 }
 
-// SetCompanyIds gets a reference to the given []int32 and assigns it to the CompanyIds field.
-func (o *PayloadPrivacy) SetCompanyIds(v []int32) {
+// SetCompanyIds gets a reference to the given PayloadNullableInt64Slice and assigns it to the CompanyIds field.
+func (o *PayloadUserGroups) SetCompanyIds(v PayloadNullableInt64Slice) {
 	o.CompanyIds = &v
 }
 
 // GetTeamIds returns the TeamIds field value if set, zero value otherwise.
-func (o *PayloadPrivacy) GetTeamIds() []int32 {
+func (o *PayloadUserGroups) GetTeamIds() PayloadNullableInt64Slice {
 	if o == nil || o.TeamIds == nil {
-		var ret []int32
+		var ret PayloadNullableInt64Slice
 		return ret
 	}
 	return *o.TeamIds
@@ -81,7 +81,7 @@ func (o *PayloadPrivacy) GetTeamIds() []int32 {
 
 // GetTeamIdsOk returns a tuple with the TeamIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PayloadPrivacy) GetTeamIdsOk() (*[]int32, bool) {
+func (o *PayloadUserGroups) GetTeamIdsOk() (*PayloadNullableInt64Slice, bool) {
 	if o == nil || o.TeamIds == nil {
 		return nil, false
 	}
@@ -89,7 +89,7 @@ func (o *PayloadPrivacy) GetTeamIdsOk() (*[]int32, bool) {
 }
 
 // HasTeamIds returns a boolean if a field has been set.
-func (o *PayloadPrivacy) HasTeamIds() bool {
+func (o *PayloadUserGroups) HasTeamIds() bool {
 	if o != nil && o.TeamIds != nil {
 		return true
 	}
@@ -97,15 +97,15 @@ func (o *PayloadPrivacy) HasTeamIds() bool {
 	return false
 }
 
-// SetTeamIds gets a reference to the given []int32 and assigns it to the TeamIds field.
-func (o *PayloadPrivacy) SetTeamIds(v []int32) {
+// SetTeamIds gets a reference to the given PayloadNullableInt64Slice and assigns it to the TeamIds field.
+func (o *PayloadUserGroups) SetTeamIds(v PayloadNullableInt64Slice) {
 	o.TeamIds = &v
 }
 
 // GetUserIds returns the UserIds field value if set, zero value otherwise.
-func (o *PayloadPrivacy) GetUserIds() []int32 {
+func (o *PayloadUserGroups) GetUserIds() PayloadNullableInt64Slice {
 	if o == nil || o.UserIds == nil {
-		var ret []int32
+		var ret PayloadNullableInt64Slice
 		return ret
 	}
 	return *o.UserIds
@@ -113,7 +113,7 @@ func (o *PayloadPrivacy) GetUserIds() []int32 {
 
 // GetUserIdsOk returns a tuple with the UserIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PayloadPrivacy) GetUserIdsOk() (*[]int32, bool) {
+func (o *PayloadUserGroups) GetUserIdsOk() (*PayloadNullableInt64Slice, bool) {
 	if o == nil || o.UserIds == nil {
 		return nil, false
 	}
@@ -121,7 +121,7 @@ func (o *PayloadPrivacy) GetUserIdsOk() (*[]int32, bool) {
 }
 
 // HasUserIds returns a boolean if a field has been set.
-func (o *PayloadPrivacy) HasUserIds() bool {
+func (o *PayloadUserGroups) HasUserIds() bool {
 	if o != nil && o.UserIds != nil {
 		return true
 	}
@@ -129,12 +129,12 @@ func (o *PayloadPrivacy) HasUserIds() bool {
 	return false
 }
 
-// SetUserIds gets a reference to the given []int32 and assigns it to the UserIds field.
-func (o *PayloadPrivacy) SetUserIds(v []int32) {
+// SetUserIds gets a reference to the given PayloadNullableInt64Slice and assigns it to the UserIds field.
+func (o *PayloadUserGroups) SetUserIds(v PayloadNullableInt64Slice) {
 	o.UserIds = &v
 }
 
-func (o PayloadPrivacy) MarshalJSON() ([]byte, error) {
+func (o PayloadUserGroups) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CompanyIds != nil {
 		toSerialize["companyIds"] = o.CompanyIds
@@ -148,38 +148,38 @@ func (o PayloadPrivacy) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullablePayloadPrivacy struct {
-	value *PayloadPrivacy
+type NullablePayloadUserGroups struct {
+	value *PayloadUserGroups
 	isSet bool
 }
 
-func (v NullablePayloadPrivacy) Get() *PayloadPrivacy {
+func (v NullablePayloadUserGroups) Get() *PayloadUserGroups {
 	return v.value
 }
 
-func (v *NullablePayloadPrivacy) Set(val *PayloadPrivacy) {
+func (v *NullablePayloadUserGroups) Set(val *PayloadUserGroups) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePayloadPrivacy) IsSet() bool {
+func (v NullablePayloadUserGroups) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePayloadPrivacy) Unset() {
+func (v *NullablePayloadUserGroups) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePayloadPrivacy(val *PayloadPrivacy) *NullablePayloadPrivacy {
-	return &NullablePayloadPrivacy{value: val, isSet: true}
+func NewNullablePayloadUserGroups(val *PayloadUserGroups) *NullablePayloadUserGroups {
+	return &NullablePayloadUserGroups{value: val, isSet: true}
 }
 
-func (v NullablePayloadPrivacy) MarshalJSON() ([]byte, error) {
+func (v NullablePayloadUserGroups) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePayloadPrivacy) UnmarshalJSON(src []byte) error {
+func (v *NullablePayloadUserGroups) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

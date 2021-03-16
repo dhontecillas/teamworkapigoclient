@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Emailaddress** | Pointer to [**ProjectsIdEmailaddressJsonEmailaddress**](_projects__id__emailaddress_json_emailaddress.md) |  | [optional] 
+**Emailaddress** | Pointer to [**ProjectsIdEmailaddressJsonEmailaddress**](ProjectsIdEmailaddressJsonEmailaddress.md) |  | [optional] 
 
 ## Methods
 

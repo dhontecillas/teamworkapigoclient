@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Task** | Pointer to [**TasksIdFilesJsonTask**](_tasks__id__files_json_task.md) |  | [optional] 
+**Task** | Pointer to [**TasksIdFilesJsonTask**](TasksIdFilesJsonTask.md) |  | [optional] 
 
 ## Methods
 

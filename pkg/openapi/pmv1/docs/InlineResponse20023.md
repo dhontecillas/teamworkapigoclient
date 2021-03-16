@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Invoice** | Pointer to [**InlineResponse20023Invoice**](inline_response_200_23_invoice.md) |  | [optional] 
+**Invoice** | Pointer to [**InlineResponse20023Invoice**](InlineResponse20023Invoice.md) |  | [optional] 
 
 ## Methods
 

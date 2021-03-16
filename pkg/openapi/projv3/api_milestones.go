@@ -52,16 +52,20 @@ type ApiGETProjectsApiV3MilestonesCsvRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -179,6 +183,10 @@ func (r ApiGETProjectsApiV3MilestonesCsvRequest) SearchCompaniesTeams(searchComp
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesCsvRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesCsvRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesCsvRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesCsvRequest {
 	r.progress = &progress
 	return r
@@ -191,6 +199,10 @@ func (r ApiGETProjectsApiV3MilestonesCsvRequest) OnlyMyProjects(onlyMyProjects b
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesCsvRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesCsvRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesCsvRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesCsvRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -201,6 +213,10 @@ func (r ApiGETProjectsApiV3MilestonesCsvRequest) MatchAllProjectTags(matchAllPro
 }
 func (r ApiGETProjectsApiV3MilestonesCsvRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesCsvRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesCsvRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesCsvRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesCsvRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesCsvRequest {
@@ -217,6 +233,10 @@ func (r ApiGETProjectsApiV3MilestonesCsvRequest) IncludeTags(includeTags bool) A
 }
 func (r ApiGETProjectsApiV3MilestonesCsvRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesCsvRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesCsvRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesCsvRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesCsvRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesCsvRequest {
@@ -436,6 +456,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesCsvExecute(r ApiGETProj
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -445,6 +468,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesCsvExecute(r ApiGETProj
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -453,6 +479,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesCsvExecute(r ApiGETProj
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -465,6 +494,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesCsvExecute(r ApiGETProj
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
@@ -626,16 +658,20 @@ type ApiGETProjectsApiV3MilestonesHtmlRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -753,6 +789,10 @@ func (r ApiGETProjectsApiV3MilestonesHtmlRequest) SearchCompaniesTeams(searchCom
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesHtmlRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesHtmlRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
 	r.progress = &progress
 	return r
@@ -765,6 +805,10 @@ func (r ApiGETProjectsApiV3MilestonesHtmlRequest) OnlyMyProjects(onlyMyProjects 
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesHtmlRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesHtmlRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -775,6 +819,10 @@ func (r ApiGETProjectsApiV3MilestonesHtmlRequest) MatchAllProjectTags(matchAllPr
 }
 func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
@@ -791,6 +839,10 @@ func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IncludeTags(includeTags bool) 
 }
 func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesHtmlRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesHtmlRequest {
@@ -1010,6 +1062,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesHtmlExecute(r ApiGETPro
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -1019,6 +1074,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesHtmlExecute(r ApiGETPro
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -1027,6 +1085,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesHtmlExecute(r ApiGETPro
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -1039,6 +1100,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesHtmlExecute(r ApiGETPro
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
@@ -1200,16 +1264,20 @@ type ApiGETProjectsApiV3MilestonesIdJsonRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -1327,6 +1395,10 @@ func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) SearchCompaniesTeams(searchC
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
 	r.progress = &progress
 	return r
@@ -1339,6 +1411,10 @@ func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OnlyMyProjects(onlyMyProject
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -1349,6 +1425,10 @@ func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) MatchAllProjectTags(matchAll
 }
 func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
@@ -1365,6 +1445,10 @@ func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeTags(includeTags bool
 }
 func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
@@ -1584,6 +1668,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesIdJsonExecute(r ApiGETP
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -1593,6 +1680,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesIdJsonExecute(r ApiGETP
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -1601,6 +1691,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesIdJsonExecute(r ApiGETP
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -1613,6 +1706,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesIdJsonExecute(r ApiGETP
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
@@ -1783,16 +1879,20 @@ type ApiGETProjectsApiV3MilestonesJsonRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -1910,6 +2010,10 @@ func (r ApiGETProjectsApiV3MilestonesJsonRequest) SearchCompaniesTeams(searchCom
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesJsonRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesJsonRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesJsonRequest {
 	r.progress = &progress
 	return r
@@ -1922,6 +2026,10 @@ func (r ApiGETProjectsApiV3MilestonesJsonRequest) OnlyMyProjects(onlyMyProjects 
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesJsonRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -1932,6 +2040,10 @@ func (r ApiGETProjectsApiV3MilestonesJsonRequest) MatchAllProjectTags(matchAllPr
 }
 func (r ApiGETProjectsApiV3MilestonesJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesJsonRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesJsonRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesJsonRequest {
@@ -1948,6 +2060,10 @@ func (r ApiGETProjectsApiV3MilestonesJsonRequest) IncludeTags(includeTags bool) 
 }
 func (r ApiGETProjectsApiV3MilestonesJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesJsonRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesJsonRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesJsonRequest {
@@ -2171,6 +2287,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesJsonExecute(r ApiGETPro
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -2180,6 +2299,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesJsonExecute(r ApiGETPro
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -2188,6 +2310,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesJsonExecute(r ApiGETPro
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -2200,6 +2325,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesJsonExecute(r ApiGETPro
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
@@ -2498,16 +2626,20 @@ type ApiGETProjectsApiV3MilestonesPdfRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -2625,6 +2757,10 @@ func (r ApiGETProjectsApiV3MilestonesPdfRequest) SearchCompaniesTeams(searchComp
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesPdfRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesPdfRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesPdfRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesPdfRequest {
 	r.progress = &progress
 	return r
@@ -2637,6 +2773,10 @@ func (r ApiGETProjectsApiV3MilestonesPdfRequest) OnlyMyProjects(onlyMyProjects b
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesPdfRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesPdfRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesPdfRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesPdfRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -2647,6 +2787,10 @@ func (r ApiGETProjectsApiV3MilestonesPdfRequest) MatchAllProjectTags(matchAllPro
 }
 func (r ApiGETProjectsApiV3MilestonesPdfRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesPdfRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesPdfRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesPdfRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesPdfRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesPdfRequest {
@@ -2663,6 +2807,10 @@ func (r ApiGETProjectsApiV3MilestonesPdfRequest) IncludeTags(includeTags bool) A
 }
 func (r ApiGETProjectsApiV3MilestonesPdfRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesPdfRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesPdfRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesPdfRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesPdfRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesPdfRequest {
@@ -2882,6 +3030,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesPdfExecute(r ApiGETProj
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -2891,6 +3042,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesPdfExecute(r ApiGETProj
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -2899,6 +3053,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesPdfExecute(r ApiGETProj
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -2911,6 +3068,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesPdfExecute(r ApiGETProj
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
@@ -3072,16 +3232,20 @@ type ApiGETProjectsApiV3MilestonesXlsxRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -3199,6 +3363,10 @@ func (r ApiGETProjectsApiV3MilestonesXlsxRequest) SearchCompaniesTeams(searchCom
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesXlsxRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesXlsxRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
 	r.progress = &progress
 	return r
@@ -3211,6 +3379,10 @@ func (r ApiGETProjectsApiV3MilestonesXlsxRequest) OnlyMyProjects(onlyMyProjects 
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3MilestonesXlsxRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3MilestonesXlsxRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -3221,6 +3393,10 @@ func (r ApiGETProjectsApiV3MilestonesXlsxRequest) MatchAllProjectTags(matchAllPr
 }
 func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
@@ -3237,6 +3413,10 @@ func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IncludeTags(includeTags bool) 
 }
 func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3MilestonesXlsxRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesXlsxRequest {
@@ -3456,6 +3636,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesXlsxExecute(r ApiGETPro
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -3465,6 +3648,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesXlsxExecute(r ApiGETPro
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -3473,6 +3659,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesXlsxExecute(r ApiGETPro
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -3485,6 +3674,9 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesXlsxExecute(r ApiGETPro
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
@@ -3646,16 +3838,20 @@ type ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest struct {
 	showDeleted *bool
 	showAttachedTasklists *bool
 	searchCompaniesTeams *bool
+	searchAssignees *bool
 	progress *bool
 	onlyStarredProjects *bool
 	onlyMyProjects *bool
+	onlyAdminProjects *bool
 	matchAllTags *bool
 	matchAllProjectTags *bool
 	isReportDownload *bool
+	includeUpdate *bool
 	includeToday *bool
 	includeTeamUserIds *bool
 	includeTags *bool
 	includeProgress *bool
+	includeCompleted *bool
 	includeCompanyUserIds *bool
 	includeAssigneeTeams *bool
 	includeAssigneeCompanies *bool
@@ -3773,6 +3969,10 @@ func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) SearchCompani
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Progress(progress bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
 	r.progress = &progress
 	return r
@@ -3785,6 +3985,10 @@ func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OnlyMyProject
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
+func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
 func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
@@ -3795,6 +3999,10 @@ func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) MatchAllProje
 }
 func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
 	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+	r.includeUpdate = &includeUpdate
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
@@ -3811,6 +4019,10 @@ func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeTags(i
 }
 func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
 	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+	r.includeCompleted = &includeCompleted
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
@@ -4033,6 +4245,9 @@ func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJsonEx
 	if r.searchCompaniesTeams != nil {
 		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
 	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
 	if r.progress != nil {
 		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
 	}
@@ -4042,6 +4257,9 @@ func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJsonEx
 	if r.onlyMyProjects != nil {
 		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
 	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
 	if r.matchAllTags != nil {
 		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
 	}
@@ -4050,6 +4268,9 @@ func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJsonEx
 	}
 	if r.isReportDownload != nil {
 		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
 	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
@@ -4062,6 +4283,9 @@ func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJsonEx
 	}
 	if r.includeProgress != nil {
 		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
 	}
 	if r.includeCompanyUserIds != nil {
 		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))

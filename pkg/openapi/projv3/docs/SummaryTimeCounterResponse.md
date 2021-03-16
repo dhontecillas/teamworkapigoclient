@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Estimates** | Pointer to [**SummaryTimeCounterEstimateResponse**](summary.TimeCounterEstimateResponse.md) |  | [optional] 
-**Totals** | Pointer to [**SummaryTimeCounterTotalResponse**](summary.TimeCounterTotalResponse.md) |  | [optional] 
+**Estimates** | Pointer to [**SummaryTimeCounterEstimateResponse**](SummaryTimeCounterEstimateResponse.md) |  | [optional] 
+**Totals** | Pointer to [**SummaryTimeCounterTotalResponse**](SummaryTimeCounterTotalResponse.md) |  | [optional] 
 
 ## Methods
 

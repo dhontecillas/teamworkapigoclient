@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Activities** | Pointer to [**[]ActivityActivity**](ActivityActivity.md) |  | [optional] 
-**Included** | Pointer to [**ActivityActivitiesResponseIncluded**](activity_ActivitiesResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**ActivityActivitiesResponseIncluded**](ActivityActivitiesResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **LastChangedOn** | Pointer to **string** |  | [optional] 
 **LockdownId** | Pointer to **string** |  | [optional] 
 **Order** | Pointer to **int32** |  | [optional] 
-**ParentTask** | Pointer to [**InlineResponse200108ParentTask**](inline_response_200_108_parent_task.md) |  | [optional] 
+**ParentTask** | Pointer to [**InlineResponse200108ParentTask**](InlineResponse200108ParentTask.md) |  | [optional] 
 **ParentTaskId** | Pointer to **string** |  | [optional] 
 **Position** | Pointer to **int32** |  | [optional] 
 **Predecessors** | Pointer to **[]map[string]interface{}** |  | [optional] 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | Pointer to [**InlineResponse20020Category**](inline_response_200_20_category.md) |  | [optional] 
+**Category** | Pointer to [**InlineResponse20020Category**](InlineResponse20020Category.md) |  | [optional] 
 
 ## Methods
 

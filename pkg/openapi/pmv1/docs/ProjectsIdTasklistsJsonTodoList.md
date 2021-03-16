@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Pinned** | Pointer to **bool** |  | [optional] 
 **Private** | Pointer to **bool** |  | [optional] 
-**TodoListTemplateAssignments** | Pointer to [**ProjectsIdTasklistsJsonTodoListTodoListTemplateAssignments**](_projects__id__tasklists_json_todo_list_todo_list_template_assignments.md) |  | [optional] 
+**TodoListTemplateAssignments** | Pointer to [**ProjectsIdTasklistsJsonTodoListTodoListTemplateAssignments**](ProjectsIdTasklistsJsonTodoListTodoListTemplateAssignments.md) |  | [optional] 
 **TodoListTemplateId** | Pointer to **string** |  | [optional] 
 
 ## Methods

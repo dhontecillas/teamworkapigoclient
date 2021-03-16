@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Countries** | Pointer to [**map[string]ViewCountry**](view.Country.md) |  | [optional] 
-**Industries** | Pointer to [**map[string]ViewIndustry**](view.Industry.md) |  | [optional] 
-**Tags** | Pointer to [**map[string]ViewTag**](view.Tag.md) |  | [optional] 
+**Countries** | Pointer to [**map[string]ViewCountry**](ViewCountry.md) |  | [optional] 
+**Industries** | Pointer to [**map[string]ViewIndustry**](ViewIndustry.md) |  | [optional] 
+**Tags** | Pointer to [**map[string]ViewTag**](ViewTag.md) |  | [optional] 
 
 ## Methods
 

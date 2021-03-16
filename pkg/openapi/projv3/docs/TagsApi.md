@@ -117,7 +117,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3TagsIdJson
 
 ### Return type
 
-[**TagResponse**](tag.Response.md)
+[**TagResponse**](TagResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagTagsResponse**](tag.TagsResponse.md)
+[**TagTagsResponse**](TagTagsResponse.md)
 
 ### Authorization
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagResponse**](tag.Response.md)
+[**TagResponse**](TagResponse.md)
 
 ### Authorization
 
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagResponse**](tag.Response.md)
+[**TagResponse**](TagResponse.md)
 
 ### Authorization
 

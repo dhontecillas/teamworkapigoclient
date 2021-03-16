@@ -248,11 +248,194 @@ func (a *NotebooksApiService) DELETEProjectsApiV3NotebooksIdVersionsJsonExecute(
 	return localVarHTTPResponse, nil
 }
 
+type ApiGETProjectsApiV3NotebooksIdCompareJsonRequest struct {
+	ctx _context.Context
+	ApiService *NotebooksApiService
+	include *[]string
+	fieldsUsers *[]string
+}
+
+func (r ApiGETProjectsApiV3NotebooksIdCompareJsonRequest) Include(include []string) ApiGETProjectsApiV3NotebooksIdCompareJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdCompareJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3NotebooksIdCompareJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+
+func (r ApiGETProjectsApiV3NotebooksIdCompareJsonRequest) Execute() (NotebookVersionResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3NotebooksIdCompareJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3NotebooksIdCompareJson Compare 2 notebook versions
+ * Gets the contents diff between the contents of 2 notebook versions
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiGETProjectsApiV3NotebooksIdCompareJsonRequest
+ */
+func (a *NotebooksApiService) GETProjectsApiV3NotebooksIdCompareJson(ctx _context.Context) ApiGETProjectsApiV3NotebooksIdCompareJsonRequest {
+	return ApiGETProjectsApiV3NotebooksIdCompareJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return NotebookVersionResponse
+ */
+func (a *NotebooksApiService) GETProjectsApiV3NotebooksIdCompareJsonExecute(r ApiGETProjectsApiV3NotebooksIdCompareJsonRequest) (NotebookVersionResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  NotebookVersionResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotebooksApiService.GETProjectsApiV3NotebooksIdCompareJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/notebooks/:id/compare.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGETProjectsApiV3NotebooksIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *NotebooksApiService
+	updatedAfterDate *time.Time
+	updatedAfter *time.Time
+	showDeleted *bool
+	getEmoji *bool
+	include *[]string
+	fieldsUsers *[]string
+	fieldsTeams *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsNotebookCategories *[]string
+	fieldsCompanies *[]string
 }
 
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.updatedAfter = &updatedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) Include(include []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsTeams = &fieldsTeams
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) FieldsNotebookCategories(fieldsNotebookCategories []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsNotebookCategories = &fieldsNotebookCategories
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
+	return r
+}
 
 func (r ApiGETProjectsApiV3NotebooksIdJsonRequest) Execute() (NotebookResponse, *_nethttp.Response, error) {
 	return r.ApiService.GETProjectsApiV3NotebooksIdJsonExecute(r)
@@ -295,6 +478,39 @@ func (a *NotebooksApiService) GETProjectsApiV3NotebooksIdJsonExecute(r ApiGETPro
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.updatedAfter != nil {
+		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTeams != nil {
+		localVarQueryParams.Add("fields[teams]", parameterToString(*r.fieldsTeams, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsNotebookCategories != nil {
+		localVarQueryParams.Add("fields[notebookCategories]", parameterToString(*r.fieldsNotebookCategories, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -516,9 +732,11 @@ type ApiGETProjectsApiV3NotebooksJsonRequest struct {
 	include *[]string
 	ids *[]int32
 	fieldsUsers *[]string
+	fieldsTeams *[]string
 	fieldsTags *[]string
 	fieldsProjects *[]string
 	fieldsNotebookCategories *[]string
+	fieldsCompanies *[]string
 	creatorIds *[]int32
 	categoryIds *[]int32
 }
@@ -627,6 +845,10 @@ func (r ApiGETProjectsApiV3NotebooksJsonRequest) FieldsUsers(fieldsUsers []strin
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
+func (r ApiGETProjectsApiV3NotebooksJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3NotebooksJsonRequest {
+	r.fieldsTeams = &fieldsTeams
+	return r
+}
 func (r ApiGETProjectsApiV3NotebooksJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3NotebooksJsonRequest {
 	r.fieldsTags = &fieldsTags
 	return r
@@ -637,6 +859,10 @@ func (r ApiGETProjectsApiV3NotebooksJsonRequest) FieldsProjects(fieldsProjects [
 }
 func (r ApiGETProjectsApiV3NotebooksJsonRequest) FieldsNotebookCategories(fieldsNotebookCategories []string) ApiGETProjectsApiV3NotebooksJsonRequest {
 	r.fieldsNotebookCategories = &fieldsNotebookCategories
+	return r
+}
+func (r ApiGETProjectsApiV3NotebooksJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3NotebooksJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 func (r ApiGETProjectsApiV3NotebooksJsonRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV3NotebooksJsonRequest {
@@ -767,6 +993,9 @@ func (a *NotebooksApiService) GETProjectsApiV3NotebooksJsonExecute(r ApiGETProje
 	if r.fieldsUsers != nil {
 		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
 	}
+	if r.fieldsTeams != nil {
+		localVarQueryParams.Add("fields[teams]", parameterToString(*r.fieldsTeams, "csv"))
+	}
 	if r.fieldsTags != nil {
 		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
 	}
@@ -775,6 +1004,9 @@ func (a *NotebooksApiService) GETProjectsApiV3NotebooksJsonExecute(r ApiGETProje
 	}
 	if r.fieldsNotebookCategories != nil {
 		localVarQueryParams.Add("fields[notebookCategories]", parameterToString(*r.fieldsNotebookCategories, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
 	}
 	if r.creatorIds != nil {
 		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
@@ -978,10 +1210,50 @@ type ApiPATCHProjectsApiV3NotebooksIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *NotebooksApiService
 	notebookRequest *NotebookRequest
+	getEmoji *bool
+	include *[]string
+	fieldsUsers *[]string
+	fieldsTeams *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsNotebookCategories *[]string
+	fieldsCompanies *[]string
 }
 
 func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) NotebookRequest(notebookRequest NotebookRequest) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
 	r.notebookRequest = &notebookRequest
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) GetEmoji(getEmoji bool) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) Include(include []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) FieldsTeams(fieldsTeams []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsTeams = &fieldsTeams
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) FieldsTags(fieldsTags []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) FieldsNotebookCategories(fieldsNotebookCategories []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsNotebookCategories = &fieldsNotebookCategories
+	return r
+}
+func (r ApiPATCHProjectsApiV3NotebooksIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiPATCHProjectsApiV3NotebooksIdJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 
@@ -1030,6 +1302,30 @@ func (a *NotebooksApiService) PATCHProjectsApiV3NotebooksIdJsonExecute(r ApiPATC
 		return localVarReturnValue, nil, reportError("notebookRequest is required and must be specified")
 	}
 
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTeams != nil {
+		localVarQueryParams.Add("fields[teams]", parameterToString(*r.fieldsTeams, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsNotebookCategories != nil {
+		localVarQueryParams.Add("fields[notebookCategories]", parameterToString(*r.fieldsNotebookCategories, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -1110,10 +1406,50 @@ type ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest struct {
 	ctx _context.Context
 	ApiService *NotebooksApiService
 	notebookRequest *NotebookRequest
+	getEmoji *bool
+	include *[]string
+	fieldsUsers *[]string
+	fieldsTeams *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsNotebookCategories *[]string
+	fieldsCompanies *[]string
 }
 
 func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) NotebookRequest(notebookRequest NotebookRequest) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
 	r.notebookRequest = &notebookRequest
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) GetEmoji(getEmoji bool) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) Include(include []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) FieldsUsers(fieldsUsers []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) FieldsTeams(fieldsTeams []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.fieldsTeams = &fieldsTeams
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) FieldsTags(fieldsTags []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) FieldsProjects(fieldsProjects []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) FieldsNotebookCategories(fieldsNotebookCategories []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.fieldsNotebookCategories = &fieldsNotebookCategories
+	return r
+}
+func (r ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiPOSTProjectsApiV3ProjectsProjectIdNotebooksJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 
@@ -1161,6 +1497,30 @@ func (a *NotebooksApiService) POSTProjectsApiV3ProjectsProjectIdNotebooksJsonExe
 		return localVarReturnValue, nil, reportError("notebookRequest is required and must be specified")
 	}
 
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTeams != nil {
+		localVarQueryParams.Add("fields[teams]", parameterToString(*r.fieldsTeams, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsNotebookCategories != nil {
+		localVarQueryParams.Add("fields[notebookCategories]", parameterToString(*r.fieldsNotebookCategories, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

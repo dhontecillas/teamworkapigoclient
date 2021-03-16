@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**ScheduleProjectSchedulesResponseIncluded**](schedule_ProjectSchedulesResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**ScheduleProjectSchedulesResponseIncluded**](ScheduleProjectSchedulesResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 **ProjectSchedules** | Pointer to [**[]ViewProjectSchedule**](ViewProjectSchedule.md) |  | [optional] 
 
 ## Methods

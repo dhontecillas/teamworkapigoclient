@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | [**CompaniesJsonCompany**](_companies_json_company.md) |  | 
+**Company** | [**CompaniesJsonCompany**](CompaniesJsonCompany.md) |  | 
 
 ## Methods
 

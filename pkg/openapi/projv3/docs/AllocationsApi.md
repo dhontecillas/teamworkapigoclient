@@ -125,7 +125,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3Allocation
 
 ### Return type
 
-[**AllocationResponse**](allocation.Response.md)
+[**AllocationResponse**](AllocationResponse.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AllocationAllocationsResponse**](allocation.AllocationsResponse.md)
+[**AllocationAllocationsResponse**](AllocationAllocationsResponse.md)
 
 ### Authorization
 
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AllocationResponse**](allocation.Response.md)
+[**AllocationResponse**](AllocationResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AllocationResponse**](allocation.Response.md)
+[**AllocationResponse**](AllocationResponse.md)
 
 ### Authorization
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AllocationResponse**](allocation.Response.md)
+[**AllocationResponse**](AllocationResponse.md)
 
 ### Authorization
 
@@ -561,7 +561,7 @@ Other parameters are passed through a pointer to a apiPUTProjectsApiV3Allocation
 
 ### Return type
 
-[**AllocationResponse**](allocation.Response.md)
+[**AllocationResponse**](AllocationResponse.md)
 
 ### Authorization
 
@@ -627,7 +627,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AllocationAllocationsResponse**](allocation.AllocationsResponse.md)
+[**AllocationAllocationsResponse**](AllocationAllocationsResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Project** | Pointer to [**YoursiteProjectsProjIdJsonProject**](_yoursite_projects__projId__json_project.md) |  | [optional] 
+**Project** | Pointer to [**YoursiteProjectsProjIdJsonProject**](YoursiteProjectsProjIdJsonProject.md) |  | [optional] 
 
 ## Methods
 

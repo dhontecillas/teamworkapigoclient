@@ -37,6 +37,7 @@ type ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest struct {
 	timeRangeEnd *time.Time
 	timeRange *string
 	status *string
+	projectStatuses *string
 	projectStatus *string
 	projectHealths *int32
 	projectHealth *int32
@@ -95,6 +96,10 @@ func (r ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest) TimeRange(timeRa
 }
 func (r ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest) Status(status string) ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest {
 	r.status = &status
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest {
+	r.projectStatuses = &projectStatuses
 	return r
 }
 func (r ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsprojectIdSummaryJsonRequest {
@@ -337,6 +342,9 @@ func (a *SummaryApiService) GETProjectsApiV3ProjectsprojectIdSummaryJsonExecute(
 	if r.status != nil {
 		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
 	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}
@@ -522,6 +530,7 @@ type ApiGETProjectsApiV3SummaryJsonRequest struct {
 	timeRangeEnd *time.Time
 	timeRange *string
 	status *string
+	projectStatuses *string
 	projectStatus *string
 	projectHealths *int32
 	projectHealth *int32
@@ -579,6 +588,10 @@ func (r ApiGETProjectsApiV3SummaryJsonRequest) TimeRange(timeRange string) ApiGE
 }
 func (r ApiGETProjectsApiV3SummaryJsonRequest) Status(status string) ApiGETProjectsApiV3SummaryJsonRequest {
 	r.status = &status
+	return r
+}
+func (r ApiGETProjectsApiV3SummaryJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3SummaryJsonRequest {
+	r.projectStatuses = &projectStatuses
 	return r
 }
 func (r ApiGETProjectsApiV3SummaryJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3SummaryJsonRequest {
@@ -813,6 +826,9 @@ func (a *SummaryApiService) GETProjectsApiV3SummaryJsonExecute(r ApiGETProjectsA
 	}
 	if r.status != nil {
 		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
 	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))

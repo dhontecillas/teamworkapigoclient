@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CalendarEvents** | Pointer to [**map[string]ViewCalendarEvent**](view.CalendarEvent.md) |  | [optional] 
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Milestones** | Pointer to [**map[string]ViewMilestone**](view.Milestone.md) |  | [optional] 
-**Tasklists** | Pointer to [**map[string]ViewTasklist**](view.Tasklist.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
-**Timelogs** | Pointer to [**map[string]ViewTimelog**](view.Timelog.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
-**WorkingHourEntries** | Pointer to [**map[string]ViewWorkingHourEntry**](view.WorkingHourEntry.md) |  | [optional] 
-**WorkingHours** | Pointer to [**map[string]ViewWorkingHour**](view.WorkingHour.md) |  | [optional] 
+**CalendarEvents** | Pointer to [**map[string]ViewCalendarEvent**](ViewCalendarEvent.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Milestones** | Pointer to [**map[string]ViewMilestone**](ViewMilestone.md) |  | [optional] 
+**Tasklists** | Pointer to [**map[string]ViewTasklist**](ViewTasklist.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
+**Timelogs** | Pointer to [**map[string]ViewTimelog**](ViewTimelog.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
+**WorkingHourEntries** | Pointer to [**map[string]ViewWorkingHourEntry**](ViewWorkingHourEntry.md) |  | [optional] 
+**WorkingHours** | Pointer to [**map[string]ViewWorkingHour**](ViewWorkingHour.md) |  | [optional] 
 
 ## Methods
 

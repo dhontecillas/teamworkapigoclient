@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Card** | Pointer to [**PortfolioColumnsColumnIdCardsJsonCard**](_portfolio_columns__columnId__cards_json_card.md) |  | [optional] 
+**Card** | Pointer to [**PortfolioColumnsColumnIdCardsJsonCard**](PortfolioColumnsColumnIdCardsJsonCard.md) |  | [optional] 
 
 ## Methods
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Project** | Pointer to [**ProjectsTemplateJsonProject**](_projects_template_json_project.md) |  | [optional] 
+**Project** | Pointer to [**ProjectsTemplateJsonProject**](ProjectsTemplateJsonProject.md) |  | [optional] 
 
 ## Methods
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomfieldTasks** | Pointer to [**[]ViewCustomFieldTask**](ViewCustomFieldTask.md) |  | [optional] 
-**Included** | Pointer to [**TaskCustomFieldTasksResponseIncluded**](task_CustomFieldTasksResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**TaskCustomFieldTasksResponseIncluded**](TaskCustomFieldTasksResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
 ## Methods
 

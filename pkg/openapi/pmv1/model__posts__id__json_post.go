@@ -29,7 +29,7 @@ type PostsIdJsonPost struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostsIdJsonPost(title string, ) *PostsIdJsonPost {
+func NewPostsIdJsonPost(title string) *PostsIdJsonPost {
 	this := PostsIdJsonPost{}
 	this.Title = title
 	return &this
@@ -237,7 +237,7 @@ func (o *PostsIdJsonPost) SetPrivate(v string) {
 
 // GetTitle returns the Title field value
 func (o *PostsIdJsonPost) GetTitle() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

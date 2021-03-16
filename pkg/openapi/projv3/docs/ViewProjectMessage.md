@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**Post** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Post** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **PostId** | Pointer to **int32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 

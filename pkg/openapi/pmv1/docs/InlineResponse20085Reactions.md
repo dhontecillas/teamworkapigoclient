@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Counts** | Pointer to [**InlineResponse2008ReactionsCounts**](inline_response_200_8_reactions_counts.md) |  | [optional] 
+**Counts** | Pointer to [**InlineResponse2008ReactionsCounts**](InlineResponse2008ReactionsCounts.md) |  | [optional] 
 **Mine** | Pointer to **[]map[string]interface{}** |  | [optional] 
 
 ## Methods

@@ -18,6 +18,7 @@ import (
 type ViewStatus struct {
 	DateLastUpdated *string `json:"dateLastUpdated,omitempty"`
 	DateTime *string `json:"dateTime,omitempty"`
+	Deleted *bool `json:"deleted,omitempty"`
 	Emoji *string `json:"emoji,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	IpAddress *string `json:"ipAddress,omitempty"`
@@ -106,6 +107,38 @@ func (o *ViewStatus) HasDateTime() bool {
 // SetDateTime gets a reference to the given string and assigns it to the DateTime field.
 func (o *ViewStatus) SetDateTime(v string) {
 	o.DateTime = &v
+}
+
+// GetDeleted returns the Deleted field value if set, zero value otherwise.
+func (o *ViewStatus) GetDeleted() bool {
+	if o == nil || o.Deleted == nil {
+		var ret bool
+		return ret
+	}
+	return *o.Deleted
+}
+
+// GetDeletedOk returns a tuple with the Deleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewStatus) GetDeletedOk() (*bool, bool) {
+	if o == nil || o.Deleted == nil {
+		return nil, false
+	}
+	return o.Deleted, true
+}
+
+// HasDeleted returns a boolean if a field has been set.
+func (o *ViewStatus) HasDeleted() bool {
+	if o != nil && o.Deleted != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDeleted gets a reference to the given bool and assigns it to the Deleted field.
+func (o *ViewStatus) SetDeleted(v bool) {
+	o.Deleted = &v
 }
 
 // GetEmoji returns the Emoji field value if set, zero value otherwise.
@@ -339,6 +372,9 @@ func (o ViewStatus) MarshalJSON() ([]byte, error) {
 	}
 	if o.DateTime != nil {
 		toSerialize["dateTime"] = o.DateTime
+	}
+	if o.Deleted != nil {
+		toSerialize["deleted"] = o.Deleted
 	}
 	if o.Emoji != nil {
 		toSerialize["emoji"] = o.Emoji

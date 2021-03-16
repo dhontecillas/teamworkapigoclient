@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **Locked** | Pointer to **bool** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **NewVersion** | Pointer to **bool** |  | [optional] 
-**Notify** | Pointer to [**PayloadNotify**](payload.Notify.md) |  | [optional] 
+**Notify** | Pointer to [**PayloadNotify**](PayloadNotify.md) |  | [optional] 
 **NotifyCurrentUser** | Pointer to **bool** |  | [optional] 
-**Privacy** | Pointer to [**PayloadPrivacy**](payload.Privacy.md) |  | [optional] 
+**Privacy** | Pointer to [**PayloadUserGroups**](PayloadUserGroups.md) |  | [optional] 
 **SecureContent** | Pointer to **bool** |  | [optional] 
 **SendDiff** | Pointer to **bool** |  | [optional] 
 **TagIds** | Pointer to **[]int32** |  | [optional] 
@@ -265,20 +265,20 @@ HasNotifyCurrentUser returns a boolean if a field has been set.
 
 ### GetPrivacy
 
-`func (o *NotebookNotebook) GetPrivacy() PayloadPrivacy`
+`func (o *NotebookNotebook) GetPrivacy() PayloadUserGroups`
 
 GetPrivacy returns the Privacy field if non-nil, zero value otherwise.
 
 ### GetPrivacyOk
 
-`func (o *NotebookNotebook) GetPrivacyOk() (*PayloadPrivacy, bool)`
+`func (o *NotebookNotebook) GetPrivacyOk() (*PayloadUserGroups, bool)`
 
 GetPrivacyOk returns a tuple with the Privacy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacy
 
-`func (o *NotebookNotebook) SetPrivacy(v PayloadPrivacy)`
+`func (o *NotebookNotebook) SetPrivacy(v PayloadUserGroups)`
 
 SetPrivacy sets Privacy field to given value.
 

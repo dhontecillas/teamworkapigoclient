@@ -23,7 +23,7 @@ type InlineObject89 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject89(projectId string, ) *InlineObject89 {
+func NewInlineObject89(projectId string) *InlineObject89 {
 	this := InlineObject89{}
 	this.ProjectId = projectId
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject89WithDefaults() *InlineObject89 {
 
 // GetProjectId returns the ProjectId field value
 func (o *InlineObject89) GetProjectId() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

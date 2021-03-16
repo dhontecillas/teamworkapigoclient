@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommentCommentsResponse**](comment.CommentsResponse.md)
+[**CommentCommentsResponse**](CommentCommentsResponse.md)
 
 ### Authorization
 

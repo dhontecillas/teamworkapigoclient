@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Tags** | Pointer to [**map[string]ViewTag**](view.Tag.md) |  | [optional] 
-**Tasklists** | Pointer to [**map[string]ViewTasklist**](view.Tasklist.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
-**Teams** | Pointer to [**map[string]ViewTeam**](view.Team.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Tags** | Pointer to [**map[string]ViewTag**](ViewTag.md) |  | [optional] 
+**Tasklists** | Pointer to [**map[string]ViewTasklist**](ViewTasklist.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
+**Teams** | Pointer to [**map[string]ViewTeam**](ViewTeam.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

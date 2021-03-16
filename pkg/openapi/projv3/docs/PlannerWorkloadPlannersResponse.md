@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**PlannerWorkloadPlannersResponseIncluded**](planner_WorkloadPlannersResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**PlannerWorkloadPlannersResponseIncluded**](PlannerWorkloadPlannersResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 **Planners** | Pointer to [**[]PlannerWorkloadPlanner**](PlannerWorkloadPlanner.md) |  | [optional] 
 
 ## Methods

@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** |  | [optional] 
-**Milestone** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Milestone** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **MilestoneId** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**NewTaskDefaults** | Pointer to [**ViewNewTaskDefaults**](view.NewTaskDefaults.md) |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**NewTaskDefaults** | Pointer to [**ViewNewTaskDefaults**](ViewNewTaskDefaults.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **TaskIds** | Pointer to **[]int32** |  | [optional] 
 **Tasks** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 

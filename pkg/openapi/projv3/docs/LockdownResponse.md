@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**LockdownResponseIncluded**](lockdown_Response_included.md) |  | [optional] 
-**Lockdown** | Pointer to [**ViewLockdown**](view.Lockdown.md) |  | [optional] 
+**Included** | Pointer to [**LockdownResponseIncluded**](LockdownResponseIncluded.md) |  | [optional] 
+**Lockdown** | Pointer to [**ViewLockdown**](ViewLockdown.md) |  | [optional] 
 
 ## Methods
 

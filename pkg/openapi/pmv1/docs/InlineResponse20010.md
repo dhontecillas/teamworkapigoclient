@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Comment** | Pointer to [**InlineResponse20010Comment**](inline_response_200_10_comment.md) |  | [optional] 
+**Comment** | Pointer to [**InlineResponse20010Comment**](InlineResponse20010Comment.md) |  | [optional] 
 
 ## Methods
 

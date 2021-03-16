@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | Pointer to [**ResourceResourceIdCommentsJsonComment**](_resource__resource_id__comments_json_comment.md) |  | [optional] 
+**Comment** | Pointer to [**ResourceResourceIdCommentsJsonComment**](ResourceResourceIdCommentsJsonComment.md) |  | [optional] 
 
 ## Methods
 

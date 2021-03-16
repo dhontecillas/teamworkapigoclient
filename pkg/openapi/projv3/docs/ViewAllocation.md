@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignedUser** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**AssignedUser** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **AssignedUserID** | Pointer to **int32** |  | [optional] 
+**AvailableDuration** | Pointer to **int32** | in minutes | [optional] 
 **Color** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
 **CreatedBy** | Pointer to **int32** |  | [optional] 
@@ -15,11 +16,11 @@ Name | Type | Description | Notes
 **DistributeType** | Pointer to **string** |  | [optional] 
 **Duration** | Pointer to **int32** | in minutes | [optional] 
 **EndedAt** | Pointer to **map[string]interface{}** | Date represents a Unified API Spec date format. | [optional] 
-**HoursPerDay** | Pointer to **int32** |  | [optional] 
+**HoursPerDay** | Pointer to **float32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
-**Installation** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Installation** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **InstallationId** | Pointer to **int32** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 **RecurringRule** | Pointer to **string** |  | [optional] 
 **StartedAt** | Pointer to **map[string]interface{}** | Date represents a Unified API Spec date format. | [optional] 
@@ -96,6 +97,31 @@ SetAssignedUserID sets AssignedUserID field to given value.
 `func (o *ViewAllocation) HasAssignedUserID() bool`
 
 HasAssignedUserID returns a boolean if a field has been set.
+
+### GetAvailableDuration
+
+`func (o *ViewAllocation) GetAvailableDuration() int32`
+
+GetAvailableDuration returns the AvailableDuration field if non-nil, zero value otherwise.
+
+### GetAvailableDurationOk
+
+`func (o *ViewAllocation) GetAvailableDurationOk() (*int32, bool)`
+
+GetAvailableDurationOk returns a tuple with the AvailableDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableDuration
+
+`func (o *ViewAllocation) SetAvailableDuration(v int32)`
+
+SetAvailableDuration sets AvailableDuration field to given value.
+
+### HasAvailableDuration
+
+`func (o *ViewAllocation) HasAvailableDuration() bool`
+
+HasAvailableDuration returns a boolean if a field has been set.
 
 ### GetColor
 
@@ -324,20 +350,20 @@ HasEndedAt returns a boolean if a field has been set.
 
 ### GetHoursPerDay
 
-`func (o *ViewAllocation) GetHoursPerDay() int32`
+`func (o *ViewAllocation) GetHoursPerDay() float32`
 
 GetHoursPerDay returns the HoursPerDay field if non-nil, zero value otherwise.
 
 ### GetHoursPerDayOk
 
-`func (o *ViewAllocation) GetHoursPerDayOk() (*int32, bool)`
+`func (o *ViewAllocation) GetHoursPerDayOk() (*float32, bool)`
 
 GetHoursPerDayOk returns a tuple with the HoursPerDay field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHoursPerDay
 
-`func (o *ViewAllocation) SetHoursPerDay(v int32)`
+`func (o *ViewAllocation) SetHoursPerDay(v float32)`
 
 SetHoursPerDay sets HoursPerDay field to given value.
 

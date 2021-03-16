@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## GETProjectsApiV3ProjectsCsv
 
-> GETProjectsApiV3ProjectsCsv(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> GETProjectsApiV3ProjectsCsv(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Generate project report in CSV format
 
@@ -52,6 +52,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -62,6 +63,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -85,7 +87,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsCsv(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsCsv(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsCsv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -114,6 +116,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -124,6 +127,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 
@@ -165,7 +169,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsHtml
 
-> GETProjectsApiV3ProjectsHtml(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> GETProjectsApiV3ProjectsHtml(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Generate project report in HTML format
 
@@ -195,6 +199,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -205,6 +210,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -228,7 +234,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsHtml(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsHtml(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsHtml``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -257,6 +263,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -267,6 +274,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 
@@ -308,7 +316,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsJson
 
-> ProjectProjectsResponse GETProjectsApiV3ProjectsJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> ProjectProjectsResponse GETProjectsApiV3ProjectsJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Returns a list of projects
 
@@ -338,6 +346,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -348,6 +357,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -371,7 +381,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -402,6 +412,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -412,6 +423,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 
@@ -435,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectProjectsResponse**](project.ProjectsResponse.md)
+[**ProjectProjectsResponse**](ProjectProjectsResponse.md)
 
 ### Authorization
 
@@ -496,7 +508,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsMe
 
 ### Return type
 
-[**ActiveResponse**](active.Response.md)
+[**ActiveResponse**](ActiveResponse.md)
 
 ### Authorization
 
@@ -567,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BillableProjectMetricBillablesResponse**](billable.ProjectMetricBillablesResponse.md)
+[**BillableProjectMetricBillablesResponse**](BillableProjectMetricBillablesResponse.md)
 
 ### Authorization
 
@@ -585,7 +597,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsMetricsHealthsJson
 
-> HealthProjectMetricHealthsResponse GETProjectsApiV3ProjectsMetricsHealthsJson(ctx).ProjectStatus(projectStatus).ProjectHealths(projectHealths).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+> HealthProjectMetricHealthsResponse GETProjectsApiV3ProjectsMetricsHealthsJson(ctx).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).ProjectHealths(projectHealths).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Get a health summary for all projects
 
@@ -604,7 +616,8 @@ import (
 )
 
 func main() {
-    projectStatus := "projectStatus_example" // string | project status (optional)
+    projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
+    projectStatus := "projectStatus_example" // string | filter by project status (optional)
     projectHealths := int32(56) // int32 | project health  0: not set 1: bad 2: ok 3: good (optional)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
@@ -616,7 +629,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsMetricsHealthsJson(context.Background()).ProjectStatus(projectStatus).ProjectHealths(projectHealths).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsMetricsHealthsJson(context.Background()).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).ProjectHealths(projectHealths).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsMetricsHealthsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -637,7 +650,8 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsMe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectStatus** | **string** | project status | 
+ **projectStatuses** | **string** | filter by project statuses | 
+ **projectStatus** | **string** | filter by project status | 
  **projectHealths** | **int32** | project health  0: not set 1: bad 2: ok 3: good | 
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **matchAllProjectTags** | **bool** | match all project tags | 
@@ -649,7 +663,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**HealthProjectMetricHealthsResponse**](health.ProjectMetricHealthsResponse.md)
+[**HealthProjectMetricHealthsResponse**](HealthProjectMetricHealthsResponse.md)
 
 ### Authorization
 
@@ -733,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvoiceProjectMetricInvoicesResponse**](invoice.ProjectMetricInvoicesResponse.md)
+[**InvoiceProjectMetricInvoicesResponse**](InvoiceProjectMetricInvoicesResponse.md)
 
 ### Authorization
 
@@ -821,7 +835,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OwnerProjectMetricOwnersResponse**](owner.ProjectMetricOwnersResponse.md)
+[**OwnerProjectMetricOwnersResponse**](OwnerProjectMetricOwnersResponse.md)
 
 ### Authorization
 
@@ -905,7 +919,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnbilledProjectMetricUnbilledResponse**](unbilled.ProjectMetricUnbilledResponse.md)
+[**UnbilledProjectMetricUnbilledResponse**](UnbilledProjectMetricUnbilledResponse.md)
 
 ### Authorization
 
@@ -923,7 +937,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsPdf
 
-> GETProjectsApiV3ProjectsPdf(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> GETProjectsApiV3ProjectsPdf(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Generate project report in PDF format
 
@@ -953,6 +967,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -963,6 +978,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -986,7 +1002,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsPdf(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsPdf(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsPdf``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1015,6 +1031,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -1025,6 +1042,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 
@@ -1124,7 +1142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectSampleProjectsResponse**](project.SampleProjectsResponse.md)
+[**ProjectSampleProjectsResponse**](ProjectSampleProjectsResponse.md)
 
 ### Authorization
 
@@ -1142,7 +1160,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsTemplatesJson
 
-> ProjectProjectsResponse GETProjectsApiV3ProjectsTemplatesJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> ProjectProjectsResponse GETProjectsApiV3ProjectsTemplatesJson(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Returns a list of projects templates
 
@@ -1172,6 +1190,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -1182,6 +1201,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -1205,7 +1225,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsTemplatesJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsTemplatesJson(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsTemplatesJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1236,6 +1256,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -1246,6 +1267,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 
@@ -1269,7 +1291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectProjectsResponse**](project.ProjectsResponse.md)
+[**ProjectProjectsResponse**](ProjectProjectsResponse.md)
 
 ### Authorization
 
@@ -1287,7 +1309,7 @@ No authorization required
 
 ## GETProjectsApiV3ProjectsXlsx
 
-> GETProjectsApiV3ProjectsXlsx(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+> GETProjectsApiV3ProjectsXlsx(ctx).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Generate project report in XLSX format
 
@@ -1317,6 +1339,7 @@ func main() {
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     minLastActivityDate := time.Now() // string | filter by min last activity date (optional)
     maxLastActivityDate := time.Now() // string | filter by max last activity date (optional)
+    userId := int32(56) // int32 | filter by user id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
     page := int32(56) // int32 | page number (not used when generating reports) (optional) (default to 1)
@@ -1327,6 +1350,7 @@ func main() {
     isReportDownload := true // bool | generate a report document (optional) (default to false)
     includeProjectUserInfo := true // bool | fetch user-specific data such as isStarred (optional) (default to false)
     includeCustomFields := true // bool | include custom fields (optional) (default to false)
+    includeCompletedStatus := true // bool | optional to include completed projects when filtering by project statuses \"current,late\". (optional)
     includeArchivedProjects := true // bool | include archived projects (optional) (default to false)
     hideObservedProjects := true // bool | hide projects where the logged-in user is just an observer (optional) (default to false)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
@@ -1350,7 +1374,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsXlsx(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsXlsx(context.Background()).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ReportType(reportType).ReportFormat(reportFormat).ProjectType(projectType).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).MinLastActivityDate(minLastActivityDate).MaxLastActivityDate(maxLastActivityDate).UserId(userId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).OnlyStarredProjects(onlyStarredProjects).OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeProjectUserInfo(includeProjectUserInfo).IncludeCustomFields(includeCustomFields).IncludeCompletedStatus(includeCompletedStatus).IncludeArchivedProjects(includeArchivedProjects).HideObservedProjects(hideObservedProjects).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsProjectcategories(fieldsProjectcategories).FieldsProjectUpdates(fieldsProjectUpdates).FieldsProjectBudgets(fieldsProjectBudgets).FieldsPortfolioColumns(fieldsPortfolioColumns).FieldsPortfolioCards(fieldsPortfolioCards).FieldsPortfolioBoards(fieldsPortfolioBoards).FieldsCustomfields(fieldsCustomfields).FieldsCustomfieldProjects(fieldsCustomfieldProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsXlsx``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1379,6 +1403,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **minLastActivityDate** | **string** | filter by min last activity date | 
  **maxLastActivityDate** | **string** | filter by max last activity date | 
+ **userId** | **int32** | filter by user id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]
  **page** | **int32** | page number (not used when generating reports) | [default to 1]
@@ -1389,6 +1414,7 @@ Name | Type | Description  | Notes
  **isReportDownload** | **bool** | generate a report document | [default to false]
  **includeProjectUserInfo** | **bool** | fetch user-specific data such as isStarred | [default to false]
  **includeCustomFields** | **bool** | include custom fields | [default to false]
+ **includeCompletedStatus** | **bool** | optional to include completed projects when filtering by project statuses \&quot;current,late\&quot;. | 
  **includeArchivedProjects** | **bool** | include archived projects | [default to false]
  **hideObservedProjects** | **bool** | hide projects where the logged-in user is just an observer | [default to false]
  **projectTagIds** | **[]int32** | filter by project tag ids | 

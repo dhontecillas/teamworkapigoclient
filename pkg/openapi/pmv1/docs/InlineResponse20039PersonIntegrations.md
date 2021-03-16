@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MicrosoftConnector** | Pointer to [**InlineResponse20039PersonIntegrationsMicrosoftConnector**](inline_response_200_39_person_integrations_microsoftConnector.md) |  | [optional] 
+**MicrosoftConnector** | Pointer to [**InlineResponse20039PersonIntegrationsMicrosoftConnector**](InlineResponse20039PersonIntegrationsMicrosoftConnector.md) |  | [optional] 
 
 ## Methods
 

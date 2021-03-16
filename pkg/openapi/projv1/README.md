@@ -78,6 +78,22 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CFPortApi* | [**GETProjectsApiV1Completedtasks**](docs/CFPortApi.md#getprojectsapiv1completedtasks) | **Get** /projects/api/v1/completedtasks | Will return the completed tasks
+*CFPortApi* | [**GETProjectsApiV1PendingfilesPresignedurl**](docs/CFPortApi.md#getprojectsapiv1pendingfilespresignedurl) | **Get** /projects/api/v1/pendingfiles/presignedurl | Get Presigned Url for Pending files
+*CFPortApi* | [**GETProjectsApiV1ProjectProjectIdCompletedtasks**](docs/CFPortApi.md#getprojectsapiv1projectprojectidcompletedtasks) | **Get** /projects/api/v1/project/:projectId/completedtasks | Will return the project completed tasks
+*CFPortApi* | [**GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks**](docs/CFPortApi.md#getprojectsapiv1projectcategoriesprojectcategoryidtasks) | **Get** /projects/api/v1/projectcategories/:projectCategoryId/tasks | Will return the tasks
+*CFPortApi* | [**GETProjectsApiV1Projects**](docs/CFPortApi.md#getprojectsapiv1projects) | **Get** /projects/api/v1/projects | Get Projects (APICall_GET_projects)
+*CFPortApi* | [**GETProjectsApiV1ProjectsProjectIdTasklists**](docs/CFPortApi.md#getprojectsapiv1projectsprojectidtasklists) | **Get** /projects/api/v1/projects/:projectId/tasklists | Get tasklists
+*CFPortApi* | [**GETProjectsApiV1ProjectsProjectIdTasks**](docs/CFPortApi.md#getprojectsapiv1projectsprojectidtasks) | **Get** /projects/api/v1/projects/:projectId/tasks | Will return the tasks
+*CFPortApi* | [**GETProjectsApiV1Tasklists**](docs/CFPortApi.md#getprojectsapiv1tasklists) | **Get** /projects/api/v1/tasklists | Get tasklists
+*CFPortApi* | [**GETProjectsApiV1TasklistsTasklistId**](docs/CFPortApi.md#getprojectsapiv1taskliststasklistid) | **Get** /projects/api/v1/tasklists/:tasklistId | Get tasklists
+*CFPortApi* | [**GETProjectsApiV1TasklistsTasklistIdTasks**](docs/CFPortApi.md#getprojectsapiv1taskliststasklistidtasks) | **Get** /projects/api/v1/tasklists/:tasklistId/tasks | Will return the tasks
+*CFPortApi* | [**GETProjectsApiV1Tasks**](docs/CFPortApi.md#getprojectsapiv1tasks) | **Get** /projects/api/v1/tasks | Will return the tasks
+*CFPortApi* | [**GETProjectsApiV1TasksTaskId**](docs/CFPortApi.md#getprojectsapiv1taskstaskid) | **Get** /projects/api/v1/tasks/:taskId | Will return the tasks
+*CFPortApi* | [**GETProjectsApiV1TasksTaskIdSubtasks**](docs/CFPortApi.md#getprojectsapiv1taskstaskidsubtasks) | **Get** /projects/api/v1/tasks/:taskId/subtasks | Will return the tasks
+*CFPortApi* | [**GETProjectsApiV1Time**](docs/CFPortApi.md#getprojectsapiv1time) | **Get** /projects/api/v1/time | APICall_GET_time_entries
+*CFPortApi* | [**GETProjectsApiV1TimeEntries**](docs/CFPortApi.md#getprojectsapiv1timeentries) | **Get** /projects/api/v1/time_entries | APICall_GET_time_entries
+*CFPortApi* | [**POSTProjectsApiV1Pendingfiles**](docs/CFPortApi.md#postprojectsapiv1pendingfiles) | **Post** /projects/api/v1/pendingfiles | Posts a pending file
 
 
 ## Documentation For Models
@@ -106,5 +122,6 @@ Each of these functions takes a value of the given basic type and returns a poin
 * `PtrTime`
 
 ## Author
+
 
 

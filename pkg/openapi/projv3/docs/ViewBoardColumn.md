@@ -6,18 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Color** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
-**DefaultTasklist** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**DefaultTasklist** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **Deleted** | Pointer to **bool** |  | [optional] 
 **DeletedAt** | Pointer to **string** |  | [optional] 
 **DisplayOrder** | Pointer to **int32** |  | [optional] 
 **HasTriggers** | Pointer to **bool** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
-**Settings** | Pointer to [**ViewBoardColumnSettings**](view.BoardColumnSettings.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
+**Settings** | Pointer to [**ViewBoardColumnSettings**](ViewBoardColumnSettings.md) |  | [optional] 
 **Sort** | Pointer to **string** |  | [optional] 
 **SortOrder** | Pointer to **string** |  | [optional] 
-**Stats** | Pointer to [**ViewColumnStats**](view.ColumnStats.md) |  | [optional] 
+**Stats** | Pointer to [**ViewColumnStats**](ViewColumnStats.md) |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
 
 ## Methods

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Project** | Pointer to [**InlineResponse20025Projects**](inline_response_200_25_projects.md) |  | [optional] 
+**Project** | Pointer to [**InlineResponse20025Projects**](InlineResponse20025Projects.md) |  | [optional] 
 
 ## Methods
 

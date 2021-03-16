@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | Pointer to [**ViewCompany**](view.Company.md) |  | [optional] 
-**Included** | Pointer to [**CompanyResponseIncluded**](company_Response_included.md) |  | [optional] 
+**Company** | Pointer to [**ViewCompany**](ViewCompany.md) |  | [optional] 
+**Included** | Pointer to [**CompanyResponseIncluded**](CompanyResponseIncluded.md) |  | [optional] 
 
 ## Methods
 

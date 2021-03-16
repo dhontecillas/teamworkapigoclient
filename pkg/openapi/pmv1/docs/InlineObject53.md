@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NotifyIds** | Pointer to **string** | Id of people to notify | [optional] 
-**Update** | Pointer to [**ProjectsUpdatesUpdateIdJsonUpdate**](_projects_updates__updateId__json_update.md) |  | [optional] 
+**Update** | Pointer to [**ProjectsUpdatesUpdateIdJsonUpdate**](ProjectsUpdatesUpdateIdJsonUpdate.md) |  | [optional] 
 
 ## Methods
 

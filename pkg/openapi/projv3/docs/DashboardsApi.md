@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DashboardUserDashboardsResponse**](dashboard.UserDashboardsResponse.md)
+[**DashboardUserDashboardsResponse**](DashboardUserDashboardsResponse.md)
 
 ### Authorization
 

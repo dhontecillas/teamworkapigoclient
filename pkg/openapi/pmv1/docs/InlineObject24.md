@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Link** | Pointer to [**LinksIdJsonLink**](_links__id__json_link.md) |  | [optional] 
+**Link** | Pointer to [**LinksIdJsonLink**](LinksIdJsonLink.md) |  | [optional] 
 
 ## Methods
 

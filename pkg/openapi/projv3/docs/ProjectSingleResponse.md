@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**ProjectProjectsResponseIncluded**](project_ProjectsResponse_included.md) |  | [optional] 
-**Project** | Pointer to [**ViewProject**](view.Project.md) |  | [optional] 
+**Included** | Pointer to [**ProjectProjectsResponseIncluded**](ProjectProjectsResponseIncluded.md) |  | [optional] 
+**Project** | Pointer to [**ViewProject**](ViewProject.md) |  | [optional] 
 
 ## Methods
 

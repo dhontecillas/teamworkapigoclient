@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tag** | Pointer to [**EventtypesJsonEventtype**](_eventtypes_json_eventtype.md) |  | [optional] 
+**Tag** | Pointer to [**EventtypesJsonEventtype**](EventtypesJsonEventtype.md) |  | [optional] 
 
 ## Methods
 

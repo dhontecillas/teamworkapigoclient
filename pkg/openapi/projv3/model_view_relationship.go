@@ -17,6 +17,7 @@ import (
 // ViewRelationship Relationship describes the relation between the main entity and a sideload type.
 type ViewRelationship struct {
 	Id *int32 `json:"id,omitempty"`
+	Meta *map[string]interface{} `json:"meta,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
@@ -69,6 +70,38 @@ func (o *ViewRelationship) SetId(v int32) {
 	o.Id = &v
 }
 
+// GetMeta returns the Meta field value if set, zero value otherwise.
+func (o *ViewRelationship) GetMeta() map[string]interface{} {
+	if o == nil || o.Meta == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return *o.Meta
+}
+
+// GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewRelationship) GetMetaOk() (*map[string]interface{}, bool) {
+	if o == nil || o.Meta == nil {
+		return nil, false
+	}
+	return o.Meta, true
+}
+
+// HasMeta returns a boolean if a field has been set.
+func (o *ViewRelationship) HasMeta() bool {
+	if o != nil && o.Meta != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMeta gets a reference to the given map[string]interface{} and assigns it to the Meta field.
+func (o *ViewRelationship) SetMeta(v map[string]interface{}) {
+	o.Meta = &v
+}
+
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *ViewRelationship) GetType() string {
 	if o == nil || o.Type == nil {
@@ -105,6 +138,9 @@ func (o ViewRelationship) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id != nil {
 		toSerialize["id"] = o.Id
+	}
+	if o.Meta != nil {
+		toSerialize["meta"] = o.Meta
 	}
 	if o.Type != nil {
 		toSerialize["type"] = o.Type

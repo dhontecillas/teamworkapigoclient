@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DELETEProjectsApiV3NotebooksIdJson**](NotebooksApi.md#DELETEProjectsApiV3NotebooksIdJson) | **Delete** /projects/api/v3/notebooks/:id.json | Delete an existing notebook.
 [**DELETEProjectsApiV3NotebooksIdVersionsJson**](NotebooksApi.md#DELETEProjectsApiV3NotebooksIdVersionsJson) | **Delete** /projects/api/v3/notebooks/:id/versions.json | Delete notebook versions.
+[**GETProjectsApiV3NotebooksIdCompareJson**](NotebooksApi.md#GETProjectsApiV3NotebooksIdCompareJson) | **Get** /projects/api/v3/notebooks/:id/compare.json | Compare 2 notebook versions
 [**GETProjectsApiV3NotebooksIdJson**](NotebooksApi.md#GETProjectsApiV3NotebooksIdJson) | **Get** /projects/api/v3/notebooks/:id.json | Get a specific notebook.
 [**GETProjectsApiV3NotebooksIdVersionsJson**](NotebooksApi.md#GETProjectsApiV3NotebooksIdVersionsJson) | **Get** /projects/api/v3/notebooks/:id/versions.json | Get notebook versions
 [**GETProjectsApiV3NotebooksJson**](NotebooksApi.md#GETProjectsApiV3NotebooksJson) | **Get** /projects/api/v3/notebooks.json | Get a list of notebooks.
@@ -133,11 +134,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3NotebooksIdJson
+## GETProjectsApiV3NotebooksIdCompareJson
 
-> NotebookResponse GETProjectsApiV3NotebooksIdJson(ctx).Execute()
+> NotebookVersionResponse GETProjectsApiV3NotebooksIdCompareJson(ctx).Include(include).FieldsUsers(fieldsUsers).Execute()
 
-Get a specific notebook.
+Compare 2 notebook versions
+
+
 
 ### Example
 
@@ -152,10 +155,88 @@ import (
 )
 
 func main() {
+    include := []string{"Inner_example"} // []string | include (optional)
+    fieldsUsers := []string{"Inner_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.NotebooksApi.GETProjectsApiV3NotebooksIdJson(context.Background()).Execute()
+    resp, r, err := api_client.NotebooksApi.GETProjectsApiV3NotebooksIdCompareJson(context.Background()).Include(include).FieldsUsers(fieldsUsers).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `NotebooksApi.GETProjectsApiV3NotebooksIdCompareJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3NotebooksIdCompareJson`: NotebookVersionResponse
+    fmt.Fprintf(os.Stdout, "Response from `NotebooksApi.GETProjectsApiV3NotebooksIdCompareJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3NotebooksIdCompareJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **include** | **[]string** | include | 
+ **fieldsUsers** | **[]string** |  | 
+
+### Return type
+
+[**NotebookVersionResponse**](NotebookVersionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GETProjectsApiV3NotebooksIdJson
+
+> NotebookResponse GETProjectsApiV3NotebooksIdJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).ShowDeleted(showDeleted).GetEmoji(getEmoji).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).Execute()
+
+Get a specific notebook.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "./openapi"
+)
+
+func main() {
+    updatedAfterDate := time.Now() // time.Time | filter by updated after date (deprecated, use updatedAfter) (optional)
+    updatedAfter := time.Now() // time.Time | filter by updated after date (optional)
+    showDeleted := true // bool | show deleted notebooks (optional)
+    getEmoji := true // bool | parse Emoji's (optional)
+    include := []string{"Inner_example"} // []string | include (optional)
+    fieldsUsers := []string{"Inner_example"} // []string |  (optional)
+    fieldsTeams := []string{"Inner_example"} // []string |  (optional)
+    fieldsTags := []string{"Inner_example"} // []string |  (optional)
+    fieldsProjects := []string{"Inner_example"} // []string |  (optional)
+    fieldsNotebookCategories := []string{"Inner_example"} // []string |  (optional)
+    fieldsCompanies := []string{"Inner_example"} // []string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.NotebooksApi.GETProjectsApiV3NotebooksIdJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).ShowDeleted(showDeleted).GetEmoji(getEmoji).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotebooksApi.GETProjectsApiV3NotebooksIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -167,16 +248,30 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGETProjectsApiV3NotebooksIdJsonRequest struct via the builder pattern
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updatedAfterDate** | **time.Time** | filter by updated after date (deprecated, use updatedAfter) | 
+ **updatedAfter** | **time.Time** | filter by updated after date | 
+ **showDeleted** | **bool** | show deleted notebooks | 
+ **getEmoji** | **bool** | parse Emoji&#39;s | 
+ **include** | **[]string** | include | 
+ **fieldsUsers** | **[]string** |  | 
+ **fieldsTeams** | **[]string** |  | 
+ **fieldsTags** | **[]string** |  | 
+ **fieldsProjects** | **[]string** |  | 
+ **fieldsNotebookCategories** | **[]string** |  | 
+ **fieldsCompanies** | **[]string** |  | 
+
 ### Return type
 
-[**NotebookResponse**](notebook.Response.md)
+[**NotebookResponse**](NotebookResponse.md)
 
 ### Authorization
 
@@ -244,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotebookVersionsResponse**](notebook.VersionsResponse.md)
+[**NotebookVersionsResponse**](NotebookVersionsResponse.md)
 
 ### Authorization
 
@@ -262,7 +357,7 @@ No authorization required
 
 ## GETProjectsApiV3NotebooksJson
 
-> NotebookNotebooksResponse GETProjectsApiV3NotebooksJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).CreatedAfterDate(createdAfterDate).CreatedAfter(createdAfter).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).SecureOnly(secureOnly).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).LockedOnly(lockedOnly).GetEmoji(getEmoji).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).CreatorIds(creatorIds).CategoryIds(categoryIds).Execute()
+> NotebookNotebooksResponse GETProjectsApiV3NotebooksJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).CreatedAfterDate(createdAfterDate).CreatedAfter(createdAfter).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).SecureOnly(secureOnly).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).LockedOnly(lockedOnly).GetEmoji(getEmoji).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).CategoryIds(categoryIds).Execute()
 
 Get a list of notebooks.
 
@@ -306,15 +401,17 @@ func main() {
     include := []string{"Inner_example"} // []string | include (optional)
     ids := []int32{int32(123)} // []int32 | filter by ids (optional)
     fieldsUsers := []string{"Inner_example"} // []string |  (optional)
+    fieldsTeams := []string{"Inner_example"} // []string |  (optional)
     fieldsTags := []string{"Inner_example"} // []string |  (optional)
     fieldsProjects := []string{"Inner_example"} // []string |  (optional)
     fieldsNotebookCategories := []string{"Inner_example"} // []string |  (optional)
+    fieldsCompanies := []string{"Inner_example"} // []string |  (optional)
     creatorIds := []int32{int32(123)} // []int32 | filter by creators' ids (optional)
     categoryIds := []int32{int32(123)} // []int32 | filter by notebook category ids (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.NotebooksApi.GETProjectsApiV3NotebooksJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).CreatedAfterDate(createdAfterDate).CreatedAfter(createdAfter).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).SecureOnly(secureOnly).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).LockedOnly(lockedOnly).GetEmoji(getEmoji).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FieldsUsers(fieldsUsers).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).CreatorIds(creatorIds).CategoryIds(categoryIds).Execute()
+    resp, r, err := api_client.NotebooksApi.GETProjectsApiV3NotebooksJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).CreatedAfterDate(createdAfterDate).CreatedAfter(createdAfter).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).SecureOnly(secureOnly).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).LockedOnly(lockedOnly).GetEmoji(getEmoji).TagIds(tagIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).Ids(ids).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).CreatorIds(creatorIds).CategoryIds(categoryIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotebooksApi.GETProjectsApiV3NotebooksJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -361,15 +458,17 @@ Name | Type | Description  | Notes
  **include** | **[]string** | include | 
  **ids** | **[]int32** | filter by ids | 
  **fieldsUsers** | **[]string** |  | 
+ **fieldsTeams** | **[]string** |  | 
  **fieldsTags** | **[]string** |  | 
  **fieldsProjects** | **[]string** |  | 
  **fieldsNotebookCategories** | **[]string** |  | 
+ **fieldsCompanies** | **[]string** |  | 
  **creatorIds** | **[]int32** | filter by creators&#39; ids | 
  **categoryIds** | **[]int32** | filter by notebook category ids | 
 
 ### Return type
 
-[**NotebookNotebooksResponse**](notebook.NotebooksResponse.md)
+[**NotebookNotebooksResponse**](NotebookNotebooksResponse.md)
 
 ### Authorization
 
@@ -437,7 +536,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotebookVersionResponse**](notebook.VersionResponse.md)
+[**NotebookVersionResponse**](NotebookVersionResponse.md)
 
 ### Authorization
 
@@ -455,7 +554,7 @@ No authorization required
 
 ## PATCHProjectsApiV3NotebooksIdJson
 
-> NotebookResponse PATCHProjectsApiV3NotebooksIdJson(ctx).NotebookRequest(notebookRequest).Execute()
+> NotebookResponse PATCHProjectsApiV3NotebooksIdJson(ctx).NotebookRequest(notebookRequest).GetEmoji(getEmoji).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).Execute()
 
 Edits a notebook
 
@@ -475,10 +574,18 @@ import (
 
 func main() {
     notebookRequest := *openapiclient.NewNotebookRequest() // NotebookRequest | 
+    getEmoji := true // bool | parse Emoji's (optional)
+    include := []string{"Inner_example"} // []string | include (optional)
+    fieldsUsers := []string{"Inner_example"} // []string |  (optional)
+    fieldsTeams := []string{"Inner_example"} // []string |  (optional)
+    fieldsTags := []string{"Inner_example"} // []string |  (optional)
+    fieldsProjects := []string{"Inner_example"} // []string |  (optional)
+    fieldsNotebookCategories := []string{"Inner_example"} // []string |  (optional)
+    fieldsCompanies := []string{"Inner_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.NotebooksApi.PATCHProjectsApiV3NotebooksIdJson(context.Background()).NotebookRequest(notebookRequest).Execute()
+    resp, r, err := api_client.NotebooksApi.PATCHProjectsApiV3NotebooksIdJson(context.Background()).NotebookRequest(notebookRequest).GetEmoji(getEmoji).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotebooksApi.PATCHProjectsApiV3NotebooksIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -500,10 +607,18 @@ Other parameters are passed through a pointer to a apiPATCHProjectsApiV3Notebook
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notebookRequest** | [**NotebookRequest**](NotebookRequest.md) |  | 
+ **getEmoji** | **bool** | parse Emoji&#39;s | 
+ **include** | **[]string** | include | 
+ **fieldsUsers** | **[]string** |  | 
+ **fieldsTeams** | **[]string** |  | 
+ **fieldsTags** | **[]string** |  | 
+ **fieldsProjects** | **[]string** |  | 
+ **fieldsNotebookCategories** | **[]string** |  | 
+ **fieldsCompanies** | **[]string** |  | 
 
 ### Return type
 
-[**NotebookResponse**](notebook.Response.md)
+[**NotebookResponse**](NotebookResponse.md)
 
 ### Authorization
 
@@ -521,7 +636,7 @@ No authorization required
 
 ## POSTProjectsApiV3ProjectsProjectIdNotebooksJson
 
-> NotebookResponse POSTProjectsApiV3ProjectsProjectIdNotebooksJson(ctx).NotebookRequest(notebookRequest).Execute()
+> NotebookResponse POSTProjectsApiV3ProjectsProjectIdNotebooksJson(ctx).NotebookRequest(notebookRequest).GetEmoji(getEmoji).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).Execute()
 
 Create a new notebook.
 
@@ -539,10 +654,18 @@ import (
 
 func main() {
     notebookRequest := *openapiclient.NewNotebookRequest() // NotebookRequest | 
+    getEmoji := true // bool | parse Emoji's (optional)
+    include := []string{"Inner_example"} // []string | include (optional)
+    fieldsUsers := []string{"Inner_example"} // []string |  (optional)
+    fieldsTeams := []string{"Inner_example"} // []string |  (optional)
+    fieldsTags := []string{"Inner_example"} // []string |  (optional)
+    fieldsProjects := []string{"Inner_example"} // []string |  (optional)
+    fieldsNotebookCategories := []string{"Inner_example"} // []string |  (optional)
+    fieldsCompanies := []string{"Inner_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.NotebooksApi.POSTProjectsApiV3ProjectsProjectIdNotebooksJson(context.Background()).NotebookRequest(notebookRequest).Execute()
+    resp, r, err := api_client.NotebooksApi.POSTProjectsApiV3ProjectsProjectIdNotebooksJson(context.Background()).NotebookRequest(notebookRequest).GetEmoji(getEmoji).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).FieldsNotebookCategories(fieldsNotebookCategories).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotebooksApi.POSTProjectsApiV3ProjectsProjectIdNotebooksJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -564,10 +687,18 @@ Other parameters are passed through a pointer to a apiPOSTProjectsApiV3ProjectsP
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **notebookRequest** | [**NotebookRequest**](NotebookRequest.md) |  | 
+ **getEmoji** | **bool** | parse Emoji&#39;s | 
+ **include** | **[]string** | include | 
+ **fieldsUsers** | **[]string** |  | 
+ **fieldsTeams** | **[]string** |  | 
+ **fieldsTags** | **[]string** |  | 
+ **fieldsProjects** | **[]string** |  | 
+ **fieldsNotebookCategories** | **[]string** |  | 
+ **fieldsCompanies** | **[]string** |  | 
 
 ### Return type
 
-[**NotebookResponse**](notebook.Response.md)
+[**NotebookResponse**](NotebookResponse.md)
 
 ### Authorization
 

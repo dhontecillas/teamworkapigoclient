@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Files** | Pointer to [**map[string]ViewProjectFile**](view.ProjectFile.md) |  | [optional] 
-**Fileversions** | Pointer to [**map[string]ViewFileversion**](view.Fileversion.md) |  | [optional] 
-**Links** | Pointer to [**map[string]ViewLinkItem**](view.LinkItem.md) |  | [optional] 
-**Milestones** | Pointer to [**map[string]ViewMilestone**](view.Milestone.md) |  | [optional] 
-**Notebooks** | Pointer to [**map[string]ViewNotebook**](view.Notebook.md) |  | [optional] 
-**Projects** | Pointer to [**map[string]ViewProject**](view.Project.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Files** | Pointer to [**map[string]ViewProjectFile**](ViewProjectFile.md) |  | [optional] 
+**Fileversions** | Pointer to [**map[string]ViewFileversion**](ViewFileversion.md) |  | [optional] 
+**Links** | Pointer to [**map[string]ViewLinkItem**](ViewLinkItem.md) |  | [optional] 
+**Milestones** | Pointer to [**map[string]ViewMilestone**](ViewMilestone.md) |  | [optional] 
+**Notebooks** | Pointer to [**map[string]ViewNotebook**](ViewNotebook.md) |  | [optional] 
+**Projects** | Pointer to [**map[string]ViewProject**](ViewProject.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

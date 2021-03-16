@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dates** | Pointer to [**map[string]ViewUserAvailabilityDate**](view.UserAvailabilityDate.md) |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Dates** | Pointer to [**map[string]ViewUserAvailabilityDate**](ViewUserAvailabilityDate.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

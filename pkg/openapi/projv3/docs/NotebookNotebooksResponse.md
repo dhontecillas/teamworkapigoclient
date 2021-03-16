@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Included** | Pointer to [**NotebookNotebooksResponseIncluded**](notebook_NotebooksResponse_included.md) |  | [optional] 
-**Meta** | Pointer to [**ViewMeta**](view.Meta.md) |  | [optional] 
+**Included** | Pointer to [**NotebookNotebooksResponseIncluded**](NotebookNotebooksResponseIncluded.md) |  | [optional] 
+**Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 **Notebooks** | Pointer to [**[]ViewNotebook**](ViewNotebook.md) |  | [optional] 
 
 ## Methods

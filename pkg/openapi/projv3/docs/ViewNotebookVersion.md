@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CreatedByUserID** | Pointer to **int32** |  | [optional] 
 **DateCreated** | Pointer to **string** |  | [optional] 
 **DateUpdated** | Pointer to **string** |  | [optional] 
-**Notebook** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Notebook** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **NotebookId** | Pointer to **int32** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
 **VersionId** | Pointer to **int32** |  | [optional] 

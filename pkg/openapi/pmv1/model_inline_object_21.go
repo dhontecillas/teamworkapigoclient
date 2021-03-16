@@ -23,7 +23,7 @@ type InlineObject21 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject21(invoice InvoicesIdJsonInvoice, ) *InlineObject21 {
+func NewInlineObject21(invoice InvoicesIdJsonInvoice) *InlineObject21 {
 	this := InlineObject21{}
 	this.Invoice = invoice
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject21WithDefaults() *InlineObject21 {
 
 // GetInvoice returns the Invoice field value
 func (o *InlineObject21) GetInvoice() InvoicesIdJsonInvoice {
-	if o == nil  {
+	if o == nil {
 		var ret InvoicesIdJsonInvoice
 		return ret
 	}

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PendingFile** | Pointer to [**InlineResponse2011PendingFile**](inline_response_201_1_pendingFile.md) |  | [optional] 
+**PendingFile** | Pointer to [**InlineResponse2011PendingFile**](InlineResponse2011PendingFile.md) |  | [optional] 
 
 ## Methods
 

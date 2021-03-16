@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Reminder** | Pointer to [**TasksIdRemindersJsonReminder**](_tasks__id__reminders_json_reminder.md) |  | [optional] 
+**Reminder** | Pointer to [**TasksIdRemindersJsonReminder**](TasksIdRemindersJsonReminder.md) |  | [optional] 
 
 ## Methods
 

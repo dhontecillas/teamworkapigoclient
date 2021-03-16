@@ -62,7 +62,7 @@ type TasksIdJsonTodoItem1 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTasksIdJsonTodoItem1(content string, ) *TasksIdJsonTodoItem1 {
+func NewTasksIdJsonTodoItem1(content string) *TasksIdJsonTodoItem1 {
 	this := TasksIdJsonTodoItem1{}
 	this.Content = content
 	return &this
@@ -206,7 +206,7 @@ func (o *TasksIdJsonTodoItem1) SetCommentFollowerIds(v string) {
 
 // GetContent returns the Content field value
 func (o *TasksIdJsonTodoItem1) GetContent() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

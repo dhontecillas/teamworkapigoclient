@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20063**](inline_response_200_63.md)
+[**InlineResponse20063**](InlineResponse20063.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20063**](inline_response_200_63.md)
+[**InlineResponse20063**](InlineResponse20063.md)
 
 ### Authorization
 

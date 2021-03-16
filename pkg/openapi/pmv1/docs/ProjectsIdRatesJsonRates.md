@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProjectDefault** | Pointer to **int32** |  | [optional] 
-**Users** | Pointer to [**ProjectsIdRatesJsonRatesUsers**](_projects__id__rates_json_rates_users.md) |  | [optional] 
+**Users** | Pointer to [**ProjectsIdRatesJsonRatesUsers**](ProjectsIdRatesJsonRatesUsers.md) |  | [optional] 
 
 ## Methods
 

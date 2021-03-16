@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PlannerWorkloadPlannersResponse**](planner.WorkloadPlannersResponse.md)
+[**PlannerWorkloadPlannersResponse**](PlannerWorkloadPlannersResponse.md)
 
 ### Authorization
 

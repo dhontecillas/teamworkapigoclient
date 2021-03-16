@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **FileSource** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Notify** | Pointer to [**PayloadNotify**](payload.Notify.md) |  | [optional] 
+**Notify** | Pointer to [**PayloadNotify**](PayloadNotify.md) |  | [optional] 
 **NotifyCurrentUser** | Pointer to **bool** |  | [optional] 
 **PendingFileRef** | Pointer to **string** |  | [optional] 
-**Privacy** | Pointer to [**PayloadPrivacy**](payload.Privacy.md) |  | [optional] 
+**Privacy** | Pointer to [**PayloadUserGroups**](PayloadUserGroups.md) |  | [optional] 
 **Private** | Pointer to **bool** |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
 
@@ -315,20 +315,20 @@ HasPendingFileRef returns a boolean if a field has been set.
 
 ### GetPrivacy
 
-`func (o *FileversionFileversion) GetPrivacy() PayloadPrivacy`
+`func (o *FileversionFileversion) GetPrivacy() PayloadUserGroups`
 
 GetPrivacy returns the Privacy field if non-nil, zero value otherwise.
 
 ### GetPrivacyOk
 
-`func (o *FileversionFileversion) GetPrivacyOk() (*PayloadPrivacy, bool)`
+`func (o *FileversionFileversion) GetPrivacyOk() (*PayloadUserGroups, bool)`
 
 GetPrivacyOk returns a tuple with the Privacy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacy
 
-`func (o *FileversionFileversion) SetPrivacy(v PayloadPrivacy)`
+`func (o *FileversionFileversion) SetPrivacy(v PayloadUserGroups)`
 
 SetPrivacy sets Privacy field to given value.
 

@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20089**](inline_response_200_89.md)
+[**InlineResponse20089**](InlineResponse20089.md)
 
 ### Authorization
 

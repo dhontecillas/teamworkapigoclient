@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | [**MessageCategoriesIdJsonCategory**](_messageCategories__id__json_category.md) |  | 
+**Category** | [**MessageCategoriesIdJsonCategory**](MessageCategoriesIdJsonCategory.md) |  | 
 
 ## Methods
 

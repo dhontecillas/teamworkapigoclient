@@ -18,6 +18,8 @@ import (
 type ViewAllocation struct {
 	AssignedUser *ViewRelationship `json:"assignedUser,omitempty"`
 	AssignedUserID *int32 `json:"assignedUserID,omitempty"`
+	// in minutes
+	AvailableDuration *int32 `json:"availableDuration,omitempty"`
 	Color *string `json:"color,omitempty"`
 	CreatedAt *string `json:"createdAt,omitempty"`
 	CreatedBy *int32 `json:"createdBy,omitempty"`
@@ -29,7 +31,7 @@ type ViewAllocation struct {
 	Duration *int32 `json:"duration,omitempty"`
 	// Date represents a Unified API Spec date format.
 	EndedAt *map[string]interface{} `json:"endedAt,omitempty"`
-	HoursPerDay *int32 `json:"hoursPerDay,omitempty"`
+	HoursPerDay *float32 `json:"hoursPerDay,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	Installation *ViewRelationship `json:"installation,omitempty"`
 	InstallationId *int32 `json:"installationId,omitempty"`
@@ -123,6 +125,38 @@ func (o *ViewAllocation) HasAssignedUserID() bool {
 // SetAssignedUserID gets a reference to the given int32 and assigns it to the AssignedUserID field.
 func (o *ViewAllocation) SetAssignedUserID(v int32) {
 	o.AssignedUserID = &v
+}
+
+// GetAvailableDuration returns the AvailableDuration field value if set, zero value otherwise.
+func (o *ViewAllocation) GetAvailableDuration() int32 {
+	if o == nil || o.AvailableDuration == nil {
+		var ret int32
+		return ret
+	}
+	return *o.AvailableDuration
+}
+
+// GetAvailableDurationOk returns a tuple with the AvailableDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ViewAllocation) GetAvailableDurationOk() (*int32, bool) {
+	if o == nil || o.AvailableDuration == nil {
+		return nil, false
+	}
+	return o.AvailableDuration, true
+}
+
+// HasAvailableDuration returns a boolean if a field has been set.
+func (o *ViewAllocation) HasAvailableDuration() bool {
+	if o != nil && o.AvailableDuration != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailableDuration gets a reference to the given int32 and assigns it to the AvailableDuration field.
+func (o *ViewAllocation) SetAvailableDuration(v int32) {
+	o.AvailableDuration = &v
 }
 
 // GetColor returns the Color field value if set, zero value otherwise.
@@ -414,9 +448,9 @@ func (o *ViewAllocation) SetEndedAt(v map[string]interface{}) {
 }
 
 // GetHoursPerDay returns the HoursPerDay field value if set, zero value otherwise.
-func (o *ViewAllocation) GetHoursPerDay() int32 {
+func (o *ViewAllocation) GetHoursPerDay() float32 {
 	if o == nil || o.HoursPerDay == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 	return *o.HoursPerDay
@@ -424,7 +458,7 @@ func (o *ViewAllocation) GetHoursPerDay() int32 {
 
 // GetHoursPerDayOk returns a tuple with the HoursPerDay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewAllocation) GetHoursPerDayOk() (*int32, bool) {
+func (o *ViewAllocation) GetHoursPerDayOk() (*float32, bool) {
 	if o == nil || o.HoursPerDay == nil {
 		return nil, false
 	}
@@ -440,8 +474,8 @@ func (o *ViewAllocation) HasHoursPerDay() bool {
 	return false
 }
 
-// SetHoursPerDay gets a reference to the given int32 and assigns it to the HoursPerDay field.
-func (o *ViewAllocation) SetHoursPerDay(v int32) {
+// SetHoursPerDay gets a reference to the given float32 and assigns it to the HoursPerDay field.
+func (o *ViewAllocation) SetHoursPerDay(v float32) {
 	o.HoursPerDay = &v
 }
 
@@ -804,6 +838,9 @@ func (o ViewAllocation) MarshalJSON() ([]byte, error) {
 	}
 	if o.AssignedUserID != nil {
 		toSerialize["assignedUserID"] = o.AssignedUserID
+	}
+	if o.AvailableDuration != nil {
+		toSerialize["availableDuration"] = o.AvailableDuration
 	}
 	if o.Color != nil {
 		toSerialize["color"] = o.Color

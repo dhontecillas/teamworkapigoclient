@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DueDate** | Pointer to **string** |  | [optional] 
 **EstimatedMinutes** | Pointer to **int32** |  | [optional] 
 **Priority** | Pointer to **string** |  | [optional] 
-**ResponisblePartyIds** | Pointer to [**ViewUserGroups**](view.UserGroups.md) |  | [optional] 
+**ResponisblePartyIds** | Pointer to [**ViewUserGroups**](ViewUserGroups.md) |  | [optional] 
 **StartDate** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **[]int32** |  | [optional] 
 

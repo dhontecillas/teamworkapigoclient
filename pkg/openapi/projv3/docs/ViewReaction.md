@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Installation** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Installation** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **InstallationId** | Pointer to **int32** |  | [optional] 
-**Object** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Object** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ObjectId** | Pointer to **int32** |  | [optional] 
 **ObjectType** | Pointer to **string** |  | [optional] 
 **PostedDateTime** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

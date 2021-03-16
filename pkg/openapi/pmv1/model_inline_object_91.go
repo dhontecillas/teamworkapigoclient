@@ -23,7 +23,7 @@ type InlineObject91 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject91(todoItem TasklistsIdTasksJsonTodoItem, ) *InlineObject91 {
+func NewInlineObject91(todoItem TasklistsIdTasksJsonTodoItem) *InlineObject91 {
 	this := InlineObject91{}
 	this.TodoItem = todoItem
 	return &this
@@ -39,7 +39,7 @@ func NewInlineObject91WithDefaults() *InlineObject91 {
 
 // GetTodoItem returns the TodoItem field value
 func (o *InlineObject91) GetTodoItem() TasklistsIdTasksJsonTodoItem {
-	if o == nil  {
+	if o == nil {
 		var ret TasklistsIdTasksJsonTodoItem
 		return ret
 	}

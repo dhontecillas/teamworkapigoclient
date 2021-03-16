@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comments** | Pointer to [**map[string]ViewComment**](view.Comment.md) |  | [optional] 
-**Companies** | Pointer to [**map[string]ViewCompany**](view.Company.md) |  | [optional] 
-**Files** | Pointer to [**map[string]ViewProjectFile**](view.ProjectFile.md) |  | [optional] 
-**Links** | Pointer to [**map[string]ViewLinkItem**](view.LinkItem.md) |  | [optional] 
-**Messages** | Pointer to [**map[string]ViewProjectMessage**](view.ProjectMessage.md) |  | [optional] 
-**Milestones** | Pointer to [**map[string]ViewMilestone**](view.Milestone.md) |  | [optional] 
-**Notebooks** | Pointer to [**map[string]ViewNotebook**](view.Notebook.md) |  | [optional] 
-**Tasklists** | Pointer to [**map[string]ViewTasklist**](view.Tasklist.md) |  | [optional] 
-**Tasks** | Pointer to [**map[string]ViewTask**](view.Task.md) |  | [optional] 
-**Teams** | Pointer to [**map[string]ViewTeam**](view.Team.md) |  | [optional] 
-**Users** | Pointer to [**map[string]ViewUser**](view.User.md) |  | [optional] 
+**Comments** | Pointer to [**map[string]ViewComment**](ViewComment.md) |  | [optional] 
+**Companies** | Pointer to [**map[string]ViewCompany**](ViewCompany.md) |  | [optional] 
+**Files** | Pointer to [**map[string]ViewProjectFile**](ViewProjectFile.md) |  | [optional] 
+**Links** | Pointer to [**map[string]ViewLinkItem**](ViewLinkItem.md) |  | [optional] 
+**Messages** | Pointer to [**map[string]ViewProjectMessage**](ViewProjectMessage.md) |  | [optional] 
+**Milestones** | Pointer to [**map[string]ViewMilestone**](ViewMilestone.md) |  | [optional] 
+**Notebooks** | Pointer to [**map[string]ViewNotebook**](ViewNotebook.md) |  | [optional] 
+**Tasklists** | Pointer to [**map[string]ViewTasklist**](ViewTasklist.md) |  | [optional] 
+**Tasks** | Pointer to [**map[string]ViewTask**](ViewTask.md) |  | [optional] 
+**Teams** | Pointer to [**map[string]ViewTeam**](ViewTeam.md) |  | [optional] 
+**Users** | Pointer to [**map[string]ViewUser**](ViewUser.md) |  | [optional] 
 
 ## Methods
 

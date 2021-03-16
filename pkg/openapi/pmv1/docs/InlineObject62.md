@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Link** | Pointer to [**ProjectsIdLinksJsonLink**](_projects__id__links_json_link.md) |  | [optional] 
+**Link** | Pointer to [**ProjectsIdLinksJsonLink**](ProjectsIdLinksJsonLink.md) |  | [optional] 
 
 ## Methods
 

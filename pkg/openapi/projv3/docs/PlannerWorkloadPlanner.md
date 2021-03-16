@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Capacities** | Pointer to [**map[string]PlannerWorkloadPlannerCapacity**](planner.WorkloadPlannerCapacity.md) |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Capacities** | Pointer to [**map[string]PlannerWorkloadPlannerCapacity**](PlannerWorkloadPlannerCapacity.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

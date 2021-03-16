@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **CategoryId** | Pointer to **int32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Notify** | Pointer to [**PayloadNotify**](payload.Notify.md) |  | [optional] 
+**Notify** | Pointer to [**PayloadNotify**](PayloadNotify.md) |  | [optional] 
 **NotifyCurrentUser** | Pointer to **bool** |  | [optional] 
-**Privacy** | Pointer to [**PayloadPrivacy**](payload.Privacy.md) |  | [optional] 
+**Privacy** | Pointer to [**PayloadUserGroups**](PayloadUserGroups.md) |  | [optional] 
 **Private** | Pointer to **bool** |  | [optional] 
-**TagIds** | Pointer to [**PayloadNullableInt64Slice**](payload.NullableInt64Slice.md) |  | [optional] 
+**TagIds** | Pointer to [**PayloadNullableInt64Slice**](PayloadNullableInt64Slice.md) |  | [optional] 
 **VersionId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -160,20 +160,20 @@ HasNotifyCurrentUser returns a boolean if a field has been set.
 
 ### GetPrivacy
 
-`func (o *FileProjectFile) GetPrivacy() PayloadPrivacy`
+`func (o *FileProjectFile) GetPrivacy() PayloadUserGroups`
 
 GetPrivacy returns the Privacy field if non-nil, zero value otherwise.
 
 ### GetPrivacyOk
 
-`func (o *FileProjectFile) GetPrivacyOk() (*PayloadPrivacy, bool)`
+`func (o *FileProjectFile) GetPrivacyOk() (*PayloadUserGroups, bool)`
 
 GetPrivacyOk returns a tuple with the Privacy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrivacy
 
-`func (o *FileProjectFile) SetPrivacy(v PayloadPrivacy)`
+`func (o *FileProjectFile) SetPrivacy(v PayloadUserGroups)`
 
 SetPrivacy sets Privacy field to given value.
 

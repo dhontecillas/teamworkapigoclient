@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Category** | Pointer to [**FileCategoriesIdJsonCategory**](_fileCategories__id__json_category.md) |  | [optional] 
+**Category** | Pointer to [**FileCategoriesIdJsonCategory**](FileCategoriesIdJsonCategory.md) |  | [optional] 
 
 ## Methods
 

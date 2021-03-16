@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserStatus** | Pointer to [**InlineResponse20028UserStatus**](inline_response_200_28_userStatus.md) |  | [optional] 
+**UserStatus** | Pointer to [**InlineResponse20028UserStatus**](InlineResponse20028UserStatus.md) |  | [optional] 
 
 ## Methods
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountDefault** | Pointer to **string** |  | [optional] 
 **ProjectDefault** | Pointer to **string** |  | [optional] 
-**Users** | Pointer to [**InlineResponse20072RatesUsers**](inline_response_200_72_rates_users.md) |  | [optional] 
+**Users** | Pointer to [**InlineResponse20072RatesUsers**](InlineResponse20072RatesUsers.md) |  | [optional] 
 
 ## Methods
 

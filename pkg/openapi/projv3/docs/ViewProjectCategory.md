@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Count** | Pointer to **int32** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Parent** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Parent** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ParentId** | Pointer to **int32** |  | [optional] 
 
 ## Methods

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Usercost** | Pointer to [**ViewUsercost**](view.Usercost.md) |  | [optional] 
+**Usercost** | Pointer to [**ViewUsercost**](ViewUsercost.md) |  | [optional] 
 
 ## Methods
 

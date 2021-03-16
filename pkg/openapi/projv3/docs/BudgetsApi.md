@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BudgetProjectBudgetsResponse**](budget.ProjectBudgetsResponse.md)
+[**BudgetProjectBudgetsResponse**](BudgetProjectBudgetsResponse.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BudgetResponse**](budget.Response.md)
+[**BudgetResponse**](BudgetResponse.md)
 
 ### Authorization
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BudgetProjectBudgetUsageResponse**](budget.ProjectBudgetUsageResponse.md)
+[**BudgetProjectBudgetUsageResponse**](BudgetProjectBudgetUsageResponse.md)
 
 ### Authorization
 
@@ -448,7 +448,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsBu
 
 ### Return type
 
-[**BudgetProjectBudgetsUsagesResponse**](budget.ProjectBudgetsUsagesResponse.md)
+[**BudgetProjectBudgetsUsagesResponse**](BudgetProjectBudgetsUsagesResponse.md)
 
 ### Authorization
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotificationResponse**](notification.Response.md)
+[**NotificationResponse**](NotificationResponse.md)
 
 ### Authorization
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BudgetResponse**](budget.Response.md)
+[**BudgetResponse**](BudgetResponse.md)
 
 ### Authorization
 
@@ -712,7 +712,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BudgetResponse**](budget.Response.md)
+[**BudgetResponse**](BudgetResponse.md)
 
 ### Authorization
 

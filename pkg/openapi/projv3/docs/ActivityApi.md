@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ActivityActivitiesResponse**](activity.ActivitiesResponse.md)
+[**ActivityActivitiesResponse**](ActivityActivitiesResponse.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ActivityActivitiesResponse**](activity.ActivitiesResponse.md)
+[**ActivityActivitiesResponse**](ActivityActivitiesResponse.md)
 
 ### Authorization
 

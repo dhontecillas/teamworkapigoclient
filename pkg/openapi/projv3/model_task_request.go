@@ -14,9 +14,15 @@ import (
 	"encoding/json"
 )
 
-// TaskRequest Request contains information of a customfield to be created or updated.
+// TaskRequest Request contains information of a task to be created or updated.
 type TaskRequest struct {
-	CustomfieldTask *TaskCustomFieldTask `json:"customfieldTask,omitempty"`
+	AttachmentOptions *TaskRequestAttachmentOptions `json:"attachmentOptions,omitempty"`
+	Attachments *TaskRequestAttachments `json:"attachments,omitempty"`
+	Card *TaskCard `json:"card,omitempty"`
+	Predecessors *[]TaskPredecessor `json:"predecessors,omitempty"`
+	Tags *[]TagTag `json:"tags,omitempty"`
+	Task *TaskTask `json:"task,omitempty"`
+	TaskOptions *TaskRequestTaskOptions `json:"taskOptions,omitempty"`
 }
 
 // NewTaskRequest instantiates a new TaskRequest object
@@ -36,42 +42,252 @@ func NewTaskRequestWithDefaults() *TaskRequest {
 	return &this
 }
 
-// GetCustomfieldTask returns the CustomfieldTask field value if set, zero value otherwise.
-func (o *TaskRequest) GetCustomfieldTask() TaskCustomFieldTask {
-	if o == nil || o.CustomfieldTask == nil {
-		var ret TaskCustomFieldTask
+// GetAttachmentOptions returns the AttachmentOptions field value if set, zero value otherwise.
+func (o *TaskRequest) GetAttachmentOptions() TaskRequestAttachmentOptions {
+	if o == nil || o.AttachmentOptions == nil {
+		var ret TaskRequestAttachmentOptions
 		return ret
 	}
-	return *o.CustomfieldTask
+	return *o.AttachmentOptions
 }
 
-// GetCustomfieldTaskOk returns a tuple with the CustomfieldTask field value if set, nil otherwise
+// GetAttachmentOptionsOk returns a tuple with the AttachmentOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequest) GetCustomfieldTaskOk() (*TaskCustomFieldTask, bool) {
-	if o == nil || o.CustomfieldTask == nil {
+func (o *TaskRequest) GetAttachmentOptionsOk() (*TaskRequestAttachmentOptions, bool) {
+	if o == nil || o.AttachmentOptions == nil {
 		return nil, false
 	}
-	return o.CustomfieldTask, true
+	return o.AttachmentOptions, true
 }
 
-// HasCustomfieldTask returns a boolean if a field has been set.
-func (o *TaskRequest) HasCustomfieldTask() bool {
-	if o != nil && o.CustomfieldTask != nil {
+// HasAttachmentOptions returns a boolean if a field has been set.
+func (o *TaskRequest) HasAttachmentOptions() bool {
+	if o != nil && o.AttachmentOptions != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetCustomfieldTask gets a reference to the given TaskCustomFieldTask and assigns it to the CustomfieldTask field.
-func (o *TaskRequest) SetCustomfieldTask(v TaskCustomFieldTask) {
-	o.CustomfieldTask = &v
+// SetAttachmentOptions gets a reference to the given TaskRequestAttachmentOptions and assigns it to the AttachmentOptions field.
+func (o *TaskRequest) SetAttachmentOptions(v TaskRequestAttachmentOptions) {
+	o.AttachmentOptions = &v
+}
+
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
+func (o *TaskRequest) GetAttachments() TaskRequestAttachments {
+	if o == nil || o.Attachments == nil {
+		var ret TaskRequestAttachments
+		return ret
+	}
+	return *o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskRequest) GetAttachmentsOk() (*TaskRequestAttachments, bool) {
+	if o == nil || o.Attachments == nil {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *TaskRequest) HasAttachments() bool {
+	if o != nil && o.Attachments != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given TaskRequestAttachments and assigns it to the Attachments field.
+func (o *TaskRequest) SetAttachments(v TaskRequestAttachments) {
+	o.Attachments = &v
+}
+
+// GetCard returns the Card field value if set, zero value otherwise.
+func (o *TaskRequest) GetCard() TaskCard {
+	if o == nil || o.Card == nil {
+		var ret TaskCard
+		return ret
+	}
+	return *o.Card
+}
+
+// GetCardOk returns a tuple with the Card field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskRequest) GetCardOk() (*TaskCard, bool) {
+	if o == nil || o.Card == nil {
+		return nil, false
+	}
+	return o.Card, true
+}
+
+// HasCard returns a boolean if a field has been set.
+func (o *TaskRequest) HasCard() bool {
+	if o != nil && o.Card != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCard gets a reference to the given TaskCard and assigns it to the Card field.
+func (o *TaskRequest) SetCard(v TaskCard) {
+	o.Card = &v
+}
+
+// GetPredecessors returns the Predecessors field value if set, zero value otherwise.
+func (o *TaskRequest) GetPredecessors() []TaskPredecessor {
+	if o == nil || o.Predecessors == nil {
+		var ret []TaskPredecessor
+		return ret
+	}
+	return *o.Predecessors
+}
+
+// GetPredecessorsOk returns a tuple with the Predecessors field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskRequest) GetPredecessorsOk() (*[]TaskPredecessor, bool) {
+	if o == nil || o.Predecessors == nil {
+		return nil, false
+	}
+	return o.Predecessors, true
+}
+
+// HasPredecessors returns a boolean if a field has been set.
+func (o *TaskRequest) HasPredecessors() bool {
+	if o != nil && o.Predecessors != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPredecessors gets a reference to the given []TaskPredecessor and assigns it to the Predecessors field.
+func (o *TaskRequest) SetPredecessors(v []TaskPredecessor) {
+	o.Predecessors = &v
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *TaskRequest) GetTags() []TagTag {
+	if o == nil || o.Tags == nil {
+		var ret []TagTag
+		return ret
+	}
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskRequest) GetTagsOk() (*[]TagTag, bool) {
+	if o == nil || o.Tags == nil {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *TaskRequest) HasTags() bool {
+	if o != nil && o.Tags != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []TagTag and assigns it to the Tags field.
+func (o *TaskRequest) SetTags(v []TagTag) {
+	o.Tags = &v
+}
+
+// GetTask returns the Task field value if set, zero value otherwise.
+func (o *TaskRequest) GetTask() TaskTask {
+	if o == nil || o.Task == nil {
+		var ret TaskTask
+		return ret
+	}
+	return *o.Task
+}
+
+// GetTaskOk returns a tuple with the Task field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskRequest) GetTaskOk() (*TaskTask, bool) {
+	if o == nil || o.Task == nil {
+		return nil, false
+	}
+	return o.Task, true
+}
+
+// HasTask returns a boolean if a field has been set.
+func (o *TaskRequest) HasTask() bool {
+	if o != nil && o.Task != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTask gets a reference to the given TaskTask and assigns it to the Task field.
+func (o *TaskRequest) SetTask(v TaskTask) {
+	o.Task = &v
+}
+
+// GetTaskOptions returns the TaskOptions field value if set, zero value otherwise.
+func (o *TaskRequest) GetTaskOptions() TaskRequestTaskOptions {
+	if o == nil || o.TaskOptions == nil {
+		var ret TaskRequestTaskOptions
+		return ret
+	}
+	return *o.TaskOptions
+}
+
+// GetTaskOptionsOk returns a tuple with the TaskOptions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskRequest) GetTaskOptionsOk() (*TaskRequestTaskOptions, bool) {
+	if o == nil || o.TaskOptions == nil {
+		return nil, false
+	}
+	return o.TaskOptions, true
+}
+
+// HasTaskOptions returns a boolean if a field has been set.
+func (o *TaskRequest) HasTaskOptions() bool {
+	if o != nil && o.TaskOptions != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskOptions gets a reference to the given TaskRequestTaskOptions and assigns it to the TaskOptions field.
+func (o *TaskRequest) SetTaskOptions(v TaskRequestTaskOptions) {
+	o.TaskOptions = &v
 }
 
 func (o TaskRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CustomfieldTask != nil {
-		toSerialize["customfieldTask"] = o.CustomfieldTask
+	if o.AttachmentOptions != nil {
+		toSerialize["attachmentOptions"] = o.AttachmentOptions
+	}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
+	if o.Card != nil {
+		toSerialize["card"] = o.Card
+	}
+	if o.Predecessors != nil {
+		toSerialize["predecessors"] = o.Predecessors
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
+	if o.Task != nil {
+		toSerialize["task"] = o.Task
+	}
+	if o.TaskOptions != nil {
+		toSerialize["taskOptions"] = o.TaskOptions
 	}
 	return json.Marshal(toSerialize)
 }

@@ -5,13 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Billing** | Pointer to **bool** |  | [optional] 
+**Board** | Pointer to **bool** |  | [optional] 
 **Comments** | Pointer to **bool** |  | [optional] 
 **Files** | Pointer to **bool** |  | [optional] 
+**Forms** | Pointer to **bool** |  | [optional] 
+**Gantt** | Pointer to **bool** |  | [optional] 
 **Links** | Pointer to **bool** |  | [optional] 
+**List** | Pointer to **bool** |  | [optional] 
 **Messages** | Pointer to **bool** |  | [optional] 
 **Milestones** | Pointer to **bool** |  | [optional] 
 **Notebooks** | Pointer to **bool** |  | [optional] 
 **RiskRegister** | Pointer to **bool** |  | [optional] 
+**Table** | Pointer to **bool** |  | [optional] 
 **Tasks** | Pointer to **bool** |  | [optional] 
 **Time** | Pointer to **bool** |  | [optional] 
 
@@ -58,6 +63,31 @@ SetBilling sets Billing field to given value.
 `func (o *ViewProjectActivePages) HasBilling() bool`
 
 HasBilling returns a boolean if a field has been set.
+
+### GetBoard
+
+`func (o *ViewProjectActivePages) GetBoard() bool`
+
+GetBoard returns the Board field if non-nil, zero value otherwise.
+
+### GetBoardOk
+
+`func (o *ViewProjectActivePages) GetBoardOk() (*bool, bool)`
+
+GetBoardOk returns a tuple with the Board field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBoard
+
+`func (o *ViewProjectActivePages) SetBoard(v bool)`
+
+SetBoard sets Board field to given value.
+
+### HasBoard
+
+`func (o *ViewProjectActivePages) HasBoard() bool`
+
+HasBoard returns a boolean if a field has been set.
 
 ### GetComments
 
@@ -109,6 +139,56 @@ SetFiles sets Files field to given value.
 
 HasFiles returns a boolean if a field has been set.
 
+### GetForms
+
+`func (o *ViewProjectActivePages) GetForms() bool`
+
+GetForms returns the Forms field if non-nil, zero value otherwise.
+
+### GetFormsOk
+
+`func (o *ViewProjectActivePages) GetFormsOk() (*bool, bool)`
+
+GetFormsOk returns a tuple with the Forms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForms
+
+`func (o *ViewProjectActivePages) SetForms(v bool)`
+
+SetForms sets Forms field to given value.
+
+### HasForms
+
+`func (o *ViewProjectActivePages) HasForms() bool`
+
+HasForms returns a boolean if a field has been set.
+
+### GetGantt
+
+`func (o *ViewProjectActivePages) GetGantt() bool`
+
+GetGantt returns the Gantt field if non-nil, zero value otherwise.
+
+### GetGanttOk
+
+`func (o *ViewProjectActivePages) GetGanttOk() (*bool, bool)`
+
+GetGanttOk returns a tuple with the Gantt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGantt
+
+`func (o *ViewProjectActivePages) SetGantt(v bool)`
+
+SetGantt sets Gantt field to given value.
+
+### HasGantt
+
+`func (o *ViewProjectActivePages) HasGantt() bool`
+
+HasGantt returns a boolean if a field has been set.
+
 ### GetLinks
 
 `func (o *ViewProjectActivePages) GetLinks() bool`
@@ -133,6 +213,31 @@ SetLinks sets Links field to given value.
 `func (o *ViewProjectActivePages) HasLinks() bool`
 
 HasLinks returns a boolean if a field has been set.
+
+### GetList
+
+`func (o *ViewProjectActivePages) GetList() bool`
+
+GetList returns the List field if non-nil, zero value otherwise.
+
+### GetListOk
+
+`func (o *ViewProjectActivePages) GetListOk() (*bool, bool)`
+
+GetListOk returns a tuple with the List field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetList
+
+`func (o *ViewProjectActivePages) SetList(v bool)`
+
+SetList sets List field to given value.
+
+### HasList
+
+`func (o *ViewProjectActivePages) HasList() bool`
+
+HasList returns a boolean if a field has been set.
 
 ### GetMessages
 
@@ -233,6 +338,31 @@ SetRiskRegister sets RiskRegister field to given value.
 `func (o *ViewProjectActivePages) HasRiskRegister() bool`
 
 HasRiskRegister returns a boolean if a field has been set.
+
+### GetTable
+
+`func (o *ViewProjectActivePages) GetTable() bool`
+
+GetTable returns the Table field if non-nil, zero value otherwise.
+
+### GetTableOk
+
+`func (o *ViewProjectActivePages) GetTableOk() (*bool, bool)`
+
+GetTableOk returns a tuple with the Table field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTable
+
+`func (o *ViewProjectActivePages) SetTable(v bool)`
+
+SetTable sets Table field to given value.
+
+### HasTable
+
+`func (o *ViewProjectActivePages) HasTable() bool`
+
+HasTable returns a boolean if a field has been set.
 
 ### GetTasks
 

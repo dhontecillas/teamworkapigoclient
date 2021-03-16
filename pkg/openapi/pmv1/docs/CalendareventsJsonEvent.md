@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **End** | Pointer to **string** |  | [optional] 
 **Notify** | Pointer to **bool** |  | [optional] 
 **ProjectUsersCanEdit** | Pointer to **bool** |  | [optional] 
-**Repeat** | Pointer to [**CalendareventsJsonEventRepeat**](_calendarevents_json_event_repeat.md) |  | [optional] 
+**Repeat** | Pointer to [**CalendareventsJsonEventRepeat**](CalendareventsJsonEventRepeat.md) |  | [optional] 
 **Start** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 

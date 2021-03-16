@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
-**Post** | Pointer to [**InlineResponse20049Post**](inline_response_200_49_post.md) |  | [optional] 
+**Post** | Pointer to [**InlineResponse20049Post**](InlineResponse20049Post.md) |  | [optional] 
 
 ## Methods
 

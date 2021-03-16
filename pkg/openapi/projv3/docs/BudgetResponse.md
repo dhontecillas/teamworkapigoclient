@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Budget** | Pointer to [**ViewProjectBudget**](view.ProjectBudget.md) |  | [optional] 
+**Budget** | Pointer to [**ViewProjectBudget**](ViewProjectBudget.md) |  | [optional] 
 **RepeatStatus** | Pointer to **string** |  | [optional] 
 
 ## Methods

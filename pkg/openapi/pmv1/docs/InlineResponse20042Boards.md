@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **DisplayOrder** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Stats** | Pointer to [**InlineResponse20042Stats**](inline_response_200_42_stats.md) |  | [optional] 
+**Stats** | Pointer to [**InlineResponse20042Stats**](InlineResponse20042Stats.md) |  | [optional] 
 
 ## Methods
 

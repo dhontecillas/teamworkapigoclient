@@ -16,7 +16,7 @@ import (
 
 // PlannerWorkloadPlannerCapacityTask WorkloadPlannerCapacityTask provides how many minutes should a user work in a task for a specific date.
 type PlannerWorkloadPlannerCapacityTask struct {
-	EstimateMinutes *int32 `json:"estimateMinutes,omitempty"`
+	EstimateMinutes *float32 `json:"estimateMinutes,omitempty"`
 	TaskId *int32 `json:"taskId,omitempty"`
 }
 
@@ -38,9 +38,9 @@ func NewPlannerWorkloadPlannerCapacityTaskWithDefaults() *PlannerWorkloadPlanner
 }
 
 // GetEstimateMinutes returns the EstimateMinutes field value if set, zero value otherwise.
-func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutes() int32 {
+func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutes() float32 {
 	if o == nil || o.EstimateMinutes == nil {
-		var ret int32
+		var ret float32
 		return ret
 	}
 	return *o.EstimateMinutes
@@ -48,7 +48,7 @@ func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutes() int32 {
 
 // GetEstimateMinutesOk returns a tuple with the EstimateMinutes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutesOk() (*int32, bool) {
+func (o *PlannerWorkloadPlannerCapacityTask) GetEstimateMinutesOk() (*float32, bool) {
 	if o == nil || o.EstimateMinutes == nil {
 		return nil, false
 	}
@@ -64,8 +64,8 @@ func (o *PlannerWorkloadPlannerCapacityTask) HasEstimateMinutes() bool {
 	return false
 }
 
-// SetEstimateMinutes gets a reference to the given int32 and assigns it to the EstimateMinutes field.
-func (o *PlannerWorkloadPlannerCapacityTask) SetEstimateMinutes(v int32) {
+// SetEstimateMinutes gets a reference to the given float32 and assigns it to the EstimateMinutes field.
+func (o *PlannerWorkloadPlannerCapacityTask) SetEstimateMinutes(v float32) {
 	o.EstimateMinutes = &v
 }
 

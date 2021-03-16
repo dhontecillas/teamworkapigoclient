@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fileversion** | Pointer to [**FileversionFileversion**](fileversion.Fileversion.md) |  | [optional] 
+**Fileversion** | Pointer to [**FileversionFileversion**](FileversionFileversion.md) |  | [optional] 
 
 ## Methods
 

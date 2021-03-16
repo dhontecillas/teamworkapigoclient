@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **DeletedAt** | Pointer to **string** |  | [optional] 
 **DeletedBy** | Pointer to **int32** |  | [optional] 
 **Health** | Pointer to **int32** |  | [optional] 
+**HealthLabel** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **LikeFromUserIDs** | Pointer to **[]int32** |  | [optional] 
 **LikeFromUsers** | Pointer to [**[]ViewRelationship**](ViewRelationship.md) |  | [optional] 
-**Project** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**Project** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **ProjectId** | Pointer to **int32** |  | [optional] 
-**Reactions** | Pointer to [**ViewReactionsForObject**](view.ReactionsForObject.md) |  | [optional] 
+**Reactions** | Pointer to [**ViewReactionsForObject**](ViewReactionsForObject.md) |  | [optional] 
 **Text** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
 
@@ -213,6 +214,31 @@ SetHealth sets Health field to given value.
 `func (o *ViewProjectUpdate) HasHealth() bool`
 
 HasHealth returns a boolean if a field has been set.
+
+### GetHealthLabel
+
+`func (o *ViewProjectUpdate) GetHealthLabel() string`
+
+GetHealthLabel returns the HealthLabel field if non-nil, zero value otherwise.
+
+### GetHealthLabelOk
+
+`func (o *ViewProjectUpdate) GetHealthLabelOk() (*string, bool)`
+
+GetHealthLabelOk returns a tuple with the HealthLabel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHealthLabel
+
+`func (o *ViewProjectUpdate) SetHealthLabel(v string)`
+
+SetHealthLabel sets HealthLabel field to given value.
+
+### HasHealthLabel
+
+`func (o *ViewProjectUpdate) HasHealthLabel() bool`
+
+HasHealthLabel returns a boolean if a field has been set.
 
 ### GetId
 

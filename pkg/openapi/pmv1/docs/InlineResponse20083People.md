@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **LastLogin** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
-**Permissions** | Pointer to [**InlineResponse20083Permissions**](inline_response_200_83_permissions.md) |  | [optional] 
+**Permissions** | Pointer to [**InlineResponse20083Permissions**](InlineResponse20083Permissions.md) |  | [optional] 
 **PhoneNumberFax** | Pointer to **string** |  | [optional] 
 **PhoneNumberHome** | Pointer to **string** |  | [optional] 
 **PhoneNumberMobile** | Pointer to **string** |  | [optional] 

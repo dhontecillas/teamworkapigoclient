@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **STATUS** | Pointer to **string** |  | [optional] 
 **Cards** | Pointer to [**[]InlineResponse2002Cards**](InlineResponse2002Cards.md) |  | [optional] 
-**Column** | Pointer to [**InlineResponse2002Column**](inline_response_200_2_column.md) |  | [optional] 
-**People** | Pointer to [**InlineResponse2002People**](inline_response_200_2_people.md) |  | [optional] 
+**Column** | Pointer to [**InlineResponse2002Column**](InlineResponse2002Column.md) |  | [optional] 
+**People** | Pointer to [**InlineResponse2002People**](InlineResponse2002People.md) |  | [optional] 
 
 ## Methods
 

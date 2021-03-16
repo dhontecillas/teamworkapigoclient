@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | Pointer to [**InlineResponse2002People12345Company**](inline_response_200_2_people_12345_company.md) |  | [optional] 
+**Company** | Pointer to [**InlineResponse2002People12345Company**](InlineResponse2002People12345Company.md) |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**TimeEstimates** | Pointer to [**InlineResponse20078TimeEstimates**](inline_response_200_78_time_estimates.md) |  | [optional] 
-**TimeTotals** | Pointer to [**InlineResponse20078TimeTotals**](inline_response_200_78_time_totals.md) |  | [optional] 
+**TimeEstimates** | Pointer to [**InlineResponse20078TimeEstimates**](InlineResponse20078TimeEstimates.md) |  | [optional] 
+**TimeTotals** | Pointer to [**InlineResponse20078TimeTotals**](InlineResponse20078TimeTotals.md) |  | [optional] 
 
 ## Methods
 

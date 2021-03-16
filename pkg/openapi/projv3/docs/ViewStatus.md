@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DateLastUpdated** | Pointer to **string** |  | [optional] 
 **DateTime** | Pointer to **string** |  | [optional] 
+**Deleted** | Pointer to **bool** |  | [optional] 
 **Emoji** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **int32** |  | [optional] 
 **IpAddress** | Pointer to **string** |  | [optional] 
 **Text** | Pointer to **string** |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
-**User** | Pointer to [**ViewRelationship**](view.Relationship.md) |  | [optional] 
+**User** | Pointer to [**ViewRelationship**](ViewRelationship.md) |  | [optional] 
 **UserId** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -82,6 +83,31 @@ SetDateTime sets DateTime field to given value.
 `func (o *ViewStatus) HasDateTime() bool`
 
 HasDateTime returns a boolean if a field has been set.
+
+### GetDeleted
+
+`func (o *ViewStatus) GetDeleted() bool`
+
+GetDeleted returns the Deleted field if non-nil, zero value otherwise.
+
+### GetDeletedOk
+
+`func (o *ViewStatus) GetDeletedOk() (*bool, bool)`
+
+GetDeletedOk returns a tuple with the Deleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeleted
+
+`func (o *ViewStatus) SetDeleted(v bool)`
+
+SetDeleted sets Deleted field to given value.
+
+### HasDeleted
+
+`func (o *ViewStatus) HasDeleted() bool`
+
+HasDeleted returns a boolean if a field has been set.
 
 ### GetEmoji
 

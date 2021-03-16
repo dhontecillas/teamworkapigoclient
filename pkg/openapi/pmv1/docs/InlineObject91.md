@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TodoItem** | [**TasklistsIdTasksJsonTodoItem**](_tasklists__id__tasks_json_todo_item.md) |  | 
+**TodoItem** | [**TasklistsIdTasksJsonTodoItem**](TasklistsIdTasksJsonTodoItem.md) |  | 
 
 ## Methods
 

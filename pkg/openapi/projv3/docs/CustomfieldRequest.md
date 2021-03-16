@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Customfield** | Pointer to [**CustomfieldCustomField**](customfield.CustomField.md) |  | [optional] 
+**Customfield** | Pointer to [**CustomfieldCustomField**](CustomfieldCustomField.md) |  | [optional] 
 
 ## Methods
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **HasTriggers** | Pointer to **bool** |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Settings** | Pointer to [**InlineResponse20044Settings**](inline_response_200_44_settings.md) |  | [optional] 
+**Settings** | Pointer to [**InlineResponse20044Settings**](InlineResponse20044Settings.md) |  | [optional] 
 **Sort** | Pointer to **string** |  | [optional] 
 **SortOrder** | Pointer to **string** |  | [optional] 
 

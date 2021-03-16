@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomfieldProject** | Pointer to [**ViewCustomFieldProject**](view.CustomFieldProject.md) |  | [optional] 
+**CustomfieldProject** | Pointer to [**ViewCustomFieldProject**](ViewCustomFieldProject.md) |  | [optional] 
 
 ## Methods
 

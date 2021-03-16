@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Events** | Pointer to [**InlineResponse20090StatsEvents**](inline_response_200_90_stats_events.md) |  | [optional] 
-**Milestones** | Pointer to [**InlineResponse20075StatsMilestones**](inline_response_200_75_stats_milestones.md) |  | [optional] 
-**Permissions** | Pointer to [**InlineResponse20090StatsPermissions**](inline_response_200_90_stats_permissions.md) |  | [optional] 
-**Projects** | Pointer to [**InlineResponse20090StatsProjects**](inline_response_200_90_stats_projects.md) |  | [optional] 
-**Tasks** | Pointer to [**InlineResponse20090StatsTasks**](inline_response_200_90_stats_tasks.md) |  | [optional] 
+**Events** | Pointer to [**InlineResponse20090StatsEvents**](InlineResponse20090StatsEvents.md) |  | [optional] 
+**Milestones** | Pointer to [**InlineResponse20075StatsMilestones**](InlineResponse20075StatsMilestones.md) |  | [optional] 
+**Permissions** | Pointer to [**InlineResponse20090StatsPermissions**](InlineResponse20090StatsPermissions.md) |  | [optional] 
+**Projects** | Pointer to [**InlineResponse20090StatsProjects**](InlineResponse20090StatsProjects.md) |  | [optional] 
+**Tasks** | Pointer to [**InlineResponse20090StatsTasks**](InlineResponse20090StatsTasks.md) |  | [optional] 
 
 ## Methods
 

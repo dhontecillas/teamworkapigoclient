@@ -28,7 +28,7 @@ type InlineObject81 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineObject81(content string, ) *InlineObject81 {
+func NewInlineObject81(content string) *InlineObject81 {
 	this := InlineObject81{}
 	this.Content = content
 	return &this
@@ -44,7 +44,7 @@ func NewInlineObject81WithDefaults() *InlineObject81 {
 
 // GetContent returns the Content field value
 func (o *InlineObject81) GetContent() string {
-	if o == nil  {
+	if o == nil {
 		var ret string
 		return ret
 	}

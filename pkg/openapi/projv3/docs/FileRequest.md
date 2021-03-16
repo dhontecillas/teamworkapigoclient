@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**File** | Pointer to [**FileProjectFile**](file.ProjectFile.md) |  | [optional] 
+**File** | Pointer to [**FileProjectFile**](FileProjectFile.md) |  | [optional] 
 
 ## Methods
 

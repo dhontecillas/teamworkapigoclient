@@ -26,13 +26,14 @@ type ClientSet struct {
 	V3Ctx context.Context
 }
 
-func NewClientSet(host string, apiKey string, ctx context.Context) *ClientSet {
+func NewClientSet(scheme string, host string, apiKey string, ctx context.Context) *ClientSet {
 	cs := ClientSet{}
 	confV3 := projv3.NewConfiguration()
 	/* this should be done this way, but is not taken into account:
 	conf.Scheme = "https"
 	conf.Host = "davidhontecillastest.teamwork.com"
 	*/
+	confV3.Scheme = scheme
 	confV3.Host = host
 	cs.V3Ctx = context.WithValue(ctx, projv3.ContextBasicAuth,
 		projv3.BasicAuth{
@@ -42,6 +43,7 @@ func NewClientSet(host string, apiKey string, ctx context.Context) *ClientSet {
 	cs.V3 = projv3.NewAPIClient(confV3)
 
 	confV2 := projv2.NewConfiguration()
+	confV2.Scheme = scheme
 	confV2.Host = host
 	cs.V2Ctx = context.WithValue(ctx, projv2.ContextBasicAuth,
 		projv2.BasicAuth{
@@ -51,6 +53,7 @@ func NewClientSet(host string, apiKey string, ctx context.Context) *ClientSet {
 	cs.V2 = projv2.NewAPIClient(confV2)
 
 	confV1 := projv1.NewConfiguration()
+	confV1.Scheme = scheme
 	confV1.Host = host
 	cs.V1Ctx = context.WithValue(ctx, projv1.ContextBasicAuth,
 		projv1.BasicAuth{
@@ -60,6 +63,7 @@ func NewClientSet(host string, apiKey string, ctx context.Context) *ClientSet {
 	cs.V1 = projv1.NewAPIClient(confV1)
 
 	confVpm := pmv1.NewConfiguration()
+	confVpm.Scheme = scheme
 	confVpm.Host = host
 	cs.PmCtx = context.WithValue(ctx, pmv1.ContextBasicAuth,
 		pmv1.BasicAuth{

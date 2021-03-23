@@ -17,7 +17,7 @@ const explanation string = `
 This example requires the following env vars to be set:
 
 export TWAPICLIENT_APIKEY="twp_putHereTheApiKeyForYourUser"
-export TWAPICLIENT_HOST="yoursubdomainname.teamwork.com"
+export TWAPICLIENT_URL="https://yoursubdomainname.teamwork.com"
 
 `
 
@@ -26,10 +26,11 @@ func main() {
 	if err != nil {
 		fmt.Printf(explanation)
 		fmt.Printf("\n\nError: %s\n", err.Error())
+		return
 	}
 
 	// create a new set of api client for teamwork projects
-	cs := twapi.NewClientSet(cnf.Host, cnf.APIKey, context.Background())
+	cs := twapi.NewClientSet(cnf.Scheme, cnf.Host, cnf.APIKey, context.Background())
 
 	projID, err := createProject(cs)
 	if err != nil {
@@ -57,7 +58,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	fmt.Printf("Created task %d", tid)
+	fmt.Printf("Created task %d\n", tid)
 
 	tid, err = createTimeLog(cs, tid, time.Now().AddDate(0, 0, -2))
 	if err != nil {
@@ -188,14 +189,9 @@ func createTimeLog(cs *twapi.ClientSet, taskID int64, from time.Time) (int64, er
 		return 0, err
 	}
 	fmt.Printf("Success: %v\n", resp)
-	/*
-		var rID int64
-		rID, err = strconv.ParseInt(resp.Id, 10, 64)
-		if err != nil {
-			return 0, err
-		}
-		return rID, nil
-	*/
+	if resp.Id == nil {
+		return 0, fmt.Errorf("cannot get result id for TimeEntry")
+	}
 	return int64(*resp.Id), nil
 }
 

@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -1237,621 +1238,6 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesHtmlExecute(r ApiGETPro
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3MilestonesIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *MilestonesApiService
-	updatedAfterDate *time.Time
-	updatedAfter *time.Time
-	status *string
-	searchTerm *string
-	reportFormat *string
-	projectStatuses *string
-	projectStatus *string
-	orderMode *string
-	orderBy *string
-	dueBeforeDate *string
-	dueBefore *string
-	dueAfterDate *string
-	dueAfter *string
-	projectHealths *int32
-	projectHealth *int32
-	pageSize *int32
-	page *int32
-	showPrivate *bool
-	showPercentageCompleted *bool
-	showDeleted *bool
-	showAttachedTasklists *bool
-	searchCompaniesTeams *bool
-	searchAssignees *bool
-	progress *bool
-	onlyStarredProjects *bool
-	onlyMyProjects *bool
-	onlyAdminProjects *bool
-	matchAllTags *bool
-	matchAllProjectTags *bool
-	isReportDownload *bool
-	includeUpdate *bool
-	includeToday *bool
-	includeTeamUserIds *bool
-	includeTags *bool
-	includeProgress *bool
-	includeCompleted *bool
-	includeCompanyUserIds *bool
-	includeAssigneeTeams *bool
-	includeAssigneeCompanies *bool
-	includeArchivedProjects *bool
-	emoji *bool
-	countUnreadComments *bool
-	calendar *bool
-	tagIds *[]int32
-	projectTagIds *[]int32
-	projectOwnerIds *[]int32
-	projectIds *[]int32
-	projectCompanyIds *[]int32
-	projectCategoryIds *[]int32
-	include *[]string
-	ids *[]int32
-	followerIds *[]int32
-	fieldsUsers *[]string
-	fieldsTasks *[]string
-	fieldsTasklists *[]string
-	fieldsTags *[]string
-	fieldsProjects *[]string
-	fieldsMilestones *[]string
-	fieldsCompanies *[]string
-	creatorIds *[]int32
-	assignedToUserIds *[]int32
-	assignedToTeamIds *[]int32
-	assignedToCompanyIds *[]int32
-}
-
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.updatedAfter = &updatedAfter
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Status(status string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.status = &status
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.searchTerm = &searchTerm
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.reportFormat = &reportFormat
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectStatuses = &projectStatuses
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectStatus = &projectStatus
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.orderMode = &orderMode
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.orderBy = &orderBy
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) DueBeforeDate(dueBeforeDate string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.dueBeforeDate = &dueBeforeDate
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) DueBefore(dueBefore string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.dueBefore = &dueBefore
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) DueAfterDate(dueAfterDate string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.dueAfterDate = &dueAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) DueAfter(dueAfter string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.dueAfter = &dueAfter
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectHealths = &projectHealths
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectHealth(projectHealth int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectHealth = &projectHealth
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Page(page int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ShowPrivate(showPrivate bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.showPrivate = &showPrivate
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ShowPercentageCompleted(showPercentageCompleted bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.showPercentageCompleted = &showPercentageCompleted
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ShowAttachedTasklists(showAttachedTasklists bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.showAttachedTasklists = &showAttachedTasklists
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) SearchCompaniesTeams(searchCompaniesTeams bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.searchCompaniesTeams = &searchCompaniesTeams
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.searchAssignees = &searchAssignees
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.progress = &progress
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.onlyStarredProjects = &onlyStarredProjects
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OnlyMyProjects(onlyMyProjects bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.onlyMyProjects = &onlyMyProjects
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.onlyAdminProjects = &onlyAdminProjects
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.matchAllProjectTags = &matchAllProjectTags
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.isReportDownload = &isReportDownload
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeUpdate = &includeUpdate
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeToday = &includeToday
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeTeamUserIds = &includeTeamUserIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeProgress = &includeProgress
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeCompleted = &includeCompleted
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeCompanyUserIds = &includeCompanyUserIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeAssigneeTeams = &includeAssigneeTeams
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeAssigneeCompanies = &includeAssigneeCompanies
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.includeArchivedProjects = &includeArchivedProjects
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Emoji(emoji bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.emoji = &emoji
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) CountUnreadComments(countUnreadComments bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.countUnreadComments = &countUnreadComments
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Calendar(calendar bool) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.calendar = &calendar
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectTagIds = &projectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectOwnerIds = &projectOwnerIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectIds = &projectIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectCompanyIds = &projectCompanyIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.projectCategoryIds = &projectCategoryIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Include(include []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.ids = &ids
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.followerIds = &followerIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsUsers = &fieldsUsers
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsTasks = &fieldsTasks
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsTasklists = &fieldsTasklists
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsTags = &fieldsTags
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsProjects = &fieldsProjects
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsMilestones = &fieldsMilestones
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.fieldsCompanies = &fieldsCompanies
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.creatorIds = &creatorIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.assignedToUserIds = &assignedToUserIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.assignedToTeamIds = &assignedToTeamIds
-	return r
-}
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	r.assignedToCompanyIds = &assignedToCompanyIds
-	return r
-}
-
-func (r ApiGETProjectsApiV3MilestonesIdJsonRequest) Execute() (MilestoneResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3MilestonesIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3MilestonesIdJson Get a milestone by id.
- * This returns all details about an individual milestone.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3MilestonesIdJsonRequest
- */
-func (a *MilestonesApiService) GETProjectsApiV3MilestonesIdJson(ctx _context.Context) ApiGETProjectsApiV3MilestonesIdJsonRequest {
-	return ApiGETProjectsApiV3MilestonesIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return MilestoneResponse
- */
-func (a *MilestonesApiService) GETProjectsApiV3MilestonesIdJsonExecute(r ApiGETProjectsApiV3MilestonesIdJsonRequest) (MilestoneResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  MilestoneResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestonesApiService.GETProjectsApiV3MilestonesIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/milestones/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.updatedAfter != nil {
-		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
-	}
-	if r.status != nil {
-		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
-	}
-	if r.searchTerm != nil {
-		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
-	}
-	if r.reportFormat != nil {
-		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
-	}
-	if r.projectStatuses != nil {
-		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
-	}
-	if r.projectStatus != nil {
-		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
-	}
-	if r.orderMode != nil {
-		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
-	}
-	if r.orderBy != nil {
-		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
-	}
-	if r.dueBeforeDate != nil {
-		localVarQueryParams.Add("dueBeforeDate", parameterToString(*r.dueBeforeDate, ""))
-	}
-	if r.dueBefore != nil {
-		localVarQueryParams.Add("dueBefore", parameterToString(*r.dueBefore, ""))
-	}
-	if r.dueAfterDate != nil {
-		localVarQueryParams.Add("dueAfterDate", parameterToString(*r.dueAfterDate, ""))
-	}
-	if r.dueAfter != nil {
-		localVarQueryParams.Add("dueAfter", parameterToString(*r.dueAfter, ""))
-	}
-	if r.projectHealths != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
-	}
-	if r.projectHealth != nil {
-		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.showPrivate != nil {
-		localVarQueryParams.Add("showPrivate", parameterToString(*r.showPrivate, ""))
-	}
-	if r.showPercentageCompleted != nil {
-		localVarQueryParams.Add("showPercentageCompleted", parameterToString(*r.showPercentageCompleted, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.showAttachedTasklists != nil {
-		localVarQueryParams.Add("showAttachedTasklists", parameterToString(*r.showAttachedTasklists, ""))
-	}
-	if r.searchCompaniesTeams != nil {
-		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
-	}
-	if r.searchAssignees != nil {
-		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
-	}
-	if r.progress != nil {
-		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
-	}
-	if r.onlyStarredProjects != nil {
-		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
-	}
-	if r.onlyMyProjects != nil {
-		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
-	}
-	if r.onlyAdminProjects != nil {
-		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.matchAllProjectTags != nil {
-		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
-	}
-	if r.isReportDownload != nil {
-		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
-	}
-	if r.includeUpdate != nil {
-		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
-	}
-	if r.includeToday != nil {
-		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
-	}
-	if r.includeTeamUserIds != nil {
-		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeProgress != nil {
-		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
-	}
-	if r.includeCompleted != nil {
-		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
-	}
-	if r.includeCompanyUserIds != nil {
-		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
-	}
-	if r.includeAssigneeTeams != nil {
-		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
-	}
-	if r.includeAssigneeCompanies != nil {
-		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
-	}
-	if r.includeArchivedProjects != nil {
-		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
-	}
-	if r.emoji != nil {
-		localVarQueryParams.Add("emoji", parameterToString(*r.emoji, ""))
-	}
-	if r.countUnreadComments != nil {
-		localVarQueryParams.Add("countUnreadComments", parameterToString(*r.countUnreadComments, ""))
-	}
-	if r.calendar != nil {
-		localVarQueryParams.Add("calendar", parameterToString(*r.calendar, ""))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.projectTagIds != nil {
-		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
-	}
-	if r.projectOwnerIds != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
-	}
-	if r.projectIds != nil {
-		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
-	}
-	if r.projectCompanyIds != nil {
-		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
-	}
-	if r.projectCategoryIds != nil {
-		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
-	}
-	if r.ids != nil {
-		localVarQueryParams.Add("ids", parameterToString(*r.ids, "csv"))
-	}
-	if r.followerIds != nil {
-		localVarQueryParams.Add("followerIds", parameterToString(*r.followerIds, "csv"))
-	}
-	if r.fieldsUsers != nil {
-		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
-	}
-	if r.fieldsTasks != nil {
-		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
-	}
-	if r.fieldsTasklists != nil {
-		localVarQueryParams.Add("fields[tasklists]", parameterToString(*r.fieldsTasklists, "csv"))
-	}
-	if r.fieldsTags != nil {
-		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
-	}
-	if r.fieldsProjects != nil {
-		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
-	}
-	if r.fieldsMilestones != nil {
-		localVarQueryParams.Add("fields[milestones]", parameterToString(*r.fieldsMilestones, "csv"))
-	}
-	if r.fieldsCompanies != nil {
-		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
-	}
-	if r.creatorIds != nil {
-		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
-	}
-	if r.assignedToUserIds != nil {
-		localVarQueryParams.Add("assignedToUserIds", parameterToString(*r.assignedToUserIds, "csv"))
-	}
-	if r.assignedToTeamIds != nil {
-		localVarQueryParams.Add("assignedToTeamIds", parameterToString(*r.assignedToTeamIds, "csv"))
-	}
-	if r.assignedToCompanyIds != nil {
-		localVarQueryParams.Add("assignedToCompanyIds", parameterToString(*r.assignedToCompanyIds, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGETProjectsApiV3MilestonesJsonRequest struct {
@@ -3813,9 +3199,10 @@ func (a *MilestonesApiService) GETProjectsApiV3MilestonesXlsxExecute(r ApiGETPro
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest struct {
+type ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *MilestonesApiService
+	milestonId int32
 	updatedAfterDate *time.Time
 	updatedAfter *time.Time
 	status *string
@@ -3881,276 +3268,897 @@ type ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Status(status string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Status(status string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.status = &status
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) DueBeforeDate(dueBeforeDate string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) DueBeforeDate(dueBeforeDate string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.dueBeforeDate = &dueBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) DueBefore(dueBefore string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) DueBefore(dueBefore string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.dueBefore = &dueBefore
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) DueAfterDate(dueAfterDate string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) DueAfterDate(dueAfterDate string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.dueAfterDate = &dueAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) DueAfter(dueAfter string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) DueAfter(dueAfter string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.dueAfter = &dueAfter
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectHealth(projectHealth int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectHealth(projectHealth int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Page(page int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ShowPrivate(showPrivate bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ShowPrivate(showPrivate bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.showPrivate = &showPrivate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ShowPercentageCompleted(showPercentageCompleted bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ShowPercentageCompleted(showPercentageCompleted bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.showPercentageCompleted = &showPercentageCompleted
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ShowAttachedTasklists(showAttachedTasklists bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ShowAttachedTasklists(showAttachedTasklists bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.showAttachedTasklists = &showAttachedTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) SearchCompaniesTeams(searchCompaniesTeams bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) SearchCompaniesTeams(searchCompaniesTeams bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.searchCompaniesTeams = &searchCompaniesTeams
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.searchAssignees = &searchAssignees
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Progress(progress bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Progress(progress bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.progress = &progress
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OnlyMyProjects(onlyMyProjects bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) OnlyMyProjects(onlyMyProjects bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.onlyMyProjects = &onlyMyProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.onlyAdminProjects = &onlyAdminProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeUpdate = &includeUpdate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeTeamUserIds = &includeTeamUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeProgress = &includeProgress
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeCompleted = &includeCompleted
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeCompanyUserIds = &includeCompanyUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeAssigneeTeams = &includeAssigneeTeams
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeAssigneeCompanies = &includeAssigneeCompanies
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Emoji(emoji bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Emoji(emoji bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.emoji = &emoji
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) CountUnreadComments(countUnreadComments bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) CountUnreadComments(countUnreadComments bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.countUnreadComments = &countUnreadComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Calendar(calendar bool) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Calendar(calendar bool) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.calendar = &calendar
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Include(include []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.ids = &ids
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.followerIds = &followerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsTasks = &fieldsTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsTasklists = &fieldsTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsTags = &fieldsTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsMilestones = &fieldsMilestones
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) Execute() (MilestoneMilestonesResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdMilestonesJsonExecute(r)
+func (r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) Execute() (MilestoneResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3MilestonesmilestonIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdMilestonesJson Get milestones in a project
+ * GETProjectsApiV3MilestonesmilestonIdJson Get a milestone by id.
+ * This returns all details about an individual milestone.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param milestonId
+ * @return ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest
+ */
+func (a *MilestonesApiService) GETProjectsApiV3MilestonesmilestonIdJson(ctx _context.Context, milestonId int32) ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest {
+	return ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		milestonId: milestonId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return MilestoneResponse
+ */
+func (a *MilestonesApiService) GETProjectsApiV3MilestonesmilestonIdJsonExecute(r ApiGETProjectsApiV3MilestonesmilestonIdJsonRequest) (MilestoneResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MilestoneResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestonesApiService.GETProjectsApiV3MilestonesmilestonIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/milestones/{milestonId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"milestonId"+"}", _neturl.PathEscape(parameterToString(r.milestonId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.updatedAfter != nil {
+		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
+	}
+	if r.status != nil {
+		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.reportFormat != nil {
+		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
+	if r.projectStatus != nil {
+		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
+	}
+	if r.orderMode != nil {
+		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.dueBeforeDate != nil {
+		localVarQueryParams.Add("dueBeforeDate", parameterToString(*r.dueBeforeDate, ""))
+	}
+	if r.dueBefore != nil {
+		localVarQueryParams.Add("dueBefore", parameterToString(*r.dueBefore, ""))
+	}
+	if r.dueAfterDate != nil {
+		localVarQueryParams.Add("dueAfterDate", parameterToString(*r.dueAfterDate, ""))
+	}
+	if r.dueAfter != nil {
+		localVarQueryParams.Add("dueAfter", parameterToString(*r.dueAfter, ""))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.showPrivate != nil {
+		localVarQueryParams.Add("showPrivate", parameterToString(*r.showPrivate, ""))
+	}
+	if r.showPercentageCompleted != nil {
+		localVarQueryParams.Add("showPercentageCompleted", parameterToString(*r.showPercentageCompleted, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.showAttachedTasklists != nil {
+		localVarQueryParams.Add("showAttachedTasklists", parameterToString(*r.showAttachedTasklists, ""))
+	}
+	if r.searchCompaniesTeams != nil {
+		localVarQueryParams.Add("searchCompaniesTeams", parameterToString(*r.searchCompaniesTeams, ""))
+	}
+	if r.searchAssignees != nil {
+		localVarQueryParams.Add("searchAssignees", parameterToString(*r.searchAssignees, ""))
+	}
+	if r.progress != nil {
+		localVarQueryParams.Add("progress", parameterToString(*r.progress, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.onlyMyProjects != nil {
+		localVarQueryParams.Add("onlyMyProjects", parameterToString(*r.onlyMyProjects, ""))
+	}
+	if r.onlyAdminProjects != nil {
+		localVarQueryParams.Add("onlyAdminProjects", parameterToString(*r.onlyAdminProjects, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.isReportDownload != nil {
+		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUpdate != nil {
+		localVarQueryParams.Add("includeUpdate", parameterToString(*r.includeUpdate, ""))
+	}
+	if r.includeToday != nil {
+		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
+	}
+	if r.includeTeamUserIds != nil {
+		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includeProgress != nil {
+		localVarQueryParams.Add("includeProgress", parameterToString(*r.includeProgress, ""))
+	}
+	if r.includeCompleted != nil {
+		localVarQueryParams.Add("includeCompleted", parameterToString(*r.includeCompleted, ""))
+	}
+	if r.includeCompanyUserIds != nil {
+		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
+	}
+	if r.includeAssigneeTeams != nil {
+		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
+	}
+	if r.includeAssigneeCompanies != nil {
+		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.emoji != nil {
+		localVarQueryParams.Add("emoji", parameterToString(*r.emoji, ""))
+	}
+	if r.countUnreadComments != nil {
+		localVarQueryParams.Add("countUnreadComments", parameterToString(*r.countUnreadComments, ""))
+	}
+	if r.calendar != nil {
+		localVarQueryParams.Add("calendar", parameterToString(*r.calendar, ""))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.ids != nil {
+		localVarQueryParams.Add("ids", parameterToString(*r.ids, "csv"))
+	}
+	if r.followerIds != nil {
+		localVarQueryParams.Add("followerIds", parameterToString(*r.followerIds, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTasks != nil {
+		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
+	}
+	if r.fieldsTasklists != nil {
+		localVarQueryParams.Add("fields[tasklists]", parameterToString(*r.fieldsTasklists, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsMilestones != nil {
+		localVarQueryParams.Add("fields[milestones]", parameterToString(*r.fieldsMilestones, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
+	}
+	if r.creatorIds != nil {
+		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
+	}
+	if r.assignedToUserIds != nil {
+		localVarQueryParams.Add("assignedToUserIds", parameterToString(*r.assignedToUserIds, "csv"))
+	}
+	if r.assignedToTeamIds != nil {
+		localVarQueryParams.Add("assignedToTeamIds", parameterToString(*r.assignedToTeamIds, "csv"))
+	}
+	if r.assignedToCompanyIds != nil {
+		localVarQueryParams.Add("assignedToCompanyIds", parameterToString(*r.assignedToCompanyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest struct {
+	ctx _context.Context
+	ApiService *MilestonesApiService
+	projectId int32
+	updatedAfterDate *time.Time
+	updatedAfter *time.Time
+	status *string
+	searchTerm *string
+	reportFormat *string
+	projectStatuses *string
+	projectStatus *string
+	orderMode *string
+	orderBy *string
+	dueBeforeDate *string
+	dueBefore *string
+	dueAfterDate *string
+	dueAfter *string
+	projectHealths *int32
+	projectHealth *int32
+	pageSize *int32
+	page *int32
+	showPrivate *bool
+	showPercentageCompleted *bool
+	showDeleted *bool
+	showAttachedTasklists *bool
+	searchCompaniesTeams *bool
+	searchAssignees *bool
+	progress *bool
+	onlyStarredProjects *bool
+	onlyMyProjects *bool
+	onlyAdminProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	isReportDownload *bool
+	includeUpdate *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTags *bool
+	includeProgress *bool
+	includeCompleted *bool
+	includeCompanyUserIds *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	emoji *bool
+	countUnreadComments *bool
+	calendar *bool
+	tagIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	include *[]string
+	ids *[]int32
+	followerIds *[]int32
+	fieldsUsers *[]string
+	fieldsTasks *[]string
+	fieldsTasklists *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsMilestones *[]string
+	fieldsCompanies *[]string
+	creatorIds *[]int32
+	assignedToUserIds *[]int32
+	assignedToTeamIds *[]int32
+	assignedToCompanyIds *[]int32
+}
+
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.updatedAfter = &updatedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Status(status string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.status = &status
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectStatus = &projectStatus
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.orderMode = &orderMode
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) DueBeforeDate(dueBeforeDate string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.dueBeforeDate = &dueBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) DueBefore(dueBefore string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.dueBefore = &dueBefore
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) DueAfterDate(dueAfterDate string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.dueAfterDate = &dueAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) DueAfter(dueAfter string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.dueAfter = &dueAfter
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectHealth(projectHealth int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ShowPrivate(showPrivate bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.showPrivate = &showPrivate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ShowPercentageCompleted(showPercentageCompleted bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.showPercentageCompleted = &showPercentageCompleted
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ShowAttachedTasklists(showAttachedTasklists bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.showAttachedTasklists = &showAttachedTasklists
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) SearchCompaniesTeams(searchCompaniesTeams bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.searchCompaniesTeams = &searchCompaniesTeams
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) SearchAssignees(searchAssignees bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.searchAssignees = &searchAssignees
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Progress(progress bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.progress = &progress
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) OnlyMyProjects(onlyMyProjects bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.onlyMyProjects = &onlyMyProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) OnlyAdminProjects(onlyAdminProjects bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.onlyAdminProjects = &onlyAdminProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeUpdate(includeUpdate bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeUpdate = &includeUpdate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeToday = &includeToday
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeTeamUserIds = &includeTeamUserIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeProgress(includeProgress bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeProgress = &includeProgress
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeCompleted(includeCompleted bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeCompleted = &includeCompleted
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeCompanyUserIds = &includeCompanyUserIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeAssigneeTeams = &includeAssigneeTeams
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeAssigneeCompanies = &includeAssigneeCompanies
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Emoji(emoji bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.emoji = &emoji
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) CountUnreadComments(countUnreadComments bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.countUnreadComments = &countUnreadComments
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Calendar(calendar bool) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.calendar = &calendar
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.ids = &ids
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.followerIds = &followerIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsTasks = &fieldsTasks
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsTasklists = &fieldsTasklists
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsMilestones = &fieldsMilestones
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.creatorIds = &creatorIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.assignedToUserIds = &assignedToUserIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.assignedToTeamIds = &assignedToTeamIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	r.assignedToCompanyIds = &assignedToCompanyIds
+	return r
+}
+
+func (r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) Execute() (MilestoneMilestonesResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdMilestonesJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3ProjectsprojectIdMilestonesJson Get milestones in a project
  * This lets you query the list of milestones for a project. You can use the
 provided filters to return only those milestones that are incomplete,
 completed, upcoming or late. This call uses pagination, returning 100
 milestones per page by default.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest
+ * @param projectId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest
  */
-func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest{
+func (a *MilestonesApiService) GETProjectsApiV3ProjectsprojectIdMilestonesJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -4158,7 +4166,7 @@ func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJson(c
  * Execute executes the request
  * @return MilestoneMilestonesResponse
  */
-func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJsonExecute(r ApiGETProjectsApiV3ProjectsProjectIdMilestonesJsonRequest) (MilestoneMilestonesResponse, *_nethttp.Response, error) {
+func (a *MilestonesApiService) GETProjectsApiV3ProjectsprojectIdMilestonesJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdMilestonesJsonRequest) (MilestoneMilestonesResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -4168,12 +4176,13 @@ func (a *MilestonesApiService) GETProjectsApiV3ProjectsProjectIdMilestonesJsonEx
 		localVarReturnValue  MilestoneMilestonesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestonesApiService.GETProjectsApiV3ProjectsProjectIdMilestonesJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestonesApiService.GETProjectsApiV3ProjectsprojectIdMilestonesJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/milestones.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/milestones.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

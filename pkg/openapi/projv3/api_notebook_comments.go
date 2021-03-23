@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,25 +27,28 @@ var (
 // NotebookCommentsApiService NotebookCommentsApi service
 type NotebookCommentsApiService service
 
-type ApiGETProjectsApiV3NotebooksIdCommentsJsonRequest struct {
+type ApiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest struct {
 	ctx _context.Context
 	ApiService *NotebookCommentsApiService
+	notebookId int32
 }
 
 
-func (r ApiGETProjectsApiV3NotebooksIdCommentsJsonRequest) Execute() (CommentCommentsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3NotebooksIdCommentsJsonExecute(r)
+func (r ApiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest) Execute() (CommentCommentsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3NotebooksnotebookIdCommentsJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3NotebooksIdCommentsJson Get a list of comments for a notebook
+ * GETProjectsApiV3NotebooksnotebookIdCommentsJson Get a list of comments for a notebook
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3NotebooksIdCommentsJsonRequest
+ * @param notebookId
+ * @return ApiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest
  */
-func (a *NotebookCommentsApiService) GETProjectsApiV3NotebooksIdCommentsJson(ctx _context.Context) ApiGETProjectsApiV3NotebooksIdCommentsJsonRequest {
-	return ApiGETProjectsApiV3NotebooksIdCommentsJsonRequest{
+func (a *NotebookCommentsApiService) GETProjectsApiV3NotebooksnotebookIdCommentsJson(ctx _context.Context, notebookId int32) ApiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest {
+	return ApiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		notebookId: notebookId,
 	}
 }
 
@@ -52,7 +56,7 @@ func (a *NotebookCommentsApiService) GETProjectsApiV3NotebooksIdCommentsJson(ctx
  * Execute executes the request
  * @return CommentCommentsResponse
  */
-func (a *NotebookCommentsApiService) GETProjectsApiV3NotebooksIdCommentsJsonExecute(r ApiGETProjectsApiV3NotebooksIdCommentsJsonRequest) (CommentCommentsResponse, *_nethttp.Response, error) {
+func (a *NotebookCommentsApiService) GETProjectsApiV3NotebooksnotebookIdCommentsJsonExecute(r ApiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest) (CommentCommentsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -62,12 +66,13 @@ func (a *NotebookCommentsApiService) GETProjectsApiV3NotebooksIdCommentsJsonExec
 		localVarReturnValue  CommentCommentsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotebookCommentsApiService.GETProjectsApiV3NotebooksIdCommentsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotebookCommentsApiService.GETProjectsApiV3NotebooksnotebookIdCommentsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/notebooks/:id/comments.json"
+	localVarPath := localBasePath + "/projects/api/v3/notebooks/{notebookId}/comments.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"notebookId"+"}", _neturl.PathEscape(parameterToString(r.notebookId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -4,27 +4,27 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DELETEProjectsApiV3MeTimersIdJson**](TimeTrackingApi.md#DELETEProjectsApiV3MeTimersIdJson) | **Delete** /projects/api/v3/me/timers/:id.json | Delete a timer by ID
-[**GETProjectsApiV3AllocationsAllocationIdTimeJson**](TimeTrackingApi.md#GETProjectsApiV3AllocationsAllocationIdTimeJson) | **Get** /projects/api/v3/allocations/:allocationId/time.json | Get time entries for a specific allocation
+[**DELETEProjectsApiV3MeTimerstimerIdJson**](TimeTrackingApi.md#DELETEProjectsApiV3MeTimerstimerIdJson) | **Delete** /projects/api/v3/me/timers/{timerId}.json | Delete a timer by ID
+[**GETProjectsApiV3AllocationsallocationIdTimeJson**](TimeTrackingApi.md#GETProjectsApiV3AllocationsallocationIdTimeJson) | **Get** /projects/api/v3/allocations/{allocationId}/time.json | Get time entries for a specific allocation
 [**GETProjectsApiV3MeTimersJson**](TimeTrackingApi.md#GETProjectsApiV3MeTimersJson) | **Get** /projects/api/v3/me/timers.json | Get all your running timers
-[**GETProjectsApiV3ProjectsProjectIdTimeJson**](TimeTrackingApi.md#GETProjectsApiV3ProjectsProjectIdTimeJson) | **Get** /projects/api/v3/projects/:projectId/time.json | Get time entries for a specific project
-[**GETProjectsApiV3ProjectsProjectIdTimeTotalJson**](TimeTrackingApi.md#GETProjectsApiV3ProjectsProjectIdTimeTotalJson) | **Get** /projects/api/v3/projects/:projectId/time/total.json | Get timelog totals.
+[**GETProjectsApiV3ProjectsprojectIdTimeJson**](TimeTrackingApi.md#GETProjectsApiV3ProjectsprojectIdTimeJson) | **Get** /projects/api/v3/projects/{projectId}/time.json | Get time entries for a specific project
+[**GETProjectsApiV3ProjectsprojectIdTimeTotalJson**](TimeTrackingApi.md#GETProjectsApiV3ProjectsprojectIdTimeTotalJson) | **Get** /projects/api/v3/projects/{projectId}/time/total.json | Get timelog totals.
 [**GETProjectsApiV3TimeJson**](TimeTrackingApi.md#GETProjectsApiV3TimeJson) | **Get** /projects/api/v3/time.json | Get all time entries
 [**GETProjectsApiV3TimeTotalJson**](TimeTrackingApi.md#GETProjectsApiV3TimeTotalJson) | **Get** /projects/api/v3/time/total.json | Get timelog totals.
-[**GETProjectsApiV3TimersIdJson**](TimeTrackingApi.md#GETProjectsApiV3TimersIdJson) | **Get** /projects/api/v3/timers/:id.json | Get a specific timer
 [**GETProjectsApiV3TimersJson**](TimeTrackingApi.md#GETProjectsApiV3TimersJson) | **Get** /projects/api/v3/timers.json | Get all running timers
+[**GETProjectsApiV3TimerstimerIdJson**](TimeTrackingApi.md#GETProjectsApiV3TimerstimerIdJson) | **Get** /projects/api/v3/timers/{timerId}.json | Get a specific timer
 [**POSTProjectsApiV3MeTimersJson**](TimeTrackingApi.md#POSTProjectsApiV3MeTimersJson) | **Post** /projects/api/v3/me/timers.json | Create a new timer
-[**PUTProjectsApiV3MeTimersIdCompleteJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimersIdCompleteJson) | **Put** /projects/api/v3/me/timers/:id/complete.json | Complete a timer by ID
-[**PUTProjectsApiV3MeTimersIdJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimersIdJson) | **Put** /projects/api/v3/me/timers/:id.json | Edits a timer
-[**PUTProjectsApiV3MeTimersIdPauseJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimersIdPauseJson) | **Put** /projects/api/v3/me/timers/:id/pause.json | Pause a timer by ID
-[**PUTProjectsApiV3MeTimersIdResumeJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimersIdResumeJson) | **Put** /projects/api/v3/me/timers/:id/resume.json | Resume a timer by ID
-[**PUTProjectsApiV3MeTimersIdUndeleteJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimersIdUndeleteJson) | **Put** /projects/api/v3/me/timers/:id/undelete.json | Undelete a timer by ID
+[**PUTProjectsApiV3MeTimerstimerIdCompleteJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimerstimerIdCompleteJson) | **Put** /projects/api/v3/me/timers/{timerId}/complete.json | Complete a timer by ID
+[**PUTProjectsApiV3MeTimerstimerIdJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimerstimerIdJson) | **Put** /projects/api/v3/me/timers/{timerId}.json | Edits a timer
+[**PUTProjectsApiV3MeTimerstimerIdPauseJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimerstimerIdPauseJson) | **Put** /projects/api/v3/me/timers/{timerId}/pause.json | Pause a timer by ID
+[**PUTProjectsApiV3MeTimerstimerIdResumeJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimerstimerIdResumeJson) | **Put** /projects/api/v3/me/timers/{timerId}/resume.json | Resume a timer by ID
+[**PUTProjectsApiV3MeTimerstimerIdUndeleteJson**](TimeTrackingApi.md#PUTProjectsApiV3MeTimerstimerIdUndeleteJson) | **Put** /projects/api/v3/me/timers/{timerId}/undelete.json | Undelete a timer by ID
 
 
 
-## DELETEProjectsApiV3MeTimersIdJson
+## DELETEProjectsApiV3MeTimerstimerIdJson
 
-> DELETEProjectsApiV3MeTimersIdJson(ctx).TimerDeleteRequest(timerDeleteRequest).Execute()
+> DELETEProjectsApiV3MeTimerstimerIdJson(ctx, timerId).TimerDeleteRequest(timerDeleteRequest).Execute()
 
 Delete a timer by ID
 
@@ -43,13 +43,14 @@ import (
 )
 
 func main() {
+    timerId := int32(56) // int32 | 
     timerDeleteRequest := *openapiclient.NewTimerDeleteRequest() // TimerDeleteRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.DELETEProjectsApiV3MeTimersIdJson(context.Background()).TimerDeleteRequest(timerDeleteRequest).Execute()
+    resp, r, err := api_client.TimeTrackingApi.DELETEProjectsApiV3MeTimerstimerIdJson(context.Background(), timerId).TimerDeleteRequest(timerDeleteRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.DELETEProjectsApiV3MeTimersIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.DELETEProjectsApiV3MeTimerstimerIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -58,14 +59,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDELETEProjectsApiV3MeTimersIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDELETEProjectsApiV3MeTimerstimerIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **timerDeleteRequest** | [**TimerDeleteRequest**](TimerDeleteRequest.md) |  | 
 
 ### Return type
@@ -86,9 +92,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3AllocationsAllocationIdTimeJson
+## GETProjectsApiV3AllocationsallocationIdTimeJson
 
-> TimelogTimelogsResponse GETProjectsApiV3AllocationsAllocationIdTimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> TimelogTimelogsResponse GETProjectsApiV3AllocationsallocationIdTimeJson(ctx, allocationId).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId2(allocationId2).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get time entries for a specific allocation
 
@@ -108,6 +114,7 @@ import (
 )
 
 func main() {
+    allocationId := int32(56) // int32 | 
     updatedAfter := time.Now() // time.Time | filter by updated after date (optional)
     startDate := time.Now() // string | filter by a starting date (optional)
     selectedColumns := "selectedColumns_example" // string | customise the report by selecting columns (optional)
@@ -125,7 +132,7 @@ func main() {
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 50)
     page := int32(56) // int32 | page number (optional) (default to 1)
-    allocationId := int32(56) // int32 | filter by allocation id (optional)
+    allocationId2 := int32(56) // int32 | filter by allocation id (optional)
     showDeleted := true // bool | include deleted items (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     matchAllTags := true // bool | match all tags (optional)
@@ -152,27 +159,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3AllocationsAllocationIdTimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3AllocationsallocationIdTimeJson(context.Background(), allocationId).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId2(allocationId2).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3AllocationsAllocationIdTimeJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3AllocationsallocationIdTimeJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3AllocationsAllocationIdTimeJson`: TimelogTimelogsResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3AllocationsAllocationIdTimeJson`: %v\n", resp)
+    // response from `GETProjectsApiV3AllocationsallocationIdTimeJson`: TimelogTimelogsResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3AllocationsallocationIdTimeJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfter** | **time.Time** | filter by updated after date | 
  **startDate** | **string** | filter by a starting date | 
  **selectedColumns** | **string** | customise the report by selecting columns | 
@@ -190,7 +202,7 @@ Name | Type | Description  | Notes
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page | [default to 50]
  **page** | **int32** | page number | [default to 1]
- **allocationId** | **int32** | filter by allocation id | 
+ **allocationId2** | **int32** | filter by allocation id | 
  **showDeleted** | **bool** | include deleted items | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **matchAllTags** | **bool** | match all tags | 
@@ -328,9 +340,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsProjectIdTimeJson
+## GETProjectsApiV3ProjectsprojectIdTimeJson
 
-> TimelogTimelogsResponse GETProjectsApiV3ProjectsProjectIdTimeJson(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> TimelogTimelogsResponse GETProjectsApiV3ProjectsprojectIdTimeJson(ctx, projectId).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId2(projectId2).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Get time entries for a specific project
 
@@ -350,6 +362,7 @@ import (
 )
 
 func main() {
+    projectId := int32(56) // int32 | 
     updatedAfter := time.Now() // time.Time | filter by updated after date (optional)
     startDate := time.Now() // string | filter by a starting date (optional)
     selectedColumns := "selectedColumns_example" // string | customise the report by selecting columns (optional)
@@ -363,7 +376,7 @@ func main() {
     billableType := "billableType_example" // string | filter by billable type (optional) (default to "all")
     ticketId := int32(56) // int32 | filter by ticket id (optional)
     tasklistId := int32(56) // int32 | filter by tasklist id (optional)
-    projectId := int32(56) // int32 | filter by project id (optional)
+    projectId2 := int32(56) // int32 | filter by project id (optional)
     projectHealths := int32(56) // int32 | filter by project healths  0: not set 1: bad 2: ok 3: good (optional)
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 50)
     page := int32(56) // int32 | page number (optional) (default to 1)
@@ -394,27 +407,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeJson(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsprojectIdTimeJson(context.Background(), projectId).UpdatedAfter(updatedAfter).StartDate(startDate).SelectedColumns(selectedColumns).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).OrderBy(orderBy).InvoicedType(invoicedType).EndDate(endDate).BillableType(billableType).TicketId(ticketId).TasklistId(tasklistId).ProjectId2(projectId2).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).AllocationId(allocationId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).TaskTagIds(taskTagIds).TagIds(tagIds).ProjectsFromCompanyId(projectsFromCompanyId).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsTimelogs(fieldsTimelogs).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsTags(fieldsTags).FieldsProjects(fieldsProjects).CompanyIds(companyIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3ProjectsprojectIdTimeJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3ProjectsProjectIdTimeJson`: TimelogTimelogsResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeJson`: %v\n", resp)
+    // response from `GETProjectsApiV3ProjectsprojectIdTimeJson`: TimelogTimelogsResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3ProjectsprojectIdTimeJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfter** | **time.Time** | filter by updated after date | 
  **startDate** | **string** | filter by a starting date | 
  **selectedColumns** | **string** | customise the report by selecting columns | 
@@ -428,7 +446,7 @@ Name | Type | Description  | Notes
  **billableType** | **string** | filter by billable type | [default to &quot;all&quot;]
  **ticketId** | **int32** | filter by ticket id | 
  **tasklistId** | **int32** | filter by tasklist id | 
- **projectId** | **int32** | filter by project id | 
+ **projectId2** | **int32** | filter by project id | 
  **projectHealths** | **int32** | filter by project healths  0: not set 1: bad 2: ok 3: good | 
  **pageSize** | **int32** | number of items in a page | [default to 50]
  **page** | **int32** | page number | [default to 1]
@@ -475,9 +493,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsProjectIdTimeTotalJson
+## GETProjectsApiV3ProjectsprojectIdTimeTotalJson
 
-> TimelogTotalsResponse GETProjectsApiV3ProjectsProjectIdTimeTotalJson(ctx).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
+> TimelogTotalsResponse GETProjectsApiV3ProjectsprojectIdTimeTotalJson(ctx, projectId2).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
 
 Get timelog totals.
 
@@ -494,6 +512,7 @@ import (
 )
 
 func main() {
+    projectId2 := int32(56) // int32 | 
     projectStatuses := "projectStatuses_example" // string | filter by project statuses (optional)
     projectStatus := "projectStatus_example" // string | filter by project status (optional)
     userId := int32(56) // int32 | filter by user id (optional)
@@ -514,27 +533,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeTotalJson(context.Background()).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3ProjectsprojectIdTimeTotalJson(context.Background(), projectId2).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).UserId(userId).TasklistId(tasklistId).TaskId(taskId).ProjectId(projectId).ProjectHealths(projectHealths).DeskTicketId(deskTicketId).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).CompanyIds(companyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeTotalJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3ProjectsprojectIdTimeTotalJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3ProjectsProjectIdTimeTotalJson`: TimelogTotalsResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3ProjectsProjectIdTimeTotalJson`: %v\n", resp)
+    // response from `GETProjectsApiV3ProjectsprojectIdTimeTotalJson`: TimelogTotalsResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3ProjectsprojectIdTimeTotalJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **projectStatuses** | **string** | filter by project statuses | 
  **projectStatus** | **string** | filter by project status | 
  **userId** | **int32** | filter by user id | 
@@ -814,86 +838,6 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3TimersIdJson
-
-> TimerResponse GETProjectsApiV3TimersIdJson(ctx).UserId(userId).ShowDeleted(showDeleted).Include(include).FieldsUsers(fieldsUsers).FieldsTimers(fieldsTimers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsProjects(fieldsProjects).Execute()
-
-Get a specific timer
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    userId := int32(56) // int32 | filter by user id (optional)
-    showDeleted := true // bool | filter by task id (optional)
-    include := []string{"Inner_example"} // []string | include (optional)
-    fieldsUsers := []string{"Inner_example"} // []string |  (optional)
-    fieldsTimers := []string{"Inner_example"} // []string |  (optional)
-    fieldsTasks := []string{"Inner_example"} // []string |  (optional)
-    fieldsTasklists := []string{"Inner_example"} // []string |  (optional)
-    fieldsProjects := []string{"Inner_example"} // []string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3TimersIdJson(context.Background()).UserId(userId).ShowDeleted(showDeleted).Include(include).FieldsUsers(fieldsUsers).FieldsTimers(fieldsTimers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsProjects(fieldsProjects).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3TimersIdJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GETProjectsApiV3TimersIdJson`: TimerResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3TimersIdJson`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV3TimersIdJsonRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **int32** | filter by user id | 
- **showDeleted** | **bool** | filter by task id | 
- **include** | **[]string** | include | 
- **fieldsUsers** | **[]string** |  | 
- **fieldsTimers** | **[]string** |  | 
- **fieldsTasks** | **[]string** |  | 
- **fieldsTasklists** | **[]string** |  | 
- **fieldsProjects** | **[]string** |  | 
-
-### Return type
-
-[**TimerResponse**](TimerResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GETProjectsApiV3TimersJson
 
 > TimerTimersResponse GETProjectsApiV3TimersJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).UserId(userId).TaskId(taskId).ProjectId(projectId).PageSize(pageSize).Page(page).ShowDeleted(showDeleted).RunningTimersOnly(runningTimersOnly).Include(include).FieldsUsers(fieldsUsers).FieldsTimers(fieldsTimers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsProjects(fieldsProjects).Execute()
@@ -989,6 +933,92 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GETProjectsApiV3TimerstimerIdJson
+
+> TimerResponse GETProjectsApiV3TimerstimerIdJson(ctx, timerId).UserId(userId).ShowDeleted(showDeleted).Include(include).FieldsUsers(fieldsUsers).FieldsTimers(fieldsTimers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsProjects(fieldsProjects).Execute()
+
+Get a specific timer
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    timerId := int32(56) // int32 | 
+    userId := int32(56) // int32 | filter by user id (optional)
+    showDeleted := true // bool | filter by task id (optional)
+    include := []string{"Inner_example"} // []string | include (optional)
+    fieldsUsers := []string{"Inner_example"} // []string |  (optional)
+    fieldsTimers := []string{"Inner_example"} // []string |  (optional)
+    fieldsTasks := []string{"Inner_example"} // []string |  (optional)
+    fieldsTasklists := []string{"Inner_example"} // []string |  (optional)
+    fieldsProjects := []string{"Inner_example"} // []string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TimeTrackingApi.GETProjectsApiV3TimerstimerIdJson(context.Background(), timerId).UserId(userId).ShowDeleted(showDeleted).Include(include).FieldsUsers(fieldsUsers).FieldsTimers(fieldsTimers).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsProjects(fieldsProjects).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.GETProjectsApiV3TimerstimerIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3TimerstimerIdJson`: TimerResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.GETProjectsApiV3TimerstimerIdJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3TimerstimerIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **userId** | **int32** | filter by user id | 
+ **showDeleted** | **bool** | filter by task id | 
+ **include** | **[]string** | include | 
+ **fieldsUsers** | **[]string** |  | 
+ **fieldsTimers** | **[]string** |  | 
+ **fieldsTasks** | **[]string** |  | 
+ **fieldsTasklists** | **[]string** |  | 
+ **fieldsProjects** | **[]string** |  | 
+
+### Return type
+
+[**TimerResponse**](TimerResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## POSTProjectsApiV3MeTimersJson
 
 > TimerResponse POSTProjectsApiV3MeTimersJson(ctx).TimerRequest(timerRequest).Execute()
@@ -1055,9 +1085,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3MeTimersIdCompleteJson
+## PUTProjectsApiV3MeTimerstimerIdCompleteJson
 
-> TimerResponse PUTProjectsApiV3MeTimersIdCompleteJson(ctx).Execute()
+> TimerResponse PUTProjectsApiV3MeTimerstimerIdCompleteJson(ctx, timerId).Execute()
 
 Complete a timer by ID
 
@@ -1076,26 +1106,35 @@ import (
 )
 
 func main() {
+    timerId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimersIdCompleteJson(context.Background()).Execute()
+    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdCompleteJson(context.Background(), timerId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimersIdCompleteJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdCompleteJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3MeTimersIdCompleteJson`: TimerResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimersIdCompleteJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3MeTimerstimerIdCompleteJson`: TimerResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdCompleteJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersIdCompleteJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -1116,9 +1155,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3MeTimersIdJson
+## PUTProjectsApiV3MeTimerstimerIdJson
 
-> TimerResponse PUTProjectsApiV3MeTimersIdJson(ctx).TimerRequest(timerRequest).Execute()
+> TimerResponse PUTProjectsApiV3MeTimerstimerIdJson(ctx, timerId).TimerRequest(timerRequest).Execute()
 
 Edits a timer
 
@@ -1137,31 +1176,37 @@ import (
 )
 
 func main() {
+    timerId := int32(56) // int32 | 
     timerRequest := *openapiclient.NewTimerRequest() // TimerRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimersIdJson(context.Background()).TimerRequest(timerRequest).Execute()
+    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdJson(context.Background(), timerId).TimerRequest(timerRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimersIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3MeTimersIdJson`: TimerResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimersIdJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3MeTimerstimerIdJson`: TimerResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimerstimerIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **timerRequest** | [**TimerRequest**](TimerRequest.md) |  | 
 
 ### Return type
@@ -1182,9 +1227,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3MeTimersIdPauseJson
+## PUTProjectsApiV3MeTimerstimerIdPauseJson
 
-> TimerResponse PUTProjectsApiV3MeTimersIdPauseJson(ctx).Execute()
+> TimerResponse PUTProjectsApiV3MeTimerstimerIdPauseJson(ctx, timerId).Execute()
 
 Pause a timer by ID
 
@@ -1203,26 +1248,35 @@ import (
 )
 
 func main() {
+    timerId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimersIdPauseJson(context.Background()).Execute()
+    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdPauseJson(context.Background(), timerId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimersIdPauseJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdPauseJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3MeTimersIdPauseJson`: TimerResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimersIdPauseJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3MeTimerstimerIdPauseJson`: TimerResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdPauseJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersIdPauseJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -1243,9 +1297,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3MeTimersIdResumeJson
+## PUTProjectsApiV3MeTimerstimerIdResumeJson
 
-> TimerResponse PUTProjectsApiV3MeTimersIdResumeJson(ctx).Execute()
+> TimerResponse PUTProjectsApiV3MeTimerstimerIdResumeJson(ctx, timerId).Execute()
 
 Resume a timer by ID
 
@@ -1264,26 +1318,35 @@ import (
 )
 
 func main() {
+    timerId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimersIdResumeJson(context.Background()).Execute()
+    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdResumeJson(context.Background(), timerId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimersIdResumeJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdResumeJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3MeTimersIdResumeJson`: TimerResponse
-    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimersIdResumeJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3MeTimerstimerIdResumeJson`: TimerResponse
+    fmt.Fprintf(os.Stdout, "Response from `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdResumeJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersIdResumeJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -1304,9 +1367,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3MeTimersIdUndeleteJson
+## PUTProjectsApiV3MeTimerstimerIdUndeleteJson
 
-> PUTProjectsApiV3MeTimersIdUndeleteJson(ctx).Execute()
+> PUTProjectsApiV3MeTimerstimerIdUndeleteJson(ctx, timerId).Execute()
 
 Undelete a timer by ID
 
@@ -1325,12 +1388,13 @@ import (
 )
 
 func main() {
+    timerId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimersIdUndeleteJson(context.Background()).Execute()
+    resp, r, err := api_client.TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdUndeleteJson(context.Background(), timerId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimersIdUndeleteJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TimeTrackingApi.PUTProjectsApiV3MeTimerstimerIdUndeleteJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1338,11 +1402,19 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**timerId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

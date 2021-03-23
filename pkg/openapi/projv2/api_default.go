@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,32 +27,35 @@ var (
 // DefaultApiService DefaultApi service
 type DefaultApiService service
 
-type ApiGETProjectsApiV2PeopleUserIdAvatarRequest struct {
+type ApiGETProjectsApiV2PeopleuserIdAvatarRequest struct {
 	ctx _context.Context
 	ApiService *DefaultApiService
+	userId int32
 }
 
 
-func (r ApiGETProjectsApiV2PeopleUserIdAvatarRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2PeopleUserIdAvatarExecute(r)
+func (r ApiGETProjectsApiV2PeopleuserIdAvatarRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2PeopleuserIdAvatarExecute(r)
 }
 
 /*
- * GETProjectsApiV2PeopleUserIdAvatar Get user avatar
+ * GETProjectsApiV2PeopleuserIdAvatar Get user avatar
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2PeopleUserIdAvatarRequest
+ * @param userId
+ * @return ApiGETProjectsApiV2PeopleuserIdAvatarRequest
  */
-func (a *DefaultApiService) GETProjectsApiV2PeopleUserIdAvatar(ctx _context.Context) ApiGETProjectsApiV2PeopleUserIdAvatarRequest {
-	return ApiGETProjectsApiV2PeopleUserIdAvatarRequest{
+func (a *DefaultApiService) GETProjectsApiV2PeopleuserIdAvatar(ctx _context.Context, userId int32) ApiGETProjectsApiV2PeopleuserIdAvatarRequest {
+	return ApiGETProjectsApiV2PeopleuserIdAvatarRequest{
 		ApiService: a,
 		ctx: ctx,
+		userId: userId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *DefaultApiService) GETProjectsApiV2PeopleUserIdAvatarExecute(r ApiGETProjectsApiV2PeopleUserIdAvatarRequest) (*_nethttp.Response, error) {
+func (a *DefaultApiService) GETProjectsApiV2PeopleuserIdAvatarExecute(r ApiGETProjectsApiV2PeopleuserIdAvatarRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -60,12 +64,13 @@ func (a *DefaultApiService) GETProjectsApiV2PeopleUserIdAvatarExecute(r ApiGETPr
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GETProjectsApiV2PeopleUserIdAvatar")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GETProjectsApiV2PeopleuserIdAvatar")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/people/:userId/avatar"
+	localVarPath := localBasePath + "/projects/api/v2/people/{userId}/avatar"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -116,9 +121,11 @@ func (a *DefaultApiService) GETProjectsApiV2PeopleUserIdAvatarExecute(r ApiGETPr
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest struct {
+type ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest struct {
 	ctx _context.Context
 	ApiService *DefaultApiService
+	userIds int32
+	projectId int32
 	updatedAfterDateTime *string
 	updatedAfterDate *string
 	type_ *string
@@ -130,7 +137,8 @@ type ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest struct {
 	firstLetter *string
 	emailAddress *string
 	dataSet *string
-	projectId *int32
+	projectId2 *int32
+	projectCompanyId *int32
 	pageSize *int32
 	page *int32
 	excludeProjectId *int32
@@ -142,159 +150,177 @@ type ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest struct {
 	onlyids *bool
 	includeTags *bool
 	includeObservers *bool
+	includeContacts *bool
 	includeCompanyDetails *bool
 	includeClockIn *bool
+	includeClients *bool
 	groupByCompany *bool
 	getProjectRoles *bool
 	getCounts *bool
 	fullprofile *bool
 	countOnly *bool
-	userIds *[]int32
+	userIds2 *[]int32
 	companyId *[]int32
 }
 
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.updatedAfterDateTime = &updatedAfterDateTime
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) Type_(type_ string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) Type_(type_ string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.type_ = &type_
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ProjectType(projectType string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ProjectType(projectType string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.projectType = &projectType
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.inviteStatus = &inviteStatus
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.firstLetter = &firstLetter
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.emailAddress = &emailAddress
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
-	r.projectId = &projectId
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ProjectId2(projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
+	r.projectId2 = &projectId2
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ProjectCompanyId(projectCompanyId int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
+	r.projectCompanyId = &projectCompanyId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.excludeProjectId = &excludeProjectId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.returnTeams = &returnTeams
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.returnProjectIds = &returnProjectIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.returnLetters = &returnLetters
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.ownerCompanyFirst = &ownerCompanyFirst
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.onlyids = &onlyids
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.includeObservers = &includeObservers
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) IncludeContacts(includeContacts bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
+	r.includeContacts = &includeContacts
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.includeCompanyDetails = &includeCompanyDetails
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.includeClockIn = &includeClockIn
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) IncludeClients(includeClients bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
+	r.includeClients = &includeClients
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.groupByCompany = &groupByCompany
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.getProjectRoles = &getProjectRoles
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.getCounts = &getCounts
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.fullprofile = &fullprofile
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.countOnly = &countOnly
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) UserIds(userIds []int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
-	r.userIds = &userIds
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) UserIds2(userIds2 []int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
+	r.userIds2 = &userIds2
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
 	r.companyId = &companyId
 	return r
 }
 
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecute(r)
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdPeopleuserIdsExecute(r)
 }
 
 /*
- * GETProjectsApiV2ProjectsProjectIdPeopleUserIds Get people project
+ * GETProjectsApiV2ProjectsprojectIdPeopleuserIds Get people project
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest
+ * @param userIds
+ * @param projectId
+ * @return ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest
  */
-func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIds(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest{
+func (a *DefaultApiService) GETProjectsApiV2ProjectsprojectIdPeopleuserIds(ctx _context.Context, userIds int32, projectId int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest{
 		ApiService: a,
 		ctx: ctx,
+		userIds: userIds,
+		projectId: projectId,
 	}
 }
 
@@ -302,7 +328,7 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIds(ctx _
  * Execute executes the request
  * @return PeopleResponse
  */
-func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecute(r ApiGETProjectsApiV2ProjectsProjectIdPeopleUserIdsRequest) (PeopleResponse, *_nethttp.Response, error) {
+func (a *DefaultApiService) GETProjectsApiV2ProjectsprojectIdPeopleuserIdsExecute(r ApiGETProjectsApiV2ProjectsprojectIdPeopleuserIdsRequest) (PeopleResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -312,12 +338,14 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecut
 		localVarReturnValue  PeopleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GETProjectsApiV2ProjectsProjectIdPeopleUserIds")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GETProjectsApiV2ProjectsprojectIdPeopleuserIds")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/people/:userIds"
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/people/{userIds}"
+	localVarPath = strings.Replace(localVarPath, "{"+"userIds"+"}", _neturl.PathEscape(parameterToString(r.userIds, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -356,8 +384,11 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecut
 	if r.dataSet != nil {
 		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
 	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	if r.projectId2 != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId2, ""))
+	}
+	if r.projectCompanyId != nil {
+		localVarQueryParams.Add("projectCompanyId", parameterToString(*r.projectCompanyId, ""))
 	}
 	if r.pageSize != nil {
 		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
@@ -392,11 +423,17 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecut
 	if r.includeObservers != nil {
 		localVarQueryParams.Add("includeObservers", parameterToString(*r.includeObservers, ""))
 	}
+	if r.includeContacts != nil {
+		localVarQueryParams.Add("includeContacts", parameterToString(*r.includeContacts, ""))
+	}
 	if r.includeCompanyDetails != nil {
 		localVarQueryParams.Add("includeCompanyDetails", parameterToString(*r.includeCompanyDetails, ""))
 	}
 	if r.includeClockIn != nil {
 		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
+	}
+	if r.includeClients != nil {
+		localVarQueryParams.Add("includeClients", parameterToString(*r.includeClients, ""))
 	}
 	if r.groupByCompany != nil {
 		localVarQueryParams.Add("groupByCompany", parameterToString(*r.groupByCompany, ""))
@@ -413,8 +450,8 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecut
 	if r.countOnly != nil {
 		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly, ""))
 	}
-	if r.userIds != nil {
-		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
+	if r.userIds2 != nil {
+		localVarQueryParams.Add("userIds", parameterToString(*r.userIds2, "csv"))
 	}
 	if r.companyId != nil {
 		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
@@ -473,522 +510,320 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdPeopleUserIdsExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest struct {
+type ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest struct {
 	ctx _context.Context
 	ApiService *DefaultApiService
+	projectId int32
 	updatedAfterDate *string
 	today *string
 	tagIds *string
-	tagIds2 *string
-	startdate *string
 	startDate *string
 	sort *string
-	sort2 *string
 	responsiblePartyIds *string
-	responsiblePartyId *string
 	projectStatus *string
-	projectStatus2 *string
 	include *string
-	followerIds *string
 	followedByUserIds *string
 	filter *string
-	filter2 *string
-	enddate *string
 	endDate *string
 	dataSet *string
-	dataSet2 *string
 	creatorIds *string
 	createdBeforeDate *string
 	createdAfterDate *string
 	completedBeforeDate *string
-	completedBeforeDate2 *string
 	completedAfterDate *string
-	completedAfterDate2 *string
 	callback *string
 	tasklistId *int32
 	taskId *int32
 	projectCategoryId *int32
-	projectCategoryId2 *int32
 	parentTaskId *int32
 	pageSize *int32
 	page *int32
 	includeTaskId *int32
-	includeTaskId2 *int32
 	companyId *int32
-	companyId2 *int32
 	useStartDatesForTodaysTasks *bool
 	useAllProjects *bool
-	useAllProjects2 *bool
 	starredProjectsOnly *bool
-	starredProjectsOnly2 *bool
 	showDeleted *bool
-	showDeleted2 *bool
 	showCompletedLists *bool
-	showCompletedLists2 *bool
 	onlyStarredProjects *bool
-	onlyStarredProjects2 *bool
 	onlyArchivedProjects *bool
-	onlyArchivedProjects2 *bool
 	nestSubTasks *bool
-	nestSubTasks2 *bool
 	matchAllProjectTags *bool
-	matchAllProjectTags2 *bool
 	includeUntaggedTasks *bool
-	includeUntaggedTasks2 *bool
 	includeToday *bool
-	includeToday2 *bool
 	includeTasksWithoutDueDates *bool
 	includeTasksFromDeletedLists *bool
-	includeTasksFromDeletedLists2 *bool
 	includeReminders *bool
-	includeReminders2 *bool
 	includeLoggedTime *bool
-	includeLoggedTime2 *bool
 	includeCompletedTasks *bool
-	includeCompletedTasks2 *bool
 	includeCompletedSubtasks *bool
-	includeCompletedSubtasks2 *bool
 	includeCompletedPredecessors *bool
-	includeCompletedPredecessors2 *bool
 	includeArchivedProjects *bool
-	includeArchivedProjects2 *bool
 	ignoreStartDates *bool
 	getSubTasks *bool
-	getSubTasks2 *bool
 	getFiles *bool
-	getFiles2 *bool
 	countOnly *bool
-	countOnly2 *bool
 	allowTemplateTasks *bool
 	projectTagIds *[]int32
-	projectTagIds2 *[]int32
 	projectOwnerIds *[]int32
-	projectOwnerIds2 *[]int32
 	projectIds *[]int32
-	projectIds2 *[]int32
-	projectId *[]int32
 	projectId2 *[]int32
 	projectHealths *[]int32
-	projectHealths2 *[]int32
 	projectCompanyIds *[]int32
-	projectCompanyIds2 *[]int32
 	projectCategoryIds *[]int32
-	projectCategoryIds2 *[]int32
 }
 
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Today(today string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Today(today string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.today = &today
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) TagIds(tagIds string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) TagIds(tagIds string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) TagIds2(tagIds2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.tagIds2 = &tagIds2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Startdate(startdate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.startdate = &startdate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Sort2(sort2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.sort2 = &sort2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ResponsiblePartyIds(responsiblePartyIds string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ResponsiblePartyIds(responsiblePartyIds string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.responsiblePartyIds = &responsiblePartyIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ResponsiblePartyId(responsiblePartyId string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.responsiblePartyId = &responsiblePartyId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectStatus2(projectStatus2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectStatus2 = &projectStatus2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Include(include string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Include(include string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) FollowerIds(followerIds string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.followerIds = &followerIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) FollowedByUserIds(followedByUserIds string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) FollowedByUserIds(followedByUserIds string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.followedByUserIds = &followedByUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Filter(filter string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Filter(filter string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Filter2(filter2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.filter2 = &filter2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Enddate(enddate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.enddate = &enddate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) DataSet2(dataSet2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.dataSet2 = &dataSet2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CreatorIds(creatorIds string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CreatorIds(creatorIds string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.createdBeforeDate = &createdBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.completedBeforeDate = &completedBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CompletedBeforeDate2(completedBeforeDate2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.completedBeforeDate2 = &completedBeforeDate2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.completedAfterDate = &completedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CompletedAfterDate2(completedAfterDate2 string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.completedAfterDate2 = &completedAfterDate2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Callback(callback string) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Callback(callback string) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.callback = &callback
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectCategoryId(projectCategoryId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectCategoryId(projectCategoryId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectCategoryId2(projectCategoryId2 int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectCategoryId2 = &projectCategoryId2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeTaskId = &includeTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeTaskId2(includeTaskId2 int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeTaskId2 = &includeTaskId2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CompanyId(companyId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CompanyId(companyId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.companyId = &companyId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CompanyId2(companyId2 int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.companyId2 = &companyId2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.useAllProjects = &useAllProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) UseAllProjects2(useAllProjects2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.useAllProjects2 = &useAllProjects2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.starredProjectsOnly = &starredProjectsOnly
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) StarredProjectsOnly2(starredProjectsOnly2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.starredProjectsOnly2 = &starredProjectsOnly2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ShowDeleted2(showDeleted2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.showDeleted2 = &showDeleted2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.showCompletedLists = &showCompletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ShowCompletedLists2(showCompletedLists2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.showCompletedLists2 = &showCompletedLists2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) OnlyStarredProjects2(onlyStarredProjects2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.onlyStarredProjects2 = &onlyStarredProjects2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.onlyArchivedProjects = &onlyArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) OnlyArchivedProjects2(onlyArchivedProjects2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.onlyArchivedProjects2 = &onlyArchivedProjects2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.nestSubTasks = &nestSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) NestSubTasks2(nestSubTasks2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.nestSubTasks2 = &nestSubTasks2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) MatchAllProjectTags2(matchAllProjectTags2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.matchAllProjectTags2 = &matchAllProjectTags2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeUntaggedTasks = &includeUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeUntaggedTasks2(includeUntaggedTasks2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeUntaggedTasks2 = &includeUntaggedTasks2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeToday2(includeToday2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeToday2 = &includeToday2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeTasksFromDeletedLists2 = &includeTasksFromDeletedLists2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeReminders = &includeReminders
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeReminders2(includeReminders2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeReminders2 = &includeReminders2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeLoggedTime = &includeLoggedTime
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeLoggedTime2(includeLoggedTime2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeLoggedTime2 = &includeLoggedTime2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeCompletedTasks2(includeCompletedTasks2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeCompletedTasks2 = &includeCompletedTasks2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeCompletedSubtasks2(includeCompletedSubtasks2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeCompletedSubtasks2 = &includeCompletedSubtasks2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeCompletedPredecessors(includeCompletedPredecessors bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeCompletedPredecessors(includeCompletedPredecessors bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeCompletedPredecessors = &includeCompletedPredecessors
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeCompletedPredecessors2(includeCompletedPredecessors2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeCompletedPredecessors2 = &includeCompletedPredecessors2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IncludeArchivedProjects2(includeArchivedProjects2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.includeArchivedProjects2 = &includeArchivedProjects2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.getSubTasks = &getSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) GetSubTasks2(getSubTasks2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.getSubTasks2 = &getSubTasks2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.getFiles = &getFiles
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) GetFiles2(getFiles2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.getFiles2 = &getFiles2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.countOnly = &countOnly
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) CountOnly2(countOnly2 bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.countOnly2 = &countOnly2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectTagIds2(projectTagIds2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectTagIds2 = &projectTagIds2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectOwnerIds2(projectOwnerIds2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectOwnerIds2 = &projectOwnerIds2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectIds2(projectIds2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectIds2 = &projectIds2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectId2(projectId2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectId2(projectId2 []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectId2 = &projectId2
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectHealths2(projectHealths2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectHealths2 = &projectHealths2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectCompanyIds2(projectCompanyIds2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectCompanyIds2 = &projectCompanyIds2
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) ProjectCategoryIds2(projectCategoryIds2 []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	r.projectCategoryIds2 = &projectCategoryIds2
-	return r
-}
 
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r)
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdTasksGanttExecute(r)
 }
 
 /*
- * GETProjectsApiV2ProjectsProjectIdTasksGantt Will return the total for all sub-tasks
+ * GETProjectsApiV2ProjectsprojectIdTasksGantt Will return the total for all sub-tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest
+ * @param projectId
+ * @return ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest
  */
-func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGantt(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest{
+func (a *DefaultApiService) GETProjectsApiV2ProjectsprojectIdTasksGantt(ctx _context.Context, projectId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r ApiGETProjectsApiV2ProjectsProjectIdTasksGanttRequest) (*_nethttp.Response, error) {
+func (a *DefaultApiService) GETProjectsApiV2ProjectsprojectIdTasksGanttExecute(r ApiGETProjectsApiV2ProjectsprojectIdTasksGanttRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -997,12 +832,13 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GETProjectsApiV2ProjectsProjectIdTasksGantt")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultApiService.GETProjectsApiV2ProjectsprojectIdTasksGantt")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/tasks/gantt"
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/tasks/gantt"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1017,38 +853,20 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.tagIds != nil {
 		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, ""))
 	}
-	if r.tagIds2 != nil {
-		localVarQueryParams.Add("tag-ids", parameterToString(*r.tagIds2, ""))
-	}
-	if r.startdate != nil {
-		localVarQueryParams.Add("startdate", parameterToString(*r.startdate, ""))
-	}
 	if r.startDate != nil {
 		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
 	}
 	if r.sort != nil {
 		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
 	}
-	if r.sort2 != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort2, ""))
-	}
 	if r.responsiblePartyIds != nil {
 		localVarQueryParams.Add("responsible-party-ids", parameterToString(*r.responsiblePartyIds, ""))
-	}
-	if r.responsiblePartyId != nil {
-		localVarQueryParams.Add("responsible-party-id", parameterToString(*r.responsiblePartyId, ""))
 	}
 	if r.projectStatus != nil {
 		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
 	}
-	if r.projectStatus2 != nil {
-		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus2, ""))
-	}
 	if r.include != nil {
 		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
-	}
-	if r.followerIds != nil {
-		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, ""))
 	}
 	if r.followedByUserIds != nil {
 		localVarQueryParams.Add("followedByUserIds", parameterToString(*r.followedByUserIds, ""))
@@ -1056,20 +874,11 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.filter != nil {
 		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
-	if r.filter2 != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter2, ""))
-	}
-	if r.enddate != nil {
-		localVarQueryParams.Add("enddate", parameterToString(*r.enddate, ""))
-	}
 	if r.endDate != nil {
 		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
 	}
 	if r.dataSet != nil {
 		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
-	}
-	if r.dataSet2 != nil {
-		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet2, ""))
 	}
 	if r.creatorIds != nil {
 		localVarQueryParams.Add("creator-ids", parameterToString(*r.creatorIds, ""))
@@ -1083,14 +892,8 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.completedBeforeDate != nil {
 		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
 	}
-	if r.completedBeforeDate2 != nil {
-		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate2, ""))
-	}
 	if r.completedAfterDate != nil {
 		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
-	}
-	if r.completedAfterDate2 != nil {
-		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate2, ""))
 	}
 	if r.callback != nil {
 		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
@@ -1104,9 +907,6 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.projectCategoryId != nil {
 		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId, ""))
 	}
-	if r.projectCategoryId2 != nil {
-		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId2, ""))
-	}
 	if r.parentTaskId != nil {
 		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
 	}
@@ -1119,14 +919,8 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.includeTaskId != nil {
 		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
 	}
-	if r.includeTaskId2 != nil {
-		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId2, ""))
-	}
 	if r.companyId != nil {
 		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, ""))
-	}
-	if r.companyId2 != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId2, ""))
 	}
 	if r.useStartDatesForTodaysTasks != nil {
 		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
@@ -1134,62 +928,32 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.useAllProjects != nil {
 		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
 	}
-	if r.useAllProjects2 != nil {
-		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects2, ""))
-	}
 	if r.starredProjectsOnly != nil {
 		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
-	}
-	if r.starredProjectsOnly2 != nil {
-		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly2, ""))
 	}
 	if r.showDeleted != nil {
 		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
 	}
-	if r.showDeleted2 != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted2, ""))
-	}
 	if r.showCompletedLists != nil {
 		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
-	}
-	if r.showCompletedLists2 != nil {
-		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists2, ""))
 	}
 	if r.onlyStarredProjects != nil {
 		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
 	}
-	if r.onlyStarredProjects2 != nil {
-		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects2, ""))
-	}
 	if r.onlyArchivedProjects != nil {
 		localVarQueryParams.Add("onlyArchivedProjects", parameterToString(*r.onlyArchivedProjects, ""))
-	}
-	if r.onlyArchivedProjects2 != nil {
-		localVarQueryParams.Add("onlyArchivedProjects", parameterToString(*r.onlyArchivedProjects2, ""))
 	}
 	if r.nestSubTasks != nil {
 		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
 	}
-	if r.nestSubTasks2 != nil {
-		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks2, ""))
-	}
 	if r.matchAllProjectTags != nil {
 		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
-	}
-	if r.matchAllProjectTags2 != nil {
-		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags2, ""))
 	}
 	if r.includeUntaggedTasks != nil {
 		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
 	}
-	if r.includeUntaggedTasks2 != nil {
-		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks2, ""))
-	}
 	if r.includeToday != nil {
 		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
-	}
-	if r.includeToday2 != nil {
-		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday2, ""))
 	}
 	if r.includeTasksWithoutDueDates != nil {
 		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
@@ -1197,44 +961,23 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.includeTasksFromDeletedLists != nil {
 		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
 	}
-	if r.includeTasksFromDeletedLists2 != nil {
-		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists2, ""))
-	}
 	if r.includeReminders != nil {
 		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
-	}
-	if r.includeReminders2 != nil {
-		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders2, ""))
 	}
 	if r.includeLoggedTime != nil {
 		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
 	}
-	if r.includeLoggedTime2 != nil {
-		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime2, ""))
-	}
 	if r.includeCompletedTasks != nil {
 		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
-	}
-	if r.includeCompletedTasks2 != nil {
-		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks2, ""))
 	}
 	if r.includeCompletedSubtasks != nil {
 		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
 	}
-	if r.includeCompletedSubtasks2 != nil {
-		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks2, ""))
-	}
 	if r.includeCompletedPredecessors != nil {
 		localVarQueryParams.Add("includeCompletedPredecessors", parameterToString(*r.includeCompletedPredecessors, ""))
 	}
-	if r.includeCompletedPredecessors2 != nil {
-		localVarQueryParams.Add("includeCompletedPredecessors", parameterToString(*r.includeCompletedPredecessors2, ""))
-	}
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
-	}
-	if r.includeArchivedProjects2 != nil {
-		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects2, ""))
 	}
 	if r.ignoreStartDates != nil {
 		localVarQueryParams.Add("ignore-start-dates", parameterToString(*r.ignoreStartDates, ""))
@@ -1242,20 +985,11 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.getSubTasks != nil {
 		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
 	}
-	if r.getSubTasks2 != nil {
-		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks2, ""))
-	}
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
-	if r.getFiles2 != nil {
-		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles2, ""))
-	}
 	if r.countOnly != nil {
 		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly, ""))
-	}
-	if r.countOnly2 != nil {
-		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly2, ""))
 	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
@@ -1263,23 +997,11 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.projectTagIds != nil {
 		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
 	}
-	if r.projectTagIds2 != nil {
-		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds2, "csv"))
-	}
 	if r.projectOwnerIds != nil {
 		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
 	}
-	if r.projectOwnerIds2 != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds2, "csv"))
-	}
 	if r.projectIds != nil {
 		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
-	}
-	if r.projectIds2 != nil {
-		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds2, "csv"))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, "csv"))
 	}
 	if r.projectId2 != nil {
 		localVarQueryParams.Add("projectId", parameterToString(*r.projectId2, "csv"))
@@ -1287,20 +1009,11 @@ func (a *DefaultApiService) GETProjectsApiV2ProjectsProjectIdTasksGanttExecute(r
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
 	}
-	if r.projectHealths2 != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths2, "csv"))
-	}
 	if r.projectCompanyIds != nil {
 		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
 	}
-	if r.projectCompanyIds2 != nil {
-		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds2, "csv"))
-	}
 	if r.projectCategoryIds != nil {
 		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
-	}
-	if r.projectCategoryIds2 != nil {
-		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds2, "csv"))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

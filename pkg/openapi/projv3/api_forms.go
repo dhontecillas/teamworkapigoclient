@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,32 +27,35 @@ var (
 // FormsApiService FormsApi service
 type FormsApiService service
 
-type ApiDELETEProjectsApiV3FormsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3FormsformIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *FormsApiService
+	formId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3FormsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3FormsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3FormsformIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3FormsformIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3FormsIdJson Delete an existing form.
+ * DELETEProjectsApiV3FormsformIdJson Delete an existing form.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3FormsIdJsonRequest
+ * @param formId
+ * @return ApiDELETEProjectsApiV3FormsformIdJsonRequest
  */
-func (a *FormsApiService) DELETEProjectsApiV3FormsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3FormsIdJsonRequest {
-	return ApiDELETEProjectsApiV3FormsIdJsonRequest{
+func (a *FormsApiService) DELETEProjectsApiV3FormsformIdJson(ctx _context.Context, formId int32) ApiDELETEProjectsApiV3FormsformIdJsonRequest {
+	return ApiDELETEProjectsApiV3FormsformIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		formId: formId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *FormsApiService) DELETEProjectsApiV3FormsIdJsonExecute(r ApiDELETEProjectsApiV3FormsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *FormsApiService) DELETEProjectsApiV3FormsformIdJsonExecute(r ApiDELETEProjectsApiV3FormsformIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -60,12 +64,13 @@ func (a *FormsApiService) DELETEProjectsApiV3FormsIdJsonExecute(r ApiDELETEProje
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.DELETEProjectsApiV3FormsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.DELETEProjectsApiV3FormsformIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/forms/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/forms/{formId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"formId"+"}", _neturl.PathEscape(parameterToString(r.formId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -124,228 +129,6 @@ func (a *FormsApiService) DELETEProjectsApiV3FormsIdJsonExecute(r ApiDELETEProje
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3FormsIdDraftJsonRequest struct {
-	ctx _context.Context
-	ApiService *FormsApiService
-}
-
-
-func (r ApiGETProjectsApiV3FormsIdDraftJsonRequest) Execute() (FormResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FormsIdDraftJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3FormsIdDraftJson Get the draft version of a specific form.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FormsIdDraftJsonRequest
- */
-func (a *FormsApiService) GETProjectsApiV3FormsIdDraftJson(ctx _context.Context) ApiGETProjectsApiV3FormsIdDraftJsonRequest {
-	return ApiGETProjectsApiV3FormsIdDraftJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return FormResponse
- */
-func (a *FormsApiService) GETProjectsApiV3FormsIdDraftJsonExecute(r ApiGETProjectsApiV3FormsIdDraftJsonRequest) (FormResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FormResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.GETProjectsApiV3FormsIdDraftJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/forms/:id/draft.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v FormResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3FormsIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *FormsApiService
-}
-
-
-func (r ApiGETProjectsApiV3FormsIdJsonRequest) Execute() (FormResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FormsIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3FormsIdJson Get a specific form.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FormsIdJsonRequest
- */
-func (a *FormsApiService) GETProjectsApiV3FormsIdJson(ctx _context.Context) ApiGETProjectsApiV3FormsIdJsonRequest {
-	return ApiGETProjectsApiV3FormsIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return FormResponse
- */
-func (a *FormsApiService) GETProjectsApiV3FormsIdJsonExecute(r ApiGETProjectsApiV3FormsIdJsonRequest) (FormResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FormResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.GETProjectsApiV3FormsIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/forms/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v FormResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGETProjectsApiV3FormsJsonRequest struct {
@@ -459,30 +242,28 @@ func (a *FormsApiService) GETProjectsApiV3FormsJsonExecute(r ApiGETProjectsApiV3
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3FormsIdJsonRequest struct {
+type ApiGETProjectsApiV3FormsformIdDraftJsonRequest struct {
 	ctx _context.Context
 	ApiService *FormsApiService
-	formRequest *FormRequest
+	formId int32
 }
 
-func (r ApiPATCHProjectsApiV3FormsIdJsonRequest) FormRequest(formRequest FormRequest) ApiPATCHProjectsApiV3FormsIdJsonRequest {
-	r.formRequest = &formRequest
-	return r
-}
 
-func (r ApiPATCHProjectsApiV3FormsIdJsonRequest) Execute() (FormResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3FormsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3FormsformIdDraftJsonRequest) Execute() (FormResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FormsformIdDraftJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3FormsIdJson Update an existing form.
+ * GETProjectsApiV3FormsformIdDraftJson Get the draft version of a specific form.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3FormsIdJsonRequest
+ * @param formId
+ * @return ApiGETProjectsApiV3FormsformIdDraftJsonRequest
  */
-func (a *FormsApiService) PATCHProjectsApiV3FormsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3FormsIdJsonRequest {
-	return ApiPATCHProjectsApiV3FormsIdJsonRequest{
+func (a *FormsApiService) GETProjectsApiV3FormsformIdDraftJson(ctx _context.Context, formId int32) ApiGETProjectsApiV3FormsformIdDraftJsonRequest {
+	return ApiGETProjectsApiV3FormsformIdDraftJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		formId: formId,
 	}
 }
 
@@ -490,7 +271,242 @@ func (a *FormsApiService) PATCHProjectsApiV3FormsIdJson(ctx _context.Context) Ap
  * Execute executes the request
  * @return FormResponse
  */
-func (a *FormsApiService) PATCHProjectsApiV3FormsIdJsonExecute(r ApiPATCHProjectsApiV3FormsIdJsonRequest) (FormResponse, *_nethttp.Response, error) {
+func (a *FormsApiService) GETProjectsApiV3FormsformIdDraftJsonExecute(r ApiGETProjectsApiV3FormsformIdDraftJsonRequest) (FormResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FormResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.GETProjectsApiV3FormsformIdDraftJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/forms/{formId}/draft.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"formId"+"}", _neturl.PathEscape(parameterToString(r.formId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v FormResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3FormsformIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *FormsApiService
+	formId int32
+}
+
+
+func (r ApiGETProjectsApiV3FormsformIdJsonRequest) Execute() (FormResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FormsformIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3FormsformIdJson Get a specific form.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param formId
+ * @return ApiGETProjectsApiV3FormsformIdJsonRequest
+ */
+func (a *FormsApiService) GETProjectsApiV3FormsformIdJson(ctx _context.Context, formId int32) ApiGETProjectsApiV3FormsformIdJsonRequest {
+	return ApiGETProjectsApiV3FormsformIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		formId: formId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return FormResponse
+ */
+func (a *FormsApiService) GETProjectsApiV3FormsformIdJsonExecute(r ApiGETProjectsApiV3FormsformIdJsonRequest) (FormResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FormResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.GETProjectsApiV3FormsformIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/forms/{formId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"formId"+"}", _neturl.PathEscape(parameterToString(r.formId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v FormResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPATCHProjectsApiV3FormsformIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *FormsApiService
+	formId int32
+	formRequest *FormRequest
+}
+
+func (r ApiPATCHProjectsApiV3FormsformIdJsonRequest) FormRequest(formRequest FormRequest) ApiPATCHProjectsApiV3FormsformIdJsonRequest {
+	r.formRequest = &formRequest
+	return r
+}
+
+func (r ApiPATCHProjectsApiV3FormsformIdJsonRequest) Execute() (FormResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3FormsformIdJsonExecute(r)
+}
+
+/*
+ * PATCHProjectsApiV3FormsformIdJson Update an existing form.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param formId
+ * @return ApiPATCHProjectsApiV3FormsformIdJsonRequest
+ */
+func (a *FormsApiService) PATCHProjectsApiV3FormsformIdJson(ctx _context.Context, formId int32) ApiPATCHProjectsApiV3FormsformIdJsonRequest {
+	return ApiPATCHProjectsApiV3FormsformIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		formId: formId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return FormResponse
+ */
+func (a *FormsApiService) PATCHProjectsApiV3FormsformIdJsonExecute(r ApiPATCHProjectsApiV3FormsformIdJsonRequest) (FormResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -500,12 +516,13 @@ func (a *FormsApiService) PATCHProjectsApiV3FormsIdJsonExecute(r ApiPATCHProject
 		localVarReturnValue  FormResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.PATCHProjectsApiV3FormsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsApiService.PATCHProjectsApiV3FormsformIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/forms/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/forms/{formId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"formId"+"}", _neturl.PathEscape(parameterToString(r.formId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

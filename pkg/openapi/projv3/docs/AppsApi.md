@@ -4,75 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3AppsIdJson**](AppsApi.md#GETProjectsApiV3AppsIdJson) | **Get** /projects/api/v3/apps/:id.json | Get a specific app.
 [**GETProjectsApiV3AppsJson**](AppsApi.md#GETProjectsApiV3AppsJson) | **Get** /projects/api/v3/apps.json | Get all apps.
-[**POSTProjectsApiV3AppsAppidInstallJson**](AppsApi.md#POSTProjectsApiV3AppsAppidInstallJson) | **Post** /projects/api/v3/apps/:appid/install.json | Install an app onto an installation
-[**POSTProjectsApiV3AppsIdUninstallJson**](AppsApi.md#POSTProjectsApiV3AppsIdUninstallJson) | **Post** /projects/api/v3/apps/:id/uninstall.json | Uninstall an app from an installation
+[**GETProjectsApiV3AppsappIdJson**](AppsApi.md#GETProjectsApiV3AppsappIdJson) | **Get** /projects/api/v3/apps/{appId}.json | Get a specific app.
+[**POSTProjectsApiV3AppsappIdInstallJson**](AppsApi.md#POSTProjectsApiV3AppsappIdInstallJson) | **Post** /projects/api/v3/apps/{appId}/install.json | Install an app onto an installation
+[**POSTProjectsApiV3AppsappIdUninstallJson**](AppsApi.md#POSTProjectsApiV3AppsappIdUninstallJson) | **Post** /projects/api/v3/apps/{appId}/uninstall.json | Uninstall an app from an installation
 
-
-
-## GETProjectsApiV3AppsIdJson
-
-> AppResponse GETProjectsApiV3AppsIdJson(ctx).Execute()
-
-Get a specific app.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppsApi.GETProjectsApiV3AppsIdJson(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.GETProjectsApiV3AppsIdJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GETProjectsApiV3AppsIdJson`: AppResponse
-    fmt.Fprintf(os.Stdout, "Response from `AppsApi.GETProjectsApiV3AppsIdJson`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV3AppsIdJsonRequest struct via the builder pattern
-
-
-### Return type
-
-[**AppResponse**](AppResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
 
 
 ## GETProjectsApiV3AppsJson
 
-> AppAppsResponse GETProjectsApiV3AppsJson(ctx).PageSize(pageSize).Page(page).Include(include).Execute()
+> AppAppsResponse GETProjectsApiV3AppsJson(ctx).Product(product).PageSize(pageSize).Page(page).Include(include).Execute()
 
 Get all apps.
 
@@ -89,13 +30,14 @@ import (
 )
 
 func main() {
+    product := "product_example" // string | request apps for a given product (optional) (default to "projects")
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 50)
     page := int32(56) // int32 | page number (optional) (default to 1)
     include := []string{"Inner_example"} // []string | include (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppsApi.GETProjectsApiV3AppsJson(context.Background()).PageSize(pageSize).Page(page).Include(include).Execute()
+    resp, r, err := api_client.AppsApi.GETProjectsApiV3AppsJson(context.Background()).Product(product).PageSize(pageSize).Page(page).Include(include).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.GETProjectsApiV3AppsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -116,6 +58,7 @@ Other parameters are passed through a pointer to a apiGETProjectsApiV3AppsJsonRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **product** | **string** | request apps for a given product | [default to &quot;projects&quot;]
  **pageSize** | **int32** | number of items in a page | [default to 50]
  **page** | **int32** | page number | [default to 1]
  **include** | **[]string** | include | 
@@ -138,11 +81,11 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## POSTProjectsApiV3AppsAppidInstallJson
+## GETProjectsApiV3AppsappIdJson
 
-> AppResponse POSTProjectsApiV3AppsAppidInstallJson(ctx).Execute()
+> AppResponse GETProjectsApiV3AppsappIdJson(ctx, appId).Execute()
 
-Install an app onto an installation
+Get a specific app.
 
 ### Example
 
@@ -157,26 +100,35 @@ import (
 )
 
 func main() {
+    appId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppsApi.POSTProjectsApiV3AppsAppidInstallJson(context.Background()).Execute()
+    resp, r, err := api_client.AppsApi.GETProjectsApiV3AppsappIdJson(context.Background(), appId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.POSTProjectsApiV3AppsAppidInstallJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.GETProjectsApiV3AppsappIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `POSTProjectsApiV3AppsAppidInstallJson`: AppResponse
-    fmt.Fprintf(os.Stdout, "Response from `AppsApi.POSTProjectsApiV3AppsAppidInstallJson`: %v\n", resp)
+    // response from `GETProjectsApiV3AppsappIdJson`: AppResponse
+    fmt.Fprintf(os.Stdout, "Response from `AppsApi.GETProjectsApiV3AppsappIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**appId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPOSTProjectsApiV3AppsAppidInstallJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3AppsappIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -197,9 +149,77 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## POSTProjectsApiV3AppsIdUninstallJson
+## POSTProjectsApiV3AppsappIdInstallJson
 
-> POSTProjectsApiV3AppsIdUninstallJson(ctx).Execute()
+> AppResponse POSTProjectsApiV3AppsappIdInstallJson(ctx, appId).Execute()
+
+Install an app onto an installation
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    appId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AppsApi.POSTProjectsApiV3AppsappIdInstallJson(context.Background(), appId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.POSTProjectsApiV3AppsappIdInstallJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `POSTProjectsApiV3AppsappIdInstallJson`: AppResponse
+    fmt.Fprintf(os.Stdout, "Response from `AppsApi.POSTProjectsApiV3AppsappIdInstallJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**appId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPOSTProjectsApiV3AppsappIdInstallJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AppResponse**](AppResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## POSTProjectsApiV3AppsappIdUninstallJson
+
+> POSTProjectsApiV3AppsappIdUninstallJson(ctx, appId).Execute()
 
 Uninstall an app from an installation
 
@@ -216,12 +236,13 @@ import (
 )
 
 func main() {
+    appId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AppsApi.POSTProjectsApiV3AppsIdUninstallJson(context.Background()).Execute()
+    resp, r, err := api_client.AppsApi.POSTProjectsApiV3AppsappIdUninstallJson(context.Background(), appId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.POSTProjectsApiV3AppsIdUninstallJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AppsApi.POSTProjectsApiV3AppsappIdUninstallJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -229,11 +250,19 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**appId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPOSTProjectsApiV3AppsIdUninstallJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPOSTProjectsApiV3AppsappIdUninstallJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

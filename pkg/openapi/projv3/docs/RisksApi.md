@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3ProjectsProjectIdRisks**](RisksApi.md#GETProjectsApiV3ProjectsProjectIdRisks) | **Get** /projects/api/v3/projects/:projectId/risks | Get risks for a specific project
+[**GETProjectsApiV3ProjectsprojectIdRisks**](RisksApi.md#GETProjectsApiV3ProjectsprojectIdRisks) | **Get** /projects/api/v3/projects/{projectId}/risks | Get risks for a specific project
 [**GETProjectsApiV3RisksJson**](RisksApi.md#GETProjectsApiV3RisksJson) | **Get** /projects/api/v3/risks.json | Get all risks
 
 
 
-## GETProjectsApiV3ProjectsProjectIdRisks
+## GETProjectsApiV3ProjectsprojectIdRisks
 
-> RiskRisksResponse GETProjectsApiV3ProjectsProjectIdRisks(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Statuses(statuses).SortOrder(sortOrder).Sort(sort).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ProjectHealths(projectHealths).ProbabilityTo(probabilityTo).ProbabilityFrom(probabilityFrom).PageSize(pageSize).Page(page).ImpactTo(impactTo).ImpactFrom(impactFrom).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).ImpactSchedule(impactSchedule).ImpactPerformance(impactPerformance).ImpactCost(impactCost).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsRisks(fieldsRisks).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).Execute()
+> RiskRisksResponse GETProjectsApiV3ProjectsprojectIdRisks(ctx, projectId).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Statuses(statuses).SortOrder(sortOrder).Sort(sort).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ProjectHealths(projectHealths).ProbabilityTo(probabilityTo).ProbabilityFrom(probabilityFrom).PageSize(pageSize).Page(page).ImpactTo(impactTo).ImpactFrom(impactFrom).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).ImpactSchedule(impactSchedule).ImpactPerformance(impactPerformance).ImpactCost(impactCost).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsRisks(fieldsRisks).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).Execute()
 
 Get risks for a specific project
 
@@ -31,6 +31,7 @@ import (
 )
 
 func main() {
+    projectId := int32(56) // int32 | 
     updatedAfterDate := time.Now() // time.Time | filter by risks updated after specified date (deprecated, use updatedAfter) (optional)
     updatedAfter := time.Now() // time.Time | filter by risks updated after specified date (optional)
     statuses := "statuses_example" // string | filter by risk statuses (optional)
@@ -69,27 +70,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.RisksApi.GETProjectsApiV3ProjectsProjectIdRisks(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Statuses(statuses).SortOrder(sortOrder).Sort(sort).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ProjectHealths(projectHealths).ProbabilityTo(probabilityTo).ProbabilityFrom(probabilityFrom).PageSize(pageSize).Page(page).ImpactTo(impactTo).ImpactFrom(impactFrom).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).ImpactSchedule(impactSchedule).ImpactPerformance(impactPerformance).ImpactCost(impactCost).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsRisks(fieldsRisks).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.RisksApi.GETProjectsApiV3ProjectsprojectIdRisks(context.Background(), projectId).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).Statuses(statuses).SortOrder(sortOrder).Sort(sort).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ProjectHealths(projectHealths).ProbabilityTo(probabilityTo).ProbabilityFrom(probabilityFrom).PageSize(pageSize).Page(page).ImpactTo(impactTo).ImpactFrom(impactFrom).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IsReportDownload(isReportDownload).IncludeArchivedProjects(includeArchivedProjects).ImpactSchedule(impactSchedule).ImpactPerformance(impactPerformance).ImpactCost(impactCost).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsRisks(fieldsRisks).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RisksApi.GETProjectsApiV3ProjectsProjectIdRisks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RisksApi.GETProjectsApiV3ProjectsprojectIdRisks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3ProjectsProjectIdRisks`: RiskRisksResponse
-    fmt.Fprintf(os.Stdout, "Response from `RisksApi.GETProjectsApiV3ProjectsProjectIdRisks`: %v\n", resp)
+    // response from `GETProjectsApiV3ProjectsprojectIdRisks`: RiskRisksResponse
+    fmt.Fprintf(os.Stdout, "Response from `RisksApi.GETProjectsApiV3ProjectsprojectIdRisks`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdRisksRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdRisksRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **time.Time** | filter by risks updated after specified date (deprecated, use updatedAfter) | 
  **updatedAfter** | **time.Time** | filter by risks updated after specified date | 
  **statuses** | **string** | filter by risk statuses | 

@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,26 +27,29 @@ var (
 // BETAApiService BETAApi service
 type BETAApiService service
 
-type ApiGETProjectsApiV3ColumnsIdJsonRequest struct {
+type ApiGETProjectsApiV3ColumnscolumnIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BETAApiService
+	columnId int32
 }
 
 
-func (r ApiGETProjectsApiV3ColumnsIdJsonRequest) Execute() (ColumnResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ColumnsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3ColumnscolumnIdJsonRequest) Execute() (ColumnResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ColumnscolumnIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ColumnsIdJson Get a specific column.
+ * GETProjectsApiV3ColumnscolumnIdJson Get a specific column.
  * Long description explaining the endpoint.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ColumnsIdJsonRequest
+ * @param columnId
+ * @return ApiGETProjectsApiV3ColumnscolumnIdJsonRequest
  */
-func (a *BETAApiService) GETProjectsApiV3ColumnsIdJson(ctx _context.Context) ApiGETProjectsApiV3ColumnsIdJsonRequest {
-	return ApiGETProjectsApiV3ColumnsIdJsonRequest{
+func (a *BETAApiService) GETProjectsApiV3ColumnscolumnIdJson(ctx _context.Context, columnId int32) ApiGETProjectsApiV3ColumnscolumnIdJsonRequest {
+	return ApiGETProjectsApiV3ColumnscolumnIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		columnId: columnId,
 	}
 }
 
@@ -53,7 +57,7 @@ func (a *BETAApiService) GETProjectsApiV3ColumnsIdJson(ctx _context.Context) Api
  * Execute executes the request
  * @return ColumnResponse
  */
-func (a *BETAApiService) GETProjectsApiV3ColumnsIdJsonExecute(r ApiGETProjectsApiV3ColumnsIdJsonRequest) (ColumnResponse, *_nethttp.Response, error) {
+func (a *BETAApiService) GETProjectsApiV3ColumnscolumnIdJsonExecute(r ApiGETProjectsApiV3ColumnscolumnIdJsonRequest) (ColumnResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -63,12 +67,129 @@ func (a *BETAApiService) GETProjectsApiV3ColumnsIdJsonExecute(r ApiGETProjectsAp
 		localVarReturnValue  ColumnResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3ColumnsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3ColumnscolumnIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/columns/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/columns/{columnId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"columnId"+"}", _neturl.PathEscape(parameterToString(r.columnId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3CostsUsersuserIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *BETAApiService
+	userId int32
+}
+
+
+func (r ApiGETProjectsApiV3CostsUsersuserIdJsonRequest) Execute() (UsercostResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3CostsUsersuserIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3CostsUsersuserIdJson Get a specific usercost.
+ * Gets a usercost for a specific user.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param userId
+ * @return ApiGETProjectsApiV3CostsUsersuserIdJsonRequest
+ */
+func (a *BETAApiService) GETProjectsApiV3CostsUsersuserIdJson(ctx _context.Context, userId int32) ApiGETProjectsApiV3CostsUsersuserIdJsonRequest {
+	return ApiGETProjectsApiV3CostsUsersuserIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return UsercostResponse
+ */
+func (a *BETAApiService) GETProjectsApiV3CostsUsersuserIdJsonExecute(r ApiGETProjectsApiV3CostsUsersuserIdJsonRequest) (UsercostResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  UsercostResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3CostsUsersuserIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/costs/users/{userId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -378,26 +499,29 @@ func (a *BETAApiService) GETProjectsApiV3RatesInstallationUsersJsonExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3RatesProjectsProjectIdJsonRequest struct {
+type ApiGETProjectsApiV3RatesProjectsprojectIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BETAApiService
+	projectId int32
 }
 
 
-func (r ApiGETProjectsApiV3RatesProjectsProjectIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3RatesProjectsProjectIdJsonExecute(r)
+func (r ApiGETProjectsApiV3RatesProjectsprojectIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3RatesProjectsprojectIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3RatesProjectsProjectIdJson Get a projects default rate.
+ * GETProjectsApiV3RatesProjectsprojectIdJson Get a projects default rate.
  * Gets the default rate for specifc project
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3RatesProjectsProjectIdJsonRequest
+ * @param projectId
+ * @return ApiGETProjectsApiV3RatesProjectsprojectIdJsonRequest
  */
-func (a *BETAApiService) GETProjectsApiV3RatesProjectsProjectIdJson(ctx _context.Context) ApiGETProjectsApiV3RatesProjectsProjectIdJsonRequest {
-	return ApiGETProjectsApiV3RatesProjectsProjectIdJsonRequest{
+func (a *BETAApiService) GETProjectsApiV3RatesProjectsprojectIdJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3RatesProjectsprojectIdJsonRequest {
+	return ApiGETProjectsApiV3RatesProjectsprojectIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -405,7 +529,7 @@ func (a *BETAApiService) GETProjectsApiV3RatesProjectsProjectIdJson(ctx _context
  * Execute executes the request
  * @return RatesRateResponse
  */
-func (a *BETAApiService) GETProjectsApiV3RatesProjectsProjectIdJsonExecute(r ApiGETProjectsApiV3RatesProjectsProjectIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
+func (a *BETAApiService) GETProjectsApiV3RatesProjectsprojectIdJsonExecute(r ApiGETProjectsApiV3RatesProjectsprojectIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -415,12 +539,13 @@ func (a *BETAApiService) GETProjectsApiV3RatesProjectsProjectIdJsonExecute(r Api
 		localVarReturnValue  RatesRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3RatesProjectsProjectIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3RatesProjectsprojectIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/rates/projects/:projectId.json"
+	localVarPath := localBasePath + "/projects/api/v3/rates/projects/{projectId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -490,26 +615,29 @@ func (a *BETAApiService) GETProjectsApiV3RatesProjectsProjectIdJsonExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3RatesUserUserIdJsonRequest struct {
+type ApiGETProjectsApiV3RatesUseruserIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BETAApiService
+	userId int32
 }
 
 
-func (r ApiGETProjectsApiV3RatesUserUserIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3RatesUserUserIdJsonExecute(r)
+func (r ApiGETProjectsApiV3RatesUseruserIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3RatesUseruserIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3RatesUserUserIdJson Get a user default rate.
+ * GETProjectsApiV3RatesUseruserIdJson Get a user default rate.
  * Gets the default rate for a specific user
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3RatesUserUserIdJsonRequest
+ * @param userId
+ * @return ApiGETProjectsApiV3RatesUseruserIdJsonRequest
  */
-func (a *BETAApiService) GETProjectsApiV3RatesUserUserIdJson(ctx _context.Context) ApiGETProjectsApiV3RatesUserUserIdJsonRequest {
-	return ApiGETProjectsApiV3RatesUserUserIdJsonRequest{
+func (a *BETAApiService) GETProjectsApiV3RatesUseruserIdJson(ctx _context.Context, userId int32) ApiGETProjectsApiV3RatesUseruserIdJsonRequest {
+	return ApiGETProjectsApiV3RatesUseruserIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		userId: userId,
 	}
 }
 
@@ -517,7 +645,7 @@ func (a *BETAApiService) GETProjectsApiV3RatesUserUserIdJson(ctx _context.Contex
  * Execute executes the request
  * @return RatesRateResponse
  */
-func (a *BETAApiService) GETProjectsApiV3RatesUserUserIdJsonExecute(r ApiGETProjectsApiV3RatesUserUserIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
+func (a *BETAApiService) GETProjectsApiV3RatesUseruserIdJsonExecute(r ApiGETProjectsApiV3RatesUseruserIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -527,12 +655,13 @@ func (a *BETAApiService) GETProjectsApiV3RatesUserUserIdJsonExecute(r ApiGETProj
 		localVarReturnValue  RatesRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3RatesUserUserIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.GETProjectsApiV3RatesUseruserIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/rates/user/:userId.json"
+	localVarPath := localBasePath + "/projects/api/v3/rates/user/{userId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -602,31 +731,34 @@ func (a *BETAApiService) GETProjectsApiV3RatesUserUserIdJsonExecute(r ApiGETProj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3CostsUsersIdJsonRequest struct {
+type ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BETAApiService
+	userId int32
 	usercostRequest *UsercostRequest
 }
 
-func (r ApiPUTProjectsApiV3CostsUsersIdJsonRequest) UsercostRequest(usercostRequest UsercostRequest) ApiPUTProjectsApiV3CostsUsersIdJsonRequest {
+func (r ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest) UsercostRequest(usercostRequest UsercostRequest) ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest {
 	r.usercostRequest = &usercostRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3CostsUsersIdJsonRequest) Execute() (UsercostResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3CostsUsersIdJsonExecute(r)
+func (r ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest) Execute() (UsercostResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3CostsUsersuserIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3CostsUsersIdJson set a usercost.
+ * PUTProjectsApiV3CostsUsersuserIdJson set a usercost.
  * sets an hourly cost for a specifc user.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3CostsUsersIdJsonRequest
+ * @param userId
+ * @return ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest
  */
-func (a *BETAApiService) PUTProjectsApiV3CostsUsersIdJson(ctx _context.Context) ApiPUTProjectsApiV3CostsUsersIdJsonRequest {
-	return ApiPUTProjectsApiV3CostsUsersIdJsonRequest{
+func (a *BETAApiService) PUTProjectsApiV3CostsUsersuserIdJson(ctx _context.Context, userId int32) ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest {
+	return ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		userId: userId,
 	}
 }
 
@@ -634,7 +766,7 @@ func (a *BETAApiService) PUTProjectsApiV3CostsUsersIdJson(ctx _context.Context) 
  * Execute executes the request
  * @return UsercostResponse
  */
-func (a *BETAApiService) PUTProjectsApiV3CostsUsersIdJsonExecute(r ApiPUTProjectsApiV3CostsUsersIdJsonRequest) (UsercostResponse, *_nethttp.Response, error) {
+func (a *BETAApiService) PUTProjectsApiV3CostsUsersuserIdJsonExecute(r ApiPUTProjectsApiV3CostsUsersuserIdJsonRequest) (UsercostResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -644,12 +776,13 @@ func (a *BETAApiService) PUTProjectsApiV3CostsUsersIdJsonExecute(r ApiPUTProject
 		localVarReturnValue  UsercostResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.PUTProjectsApiV3CostsUsersIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.PUTProjectsApiV3CostsUsersuserIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/costs/users/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/costs/users/{userId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -864,31 +997,34 @@ func (a *BETAApiService) PUTProjectsApiV3RatesInstallationJsonExecute(r ApiPUTPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest struct {
+type ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BETAApiService
+	projectId int32
 	ratesRequest *RatesRequest
 }
 
-func (r ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest) RatesRequest(ratesRequest RatesRequest) ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest {
+func (r ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest) RatesRequest(ratesRequest RatesRequest) ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest {
 	r.ratesRequest = &ratesRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3RatesProjectsProjectIdJsonExecute(r)
+func (r ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3RatesProjectsprojectIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3RatesProjectsProjectIdJson set a project default rate.
+ * PUTProjectsApiV3RatesProjectsprojectIdJson set a project default rate.
  * sets a rate to be the project default rate
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest
+ * @param projectId
+ * @return ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest
  */
-func (a *BETAApiService) PUTProjectsApiV3RatesProjectsProjectIdJson(ctx _context.Context) ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest {
-	return ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest{
+func (a *BETAApiService) PUTProjectsApiV3RatesProjectsprojectIdJson(ctx _context.Context, projectId int32) ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest {
+	return ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -896,7 +1032,7 @@ func (a *BETAApiService) PUTProjectsApiV3RatesProjectsProjectIdJson(ctx _context
  * Execute executes the request
  * @return RatesRateResponse
  */
-func (a *BETAApiService) PUTProjectsApiV3RatesProjectsProjectIdJsonExecute(r ApiPUTProjectsApiV3RatesProjectsProjectIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
+func (a *BETAApiService) PUTProjectsApiV3RatesProjectsprojectIdJsonExecute(r ApiPUTProjectsApiV3RatesProjectsprojectIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -906,12 +1042,13 @@ func (a *BETAApiService) PUTProjectsApiV3RatesProjectsProjectIdJsonExecute(r Api
 		localVarReturnValue  RatesRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.PUTProjectsApiV3RatesProjectsProjectIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.PUTProjectsApiV3RatesProjectsprojectIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/rates/projects/:projectId.json"
+	localVarPath := localBasePath + "/projects/api/v3/rates/projects/{projectId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -995,31 +1132,34 @@ func (a *BETAApiService) PUTProjectsApiV3RatesProjectsProjectIdJsonExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest struct {
+type ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BETAApiService
+	userId int32
 	ratesRequest *RatesRequest
 }
 
-func (r ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest) RatesRequest(ratesRequest RatesRequest) ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest {
+func (r ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest) RatesRequest(ratesRequest RatesRequest) ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest {
 	r.ratesRequest = &ratesRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3RatesUsersUserIdJsonExecute(r)
+func (r ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest) Execute() (RatesRateResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3RatesUsersuserIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3RatesUsersUserIdJson set a user default rate.
+ * PUTProjectsApiV3RatesUsersuserIdJson set a user default rate.
  * sets a rate to be the the users default rate
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest
+ * @param userId
+ * @return ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest
  */
-func (a *BETAApiService) PUTProjectsApiV3RatesUsersUserIdJson(ctx _context.Context) ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest {
-	return ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest{
+func (a *BETAApiService) PUTProjectsApiV3RatesUsersuserIdJson(ctx _context.Context, userId int32) ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest {
+	return ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		userId: userId,
 	}
 }
 
@@ -1027,7 +1167,7 @@ func (a *BETAApiService) PUTProjectsApiV3RatesUsersUserIdJson(ctx _context.Conte
  * Execute executes the request
  * @return RatesRateResponse
  */
-func (a *BETAApiService) PUTProjectsApiV3RatesUsersUserIdJsonExecute(r ApiPUTProjectsApiV3RatesUsersUserIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
+func (a *BETAApiService) PUTProjectsApiV3RatesUsersuserIdJsonExecute(r ApiPUTProjectsApiV3RatesUsersuserIdJsonRequest) (RatesRateResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1037,12 +1177,13 @@ func (a *BETAApiService) PUTProjectsApiV3RatesUsersUserIdJsonExecute(r ApiPUTPro
 		localVarReturnValue  RatesRateResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.PUTProjectsApiV3RatesUsersUserIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BETAApiService.PUTProjectsApiV3RatesUsersuserIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/rates/users/:userId.json"
+	localVarPath := localBasePath + "/projects/api/v3/rates/users/{userId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

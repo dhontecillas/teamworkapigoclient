@@ -28,32 +28,35 @@ var (
 // BudgetsApiService BudgetsApi service
 type BudgetsApiService service
 
-type ApiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BudgetsApiService
+	notificationId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3BudgetNotificationsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3BudgetNotificationsnotificationIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3BudgetNotificationsIdJson Delete an existing notification.
+ * DELETEProjectsApiV3BudgetNotificationsnotificationIdJson Delete an existing notification.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest
+ * @param notificationId
+ * @return ApiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest
  */
-func (a *BudgetsApiService) DELETEProjectsApiV3BudgetNotificationsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest {
-	return ApiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest{
+func (a *BudgetsApiService) DELETEProjectsApiV3BudgetNotificationsnotificationIdJson(ctx _context.Context, notificationId int32) ApiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest {
+	return ApiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		notificationId: notificationId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *BudgetsApiService) DELETEProjectsApiV3BudgetNotificationsIdJsonExecute(r ApiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *BudgetsApiService) DELETEProjectsApiV3BudgetNotificationsnotificationIdJsonExecute(r ApiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -62,12 +65,13 @@ func (a *BudgetsApiService) DELETEProjectsApiV3BudgetNotificationsIdJsonExecute(
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BudgetsApiService.DELETEProjectsApiV3BudgetNotificationsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BudgetsApiService.DELETEProjectsApiV3BudgetNotificationsnotificationIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/budget/notifications/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/budget/notifications/{notificationId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", _neturl.PathEscape(parameterToString(r.notificationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -934,30 +938,33 @@ func (a *BudgetsApiService) GETProjectsApiV3ProjectsBudgetsUsagesJsonExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest struct {
+type ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *BudgetsApiService
+	notificationId int32
 	notificationRequest *NotificationRequest
 }
 
-func (r ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest) NotificationRequest(notificationRequest NotificationRequest) ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest {
+func (r ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest) NotificationRequest(notificationRequest NotificationRequest) ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest {
 	r.notificationRequest = &notificationRequest
 	return r
 }
 
-func (r ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest) Execute() (NotificationResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3BudgetNotificationsIdJsonExecute(r)
+func (r ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest) Execute() (NotificationResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3BudgetNotificationsnotificationIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3BudgetNotificationsIdJson Update an existing notification.
+ * PATCHProjectsApiV3BudgetNotificationsnotificationIdJson Update an existing notification.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest
+ * @param notificationId
+ * @return ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest
  */
-func (a *BudgetsApiService) PATCHProjectsApiV3BudgetNotificationsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest {
-	return ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest{
+func (a *BudgetsApiService) PATCHProjectsApiV3BudgetNotificationsnotificationIdJson(ctx _context.Context, notificationId int32) ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest {
+	return ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		notificationId: notificationId,
 	}
 }
 
@@ -965,7 +972,7 @@ func (a *BudgetsApiService) PATCHProjectsApiV3BudgetNotificationsIdJson(ctx _con
  * Execute executes the request
  * @return NotificationResponse
  */
-func (a *BudgetsApiService) PATCHProjectsApiV3BudgetNotificationsIdJsonExecute(r ApiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest) (NotificationResponse, *_nethttp.Response, error) {
+func (a *BudgetsApiService) PATCHProjectsApiV3BudgetNotificationsnotificationIdJsonExecute(r ApiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest) (NotificationResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -975,12 +982,13 @@ func (a *BudgetsApiService) PATCHProjectsApiV3BudgetNotificationsIdJsonExecute(r
 		localVarReturnValue  NotificationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BudgetsApiService.PATCHProjectsApiV3BudgetNotificationsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BudgetsApiService.PATCHProjectsApiV3BudgetNotificationsnotificationIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/budget/notifications/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/budget/notifications/{notificationId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", _neturl.PathEscape(parameterToString(r.notificationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

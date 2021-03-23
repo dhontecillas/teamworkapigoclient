@@ -4,19 +4,21 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3TasksIdJson**](TasksApi.md#GETProjectsApiV3TasksIdJson) | **Get** /projects/api/v3/tasks/:id.json | Get a specific task.
+[**DELETEProjectsApiV3TaskstaskIdJson**](TasksApi.md#DELETEProjectsApiV3TaskstaskIdJson) | **Delete** /projects/api/v3/tasks/{taskId}.json | Delete an existing task.
 [**GETProjectsApiV3TasksJson**](TasksApi.md#GETProjectsApiV3TasksJson) | **Get** /projects/api/v3/tasks.json | Get all tasks.
 [**GETProjectsApiV3TasksMetricsCompleteJson**](TasksApi.md#GETProjectsApiV3TasksMetricsCompleteJson) | **Get** /projects/api/v3/tasks/metrics/complete.json | Total count of completed tasks
 [**GETProjectsApiV3TasksMetricsLateJson**](TasksApi.md#GETProjectsApiV3TasksMetricsLateJson) | **Get** /projects/api/v3/tasks/metrics/late.json | Get total count of late tasks
-[**POSTProjectsApiV3TasklistsTasklistIdTasksJson**](TasksApi.md#POSTProjectsApiV3TasklistsTasklistIdTasksJson) | **Post** /projects/api/v3/tasklists/:tasklistId/tasks.json | Creates a task.
+[**GETProjectsApiV3TaskstaskIdJson**](TasksApi.md#GETProjectsApiV3TaskstaskIdJson) | **Get** /projects/api/v3/tasks/{taskId}.json | Get a specific task.
+[**POSTProjectsApiV3TaskliststasklistIdTasksJson**](TasksApi.md#POSTProjectsApiV3TaskliststasklistIdTasksJson) | **Post** /projects/api/v3/tasklists/{tasklistId}/tasks.json | Creates a task.
+[**POSTProjectsApiV3TasksBulkDeleteJson**](TasksApi.md#POSTProjectsApiV3TasksBulkDeleteJson) | **Post** /projects/api/v3/tasks/bulk/delete.json | Delete many tasks at once.
 
 
 
-## GETProjectsApiV3TasksIdJson
+## DELETEProjectsApiV3TaskstaskIdJson
 
-> TaskResponse GETProjectsApiV3TasksIdJson(ctx).Execute()
+> DELETEProjectsApiV3TaskstaskIdJson(ctx, taskId).Execute()
 
-Get a specific task.
+Delete an existing task.
 
 
 
@@ -33,31 +35,38 @@ import (
 )
 
 func main() {
+    taskId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TasksApi.GETProjectsApiV3TasksIdJson(context.Background()).Execute()
+    resp, r, err := api_client.TasksApi.DELETEProjectsApiV3TaskstaskIdJson(context.Background(), taskId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TasksApi.GETProjectsApiV3TasksIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TasksApi.DELETEProjectsApiV3TaskstaskIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3TasksIdJson`: TaskResponse
-    fmt.Fprintf(os.Stdout, "Response from `TasksApi.GETProjectsApiV3TasksIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3TasksIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDELETEProjectsApiV3TaskstaskIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
 
-[**TaskResponse**](TaskResponse.md)
+ (empty response body)
 
 ### Authorization
 
@@ -450,9 +459,79 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## POSTProjectsApiV3TasklistsTasklistIdTasksJson
+## GETProjectsApiV3TaskstaskIdJson
 
-> TaskResponse POSTProjectsApiV3TasklistsTasklistIdTasksJson(ctx).TaskRequest(taskRequest).Execute()
+> TaskResponse GETProjectsApiV3TaskstaskIdJson(ctx, taskId).Execute()
+
+Get a specific task.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    taskId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TasksApi.GETProjectsApiV3TaskstaskIdJson(context.Background(), taskId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TasksApi.GETProjectsApiV3TaskstaskIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3TaskstaskIdJson`: TaskResponse
+    fmt.Fprintf(os.Stdout, "Response from `TasksApi.GETProjectsApiV3TaskstaskIdJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3TaskstaskIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**TaskResponse**](TaskResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## POSTProjectsApiV3TaskliststasklistIdTasksJson
+
+> TaskResponse POSTProjectsApiV3TaskliststasklistIdTasksJson(ctx, tasklistId).TaskRequest(taskRequest).Execute()
 
 Creates a task.
 
@@ -471,17 +550,87 @@ import (
 )
 
 func main() {
+    tasklistId := int32(56) // int32 | 
     taskRequest := *openapiclient.NewTaskRequest() // TaskRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TasksApi.POSTProjectsApiV3TasklistsTasklistIdTasksJson(context.Background()).TaskRequest(taskRequest).Execute()
+    resp, r, err := api_client.TasksApi.POSTProjectsApiV3TaskliststasklistIdTasksJson(context.Background(), tasklistId).TaskRequest(taskRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TasksApi.POSTProjectsApiV3TasklistsTasklistIdTasksJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TasksApi.POSTProjectsApiV3TaskliststasklistIdTasksJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `POSTProjectsApiV3TasklistsTasklistIdTasksJson`: TaskResponse
-    fmt.Fprintf(os.Stdout, "Response from `TasksApi.POSTProjectsApiV3TasklistsTasklistIdTasksJson`: %v\n", resp)
+    // response from `POSTProjectsApiV3TaskliststasklistIdTasksJson`: TaskResponse
+    fmt.Fprintf(os.Stdout, "Response from `TasksApi.POSTProjectsApiV3TaskliststasklistIdTasksJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tasklistId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **taskRequest** | [**TaskRequest**](TaskRequest.md) |  | 
+
+### Return type
+
+[**TaskResponse**](TaskResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## POSTProjectsApiV3TasksBulkDeleteJson
+
+> POSTProjectsApiV3TasksBulkDeleteJson(ctx).TaskDeleteRequest(taskDeleteRequest).Execute()
+
+Delete many tasks at once.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    taskDeleteRequest := *openapiclient.NewTaskDeleteRequest() // TaskDeleteRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TasksApi.POSTProjectsApiV3TasksBulkDeleteJson(context.Background()).TaskDeleteRequest(taskDeleteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TasksApi.POSTProjectsApiV3TasksBulkDeleteJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -491,16 +640,16 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPOSTProjectsApiV3TasksBulkDeleteJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskRequest** | [**TaskRequest**](TaskRequest.md) |  | 
+ **taskDeleteRequest** | [**TaskDeleteRequest**](TaskDeleteRequest.md) |  | 
 
 ### Return type
 
-[**TaskResponse**](TaskResponse.md)
+ (empty response body)
 
 ### Authorization
 

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3FilesIdCommentsJson**](FileCommentsApi.md#GETProjectsApiV3FilesIdCommentsJson) | **Get** /projects/api/v3/files/:id/comments.json | Get a list of comments for a file
+[**GETProjectsApiV3FilesfileIdCommentsJson**](FileCommentsApi.md#GETProjectsApiV3FilesfileIdCommentsJson) | **Get** /projects/api/v3/files/{fileId}/comments.json | Get a list of comments for a file
 
 
 
-## GETProjectsApiV3FilesIdCommentsJson
+## GETProjectsApiV3FilesfileIdCommentsJson
 
-> CommentCommentsResponse GETProjectsApiV3FilesIdCommentsJson(ctx).Execute()
+> CommentCommentsResponse GETProjectsApiV3FilesfileIdCommentsJson(ctx, fileId).Execute()
 
 Get a list of comments for a file
 
@@ -27,26 +27,35 @@ import (
 )
 
 func main() {
+    fileId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FileCommentsApi.GETProjectsApiV3FilesIdCommentsJson(context.Background()).Execute()
+    resp, r, err := api_client.FileCommentsApi.GETProjectsApiV3FilesfileIdCommentsJson(context.Background(), fileId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FileCommentsApi.GETProjectsApiV3FilesIdCommentsJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FileCommentsApi.GETProjectsApiV3FilesfileIdCommentsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3FilesIdCommentsJson`: CommentCommentsResponse
-    fmt.Fprintf(os.Stdout, "Response from `FileCommentsApi.GETProjectsApiV3FilesIdCommentsJson`: %v\n", resp)
+    // response from `GETProjectsApiV3FilesfileIdCommentsJson`: CommentCommentsResponse
+    fmt.Fprintf(os.Stdout, "Response from `FileCommentsApi.GETProjectsApiV3FilesfileIdCommentsJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**fileId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3FilesIdCommentsJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3FilesfileIdCommentsJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

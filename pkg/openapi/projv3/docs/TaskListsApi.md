@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3ProjectsProjectIdTasklistsCsv**](TaskListsApi.md#GETProjectsApiV3ProjectsProjectIdTasklistsCsv) | **Get** /projects/api/v3/projects/:projectId/tasklists.csv | Generate tasklist report in CSV format
-[**GETProjectsApiV3ProjectsProjectIdTasklistsHtml**](TaskListsApi.md#GETProjectsApiV3ProjectsProjectIdTasklistsHtml) | **Get** /projects/api/v3/projects/:projectId/tasklists.html | Generate tasklist report in HTML format
-[**GETProjectsApiV3ProjectsProjectIdTasklistsPdf**](TaskListsApi.md#GETProjectsApiV3ProjectsProjectIdTasklistsPdf) | **Get** /projects/api/v3/projects/:projectId/tasklists.pdf | Generate tasklist report in PDF format
-[**GETProjectsApiV3ProjectsProjectIdTasklistsXlsx**](TaskListsApi.md#GETProjectsApiV3ProjectsProjectIdTasklistsXlsx) | **Get** /projects/api/v3/projects/:projectId/tasklists.xlsx | Generate tasklist report in XLSX format
+[**GETProjectsApiV3ProjectsprojectIdTasklistsCsv**](TaskListsApi.md#GETProjectsApiV3ProjectsprojectIdTasklistsCsv) | **Get** /projects/api/v3/projects/{projectId}/tasklists.csv | Generate tasklist report in CSV format
+[**GETProjectsApiV3ProjectsprojectIdTasklistsHtml**](TaskListsApi.md#GETProjectsApiV3ProjectsprojectIdTasklistsHtml) | **Get** /projects/api/v3/projects/{projectId}/tasklists.html | Generate tasklist report in HTML format
+[**GETProjectsApiV3ProjectsprojectIdTasklistsPdf**](TaskListsApi.md#GETProjectsApiV3ProjectsprojectIdTasklistsPdf) | **Get** /projects/api/v3/projects/{projectId}/tasklists.pdf | Generate tasklist report in PDF format
+[**GETProjectsApiV3ProjectsprojectIdTasklistsXlsx**](TaskListsApi.md#GETProjectsApiV3ProjectsprojectIdTasklistsXlsx) | **Get** /projects/api/v3/projects/{projectId}/tasklists.xlsx | Generate tasklist report in XLSX format
 
 
 
-## GETProjectsApiV3ProjectsProjectIdTasklistsCsv
+## GETProjectsApiV3ProjectsprojectIdTasklistsCsv
 
-> GETProjectsApiV3ProjectsProjectIdTasklistsCsv(ctx).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3ProjectsprojectIdTasklistsCsv(ctx, projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate tasklist report in CSV format
 
@@ -33,6 +33,7 @@ import (
 )
 
 func main() {
+    projectId2 := int32(56) // int32 | 
     taskDate := "taskDate_example" // string | filter by task date (optional) (default to "anytime")
     startDate := time.Now() // time.Time | filter by start datetime (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
@@ -66,9 +67,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsCsv(context.Background()).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsCsv(context.Background(), projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsCsv``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsCsv``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -77,14 +78,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **taskDate** | **string** | filter by task date | [default to &quot;anytime&quot;]
  **startDate** | **time.Time** | filter by start datetime | 
  **reportFormat** | **string** | define the format of the report | 
@@ -134,9 +140,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsProjectIdTasklistsHtml
+## GETProjectsApiV3ProjectsprojectIdTasklistsHtml
 
-> GETProjectsApiV3ProjectsProjectIdTasklistsHtml(ctx).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3ProjectsprojectIdTasklistsHtml(ctx, projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate tasklist report in HTML format
 
@@ -156,6 +162,7 @@ import (
 )
 
 func main() {
+    projectId2 := int32(56) // int32 | 
     taskDate := "taskDate_example" // string | filter by task date (optional) (default to "anytime")
     startDate := time.Now() // time.Time | filter by start datetime (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
@@ -189,9 +196,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsHtml(context.Background()).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsHtml(context.Background(), projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsHtml``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsHtml``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -200,14 +207,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **taskDate** | **string** | filter by task date | [default to &quot;anytime&quot;]
  **startDate** | **time.Time** | filter by start datetime | 
  **reportFormat** | **string** | define the format of the report | 
@@ -257,9 +269,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsProjectIdTasklistsPdf
+## GETProjectsApiV3ProjectsprojectIdTasklistsPdf
 
-> GETProjectsApiV3ProjectsProjectIdTasklistsPdf(ctx).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3ProjectsprojectIdTasklistsPdf(ctx, projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate tasklist report in PDF format
 
@@ -279,6 +291,7 @@ import (
 )
 
 func main() {
+    projectId2 := int32(56) // int32 | 
     taskDate := "taskDate_example" // string | filter by task date (optional) (default to "anytime")
     startDate := time.Now() // time.Time | filter by start datetime (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
@@ -312,9 +325,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsPdf(context.Background()).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsPdf(context.Background(), projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsPdf``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsPdf``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -323,14 +336,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **taskDate** | **string** | filter by task date | [default to &quot;anytime&quot;]
  **startDate** | **time.Time** | filter by start datetime | 
  **reportFormat** | **string** | define the format of the report | 
@@ -380,9 +398,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsProjectIdTasklistsXlsx
+## GETProjectsApiV3ProjectsprojectIdTasklistsXlsx
 
-> GETProjectsApiV3ProjectsProjectIdTasklistsXlsx(ctx).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+> GETProjectsApiV3ProjectsprojectIdTasklistsXlsx(ctx, projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
 
 Generate tasklist report in XLSX format
 
@@ -402,6 +420,7 @@ import (
 )
 
 func main() {
+    projectId2 := int32(56) // int32 | 
     taskDate := "taskDate_example" // string | filter by task date (optional) (default to "anytime")
     startDate := time.Now() // time.Time | filter by start datetime (optional)
     reportFormat := "reportFormat_example" // string | define the format of the report (optional)
@@ -435,9 +454,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsXlsx(context.Background()).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
+    resp, r, err := api_client.TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsXlsx(context.Background(), projectId2).TaskDate(taskDate).StartDate(startDate).ReportFormat(reportFormat).OrderMode(orderMode).OrderBy(orderBy).EndDate(endDate).CommentsOrderMode(commentsOrderMode).TasklistId(tasklistId).ProjectId(projectId).OnlyCompletedTasks(onlyCompletedTasks).IsReportDownload(isReportDownload).IncludeTime(includeTime).IncludeTags(includeTags).IncludePrivateItems(includePrivateItems).IncludeLateTasks(includeLateTasks).IncludeEstimatedTime(includeEstimatedTime).IncludeCustomFields(includeCustomFields).IncludeCompletedTasks(includeCompletedTasks).IncludeComments(includeComments).IncludeCommentAvatars(includeCommentAvatars).IncludeColumns(includeColumns).IncludeAnytimeTasks(includeAnytimeTasks).IncludeAllComments(includeAllComments).IgnoreStartDates(ignoreStartDates).GroupByTasklists(groupByTasklists).Tags(tags).TagIds(tagIds).AssignedToUserIds(assignedToUserIds).AssignedToTeamIds(assignedToTeamIds).AssignedToCompanyIds(assignedToCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsProjectIdTasklistsXlsx``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TaskListsApi.GETProjectsApiV3ProjectsprojectIdTasklistsXlsx``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -446,14 +465,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **taskDate** | **string** | filter by task date | [default to &quot;anytime&quot;]
  **startDate** | **time.Time** | filter by start datetime | 
  **reportFormat** | **string** | define the format of the report | 

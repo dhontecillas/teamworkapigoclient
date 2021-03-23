@@ -4,22 +4,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DELETEProjectsApiV3BudgetNotificationsIdJson**](BudgetsApi.md#DELETEProjectsApiV3BudgetNotificationsIdJson) | **Delete** /projects/api/v3/budget/notifications/:id.json | Delete an existing notification.
+[**DELETEProjectsApiV3BudgetNotificationsnotificationIdJson**](BudgetsApi.md#DELETEProjectsApiV3BudgetNotificationsnotificationIdJson) | **Delete** /projects/api/v3/budget/notifications/{notificationId}.json | Delete an existing notification.
 [**DELETEProjectsApiV3BudgetsidJson**](BudgetsApi.md#DELETEProjectsApiV3BudgetsidJson) | **Delete** /projects/api/v3/budgets/{id}.json | Delete an existing budget.
 [**GETProjectsApiV3BudgetsJson**](BudgetsApi.md#GETProjectsApiV3BudgetsJson) | **Get** /projects/api/v3/budgets.json | Get all budgets.
 [**GETProjectsApiV3BudgetsidJson**](BudgetsApi.md#GETProjectsApiV3BudgetsidJson) | **Get** /projects/api/v3/budgets/{id}.json | Get a specific budget.
 [**GETProjectsApiV3BudgetsidUsagesJson**](BudgetsApi.md#GETProjectsApiV3BudgetsidUsagesJson) | **Get** /projects/api/v3/budgets/{id}/usages.json | Get daily budget capacity used.
 [**GETProjectsApiV3ProjectsBudgetsUsagesJson**](BudgetsApi.md#GETProjectsApiV3ProjectsBudgetsUsagesJson) | **Get** /projects/api/v3/projects/budgets/usages.json | Get the budgets usages for a set of projects
-[**PATCHProjectsApiV3BudgetNotificationsIdJson**](BudgetsApi.md#PATCHProjectsApiV3BudgetNotificationsIdJson) | **Patch** /projects/api/v3/budget/notifications/:id.json | Update an existing notification.
+[**PATCHProjectsApiV3BudgetNotificationsnotificationIdJson**](BudgetsApi.md#PATCHProjectsApiV3BudgetNotificationsnotificationIdJson) | **Patch** /projects/api/v3/budget/notifications/{notificationId}.json | Update an existing notification.
 [**PATCHProjectsApiV3BudgetsidJson**](BudgetsApi.md#PATCHProjectsApiV3BudgetsidJson) | **Patch** /projects/api/v3/budgets/{id}.json | Update an existing budget.
 [**POSTProjectsApiV3BudgetsBulkDeleteJson**](BudgetsApi.md#POSTProjectsApiV3BudgetsBulkDeleteJson) | **Post** /projects/api/v3/budgets/bulk/delete.json | Delete many budgets at once.
 [**POSTProjectsApiV3BudgetsJson**](BudgetsApi.md#POSTProjectsApiV3BudgetsJson) | **Post** /projects/api/v3/budgets.json | Create a new budget.
 
 
 
-## DELETEProjectsApiV3BudgetNotificationsIdJson
+## DELETEProjectsApiV3BudgetNotificationsnotificationIdJson
 
-> DELETEProjectsApiV3BudgetNotificationsIdJson(ctx).Execute()
+> DELETEProjectsApiV3BudgetNotificationsnotificationIdJson(ctx, notificationId).Execute()
 
 Delete an existing notification.
 
@@ -36,12 +36,13 @@ import (
 )
 
 func main() {
+    notificationId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.BudgetsApi.DELETEProjectsApiV3BudgetNotificationsIdJson(context.Background()).Execute()
+    resp, r, err := api_client.BudgetsApi.DELETEProjectsApiV3BudgetNotificationsnotificationIdJson(context.Background(), notificationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BudgetsApi.DELETEProjectsApiV3BudgetNotificationsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `BudgetsApi.DELETEProjectsApiV3BudgetNotificationsnotificationIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -49,11 +50,19 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**notificationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDELETEProjectsApiV3BudgetNotificationsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDELETEProjectsApiV3BudgetNotificationsnotificationIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -464,9 +473,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PATCHProjectsApiV3BudgetNotificationsIdJson
+## PATCHProjectsApiV3BudgetNotificationsnotificationIdJson
 
-> NotificationResponse PATCHProjectsApiV3BudgetNotificationsIdJson(ctx).NotificationRequest(notificationRequest).Execute()
+> NotificationResponse PATCHProjectsApiV3BudgetNotificationsnotificationIdJson(ctx, notificationId).NotificationRequest(notificationRequest).Execute()
 
 Update an existing notification.
 
@@ -483,31 +492,37 @@ import (
 )
 
 func main() {
+    notificationId := int32(56) // int32 | 
     notificationRequest := *openapiclient.NewNotificationRequest() // NotificationRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.BudgetsApi.PATCHProjectsApiV3BudgetNotificationsIdJson(context.Background()).NotificationRequest(notificationRequest).Execute()
+    resp, r, err := api_client.BudgetsApi.PATCHProjectsApiV3BudgetNotificationsnotificationIdJson(context.Background(), notificationId).NotificationRequest(notificationRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BudgetsApi.PATCHProjectsApiV3BudgetNotificationsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `BudgetsApi.PATCHProjectsApiV3BudgetNotificationsnotificationIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PATCHProjectsApiV3BudgetNotificationsIdJson`: NotificationResponse
-    fmt.Fprintf(os.Stdout, "Response from `BudgetsApi.PATCHProjectsApiV3BudgetNotificationsIdJson`: %v\n", resp)
+    // response from `PATCHProjectsApiV3BudgetNotificationsnotificationIdJson`: NotificationResponse
+    fmt.Fprintf(os.Stdout, "Response from `BudgetsApi.PATCHProjectsApiV3BudgetNotificationsnotificationIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**notificationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPATCHProjectsApiV3BudgetNotificationsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPATCHProjectsApiV3BudgetNotificationsnotificationIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **notificationRequest** | [**NotificationRequest**](NotificationRequest.md) |  | 
 
 ### Return type

@@ -7,9 +7,9 @@ servers:
 tags:
 - name: CFPort
 paths:
-  /projects/api/v2/companies/:companyId/people":
+  /projects/api/v2/companies/{companyId}/people:
     get:
-      operationId: GET_projects_api_v2_companies_:companyId_people"
+      operationId: GET_projects_api_v2_companies_{companyId}_people
       parameters:
       - in: query
         name: updatedAfterDateTime
@@ -60,6 +60,10 @@ paths:
         schema:
           type: integer
       - in: query
+        name: projectCompanyId
+        schema:
+          type: integer
+      - in: query
         name: pageSize
         schema:
           type: integer
@@ -69,6 +73,11 @@ paths:
           type: integer
       - in: query
         name: excludeProjectId
+        schema:
+          type: integer
+      - in: path
+        name: companyId
+        required: true
         schema:
           type: integer
       - in: query
@@ -104,11 +113,19 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: includeContacts
+        schema:
+          type: boolean
+      - in: query
         name: includeCompanyDetails
         schema:
           type: boolean
       - in: query
         name: includeClockIn
+        schema:
+          type: boolean
+      - in: query
+        name: includeClients
         schema:
           type: boolean
       - in: query
@@ -158,9 +175,9 @@ paths:
         (excluding those you don’t have permission to see).
       tags:
       - CFPort
-  /projects/api/v2/companies/:compnayId/projects:
+  /projects/api/v2/companies/{companyId}/projects:
     get:
-      operationId: GET_projects_api_v2_companies_:compnayId_projects
+      operationId: GET_projects_api_v2_companies_{companyId}_projects
       parameters:
       - in: query
         name: updatedAfterDateTime
@@ -215,8 +232,17 @@ paths:
         name: page
         schema:
           type: integer
+      - in: path
+        name: companyId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: searchCompany
+        schema:
+          type: boolean
+      - in: query
+        name: searchCategory
         schema:
           type: boolean
       - in: query
@@ -385,9 +411,9 @@ paths:
       summary: Returns the project defaults
       tags:
       - CFPort
-  /projects/api/v2/files/:objectId/project:
+  /projects/api/v2/files/{objectId}/project:
     get:
-      operationId: GET_projects_api_v2_files_:objectId_project
+      operationId: GET_projects_api_v2_files_{objectId}_project
       parameters:
       - in: query
         name: userId
@@ -395,6 +421,11 @@ paths:
           type: integer
       - in: query
         name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -489,6 +520,10 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: separateUsers
+        schema:
+          type: boolean
+      - in: query
         name: searchWithTags
         schema:
           type: boolean
@@ -520,6 +555,10 @@ paths:
         name: getUsers
         schema:
           type: boolean
+      - in: query
+        name: eventsInUTC
+        schema:
+          type: boolean
       - explode: false
         in: query
         name: tags
@@ -543,9 +582,9 @@ paths:
       summary: Perform a full search
       tags:
       - CFPort
-  /projects/api/v2/links/:objectId/project:
+  /projects/api/v2/links/{objectId}/project:
     get:
-      operationId: GET_projects_api_v2_links_:objectId_project
+      operationId: GET_projects_api_v2_links_{objectId}_project
       parameters:
       - in: query
         name: userId
@@ -553,6 +592,11 @@ paths:
           type: integer
       - in: query
         name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -611,76 +655,76 @@ paths:
       operationId: GET_projects_api_v2_me
       parameters:
       - in: query
-        name: SharedFilter
+        name: sharedFilter
         schema:
           type: string
       - in: query
-        name: GetDefaultFilters
+        name: getDefaultFilters
         schema:
           type: string
       - in: query
-        name: UserId
+        name: userID
         schema:
           type: integer
       - in: query
-        name: ShowDeleted
+        name: showDeleted
         schema:
           type: boolean
       - in: query
-        name: IncludeTags
+        name: includeTags
         schema:
           type: boolean
       - in: query
-        name: IncludeClockIn
+        name: includeClockIn
         schema:
           type: boolean
       - in: query
-        name: IncludeAuth
+        name: includeAuth
         schema:
           type: boolean
       - in: query
-        name: GetTeamsStats
+        name: getTeamsStats
         schema:
           type: boolean
       - in: query
-        name: GetTasksStats
+        name: getTasksStats
         schema:
           type: boolean
       - in: query
-        name: GetProjectsStats
+        name: getProjectsStats
         schema:
           type: boolean
       - in: query
-        name: GetPreferences
+        name: getPreferences
         schema:
           type: boolean
       - in: query
-        name: GetPermissions
+        name: getPermissions
         schema:
           type: boolean
       - in: query
-        name: GetMilestonesStats
+        name: getMilestonesStats
         schema:
           type: boolean
       - in: query
-        name: GetInitialPage
+        name: getInitialPage
         schema:
           type: boolean
       - description: statistics
         in: query
-        name: GetAllStats
+        name: getAllStats
         schema:
           type: boolean
       - in: query
-        name: GetAccounts
+        name: getAccounts
         schema:
           type: boolean
       - in: query
-        name: Fullprofile
+        name: fullprofile
         schema:
           type: boolean
       - in: query
-        name: CleanPreferences
+        name: cleanPreferences
         schema:
           type: boolean
       responses:
@@ -693,768 +737,9 @@ paths:
       summary: Returns the details for the account you’re currently logged in with.
       tags:
       - CFPort
-  /projects/api/v2/messages/:objectId/project:
+  /projects/api/v2/me/personaltasks:
     get:
-      operationId: GET_projects_api_v2_messages_:objectId_project
-      parameters:
-      - in: query
-        name: userId
-        schema:
-          type: integer
-      - in: query
-        name: objectId
-        schema:
-          type: integer
-      - in: query
-        name: showDeleted
-        schema:
-          type: boolean
-      - in: query
-        name: includeTags
-        schema:
-          type: boolean
-      - in: query
-        name: includePeople
-        schema:
-          type: boolean
-      - in: query
-        name: getTruePermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getPermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getNotificationSettings
-        schema:
-          type: boolean
-      - in: query
-        name: getEmoji
-        schema:
-          type: boolean
-      - in: query
-        name: getEmailAddress
-        schema:
-          type: boolean
-      - in: query
-        name: getDateInfo
-        schema:
-          type: boolean
-      - in: query
-        name: getActivePages
-        schema:
-          type: boolean
-      - in: query
-        name: formatMarkdown
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content: {}
-          description: 200 OK (application/json data)
-      summary: Get the project for the message
-      tags:
-      - CFPort
-  /projects/api/v2/milestones/:objectId/project:
-    get:
-      operationId: GET_projects_api_v2_milestones_:objectId_project
-      parameters:
-      - in: query
-        name: userId
-        schema:
-          type: integer
-      - in: query
-        name: objectId
-        schema:
-          type: integer
-      - in: query
-        name: showDeleted
-        schema:
-          type: boolean
-      - in: query
-        name: includeTags
-        schema:
-          type: boolean
-      - in: query
-        name: includePeople
-        schema:
-          type: boolean
-      - in: query
-        name: getTruePermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getPermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getNotificationSettings
-        schema:
-          type: boolean
-      - in: query
-        name: getEmoji
-        schema:
-          type: boolean
-      - in: query
-        name: getEmailAddress
-        schema:
-          type: boolean
-      - in: query
-        name: getDateInfo
-        schema:
-          type: boolean
-      - in: query
-        name: getActivePages
-        schema:
-          type: boolean
-      - in: query
-        name: formatMarkdown
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content: {}
-          description: 200 OK (application/json data)
-      summary: Get the project for the milestone
-      tags:
-      - CFPort
-  /projects/api/v2/notebooks/:objectId/project:
-    get:
-      operationId: GET_projects_api_v2_notebooks_:objectId_project
-      parameters:
-      - in: query
-        name: userId
-        schema:
-          type: integer
-      - in: query
-        name: objectId
-        schema:
-          type: integer
-      - in: query
-        name: showDeleted
-        schema:
-          type: boolean
-      - in: query
-        name: includeTags
-        schema:
-          type: boolean
-      - in: query
-        name: includePeople
-        schema:
-          type: boolean
-      - in: query
-        name: getTruePermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getPermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getNotificationSettings
-        schema:
-          type: boolean
-      - in: query
-        name: getEmoji
-        schema:
-          type: boolean
-      - in: query
-        name: getEmailAddress
-        schema:
-          type: boolean
-      - in: query
-        name: getDateInfo
-        schema:
-          type: boolean
-      - in: query
-        name: getActivePages
-        schema:
-          type: boolean
-      - in: query
-        name: formatMarkdown
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content: {}
-          description: 200 OK (application/json data)
-      summary: Get the project for the notebook
-      tags:
-      - CFPort
-  /projects/api/v2/people:
-    get:
-      operationId: GET_projects_api_v2_people
-      parameters:
-      - in: query
-        name: updatedAfterDateTime
-        schema:
-          type: string
-      - in: query
-        name: updatedAfterDate
-        schema:
-          type: string
-      - in: query
-        name: type
-        schema:
-          type: string
-      - in: query
-        name: sortOrder
-        schema:
-          type: string
-      - in: query
-        name: sort
-        schema:
-          type: string
-      - in: query
-        name: searchTerm
-        schema:
-          type: string
-      - in: query
-        name: projectType
-        schema:
-          type: string
-      - in: query
-        name: inviteStatus
-        schema:
-          type: string
-      - in: query
-        name: firstLetter
-        schema:
-          type: string
-      - in: query
-        name: emailAddress
-        schema:
-          type: string
-      - in: query
-        name: dataSet
-        schema:
-          type: string
-      - in: query
-        name: projectId
-        schema:
-          type: integer
-      - in: query
-        name: pageSize
-        schema:
-          type: integer
-      - in: query
-        name: page
-        schema:
-          type: integer
-      - in: query
-        name: excludeProjectId
-        schema:
-          type: integer
-      - in: query
-        name: showDeleted
-        schema:
-          type: boolean
-      - in: query
-        name: returnTeams
-        schema:
-          type: boolean
-      - in: query
-        name: returnProjectIds
-        schema:
-          type: boolean
-      - in: query
-        name: returnLetters
-        schema:
-          type: boolean
-      - in: query
-        name: ownerCompanyFirst
-        schema:
-          type: boolean
-      - in: query
-        name: onlyids
-        schema:
-          type: boolean
-      - in: query
-        name: includeTags
-        schema:
-          type: boolean
-      - in: query
-        name: includeObservers
-        schema:
-          type: boolean
-      - in: query
-        name: includeCompanyDetails
-        schema:
-          type: boolean
-      - in: query
-        name: includeClockIn
-        schema:
-          type: boolean
-      - in: query
-        name: groupByCompany
-        schema:
-          type: boolean
-      - in: query
-        name: getProjectRoles
-        schema:
-          type: boolean
-      - in: query
-        name: getCounts
-        schema:
-          type: boolean
-      - in: query
-        name: fullprofile
-        schema:
-          type: boolean
-      - in: query
-        name: countOnly
-        schema:
-          type: boolean
-      - explode: false
-        in: query
-        name: userIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: companyId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/people.response'
-          description: 200 OK
-      summary: All people visible to the user will be returned, including the user
-        themselves. By default 100 records are returned at a time.
-      tags:
-      - CFPort
-  /projects/api/v2/people/:userId:
-    get:
-      operationId: GET_projects_api_v2_people_:userId
-      parameters:
-      - in: query
-        name: SharedFilter
-        schema:
-          type: string
-      - in: query
-        name: GetDefaultFilters
-        schema:
-          type: string
-      - in: query
-        name: UserId
-        schema:
-          type: integer
-      - in: query
-        name: ShowDeleted
-        schema:
-          type: boolean
-      - in: query
-        name: IncludeTags
-        schema:
-          type: boolean
-      - in: query
-        name: IncludeClockIn
-        schema:
-          type: boolean
-      - in: query
-        name: IncludeAuth
-        schema:
-          type: boolean
-      - in: query
-        name: GetTeamsStats
-        schema:
-          type: boolean
-      - in: query
-        name: GetTasksStats
-        schema:
-          type: boolean
-      - in: query
-        name: GetProjectsStats
-        schema:
-          type: boolean
-      - in: query
-        name: GetPreferences
-        schema:
-          type: boolean
-      - in: query
-        name: GetPermissions
-        schema:
-          type: boolean
-      - in: query
-        name: GetMilestonesStats
-        schema:
-          type: boolean
-      - in: query
-        name: GetInitialPage
-        schema:
-          type: boolean
-      - description: statistics
-        in: query
-        name: GetAllStats
-        schema:
-          type: boolean
-      - in: query
-        name: GetAccounts
-        schema:
-          type: boolean
-      - in: query
-        name: Fullprofile
-        schema:
-          type: boolean
-      - in: query
-        name: CleanPreferences
-        schema:
-          type: boolean
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/people.personResponse'
-          description: 200 OK
-      summary: Retrieves the user details for the ID submitted.
-      tags:
-      - CFPort
-  /projects/api/v2/people/:userId/avatar:
-    get:
-      operationId: GET_projects_api_v2_people_:userId_avatar
-      responses:
-        "301":
-          content: {}
-          description: 301 Moved Permanently (no data)
-      summary: Get user avatar
-  /projects/api/v2/people/:userId/projects:
-    get:
-      operationId: GET_projects_api_v2_people_:userId_projects
-      parameters:
-      - in: query
-        name: workedOnAfterDateTime
-        schema:
-          type: string
-      - in: query
-        name: updatedAfterDateTime
-        schema:
-          type: string
-      - in: query
-        name: updatedAfterDate
-        schema:
-          type: string
-      - description: common project filters
-        in: query
-        name: status
-        schema:
-          type: string
-      - in: query
-        name: searchTerm
-        schema:
-          type: string
-      - in: query
-        name: projectType
-        schema:
-          type: string
-      - in: query
-        name: projectStatus
-        schema:
-          type: string
-      - in: query
-        name: orderMode
-        schema:
-          type: string
-      - in: query
-        name: orderBy
-        schema:
-          type: string
-      - in: query
-        name: get
-        schema:
-          type: string
-      - in: query
-        name: firstLetter
-        schema:
-          type: string
-      - in: query
-        name: dataSet
-        schema:
-          type: string
-      - in: query
-        name: createdAfterDateTime
-        schema:
-          type: string
-      - in: query
-        name: createdAfterDate
-        schema:
-          type: string
-      - in: query
-        name: completedBeforeDateTime
-        schema:
-          type: string
-      - in: query
-        name: completedAfterDateTime
-        schema:
-          type: string
-      - in: query
-        name: userId
-        schema:
-          type: integer
-      - in: query
-        name: pageSize
-        schema:
-          type: integer
-      - in: query
-        name: page
-        schema:
-          type: integer
-      - in: query
-        name: searchCompany
-        schema:
-          type: boolean
-      - in: query
-        name: sanitizeName
-        schema:
-          type: boolean
-      - in: query
-        name: returnLetters
-        schema:
-          type: boolean
-      - in: query
-        name: onlyStarredProjects
-        schema:
-          type: boolean
-      - in: query
-        name: onlyProjectsWithExplicitMembership
-        schema:
-          type: boolean
-      - in: query
-        name: onlyArchivedProjects
-        schema:
-          type: boolean
-      - in: query
-        name: matchAllTags
-        schema:
-          type: boolean
-      - in: query
-        name: matchAllProjectTags
-        schema:
-          type: boolean
-      - in: query
-        name: includeUpdates
-        schema:
-          type: boolean
-      - in: query
-        name: includeTopPeople
-        schema:
-          type: boolean
-      - in: query
-        name: includeTags
-        schema:
-          type: boolean
-      - in: query
-        name: includeProjectOwner
-        schema:
-          type: boolean
-      - in: query
-        name: includePeople
-        schema:
-          type: boolean
-      - in: query
-        name: includeCustomFields
-        schema:
-          type: boolean
-      - in: query
-        name: includeCrmDealIds
-        schema:
-          type: boolean
-      - in: query
-        name: includeArchivedProjects
-        schema:
-          type: boolean
-      - in: query
-        name: hideObservedProjects
-        schema:
-          type: boolean
-      - in: query
-        name: hideDesc
-        schema:
-          type: boolean
-      - in: query
-        name: getTruePermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getPermissions
-        schema:
-          type: boolean
-      - in: query
-        name: getNotificationSettings
-        schema:
-          type: boolean
-      - in: query
-        name: getDeleted
-        schema:
-          type: boolean
-      - in: query
-        name: getCounts
-        schema:
-          type: boolean
-      - in: query
-        name: getCategoryPath
-        schema:
-          type: boolean
-      - in: query
-        name: getAll
-        schema:
-          type: boolean
-      - in: query
-        name: getActivePages
-        schema:
-          type: boolean
-      - in: query
-        name: formatMarkdown
-        schema:
-          type: boolean
-      - explode: false
-        in: query
-        name: skipIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: skipCrmDealIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectTagIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectOwnerIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectHealths
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectHealth
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectCompanyIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectCategoryIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: portfolioColumnIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: portfolioBoardIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: filterTagIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: featuresEnabledOnProject
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: crmDealIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: companyId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: categoryId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: catId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      responses:
-        "200":
-          content: {}
-          description: 200 OK (application/json data)
-      summary: APICall_GET_projects
-      tags:
-      - CFPort
-  /projects/api/v2/projectcategories/:projectCategoryId/tasks:
-    get:
-      operationId: GET_projects_api_v2_projectcategories_:projectCategoryId_tasks
+      operationId: GET_projects_api_v2_me_personaltasks
       parameters:
       - in: query
         name: updatedAfterDate
@@ -1706,6 +991,1758 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
+        schema:
+          type: boolean
+      - in: query
+        name: allowTemplateTasks
+        schema:
+          type: boolean
+      - explode: false
+        in: query
+        name: tasklistId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: taskIdList
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: tags
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: tagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: skipCrmDealIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: responsiblePartyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectTagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectOwnerIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: project filters
+        explode: false
+        in: query
+        name: projectId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectHealths
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectHealth
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCompanyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCategoryIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCategoryId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: follower-ids
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: filterText
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: filterBoardColumnIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: excludeTagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: crmDealIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: creatorIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: companyId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: assigneeTeamIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: assigneeCompanyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      responses:
+        "200":
+          content: {}
+          description: 200 OK (application/json data)
+      summary: Get Tasks
+      tags:
+      - CFPort
+  /projects/api/v2/me/personaltasks/{taskId}:
+    get:
+      operationId: GET_projects_api_v2_me_personaltasks_{taskId}
+      parameters:
+      - in: query
+        name: updatedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: today
+        schema:
+          type: string
+      - in: query
+        name: startDate
+        schema:
+          type: string
+      - in: query
+        name: sortOrder
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: string
+      - in: query
+        name: reportFormat
+        schema:
+          type: string
+      - in: query
+        name: projectStatus
+        schema:
+          type: string
+      - in: query
+        name: priority
+        schema:
+          type: string
+      - in: query
+        name: include
+        schema:
+          type: string
+      - in: query
+        name: filter
+        schema:
+          type: string
+      - in: query
+        name: endDate
+        schema:
+          type: string
+      - in: query
+        name: deletedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: dateCode
+        schema:
+          type: string
+      - in: query
+        name: dataSet
+        schema:
+          type: string
+      - in: query
+        name: createdFilter
+        schema:
+          type: string
+      - in: query
+        name: createdDateCode
+        schema:
+          type: string
+      - in: query
+        name: createdBeforeDate
+        schema:
+          type: string
+      - in: query
+        name: createdAfterDate
+        schema:
+          type: string
+      - in: query
+        name: completedBeforeDate
+        schema:
+          type: string
+      - in: query
+        name: completedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: callback
+        schema:
+          type: string
+      - in: query
+        name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: parentTaskId
+        schema:
+          type: integer
+      - in: query
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: offsetCount
+        schema:
+          type: integer
+      - in: query
+        name: includeTaskId
+        schema:
+          type: integer
+      - in: query
+        name: useStartDatesForTodaysTasks
+        schema:
+          type: boolean
+      - in: query
+        name: useAllProjects
+        schema:
+          type: boolean
+      - in: query
+        name: starredProjectsOnly
+        schema:
+          type: boolean
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: showCompletedLists
+        schema:
+          type: boolean
+      - in: query
+        name: onlyUntaggedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: onlyTasksWithUnreadComments
+        schema:
+          type: boolean
+      - in: query
+        name: onlyTasksWithTickets
+        schema:
+          type: boolean
+      - in: query
+        name: onlyTasksWithEstimatedTime
+        schema:
+          type: boolean
+      - in: query
+        name: onlyStarredProjects
+        schema:
+          type: boolean
+      - in: query
+        name: nestSubTasks
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllTags
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllProjectTags
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllProjectTagIds
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllExcludedTags
+        schema:
+          type: boolean
+      - in: query
+        name: isReportDownload
+        schema:
+          type: boolean
+      - in: query
+        name: includeUntaggedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeToday
+        schema:
+          type: boolean
+      - in: query
+        name: includeTeamUserIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeTasksWithoutDueDates
+        schema:
+          type: boolean
+      - in: query
+        name: includeTasksWithCards
+        schema:
+          type: boolean
+      - in: query
+        name: includeTasksFromDeletedLists
+        schema:
+          type: boolean
+      - in: query
+        name: includeReminders
+        schema:
+          type: boolean
+      - in: query
+        name: includeLoggedTime
+        schema:
+          type: boolean
+      - in: query
+        name: includeCustomFields
+        schema:
+          type: boolean
+      - in: query
+        name: includeCrmDealIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompletedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompletedSubtasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompanyUserIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeBlockedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeAssigneeTeams
+        schema:
+          type: boolean
+      - in: query
+        name: includeAssigneeCompanies
+        schema:
+          type: boolean
+      - in: query
+        name: includeArchivedProjects
+        schema:
+          type: boolean
+      - in: query
+        name: ignoreStartDates
+        schema:
+          type: boolean
+      - in: query
+        name: getSubTasks
+        schema:
+          type: boolean
+      - in: query
+        name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
+        schema:
+          type: boolean
+      - in: query
+        name: allowTemplateTasks
+        schema:
+          type: boolean
+      - explode: false
+        in: query
+        name: tasklistId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: taskIdList
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: tags
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: tagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: skipCrmDealIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: responsiblePartyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectTagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectOwnerIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - description: project filters
+        explode: false
+        in: query
+        name: projectId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectHealths
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectHealth
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCompanyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCategoryIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCategoryId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: follower-ids
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: filterText
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: filterBoardColumnIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: excludeTagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: crmDealIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: creatorIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: companyId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: assigneeTeamIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: assigneeCompanyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      responses:
+        "200":
+          content: {}
+          description: 200 OK (application/json data)
+      summary: Get Tasks
+      tags:
+      - CFPort
+  /projects/api/v2/messages/{objectId}/project:
+    get:
+      operationId: GET_projects_api_v2_messages_{objectId}_project
+      parameters:
+      - in: query
+        name: userId
+        schema:
+          type: integer
+      - in: query
+        name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: includeTags
+        schema:
+          type: boolean
+      - in: query
+        name: includePeople
+        schema:
+          type: boolean
+      - in: query
+        name: getTruePermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getPermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getNotificationSettings
+        schema:
+          type: boolean
+      - in: query
+        name: getEmoji
+        schema:
+          type: boolean
+      - in: query
+        name: getEmailAddress
+        schema:
+          type: boolean
+      - in: query
+        name: getDateInfo
+        schema:
+          type: boolean
+      - in: query
+        name: getActivePages
+        schema:
+          type: boolean
+      - in: query
+        name: formatMarkdown
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content: {}
+          description: 200 OK (application/json data)
+      summary: Get the project for the message
+      tags:
+      - CFPort
+  /projects/api/v2/milestones/{objectId}/project:
+    get:
+      operationId: GET_projects_api_v2_milestones_{objectId}_project
+      parameters:
+      - in: query
+        name: userId
+        schema:
+          type: integer
+      - in: query
+        name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: includeTags
+        schema:
+          type: boolean
+      - in: query
+        name: includePeople
+        schema:
+          type: boolean
+      - in: query
+        name: getTruePermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getPermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getNotificationSettings
+        schema:
+          type: boolean
+      - in: query
+        name: getEmoji
+        schema:
+          type: boolean
+      - in: query
+        name: getEmailAddress
+        schema:
+          type: boolean
+      - in: query
+        name: getDateInfo
+        schema:
+          type: boolean
+      - in: query
+        name: getActivePages
+        schema:
+          type: boolean
+      - in: query
+        name: formatMarkdown
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content: {}
+          description: 200 OK (application/json data)
+      summary: Get the project for the milestone
+      tags:
+      - CFPort
+  /projects/api/v2/notebooks/{objectId}/project:
+    get:
+      operationId: GET_projects_api_v2_notebooks_{objectId}_project
+      parameters:
+      - in: query
+        name: userId
+        schema:
+          type: integer
+      - in: query
+        name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: includeTags
+        schema:
+          type: boolean
+      - in: query
+        name: includePeople
+        schema:
+          type: boolean
+      - in: query
+        name: getTruePermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getPermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getNotificationSettings
+        schema:
+          type: boolean
+      - in: query
+        name: getEmoji
+        schema:
+          type: boolean
+      - in: query
+        name: getEmailAddress
+        schema:
+          type: boolean
+      - in: query
+        name: getDateInfo
+        schema:
+          type: boolean
+      - in: query
+        name: getActivePages
+        schema:
+          type: boolean
+      - in: query
+        name: formatMarkdown
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content: {}
+          description: 200 OK (application/json data)
+      summary: Get the project for the notebook
+      tags:
+      - CFPort
+  /projects/api/v2/people:
+    get:
+      operationId: GET_projects_api_v2_people
+      parameters:
+      - in: query
+        name: updatedAfterDateTime
+        schema:
+          type: string
+      - in: query
+        name: updatedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: type
+        schema:
+          type: string
+      - in: query
+        name: sortOrder
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: string
+      - in: query
+        name: searchTerm
+        schema:
+          type: string
+      - in: query
+        name: projectType
+        schema:
+          type: string
+      - in: query
+        name: inviteStatus
+        schema:
+          type: string
+      - in: query
+        name: firstLetter
+        schema:
+          type: string
+      - in: query
+        name: emailAddress
+        schema:
+          type: string
+      - in: query
+        name: dataSet
+        schema:
+          type: string
+      - in: query
+        name: projectId
+        schema:
+          type: integer
+      - in: query
+        name: projectCompanyId
+        schema:
+          type: integer
+      - in: query
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: excludeProjectId
+        schema:
+          type: integer
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: returnTeams
+        schema:
+          type: boolean
+      - in: query
+        name: returnProjectIds
+        schema:
+          type: boolean
+      - in: query
+        name: returnLetters
+        schema:
+          type: boolean
+      - in: query
+        name: ownerCompanyFirst
+        schema:
+          type: boolean
+      - in: query
+        name: onlyids
+        schema:
+          type: boolean
+      - in: query
+        name: includeTags
+        schema:
+          type: boolean
+      - in: query
+        name: includeObservers
+        schema:
+          type: boolean
+      - in: query
+        name: includeContacts
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompanyDetails
+        schema:
+          type: boolean
+      - in: query
+        name: includeClockIn
+        schema:
+          type: boolean
+      - in: query
+        name: includeClients
+        schema:
+          type: boolean
+      - in: query
+        name: groupByCompany
+        schema:
+          type: boolean
+      - in: query
+        name: getProjectRoles
+        schema:
+          type: boolean
+      - in: query
+        name: getCounts
+        schema:
+          type: boolean
+      - in: query
+        name: fullprofile
+        schema:
+          type: boolean
+      - in: query
+        name: countOnly
+        schema:
+          type: boolean
+      - explode: false
+        in: query
+        name: userIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: companyId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/people.response'
+          description: 200 OK
+      summary: All people visible to the user will be returned, including the user
+        themselves. By default 100 records are returned at a time.
+      tags:
+      - CFPort
+  /projects/api/v2/people/{userId}:
+    get:
+      operationId: GET_projects_api_v2_people_{userId}
+      parameters:
+      - in: query
+        name: sharedFilter
+        schema:
+          type: string
+      - in: query
+        name: getDefaultFilters
+        schema:
+          type: string
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: userID
+        schema:
+          type: integer
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: includeTags
+        schema:
+          type: boolean
+      - in: query
+        name: includeClockIn
+        schema:
+          type: boolean
+      - in: query
+        name: includeAuth
+        schema:
+          type: boolean
+      - in: query
+        name: getTeamsStats
+        schema:
+          type: boolean
+      - in: query
+        name: getTasksStats
+        schema:
+          type: boolean
+      - in: query
+        name: getProjectsStats
+        schema:
+          type: boolean
+      - in: query
+        name: getPreferences
+        schema:
+          type: boolean
+      - in: query
+        name: getPermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getMilestonesStats
+        schema:
+          type: boolean
+      - in: query
+        name: getInitialPage
+        schema:
+          type: boolean
+      - description: statistics
+        in: query
+        name: getAllStats
+        schema:
+          type: boolean
+      - in: query
+        name: getAccounts
+        schema:
+          type: boolean
+      - in: query
+        name: fullprofile
+        schema:
+          type: boolean
+      - in: query
+        name: cleanPreferences
+        schema:
+          type: boolean
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/people.personResponse'
+          description: 200 OK
+      summary: Retrieves the user details for the ID submitted.
+      tags:
+      - CFPort
+  /projects/api/v2/people/{userId}/avatar:
+    get:
+      operationId: GET_projects_api_v2_people_{userId}_avatar
+      parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "301":
+          content: {}
+          description: 301 Moved Permanently (no data)
+      summary: Get user avatar
+  /projects/api/v2/people/{userId}/projects:
+    get:
+      operationId: GET_projects_api_v2_people_{userId}_projects
+      parameters:
+      - in: query
+        name: workedOnAfterDateTime
+        schema:
+          type: string
+      - in: query
+        name: updatedAfterDateTime
+        schema:
+          type: string
+      - in: query
+        name: updatedAfterDate
+        schema:
+          type: string
+      - description: common project filters
+        in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: searchTerm
+        schema:
+          type: string
+      - in: query
+        name: projectType
+        schema:
+          type: string
+      - in: query
+        name: projectStatus
+        schema:
+          type: string
+      - in: query
+        name: orderMode
+        schema:
+          type: string
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+      - in: query
+        name: get
+        schema:
+          type: string
+      - in: query
+        name: firstLetter
+        schema:
+          type: string
+      - in: query
+        name: dataSet
+        schema:
+          type: string
+      - in: query
+        name: createdAfterDateTime
+        schema:
+          type: string
+      - in: query
+        name: createdAfterDate
+        schema:
+          type: string
+      - in: query
+        name: completedBeforeDateTime
+        schema:
+          type: string
+      - in: query
+        name: completedAfterDateTime
+        schema:
+          type: string
+      - in: query
+        name: userId
+        schema:
+          type: integer
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: searchCompany
+        schema:
+          type: boolean
+      - in: query
+        name: searchCategory
+        schema:
+          type: boolean
+      - in: query
+        name: sanitizeName
+        schema:
+          type: boolean
+      - in: query
+        name: returnLetters
+        schema:
+          type: boolean
+      - in: query
+        name: onlyStarredProjects
+        schema:
+          type: boolean
+      - in: query
+        name: onlyProjectsWithExplicitMembership
+        schema:
+          type: boolean
+      - in: query
+        name: onlyCustomFieldValues
+        schema:
+          type: boolean
+      - in: query
+        name: onlyArchivedProjects
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllTags
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllProjectTags
+        schema:
+          type: boolean
+      - in: query
+        name: includeUpdates
+        schema:
+          type: boolean
+      - in: query
+        name: includeTopPeople
+        schema:
+          type: boolean
+      - in: query
+        name: includeTags
+        schema:
+          type: boolean
+      - in: query
+        name: includeProjectOwner
+        schema:
+          type: boolean
+      - in: query
+        name: includePeople
+        schema:
+          type: boolean
+      - in: query
+        name: includeCustomFields
+        schema:
+          type: boolean
+      - in: query
+        name: includeCrmDealIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeArchivedProjects
+        schema:
+          type: boolean
+      - in: query
+        name: hideObservedProjects
+        schema:
+          type: boolean
+      - in: query
+        name: hideDesc
+        schema:
+          type: boolean
+      - in: query
+        name: getTruePermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getPermissions
+        schema:
+          type: boolean
+      - in: query
+        name: getNotificationSettings
+        schema:
+          type: boolean
+      - in: query
+        name: getDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: getCounts
+        schema:
+          type: boolean
+      - in: query
+        name: getCategoryPath
+        schema:
+          type: boolean
+      - in: query
+        name: getAll
+        schema:
+          type: boolean
+      - in: query
+        name: getActivePages
+        schema:
+          type: boolean
+      - in: query
+        name: formatMarkdown
+        schema:
+          type: boolean
+      - explode: false
+        in: query
+        name: skipIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: skipCrmDealIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectTagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectOwnerIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectHealths
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectHealth
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCompanyIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: projectCategoryIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: portfolioColumnIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: portfolioBoardIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: filterTagIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: featuresEnabledOnProject
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: crmDealIds
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: companyId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: categoryId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      - explode: false
+        in: query
+        name: catId
+        schema:
+          items:
+            type: integer
+          type: array
+        style: form
+      responses:
+        "200":
+          content: {}
+          description: 200 OK (application/json data)
+      summary: APICall_GET_projects
+      tags:
+      - CFPort
+  /projects/api/v2/projectcategories/{projectCategoryId}/tasks:
+    get:
+      operationId: GET_projects_api_v2_projectcategories_{projectCategoryId}_tasks
+      parameters:
+      - in: query
+        name: updatedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: today
+        schema:
+          type: string
+      - in: query
+        name: startDate
+        schema:
+          type: string
+      - in: query
+        name: sortOrder
+        schema:
+          type: string
+      - in: query
+        name: sort
+        schema:
+          type: string
+      - in: query
+        name: reportFormat
+        schema:
+          type: string
+      - in: query
+        name: projectStatus
+        schema:
+          type: string
+      - in: query
+        name: priority
+        schema:
+          type: string
+      - in: query
+        name: include
+        schema:
+          type: string
+      - in: query
+        name: filter
+        schema:
+          type: string
+      - in: query
+        name: endDate
+        schema:
+          type: string
+      - in: query
+        name: deletedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: dateCode
+        schema:
+          type: string
+      - in: query
+        name: dataSet
+        schema:
+          type: string
+      - in: query
+        name: createdFilter
+        schema:
+          type: string
+      - in: query
+        name: createdDateCode
+        schema:
+          type: string
+      - in: query
+        name: createdBeforeDate
+        schema:
+          type: string
+      - in: query
+        name: createdAfterDate
+        schema:
+          type: string
+      - in: query
+        name: completedBeforeDate
+        schema:
+          type: string
+      - in: query
+        name: completedAfterDate
+        schema:
+          type: string
+      - in: query
+        name: callback
+        schema:
+          type: string
+      - in: query
+        name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: projectCategoryId
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: parentTaskId
+        schema:
+          type: integer
+      - in: query
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: offsetCount
+        schema:
+          type: integer
+      - in: query
+        name: includeTaskId
+        schema:
+          type: integer
+      - in: query
+        name: useStartDatesForTodaysTasks
+        schema:
+          type: boolean
+      - in: query
+        name: useAllProjects
+        schema:
+          type: boolean
+      - in: query
+        name: starredProjectsOnly
+        schema:
+          type: boolean
+      - in: query
+        name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: showCompletedLists
+        schema:
+          type: boolean
+      - in: query
+        name: onlyUntaggedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: onlyTasksWithUnreadComments
+        schema:
+          type: boolean
+      - in: query
+        name: onlyTasksWithTickets
+        schema:
+          type: boolean
+      - in: query
+        name: onlyTasksWithEstimatedTime
+        schema:
+          type: boolean
+      - in: query
+        name: onlyStarredProjects
+        schema:
+          type: boolean
+      - in: query
+        name: nestSubTasks
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllTags
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllProjectTags
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllProjectTagIds
+        schema:
+          type: boolean
+      - in: query
+        name: matchAllExcludedTags
+        schema:
+          type: boolean
+      - in: query
+        name: isReportDownload
+        schema:
+          type: boolean
+      - in: query
+        name: includeUntaggedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeToday
+        schema:
+          type: boolean
+      - in: query
+        name: includeTeamUserIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeTasksWithoutDueDates
+        schema:
+          type: boolean
+      - in: query
+        name: includeTasksWithCards
+        schema:
+          type: boolean
+      - in: query
+        name: includeTasksFromDeletedLists
+        schema:
+          type: boolean
+      - in: query
+        name: includeReminders
+        schema:
+          type: boolean
+      - in: query
+        name: includeLoggedTime
+        schema:
+          type: boolean
+      - in: query
+        name: includeCustomFields
+        schema:
+          type: boolean
+      - in: query
+        name: includeCrmDealIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompletedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompletedSubtasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeCompanyUserIds
+        schema:
+          type: boolean
+      - in: query
+        name: includeBlockedTasks
+        schema:
+          type: boolean
+      - in: query
+        name: includeAssigneeTeams
+        schema:
+          type: boolean
+      - in: query
+        name: includeAssigneeCompanies
+        schema:
+          type: boolean
+      - in: query
+        name: includeArchivedProjects
+        schema:
+          type: boolean
+      - in: query
+        name: ignoreStartDates
+        schema:
+          type: boolean
+      - in: query
+        name: getSubTasks
+        schema:
+          type: boolean
+      - in: query
+        name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -1998,6 +3035,10 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: searchCategory
+        schema:
+          type: boolean
+      - in: query
         name: sanitizeName
         schema:
           type: boolean
@@ -2011,6 +3052,10 @@ paths:
           type: boolean
       - in: query
         name: onlyProjectsWithExplicitMembership
+        schema:
+          type: boolean
+      - in: query
+        name: onlyCustomFieldValues
         schema:
           type: boolean
       - in: query
@@ -2236,9 +3281,9 @@ paths:
       summary: APICall_GET_projects
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId:
+  /projects/api/v2/projects/{projectId}:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId
+      operationId: GET_projects_api_v2_projects_{projectId}
       parameters:
       - in: query
         name: userId
@@ -2248,8 +3293,17 @@ paths:
         name: projectId
         schema:
           type: integer
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: showDeleted
+        schema:
+          type: boolean
+      - in: query
+        name: onlyCustomFieldValues
         schema:
           type: boolean
       - in: query
@@ -2339,9 +3393,9 @@ paths:
       summary: Returns the project defaults
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/billing/time:
+  /projects/api/v2/projects/{projectId}/billing/time:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_billing_time
+      operationId: GET_projects_api_v2_projects_{projectId}_billing_time
       parameters:
       - in: query
         name: updatedAfterDate
@@ -2381,6 +3435,11 @@ paths:
           type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -2454,9 +3513,9 @@ paths:
       summary: APICall_GET_projects_id_time_entries
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/emailaddress:
+  /projects/api/v2/projects/{projectId}/emailaddress:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_emailaddress
+      operationId: GET_projects_api_v2_projects_{projectId}_emailaddress
       parameters:
       - in: query
         name: subCodeType
@@ -2464,6 +3523,11 @@ paths:
           type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -2485,9 +3549,9 @@ paths:
       summary: Returns the details for the account you’re currently logged in with.
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/people:
+  /projects/api/v2/projects/{projectId}/people:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_people
+      operationId: GET_projects_api_v2_projects_{projectId}_people
       parameters:
       - in: query
         name: updatedAfterDateTime
@@ -2533,8 +3597,17 @@ paths:
         name: dataSet
         schema:
           type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: query
+        name: projectCompanyId
         schema:
           type: integer
       - in: query
@@ -2582,11 +3655,19 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: includeContacts
+        schema:
+          type: boolean
+      - in: query
         name: includeCompanyDetails
         schema:
           type: boolean
       - in: query
         name: includeClockIn
+        schema:
+          type: boolean
+      - in: query
+        name: includeClients
         schema:
           type: boolean
       - in: query
@@ -2635,9 +3716,9 @@ paths:
       summary: Retrieves all of the people in a given project.
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/people/:userIds:
+  /projects/api/v2/projects/{projectId}/people/{userIds}:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_people_:userIds
+      operationId: GET_projects_api_v2_projects_{projectId}_people_{userIds}
       parameters:
       - in: query
         name: updatedAfterDateTime
@@ -2683,8 +3764,22 @@ paths:
         name: dataSet
         schema:
           type: string
+      - in: path
+        name: userIds
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: query
+        name: projectCompanyId
         schema:
           type: integer
       - in: query
@@ -2732,11 +3827,19 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: includeContacts
+        schema:
+          type: boolean
+      - in: query
         name: includeCompanyDetails
         schema:
           type: boolean
       - in: query
         name: includeClockIn
+        schema:
+          type: boolean
+      - in: query
+        name: includeClients
         schema:
           type: boolean
       - in: query
@@ -2783,16 +3886,29 @@ paths:
                 $ref: '#/components/schemas/people.response'
           description: 200 OK
       summary: Get people project
-  /projects/api/v2/projects/:projectId/predecessors:
+  /projects/api/v2/projects/{projectId}/predecessors:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_predecessors
+      operationId: GET_projects_api_v2_projects_{projectId}_predecessors
       parameters:
+      - in: query
+        name: include
+        schema:
+          type: string
       - in: query
         name: projectId
         schema:
           type: integer
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: integer
       - in: query
-        name: nextPageToken
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: page
         schema:
           type: integer
       - in: query
@@ -2826,9 +3942,9 @@ paths:
       summary: Get Predecessor
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/summary:
+  /projects/api/v2/projects/{projectId}/summary:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_summary
+      operationId: GET_projects_api_v2_projects_{projectId}_summary
       parameters:
       - in: query
         name: filterText
@@ -2838,6 +3954,11 @@ paths:
         name: APIReturnType
         schema:
           type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: pageSize
         schema:
@@ -2857,9 +3978,9 @@ paths:
       summary: APICall_GET_summary
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/taskids:
+  /projects/api/v2/projects/{projectId}/taskids:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_taskids
+      operationId: GET_projects_api_v2_projects_{projectId}_taskids
       parameters:
       - in: query
         name: updatedAfterDate
@@ -2947,6 +4068,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -3111,6 +4237,10 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -3317,9 +4447,9 @@ paths:
       summary: Get Tasks
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/tasks:
+  /projects/api/v2/projects/{projectId}/tasks:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_tasks
+      operationId: GET_projects_api_v2_projects_{projectId}_tasks
       parameters:
       - in: query
         name: updatedAfterDate
@@ -3407,6 +4537,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -3571,6 +4706,10 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -3777,9 +4916,9 @@ paths:
       summary: Get Tasks
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/tasks/gantt:
+  /projects/api/v2/projects/{projectId}/tasks/gantt:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_tasks_gantt
+      operationId: GET_projects_api_v2_projects_{projectId}_tasks_gantt
       parameters:
       - in: query
         name: updatedAfterDate
@@ -3794,19 +4933,7 @@ paths:
         schema:
           type: string
       - in: query
-        name: tag-ids
-        schema:
-          type: string
-      - in: query
-        name: startdate
-        schema:
-          type: string
-      - in: query
         name: startDate
-        schema:
-          type: string
-      - in: query
-        name: sort
         schema:
           type: string
       - in: query
@@ -3818,23 +4945,11 @@ paths:
         schema:
           type: string
       - in: query
-        name: responsible-party-id
-        schema:
-          type: string
-      - in: query
-        name: projectStatus
-        schema:
-          type: string
-      - in: query
         name: projectStatus
         schema:
           type: string
       - in: query
         name: include
-        schema:
-          type: string
-      - in: query
-        name: follower-ids
         schema:
           type: string
       - in: query
@@ -3846,19 +4961,7 @@ paths:
         schema:
           type: string
       - in: query
-        name: filter
-        schema:
-          type: string
-      - in: query
-        name: enddate
-        schema:
-          type: string
-      - in: query
         name: endDate
-        schema:
-          type: string
-      - in: query
-        name: dataSet
         schema:
           type: string
       - in: query
@@ -3882,14 +4985,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: completedBeforeDate
-        schema:
-          type: string
-      - in: query
-        name: completedAfterDate
-        schema:
-          type: string
-      - in: query
         name: completedAfterDate
         schema:
           type: string
@@ -3905,8 +5000,9 @@ paths:
         name: taskId
         schema:
           type: integer
-      - in: query
-        name: projectCategoryId
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -3930,14 +5026,6 @@ paths:
         schema:
           type: integer
       - in: query
-        name: includeTaskId
-        schema:
-          type: integer
-      - in: query
-        name: companyId
-        schema:
-          type: integer
-      - in: query
         name: companyId
         schema:
           type: integer
@@ -3950,19 +5038,7 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: useAllProjects
-        schema:
-          type: boolean
-      - in: query
         name: starredProjectsOnly
-        schema:
-          type: boolean
-      - in: query
-        name: starredProjectsOnly
-        schema:
-          type: boolean
-      - in: query
-        name: showDeleted
         schema:
           type: boolean
       - in: query
@@ -3974,19 +5050,7 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: showCompletedLists
-        schema:
-          type: boolean
-      - in: query
         name: onlyStarredProjects
-        schema:
-          type: boolean
-      - in: query
-        name: onlyStarredProjects
-        schema:
-          type: boolean
-      - in: query
-        name: onlyArchivedProjects
         schema:
           type: boolean
       - in: query
@@ -3998,27 +5062,11 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: nestSubTasks
-        schema:
-          type: boolean
-      - in: query
-        name: matchAllProjectTags
-        schema:
-          type: boolean
-      - in: query
         name: matchAllProjectTags
         schema:
           type: boolean
       - in: query
         name: includeUntaggedTasks
-        schema:
-          type: boolean
-      - in: query
-        name: includeUntaggedTasks
-        schema:
-          type: boolean
-      - in: query
-        name: includeToday
         schema:
           type: boolean
       - in: query
@@ -4034,19 +5082,7 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: includeTasksFromDeletedLists
-        schema:
-          type: boolean
-      - in: query
         name: includeReminders
-        schema:
-          type: boolean
-      - in: query
-        name: includeReminders
-        schema:
-          type: boolean
-      - in: query
-        name: includeLoggedTime
         schema:
           type: boolean
       - in: query
@@ -4058,27 +5094,11 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: includeCompletedTasks
-        schema:
-          type: boolean
-      - in: query
-        name: includeCompletedSubtasks
-        schema:
-          type: boolean
-      - in: query
         name: includeCompletedSubtasks
         schema:
           type: boolean
       - in: query
         name: includeCompletedPredecessors
-        schema:
-          type: boolean
-      - in: query
-        name: includeCompletedPredecessors
-        schema:
-          type: boolean
-      - in: query
-        name: includeArchivedProjects
         schema:
           type: boolean
       - in: query
@@ -4094,19 +5114,7 @@ paths:
         schema:
           type: boolean
       - in: query
-        name: getSubTasks
-        schema:
-          type: boolean
-      - in: query
         name: getFiles
-        schema:
-          type: boolean
-      - in: query
-        name: getFiles
-        schema:
-          type: boolean
-      - in: query
-        name: countOnly
         schema:
           type: boolean
       - in: query
@@ -4127,22 +5135,6 @@ paths:
         style: form
       - explode: false
         in: query
-        name: projectTagIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectOwnerIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
         name: projectOwnerIds
         schema:
           items:
@@ -4152,23 +5144,6 @@ paths:
       - explode: false
         in: query
         name: projectIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - description: project *filters
-        explode: false
-        in: query
-        name: projectId
         schema:
           items:
             type: integer
@@ -4193,31 +5168,7 @@ paths:
         style: form
       - explode: false
         in: query
-        name: projectHealths
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
         name: projectCompanyIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectCompanyIds
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projectCategoryIds
         schema:
           items:
             type: integer
@@ -4236,9 +5187,9 @@ paths:
           content: {}
           description: 200 OK (application/json data)
       summary: Will return the total for all sub-tasks
-  /projects/api/v2/projects/:projectId/time:
+  /projects/api/v2/projects/{projectId}/time:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_time
+      operationId: GET_projects_api_v2_projects_{projectId}_time
       parameters:
       - in: query
         name: updatedAfterDate
@@ -4278,6 +5229,11 @@ paths:
           type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -4351,9 +5307,9 @@ paths:
       summary: APICall_GET_projects_id_time_entries
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/time_entries:
+  /projects/api/v2/projects/{projectId}/time_entries:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_time_entries
+      operationId: GET_projects_api_v2_projects_{projectId}_time_entries
       parameters:
       - in: query
         name: updatedAfterDate
@@ -4393,6 +5349,11 @@ paths:
           type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -4466,9 +5427,9 @@ paths:
       summary: APICall_GET_projects_id_time_entries
       tags:
       - CFPort
-  /projects/api/v2/projects/:projectId/timelogs:
+  /projects/api/v2/projects/{projectId}/timelogs:
     get:
-      operationId: GET_projects_api_v2_projects_:projectId_timelogs
+      operationId: GET_projects_api_v2_projects_{projectId}_timelogs
       parameters:
       - in: query
         name: updatedAfterDate
@@ -4508,6 +5469,11 @@ paths:
           type: integer
       - in: query
         name: projectId
+        schema:
+          type: integer
+      - in: path
+        name: projectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -4581,10 +5547,15 @@ paths:
       summary: APICall_GET_projects_id_time_entries
       tags:
       - CFPort
-  /projects/api/v2/projects/:projejctId/assing_later_roles:
+  /projects/api/v2/projects/{projejctId}/assing_later_roles:
     get:
-      operationId: GET_projects_api_v2_projects_:projejctId_assing_later_roles
+      operationId: GET_projects_api_v2_projects_{projejctId}_assing_later_roles
       parameters:
+      - in: path
+        name: projejctId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: projectId
         schema:
@@ -4874,15 +5845,19 @@ paths:
     get:
       operationId: GET_projects_api_v2_projects_new
       parameters:
-      - in: query
-        name: companyId
+      - explode: false
+        in: query
+        name: projectId
         schema:
-          type: integer
+          items:
+            type: integer
+          type: array
+        style: form
       responses:
         "200":
           content: {}
           description: 200 OK (application/json data)
-      summary: Returns the project defaults
+      summary: Gets the milestone timeline for projects
       tags:
       - CFPort
   /projects/api/v2/projects/starred:
@@ -5139,6 +6114,10 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: eventsInUTC
+        schema:
+          type: boolean
+      - in: query
         name: basicSearch
         schema:
           type: boolean
@@ -5361,9 +6340,9 @@ paths:
       summary: APICall_GET_summary
       tags:
       - CFPort
-  /projects/api/v2/tasklists/:objectId/project:
+  /projects/api/v2/tasklists/{objectId}/project:
     get:
-      operationId: GET_projects_api_v2_tasklists_:objectId_project
+      operationId: GET_projects_api_v2_tasklists_{objectId}_project
       parameters:
       - in: query
         name: userId
@@ -5371,6 +6350,11 @@ paths:
           type: integer
       - in: query
         name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -5424,9 +6408,9 @@ paths:
       summary: Get the project for the tasklist
       tags:
       - CFPort
-  /projects/api/v2/tasklists/:tasklistId/taskids:
+  /projects/api/v2/tasklists/{tasklistId}/taskids:
     get:
-      operationId: GET_projects_api_v2_tasklists_:tasklistId_taskids
+      operationId: GET_projects_api_v2_tasklists_{tasklistId}_taskids
       parameters:
       - in: query
         name: updatedAfterDate
@@ -5512,6 +6496,11 @@ paths:
         name: callback
         schema:
           type: string
+      - in: path
+        name: tasklistId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: taskId
         schema:
@@ -5678,6 +6667,10 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -5884,9 +6877,9 @@ paths:
       summary: Get Tasks
       tags:
       - CFPort
-  /projects/api/v2/tasklists/:tasklistId/tasks:
+  /projects/api/v2/tasklists/{tasklistId}/tasks:
     get:
-      operationId: GET_projects_api_v2_tasklists_:tasklistId_tasks
+      operationId: GET_projects_api_v2_tasklists_{tasklistId}_tasks
       parameters:
       - in: query
         name: updatedAfterDate
@@ -5972,6 +6965,11 @@ paths:
         name: callback
         schema:
           type: string
+      - in: path
+        name: tasklistId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: taskId
         schema:
@@ -6138,6 +7136,10 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -6601,6 +7603,10 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: excludeAssigneeNotOnProjectTeams
+        schema:
+          type: boolean
+      - in: query
         name: allowTemplateTasks
         schema:
           type: boolean
@@ -6804,20 +7810,33 @@ paths:
       summary: Get Tasks
       tags:
       - CFPort
-  /projects/api/v2/tasks/:dependentTaskId/predecessors:
+  /projects/api/v2/tasks/{dependentTaskId}/predecessors:
     get:
-      operationId: GET_projects_api_v2_tasks_:dependentTaskId_predecessors
+      operationId: GET_projects_api_v2_tasks_{dependentTaskId}_predecessors
       parameters:
+      - in: query
+        name: include
+        schema:
+          type: string
       - in: query
         name: projectId
         schema:
           type: integer
       - in: query
-        name: nextPageToken
+        name: pageSize
+        schema:
+          type: integer
+      - in: query
+        name: page
         schema:
           type: integer
       - in: query
         name: dependentTaskId
+        schema:
+          type: integer
+      - in: path
+        name: dependentTaskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -6847,9 +7866,9 @@ paths:
       summary: Get Predecessor
       tags:
       - CFPort
-  /projects/api/v2/tasks/:objectId/project:
+  /projects/api/v2/tasks/{objectId}/project:
     get:
-      operationId: GET_projects_api_v2_tasks_:objectId_project
+      operationId: GET_projects_api_v2_tasks_{objectId}_project
       parameters:
       - in: query
         name: userId
@@ -6857,6 +7876,11 @@ paths:
           type: integer
       - in: query
         name: objectId
+        schema:
+          type: integer
+      - in: path
+        name: objectId
+        required: true
         schema:
           type: integer
       - in: query
@@ -6910,9 +7934,9 @@ paths:
       summary: Get the project for the task
       tags:
       - CFPort
-  /projects/api/v2/tasks/:taskId:
+  /projects/api/v2/tasks/{taskId}:
     get:
-      operationId: GET_projects_api_v2_tasks_:taskId
+      operationId: GET_projects_api_v2_tasks_{taskId}
       parameters:
       - in: query
         name: updatedAfterDate
@@ -7000,6 +8024,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -7164,6 +8193,10 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -7370,10 +8403,15 @@ paths:
       summary: Get Tasks
       tags:
       - CFPort
-  /projects/api/v2/tasks/:taskId/estimatedtime:
+  /projects/api/v2/tasks/{taskId}/estimatedtime:
     get:
-      operationId: GET_projects_api_v2_tasks_:taskId_estimatedtime
+      operationId: GET_projects_api_v2_tasks_{taskId}_estimatedtime
       parameters:
+      - in: path
+        name: taskId
+        required: true
+        schema:
+          type: integer
       - in: query
         name: taskID
         schema:
@@ -7385,9 +8423,9 @@ paths:
       summary: Will return the total for all sub-tasks
       tags:
       - CFPort
-  /projects/api/v2/tasks/:taskId/subtasks:
+  /projects/api/v2/tasks/{taskId}/subtasks:
     get:
-      operationId: GET_projects_api_v2_tasks_:taskId_subtasks
+      operationId: GET_projects_api_v2_tasks_{taskId}_subtasks
       parameters:
       - in: query
         name: updatedAfterDate
@@ -7475,6 +8513,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -7639,6 +8682,10 @@ paths:
           type: boolean
       - in: query
         name: getFiles
+        schema:
+          type: boolean
+      - in: query
+        name: excludeAssigneeNotOnProjectTeams
         schema:
           type: boolean
       - in: query
@@ -7845,9 +8892,9 @@ paths:
       summary: Get Tasks
       tags:
       - CFPort
-  /projects/api/v2/tasks/:taskId/time:
+  /projects/api/v2/tasks/{taskId}/time:
     get:
-      operationId: GET_projects_api_v2_tasks_:taskId_time
+      operationId: GET_projects_api_v2_tasks_{taskId}_time
       parameters:
       - in: query
         name: sortOrder
@@ -7855,6 +8902,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -7892,9 +8944,9 @@ paths:
       summary: APICall_GET_todo_items_id_time_entries
       tags:
       - CFPort
-  /projects/api/v2/tasks/:taskId/time_entries:
+  /projects/api/v2/tasks/{taskId}/time_entries:
     get:
-      operationId: GET_projects_api_v2_tasks_:taskId_time_entries
+      operationId: GET_projects_api_v2_tasks_{taskId}_time_entries
       parameters:
       - in: query
         name: sortOrder
@@ -7902,6 +8954,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -8065,14 +9122,6 @@ paths:
         style: form
       - explode: false
         in: query
-        name: projects-from-companyId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
         name: projectTagIds
         schema:
           items:
@@ -8159,9 +9208,9 @@ paths:
       summary: Get all timelogs
       tags:
       - CFPort
-  /projects/api/v2/time/:timeLogId:
+  /projects/api/v2/time/{timeLogId}:
     get:
-      operationId: GET_projects_api_v2_time_:timeLogId
+      operationId: GET_projects_api_v2_time_{timeLogId}
       parameters:
       - in: query
         name: updatedAfterDate
@@ -8197,6 +9246,11 @@ paths:
           type: string
       - in: query
         name: timeLogId
+        schema:
+          type: integer
+      - in: path
+        name: timeLogId
+        required: true
         schema:
           type: integer
       - in: query
@@ -8278,14 +9332,6 @@ paths:
       - explode: false
         in: query
         name: projectsFromCompanyId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projects-from-companyId
         schema:
           items:
             type: integer
@@ -8560,14 +9606,6 @@ paths:
         style: form
       - explode: false
         in: query
-        name: projects-from-companyId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
         name: projectTagIds
         schema:
           items:
@@ -8654,9 +9692,9 @@ paths:
       summary: Get all time entries
       tags:
       - CFPort
-  /projects/api/v2/time_entries/:timeLogId:
+  /projects/api/v2/time_entries/{timeLogId}:
     get:
-      operationId: GET_projects_api_v2_time_entries_:timeLogId
+      operationId: GET_projects_api_v2_time_entries_{timeLogId}
       parameters:
       - in: query
         name: updatedAfterDate
@@ -8692,6 +9730,11 @@ paths:
           type: string
       - in: query
         name: timeLogId
+        schema:
+          type: integer
+      - in: path
+        name: timeLogId
+        required: true
         schema:
           type: integer
       - in: query
@@ -8773,14 +9816,6 @@ paths:
       - explode: false
         in: query
         name: projectsFromCompanyId
-        schema:
-          items:
-            type: integer
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: projects-from-companyId
         schema:
           items:
             type: integer
@@ -8929,9 +9964,9 @@ paths:
       summary: APICall_GET_time_entries_currentUser
       tags:
       - CFPort
-  /projects/api/v2/todo_items/:taskId/time:
+  /projects/api/v2/todo_items/{taskId}/time:
     get:
-      operationId: GET_projects_api_v2_todo_items_:taskId_time
+      operationId: GET_projects_api_v2_todo_items_{taskId}_time
       parameters:
       - in: query
         name: sortOrder
@@ -8939,6 +9974,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -8976,9 +10016,9 @@ paths:
       summary: APICall_GET_todo_items_id_time_entries
       tags:
       - CFPort
-  /projects/api/v2/todo_items/:taskId/time_entries:
+  /projects/api/v2/todo_items/{taskId}/time_entries:
     get:
-      operationId: GET_projects_api_v2_todo_items_:taskId_time_entries
+      operationId: GET_projects_api_v2_todo_items_{taskId}_time_entries
       parameters:
       - in: query
         name: sortOrder
@@ -8986,6 +10026,11 @@ paths:
           type: string
       - in: query
         name: taskId
+        schema:
+          type: integer
+      - in: path
+        name: taskId
+        required: true
         schema:
           type: integer
       - in: query
@@ -9025,7 +10070,19 @@ paths:
       - CFPort
 components:
   schemas:
-    Twdataaccount.AnnouncementResponse:
+    twdataaccount.AnnouncementResponse:
+      example:
+        date: date
+        calloutImage: calloutImage
+        code: code
+        isRead: true
+        link: link
+        html: html
+        linkText: linkText
+        id: 5
+        text: text
+        title: title
+        type: type
       properties:
         calloutImage:
           type: string
@@ -9176,6 +10233,7 @@ components:
           permissions:
             canViewProjectBudget: true
             addTime: true
+            canAddForms: true
             addTaskLists: true
             canBeAssignedToTasksAndMilestones: true
             canManagePortfolio: true
@@ -9190,8 +10248,11 @@ components:
             hasAccessToNewProjects: true
             viewAllTimeLogs: true
             active: true
+            canAccessCalendar: true
             canAccessOneDriveBusiness: true
+            canManageReports: true
             viewProjectUpdate: true
+            canViewForms: true
             isObserving: true
             canAccessInvoiceTracking: true
             canManageProjectTemplates: true
@@ -9201,8 +10262,10 @@ components:
             canAccessTemplates: true
             setPrivacy: true
             viewLinks: true
+            canManageCustomFields: true
             canManagePeople: true
             canViewProjectMembers: true
+            canViewReports: true
             addNotebooks: true
             canAddProjects: true
             isArchived: true
@@ -9213,16 +10276,19 @@ components:
             projectAdministrator: true
             addLinks: true
             addTasks: true
+            manageCustomFields: true
             canReceiveEmail: true
             editAllTasks: true
             addPeopleToProject: true
             canManageProjectBudget: true
             canAccessPortfolio: true
+            canManageSchedule: true
             viewInvoices: true
             addMessages: true
             viewRiskRegister: true
             viewEstimatedTime: true
             addRisks: true
+            canViewSchedule: true
             canManageRates: true
             notifyDefaults:
               newTasks: newTasks
@@ -9271,6 +10337,7 @@ components:
           addressCity: addressCity
           imService: imService
           addressCountry: addressCountry
+          isClientUser: true
           isClockedIn: true
           teams:
           - teams
@@ -9306,6 +10373,7 @@ components:
             notifyOnTaskComplete: true
             notifyOnStatusUpdate: true
             dailyReportEventsType: dailyReportEventsType
+            dailyReportIncludeStartDate: true
             notifyOnAddedAsFollower: true
             receiveNotifyWarnings: true
             receiveDailyReports: true
@@ -9314,6 +10382,7 @@ components:
             receiveDailyReportsAtWeekend: true
             receiveDailyReportsIfEmpty: true
           emailAlt2: emailAlt2
+          mentionName: mentionName
           lastName: lastName
           lastActive: lastActive
           openId: openId
@@ -9396,6 +10465,7 @@ components:
           permissions:
             canViewProjectBudget: true
             addTime: true
+            canAddForms: true
             addTaskLists: true
             canBeAssignedToTasksAndMilestones: true
             canManagePortfolio: true
@@ -9410,8 +10480,11 @@ components:
             hasAccessToNewProjects: true
             viewAllTimeLogs: true
             active: true
+            canAccessCalendar: true
             canAccessOneDriveBusiness: true
+            canManageReports: true
             viewProjectUpdate: true
+            canViewForms: true
             isObserving: true
             canAccessInvoiceTracking: true
             canManageProjectTemplates: true
@@ -9421,8 +10494,10 @@ components:
             canAccessTemplates: true
             setPrivacy: true
             viewLinks: true
+            canManageCustomFields: true
             canManagePeople: true
             canViewProjectMembers: true
+            canViewReports: true
             addNotebooks: true
             canAddProjects: true
             isArchived: true
@@ -9433,16 +10508,19 @@ components:
             projectAdministrator: true
             addLinks: true
             addTasks: true
+            manageCustomFields: true
             canReceiveEmail: true
             editAllTasks: true
             addPeopleToProject: true
             canManageProjectBudget: true
             canAccessPortfolio: true
+            canManageSchedule: true
             viewInvoices: true
             addMessages: true
             viewRiskRegister: true
             viewEstimatedTime: true
             addRisks: true
+            canViewSchedule: true
             canManageRates: true
             notifyDefaults:
               newTasks: newTasks
@@ -9491,6 +10569,7 @@ components:
           addressCity: addressCity
           imService: imService
           addressCountry: addressCountry
+          isClientUser: true
           isClockedIn: true
           teams:
           - teams
@@ -9526,6 +10605,7 @@ components:
             notifyOnTaskComplete: true
             notifyOnStatusUpdate: true
             dailyReportEventsType: dailyReportEventsType
+            dailyReportIncludeStartDate: true
             notifyOnAddedAsFollower: true
             receiveNotifyWarnings: true
             receiveDailyReports: true
@@ -9534,6 +10614,7 @@ components:
             receiveDailyReportsAtWeekend: true
             receiveDailyReportsIfEmpty: true
           emailAlt2: emailAlt2
+          mentionName: mentionName
           lastName: lastName
           lastActive: lastActive
           openId: openId
@@ -9601,30 +10682,13 @@ components:
     people.impersonating:
       example:
         fullName: fullName
-        id: 5
+        id: 7
       properties:
         fullName:
           type: string
         id:
           type: integer
       title: impersonating
-      type: object
-    people.integrationEnabled:
-      example:
-        enabled: true
-      properties:
-        enabled:
-          type: boolean
-      title: integrationEnabled
-      type: object
-    people.integrations:
-      example:
-        microsoftConnector:
-          enabled: true
-      properties:
-        microsoftConnector:
-          $ref: '#/components/schemas/people.integrationEnabled'
-      title: integrations
       type: object
     people.localization:
       example:
@@ -9672,6 +10736,7 @@ components:
         notifyOnTaskComplete: true
         notifyOnStatusUpdate: true
         dailyReportEventsType: dailyReportEventsType
+        dailyReportIncludeStartDate: true
         notifyOnAddedAsFollower: true
         receiveNotifyWarnings: true
         receiveDailyReports: true
@@ -9684,6 +10749,8 @@ components:
           type: integer
         dailyReportEventsType:
           type: string
+        dailyReportIncludeStartDate:
+          type: boolean
         dailyReportSortBy:
           type: string
         notifyOnAddedAsFollower:
@@ -9720,6 +10787,7 @@ components:
       example:
         canViewProjectBudget: true
         addTime: true
+        canAddForms: true
         addTaskLists: true
         canBeAssignedToTasksAndMilestones: true
         canManagePortfolio: true
@@ -9734,8 +10802,11 @@ components:
         hasAccessToNewProjects: true
         viewAllTimeLogs: true
         active: true
+        canAccessCalendar: true
         canAccessOneDriveBusiness: true
+        canManageReports: true
         viewProjectUpdate: true
+        canViewForms: true
         isObserving: true
         canAccessInvoiceTracking: true
         canManageProjectTemplates: true
@@ -9745,8 +10816,10 @@ components:
         canAccessTemplates: true
         setPrivacy: true
         viewLinks: true
+        canManageCustomFields: true
         canManagePeople: true
         canViewProjectMembers: true
+        canViewReports: true
         addNotebooks: true
         canAddProjects: true
         isArchived: true
@@ -9757,16 +10830,19 @@ components:
         projectAdministrator: true
         addLinks: true
         addTasks: true
+        manageCustomFields: true
         canReceiveEmail: true
         editAllTasks: true
         addPeopleToProject: true
         canManageProjectBudget: true
         canAccessPortfolio: true
+        canManageSchedule: true
         viewInvoices: true
         addMessages: true
         viewRiskRegister: true
         viewEstimatedTime: true
         addRisks: true
+        canViewSchedule: true
         canManageRates: true
         notifyDefaults:
           newTasks: newTasks
@@ -9803,6 +10879,8 @@ components:
           type: boolean
         canAccessBox:
           type: boolean
+        canAccessCalendar:
+          type: boolean
         canAccessDropbox:
           type: boolean
         canAccessGoogleDocs:
@@ -9817,9 +10895,13 @@ components:
           type: boolean
         canAccessTemplates:
           type: boolean
+        canAddForms:
+          type: boolean
         canAddProjects:
           type: boolean
         canBeAssignedToTasksAndMilestones:
+          type: boolean
+        canManageCustomFields:
           type: boolean
         canManagePeople:
           type: boolean
@@ -9831,7 +10913,13 @@ components:
           type: boolean
         canManageRates:
           type: boolean
+        canManageReports:
+          type: boolean
+        canManageSchedule:
+          type: boolean
         canReceiveEmail:
+          type: boolean
+        canViewForms:
           type: boolean
         canViewProjectBudget:
           type: boolean
@@ -9841,6 +10929,10 @@ components:
           type: boolean
         canViewRates:
           type: boolean
+        canViewReports:
+          type: boolean
+        canViewSchedule:
+          type: boolean
         editAllTasks:
           type: boolean
         hasAccessToNewProjects:
@@ -9848,6 +10940,8 @@ components:
         isArchived:
           type: boolean
         isObserving:
+          type: boolean
+        manageCustomFields:
           type: boolean
         notifyDefaults:
           $ref: '#/components/schemas/people.notifyDefaults'
@@ -9911,6 +11005,7 @@ components:
         permissions:
           canViewProjectBudget: true
           addTime: true
+          canAddForms: true
           addTaskLists: true
           canBeAssignedToTasksAndMilestones: true
           canManagePortfolio: true
@@ -9925,8 +11020,11 @@ components:
           hasAccessToNewProjects: true
           viewAllTimeLogs: true
           active: true
+          canAccessCalendar: true
           canAccessOneDriveBusiness: true
+          canManageReports: true
           viewProjectUpdate: true
+          canViewForms: true
           isObserving: true
           canAccessInvoiceTracking: true
           canManageProjectTemplates: true
@@ -9936,8 +11034,10 @@ components:
           canAccessTemplates: true
           setPrivacy: true
           viewLinks: true
+          canManageCustomFields: true
           canManagePeople: true
           canViewProjectMembers: true
+          canViewReports: true
           addNotebooks: true
           canAddProjects: true
           isArchived: true
@@ -9948,16 +11048,19 @@ components:
           projectAdministrator: true
           addLinks: true
           addTasks: true
+          manageCustomFields: true
           canReceiveEmail: true
           editAllTasks: true
           addPeopleToProject: true
           canManageProjectBudget: true
           canAccessPortfolio: true
+          canManageSchedule: true
           viewInvoices: true
           addMessages: true
           viewRiskRegister: true
           viewEstimatedTime: true
           addRisks: true
+          canViewSchedule: true
           canManageRates: true
           notifyDefaults:
             newTasks: newTasks
@@ -10006,6 +11109,7 @@ components:
         addressCity: addressCity
         imService: imService
         addressCountry: addressCountry
+        isClientUser: true
         isClockedIn: true
         teams:
         - teams
@@ -10041,6 +11145,7 @@ components:
           notifyOnTaskComplete: true
           notifyOnStatusUpdate: true
           dailyReportEventsType: dailyReportEventsType
+          dailyReportIncludeStartDate: true
           notifyOnAddedAsFollower: true
           receiveNotifyWarnings: true
           receiveDailyReports: true
@@ -10049,6 +11154,7 @@ components:
           receiveDailyReportsAtWeekend: true
           receiveDailyReportsIfEmpty: true
         emailAlt2: emailAlt2
+        mentionName: mentionName
         lastName: lastName
         lastActive: lastActive
         openId: openId
@@ -10159,6 +11265,8 @@ components:
           type: string
         inOwnerCompany:
           type: boolean
+        isClientUser:
+          type: boolean
         isClockedIn:
           type: boolean
         lastActive:
@@ -10175,6 +11283,8 @@ components:
           $ref: '#/components/schemas/people.localization'
         loginCount:
           type: integer
+        mentionName:
+          type: string
         notes:
           type: string
         notifications:
@@ -10275,18 +11385,50 @@ components:
           companyName: companyName
           phoneNumberMobile: phoneNumberMobile
           pid: pid
-          sharedUserFilter: '{}'
+          sharedUserFilter:
+            key:
+              shared: true
+              isProjectSpecific: true
+              fulldata: '{}'
+              displayOrder: 2
+              description: description
+              shareLink: shareLink
+              isTemporary: true
+              section: section
+              title: title
+              userId: 3
+              dateDeleted: dateDeleted
+              dateUpdated: dateUpdated
+              dateCreated: dateCreated
+              deleted: true
+              id: 7
+              includesSort: true
+              parameters:
+                key: parameters
+              projectId: 9
           phoneNumberOfficeExt: phoneNumberOfficeExt
           createdAt: createdAt
           hasFeatureUpdates: true
           emailAddress: emailAddress
           twitter: twitter
           twoFactorAuthEnabled: true
-          currentFeatureAnnouncement: '{}'
+          currentFeatureAnnouncement:
+            date: date
+            calloutImage: calloutImage
+            code: code
+            isRead: true
+            link: link
+            html: html
+            linkText: linkText
+            id: 5
+            text: text
+            title: title
+            type: type
           inOwnerCompany: true
           permissions:
             canViewProjectBudget: true
             addTime: true
+            canAddForms: true
             addTaskLists: true
             canBeAssignedToTasksAndMilestones: true
             canManagePortfolio: true
@@ -10301,8 +11443,11 @@ components:
             hasAccessToNewProjects: true
             viewAllTimeLogs: true
             active: true
+            canAccessCalendar: true
             canAccessOneDriveBusiness: true
+            canManageReports: true
             viewProjectUpdate: true
+            canViewForms: true
             isObserving: true
             canAccessInvoiceTracking: true
             canManageProjectTemplates: true
@@ -10312,8 +11457,10 @@ components:
             canAccessTemplates: true
             setPrivacy: true
             viewLinks: true
+            canManageCustomFields: true
             canManagePeople: true
             canViewProjectMembers: true
+            canViewReports: true
             addNotebooks: true
             canAddProjects: true
             isArchived: true
@@ -10324,21 +11471,24 @@ components:
             projectAdministrator: true
             addLinks: true
             addTasks: true
+            manageCustomFields: true
             canReceiveEmail: true
             editAllTasks: true
             addPeopleToProject: true
             canManageProjectBudget: true
             canAccessPortfolio: true
+            canManageSchedule: true
             viewInvoices: true
             addMessages: true
             viewRiskRegister: true
             viewEstimatedTime: true
             addRisks: true
+            canViewSchedule: true
             canManageRates: true
             notifyDefaults:
               newTasks: newTasks
           phoneNumberFax: phoneNumberFax
-          id: 1
+          id: 4
           userUUID: userUUID
           hubspotEnabled: true
           workingHours:
@@ -10379,6 +11529,7 @@ components:
               endTime: endTime
           tasks: '{}'
           imService: imService
+          isClientUser: true
           isClockedIn: true
           teams:
           - teams
@@ -10396,21 +11547,18 @@ components:
             name: name
             id: 1
             projectId: 1
-          featureUpdatesCount: 6
+          featureUpdatesCount: 2
           firstName: firstName
           canManageProjectTemplates: true
-          companyId: 0
+          companyId: 5
           phoneNumberHome: phoneNumberHome
-          lengthOfDay: 5.637376656633329
+          lengthOfDay: 1.2315135367772556
           canViewProjectTemplates: true
           phoneNumberOffice: phoneNumberOffice
-          teamsCount: 9
+          teamsCount: 6
           privateNotesText: privateNotesText
           userType: userType
           emailAlt3: emailAlt3
-          integrations:
-            microsoftConnector:
-              enabled: true
           emailAlt1: emailAlt1
           notifications:
             soundAlertsEnabled: true
@@ -10419,6 +11567,7 @@ components:
             notifyOnTaskComplete: true
             notifyOnStatusUpdate: true
             dailyReportEventsType: dailyReportEventsType
+            dailyReportIncludeStartDate: true
             notifyOnAddedAsFollower: true
             receiveNotifyWarnings: true
             receiveDailyReports: true
@@ -10427,6 +11576,7 @@ components:
             receiveDailyReportsAtWeekend: true
             receiveDailyReportsIfEmpty: true
           emailAlt2: emailAlt2
+          mentionName: mentionName
           lastName: lastName
           lastActive: lastActive
           documentEditorInstalled: true
@@ -10434,7 +11584,7 @@ components:
           privateNotes: privateNotes
           title: title
           userInvitedDate: userInvitedDate
-          numActiveProjects: 7
+          numActiveProjects: 1
           administrator: true
           useShorthandDurations: true
           company:
@@ -10468,16 +11618,16 @@ components:
             website: website
             facebook: facebook
             linkedin: linkedin
-          userInvited: 3
+          userInvited: 7
           phoneNumberMobileParts:
             phone: phone
             countryCode: countryCode
             prefix: prefix
           impersonating:
             fullName: fullName
-            id: 5
+            id: 7
           userName: userName
-          loginCount: 2
+          loginCount: 1
           textFormat: textFormat
           initialPage: initialPage
           deleted: true
@@ -10486,10 +11636,44 @@ components:
           hasDeskAccount: true
           siteOwner: true
           accounts:
-          - '{}'
-          - '{}'
+          - favIcon: favIcon
+            link: link
+            name: name
+            id: 0
+            shard: 6
+            islinked: true
+            userid: 1
+            email: email
+          - favIcon: favIcon
+            link: link
+            name: name
+            id: 0
+            shard: 6
+            islinked: true
+            userid: 1
+            email: email
           milestones: '{}'
-          defaultFilters: '{}'
+          defaultFilters:
+            key:
+              shared: true
+              isProjectSpecific: true
+              fulldata: '{}'
+              displayOrder: 2
+              description: description
+              shareLink: shareLink
+              isTemporary: true
+              section: section
+              title: title
+              userId: 3
+              dateDeleted: dateDeleted
+              dateUpdated: dateUpdated
+              dateCreated: dateCreated
+              deleted: true
+              id: 7
+              includesSort: true
+              parameters:
+                key: parameters
+              projectId: 9
       properties:
         STATUS:
           type: string
@@ -10546,6 +11730,7 @@ components:
             permissions:
               canViewProjectBudget: true
               addTime: true
+              canAddForms: true
               addTaskLists: true
               canBeAssignedToTasksAndMilestones: true
               canManagePortfolio: true
@@ -10560,8 +11745,11 @@ components:
               hasAccessToNewProjects: true
               viewAllTimeLogs: true
               active: true
+              canAccessCalendar: true
               canAccessOneDriveBusiness: true
+              canManageReports: true
               viewProjectUpdate: true
+              canViewForms: true
               isObserving: true
               canAccessInvoiceTracking: true
               canManageProjectTemplates: true
@@ -10571,8 +11759,10 @@ components:
               canAccessTemplates: true
               setPrivacy: true
               viewLinks: true
+              canManageCustomFields: true
               canManagePeople: true
               canViewProjectMembers: true
+              canViewReports: true
               addNotebooks: true
               canAddProjects: true
               isArchived: true
@@ -10583,16 +11773,19 @@ components:
               projectAdministrator: true
               addLinks: true
               addTasks: true
+              manageCustomFields: true
               canReceiveEmail: true
               editAllTasks: true
               addPeopleToProject: true
               canManageProjectBudget: true
               canAccessPortfolio: true
+              canManageSchedule: true
               viewInvoices: true
               addMessages: true
               viewRiskRegister: true
               viewEstimatedTime: true
               addRisks: true
+              canViewSchedule: true
               canManageRates: true
               notifyDefaults:
                 newTasks: newTasks
@@ -10641,6 +11834,7 @@ components:
             addressCity: addressCity
             imService: imService
             addressCountry: addressCountry
+            isClientUser: true
             isClockedIn: true
             teams:
             - teams
@@ -10676,6 +11870,7 @@ components:
               notifyOnTaskComplete: true
               notifyOnStatusUpdate: true
               dailyReportEventsType: dailyReportEventsType
+              dailyReportIncludeStartDate: true
               notifyOnAddedAsFollower: true
               receiveNotifyWarnings: true
               receiveDailyReports: true
@@ -10684,6 +11879,7 @@ components:
               receiveDailyReportsAtWeekend: true
               receiveDailyReportsIfEmpty: true
             emailAlt2: emailAlt2
+            mentionName: mentionName
             lastName: lastName
             lastActive: lastActive
             openId: openId
@@ -10766,6 +11962,7 @@ components:
             permissions:
               canViewProjectBudget: true
               addTime: true
+              canAddForms: true
               addTaskLists: true
               canBeAssignedToTasksAndMilestones: true
               canManagePortfolio: true
@@ -10780,8 +11977,11 @@ components:
               hasAccessToNewProjects: true
               viewAllTimeLogs: true
               active: true
+              canAccessCalendar: true
               canAccessOneDriveBusiness: true
+              canManageReports: true
               viewProjectUpdate: true
+              canViewForms: true
               isObserving: true
               canAccessInvoiceTracking: true
               canManageProjectTemplates: true
@@ -10791,8 +11991,10 @@ components:
               canAccessTemplates: true
               setPrivacy: true
               viewLinks: true
+              canManageCustomFields: true
               canManagePeople: true
               canViewProjectMembers: true
+              canViewReports: true
               addNotebooks: true
               canAddProjects: true
               isArchived: true
@@ -10803,16 +12005,19 @@ components:
               projectAdministrator: true
               addLinks: true
               addTasks: true
+              manageCustomFields: true
               canReceiveEmail: true
               editAllTasks: true
               addPeopleToProject: true
               canManageProjectBudget: true
               canAccessPortfolio: true
+              canManageSchedule: true
               viewInvoices: true
               addMessages: true
               viewRiskRegister: true
               viewEstimatedTime: true
               addRisks: true
+              canViewSchedule: true
               canManageRates: true
               notifyDefaults:
                 newTasks: newTasks
@@ -10861,6 +12066,7 @@ components:
             addressCity: addressCity
             imService: imService
             addressCountry: addressCountry
+            isClientUser: true
             isClockedIn: true
             teams:
             - teams
@@ -10896,6 +12102,7 @@ components:
               notifyOnTaskComplete: true
               notifyOnStatusUpdate: true
               dailyReportEventsType: dailyReportEventsType
+              dailyReportIncludeStartDate: true
               notifyOnAddedAsFollower: true
               receiveNotifyWarnings: true
               receiveDailyReports: true
@@ -10904,6 +12111,7 @@ components:
               receiveDailyReportsAtWeekend: true
               receiveDailyReportsIfEmpty: true
             emailAlt2: emailAlt2
+            mentionName: mentionName
             lastName: lastName
             lastActive: lastActive
             openId: openId
@@ -10989,6 +12197,7 @@ components:
             permissions:
               canViewProjectBudget: true
               addTime: true
+              canAddForms: true
               addTaskLists: true
               canBeAssignedToTasksAndMilestones: true
               canManagePortfolio: true
@@ -11003,8 +12212,11 @@ components:
               hasAccessToNewProjects: true
               viewAllTimeLogs: true
               active: true
+              canAccessCalendar: true
               canAccessOneDriveBusiness: true
+              canManageReports: true
               viewProjectUpdate: true
+              canViewForms: true
               isObserving: true
               canAccessInvoiceTracking: true
               canManageProjectTemplates: true
@@ -11014,8 +12226,10 @@ components:
               canAccessTemplates: true
               setPrivacy: true
               viewLinks: true
+              canManageCustomFields: true
               canManagePeople: true
               canViewProjectMembers: true
+              canViewReports: true
               addNotebooks: true
               canAddProjects: true
               isArchived: true
@@ -11026,16 +12240,19 @@ components:
               projectAdministrator: true
               addLinks: true
               addTasks: true
+              manageCustomFields: true
               canReceiveEmail: true
               editAllTasks: true
               addPeopleToProject: true
               canManageProjectBudget: true
               canAccessPortfolio: true
+              canManageSchedule: true
               viewInvoices: true
               addMessages: true
               viewRiskRegister: true
               viewEstimatedTime: true
               addRisks: true
+              canViewSchedule: true
               canManageRates: true
               notifyDefaults:
                 newTasks: newTasks
@@ -11084,6 +12301,7 @@ components:
             addressCity: addressCity
             imService: imService
             addressCountry: addressCountry
+            isClientUser: true
             isClockedIn: true
             teams:
             - teams
@@ -11119,6 +12337,7 @@ components:
               notifyOnTaskComplete: true
               notifyOnStatusUpdate: true
               dailyReportEventsType: dailyReportEventsType
+              dailyReportIncludeStartDate: true
               notifyOnAddedAsFollower: true
               receiveNotifyWarnings: true
               receiveDailyReports: true
@@ -11127,6 +12346,7 @@ components:
               receiveDailyReportsAtWeekend: true
               receiveDailyReportsIfEmpty: true
             emailAlt2: emailAlt2
+            mentionName: mentionName
             lastName: lastName
             lastActive: lastActive
             openId: openId
@@ -11209,6 +12429,7 @@ components:
             permissions:
               canViewProjectBudget: true
               addTime: true
+              canAddForms: true
               addTaskLists: true
               canBeAssignedToTasksAndMilestones: true
               canManagePortfolio: true
@@ -11223,8 +12444,11 @@ components:
               hasAccessToNewProjects: true
               viewAllTimeLogs: true
               active: true
+              canAccessCalendar: true
               canAccessOneDriveBusiness: true
+              canManageReports: true
               viewProjectUpdate: true
+              canViewForms: true
               isObserving: true
               canAccessInvoiceTracking: true
               canManageProjectTemplates: true
@@ -11234,8 +12458,10 @@ components:
               canAccessTemplates: true
               setPrivacy: true
               viewLinks: true
+              canManageCustomFields: true
               canManagePeople: true
               canViewProjectMembers: true
+              canViewReports: true
               addNotebooks: true
               canAddProjects: true
               isArchived: true
@@ -11246,16 +12472,19 @@ components:
               projectAdministrator: true
               addLinks: true
               addTasks: true
+              manageCustomFields: true
               canReceiveEmail: true
               editAllTasks: true
               addPeopleToProject: true
               canManageProjectBudget: true
               canAccessPortfolio: true
+              canManageSchedule: true
               viewInvoices: true
               addMessages: true
               viewRiskRegister: true
               viewEstimatedTime: true
               addRisks: true
+              canViewSchedule: true
               canManageRates: true
               notifyDefaults:
                 newTasks: newTasks
@@ -11304,6 +12533,7 @@ components:
             addressCity: addressCity
             imService: imService
             addressCountry: addressCountry
+            isClientUser: true
             isClockedIn: true
             teams:
             - teams
@@ -11339,6 +12569,7 @@ components:
               notifyOnTaskComplete: true
               notifyOnStatusUpdate: true
               dailyReportEventsType: dailyReportEventsType
+              dailyReportIncludeStartDate: true
               notifyOnAddedAsFollower: true
               receiveNotifyWarnings: true
               receiveDailyReports: true
@@ -11347,6 +12578,7 @@ components:
               receiveDailyReportsAtWeekend: true
               receiveDailyReportsIfEmpty: true
             emailAlt2: emailAlt2
+            mentionName: mentionName
             lastName: lastName
             lastActive: lastActive
             openId: openId
@@ -11430,6 +12662,7 @@ components:
           permissions:
             canViewProjectBudget: true
             addTime: true
+            canAddForms: true
             addTaskLists: true
             canBeAssignedToTasksAndMilestones: true
             canManagePortfolio: true
@@ -11444,8 +12677,11 @@ components:
             hasAccessToNewProjects: true
             viewAllTimeLogs: true
             active: true
+            canAccessCalendar: true
             canAccessOneDriveBusiness: true
+            canManageReports: true
             viewProjectUpdate: true
+            canViewForms: true
             isObserving: true
             canAccessInvoiceTracking: true
             canManageProjectTemplates: true
@@ -11455,8 +12691,10 @@ components:
             canAccessTemplates: true
             setPrivacy: true
             viewLinks: true
+            canManageCustomFields: true
             canManagePeople: true
             canViewProjectMembers: true
+            canViewReports: true
             addNotebooks: true
             canAddProjects: true
             isArchived: true
@@ -11467,16 +12705,19 @@ components:
             projectAdministrator: true
             addLinks: true
             addTasks: true
+            manageCustomFields: true
             canReceiveEmail: true
             editAllTasks: true
             addPeopleToProject: true
             canManageProjectBudget: true
             canAccessPortfolio: true
+            canManageSchedule: true
             viewInvoices: true
             addMessages: true
             viewRiskRegister: true
             viewEstimatedTime: true
             addRisks: true
+            canViewSchedule: true
             canManageRates: true
             notifyDefaults:
               newTasks: newTasks
@@ -11525,6 +12766,7 @@ components:
           addressCity: addressCity
           imService: imService
           addressCountry: addressCountry
+          isClientUser: true
           isClockedIn: true
           teams:
           - teams
@@ -11560,6 +12802,7 @@ components:
             notifyOnTaskComplete: true
             notifyOnStatusUpdate: true
             dailyReportEventsType: dailyReportEventsType
+            dailyReportIncludeStartDate: true
             notifyOnAddedAsFollower: true
             receiveNotifyWarnings: true
             receiveDailyReports: true
@@ -11568,6 +12811,7 @@ components:
             receiveDailyReportsAtWeekend: true
             receiveDailyReportsIfEmpty: true
           emailAlt2: emailAlt2
+          mentionName: mentionName
           lastName: lastName
           lastActive: lastActive
           openId: openId
@@ -11650,6 +12894,7 @@ components:
           permissions:
             canViewProjectBudget: true
             addTime: true
+            canAddForms: true
             addTaskLists: true
             canBeAssignedToTasksAndMilestones: true
             canManagePortfolio: true
@@ -11664,8 +12909,11 @@ components:
             hasAccessToNewProjects: true
             viewAllTimeLogs: true
             active: true
+            canAccessCalendar: true
             canAccessOneDriveBusiness: true
+            canManageReports: true
             viewProjectUpdate: true
+            canViewForms: true
             isObserving: true
             canAccessInvoiceTracking: true
             canManageProjectTemplates: true
@@ -11675,8 +12923,10 @@ components:
             canAccessTemplates: true
             setPrivacy: true
             viewLinks: true
+            canManageCustomFields: true
             canManagePeople: true
             canViewProjectMembers: true
+            canViewReports: true
             addNotebooks: true
             canAddProjects: true
             isArchived: true
@@ -11687,16 +12937,19 @@ components:
             projectAdministrator: true
             addLinks: true
             addTasks: true
+            manageCustomFields: true
             canReceiveEmail: true
             editAllTasks: true
             addPeopleToProject: true
             canManageProjectBudget: true
             canAccessPortfolio: true
+            canManageSchedule: true
             viewInvoices: true
             addMessages: true
             viewRiskRegister: true
             viewEstimatedTime: true
             addRisks: true
+            canViewSchedule: true
             canManageRates: true
             notifyDefaults:
               newTasks: newTasks
@@ -11745,6 +12998,7 @@ components:
           addressCity: addressCity
           imService: imService
           addressCountry: addressCountry
+          isClientUser: true
           isClockedIn: true
           teams:
           - teams
@@ -11780,6 +13034,7 @@ components:
             notifyOnTaskComplete: true
             notifyOnStatusUpdate: true
             dailyReportEventsType: dailyReportEventsType
+            dailyReportIncludeStartDate: true
             notifyOnAddedAsFollower: true
             receiveNotifyWarnings: true
             receiveDailyReports: true
@@ -11788,6 +13043,7 @@ components:
             receiveDailyReportsAtWeekend: true
             receiveDailyReportsIfEmpty: true
           emailAlt2: emailAlt2
+          mentionName: mentionName
           lastName: lastName
           lastActive: lastActive
           openId: openId
@@ -11900,18 +13156,50 @@ components:
         companyName: companyName
         phoneNumberMobile: phoneNumberMobile
         pid: pid
-        sharedUserFilter: '{}'
+        sharedUserFilter:
+          key:
+            shared: true
+            isProjectSpecific: true
+            fulldata: '{}'
+            displayOrder: 2
+            description: description
+            shareLink: shareLink
+            isTemporary: true
+            section: section
+            title: title
+            userId: 3
+            dateDeleted: dateDeleted
+            dateUpdated: dateUpdated
+            dateCreated: dateCreated
+            deleted: true
+            id: 7
+            includesSort: true
+            parameters:
+              key: parameters
+            projectId: 9
         phoneNumberOfficeExt: phoneNumberOfficeExt
         createdAt: createdAt
         hasFeatureUpdates: true
         emailAddress: emailAddress
         twitter: twitter
         twoFactorAuthEnabled: true
-        currentFeatureAnnouncement: '{}'
+        currentFeatureAnnouncement:
+          date: date
+          calloutImage: calloutImage
+          code: code
+          isRead: true
+          link: link
+          html: html
+          linkText: linkText
+          id: 5
+          text: text
+          title: title
+          type: type
         inOwnerCompany: true
         permissions:
           canViewProjectBudget: true
           addTime: true
+          canAddForms: true
           addTaskLists: true
           canBeAssignedToTasksAndMilestones: true
           canManagePortfolio: true
@@ -11926,8 +13214,11 @@ components:
           hasAccessToNewProjects: true
           viewAllTimeLogs: true
           active: true
+          canAccessCalendar: true
           canAccessOneDriveBusiness: true
+          canManageReports: true
           viewProjectUpdate: true
+          canViewForms: true
           isObserving: true
           canAccessInvoiceTracking: true
           canManageProjectTemplates: true
@@ -11937,8 +13228,10 @@ components:
           canAccessTemplates: true
           setPrivacy: true
           viewLinks: true
+          canManageCustomFields: true
           canManagePeople: true
           canViewProjectMembers: true
+          canViewReports: true
           addNotebooks: true
           canAddProjects: true
           isArchived: true
@@ -11949,21 +13242,24 @@ components:
           projectAdministrator: true
           addLinks: true
           addTasks: true
+          manageCustomFields: true
           canReceiveEmail: true
           editAllTasks: true
           addPeopleToProject: true
           canManageProjectBudget: true
           canAccessPortfolio: true
+          canManageSchedule: true
           viewInvoices: true
           addMessages: true
           viewRiskRegister: true
           viewEstimatedTime: true
           addRisks: true
+          canViewSchedule: true
           canManageRates: true
           notifyDefaults:
             newTasks: newTasks
         phoneNumberFax: phoneNumberFax
-        id: 1
+        id: 4
         userUUID: userUUID
         hubspotEnabled: true
         workingHours:
@@ -12004,6 +13300,7 @@ components:
             endTime: endTime
         tasks: '{}'
         imService: imService
+        isClientUser: true
         isClockedIn: true
         teams:
         - teams
@@ -12021,21 +13318,18 @@ components:
           name: name
           id: 1
           projectId: 1
-        featureUpdatesCount: 6
+        featureUpdatesCount: 2
         firstName: firstName
         canManageProjectTemplates: true
-        companyId: 0
+        companyId: 5
         phoneNumberHome: phoneNumberHome
-        lengthOfDay: 5.637376656633329
+        lengthOfDay: 1.2315135367772556
         canViewProjectTemplates: true
         phoneNumberOffice: phoneNumberOffice
-        teamsCount: 9
+        teamsCount: 6
         privateNotesText: privateNotesText
         userType: userType
         emailAlt3: emailAlt3
-        integrations:
-          microsoftConnector:
-            enabled: true
         emailAlt1: emailAlt1
         notifications:
           soundAlertsEnabled: true
@@ -12044,6 +13338,7 @@ components:
           notifyOnTaskComplete: true
           notifyOnStatusUpdate: true
           dailyReportEventsType: dailyReportEventsType
+          dailyReportIncludeStartDate: true
           notifyOnAddedAsFollower: true
           receiveNotifyWarnings: true
           receiveDailyReports: true
@@ -12052,6 +13347,7 @@ components:
           receiveDailyReportsAtWeekend: true
           receiveDailyReportsIfEmpty: true
         emailAlt2: emailAlt2
+        mentionName: mentionName
         lastName: lastName
         lastActive: lastActive
         documentEditorInstalled: true
@@ -12059,7 +13355,7 @@ components:
         privateNotes: privateNotes
         title: title
         userInvitedDate: userInvitedDate
-        numActiveProjects: 7
+        numActiveProjects: 1
         administrator: true
         useShorthandDurations: true
         company:
@@ -12093,16 +13389,16 @@ components:
           website: website
           facebook: facebook
           linkedin: linkedin
-        userInvited: 3
+        userInvited: 7
         phoneNumberMobileParts:
           phone: phone
           countryCode: countryCode
           prefix: prefix
         impersonating:
           fullName: fullName
-          id: 5
+          id: 7
         userName: userName
-        loginCount: 2
+        loginCount: 1
         textFormat: textFormat
         initialPage: initialPage
         deleted: true
@@ -12111,10 +13407,44 @@ components:
         hasDeskAccount: true
         siteOwner: true
         accounts:
-        - '{}'
-        - '{}'
+        - favIcon: favIcon
+          link: link
+          name: name
+          id: 0
+          shard: 6
+          islinked: true
+          userid: 1
+          email: email
+        - favIcon: favIcon
+          link: link
+          name: name
+          id: 0
+          shard: 6
+          islinked: true
+          userid: 1
+          email: email
         milestones: '{}'
-        defaultFilters: '{}'
+        defaultFilters:
+          key:
+            shared: true
+            isProjectSpecific: true
+            fulldata: '{}'
+            displayOrder: 2
+            description: description
+            shareLink: shareLink
+            isTemporary: true
+            section: section
+            title: title
+            userId: 3
+            dateDeleted: dateDeleted
+            dateUpdated: dateUpdated
+            dateCreated: dateCreated
+            deleted: true
+            id: 7
+            includesSort: true
+            parameters:
+              key: parameters
+            projectId: 9
       properties:
         APIEnabled:
           type: boolean
@@ -12145,7 +13475,8 @@ components:
         currentFeatureAnnouncement:
           $ref: '#/components/schemas/twdataaccount.AnnouncementResponse'
         defaultFilters:
-          properties: {}
+          additionalProperties:
+            $ref: '#/components/schemas/twdatausers.FilterResponse'
           type: object
         deleted:
           type: boolean
@@ -12183,8 +13514,8 @@ components:
           type: boolean
         initialPage:
           type: string
-        integrations:
-          $ref: '#/components/schemas/people.integrations'
+        isClientUser:
+          type: boolean
         isClockedIn:
           type: boolean
         lastActive:
@@ -12201,6 +13532,8 @@ components:
           $ref: '#/components/schemas/people.localization'
         loginCount:
           type: integer
+        mentionName:
+          type: string
         milestones:
           properties: {}
           type: object
@@ -12243,7 +13576,8 @@ components:
           properties: {}
           type: object
         sharedUserFilter:
-          properties: {}
+          additionalProperties:
+            $ref: '#/components/schemas/twdatausers.FilterResponse'
           type: object
         siteOwner:
           type: boolean
@@ -12376,7 +13710,79 @@ components:
           type: integer
       title: Tag
       type: object
-    Twcoreusersbase.Account:
+    twdatausers.FilterResponse:
+      example:
+        shared: true
+        isProjectSpecific: true
+        fulldata: '{}'
+        displayOrder: 2
+        description: description
+        shareLink: shareLink
+        isTemporary: true
+        section: section
+        title: title
+        userId: 3
+        dateDeleted: dateDeleted
+        dateUpdated: dateUpdated
+        dateCreated: dateCreated
+        deleted: true
+        id: 7
+        includesSort: true
+        parameters:
+          key: parameters
+        projectId: 9
+      properties:
+        dateCreated:
+          type: string
+        dateDeleted:
+          type: string
+        dateUpdated:
+          type: string
+        deleted:
+          type: boolean
+        description:
+          type: string
+        displayOrder:
+          type: integer
+        fulldata:
+          properties: {}
+          type: object
+        id:
+          type: integer
+        includesSort:
+          type: boolean
+        isProjectSpecific:
+          type: boolean
+        isTemporary:
+          type: boolean
+        parameters:
+          additionalProperties:
+            type: string
+          type: object
+        projectId:
+          type: integer
+        section:
+          type: string
+        shareLink:
+          type: string
+        shared:
+          type: boolean
+        title:
+          type: string
+        userId:
+          type: integer
+      title: FilterResponse
+      type: object
+    twcoreusersbase.Account:
+      example:
+        favIcon: favIcon
+        link: link
+        name: name
+        id: 0
+        shard: 6
+        islinked: true
+        userid: 1
+        email: email
       properties:
         email:
           type: string

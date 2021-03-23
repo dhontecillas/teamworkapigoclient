@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3CompaniesIdJson**](CompanyApi.md#GETProjectsApiV3CompaniesIdJson) | **Get** /projects/api/v3/companies/:id.json | Get a specific company.
+[**GETProjectsApiV3CompaniescompanyIdJson**](CompanyApi.md#GETProjectsApiV3CompaniescompanyIdJson) | **Get** /projects/api/v3/companies/{companyId}.json | Get a specific company.
 
 
 
-## GETProjectsApiV3CompaniesIdJson
+## GETProjectsApiV3CompaniescompanyIdJson
 
-> CompanyResponse GETProjectsApiV3CompaniesIdJson(ctx).Execute()
+> CompanyResponse GETProjectsApiV3CompaniescompanyIdJson(ctx, companyId).Execute()
 
 Get a specific company.
 
@@ -29,26 +29,35 @@ import (
 )
 
 func main() {
+    companyId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CompanyApi.GETProjectsApiV3CompaniesIdJson(context.Background()).Execute()
+    resp, r, err := api_client.CompanyApi.GETProjectsApiV3CompaniescompanyIdJson(context.Background(), companyId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CompanyApi.GETProjectsApiV3CompaniesIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CompanyApi.GETProjectsApiV3CompaniescompanyIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3CompaniesIdJson`: CompanyResponse
-    fmt.Fprintf(os.Stdout, "Response from `CompanyApi.GETProjectsApiV3CompaniesIdJson`: %v\n", resp)
+    // response from `GETProjectsApiV3CompaniescompanyIdJson`: CompanyResponse
+    fmt.Fprintf(os.Stdout, "Response from `CompanyApi.GETProjectsApiV3CompaniescompanyIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**companyId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3CompaniesIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3CompaniescompanyIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

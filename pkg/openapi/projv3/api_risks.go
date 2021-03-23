@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,9 +28,10 @@ var (
 // RisksApiService RisksApi service
 type RisksApiService service
 
-type ApiGETProjectsApiV3ProjectsProjectIdRisksRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdRisksRequest struct {
 	ctx _context.Context
 	ApiService *RisksApiService
+	projectId int32
 	updatedAfterDate *time.Time
 	updatedAfter *time.Time
 	statuses *string
@@ -67,162 +69,164 @@ type ApiGETProjectsApiV3ProjectsProjectIdRisksRequest struct {
 	fieldsCompanies *[]string
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) Statuses(statuses string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) Statuses(statuses string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.statuses = &statuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) Sort(sort string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) Sort(sort string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProbabilityTo(probabilityTo int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProbabilityTo(probabilityTo int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.probabilityTo = &probabilityTo
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProbabilityFrom(probabilityFrom int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProbabilityFrom(probabilityFrom int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.probabilityFrom = &probabilityFrom
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) Page(page int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) Page(page int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ImpactTo(impactTo int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ImpactTo(impactTo int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.impactTo = &impactTo
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ImpactFrom(impactFrom int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ImpactFrom(impactFrom int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.impactFrom = &impactFrom
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ImpactSchedule(impactSchedule bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ImpactSchedule(impactSchedule bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.impactSchedule = &impactSchedule
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ImpactPerformance(impactPerformance bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ImpactPerformance(impactPerformance bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.impactPerformance = &impactPerformance
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ImpactCost(impactCost bool) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ImpactCost(impactCost bool) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.impactCost = &impactCost
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) Include(include []string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) FieldsRisks(fieldsRisks []string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) FieldsRisks(fieldsRisks []string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.fieldsRisks = &fieldsRisks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) Execute() (RiskRisksResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdRisksExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) Execute() (RiskRisksResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdRisksExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdRisks Get risks for a specific project
+ * GETProjectsApiV3ProjectsprojectIdRisks Get risks for a specific project
  * Return all risks for a specific project. Only filters that the logged-in user
 has access will be returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdRisksRequest
+ * @param projectId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdRisksRequest
  */
-func (a *RisksApiService) GETProjectsApiV3ProjectsProjectIdRisks(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdRisksRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdRisksRequest{
+func (a *RisksApiService) GETProjectsApiV3ProjectsprojectIdRisks(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdRisksRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdRisksRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -230,7 +234,7 @@ func (a *RisksApiService) GETProjectsApiV3ProjectsProjectIdRisks(ctx _context.Co
  * Execute executes the request
  * @return RiskRisksResponse
  */
-func (a *RisksApiService) GETProjectsApiV3ProjectsProjectIdRisksExecute(r ApiGETProjectsApiV3ProjectsProjectIdRisksRequest) (RiskRisksResponse, *_nethttp.Response, error) {
+func (a *RisksApiService) GETProjectsApiV3ProjectsprojectIdRisksExecute(r ApiGETProjectsApiV3ProjectsprojectIdRisksRequest) (RiskRisksResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -240,12 +244,13 @@ func (a *RisksApiService) GETProjectsApiV3ProjectsProjectIdRisksExecute(r ApiGET
 		localVarReturnValue  RiskRisksResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RisksApiService.GETProjectsApiV3ProjectsProjectIdRisks")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RisksApiService.GETProjectsApiV3ProjectsprojectIdRisks")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/risks"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/risks"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

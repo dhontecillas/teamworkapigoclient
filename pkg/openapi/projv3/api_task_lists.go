@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,9 +28,10 @@ var (
 // TaskListsApiService TaskListsApi service
 type TaskListsApiService service
 
-type ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest struct {
 	ctx _context.Context
 	ApiService *TaskListsApiService
+	projectId2 int32
 	taskDate *string
 	startDate *time.Time
 	reportFormat *string
@@ -62,150 +64,152 @@ type ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.taskDate = &taskDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.commentsOrderMode = &commentsOrderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.onlyCompletedTasks = &onlyCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeTime = &includeTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includePrivateItems = &includePrivateItems
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeLateTasks = &includeLateTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeEstimatedTime = &includeEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeComments = &includeComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeCommentAvatars = &includeCommentAvatars
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeColumns = &includeColumns
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeAnytimeTasks = &includeAnytimeTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.includeAllComments = &includeAllComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.groupByTasklists = &groupByTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdTasklistsCsvExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdTasklistsCsvExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdTasklistsCsv Generate tasklist report in CSV format
+ * GETProjectsApiV3ProjectsprojectIdTasklistsCsv Generate tasklist report in CSV format
  * Generates a task list report in CSV format containing all tasks for the
 provided filters. Only the tasks that the logged-in user can access will be
 returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsCsv(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest{
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsCsv(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsCsvExecute(r ApiGETProjectsApiV3ProjectsProjectIdTasklistsCsvRequest) (*_nethttp.Response, error) {
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsCsvExecute(r ApiGETProjectsApiV3ProjectsprojectIdTasklistsCsvRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -214,12 +218,13 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsCsvExecu
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsProjectIdTasklistsCsv")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsprojectIdTasklistsCsv")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/tasklists.csv"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/tasklists.csv"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -379,9 +384,10 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsCsvExecu
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest struct {
 	ctx _context.Context
 	ApiService *TaskListsApiService
+	projectId2 int32
 	taskDate *string
 	startDate *time.Time
 	reportFormat *string
@@ -414,150 +420,152 @@ type ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.taskDate = &taskDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.commentsOrderMode = &commentsOrderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.onlyCompletedTasks = &onlyCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeTime = &includeTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includePrivateItems = &includePrivateItems
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeLateTasks = &includeLateTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeEstimatedTime = &includeEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeComments = &includeComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeCommentAvatars = &includeCommentAvatars
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeColumns = &includeColumns
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeAnytimeTasks = &includeAnytimeTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.includeAllComments = &includeAllComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.groupByTasklists = &groupByTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdTasklistsHtmlExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdTasklistsHtmlExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdTasklistsHtml Generate tasklist report in HTML format
+ * GETProjectsApiV3ProjectsprojectIdTasklistsHtml Generate tasklist report in HTML format
  * Generates a task list report in HTML format containing all tasks for the
 provided filters. Only the tasks that the logged-in user can access will be
 returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsHtml(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest{
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsHtml(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsHtmlExecute(r ApiGETProjectsApiV3ProjectsProjectIdTasklistsHtmlRequest) (*_nethttp.Response, error) {
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsHtmlExecute(r ApiGETProjectsApiV3ProjectsprojectIdTasklistsHtmlRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -566,12 +574,13 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsHtmlExec
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsProjectIdTasklistsHtml")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsprojectIdTasklistsHtml")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/tasklists.html"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/tasklists.html"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -731,9 +740,10 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsHtmlExec
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest struct {
 	ctx _context.Context
 	ApiService *TaskListsApiService
+	projectId2 int32
 	taskDate *string
 	startDate *time.Time
 	reportFormat *string
@@ -766,150 +776,152 @@ type ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.taskDate = &taskDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.commentsOrderMode = &commentsOrderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.onlyCompletedTasks = &onlyCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeTime = &includeTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includePrivateItems = &includePrivateItems
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeLateTasks = &includeLateTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeEstimatedTime = &includeEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeComments = &includeComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeCommentAvatars = &includeCommentAvatars
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeColumns = &includeColumns
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeAnytimeTasks = &includeAnytimeTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.includeAllComments = &includeAllComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.groupByTasklists = &groupByTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdTasklistsPdfExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdTasklistsPdfExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdTasklistsPdf Generate tasklist report in PDF format
+ * GETProjectsApiV3ProjectsprojectIdTasklistsPdf Generate tasklist report in PDF format
  * Generates a task list report in PDF format containing all tasks for the
 provided filters. Only the tasks that the logged-in user can access will be
 returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsPdf(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest{
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsPdf(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsPdfExecute(r ApiGETProjectsApiV3ProjectsProjectIdTasklistsPdfRequest) (*_nethttp.Response, error) {
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsPdfExecute(r ApiGETProjectsApiV3ProjectsprojectIdTasklistsPdfRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -918,12 +930,13 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsPdfExecu
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsProjectIdTasklistsPdf")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsprojectIdTasklistsPdf")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/tasklists.pdf"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/tasklists.pdf"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1083,9 +1096,10 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsPdfExecu
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest struct {
 	ctx _context.Context
 	ApiService *TaskListsApiService
+	projectId2 int32
 	taskDate *string
 	startDate *time.Time
 	reportFormat *string
@@ -1118,150 +1132,152 @@ type ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) TaskDate(taskDate string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.taskDate = &taskDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) CommentsOrderMode(commentsOrderMode string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.commentsOrderMode = &commentsOrderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) OnlyCompletedTasks(onlyCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.onlyCompletedTasks = &onlyCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeTime(includeTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeTime = &includeTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludePrivateItems(includePrivateItems bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includePrivateItems = &includePrivateItems
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeLateTasks(includeLateTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeLateTasks = &includeLateTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeEstimatedTime(includeEstimatedTime bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeEstimatedTime = &includeEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeComments(includeComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeComments = &includeComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeCommentAvatars(includeCommentAvatars bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeCommentAvatars = &includeCommentAvatars
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeColumns(includeColumns bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeColumns = &includeColumns
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeAnytimeTasks(includeAnytimeTasks bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeAnytimeTasks = &includeAnytimeTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IncludeAllComments(includeAllComments bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.includeAllComments = &includeAllComments
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) GroupByTasklists(groupByTasklists bool) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.groupByTasklists = &groupByTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) Tags(tags []string) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdTasklistsXlsxExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdTasklistsXlsxExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdTasklistsXlsx Generate tasklist report in XLSX format
+ * GETProjectsApiV3ProjectsprojectIdTasklistsXlsx Generate tasklist report in XLSX format
  * Generates a task list report in XLSX format containing all tasks for the
 provided filters. Only the tasks that the logged-in user can access will be
 returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsXlsx(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest{
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsXlsx(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsXlsxExecute(r ApiGETProjectsApiV3ProjectsProjectIdTasklistsXlsxRequest) (*_nethttp.Response, error) {
+func (a *TaskListsApiService) GETProjectsApiV3ProjectsprojectIdTasklistsXlsxExecute(r ApiGETProjectsApiV3ProjectsprojectIdTasklistsXlsxRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1270,12 +1286,13 @@ func (a *TaskListsApiService) GETProjectsApiV3ProjectsProjectIdTasklistsXlsxExec
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsProjectIdTasklistsXlsx")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TaskListsApiService.GETProjectsApiV3ProjectsprojectIdTasklistsXlsx")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/tasklists.xlsx"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/tasklists.xlsx"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -22,7 +22,7 @@ type TaskRequest struct {
 	Predecessors *[]TaskPredecessor `json:"predecessors,omitempty"`
 	Tags *[]TagTag `json:"tags,omitempty"`
 	Task *TaskTask `json:"task,omitempty"`
-	TaskOptions *TaskRequestTaskOptions `json:"taskOptions,omitempty"`
+	TaskOptions *TaskOptions `json:"taskOptions,omitempty"`
 }
 
 // NewTaskRequest instantiates a new TaskRequest object
@@ -235,9 +235,9 @@ func (o *TaskRequest) SetTask(v TaskTask) {
 }
 
 // GetTaskOptions returns the TaskOptions field value if set, zero value otherwise.
-func (o *TaskRequest) GetTaskOptions() TaskRequestTaskOptions {
+func (o *TaskRequest) GetTaskOptions() TaskOptions {
 	if o == nil || o.TaskOptions == nil {
-		var ret TaskRequestTaskOptions
+		var ret TaskOptions
 		return ret
 	}
 	return *o.TaskOptions
@@ -245,7 +245,7 @@ func (o *TaskRequest) GetTaskOptions() TaskRequestTaskOptions {
 
 // GetTaskOptionsOk returns a tuple with the TaskOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequest) GetTaskOptionsOk() (*TaskRequestTaskOptions, bool) {
+func (o *TaskRequest) GetTaskOptionsOk() (*TaskOptions, bool) {
 	if o == nil || o.TaskOptions == nil {
 		return nil, false
 	}
@@ -261,8 +261,8 @@ func (o *TaskRequest) HasTaskOptions() bool {
 	return false
 }
 
-// SetTaskOptions gets a reference to the given TaskRequestTaskOptions and assigns it to the TaskOptions field.
-func (o *TaskRequest) SetTaskOptions(v TaskRequestTaskOptions) {
+// SetTaskOptions gets a reference to the given TaskOptions and assigns it to the TaskOptions field.
+func (o *TaskRequest) SetTaskOptions(v TaskOptions) {
 	o.TaskOptions = &v
 }
 

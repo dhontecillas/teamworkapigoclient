@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,185 +27,203 @@ var (
 // CFPortApiService CFPortApi service
 type CFPortApiService service
 
-type ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest struct {
-	ctx                   _context.Context
-	ApiService            *CFPortApiService
-	updatedAfterDateTime  *string
-	updatedAfterDate      *string
-	type_                 *string
-	sortOrder             *string
-	sort                  *string
-	searchTerm            *string
-	projectType           *string
-	inviteStatus          *string
-	firstLetter           *string
-	emailAddress          *string
-	dataSet               *string
-	projectId             *int32
-	pageSize              *int32
-	page                  *int32
-	excludeProjectId      *int32
-	showDeleted           *bool
-	returnTeams           *bool
-	returnProjectIds      *bool
-	returnLetters         *bool
-	ownerCompanyFirst     *bool
-	onlyids               *bool
-	includeTags           *bool
-	includeObservers      *bool
+type ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	companyId int32
+	updatedAfterDateTime *string
+	updatedAfterDate *string
+	type_ *string
+	sortOrder *string
+	sort *string
+	searchTerm *string
+	projectType *string
+	inviteStatus *string
+	firstLetter *string
+	emailAddress *string
+	dataSet *string
+	projectId *int32
+	projectCompanyId *int32
+	pageSize *int32
+	page *int32
+	excludeProjectId *int32
+	showDeleted *bool
+	returnTeams *bool
+	returnProjectIds *bool
+	returnLetters *bool
+	ownerCompanyFirst *bool
+	onlyids *bool
+	includeTags *bool
+	includeObservers *bool
+	includeContacts *bool
 	includeCompanyDetails *bool
-	includeClockIn        *bool
-	groupByCompany        *bool
-	getProjectRoles       *bool
-	getCounts             *bool
-	fullprofile           *bool
-	countOnly             *bool
-	userIds               *[]int32
-	companyId             *[]int32
+	includeClockIn *bool
+	includeClients *bool
+	groupByCompany *bool
+	getProjectRoles *bool
+	getCounts *bool
+	fullprofile *bool
+	countOnly *bool
+	userIds *[]int32
+	companyId2 *[]int32
 }
 
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.updatedAfterDateTime = &updatedAfterDateTime
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) Type_(type_ string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) Type_(type_ string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.type_ = &type_
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) Sort(sort string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) Sort(sort string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ProjectType(projectType string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ProjectType(projectType string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.projectType = &projectType
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.inviteStatus = &inviteStatus
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.firstLetter = &firstLetter
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.emailAddress = &emailAddress
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) DataSet(dataSet string) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) DataSet(dataSet string) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ProjectId(projectId int32) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ProjectId(projectId int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) PageSize(pageSize int32) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ProjectCompanyId(projectCompanyId int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
+	r.projectCompanyId = &projectCompanyId
+	return r
+}
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) PageSize(pageSize int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) Page(page int32) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) Page(page int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.excludeProjectId = &excludeProjectId
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.returnTeams = &returnTeams
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.returnProjectIds = &returnProjectIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.returnLetters = &returnLetters
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.ownerCompanyFirst = &ownerCompanyFirst
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.onlyids = &onlyids
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.includeObservers = &includeObservers
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) IncludeContacts(includeContacts bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
+	r.includeContacts = &includeContacts
+	return r
+}
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.includeCompanyDetails = &includeCompanyDetails
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.includeClockIn = &includeClockIn
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) IncludeClients(includeClients bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
+	r.includeClients = &includeClients
+	return r
+}
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.groupByCompany = &groupByCompany
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.getProjectRoles = &getProjectRoles
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.getCounts = &getCounts
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.fullprofile = &fullprofile
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.countOnly = &countOnly
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) UserIds(userIds []int32) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) UserIds(userIds []int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
 	r.userIds = &userIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
-	r.companyId = &companyId
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) CompanyId2(companyId2 []int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
+	r.companyId2 = &companyId2
 	return r
 }
 
-func (r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r)
+func (r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2CompaniescompanyIdPeopleExecute(r)
 }
 
 /*
- * GETProjectsApiV2CompaniesCompanyIdPeople Retrieves the details for all the people from the submitted company (excluding those you don’t have permission to see).
+ * GETProjectsApiV2CompaniescompanyIdPeople Retrieves the details for all the people from the submitted company (excluding those you don’t have permission to see).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest
+ * @param companyId
+ * @return ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeople(ctx _context.Context) ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest {
-	return ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest{
+func (a *CFPortApiService) GETProjectsApiV2CompaniescompanyIdPeople(ctx _context.Context, companyId int32) ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest {
+	return ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		companyId: companyId,
 	}
 }
 
@@ -212,7 +231,7 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeople(ctx _context
  * Execute executes the request
  * @return PeopleResponse
  */
-func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r ApiGETProjectsApiV2CompaniesCompanyIdPeopleRequest) (PeopleResponse, *_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2CompaniescompanyIdPeopleExecute(r ApiGETProjectsApiV2CompaniescompanyIdPeopleRequest) (PeopleResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -222,12 +241,13 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r Api
 		localVarReturnValue  PeopleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2CompaniesCompanyIdPeople")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2CompaniescompanyIdPeople")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/companies/:companyId/people"
+	localVarPath := localBasePath + "/projects/api/v2/companies/{companyId}/people"
+	localVarPath = strings.Replace(localVarPath, "{"+"companyId"+"}", _neturl.PathEscape(parameterToString(r.companyId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -269,6 +289,9 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r Api
 	if r.projectId != nil {
 		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
 	}
+	if r.projectCompanyId != nil {
+		localVarQueryParams.Add("projectCompanyId", parameterToString(*r.projectCompanyId, ""))
+	}
 	if r.pageSize != nil {
 		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
 	}
@@ -302,11 +325,17 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r Api
 	if r.includeObservers != nil {
 		localVarQueryParams.Add("includeObservers", parameterToString(*r.includeObservers, ""))
 	}
+	if r.includeContacts != nil {
+		localVarQueryParams.Add("includeContacts", parameterToString(*r.includeContacts, ""))
+	}
 	if r.includeCompanyDetails != nil {
 		localVarQueryParams.Add("includeCompanyDetails", parameterToString(*r.includeCompanyDetails, ""))
 	}
 	if r.includeClockIn != nil {
 		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
+	}
+	if r.includeClients != nil {
+		localVarQueryParams.Add("includeClients", parameterToString(*r.includeClients, ""))
 	}
 	if r.groupByCompany != nil {
 		localVarQueryParams.Add("groupByCompany", parameterToString(*r.groupByCompany, ""))
@@ -326,8 +355,8 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r Api
 	if r.userIds != nil {
 		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
 	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	if r.companyId2 != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId2, "csv"))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -383,232 +412,240 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompanyIdPeopleExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	updatedAfterDateTime    *string
-	updatedAfterDate        *string
-	searchTerm              *string
-	projectStatus           *string
-	orderMode               *string
-	orderBy                 *string
-	firstLetter             *string
-	createdAfterDateTime    *string
-	createdAfterDate        *string
-	status                  *string
-	userId                  *int32
-	pageSize                *int32
-	page                    *int32
-	searchCompany           *bool
-	returnLetters           *bool
-	onlyStarredProjects     *bool
-	onlyArchivedProjects    *bool
-	matchAllTags            *bool
-	matchAllProjectTags     *bool
-	includeUpdates          *bool
-	includeTags             *bool
-	includePeople           *bool
+type ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	companyId int32
+	updatedAfterDateTime *string
+	updatedAfterDate *string
+	searchTerm *string
+	projectStatus *string
+	orderMode *string
+	orderBy *string
+	firstLetter *string
+	createdAfterDateTime *string
+	createdAfterDate *string
+	status *string
+	userId *int32
+	pageSize *int32
+	page *int32
+	searchCompany *bool
+	searchCategory *bool
+	returnLetters *bool
+	onlyStarredProjects *bool
+	onlyArchivedProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	includeUpdates *bool
+	includeTags *bool
+	includePeople *bool
 	includeArchivedProjects *bool
-	hideDesc                *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
-	getDeleted              *bool
-	getCategoryPath         *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
-	projectTagIds           *[]int32
-	projectOwnerIds         *[]int32
-	projectHealths          *[]int32
-	projectHealth           *[]int32
-	projectCompanyIds       *[]int32
-	projectCategoryIds      *[]int32
-	filterTagIds            *[]int32
-	companyId               *[]int32
-	categoryId              *[]int32
-	catId                   *[]int32
+	hideDesc *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getDeleted *bool
+	getCategoryPath *bool
+	getActivePages *bool
+	formatMarkdown *bool
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	filterTagIds *[]int32
+	companyId2 *[]int32
+	categoryId *[]int32
+	catId *[]int32
 }
 
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.updatedAfterDateTime = &updatedAfterDateTime
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) OrderMode(orderMode string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) OrderMode(orderMode string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) OrderBy(orderBy string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) OrderBy(orderBy string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.firstLetter = &firstLetter
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) CreatedAfterDateTime(createdAfterDateTime string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) CreatedAfterDateTime(createdAfterDateTime string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.createdAfterDateTime = &createdAfterDateTime
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) Status(status string) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) Status(status string) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.status = &status
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) UserId(userId int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) UserId(userId int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) Page(page int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) Page(page int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) SearchCompany(searchCompany bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) SearchCompany(searchCompany bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.searchCompany = &searchCompany
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) SearchCategory(searchCategory bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
+	r.searchCategory = &searchCategory
+	return r
+}
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.returnLetters = &returnLetters
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.onlyArchivedProjects = &onlyArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) IncludeUpdates(includeUpdates bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) IncludeUpdates(includeUpdates bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.includeUpdates = &includeUpdates
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.includePeople = &includePeople
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) HideDesc(hideDesc bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) HideDesc(hideDesc bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.hideDesc = &hideDesc
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.getTruePermissions = &getTruePermissions
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.getPermissions = &getPermissions
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) GetDeleted(getDeleted bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) GetDeleted(getDeleted bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.getDeleted = &getDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) GetCategoryPath(getCategoryPath bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) GetCategoryPath(getCategoryPath bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.getCategoryPath = &getCategoryPath
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.getActivePages = &getActivePages
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.formatMarkdown = &formatMarkdown
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) FilterTagIds(filterTagIds []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) FilterTagIds(filterTagIds []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.filterTagIds = &filterTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
-	r.companyId = &companyId
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) CompanyId2(companyId2 []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
+	r.companyId2 = &companyId2
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) CategoryId(categoryId []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) CategoryId(categoryId []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.categoryId = &categoryId
 	return r
 }
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) CatId(catId []int32) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) CatId(catId []int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
 	r.catId = &catId
 	return r
 }
 
-func (r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2CompaniesCompnayIdProjectsExecute(r)
+func (r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2CompaniescompanyIdProjectsExecute(r)
 }
 
 /*
- * GETProjectsApiV2CompaniesCompnayIdProjects Returns the company projects
+ * GETProjectsApiV2CompaniescompanyIdProjects Returns the company projects
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest
+ * @param companyId
+ * @return ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2CompaniesCompnayIdProjects(ctx _context.Context) ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest {
-	return ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest{
+func (a *CFPortApiService) GETProjectsApiV2CompaniescompanyIdProjects(ctx _context.Context, companyId int32) ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest {
+	return ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		companyId: companyId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2CompaniesCompnayIdProjectsExecute(r ApiGETProjectsApiV2CompaniesCompnayIdProjectsRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2CompaniescompanyIdProjectsExecute(r ApiGETProjectsApiV2CompaniescompanyIdProjectsRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -617,12 +654,13 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompnayIdProjectsExecute(r A
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2CompaniesCompnayIdProjects")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2CompaniescompanyIdProjects")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/companies/:compnayId/projects"
+	localVarPath := localBasePath + "/projects/api/v2/companies/{companyId}/projects"
+	localVarPath = strings.Replace(localVarPath, "{"+"companyId"+"}", _neturl.PathEscape(parameterToString(r.companyId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -669,6 +707,9 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompnayIdProjectsExecute(r A
 	}
 	if r.searchCompany != nil {
 		localVarQueryParams.Add("searchCompany", parameterToString(*r.searchCompany, ""))
+	}
+	if r.searchCategory != nil {
+		localVarQueryParams.Add("searchCategory", parameterToString(*r.searchCategory, ""))
 	}
 	if r.returnLetters != nil {
 		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
@@ -739,8 +780,8 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompnayIdProjectsExecute(r A
 	if r.filterTagIds != nil {
 		localVarQueryParams.Add("filterTagIds", parameterToString(*r.filterTagIds, "csv"))
 	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	if r.companyId2 != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId2, "csv"))
 	}
 	if r.categoryId != nil {
 		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, "csv"))
@@ -794,9 +835,9 @@ func (a *CFPortApiService) GETProjectsApiV2CompaniesCompnayIdProjectsExecute(r A
 }
 
 type ApiGETProjectsApiV2DefaultprojectsRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *CFPortApiService
-	companyId  *int32
+	companyId *int32
 }
 
 func (r ApiGETProjectsApiV2DefaultprojectsRequest) CompanyId(companyId int32) ApiGETProjectsApiV2DefaultprojectsRequest {
@@ -816,7 +857,7 @@ func (r ApiGETProjectsApiV2DefaultprojectsRequest) Execute() (*_nethttp.Response
 func (a *CFPortApiService) GETProjectsApiV2Defaultprojects(ctx _context.Context) ApiGETProjectsApiV2DefaultprojectsRequest {
 	return ApiGETProjectsApiV2DefaultprojectsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -891,97 +932,100 @@ func (a *CFPortApiService) GETProjectsApiV2DefaultprojectsExecute(r ApiGETProjec
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2FilesObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
+type ApiGETProjectsApiV2FilesobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
 	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
 }
 
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.objectId = &objectId
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.includePeople = &includePeople
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getTruePermissions = &getTruePermissions
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getPermissions = &getPermissions
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getNotificationSettings = &getNotificationSettings
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getEmoji = &getEmoji
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getEmailAddress = &getEmailAddress
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getDateInfo = &getDateInfo
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.getActivePages = &getActivePages
 	return r
 }
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
 	r.formatMarkdown = &formatMarkdown
 	return r
 }
 
-func (r ApiGETProjectsApiV2FilesObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2FilesObjectIdProjectExecute(r)
+func (r ApiGETProjectsApiV2FilesobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2FilesobjectIdProjectExecute(r)
 }
 
 /*
- * GETProjectsApiV2FilesObjectIdProject Get the project for the file
+ * GETProjectsApiV2FilesobjectIdProject Get the project for the file
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2FilesObjectIdProjectRequest
+ * @param objectId2
+ * @return ApiGETProjectsApiV2FilesobjectIdProjectRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2FilesObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2FilesObjectIdProjectRequest {
-	return ApiGETProjectsApiV2FilesObjectIdProjectRequest{
+func (a *CFPortApiService) GETProjectsApiV2FilesobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2FilesobjectIdProjectRequest {
+	return ApiGETProjectsApiV2FilesobjectIdProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		objectId2: objectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2FilesObjectIdProjectExecute(r ApiGETProjectsApiV2FilesObjectIdProjectRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2FilesobjectIdProjectExecute(r ApiGETProjectsApiV2FilesobjectIdProjectRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -990,12 +1034,13 @@ func (a *CFPortApiService) GETProjectsApiV2FilesObjectIdProjectExecute(r ApiGETP
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2FilesObjectIdProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2FilesobjectIdProject")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/files/:objectId/project"
+	localVarPath := localBasePath + "/projects/api/v2/files/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1086,27 +1131,29 @@ func (a *CFPortApiService) GETProjectsApiV2FilesObjectIdProjectExecute(r ApiGETP
 }
 
 type ApiGETProjectsApiV2FullsearchRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	sortOrder               *string
-	searchTerm              *string
-	searchFor               *string
-	projectId               *int32
-	pageSize                *int32
-	page                    *int32
-	dayLimit                *int32
-	useSmartSearch          *bool
-	skipES                  *bool
-	searchWithTags          *bool
-	searchForIsList         *bool
-	searchArchivedMessages  *bool
-	matchAllTags            *bool
-	includeTags             *bool
-	includeCompletedItems   *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	sortOrder *string
+	searchTerm *string
+	searchFor *string
+	projectId *int32
+	pageSize *int32
+	page *int32
+	dayLimit *int32
+	useSmartSearch *bool
+	skipES *bool
+	separateUsers *bool
+	searchWithTags *bool
+	searchForIsList *bool
+	searchArchivedMessages *bool
+	matchAllTags *bool
+	includeTags *bool
+	includeCompletedItems *bool
 	includeArchivedProjects *bool
-	getUsers                *bool
-	tags                    *[]string
-	tagIds                  *[]int32
+	getUsers *bool
+	eventsInUTC *bool
+	tags *[]string
+	tagIds *[]int32
 }
 
 func (r ApiGETProjectsApiV2FullsearchRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2FullsearchRequest {
@@ -1145,6 +1192,10 @@ func (r ApiGETProjectsApiV2FullsearchRequest) SkipES(skipES bool) ApiGETProjects
 	r.skipES = &skipES
 	return r
 }
+func (r ApiGETProjectsApiV2FullsearchRequest) SeparateUsers(separateUsers bool) ApiGETProjectsApiV2FullsearchRequest {
+	r.separateUsers = &separateUsers
+	return r
+}
 func (r ApiGETProjectsApiV2FullsearchRequest) SearchWithTags(searchWithTags bool) ApiGETProjectsApiV2FullsearchRequest {
 	r.searchWithTags = &searchWithTags
 	return r
@@ -1177,6 +1228,10 @@ func (r ApiGETProjectsApiV2FullsearchRequest) GetUsers(getUsers bool) ApiGETProj
 	r.getUsers = &getUsers
 	return r
 }
+func (r ApiGETProjectsApiV2FullsearchRequest) EventsInUTC(eventsInUTC bool) ApiGETProjectsApiV2FullsearchRequest {
+	r.eventsInUTC = &eventsInUTC
+	return r
+}
 func (r ApiGETProjectsApiV2FullsearchRequest) Tags(tags []string) ApiGETProjectsApiV2FullsearchRequest {
 	r.tags = &tags
 	return r
@@ -1198,7 +1253,7 @@ func (r ApiGETProjectsApiV2FullsearchRequest) Execute() (*_nethttp.Response, err
 func (a *CFPortApiService) GETProjectsApiV2Fullsearch(ctx _context.Context) ApiGETProjectsApiV2FullsearchRequest {
 	return ApiGETProjectsApiV2FullsearchRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -1252,6 +1307,9 @@ func (a *CFPortApiService) GETProjectsApiV2FullsearchExecute(r ApiGETProjectsApi
 	if r.skipES != nil {
 		localVarQueryParams.Add("skipES", parameterToString(*r.skipES, ""))
 	}
+	if r.separateUsers != nil {
+		localVarQueryParams.Add("separateUsers", parameterToString(*r.separateUsers, ""))
+	}
 	if r.searchWithTags != nil {
 		localVarQueryParams.Add("searchWithTags", parameterToString(*r.searchWithTags, ""))
 	}
@@ -1275,6 +1333,9 @@ func (a *CFPortApiService) GETProjectsApiV2FullsearchExecute(r ApiGETProjectsApi
 	}
 	if r.getUsers != nil {
 		localVarQueryParams.Add("getUsers", parameterToString(*r.getUsers, ""))
+	}
+	if r.eventsInUTC != nil {
+		localVarQueryParams.Add("eventsInUTC", parameterToString(*r.eventsInUTC, ""))
 	}
 	if r.tags != nil {
 		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
@@ -1327,97 +1388,100 @@ func (a *CFPortApiService) GETProjectsApiV2FullsearchExecute(r ApiGETProjectsApi
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2LinksObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
+type ApiGETProjectsApiV2LinksobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
 	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
 }
 
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.objectId = &objectId
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.includePeople = &includePeople
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getTruePermissions = &getTruePermissions
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getPermissions = &getPermissions
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getNotificationSettings = &getNotificationSettings
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getEmoji = &getEmoji
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getEmailAddress = &getEmailAddress
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getDateInfo = &getDateInfo
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.getActivePages = &getActivePages
 	return r
 }
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
 	r.formatMarkdown = &formatMarkdown
 	return r
 }
 
-func (r ApiGETProjectsApiV2LinksObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2LinksObjectIdProjectExecute(r)
+func (r ApiGETProjectsApiV2LinksobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2LinksobjectIdProjectExecute(r)
 }
 
 /*
- * GETProjectsApiV2LinksObjectIdProject Get the project for the link
+ * GETProjectsApiV2LinksobjectIdProject Get the project for the link
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2LinksObjectIdProjectRequest
+ * @param objectId2
+ * @return ApiGETProjectsApiV2LinksobjectIdProjectRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2LinksObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2LinksObjectIdProjectRequest {
-	return ApiGETProjectsApiV2LinksObjectIdProjectRequest{
+func (a *CFPortApiService) GETProjectsApiV2LinksobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2LinksobjectIdProjectRequest {
+	return ApiGETProjectsApiV2LinksobjectIdProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		objectId2: objectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2LinksObjectIdProjectExecute(r ApiGETProjectsApiV2LinksObjectIdProjectRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2LinksobjectIdProjectExecute(r ApiGETProjectsApiV2LinksobjectIdProjectRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1426,12 +1490,13 @@ func (a *CFPortApiService) GETProjectsApiV2LinksObjectIdProjectExecute(r ApiGETP
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2LinksObjectIdProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2LinksobjectIdProject")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/links/:objectId/project"
+	localVarPath := localBasePath + "/projects/api/v2/links/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1522,26 +1587,26 @@ func (a *CFPortApiService) GETProjectsApiV2LinksObjectIdProjectExecute(r ApiGETP
 }
 
 type ApiGETProjectsApiV2MeRequest struct {
-	ctx                _context.Context
-	ApiService         *CFPortApiService
-	sharedFilter       *string
-	getDefaultFilters  *string
-	userId             *int32
-	showDeleted        *bool
-	includeTags        *bool
-	includeClockIn     *bool
-	includeAuth        *bool
-	getTeamsStats      *bool
-	getTasksStats      *bool
-	getProjectsStats   *bool
-	getPreferences     *bool
-	getPermissions     *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	sharedFilter *string
+	getDefaultFilters *string
+	userID *int32
+	showDeleted *bool
+	includeTags *bool
+	includeClockIn *bool
+	includeAuth *bool
+	getTeamsStats *bool
+	getTasksStats *bool
+	getProjectsStats *bool
+	getPreferences *bool
+	getPermissions *bool
 	getMilestonesStats *bool
-	getInitialPage     *bool
-	getAllStats        *bool
-	getAccounts        *bool
-	fullprofile        *bool
-	cleanPreferences   *bool
+	getInitialPage *bool
+	getAllStats *bool
+	getAccounts *bool
+	fullprofile *bool
+	cleanPreferences *bool
 }
 
 func (r ApiGETProjectsApiV2MeRequest) SharedFilter(sharedFilter string) ApiGETProjectsApiV2MeRequest {
@@ -1552,8 +1617,8 @@ func (r ApiGETProjectsApiV2MeRequest) GetDefaultFilters(getDefaultFilters string
 	r.getDefaultFilters = &getDefaultFilters
 	return r
 }
-func (r ApiGETProjectsApiV2MeRequest) UserId(userId int32) ApiGETProjectsApiV2MeRequest {
-	r.userId = &userId
+func (r ApiGETProjectsApiV2MeRequest) UserID(userID int32) ApiGETProjectsApiV2MeRequest {
+	r.userID = &userID
 	return r
 }
 func (r ApiGETProjectsApiV2MeRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MeRequest {
@@ -1629,7 +1694,7 @@ func (r ApiGETProjectsApiV2MeRequest) Execute() (PeoplePersonResponse, *_nethttp
 func (a *CFPortApiService) GETProjectsApiV2Me(ctx _context.Context) ApiGETProjectsApiV2MeRequest {
 	return ApiGETProjectsApiV2MeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -1659,1837 +1724,58 @@ func (a *CFPortApiService) GETProjectsApiV2MeExecute(r ApiGETProjectsApiV2MeRequ
 	localVarFormParams := _neturl.Values{}
 
 	if r.sharedFilter != nil {
-		localVarQueryParams.Add("SharedFilter", parameterToString(*r.sharedFilter, ""))
+		localVarQueryParams.Add("sharedFilter", parameterToString(*r.sharedFilter, ""))
 	}
 	if r.getDefaultFilters != nil {
-		localVarQueryParams.Add("GetDefaultFilters", parameterToString(*r.getDefaultFilters, ""))
+		localVarQueryParams.Add("getDefaultFilters", parameterToString(*r.getDefaultFilters, ""))
 	}
-	if r.userId != nil {
-		localVarQueryParams.Add("UserId", parameterToString(*r.userId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("ShowDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("IncludeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeClockIn != nil {
-		localVarQueryParams.Add("IncludeClockIn", parameterToString(*r.includeClockIn, ""))
-	}
-	if r.includeAuth != nil {
-		localVarQueryParams.Add("IncludeAuth", parameterToString(*r.includeAuth, ""))
-	}
-	if r.getTeamsStats != nil {
-		localVarQueryParams.Add("GetTeamsStats", parameterToString(*r.getTeamsStats, ""))
-	}
-	if r.getTasksStats != nil {
-		localVarQueryParams.Add("GetTasksStats", parameterToString(*r.getTasksStats, ""))
-	}
-	if r.getProjectsStats != nil {
-		localVarQueryParams.Add("GetProjectsStats", parameterToString(*r.getProjectsStats, ""))
-	}
-	if r.getPreferences != nil {
-		localVarQueryParams.Add("GetPreferences", parameterToString(*r.getPreferences, ""))
-	}
-	if r.getPermissions != nil {
-		localVarQueryParams.Add("GetPermissions", parameterToString(*r.getPermissions, ""))
-	}
-	if r.getMilestonesStats != nil {
-		localVarQueryParams.Add("GetMilestonesStats", parameterToString(*r.getMilestonesStats, ""))
-	}
-	if r.getInitialPage != nil {
-		localVarQueryParams.Add("GetInitialPage", parameterToString(*r.getInitialPage, ""))
-	}
-	if r.getAllStats != nil {
-		localVarQueryParams.Add("GetAllStats", parameterToString(*r.getAllStats, ""))
-	}
-	if r.getAccounts != nil {
-		localVarQueryParams.Add("GetAccounts", parameterToString(*r.getAccounts, ""))
-	}
-	if r.fullprofile != nil {
-		localVarQueryParams.Add("Fullprofile", parameterToString(*r.fullprofile, ""))
-	}
-	if r.cleanPreferences != nil {
-		localVarQueryParams.Add("CleanPreferences", parameterToString(*r.cleanPreferences, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2MessagesObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
-	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
-}
-
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.objectId = &objectId
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.includePeople = &includePeople
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getTruePermissions = &getTruePermissions
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getPermissions = &getPermissions
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getNotificationSettings = &getNotificationSettings
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getEmoji = &getEmoji
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getEmailAddress = &getEmailAddress
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getDateInfo = &getDateInfo
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.getActivePages = &getActivePages
-	return r
-}
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	r.formatMarkdown = &formatMarkdown
-	return r
-}
-
-func (r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2MessagesObjectIdProjectExecute(r)
-}
-
-/*
- * GETProjectsApiV2MessagesObjectIdProject Get the project for the message
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2MessagesObjectIdProjectRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2MessagesObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2MessagesObjectIdProjectRequest {
-	return ApiGETProjectsApiV2MessagesObjectIdProjectRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2MessagesObjectIdProjectExecute(r ApiGETProjectsApiV2MessagesObjectIdProjectRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2MessagesObjectIdProject")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/messages/:objectId/project"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.objectId != nil {
-		localVarQueryParams.Add("objectId", parameterToString(*r.objectId, ""))
+	if r.userID != nil {
+		localVarQueryParams.Add("userID", parameterToString(*r.userID, ""))
 	}
 	if r.showDeleted != nil {
 		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
 	}
 	if r.includeTags != nil {
 		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includePeople != nil {
-		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
-	}
-	if r.getTruePermissions != nil {
-		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
-	}
-	if r.getPermissions != nil {
-		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
-	}
-	if r.getNotificationSettings != nil {
-		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
-	}
-	if r.getEmoji != nil {
-		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
-	}
-	if r.getEmailAddress != nil {
-		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
-	}
-	if r.getDateInfo != nil {
-		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
-	}
-	if r.getActivePages != nil {
-		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
-	}
-	if r.formatMarkdown != nil {
-		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2MilestonesObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
-	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
-}
-
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.objectId = &objectId
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.includePeople = &includePeople
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getTruePermissions = &getTruePermissions
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getPermissions = &getPermissions
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getNotificationSettings = &getNotificationSettings
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getEmoji = &getEmoji
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getEmailAddress = &getEmailAddress
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getDateInfo = &getDateInfo
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.getActivePages = &getActivePages
-	return r
-}
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	r.formatMarkdown = &formatMarkdown
-	return r
-}
-
-func (r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2MilestonesObjectIdProjectExecute(r)
-}
-
-/*
- * GETProjectsApiV2MilestonesObjectIdProject Get the project for the milestone
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2MilestonesObjectIdProjectRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2MilestonesObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2MilestonesObjectIdProjectRequest {
-	return ApiGETProjectsApiV2MilestonesObjectIdProjectRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2MilestonesObjectIdProjectExecute(r ApiGETProjectsApiV2MilestonesObjectIdProjectRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2MilestonesObjectIdProject")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/milestones/:objectId/project"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.objectId != nil {
-		localVarQueryParams.Add("objectId", parameterToString(*r.objectId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includePeople != nil {
-		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
-	}
-	if r.getTruePermissions != nil {
-		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
-	}
-	if r.getPermissions != nil {
-		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
-	}
-	if r.getNotificationSettings != nil {
-		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
-	}
-	if r.getEmoji != nil {
-		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
-	}
-	if r.getEmailAddress != nil {
-		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
-	}
-	if r.getDateInfo != nil {
-		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
-	}
-	if r.getActivePages != nil {
-		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
-	}
-	if r.formatMarkdown != nil {
-		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2NotebooksObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
-	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
-}
-
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.objectId = &objectId
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.includePeople = &includePeople
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getTruePermissions = &getTruePermissions
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getPermissions = &getPermissions
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getNotificationSettings = &getNotificationSettings
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getEmoji = &getEmoji
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getEmailAddress = &getEmailAddress
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getDateInfo = &getDateInfo
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.getActivePages = &getActivePages
-	return r
-}
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	r.formatMarkdown = &formatMarkdown
-	return r
-}
-
-func (r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2NotebooksObjectIdProjectExecute(r)
-}
-
-/*
- * GETProjectsApiV2NotebooksObjectIdProject Get the project for the notebook
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2NotebooksObjectIdProjectRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2NotebooksObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2NotebooksObjectIdProjectRequest {
-	return ApiGETProjectsApiV2NotebooksObjectIdProjectRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2NotebooksObjectIdProjectExecute(r ApiGETProjectsApiV2NotebooksObjectIdProjectRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2NotebooksObjectIdProject")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/notebooks/:objectId/project"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.objectId != nil {
-		localVarQueryParams.Add("objectId", parameterToString(*r.objectId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includePeople != nil {
-		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
-	}
-	if r.getTruePermissions != nil {
-		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
-	}
-	if r.getPermissions != nil {
-		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
-	}
-	if r.getNotificationSettings != nil {
-		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
-	}
-	if r.getEmoji != nil {
-		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
-	}
-	if r.getEmailAddress != nil {
-		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
-	}
-	if r.getDateInfo != nil {
-		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
-	}
-	if r.getActivePages != nil {
-		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
-	}
-	if r.formatMarkdown != nil {
-		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2PeopleRequest struct {
-	ctx                   _context.Context
-	ApiService            *CFPortApiService
-	updatedAfterDateTime  *string
-	updatedAfterDate      *string
-	type_                 *string
-	sortOrder             *string
-	sort                  *string
-	searchTerm            *string
-	projectType           *string
-	inviteStatus          *string
-	firstLetter           *string
-	emailAddress          *string
-	dataSet               *string
-	projectId             *int32
-	pageSize              *int32
-	page                  *int32
-	excludeProjectId      *int32
-	showDeleted           *bool
-	returnTeams           *bool
-	returnProjectIds      *bool
-	returnLetters         *bool
-	ownerCompanyFirst     *bool
-	onlyids               *bool
-	includeTags           *bool
-	includeObservers      *bool
-	includeCompanyDetails *bool
-	includeClockIn        *bool
-	groupByCompany        *bool
-	getProjectRoles       *bool
-	getCounts             *bool
-	fullprofile           *bool
-	countOnly             *bool
-	userIds               *[]int32
-	companyId             *[]int32
-}
-
-func (r ApiGETProjectsApiV2PeopleRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2PeopleRequest {
-	r.updatedAfterDateTime = &updatedAfterDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2PeopleRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) Type_(type_ string) ApiGETProjectsApiV2PeopleRequest {
-	r.type_ = &type_
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2PeopleRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) Sort(sort string) ApiGETProjectsApiV2PeopleRequest {
-	r.sort = &sort
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2PeopleRequest {
-	r.searchTerm = &searchTerm
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ProjectType(projectType string) ApiGETProjectsApiV2PeopleRequest {
-	r.projectType = &projectType
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2PeopleRequest {
-	r.inviteStatus = &inviteStatus
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2PeopleRequest {
-	r.firstLetter = &firstLetter
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2PeopleRequest {
-	r.emailAddress = &emailAddress
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) DataSet(dataSet string) ApiGETProjectsApiV2PeopleRequest {
-	r.dataSet = &dataSet
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ProjectId(projectId int32) ApiGETProjectsApiV2PeopleRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) PageSize(pageSize int32) ApiGETProjectsApiV2PeopleRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) Page(page int32) ApiGETProjectsApiV2PeopleRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2PeopleRequest {
-	r.excludeProjectId = &excludeProjectId
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2PeopleRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2PeopleRequest {
-	r.returnTeams = &returnTeams
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2PeopleRequest {
-	r.returnProjectIds = &returnProjectIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2PeopleRequest {
-	r.returnLetters = &returnLetters
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2PeopleRequest {
-	r.ownerCompanyFirst = &ownerCompanyFirst
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2PeopleRequest {
-	r.onlyids = &onlyids
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2PeopleRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2PeopleRequest {
-	r.includeObservers = &includeObservers
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2PeopleRequest {
-	r.includeCompanyDetails = &includeCompanyDetails
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2PeopleRequest {
-	r.includeClockIn = &includeClockIn
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2PeopleRequest {
-	r.groupByCompany = &groupByCompany
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2PeopleRequest {
-	r.getProjectRoles = &getProjectRoles
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2PeopleRequest {
-	r.getCounts = &getCounts
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2PeopleRequest {
-	r.fullprofile = &fullprofile
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2PeopleRequest {
-	r.countOnly = &countOnly
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) UserIds(userIds []int32) ApiGETProjectsApiV2PeopleRequest {
-	r.userIds = &userIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2PeopleRequest {
-	r.companyId = &companyId
-	return r
-}
-
-func (r ApiGETProjectsApiV2PeopleRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2PeopleExecute(r)
-}
-
-/*
- * GETProjectsApiV2People All people visible to the user will be returned, including the user themselves. By default 100 records are returned at a time.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2PeopleRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2People(ctx _context.Context) ApiGETProjectsApiV2PeopleRequest {
-	return ApiGETProjectsApiV2PeopleRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return PeopleResponse
- */
-func (a *CFPortApiService) GETProjectsApiV2PeopleExecute(r ApiGETProjectsApiV2PeopleRequest) (PeopleResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  PeopleResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2People")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/people"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDateTime != nil {
-		localVarQueryParams.Add("updatedAfterDateTime", parameterToString(*r.updatedAfterDateTime, ""))
-	}
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.type_ != nil {
-		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
-	}
-	if r.searchTerm != nil {
-		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
-	}
-	if r.projectType != nil {
-		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
-	}
-	if r.inviteStatus != nil {
-		localVarQueryParams.Add("inviteStatus", parameterToString(*r.inviteStatus, ""))
-	}
-	if r.firstLetter != nil {
-		localVarQueryParams.Add("firstLetter", parameterToString(*r.firstLetter, ""))
-	}
-	if r.emailAddress != nil {
-		localVarQueryParams.Add("emailAddress", parameterToString(*r.emailAddress, ""))
-	}
-	if r.dataSet != nil {
-		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.excludeProjectId != nil {
-		localVarQueryParams.Add("excludeProjectId", parameterToString(*r.excludeProjectId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.returnTeams != nil {
-		localVarQueryParams.Add("returnTeams", parameterToString(*r.returnTeams, ""))
-	}
-	if r.returnProjectIds != nil {
-		localVarQueryParams.Add("returnProjectIds", parameterToString(*r.returnProjectIds, ""))
-	}
-	if r.returnLetters != nil {
-		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
-	}
-	if r.ownerCompanyFirst != nil {
-		localVarQueryParams.Add("ownerCompanyFirst", parameterToString(*r.ownerCompanyFirst, ""))
-	}
-	if r.onlyids != nil {
-		localVarQueryParams.Add("onlyids", parameterToString(*r.onlyids, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeObservers != nil {
-		localVarQueryParams.Add("includeObservers", parameterToString(*r.includeObservers, ""))
-	}
-	if r.includeCompanyDetails != nil {
-		localVarQueryParams.Add("includeCompanyDetails", parameterToString(*r.includeCompanyDetails, ""))
 	}
 	if r.includeClockIn != nil {
 		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
 	}
-	if r.groupByCompany != nil {
-		localVarQueryParams.Add("groupByCompany", parameterToString(*r.groupByCompany, ""))
-	}
-	if r.getProjectRoles != nil {
-		localVarQueryParams.Add("getProjectRoles", parameterToString(*r.getProjectRoles, ""))
-	}
-	if r.getCounts != nil {
-		localVarQueryParams.Add("getCounts", parameterToString(*r.getCounts, ""))
-	}
-	if r.fullprofile != nil {
-		localVarQueryParams.Add("fullprofile", parameterToString(*r.fullprofile, ""))
-	}
-	if r.countOnly != nil {
-		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly, ""))
-	}
-	if r.userIds != nil {
-		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2PeopleUserIdRequest struct {
-	ctx                _context.Context
-	ApiService         *CFPortApiService
-	sharedFilter       *string
-	getDefaultFilters  *string
-	userId             *int32
-	showDeleted        *bool
-	includeTags        *bool
-	includeClockIn     *bool
-	includeAuth        *bool
-	getTeamsStats      *bool
-	getTasksStats      *bool
-	getProjectsStats   *bool
-	getPreferences     *bool
-	getPermissions     *bool
-	getMilestonesStats *bool
-	getInitialPage     *bool
-	getAllStats        *bool
-	getAccounts        *bool
-	fullprofile        *bool
-	cleanPreferences   *bool
-}
-
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) SharedFilter(sharedFilter string) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.sharedFilter = &sharedFilter
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetDefaultFilters(getDefaultFilters string) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getDefaultFilters = &getDefaultFilters
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) UserId(userId int32) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.includeClockIn = &includeClockIn
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) IncludeAuth(includeAuth bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.includeAuth = &includeAuth
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetTeamsStats(getTeamsStats bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getTeamsStats = &getTeamsStats
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetTasksStats(getTasksStats bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getTasksStats = &getTasksStats
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetProjectsStats(getProjectsStats bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getProjectsStats = &getProjectsStats
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetPreferences(getPreferences bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getPreferences = &getPreferences
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getPermissions = &getPermissions
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetMilestonesStats(getMilestonesStats bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getMilestonesStats = &getMilestonesStats
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetInitialPage(getInitialPage bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getInitialPage = &getInitialPage
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetAllStats(getAllStats bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getAllStats = &getAllStats
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) GetAccounts(getAccounts bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.getAccounts = &getAccounts
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.fullprofile = &fullprofile
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) CleanPreferences(cleanPreferences bool) ApiGETProjectsApiV2PeopleUserIdRequest {
-	r.cleanPreferences = &cleanPreferences
-	return r
-}
-
-func (r ApiGETProjectsApiV2PeopleUserIdRequest) Execute() (PeoplePersonResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2PeopleUserIdExecute(r)
-}
-
-/*
- * GETProjectsApiV2PeopleUserId Retrieves the user details for the ID submitted.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2PeopleUserIdRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2PeopleUserId(ctx _context.Context) ApiGETProjectsApiV2PeopleUserIdRequest {
-	return ApiGETProjectsApiV2PeopleUserIdRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return PeoplePersonResponse
- */
-func (a *CFPortApiService) GETProjectsApiV2PeopleUserIdExecute(r ApiGETProjectsApiV2PeopleUserIdRequest) (PeoplePersonResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  PeoplePersonResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2PeopleUserId")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/people/:userId"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.sharedFilter != nil {
-		localVarQueryParams.Add("SharedFilter", parameterToString(*r.sharedFilter, ""))
-	}
-	if r.getDefaultFilters != nil {
-		localVarQueryParams.Add("GetDefaultFilters", parameterToString(*r.getDefaultFilters, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("UserId", parameterToString(*r.userId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("ShowDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("IncludeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeClockIn != nil {
-		localVarQueryParams.Add("IncludeClockIn", parameterToString(*r.includeClockIn, ""))
-	}
 	if r.includeAuth != nil {
-		localVarQueryParams.Add("IncludeAuth", parameterToString(*r.includeAuth, ""))
+		localVarQueryParams.Add("includeAuth", parameterToString(*r.includeAuth, ""))
 	}
 	if r.getTeamsStats != nil {
-		localVarQueryParams.Add("GetTeamsStats", parameterToString(*r.getTeamsStats, ""))
+		localVarQueryParams.Add("getTeamsStats", parameterToString(*r.getTeamsStats, ""))
 	}
 	if r.getTasksStats != nil {
-		localVarQueryParams.Add("GetTasksStats", parameterToString(*r.getTasksStats, ""))
+		localVarQueryParams.Add("getTasksStats", parameterToString(*r.getTasksStats, ""))
 	}
 	if r.getProjectsStats != nil {
-		localVarQueryParams.Add("GetProjectsStats", parameterToString(*r.getProjectsStats, ""))
+		localVarQueryParams.Add("getProjectsStats", parameterToString(*r.getProjectsStats, ""))
 	}
 	if r.getPreferences != nil {
-		localVarQueryParams.Add("GetPreferences", parameterToString(*r.getPreferences, ""))
-	}
-	if r.getPermissions != nil {
-		localVarQueryParams.Add("GetPermissions", parameterToString(*r.getPermissions, ""))
-	}
-	if r.getMilestonesStats != nil {
-		localVarQueryParams.Add("GetMilestonesStats", parameterToString(*r.getMilestonesStats, ""))
-	}
-	if r.getInitialPage != nil {
-		localVarQueryParams.Add("GetInitialPage", parameterToString(*r.getInitialPage, ""))
-	}
-	if r.getAllStats != nil {
-		localVarQueryParams.Add("GetAllStats", parameterToString(*r.getAllStats, ""))
-	}
-	if r.getAccounts != nil {
-		localVarQueryParams.Add("GetAccounts", parameterToString(*r.getAccounts, ""))
-	}
-	if r.fullprofile != nil {
-		localVarQueryParams.Add("Fullprofile", parameterToString(*r.fullprofile, ""))
-	}
-	if r.cleanPreferences != nil {
-		localVarQueryParams.Add("CleanPreferences", parameterToString(*r.cleanPreferences, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2PeopleUserIdProjectsRequest struct {
-	ctx                                _context.Context
-	ApiService                         *CFPortApiService
-	workedOnAfterDateTime              *string
-	updatedAfterDateTime               *string
-	updatedAfterDate                   *string
-	status                             *string
-	searchTerm                         *string
-	projectType                        *string
-	projectStatus                      *string
-	orderMode                          *string
-	orderBy                            *string
-	get                                *string
-	firstLetter                        *string
-	dataSet                            *string
-	createdAfterDateTime               *string
-	createdAfterDate                   *string
-	completedBeforeDateTime            *string
-	completedAfterDateTime             *string
-	userId                             *int32
-	pageSize                           *int32
-	page                               *int32
-	searchCompany                      *bool
-	sanitizeName                       *bool
-	returnLetters                      *bool
-	onlyStarredProjects                *bool
-	onlyProjectsWithExplicitMembership *bool
-	onlyArchivedProjects               *bool
-	matchAllTags                       *bool
-	matchAllProjectTags                *bool
-	includeUpdates                     *bool
-	includeTopPeople                   *bool
-	includeTags                        *bool
-	includeProjectOwner                *bool
-	includePeople                      *bool
-	includeCustomFields                *bool
-	includeCrmDealIds                  *bool
-	includeArchivedProjects            *bool
-	hideObservedProjects               *bool
-	hideDesc                           *bool
-	getTruePermissions                 *bool
-	getPermissions                     *bool
-	getNotificationSettings            *bool
-	getDeleted                         *bool
-	getCounts                          *bool
-	getCategoryPath                    *bool
-	getAll                             *bool
-	getActivePages                     *bool
-	formatMarkdown                     *bool
-	skipIds                            *[]int32
-	skipCrmDealIds                     *[]int32
-	projectTagIds                      *[]int32
-	projectOwnerIds                    *[]int32
-	projectHealths                     *[]int32
-	projectHealth                      *[]int32
-	projectCompanyIds                  *[]int32
-	projectCategoryIds                 *[]int32
-	portfolioColumnIds                 *[]int32
-	portfolioBoardIds                  *[]int32
-	filterTagIds                       *[]int32
-	featuresEnabledOnProject           *[]string
-	crmDealIds                         *[]int32
-	companyId                          *[]int32
-	categoryId                         *[]int32
-	catId                              *[]int32
-}
-
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) WorkedOnAfterDateTime(workedOnAfterDateTime string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.workedOnAfterDateTime = &workedOnAfterDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.updatedAfterDateTime = &updatedAfterDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) Status(status string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.status = &status
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.searchTerm = &searchTerm
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectType(projectType string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectType = &projectType
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectStatus = &projectStatus
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) OrderMode(orderMode string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.orderMode = &orderMode
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) OrderBy(orderBy string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.orderBy = &orderBy
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) Get(get string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.get = &get
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.firstLetter = &firstLetter
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) DataSet(dataSet string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.dataSet = &dataSet
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CreatedAfterDateTime(createdAfterDateTime string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.createdAfterDateTime = &createdAfterDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.createdAfterDate = &createdAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CompletedBeforeDateTime(completedBeforeDateTime string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.completedBeforeDateTime = &completedBeforeDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CompletedAfterDateTime(completedAfterDateTime string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.completedAfterDateTime = &completedAfterDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) UserId(userId int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) Page(page int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) SearchCompany(searchCompany bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.searchCompany = &searchCompany
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) SanitizeName(sanitizeName bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.sanitizeName = &sanitizeName
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.returnLetters = &returnLetters
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.onlyStarredProjects = &onlyStarredProjects
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.onlyProjectsWithExplicitMembership = &onlyProjectsWithExplicitMembership
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.onlyArchivedProjects = &onlyArchivedProjects
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.matchAllProjectTags = &matchAllProjectTags
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeUpdates(includeUpdates bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeUpdates = &includeUpdates
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeTopPeople(includeTopPeople bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeTopPeople = &includeTopPeople
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeProjectOwner(includeProjectOwner bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeProjectOwner = &includeProjectOwner
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includePeople = &includePeople
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeCustomFields = &includeCustomFields
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeCrmDealIds = &includeCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.includeArchivedProjects = &includeArchivedProjects
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) HideObservedProjects(hideObservedProjects bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.hideObservedProjects = &hideObservedProjects
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) HideDesc(hideDesc bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.hideDesc = &hideDesc
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getTruePermissions = &getTruePermissions
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getPermissions = &getPermissions
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getNotificationSettings = &getNotificationSettings
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetDeleted(getDeleted bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getDeleted = &getDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getCounts = &getCounts
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetCategoryPath(getCategoryPath bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getCategoryPath = &getCategoryPath
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetAll(getAll bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getAll = &getAll
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.getActivePages = &getActivePages
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.formatMarkdown = &formatMarkdown
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) SkipIds(skipIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.skipIds = &skipIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.skipCrmDealIds = &skipCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectTagIds = &projectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectOwnerIds = &projectOwnerIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectHealths = &projectHealths
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectHealth = &projectHealth
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectCompanyIds = &projectCompanyIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.projectCategoryIds = &projectCategoryIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) PortfolioColumnIds(portfolioColumnIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.portfolioColumnIds = &portfolioColumnIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) PortfolioBoardIds(portfolioBoardIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.portfolioBoardIds = &portfolioBoardIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) FilterTagIds(filterTagIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.filterTagIds = &filterTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) FeaturesEnabledOnProject(featuresEnabledOnProject []string) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.featuresEnabledOnProject = &featuresEnabledOnProject
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.crmDealIds = &crmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.companyId = &companyId
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CategoryId(categoryId []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.categoryId = &categoryId
-	return r
-}
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) CatId(catId []int32) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	r.catId = &catId
-	return r
-}
-
-func (r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2PeopleUserIdProjectsExecute(r)
-}
-
-/*
- * GETProjectsApiV2PeopleUserIdProjects APICall_GET_projects
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2PeopleUserIdProjectsRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2PeopleUserIdProjects(ctx _context.Context) ApiGETProjectsApiV2PeopleUserIdProjectsRequest {
-	return ApiGETProjectsApiV2PeopleUserIdProjectsRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2PeopleUserIdProjectsExecute(r ApiGETProjectsApiV2PeopleUserIdProjectsRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2PeopleUserIdProjects")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/people/:userId/projects"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.workedOnAfterDateTime != nil {
-		localVarQueryParams.Add("workedOnAfterDateTime", parameterToString(*r.workedOnAfterDateTime, ""))
-	}
-	if r.updatedAfterDateTime != nil {
-		localVarQueryParams.Add("updatedAfterDateTime", parameterToString(*r.updatedAfterDateTime, ""))
-	}
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.status != nil {
-		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
-	}
-	if r.searchTerm != nil {
-		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
-	}
-	if r.projectType != nil {
-		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
-	}
-	if r.projectStatus != nil {
-		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
-	}
-	if r.orderMode != nil {
-		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
-	}
-	if r.orderBy != nil {
-		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
-	}
-	if r.get != nil {
-		localVarQueryParams.Add("get", parameterToString(*r.get, ""))
-	}
-	if r.firstLetter != nil {
-		localVarQueryParams.Add("firstLetter", parameterToString(*r.firstLetter, ""))
-	}
-	if r.dataSet != nil {
-		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
-	}
-	if r.createdAfterDateTime != nil {
-		localVarQueryParams.Add("createdAfterDateTime", parameterToString(*r.createdAfterDateTime, ""))
-	}
-	if r.createdAfterDate != nil {
-		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
-	}
-	if r.completedBeforeDateTime != nil {
-		localVarQueryParams.Add("completedBeforeDateTime", parameterToString(*r.completedBeforeDateTime, ""))
-	}
-	if r.completedAfterDateTime != nil {
-		localVarQueryParams.Add("completedAfterDateTime", parameterToString(*r.completedAfterDateTime, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.searchCompany != nil {
-		localVarQueryParams.Add("searchCompany", parameterToString(*r.searchCompany, ""))
-	}
-	if r.sanitizeName != nil {
-		localVarQueryParams.Add("sanitizeName", parameterToString(*r.sanitizeName, ""))
-	}
-	if r.returnLetters != nil {
-		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
-	}
-	if r.onlyStarredProjects != nil {
-		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
-	}
-	if r.onlyProjectsWithExplicitMembership != nil {
-		localVarQueryParams.Add("onlyProjectsWithExplicitMembership", parameterToString(*r.onlyProjectsWithExplicitMembership, ""))
-	}
-	if r.onlyArchivedProjects != nil {
-		localVarQueryParams.Add("onlyArchivedProjects", parameterToString(*r.onlyArchivedProjects, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.matchAllProjectTags != nil {
-		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
-	}
-	if r.includeUpdates != nil {
-		localVarQueryParams.Add("includeUpdates", parameterToString(*r.includeUpdates, ""))
-	}
-	if r.includeTopPeople != nil {
-		localVarQueryParams.Add("includeTopPeople", parameterToString(*r.includeTopPeople, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeProjectOwner != nil {
-		localVarQueryParams.Add("includeProjectOwner", parameterToString(*r.includeProjectOwner, ""))
-	}
-	if r.includePeople != nil {
-		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
-	}
-	if r.includeCustomFields != nil {
-		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
-	}
-	if r.includeCrmDealIds != nil {
-		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
-	}
-	if r.includeArchivedProjects != nil {
-		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
-	}
-	if r.hideObservedProjects != nil {
-		localVarQueryParams.Add("hideObservedProjects", parameterToString(*r.hideObservedProjects, ""))
-	}
-	if r.hideDesc != nil {
-		localVarQueryParams.Add("hideDesc", parameterToString(*r.hideDesc, ""))
-	}
-	if r.getTruePermissions != nil {
-		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
+		localVarQueryParams.Add("getPreferences", parameterToString(*r.getPreferences, ""))
 	}
 	if r.getPermissions != nil {
 		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
 	}
-	if r.getNotificationSettings != nil {
-		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
+	if r.getMilestonesStats != nil {
+		localVarQueryParams.Add("getMilestonesStats", parameterToString(*r.getMilestonesStats, ""))
 	}
-	if r.getDeleted != nil {
-		localVarQueryParams.Add("getDeleted", parameterToString(*r.getDeleted, ""))
+	if r.getInitialPage != nil {
+		localVarQueryParams.Add("getInitialPage", parameterToString(*r.getInitialPage, ""))
 	}
-	if r.getCounts != nil {
-		localVarQueryParams.Add("getCounts", parameterToString(*r.getCounts, ""))
+	if r.getAllStats != nil {
+		localVarQueryParams.Add("getAllStats", parameterToString(*r.getAllStats, ""))
 	}
-	if r.getCategoryPath != nil {
-		localVarQueryParams.Add("getCategoryPath", parameterToString(*r.getCategoryPath, ""))
+	if r.getAccounts != nil {
+		localVarQueryParams.Add("getAccounts", parameterToString(*r.getAccounts, ""))
 	}
-	if r.getAll != nil {
-		localVarQueryParams.Add("getAll", parameterToString(*r.getAll, ""))
+	if r.fullprofile != nil {
+		localVarQueryParams.Add("fullprofile", parameterToString(*r.fullprofile, ""))
 	}
-	if r.getActivePages != nil {
-		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
-	}
-	if r.formatMarkdown != nil {
-		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
-	}
-	if r.skipIds != nil {
-		localVarQueryParams.Add("skipIds", parameterToString(*r.skipIds, "csv"))
-	}
-	if r.skipCrmDealIds != nil {
-		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
-	}
-	if r.projectTagIds != nil {
-		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
-	}
-	if r.projectOwnerIds != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
-	}
-	if r.projectHealths != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
-	}
-	if r.projectHealth != nil {
-		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
-	}
-	if r.projectCompanyIds != nil {
-		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
-	}
-	if r.projectCategoryIds != nil {
-		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
-	}
-	if r.portfolioColumnIds != nil {
-		localVarQueryParams.Add("portfolioColumnIds", parameterToString(*r.portfolioColumnIds, "csv"))
-	}
-	if r.portfolioBoardIds != nil {
-		localVarQueryParams.Add("portfolioBoardIds", parameterToString(*r.portfolioBoardIds, "csv"))
-	}
-	if r.filterTagIds != nil {
-		localVarQueryParams.Add("filterTagIds", parameterToString(*r.filterTagIds, "csv"))
-	}
-	if r.featuresEnabledOnProject != nil {
-		localVarQueryParams.Add("featuresEnabledOnProject", parameterToString(*r.featuresEnabledOnProject, "csv"))
-	}
-	if r.crmDealIds != nil {
-		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	if r.categoryId != nil {
-		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, "csv"))
-	}
-	if r.catId != nil {
-		localVarQueryParams.Add("catId", parameterToString(*r.catId, "csv"))
+	if r.cleanPreferences != nil {
+		localVarQueryParams.Add("cleanPreferences", parameterToString(*r.cleanPreferences, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3501,7 +1787,7 @@ func (a *CFPortApiService) GETProjectsApiV2PeopleUserIdProjectsExecute(r ApiGETP
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -3510,19 +1796,19 @@ func (a *CFPortApiService) GETProjectsApiV2PeopleUserIdProjectsExecute(r ApiGETP
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -3530,478 +1816,492 @@ func (a *CFPortApiService) GETProjectsApiV2PeopleUserIdProjectsExecute(r ApiGETP
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
+type ApiGETProjectsApiV2MePersonaltasksRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
 	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Today(today string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Today(today string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.today = &today
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) StartDate(startDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Sort(sort string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Sort(sort string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Priority(priority string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Priority(priority string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.priority = &priority
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Include(include string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Include(include string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Filter(filter string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Filter(filter string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) EndDate(endDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.deletedAfterDate = &deletedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.dateCode = &dateCode
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.createdFilter = &createdFilter
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.createdDateCode = &createdDateCode
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.createdBeforeDate = &createdBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.completedBeforeDate = &completedBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.completedAfterDate = &completedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Callback(callback string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Callback(callback string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.callback = &callback
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Page(page int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Page(page int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.offsetCount = &offsetCount
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeTaskId = &includeTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.useAllProjects = &useAllProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.starredProjectsOnly = &starredProjectsOnly
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.showCompletedLists = &showCompletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.onlyUntaggedTasks = &onlyUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.onlyTasksWithTickets = &onlyTasksWithTickets
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.nestSubTasks = &nestSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.matchAllExcludedTags = &matchAllExcludedTags
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeUntaggedTasks = &includeUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeTeamUserIds = &includeTeamUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeTasksWithCards = &includeTasksWithCards
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeReminders = &includeReminders
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeLoggedTime = &includeLoggedTime
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeCrmDealIds = &includeCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeCompanyUserIds = &includeCompanyUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeBlockedTasks = &includeBlockedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeAssigneeTeams = &includeAssigneeTeams
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeAssigneeCompanies = &includeAssigneeCompanies
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.getSubTasks = &getSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.getFiles = &getFiles
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2MePersonaltasksRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.taskIdList = &taskIdList
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Tags(tags []string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Tags(tags []string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.skipCrmDealIds = &skipCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.responsiblePartyIds = &responsiblePartyIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.followerIds = &followerIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.filterText = &filterText
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.filterBoardColumnIds = &filterBoardColumnIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.excludeTagIds = &excludeTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.crmDealIds = &crmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.companyId = &companyId
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.assigneeTeamIds = &assigneeTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2MePersonaltasksRequest {
 	r.assigneeCompanyIds = &assigneeCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksExecute(r)
+func (r ApiGETProjectsApiV2MePersonaltasksRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2MePersonaltasksExecute(r)
 }
 
 /*
- * GETProjectsApiV2ProjectcategoriesProjectCategoryIdTasks Get Tasks
+ * GETProjectsApiV2MePersonaltasks Get Tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest
+ * @return ApiGETProjectsApiV2MePersonaltasksRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesProjectCategoryIdTasks(ctx _context.Context) ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest {
-	return ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest{
+func (a *CFPortApiService) GETProjectsApiV2MePersonaltasks(ctx _context.Context) ApiGETProjectsApiV2MePersonaltasksRequest {
+	return ApiGETProjectsApiV2MePersonaltasksRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksExecute(r ApiGETProjectsApiV2ProjectcategoriesProjectCategoryIdTasksRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2MePersonaltasksExecute(r ApiGETProjectsApiV2MePersonaltasksRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -4010,12 +2310,12 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesProjectCategoryIdTas
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectcategoriesProjectCategoryIdTasks")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2MePersonaltasks")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/projectcategories/:projectCategoryId/tasks"
+	localVarPath := localBasePath + "/projects/api/v2/me/personaltasks"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4210,6 +2510,9 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesProjectCategoryIdTas
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
 	}
@@ -4330,71 +2633,3515 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesProjectCategoryIdTas
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2ProjectsRequest struct {
-	ctx                                _context.Context
-	ApiService                         *CFPortApiService
-	workedOnAfterDateTime              *string
-	updatedAfterDateTime               *string
-	updatedAfterDate                   *string
-	status                             *string
-	searchTerm                         *string
-	projectType                        *string
-	projectStatus                      *string
-	orderMode                          *string
-	orderBy                            *string
-	get                                *string
-	firstLetter                        *string
-	dataSet                            *string
-	createdAfterDateTime               *string
-	createdAfterDate                   *string
-	completedBeforeDateTime            *string
-	completedAfterDateTime             *string
-	userId                             *int32
-	pageSize                           *int32
-	page                               *int32
-	searchCompany                      *bool
-	sanitizeName                       *bool
-	returnLetters                      *bool
-	onlyStarredProjects                *bool
+type ApiGETProjectsApiV2MePersonaltaskstaskIdRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
+	includeTasksFromDeletedLists *bool
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
+}
+
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Today(today string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.today = &today
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) StartDate(startDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.startDate = &startDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Sort(sort string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.sort = &sort
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectStatus = &projectStatus
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Priority(priority string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.priority = &priority
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Include(include string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Filter(filter string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.filter = &filter
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) EndDate(endDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.endDate = &endDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.deletedAfterDate = &deletedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) DateCode(dateCode string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.dateCode = &dateCode
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) DataSet(dataSet string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.createdFilter = &createdFilter
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.createdDateCode = &createdDateCode
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.createdBeforeDate = &createdBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.createdAfterDate = &createdAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.completedBeforeDate = &completedBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.completedAfterDate = &completedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Callback(callback string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.callback = &callback
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) TaskId(taskId int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.taskId = &taskId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.parentTaskId = &parentTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Page(page int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.offsetCount = &offsetCount
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeTaskId = &includeTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.useAllProjects = &useAllProjects
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.starredProjectsOnly = &starredProjectsOnly
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.showCompletedLists = &showCompletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.onlyUntaggedTasks = &onlyUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.onlyTasksWithTickets = &onlyTasksWithTickets
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.nestSubTasks = &nestSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.matchAllProjectTagIds = &matchAllProjectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.matchAllExcludedTags = &matchAllExcludedTags
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeUntaggedTasks = &includeUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeToday = &includeToday
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeTeamUserIds = &includeTeamUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeTasksWithCards = &includeTasksWithCards
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeReminders = &includeReminders
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeLoggedTime = &includeLoggedTime
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeCrmDealIds = &includeCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeCompletedTasks = &includeCompletedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeCompletedSubtasks = &includeCompletedSubtasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeCompanyUserIds = &includeCompanyUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeBlockedTasks = &includeBlockedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeAssigneeTeams = &includeAssigneeTeams
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeAssigneeCompanies = &includeAssigneeCompanies
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.ignoreStartDates = &ignoreStartDates
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.getSubTasks = &getSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.getFiles = &getFiles
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.allowTemplateTasks = &allowTemplateTasks
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.tasklistId = &tasklistId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.taskIdList = &taskIdList
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Tags(tags []string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.tags = &tags
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.skipCrmDealIds = &skipCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.responsiblePartyIds = &responsiblePartyIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.projectCategoryId = &projectCategoryId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.followerIds = &followerIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) FilterText(filterText []string) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.filterText = &filterText
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.filterBoardColumnIds = &filterBoardColumnIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.excludeTagIds = &excludeTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.crmDealIds = &crmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.creatorIds = &creatorIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.companyId = &companyId
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.assigneeTeamIds = &assigneeTeamIds
+	return r
+}
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	r.assigneeCompanyIds = &assigneeCompanyIds
+	return r
+}
+
+func (r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2MePersonaltaskstaskIdExecute(r)
+}
+
+/*
+ * GETProjectsApiV2MePersonaltaskstaskId Get Tasks
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param taskId2
+ * @return ApiGETProjectsApiV2MePersonaltaskstaskIdRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2MePersonaltaskstaskId(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2MePersonaltaskstaskIdRequest {
+	return ApiGETProjectsApiV2MePersonaltaskstaskIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskId2: taskId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2MePersonaltaskstaskIdExecute(r ApiGETProjectsApiV2MePersonaltaskstaskIdRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2MePersonaltaskstaskId")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/me/personaltasks/{taskId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.today != nil {
+		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
+	}
+	if r.startDate != nil {
+		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.reportFormat != nil {
+		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectStatus != nil {
+		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
+	}
+	if r.priority != nil {
+		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+	}
+	if r.endDate != nil {
+		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
+	}
+	if r.deletedAfterDate != nil {
+		localVarQueryParams.Add("deletedAfterDate", parameterToString(*r.deletedAfterDate, ""))
+	}
+	if r.dateCode != nil {
+		localVarQueryParams.Add("dateCode", parameterToString(*r.dateCode, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.createdFilter != nil {
+		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
+	}
+	if r.createdDateCode != nil {
+		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
+	}
+	if r.createdBeforeDate != nil {
+		localVarQueryParams.Add("createdBeforeDate", parameterToString(*r.createdBeforeDate, ""))
+	}
+	if r.createdAfterDate != nil {
+		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
+	}
+	if r.completedBeforeDate != nil {
+		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
+	}
+	if r.completedAfterDate != nil {
+		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
+	}
+	if r.callback != nil {
+		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
+	}
+	if r.taskId != nil {
+		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
+	}
+	if r.parentTaskId != nil {
+		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.offsetCount != nil {
+		localVarQueryParams.Add("offsetCount", parameterToString(*r.offsetCount, ""))
+	}
+	if r.includeTaskId != nil {
+		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
+	}
+	if r.useStartDatesForTodaysTasks != nil {
+		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
+	}
+	if r.useAllProjects != nil {
+		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
+	}
+	if r.starredProjectsOnly != nil {
+		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.showCompletedLists != nil {
+		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
+	}
+	if r.onlyUntaggedTasks != nil {
+		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
+	}
+	if r.onlyTasksWithUnreadComments != nil {
+		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
+	}
+	if r.onlyTasksWithTickets != nil {
+		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
+	}
+	if r.onlyTasksWithEstimatedTime != nil {
+		localVarQueryParams.Add("onlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.nestSubTasks != nil {
+		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.matchAllProjectTagIds != nil {
+		localVarQueryParams.Add("matchAllProjectTagIds", parameterToString(*r.matchAllProjectTagIds, ""))
+	}
+	if r.matchAllExcludedTags != nil {
+		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
+	}
+	if r.isReportDownload != nil {
+		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUntaggedTasks != nil {
+		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
+	}
+	if r.includeToday != nil {
+		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
+	}
+	if r.includeTeamUserIds != nil {
+		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
+	}
+	if r.includeTasksWithoutDueDates != nil {
+		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
+	}
+	if r.includeTasksWithCards != nil {
+		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
+	}
+	if r.includeTasksFromDeletedLists != nil {
+		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
+	}
+	if r.includeReminders != nil {
+		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
+	}
+	if r.includeLoggedTime != nil {
+		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCrmDealIds != nil {
+		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
+	}
+	if r.includeCompletedTasks != nil {
+		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
+	}
+	if r.includeCompletedSubtasks != nil {
+		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
+	}
+	if r.includeCompanyUserIds != nil {
+		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
+	}
+	if r.includeBlockedTasks != nil {
+		localVarQueryParams.Add("includeBlockedTasks", parameterToString(*r.includeBlockedTasks, ""))
+	}
+	if r.includeAssigneeTeams != nil {
+		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
+	}
+	if r.includeAssigneeCompanies != nil {
+		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.ignoreStartDates != nil {
+		localVarQueryParams.Add("ignoreStartDates", parameterToString(*r.ignoreStartDates, ""))
+	}
+	if r.getSubTasks != nil {
+		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
+	}
+	if r.getFiles != nil {
+		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
+	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
+	if r.allowTemplateTasks != nil {
+		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
+	}
+	if r.tasklistId != nil {
+		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
+	}
+	if r.taskIdList != nil {
+		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.skipCrmDealIds != nil {
+		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
+	}
+	if r.responsiblePartyIds != nil {
+		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, "csv"))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.projectCategoryId != nil {
+		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId, "csv"))
+	}
+	if r.followerIds != nil {
+		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, "csv"))
+	}
+	if r.filterText != nil {
+		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, "csv"))
+	}
+	if r.filterBoardColumnIds != nil {
+		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
+	}
+	if r.excludeTagIds != nil {
+		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
+	}
+	if r.crmDealIds != nil {
+		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
+	}
+	if r.creatorIds != nil {
+		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	if r.assigneeTeamIds != nil {
+		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
+	}
+	if r.assigneeCompanyIds != nil {
+		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2MessagesobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getNotificationSettings *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
+}
+
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.objectId = &objectId
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.includePeople = &includePeople
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getTruePermissions = &getTruePermissions
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getPermissions = &getPermissions
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getNotificationSettings = &getNotificationSettings
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getEmailAddress = &getEmailAddress
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getDateInfo = &getDateInfo
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.getActivePages = &getActivePages
+	return r
+}
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	r.formatMarkdown = &formatMarkdown
+	return r
+}
+
+func (r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2MessagesobjectIdProjectExecute(r)
+}
+
+/*
+ * GETProjectsApiV2MessagesobjectIdProject Get the project for the message
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param objectId2
+ * @return ApiGETProjectsApiV2MessagesobjectIdProjectRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2MessagesobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2MessagesobjectIdProjectRequest {
+	return ApiGETProjectsApiV2MessagesobjectIdProjectRequest{
+		ApiService: a,
+		ctx: ctx,
+		objectId2: objectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2MessagesobjectIdProjectExecute(r ApiGETProjectsApiV2MessagesobjectIdProjectRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2MessagesobjectIdProject")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/messages/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.objectId != nil {
+		localVarQueryParams.Add("objectId", parameterToString(*r.objectId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includePeople != nil {
+		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
+	}
+	if r.getTruePermissions != nil {
+		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
+	}
+	if r.getPermissions != nil {
+		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
+	}
+	if r.getNotificationSettings != nil {
+		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
+	}
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.getEmailAddress != nil {
+		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
+	}
+	if r.getDateInfo != nil {
+		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
+	}
+	if r.getActivePages != nil {
+		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
+	}
+	if r.formatMarkdown != nil {
+		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2MilestonesobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getNotificationSettings *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
+}
+
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.objectId = &objectId
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.includePeople = &includePeople
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getTruePermissions = &getTruePermissions
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getPermissions = &getPermissions
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getNotificationSettings = &getNotificationSettings
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getEmailAddress = &getEmailAddress
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getDateInfo = &getDateInfo
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.getActivePages = &getActivePages
+	return r
+}
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	r.formatMarkdown = &formatMarkdown
+	return r
+}
+
+func (r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2MilestonesobjectIdProjectExecute(r)
+}
+
+/*
+ * GETProjectsApiV2MilestonesobjectIdProject Get the project for the milestone
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param objectId2
+ * @return ApiGETProjectsApiV2MilestonesobjectIdProjectRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2MilestonesobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2MilestonesobjectIdProjectRequest {
+	return ApiGETProjectsApiV2MilestonesobjectIdProjectRequest{
+		ApiService: a,
+		ctx: ctx,
+		objectId2: objectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2MilestonesobjectIdProjectExecute(r ApiGETProjectsApiV2MilestonesobjectIdProjectRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2MilestonesobjectIdProject")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/milestones/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.objectId != nil {
+		localVarQueryParams.Add("objectId", parameterToString(*r.objectId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includePeople != nil {
+		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
+	}
+	if r.getTruePermissions != nil {
+		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
+	}
+	if r.getPermissions != nil {
+		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
+	}
+	if r.getNotificationSettings != nil {
+		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
+	}
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.getEmailAddress != nil {
+		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
+	}
+	if r.getDateInfo != nil {
+		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
+	}
+	if r.getActivePages != nil {
+		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
+	}
+	if r.formatMarkdown != nil {
+		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2NotebooksobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getNotificationSettings *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
+}
+
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.objectId = &objectId
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.includePeople = &includePeople
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getTruePermissions = &getTruePermissions
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getPermissions = &getPermissions
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getNotificationSettings = &getNotificationSettings
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getEmailAddress = &getEmailAddress
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getDateInfo = &getDateInfo
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.getActivePages = &getActivePages
+	return r
+}
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	r.formatMarkdown = &formatMarkdown
+	return r
+}
+
+func (r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2NotebooksobjectIdProjectExecute(r)
+}
+
+/*
+ * GETProjectsApiV2NotebooksobjectIdProject Get the project for the notebook
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param objectId2
+ * @return ApiGETProjectsApiV2NotebooksobjectIdProjectRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2NotebooksobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2NotebooksobjectIdProjectRequest {
+	return ApiGETProjectsApiV2NotebooksobjectIdProjectRequest{
+		ApiService: a,
+		ctx: ctx,
+		objectId2: objectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2NotebooksobjectIdProjectExecute(r ApiGETProjectsApiV2NotebooksobjectIdProjectRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2NotebooksobjectIdProject")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/notebooks/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.objectId != nil {
+		localVarQueryParams.Add("objectId", parameterToString(*r.objectId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includePeople != nil {
+		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
+	}
+	if r.getTruePermissions != nil {
+		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
+	}
+	if r.getPermissions != nil {
+		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
+	}
+	if r.getNotificationSettings != nil {
+		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
+	}
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.getEmailAddress != nil {
+		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
+	}
+	if r.getDateInfo != nil {
+		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
+	}
+	if r.getActivePages != nil {
+		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
+	}
+	if r.formatMarkdown != nil {
+		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2PeopleRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDateTime *string
+	updatedAfterDate *string
+	type_ *string
+	sortOrder *string
+	sort *string
+	searchTerm *string
+	projectType *string
+	inviteStatus *string
+	firstLetter *string
+	emailAddress *string
+	dataSet *string
+	projectId *int32
+	projectCompanyId *int32
+	pageSize *int32
+	page *int32
+	excludeProjectId *int32
+	showDeleted *bool
+	returnTeams *bool
+	returnProjectIds *bool
+	returnLetters *bool
+	ownerCompanyFirst *bool
+	onlyids *bool
+	includeTags *bool
+	includeObservers *bool
+	includeContacts *bool
+	includeCompanyDetails *bool
+	includeClockIn *bool
+	includeClients *bool
+	groupByCompany *bool
+	getProjectRoles *bool
+	getCounts *bool
+	fullprofile *bool
+	countOnly *bool
+	userIds *[]int32
+	companyId *[]int32
+}
+
+func (r ApiGETProjectsApiV2PeopleRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2PeopleRequest {
+	r.updatedAfterDateTime = &updatedAfterDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2PeopleRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) Type_(type_ string) ApiGETProjectsApiV2PeopleRequest {
+	r.type_ = &type_
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2PeopleRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) Sort(sort string) ApiGETProjectsApiV2PeopleRequest {
+	r.sort = &sort
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2PeopleRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ProjectType(projectType string) ApiGETProjectsApiV2PeopleRequest {
+	r.projectType = &projectType
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2PeopleRequest {
+	r.inviteStatus = &inviteStatus
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2PeopleRequest {
+	r.firstLetter = &firstLetter
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2PeopleRequest {
+	r.emailAddress = &emailAddress
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) DataSet(dataSet string) ApiGETProjectsApiV2PeopleRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ProjectId(projectId int32) ApiGETProjectsApiV2PeopleRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ProjectCompanyId(projectCompanyId int32) ApiGETProjectsApiV2PeopleRequest {
+	r.projectCompanyId = &projectCompanyId
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) PageSize(pageSize int32) ApiGETProjectsApiV2PeopleRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) Page(page int32) ApiGETProjectsApiV2PeopleRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2PeopleRequest {
+	r.excludeProjectId = &excludeProjectId
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2PeopleRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2PeopleRequest {
+	r.returnTeams = &returnTeams
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2PeopleRequest {
+	r.returnProjectIds = &returnProjectIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2PeopleRequest {
+	r.returnLetters = &returnLetters
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2PeopleRequest {
+	r.ownerCompanyFirst = &ownerCompanyFirst
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2PeopleRequest {
+	r.onlyids = &onlyids
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2PeopleRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2PeopleRequest {
+	r.includeObservers = &includeObservers
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) IncludeContacts(includeContacts bool) ApiGETProjectsApiV2PeopleRequest {
+	r.includeContacts = &includeContacts
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2PeopleRequest {
+	r.includeCompanyDetails = &includeCompanyDetails
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2PeopleRequest {
+	r.includeClockIn = &includeClockIn
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) IncludeClients(includeClients bool) ApiGETProjectsApiV2PeopleRequest {
+	r.includeClients = &includeClients
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2PeopleRequest {
+	r.groupByCompany = &groupByCompany
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2PeopleRequest {
+	r.getProjectRoles = &getProjectRoles
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2PeopleRequest {
+	r.getCounts = &getCounts
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2PeopleRequest {
+	r.fullprofile = &fullprofile
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2PeopleRequest {
+	r.countOnly = &countOnly
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) UserIds(userIds []int32) ApiGETProjectsApiV2PeopleRequest {
+	r.userIds = &userIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2PeopleRequest {
+	r.companyId = &companyId
+	return r
+}
+
+func (r ApiGETProjectsApiV2PeopleRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2PeopleExecute(r)
+}
+
+/*
+ * GETProjectsApiV2People All people visible to the user will be returned, including the user themselves. By default 100 records are returned at a time.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiGETProjectsApiV2PeopleRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2People(ctx _context.Context) ApiGETProjectsApiV2PeopleRequest {
+	return ApiGETProjectsApiV2PeopleRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return PeopleResponse
+ */
+func (a *CFPortApiService) GETProjectsApiV2PeopleExecute(r ApiGETProjectsApiV2PeopleRequest) (PeopleResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PeopleResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2People")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/people"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDateTime != nil {
+		localVarQueryParams.Add("updatedAfterDateTime", parameterToString(*r.updatedAfterDateTime, ""))
+	}
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.type_ != nil {
+		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.projectType != nil {
+		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
+	}
+	if r.inviteStatus != nil {
+		localVarQueryParams.Add("inviteStatus", parameterToString(*r.inviteStatus, ""))
+	}
+	if r.firstLetter != nil {
+		localVarQueryParams.Add("firstLetter", parameterToString(*r.firstLetter, ""))
+	}
+	if r.emailAddress != nil {
+		localVarQueryParams.Add("emailAddress", parameterToString(*r.emailAddress, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.projectCompanyId != nil {
+		localVarQueryParams.Add("projectCompanyId", parameterToString(*r.projectCompanyId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.excludeProjectId != nil {
+		localVarQueryParams.Add("excludeProjectId", parameterToString(*r.excludeProjectId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.returnTeams != nil {
+		localVarQueryParams.Add("returnTeams", parameterToString(*r.returnTeams, ""))
+	}
+	if r.returnProjectIds != nil {
+		localVarQueryParams.Add("returnProjectIds", parameterToString(*r.returnProjectIds, ""))
+	}
+	if r.returnLetters != nil {
+		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
+	}
+	if r.ownerCompanyFirst != nil {
+		localVarQueryParams.Add("ownerCompanyFirst", parameterToString(*r.ownerCompanyFirst, ""))
+	}
+	if r.onlyids != nil {
+		localVarQueryParams.Add("onlyids", parameterToString(*r.onlyids, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includeObservers != nil {
+		localVarQueryParams.Add("includeObservers", parameterToString(*r.includeObservers, ""))
+	}
+	if r.includeContacts != nil {
+		localVarQueryParams.Add("includeContacts", parameterToString(*r.includeContacts, ""))
+	}
+	if r.includeCompanyDetails != nil {
+		localVarQueryParams.Add("includeCompanyDetails", parameterToString(*r.includeCompanyDetails, ""))
+	}
+	if r.includeClockIn != nil {
+		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
+	}
+	if r.includeClients != nil {
+		localVarQueryParams.Add("includeClients", parameterToString(*r.includeClients, ""))
+	}
+	if r.groupByCompany != nil {
+		localVarQueryParams.Add("groupByCompany", parameterToString(*r.groupByCompany, ""))
+	}
+	if r.getProjectRoles != nil {
+		localVarQueryParams.Add("getProjectRoles", parameterToString(*r.getProjectRoles, ""))
+	}
+	if r.getCounts != nil {
+		localVarQueryParams.Add("getCounts", parameterToString(*r.getCounts, ""))
+	}
+	if r.fullprofile != nil {
+		localVarQueryParams.Add("fullprofile", parameterToString(*r.fullprofile, ""))
+	}
+	if r.countOnly != nil {
+		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly, ""))
+	}
+	if r.userIds != nil {
+		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2PeopleuserIdRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	userId int32
+	sharedFilter *string
+	getDefaultFilters *string
+	userID *int32
+	showDeleted *bool
+	includeTags *bool
+	includeClockIn *bool
+	includeAuth *bool
+	getTeamsStats *bool
+	getTasksStats *bool
+	getProjectsStats *bool
+	getPreferences *bool
+	getPermissions *bool
+	getMilestonesStats *bool
+	getInitialPage *bool
+	getAllStats *bool
+	getAccounts *bool
+	fullprofile *bool
+	cleanPreferences *bool
+}
+
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) SharedFilter(sharedFilter string) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.sharedFilter = &sharedFilter
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetDefaultFilters(getDefaultFilters string) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getDefaultFilters = &getDefaultFilters
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) UserID(userID int32) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.userID = &userID
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.includeClockIn = &includeClockIn
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) IncludeAuth(includeAuth bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.includeAuth = &includeAuth
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetTeamsStats(getTeamsStats bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getTeamsStats = &getTeamsStats
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetTasksStats(getTasksStats bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getTasksStats = &getTasksStats
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetProjectsStats(getProjectsStats bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getProjectsStats = &getProjectsStats
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetPreferences(getPreferences bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getPreferences = &getPreferences
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getPermissions = &getPermissions
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetMilestonesStats(getMilestonesStats bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getMilestonesStats = &getMilestonesStats
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetInitialPage(getInitialPage bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getInitialPage = &getInitialPage
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetAllStats(getAllStats bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getAllStats = &getAllStats
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) GetAccounts(getAccounts bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.getAccounts = &getAccounts
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.fullprofile = &fullprofile
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) CleanPreferences(cleanPreferences bool) ApiGETProjectsApiV2PeopleuserIdRequest {
+	r.cleanPreferences = &cleanPreferences
+	return r
+}
+
+func (r ApiGETProjectsApiV2PeopleuserIdRequest) Execute() (PeoplePersonResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2PeopleuserIdExecute(r)
+}
+
+/*
+ * GETProjectsApiV2PeopleuserId Retrieves the user details for the ID submitted.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param userId
+ * @return ApiGETProjectsApiV2PeopleuserIdRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2PeopleuserId(ctx _context.Context, userId int32) ApiGETProjectsApiV2PeopleuserIdRequest {
+	return ApiGETProjectsApiV2PeopleuserIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId: userId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return PeoplePersonResponse
+ */
+func (a *CFPortApiService) GETProjectsApiV2PeopleuserIdExecute(r ApiGETProjectsApiV2PeopleuserIdRequest) (PeoplePersonResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PeoplePersonResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2PeopleuserId")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/people/{userId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.sharedFilter != nil {
+		localVarQueryParams.Add("sharedFilter", parameterToString(*r.sharedFilter, ""))
+	}
+	if r.getDefaultFilters != nil {
+		localVarQueryParams.Add("getDefaultFilters", parameterToString(*r.getDefaultFilters, ""))
+	}
+	if r.userID != nil {
+		localVarQueryParams.Add("userID", parameterToString(*r.userID, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includeClockIn != nil {
+		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
+	}
+	if r.includeAuth != nil {
+		localVarQueryParams.Add("includeAuth", parameterToString(*r.includeAuth, ""))
+	}
+	if r.getTeamsStats != nil {
+		localVarQueryParams.Add("getTeamsStats", parameterToString(*r.getTeamsStats, ""))
+	}
+	if r.getTasksStats != nil {
+		localVarQueryParams.Add("getTasksStats", parameterToString(*r.getTasksStats, ""))
+	}
+	if r.getProjectsStats != nil {
+		localVarQueryParams.Add("getProjectsStats", parameterToString(*r.getProjectsStats, ""))
+	}
+	if r.getPreferences != nil {
+		localVarQueryParams.Add("getPreferences", parameterToString(*r.getPreferences, ""))
+	}
+	if r.getPermissions != nil {
+		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
+	}
+	if r.getMilestonesStats != nil {
+		localVarQueryParams.Add("getMilestonesStats", parameterToString(*r.getMilestonesStats, ""))
+	}
+	if r.getInitialPage != nil {
+		localVarQueryParams.Add("getInitialPage", parameterToString(*r.getInitialPage, ""))
+	}
+	if r.getAllStats != nil {
+		localVarQueryParams.Add("getAllStats", parameterToString(*r.getAllStats, ""))
+	}
+	if r.getAccounts != nil {
+		localVarQueryParams.Add("getAccounts", parameterToString(*r.getAccounts, ""))
+	}
+	if r.fullprofile != nil {
+		localVarQueryParams.Add("fullprofile", parameterToString(*r.fullprofile, ""))
+	}
+	if r.cleanPreferences != nil {
+		localVarQueryParams.Add("cleanPreferences", parameterToString(*r.cleanPreferences, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2PeopleuserIdProjectsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	userId2 int32
+	workedOnAfterDateTime *string
+	updatedAfterDateTime *string
+	updatedAfterDate *string
+	status *string
+	searchTerm *string
+	projectType *string
+	projectStatus *string
+	orderMode *string
+	orderBy *string
+	get *string
+	firstLetter *string
+	dataSet *string
+	createdAfterDateTime *string
+	createdAfterDate *string
+	completedBeforeDateTime *string
+	completedAfterDateTime *string
+	userId *int32
+	pageSize *int32
+	page *int32
+	searchCompany *bool
+	searchCategory *bool
+	sanitizeName *bool
+	returnLetters *bool
+	onlyStarredProjects *bool
 	onlyProjectsWithExplicitMembership *bool
-	onlyArchivedProjects               *bool
-	matchAllTags                       *bool
-	matchAllProjectTags                *bool
-	includeUpdates                     *bool
-	includeTopPeople                   *bool
-	includeTags                        *bool
-	includeProjectOwner                *bool
-	includePeople                      *bool
-	includeCustomFields                *bool
-	includeCrmDealIds                  *bool
-	includeArchivedProjects            *bool
-	hideObservedProjects               *bool
-	hideDesc                           *bool
-	getTruePermissions                 *bool
-	getPermissions                     *bool
-	getNotificationSettings            *bool
-	getDeleted                         *bool
-	getCounts                          *bool
-	getCategoryPath                    *bool
-	getAll                             *bool
-	getActivePages                     *bool
-	formatMarkdown                     *bool
-	skipIds                            *[]int32
-	skipCrmDealIds                     *[]int32
-	projectTagIds                      *[]int32
-	projectOwnerIds                    *[]int32
-	projectHealths                     *[]int32
-	projectHealth                      *[]int32
-	projectCompanyIds                  *[]int32
-	projectCategoryIds                 *[]int32
-	portfolioColumnIds                 *[]int32
-	portfolioBoardIds                  *[]int32
-	filterTagIds                       *[]int32
-	featuresEnabledOnProject           *[]string
-	crmDealIds                         *[]int32
-	companyId                          *[]int32
-	categoryId                         *[]int32
-	catId                              *[]int32
+	onlyCustomFieldValues *bool
+	onlyArchivedProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	includeUpdates *bool
+	includeTopPeople *bool
+	includeTags *bool
+	includeProjectOwner *bool
+	includePeople *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeArchivedProjects *bool
+	hideObservedProjects *bool
+	hideDesc *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getNotificationSettings *bool
+	getDeleted *bool
+	getCounts *bool
+	getCategoryPath *bool
+	getAll *bool
+	getActivePages *bool
+	formatMarkdown *bool
+	skipIds *[]int32
+	skipCrmDealIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	portfolioColumnIds *[]int32
+	portfolioBoardIds *[]int32
+	filterTagIds *[]int32
+	featuresEnabledOnProject *[]string
+	crmDealIds *[]int32
+	companyId *[]int32
+	categoryId *[]int32
+	catId *[]int32
+}
+
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) WorkedOnAfterDateTime(workedOnAfterDateTime string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.workedOnAfterDateTime = &workedOnAfterDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.updatedAfterDateTime = &updatedAfterDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) Status(status string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.status = &status
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectType(projectType string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectType = &projectType
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectStatus = &projectStatus
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) OrderMode(orderMode string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.orderMode = &orderMode
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) OrderBy(orderBy string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) Get(get string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.get = &get
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.firstLetter = &firstLetter
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) DataSet(dataSet string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CreatedAfterDateTime(createdAfterDateTime string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.createdAfterDateTime = &createdAfterDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.createdAfterDate = &createdAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CompletedBeforeDateTime(completedBeforeDateTime string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.completedBeforeDateTime = &completedBeforeDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CompletedAfterDateTime(completedAfterDateTime string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.completedAfterDateTime = &completedAfterDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) UserId(userId int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) Page(page int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) SearchCompany(searchCompany bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.searchCompany = &searchCompany
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) SearchCategory(searchCategory bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.searchCategory = &searchCategory
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) SanitizeName(sanitizeName bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.sanitizeName = &sanitizeName
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.returnLetters = &returnLetters
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.onlyProjectsWithExplicitMembership = &onlyProjectsWithExplicitMembership
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) OnlyCustomFieldValues(onlyCustomFieldValues bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.onlyCustomFieldValues = &onlyCustomFieldValues
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.onlyArchivedProjects = &onlyArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeUpdates(includeUpdates bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeUpdates = &includeUpdates
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeTopPeople(includeTopPeople bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeTopPeople = &includeTopPeople
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeProjectOwner(includeProjectOwner bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeProjectOwner = &includeProjectOwner
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includePeople = &includePeople
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeCrmDealIds = &includeCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) HideObservedProjects(hideObservedProjects bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.hideObservedProjects = &hideObservedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) HideDesc(hideDesc bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.hideDesc = &hideDesc
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getTruePermissions = &getTruePermissions
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getPermissions = &getPermissions
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getNotificationSettings = &getNotificationSettings
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetDeleted(getDeleted bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getDeleted = &getDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getCounts = &getCounts
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetCategoryPath(getCategoryPath bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getCategoryPath = &getCategoryPath
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetAll(getAll bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getAll = &getAll
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.getActivePages = &getActivePages
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.formatMarkdown = &formatMarkdown
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) SkipIds(skipIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.skipIds = &skipIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.skipCrmDealIds = &skipCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) PortfolioColumnIds(portfolioColumnIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.portfolioColumnIds = &portfolioColumnIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) PortfolioBoardIds(portfolioBoardIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.portfolioBoardIds = &portfolioBoardIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) FilterTagIds(filterTagIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.filterTagIds = &filterTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) FeaturesEnabledOnProject(featuresEnabledOnProject []string) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.featuresEnabledOnProject = &featuresEnabledOnProject
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.crmDealIds = &crmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.companyId = &companyId
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CategoryId(categoryId []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.categoryId = &categoryId
+	return r
+}
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) CatId(catId []int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	r.catId = &catId
+	return r
+}
+
+func (r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2PeopleuserIdProjectsExecute(r)
+}
+
+/*
+ * GETProjectsApiV2PeopleuserIdProjects APICall_GET_projects
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param userId2
+ * @return ApiGETProjectsApiV2PeopleuserIdProjectsRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2PeopleuserIdProjects(ctx _context.Context, userId2 int32) ApiGETProjectsApiV2PeopleuserIdProjectsRequest {
+	return ApiGETProjectsApiV2PeopleuserIdProjectsRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId2: userId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2PeopleuserIdProjectsExecute(r ApiGETProjectsApiV2PeopleuserIdProjectsRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2PeopleuserIdProjects")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/people/{userId}/projects"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.workedOnAfterDateTime != nil {
+		localVarQueryParams.Add("workedOnAfterDateTime", parameterToString(*r.workedOnAfterDateTime, ""))
+	}
+	if r.updatedAfterDateTime != nil {
+		localVarQueryParams.Add("updatedAfterDateTime", parameterToString(*r.updatedAfterDateTime, ""))
+	}
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.status != nil {
+		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.projectType != nil {
+		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
+	}
+	if r.projectStatus != nil {
+		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
+	}
+	if r.orderMode != nil {
+		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.get != nil {
+		localVarQueryParams.Add("get", parameterToString(*r.get, ""))
+	}
+	if r.firstLetter != nil {
+		localVarQueryParams.Add("firstLetter", parameterToString(*r.firstLetter, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.createdAfterDateTime != nil {
+		localVarQueryParams.Add("createdAfterDateTime", parameterToString(*r.createdAfterDateTime, ""))
+	}
+	if r.createdAfterDate != nil {
+		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
+	}
+	if r.completedBeforeDateTime != nil {
+		localVarQueryParams.Add("completedBeforeDateTime", parameterToString(*r.completedBeforeDateTime, ""))
+	}
+	if r.completedAfterDateTime != nil {
+		localVarQueryParams.Add("completedAfterDateTime", parameterToString(*r.completedAfterDateTime, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.searchCompany != nil {
+		localVarQueryParams.Add("searchCompany", parameterToString(*r.searchCompany, ""))
+	}
+	if r.searchCategory != nil {
+		localVarQueryParams.Add("searchCategory", parameterToString(*r.searchCategory, ""))
+	}
+	if r.sanitizeName != nil {
+		localVarQueryParams.Add("sanitizeName", parameterToString(*r.sanitizeName, ""))
+	}
+	if r.returnLetters != nil {
+		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.onlyProjectsWithExplicitMembership != nil {
+		localVarQueryParams.Add("onlyProjectsWithExplicitMembership", parameterToString(*r.onlyProjectsWithExplicitMembership, ""))
+	}
+	if r.onlyCustomFieldValues != nil {
+		localVarQueryParams.Add("onlyCustomFieldValues", parameterToString(*r.onlyCustomFieldValues, ""))
+	}
+	if r.onlyArchivedProjects != nil {
+		localVarQueryParams.Add("onlyArchivedProjects", parameterToString(*r.onlyArchivedProjects, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.includeUpdates != nil {
+		localVarQueryParams.Add("includeUpdates", parameterToString(*r.includeUpdates, ""))
+	}
+	if r.includeTopPeople != nil {
+		localVarQueryParams.Add("includeTopPeople", parameterToString(*r.includeTopPeople, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includeProjectOwner != nil {
+		localVarQueryParams.Add("includeProjectOwner", parameterToString(*r.includeProjectOwner, ""))
+	}
+	if r.includePeople != nil {
+		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCrmDealIds != nil {
+		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.hideObservedProjects != nil {
+		localVarQueryParams.Add("hideObservedProjects", parameterToString(*r.hideObservedProjects, ""))
+	}
+	if r.hideDesc != nil {
+		localVarQueryParams.Add("hideDesc", parameterToString(*r.hideDesc, ""))
+	}
+	if r.getTruePermissions != nil {
+		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
+	}
+	if r.getPermissions != nil {
+		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
+	}
+	if r.getNotificationSettings != nil {
+		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
+	}
+	if r.getDeleted != nil {
+		localVarQueryParams.Add("getDeleted", parameterToString(*r.getDeleted, ""))
+	}
+	if r.getCounts != nil {
+		localVarQueryParams.Add("getCounts", parameterToString(*r.getCounts, ""))
+	}
+	if r.getCategoryPath != nil {
+		localVarQueryParams.Add("getCategoryPath", parameterToString(*r.getCategoryPath, ""))
+	}
+	if r.getAll != nil {
+		localVarQueryParams.Add("getAll", parameterToString(*r.getAll, ""))
+	}
+	if r.getActivePages != nil {
+		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
+	}
+	if r.formatMarkdown != nil {
+		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
+	}
+	if r.skipIds != nil {
+		localVarQueryParams.Add("skipIds", parameterToString(*r.skipIds, "csv"))
+	}
+	if r.skipCrmDealIds != nil {
+		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.portfolioColumnIds != nil {
+		localVarQueryParams.Add("portfolioColumnIds", parameterToString(*r.portfolioColumnIds, "csv"))
+	}
+	if r.portfolioBoardIds != nil {
+		localVarQueryParams.Add("portfolioBoardIds", parameterToString(*r.portfolioBoardIds, "csv"))
+	}
+	if r.filterTagIds != nil {
+		localVarQueryParams.Add("filterTagIds", parameterToString(*r.filterTagIds, "csv"))
+	}
+	if r.featuresEnabledOnProject != nil {
+		localVarQueryParams.Add("featuresEnabledOnProject", parameterToString(*r.featuresEnabledOnProject, "csv"))
+	}
+	if r.crmDealIds != nil {
+		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	if r.categoryId != nil {
+		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, "csv"))
+	}
+	if r.catId != nil {
+		localVarQueryParams.Add("catId", parameterToString(*r.catId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectCategoryId int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
+	includeTasksFromDeletedLists *bool
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId2 *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Today(today string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.today = &today
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.startDate = &startDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Sort(sort string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.sort = &sort
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectStatus = &projectStatus
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Priority(priority string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.priority = &priority
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Include(include string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Filter(filter string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.filter = &filter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.endDate = &endDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.deletedAfterDate = &deletedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.dateCode = &dateCode
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.createdFilter = &createdFilter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.createdDateCode = &createdDateCode
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.createdBeforeDate = &createdBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.createdAfterDate = &createdAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.completedBeforeDate = &completedBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.completedAfterDate = &completedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Callback(callback string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.callback = &callback
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.taskId = &taskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.parentTaskId = &parentTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Page(page int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.offsetCount = &offsetCount
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeTaskId = &includeTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.useAllProjects = &useAllProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.starredProjectsOnly = &starredProjectsOnly
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.showCompletedLists = &showCompletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.onlyUntaggedTasks = &onlyUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.onlyTasksWithTickets = &onlyTasksWithTickets
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.nestSubTasks = &nestSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.matchAllProjectTagIds = &matchAllProjectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.matchAllExcludedTags = &matchAllExcludedTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeUntaggedTasks = &includeUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeToday = &includeToday
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeTeamUserIds = &includeTeamUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeTasksWithCards = &includeTasksWithCards
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeReminders = &includeReminders
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeLoggedTime = &includeLoggedTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeCrmDealIds = &includeCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeCompletedTasks = &includeCompletedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeCompletedSubtasks = &includeCompletedSubtasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeCompanyUserIds = &includeCompanyUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeBlockedTasks = &includeBlockedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeAssigneeTeams = &includeAssigneeTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeAssigneeCompanies = &includeAssigneeCompanies
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.ignoreStartDates = &ignoreStartDates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.getSubTasks = &getSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.getFiles = &getFiles
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.allowTemplateTasks = &allowTemplateTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.tasklistId = &tasklistId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.taskIdList = &taskIdList
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Tags(tags []string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.tags = &tags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.skipCrmDealIds = &skipCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.responsiblePartyIds = &responsiblePartyIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ProjectCategoryId2(projectCategoryId2 []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.projectCategoryId2 = &projectCategoryId2
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.followerIds = &followerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.filterText = &filterText
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.filterBoardColumnIds = &filterBoardColumnIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.excludeTagIds = &excludeTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.crmDealIds = &crmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.creatorIds = &creatorIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.companyId = &companyId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.assigneeTeamIds = &assigneeTeamIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	r.assigneeCompanyIds = &assigneeCompanyIds
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectcategoriesprojectCategoryIdTasks Get Tasks
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectCategoryId
+ * @return ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesprojectCategoryIdTasks(ctx _context.Context, projectCategoryId int32) ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest {
+	return ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectCategoryId: projectCategoryId,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksExecute(r ApiGETProjectsApiV2ProjectcategoriesprojectCategoryIdTasksRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectcategoriesprojectCategoryIdTasks")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projectcategories/{projectCategoryId}/tasks"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectCategoryId"+"}", _neturl.PathEscape(parameterToString(r.projectCategoryId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.today != nil {
+		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
+	}
+	if r.startDate != nil {
+		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.reportFormat != nil {
+		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectStatus != nil {
+		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
+	}
+	if r.priority != nil {
+		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+	}
+	if r.endDate != nil {
+		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
+	}
+	if r.deletedAfterDate != nil {
+		localVarQueryParams.Add("deletedAfterDate", parameterToString(*r.deletedAfterDate, ""))
+	}
+	if r.dateCode != nil {
+		localVarQueryParams.Add("dateCode", parameterToString(*r.dateCode, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.createdFilter != nil {
+		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
+	}
+	if r.createdDateCode != nil {
+		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
+	}
+	if r.createdBeforeDate != nil {
+		localVarQueryParams.Add("createdBeforeDate", parameterToString(*r.createdBeforeDate, ""))
+	}
+	if r.createdAfterDate != nil {
+		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
+	}
+	if r.completedBeforeDate != nil {
+		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
+	}
+	if r.completedAfterDate != nil {
+		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
+	}
+	if r.callback != nil {
+		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
+	}
+	if r.taskId != nil {
+		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
+	}
+	if r.parentTaskId != nil {
+		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.offsetCount != nil {
+		localVarQueryParams.Add("offsetCount", parameterToString(*r.offsetCount, ""))
+	}
+	if r.includeTaskId != nil {
+		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
+	}
+	if r.useStartDatesForTodaysTasks != nil {
+		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
+	}
+	if r.useAllProjects != nil {
+		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
+	}
+	if r.starredProjectsOnly != nil {
+		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.showCompletedLists != nil {
+		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
+	}
+	if r.onlyUntaggedTasks != nil {
+		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
+	}
+	if r.onlyTasksWithUnreadComments != nil {
+		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
+	}
+	if r.onlyTasksWithTickets != nil {
+		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
+	}
+	if r.onlyTasksWithEstimatedTime != nil {
+		localVarQueryParams.Add("onlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.nestSubTasks != nil {
+		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.matchAllProjectTagIds != nil {
+		localVarQueryParams.Add("matchAllProjectTagIds", parameterToString(*r.matchAllProjectTagIds, ""))
+	}
+	if r.matchAllExcludedTags != nil {
+		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
+	}
+	if r.isReportDownload != nil {
+		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUntaggedTasks != nil {
+		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
+	}
+	if r.includeToday != nil {
+		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
+	}
+	if r.includeTeamUserIds != nil {
+		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
+	}
+	if r.includeTasksWithoutDueDates != nil {
+		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
+	}
+	if r.includeTasksWithCards != nil {
+		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
+	}
+	if r.includeTasksFromDeletedLists != nil {
+		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
+	}
+	if r.includeReminders != nil {
+		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
+	}
+	if r.includeLoggedTime != nil {
+		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCrmDealIds != nil {
+		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
+	}
+	if r.includeCompletedTasks != nil {
+		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
+	}
+	if r.includeCompletedSubtasks != nil {
+		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
+	}
+	if r.includeCompanyUserIds != nil {
+		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
+	}
+	if r.includeBlockedTasks != nil {
+		localVarQueryParams.Add("includeBlockedTasks", parameterToString(*r.includeBlockedTasks, ""))
+	}
+	if r.includeAssigneeTeams != nil {
+		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
+	}
+	if r.includeAssigneeCompanies != nil {
+		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.ignoreStartDates != nil {
+		localVarQueryParams.Add("ignoreStartDates", parameterToString(*r.ignoreStartDates, ""))
+	}
+	if r.getSubTasks != nil {
+		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
+	}
+	if r.getFiles != nil {
+		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
+	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
+	if r.allowTemplateTasks != nil {
+		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
+	}
+	if r.tasklistId != nil {
+		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
+	}
+	if r.taskIdList != nil {
+		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.skipCrmDealIds != nil {
+		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
+	}
+	if r.responsiblePartyIds != nil {
+		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, "csv"))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.projectCategoryId2 != nil {
+		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId2, "csv"))
+	}
+	if r.followerIds != nil {
+		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, "csv"))
+	}
+	if r.filterText != nil {
+		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, "csv"))
+	}
+	if r.filterBoardColumnIds != nil {
+		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
+	}
+	if r.excludeTagIds != nil {
+		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
+	}
+	if r.crmDealIds != nil {
+		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
+	}
+	if r.creatorIds != nil {
+		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	if r.assigneeTeamIds != nil {
+		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
+	}
+	if r.assigneeCompanyIds != nil {
+		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	workedOnAfterDateTime *string
+	updatedAfterDateTime *string
+	updatedAfterDate *string
+	status *string
+	searchTerm *string
+	projectType *string
+	projectStatus *string
+	orderMode *string
+	orderBy *string
+	get *string
+	firstLetter *string
+	dataSet *string
+	createdAfterDateTime *string
+	createdAfterDate *string
+	completedBeforeDateTime *string
+	completedAfterDateTime *string
+	userId *int32
+	pageSize *int32
+	page *int32
+	searchCompany *bool
+	searchCategory *bool
+	sanitizeName *bool
+	returnLetters *bool
+	onlyStarredProjects *bool
+	onlyProjectsWithExplicitMembership *bool
+	onlyCustomFieldValues *bool
+	onlyArchivedProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	includeUpdates *bool
+	includeTopPeople *bool
+	includeTags *bool
+	includeProjectOwner *bool
+	includePeople *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeArchivedProjects *bool
+	hideObservedProjects *bool
+	hideDesc *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getNotificationSettings *bool
+	getDeleted *bool
+	getCounts *bool
+	getCategoryPath *bool
+	getAll *bool
+	getActivePages *bool
+	formatMarkdown *bool
+	skipIds *[]int32
+	skipCrmDealIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	portfolioColumnIds *[]int32
+	portfolioBoardIds *[]int32
+	filterTagIds *[]int32
+	featuresEnabledOnProject *[]string
+	crmDealIds *[]int32
+	companyId *[]int32
+	categoryId *[]int32
+	catId *[]int32
 }
 
 func (r ApiGETProjectsApiV2ProjectsRequest) WorkedOnAfterDateTime(workedOnAfterDateTime string) ApiGETProjectsApiV2ProjectsRequest {
@@ -4477,6 +6224,10 @@ func (r ApiGETProjectsApiV2ProjectsRequest) SearchCompany(searchCompany bool) Ap
 	r.searchCompany = &searchCompany
 	return r
 }
+func (r ApiGETProjectsApiV2ProjectsRequest) SearchCategory(searchCategory bool) ApiGETProjectsApiV2ProjectsRequest {
+	r.searchCategory = &searchCategory
+	return r
+}
 func (r ApiGETProjectsApiV2ProjectsRequest) SanitizeName(sanitizeName bool) ApiGETProjectsApiV2ProjectsRequest {
 	r.sanitizeName = &sanitizeName
 	return r
@@ -4491,6 +6242,10 @@ func (r ApiGETProjectsApiV2ProjectsRequest) OnlyStarredProjects(onlyStarredProje
 }
 func (r ApiGETProjectsApiV2ProjectsRequest) OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership bool) ApiGETProjectsApiV2ProjectsRequest {
 	r.onlyProjectsWithExplicitMembership = &onlyProjectsWithExplicitMembership
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsRequest) OnlyCustomFieldValues(onlyCustomFieldValues bool) ApiGETProjectsApiV2ProjectsRequest {
+	r.onlyCustomFieldValues = &onlyCustomFieldValues
 	return r
 }
 func (r ApiGETProjectsApiV2ProjectsRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV2ProjectsRequest {
@@ -4658,7 +6413,7 @@ func (r ApiGETProjectsApiV2ProjectsRequest) Execute() (*_nethttp.Response, error
 func (a *CFPortApiService) GETProjectsApiV2Projects(ctx _context.Context) ApiGETProjectsApiV2ProjectsRequest {
 	return ApiGETProjectsApiV2ProjectsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -4745,6 +6500,9 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsExecute(r ApiGETProjectsApiV2
 	if r.searchCompany != nil {
 		localVarQueryParams.Add("searchCompany", parameterToString(*r.searchCompany, ""))
 	}
+	if r.searchCategory != nil {
+		localVarQueryParams.Add("searchCategory", parameterToString(*r.searchCategory, ""))
+	}
 	if r.sanitizeName != nil {
 		localVarQueryParams.Add("sanitizeName", parameterToString(*r.sanitizeName, ""))
 	}
@@ -4756,6 +6514,9 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsExecute(r ApiGETProjectsApiV2
 	}
 	if r.onlyProjectsWithExplicitMembership != nil {
 		localVarQueryParams.Add("onlyProjectsWithExplicitMembership", parameterToString(*r.onlyProjectsWithExplicitMembership, ""))
+	}
+	if r.onlyCustomFieldValues != nil {
+		localVarQueryParams.Add("onlyCustomFieldValues", parameterToString(*r.onlyCustomFieldValues, ""))
 	}
 	if r.onlyArchivedProjects != nil {
 		localVarQueryParams.Add("onlyArchivedProjects", parameterToString(*r.onlyArchivedProjects, ""))
@@ -4917,14 +6678,14 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsExecute(r ApiGETProjectsApiV2
 }
 
 type ApiGETProjectsApiV2ProjectsArchivedRequest struct {
-	ctx            _context.Context
-	ApiService     *CFPortApiService
-	pageSize       *int32
-	page           *int32
-	maxProjects    *int32
+	ctx _context.Context
+	ApiService *CFPortApiService
+	pageSize *int32
+	page *int32
+	maxProjects *int32
 	includeUpdates *bool
 	groupByCompany *bool
-	getEmoji       *bool
+	getEmoji *bool
 }
 
 func (r ApiGETProjectsApiV2ProjectsArchivedRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsArchivedRequest {
@@ -4964,7 +6725,7 @@ func (r ApiGETProjectsApiV2ProjectsArchivedRequest) Execute() (*_nethttp.Respons
 func (a *CFPortApiService) GETProjectsApiV2ProjectsArchived(ctx _context.Context) ApiGETProjectsApiV2ProjectsArchivedRequest {
 	return ApiGETProjectsApiV2ProjectsArchivedRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5055,22 +6816,22 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsArchivedExecute(r ApiGETProje
 }
 
 type ApiGETProjectsApiV2ProjectsChartRequest struct {
-	ctx                                _context.Context
-	ApiService                         *CFPortApiService
-	updatedAfterDate                   *string
-	startDate                          *string
-	endDate                            *string
-	companyId                          *int32
-	useMinDates                        *bool
-	starred                            *bool
-	onlyStarredProjects                *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDate *string
+	startDate *string
+	endDate *string
+	companyId *int32
+	useMinDates *bool
+	starred *bool
+	onlyStarredProjects *bool
 	onlyProjectsWithExplicitMembership *bool
-	includeUpdates                     *bool
-	includeTags                        *bool
-	hideObservedProjects               *bool
-	getEmoji                           *bool
-	categoryId                         *[]int32
-	catId                              *[]int32
+	includeUpdates *bool
+	includeTags *bool
+	hideObservedProjects *bool
+	getEmoji *bool
+	categoryId *[]int32
+	catId *[]int32
 }
 
 func (r ApiGETProjectsApiV2ProjectsChartRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsChartRequest {
@@ -5142,7 +6903,7 @@ func (r ApiGETProjectsApiV2ProjectsChartRequest) Execute() (*_nethttp.Response, 
 func (a *CFPortApiService) GETProjectsApiV2ProjectsChart(ctx _context.Context) ApiGETProjectsApiV2ProjectsChartRequest {
 	return ApiGETProjectsApiV2ProjectsChartRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5257,18 +7018,18 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsChartExecute(r ApiGETProjects
 }
 
 type ApiGETProjectsApiV2ProjectsChartoverviewRequest struct {
-	ctx                 _context.Context
-	ApiService          *CFPortApiService
-	updatedAfterDate    *string
-	startDate           *string
-	endDate             *string
-	projectCompanyId    *int32
-	useMinDates         *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDate *string
+	startDate *string
+	endDate *string
+	projectCompanyId *int32
+	useMinDates *bool
 	onlyStarredProjects *bool
-	includeUpdates      *bool
-	includeTags         *bool
-	getEmoji            *bool
-	projectCategoryIds  *[]int32
+	includeUpdates *bool
+	includeTags *bool
+	getEmoji *bool
+	projectCategoryIds *[]int32
 }
 
 func (r ApiGETProjectsApiV2ProjectsChartoverviewRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsChartoverviewRequest {
@@ -5324,7 +7085,7 @@ func (r ApiGETProjectsApiV2ProjectsChartoverviewRequest) Execute() (*_nethttp.Re
 func (a *CFPortApiService) GETProjectsApiV2ProjectsChartoverview(ctx _context.Context) ApiGETProjectsApiV2ProjectsChartoverviewRequest {
 	return ApiGETProjectsApiV2ProjectsChartoverviewRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5427,14 +7188,14 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsChartoverviewExecute(r ApiGET
 }
 
 type ApiGETProjectsApiV2ProjectsEstimatedtimeTotalRequest struct {
-	ctx           _context.Context
-	ApiService    *CFPortApiService
-	toDate        *string
+	ctx _context.Context
+	ApiService *CFPortApiService
+	toDate *string
 	projectStatus *string
-	fromDate      *string
-	userId        *int32
-	pageSize      *int32
-	page          *int32
+	fromDate *string
+	userId *int32
+	pageSize *int32
+	page *int32
 }
 
 func (r ApiGETProjectsApiV2ProjectsEstimatedtimeTotalRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsEstimatedtimeTotalRequest {
@@ -5474,7 +7235,7 @@ func (r ApiGETProjectsApiV2ProjectsEstimatedtimeTotalRequest) Execute() (*_netht
 func (a *CFPortApiService) GETProjectsApiV2ProjectsEstimatedtimeTotal(ctx _context.Context) ApiGETProjectsApiV2ProjectsEstimatedtimeTotalRequest {
 	return ApiGETProjectsApiV2ProjectsEstimatedtimeTotalRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5565,17 +7326,17 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsEstimatedtimeTotalExecute(r A
 }
 
 type ApiGETProjectsApiV2ProjectsLatestRequest struct {
-	ctx                    _context.Context
-	ApiService             *CFPortApiService
-	view                   *string
-	pageSize               *int32
-	page                   *int32
-	minProjects            *int32
-	maxProjects            *int32
-	includeUpdates         *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	view *string
+	pageSize *int32
+	page *int32
+	minProjects *int32
+	maxProjects *int32
+	includeUpdates *bool
 	includeStarredInLatest *bool
-	groupByCompany         *bool
-	getEmoji               *bool
+	groupByCompany *bool
+	getEmoji *bool
 }
 
 func (r ApiGETProjectsApiV2ProjectsLatestRequest) View(view string) ApiGETProjectsApiV2ProjectsLatestRequest {
@@ -5627,7 +7388,7 @@ func (r ApiGETProjectsApiV2ProjectsLatestRequest) Execute() (*_nethttp.Response,
 func (a *CFPortApiService) GETProjectsApiV2ProjectsLatest(ctx _context.Context) ApiGETProjectsApiV2ProjectsLatestRequest {
 	return ApiGETProjectsApiV2ProjectsLatestRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5727,12 +7488,12 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsLatestExecute(r ApiGETProject
 }
 
 type ApiGETProjectsApiV2ProjectsMeLatestRequest struct {
-	ctx            _context.Context
-	ApiService     *CFPortApiService
-	maxProjects    *int32
+	ctx _context.Context
+	ApiService *CFPortApiService
+	maxProjects *int32
 	includeUpdates *bool
 	groupByCompany *bool
-	getEmoji       *bool
+	getEmoji *bool
 }
 
 func (r ApiGETProjectsApiV2ProjectsMeLatestRequest) MaxProjects(maxProjects int32) ApiGETProjectsApiV2ProjectsMeLatestRequest {
@@ -5764,7 +7525,7 @@ func (r ApiGETProjectsApiV2ProjectsMeLatestRequest) Execute() (*_nethttp.Respons
 func (a *CFPortApiService) GETProjectsApiV2ProjectsMeLatest(ctx _context.Context) ApiGETProjectsApiV2ProjectsMeLatestRequest {
 	return ApiGETProjectsApiV2ProjectsMeLatestRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5849,13 +7610,13 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsMeLatestExecute(r ApiGETProje
 }
 
 type ApiGETProjectsApiV2ProjectsNewRequest struct {
-	ctx        _context.Context
+	ctx _context.Context
 	ApiService *CFPortApiService
-	companyId  *int32
+	projectId *[]int32
 }
 
-func (r ApiGETProjectsApiV2ProjectsNewRequest) CompanyId(companyId int32) ApiGETProjectsApiV2ProjectsNewRequest {
-	r.companyId = &companyId
+func (r ApiGETProjectsApiV2ProjectsNewRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2ProjectsNewRequest {
+	r.projectId = &projectId
 	return r
 }
 
@@ -5864,14 +7625,14 @@ func (r ApiGETProjectsApiV2ProjectsNewRequest) Execute() (*_nethttp.Response, er
 }
 
 /*
- * GETProjectsApiV2ProjectsNew Returns the project defaults
+ * GETProjectsApiV2ProjectsNew Gets the milestone timeline for projects
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiGETProjectsApiV2ProjectsNewRequest
  */
 func (a *CFPortApiService) GETProjectsApiV2ProjectsNew(ctx _context.Context) ApiGETProjectsApiV2ProjectsNewRequest {
 	return ApiGETProjectsApiV2ProjectsNewRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -5898,3779 +7659,8 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsNewExecute(r ApiGETProjectsAp
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	projectId               *int32
-	showDeleted             *bool
-	includeUpdates          *bool
-	includeTags             *bool
-	includeProjectOwner     *bool
-	includePeople           *bool
-	includeCustomFields     *bool
-	includeCrmDealIds       *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
-	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
-	projectOwnerIds         *[]int32
-	projectHealths          *[]int32
-	projectHealth           *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) UserId(userId int32) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) IncludeUpdates(includeUpdates bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.includeUpdates = &includeUpdates
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) IncludeProjectOwner(includeProjectOwner bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.includeProjectOwner = &includeProjectOwner
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.includePeople = &includePeople
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.includeCustomFields = &includeCustomFields
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.includeCrmDealIds = &includeCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getTruePermissions = &getTruePermissions
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getPermissions = &getPermissions
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getNotificationSettings = &getNotificationSettings
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getEmoji = &getEmoji
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getEmailAddress = &getEmailAddress
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getDateInfo = &getDateInfo
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.getActivePages = &getActivePages
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.formatMarkdown = &formatMarkdown
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.projectOwnerIds = &projectOwnerIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.projectHealths = &projectHealths
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	r.projectHealth = &projectHealth
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectId Returns the project defaults
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectId(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdExecute(r ApiGETProjectsApiV2ProjectsProjectIdRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectId")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.includeUpdates != nil {
-		localVarQueryParams.Add("includeUpdates", parameterToString(*r.includeUpdates, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeProjectOwner != nil {
-		localVarQueryParams.Add("includeProjectOwner", parameterToString(*r.includeProjectOwner, ""))
-	}
-	if r.includePeople != nil {
-		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
-	}
-	if r.includeCustomFields != nil {
-		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
-	}
-	if r.includeCrmDealIds != nil {
-		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
-	}
-	if r.getTruePermissions != nil {
-		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
-	}
-	if r.getPermissions != nil {
-		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
-	}
-	if r.getNotificationSettings != nil {
-		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
-	}
-	if r.getEmoji != nil {
-		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
-	}
-	if r.getEmailAddress != nil {
-		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
-	}
-	if r.getDateInfo != nil {
-		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
-	}
-	if r.getActivePages != nil {
-		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
-	}
-	if r.formatMarkdown != nil {
-		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
-	}
-	if r.projectOwnerIds != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
-	}
-	if r.projectHealths != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
-	}
-	if r.projectHealth != nil {
-		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest struct {
-	ctx              _context.Context
-	ApiService       *CFPortApiService
-	updatedAfterDate *string
-	toDate           *string
-	sortOrder        *string
-	sortBy           *string
-	permission       *string
-	invoicedType     *string
-	fromDate         *string
-	billableType     *string
-	ticketId         *int32
-	projectId        *int32
-	pageSize         *int32
-	page             *int32
-	invoiceId        *int32
-	includeTimelogId *int32
-	showDeleted      *bool
-	matchAllTags     *bool
-	includeTags      *bool
-	getTotals        *bool
-	userId           *[]int32
-	taskTagIds       *[]int32
-	tagIds           *[]int32
-	companyId        *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.toDate = &toDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.sortBy = &sortBy
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.permission = &permission
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.invoicedType = &invoicedType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.fromDate = &fromDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.billableType = &billableType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.ticketId = &ticketId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.invoiceId = &invoiceId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.includeTimelogId = &includeTimelogId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.getTotals = &getTotals
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.taskTagIds = &taskTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	r.companyId = &companyId
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdBillingTimeExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdBillingTime APICall_GET_projects_id_time_entries
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdBillingTime(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdBillingTimeExecute(r ApiGETProjectsApiV2ProjectsProjectIdBillingTimeRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdBillingTime")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/billing/time"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.toDate != nil {
-		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sortBy != nil {
-		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
-	}
-	if r.permission != nil {
-		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
-	}
-	if r.invoicedType != nil {
-		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
-	}
-	if r.fromDate != nil {
-		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
-	}
-	if r.billableType != nil {
-		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
-	}
-	if r.ticketId != nil {
-		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.invoiceId != nil {
-		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
-	}
-	if r.includeTimelogId != nil {
-		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.getTotals != nil {
-		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
-	}
-	if r.taskTagIds != nil {
-		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest struct {
-	ctx         _context.Context
-	ApiService  *CFPortApiService
-	subCodeType *int32
-	projectId   *int32
-	categoryId  *int32
-	setup       *bool
-	getSubCode  *bool
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) SubCodeType(subCodeType int32) ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest {
-	r.subCodeType = &subCodeType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) CategoryId(categoryId int32) ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest {
-	r.categoryId = &categoryId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) Setup(setup bool) ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest {
-	r.setup = &setup
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) GetSubCode(getSubCode bool) ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest {
-	r.getSubCode = &getSubCode
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdEmailaddressExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdEmailaddress Returns the details for the account you’re currently logged in with.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdEmailaddress(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdEmailaddressExecute(r ApiGETProjectsApiV2ProjectsProjectIdEmailaddressRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdEmailaddress")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/emailaddress"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.subCodeType != nil {
-		localVarQueryParams.Add("subCodeType", parameterToString(*r.subCodeType, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.categoryId != nil {
-		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, ""))
-	}
-	if r.setup != nil {
-		localVarQueryParams.Add("setup", parameterToString(*r.setup, ""))
-	}
-	if r.getSubCode != nil {
-		localVarQueryParams.Add("getSubCode", parameterToString(*r.getSubCode, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest struct {
-	ctx                   _context.Context
-	ApiService            *CFPortApiService
-	updatedAfterDateTime  *string
-	updatedAfterDate      *string
-	type_                 *string
-	sortOrder             *string
-	sort                  *string
-	searchTerm            *string
-	projectType           *string
-	inviteStatus          *string
-	firstLetter           *string
-	emailAddress          *string
-	dataSet               *string
-	projectId             *int32
-	pageSize              *int32
-	page                  *int32
-	excludeProjectId      *int32
-	showDeleted           *bool
-	returnTeams           *bool
-	returnProjectIds      *bool
-	returnLetters         *bool
-	ownerCompanyFirst     *bool
-	onlyids               *bool
-	includeTags           *bool
-	includeObservers      *bool
-	includeCompanyDetails *bool
-	includeClockIn        *bool
-	groupByCompany        *bool
-	getProjectRoles       *bool
-	getCounts             *bool
-	fullprofile           *bool
-	countOnly             *bool
-	userIds               *[]int32
-	companyId             *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.updatedAfterDateTime = &updatedAfterDateTime
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) Type_(type_ string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.type_ = &type_
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.sort = &sort
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.searchTerm = &searchTerm
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ProjectType(projectType string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.projectType = &projectType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.inviteStatus = &inviteStatus
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.firstLetter = &firstLetter
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.emailAddress = &emailAddress
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.dataSet = &dataSet
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.excludeProjectId = &excludeProjectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.returnTeams = &returnTeams
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.returnProjectIds = &returnProjectIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.returnLetters = &returnLetters
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.ownerCompanyFirst = &ownerCompanyFirst
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.onlyids = &onlyids
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.includeObservers = &includeObservers
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.includeCompanyDetails = &includeCompanyDetails
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.includeClockIn = &includeClockIn
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.groupByCompany = &groupByCompany
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.getProjectRoles = &getProjectRoles
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.getCounts = &getCounts
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.fullprofile = &fullprofile
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.countOnly = &countOnly
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) UserIds(userIds []int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.userIds = &userIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	r.companyId = &companyId
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdPeopleExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdPeople Retrieves all of the people in a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdPeople(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return PeopleResponse
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdPeopleExecute(r ApiGETProjectsApiV2ProjectsProjectIdPeopleRequest) (PeopleResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  PeopleResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdPeople")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/people"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDateTime != nil {
-		localVarQueryParams.Add("updatedAfterDateTime", parameterToString(*r.updatedAfterDateTime, ""))
-	}
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.type_ != nil {
-		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
-	}
-	if r.searchTerm != nil {
-		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
-	}
-	if r.projectType != nil {
-		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
-	}
-	if r.inviteStatus != nil {
-		localVarQueryParams.Add("inviteStatus", parameterToString(*r.inviteStatus, ""))
-	}
-	if r.firstLetter != nil {
-		localVarQueryParams.Add("firstLetter", parameterToString(*r.firstLetter, ""))
-	}
-	if r.emailAddress != nil {
-		localVarQueryParams.Add("emailAddress", parameterToString(*r.emailAddress, ""))
-	}
-	if r.dataSet != nil {
-		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.excludeProjectId != nil {
-		localVarQueryParams.Add("excludeProjectId", parameterToString(*r.excludeProjectId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.returnTeams != nil {
-		localVarQueryParams.Add("returnTeams", parameterToString(*r.returnTeams, ""))
-	}
-	if r.returnProjectIds != nil {
-		localVarQueryParams.Add("returnProjectIds", parameterToString(*r.returnProjectIds, ""))
-	}
-	if r.returnLetters != nil {
-		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
-	}
-	if r.ownerCompanyFirst != nil {
-		localVarQueryParams.Add("ownerCompanyFirst", parameterToString(*r.ownerCompanyFirst, ""))
-	}
-	if r.onlyids != nil {
-		localVarQueryParams.Add("onlyids", parameterToString(*r.onlyids, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.includeObservers != nil {
-		localVarQueryParams.Add("includeObservers", parameterToString(*r.includeObservers, ""))
-	}
-	if r.includeCompanyDetails != nil {
-		localVarQueryParams.Add("includeCompanyDetails", parameterToString(*r.includeCompanyDetails, ""))
-	}
-	if r.includeClockIn != nil {
-		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
-	}
-	if r.groupByCompany != nil {
-		localVarQueryParams.Add("groupByCompany", parameterToString(*r.groupByCompany, ""))
-	}
-	if r.getProjectRoles != nil {
-		localVarQueryParams.Add("getProjectRoles", parameterToString(*r.getProjectRoles, ""))
-	}
-	if r.getCounts != nil {
-		localVarQueryParams.Add("getCounts", parameterToString(*r.getCounts, ""))
-	}
-	if r.fullprofile != nil {
-		localVarQueryParams.Add("fullprofile", parameterToString(*r.fullprofile, ""))
-	}
-	if r.countOnly != nil {
-		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly, ""))
-	}
-	if r.userIds != nil {
-		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest struct {
-	ctx                 _context.Context
-	ApiService          *CFPortApiService
-	projectId           *int32
-	nextPageToken       *int32
-	dependentTaskId     *int32
-	onlyDependencies    *bool
-	onlyBasicFields     *bool
-	onlyActionable      *bool
-	includeDependencies *bool
-	getRecursively      *bool
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) NextPageToken(nextPageToken int32) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.nextPageToken = &nextPageToken
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) DependentTaskId(dependentTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.dependentTaskId = &dependentTaskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) OnlyDependencies(onlyDependencies bool) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.onlyDependencies = &onlyDependencies
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) OnlyBasicFields(onlyBasicFields bool) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.onlyBasicFields = &onlyBasicFields
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) OnlyActionable(onlyActionable bool) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.onlyActionable = &onlyActionable
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) IncludeDependencies(includeDependencies bool) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.includeDependencies = &includeDependencies
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) GetRecursively(getRecursively bool) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	r.getRecursively = &getRecursively
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdPredecessorsExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdPredecessors Get Predecessor
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdPredecessors(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdPredecessorsExecute(r ApiGETProjectsApiV2ProjectsProjectIdPredecessorsRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdPredecessors")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/predecessors"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.nextPageToken != nil {
-		localVarQueryParams.Add("nextPageToken", parameterToString(*r.nextPageToken, ""))
-	}
-	if r.dependentTaskId != nil {
-		localVarQueryParams.Add("dependentTaskId", parameterToString(*r.dependentTaskId, ""))
-	}
-	if r.onlyDependencies != nil {
-		localVarQueryParams.Add("onlyDependencies", parameterToString(*r.onlyDependencies, ""))
-	}
-	if r.onlyBasicFields != nil {
-		localVarQueryParams.Add("onlyBasicFields", parameterToString(*r.onlyBasicFields, ""))
-	}
-	if r.onlyActionable != nil {
-		localVarQueryParams.Add("onlyActionable", parameterToString(*r.onlyActionable, ""))
-	}
-	if r.includeDependencies != nil {
-		localVarQueryParams.Add("includeDependencies", parameterToString(*r.includeDependencies, ""))
-	}
-	if r.getRecursively != nil {
-		localVarQueryParams.Add("getRecursively", parameterToString(*r.getRecursively, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest struct {
-	ctx           _context.Context
-	ApiService    *CFPortApiService
-	filterText    *string
-	aPIReturnType *string
-	pageSize      *int32
-	page          *int32
-	getEmoji      *bool
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) FilterText(filterText string) ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest {
-	r.filterText = &filterText
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) APIReturnType(aPIReturnType string) ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest {
-	r.aPIReturnType = &aPIReturnType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest {
-	r.getEmoji = &getEmoji
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdSummaryExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdSummary APICall_GET_summary
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdSummary(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdSummaryExecute(r ApiGETProjectsApiV2ProjectsProjectIdSummaryRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdSummary")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/summary"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.filterText != nil {
-		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, ""))
-	}
-	if r.aPIReturnType != nil {
-		localVarQueryParams.Add("APIReturnType", parameterToString(*r.aPIReturnType, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.getEmoji != nil {
-		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
-	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Today(today string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.today = &today
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.startDate = &startDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.sort = &sort
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.reportFormat = &reportFormat
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectStatus = &projectStatus
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Priority(priority string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.priority = &priority
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Include(include string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Filter(filter string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.filter = &filter
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.endDate = &endDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.deletedAfterDate = &deletedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) DateCode(dateCode string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.dateCode = &dateCode
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.dataSet = &dataSet
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.createdFilter = &createdFilter
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.createdDateCode = &createdDateCode
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.createdBeforeDate = &createdBeforeDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.createdAfterDate = &createdAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.completedBeforeDate = &completedBeforeDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.completedAfterDate = &completedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Callback(callback string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.callback = &callback
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.taskId = &taskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.parentTaskId = &parentTaskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.offsetCount = &offsetCount
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeTaskId = &includeTaskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.useAllProjects = &useAllProjects
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.starredProjectsOnly = &starredProjectsOnly
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.showCompletedLists = &showCompletedLists
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.onlyUntaggedTasks = &onlyUntaggedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.onlyTasksWithTickets = &onlyTasksWithTickets
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.onlyStarredProjects = &onlyStarredProjects
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.nestSubTasks = &nestSubTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.matchAllProjectTags = &matchAllProjectTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.matchAllProjectTagIds = &matchAllProjectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.matchAllExcludedTags = &matchAllExcludedTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.isReportDownload = &isReportDownload
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeUntaggedTasks = &includeUntaggedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeToday = &includeToday
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeTeamUserIds = &includeTeamUserIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeTasksWithCards = &includeTasksWithCards
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeReminders = &includeReminders
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeLoggedTime = &includeLoggedTime
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeCustomFields = &includeCustomFields
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeCrmDealIds = &includeCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeCompletedTasks = &includeCompletedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeCompletedSubtasks = &includeCompletedSubtasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeCompanyUserIds = &includeCompanyUserIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeBlockedTasks = &includeBlockedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeAssigneeTeams = &includeAssigneeTeams
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeAssigneeCompanies = &includeAssigneeCompanies
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.includeArchivedProjects = &includeArchivedProjects
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.ignoreStartDates = &ignoreStartDates
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.getSubTasks = &getSubTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.getFiles = &getFiles
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.allowTemplateTasks = &allowTemplateTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.tasklistId = &tasklistId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.taskIdList = &taskIdList
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Tags(tags []string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.tags = &tags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.skipCrmDealIds = &skipCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.responsiblePartyIds = &responsiblePartyIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectTagIds = &projectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectOwnerIds = &projectOwnerIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectIds = &projectIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectHealths = &projectHealths
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectHealth = &projectHealth
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectCompanyIds = &projectCompanyIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectCategoryIds = &projectCategoryIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.projectCategoryId = &projectCategoryId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.followerIds = &followerIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) FilterText(filterText []string) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.filterText = &filterText
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.filterBoardColumnIds = &filterBoardColumnIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.excludeTagIds = &excludeTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.crmDealIds = &crmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.creatorIds = &creatorIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.companyId = &companyId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.assigneeTeamIds = &assigneeTeamIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	r.assigneeCompanyIds = &assigneeCompanyIds
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdTaskidsExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdTaskids Get Tasks
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTaskids(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTaskidsExecute(r ApiGETProjectsApiV2ProjectsProjectIdTaskidsRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdTaskids")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/taskids"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.today != nil {
-		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
-	}
-	if r.startDate != nil {
-		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
-	}
-	if r.reportFormat != nil {
-		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
-	}
-	if r.projectStatus != nil {
-		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
-	}
-	if r.priority != nil {
-		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
-	}
-	if r.filter != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
-	}
-	if r.endDate != nil {
-		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
-	}
-	if r.deletedAfterDate != nil {
-		localVarQueryParams.Add("deletedAfterDate", parameterToString(*r.deletedAfterDate, ""))
-	}
-	if r.dateCode != nil {
-		localVarQueryParams.Add("dateCode", parameterToString(*r.dateCode, ""))
-	}
-	if r.dataSet != nil {
-		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
-	}
-	if r.createdFilter != nil {
-		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
-	}
-	if r.createdDateCode != nil {
-		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
-	}
-	if r.createdBeforeDate != nil {
-		localVarQueryParams.Add("createdBeforeDate", parameterToString(*r.createdBeforeDate, ""))
-	}
-	if r.createdAfterDate != nil {
-		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
-	}
-	if r.completedBeforeDate != nil {
-		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
-	}
-	if r.completedAfterDate != nil {
-		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
-	}
-	if r.callback != nil {
-		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
-	}
-	if r.taskId != nil {
-		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
-	}
-	if r.parentTaskId != nil {
-		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.offsetCount != nil {
-		localVarQueryParams.Add("offsetCount", parameterToString(*r.offsetCount, ""))
-	}
-	if r.includeTaskId != nil {
-		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
-	}
-	if r.useStartDatesForTodaysTasks != nil {
-		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
-	}
-	if r.useAllProjects != nil {
-		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
-	}
-	if r.starredProjectsOnly != nil {
-		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.showCompletedLists != nil {
-		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
-	}
-	if r.onlyUntaggedTasks != nil {
-		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
-	}
-	if r.onlyTasksWithUnreadComments != nil {
-		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
-	}
-	if r.onlyTasksWithTickets != nil {
-		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
-	}
-	if r.onlyTasksWithEstimatedTime != nil {
-		localVarQueryParams.Add("onlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
-	}
-	if r.onlyStarredProjects != nil {
-		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
-	}
-	if r.nestSubTasks != nil {
-		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.matchAllProjectTags != nil {
-		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
-	}
-	if r.matchAllProjectTagIds != nil {
-		localVarQueryParams.Add("matchAllProjectTagIds", parameterToString(*r.matchAllProjectTagIds, ""))
-	}
-	if r.matchAllExcludedTags != nil {
-		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
-	}
-	if r.isReportDownload != nil {
-		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
-	}
-	if r.includeUntaggedTasks != nil {
-		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
-	}
-	if r.includeToday != nil {
-		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
-	}
-	if r.includeTeamUserIds != nil {
-		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
-	}
-	if r.includeTasksWithoutDueDates != nil {
-		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
-	}
-	if r.includeTasksWithCards != nil {
-		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
-	}
-	if r.includeTasksFromDeletedLists != nil {
-		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
-	}
-	if r.includeReminders != nil {
-		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
-	}
-	if r.includeLoggedTime != nil {
-		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
-	}
-	if r.includeCustomFields != nil {
-		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
-	}
-	if r.includeCrmDealIds != nil {
-		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
-	}
-	if r.includeCompletedTasks != nil {
-		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
-	}
-	if r.includeCompletedSubtasks != nil {
-		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
-	}
-	if r.includeCompanyUserIds != nil {
-		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
-	}
-	if r.includeBlockedTasks != nil {
-		localVarQueryParams.Add("includeBlockedTasks", parameterToString(*r.includeBlockedTasks, ""))
-	}
-	if r.includeAssigneeTeams != nil {
-		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
-	}
-	if r.includeAssigneeCompanies != nil {
-		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
-	}
-	if r.includeArchivedProjects != nil {
-		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
-	}
-	if r.ignoreStartDates != nil {
-		localVarQueryParams.Add("ignoreStartDates", parameterToString(*r.ignoreStartDates, ""))
-	}
-	if r.getSubTasks != nil {
-		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
-	}
-	if r.getFiles != nil {
-		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
-	}
-	if r.allowTemplateTasks != nil {
-		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
-	}
-	if r.tasklistId != nil {
-		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
-	}
-	if r.taskIdList != nil {
-		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
-	}
-	if r.tags != nil {
-		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.skipCrmDealIds != nil {
-		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
-	}
-	if r.responsiblePartyIds != nil {
-		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
-	}
-	if r.projectTagIds != nil {
-		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
-	}
-	if r.projectOwnerIds != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
-	}
-	if r.projectIds != nil {
-		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
-	}
 	if r.projectId != nil {
 		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, "csv"))
-	}
-	if r.projectHealths != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
-	}
-	if r.projectHealth != nil {
-		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
-	}
-	if r.projectCompanyIds != nil {
-		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
-	}
-	if r.projectCategoryIds != nil {
-		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
-	}
-	if r.projectCategoryId != nil {
-		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId, "csv"))
-	}
-	if r.followerIds != nil {
-		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, "csv"))
-	}
-	if r.filterText != nil {
-		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, "csv"))
-	}
-	if r.filterBoardColumnIds != nil {
-		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
-	}
-	if r.excludeTagIds != nil {
-		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
-	}
-	if r.crmDealIds != nil {
-		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
-	}
-	if r.creatorIds != nil {
-		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	if r.assigneeTeamIds != nil {
-		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
-	}
-	if r.assigneeCompanyIds != nil {
-		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdTasksRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
-	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Today(today string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.today = &today
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.startDate = &startDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.sort = &sort
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.reportFormat = &reportFormat
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectStatus = &projectStatus
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Priority(priority string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.priority = &priority
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Include(include string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Filter(filter string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.filter = &filter
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.endDate = &endDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.deletedAfterDate = &deletedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.dateCode = &dateCode
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.dataSet = &dataSet
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.createdFilter = &createdFilter
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.createdDateCode = &createdDateCode
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.createdBeforeDate = &createdBeforeDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.createdAfterDate = &createdAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.completedBeforeDate = &completedBeforeDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.completedAfterDate = &completedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Callback(callback string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.callback = &callback
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.taskId = &taskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.parentTaskId = &parentTaskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.offsetCount = &offsetCount
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeTaskId = &includeTaskId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.useAllProjects = &useAllProjects
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.starredProjectsOnly = &starredProjectsOnly
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.showCompletedLists = &showCompletedLists
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.onlyUntaggedTasks = &onlyUntaggedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.onlyTasksWithTickets = &onlyTasksWithTickets
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.onlyStarredProjects = &onlyStarredProjects
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.nestSubTasks = &nestSubTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.matchAllProjectTags = &matchAllProjectTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.matchAllProjectTagIds = &matchAllProjectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.matchAllExcludedTags = &matchAllExcludedTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.isReportDownload = &isReportDownload
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeUntaggedTasks = &includeUntaggedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeToday = &includeToday
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeTeamUserIds = &includeTeamUserIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeTasksWithCards = &includeTasksWithCards
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeReminders = &includeReminders
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeLoggedTime = &includeLoggedTime
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeCustomFields = &includeCustomFields
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeCrmDealIds = &includeCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeCompletedTasks = &includeCompletedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeCompletedSubtasks = &includeCompletedSubtasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeCompanyUserIds = &includeCompanyUserIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeBlockedTasks = &includeBlockedTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeAssigneeTeams = &includeAssigneeTeams
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeAssigneeCompanies = &includeAssigneeCompanies
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.includeArchivedProjects = &includeArchivedProjects
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.ignoreStartDates = &ignoreStartDates
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.getSubTasks = &getSubTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.getFiles = &getFiles
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.allowTemplateTasks = &allowTemplateTasks
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.tasklistId = &tasklistId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.taskIdList = &taskIdList
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Tags(tags []string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.tags = &tags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.skipCrmDealIds = &skipCrmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.responsiblePartyIds = &responsiblePartyIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectTagIds = &projectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectOwnerIds = &projectOwnerIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectIds = &projectIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectHealths = &projectHealths
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectHealth = &projectHealth
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectCompanyIds = &projectCompanyIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectCategoryIds = &projectCategoryIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.projectCategoryId = &projectCategoryId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.followerIds = &followerIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.filterText = &filterText
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.filterBoardColumnIds = &filterBoardColumnIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.excludeTagIds = &excludeTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.crmDealIds = &crmDealIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.creatorIds = &creatorIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.companyId = &companyId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.assigneeTeamIds = &assigneeTeamIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	r.assigneeCompanyIds = &assigneeCompanyIds
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdTasksExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdTasks Get Tasks
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdTasksRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTasks(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdTasksRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdTasksRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTasksExecute(r ApiGETProjectsApiV2ProjectsProjectIdTasksRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdTasks")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/tasks"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.today != nil {
-		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
-	}
-	if r.startDate != nil {
-		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sort != nil {
-		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
-	}
-	if r.reportFormat != nil {
-		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
-	}
-	if r.projectStatus != nil {
-		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
-	}
-	if r.priority != nil {
-		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
-	}
-	if r.filter != nil {
-		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
-	}
-	if r.endDate != nil {
-		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
-	}
-	if r.deletedAfterDate != nil {
-		localVarQueryParams.Add("deletedAfterDate", parameterToString(*r.deletedAfterDate, ""))
-	}
-	if r.dateCode != nil {
-		localVarQueryParams.Add("dateCode", parameterToString(*r.dateCode, ""))
-	}
-	if r.dataSet != nil {
-		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
-	}
-	if r.createdFilter != nil {
-		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
-	}
-	if r.createdDateCode != nil {
-		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
-	}
-	if r.createdBeforeDate != nil {
-		localVarQueryParams.Add("createdBeforeDate", parameterToString(*r.createdBeforeDate, ""))
-	}
-	if r.createdAfterDate != nil {
-		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
-	}
-	if r.completedBeforeDate != nil {
-		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
-	}
-	if r.completedAfterDate != nil {
-		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
-	}
-	if r.callback != nil {
-		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
-	}
-	if r.taskId != nil {
-		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
-	}
-	if r.parentTaskId != nil {
-		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.offsetCount != nil {
-		localVarQueryParams.Add("offsetCount", parameterToString(*r.offsetCount, ""))
-	}
-	if r.includeTaskId != nil {
-		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
-	}
-	if r.useStartDatesForTodaysTasks != nil {
-		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
-	}
-	if r.useAllProjects != nil {
-		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
-	}
-	if r.starredProjectsOnly != nil {
-		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.showCompletedLists != nil {
-		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
-	}
-	if r.onlyUntaggedTasks != nil {
-		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
-	}
-	if r.onlyTasksWithUnreadComments != nil {
-		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
-	}
-	if r.onlyTasksWithTickets != nil {
-		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
-	}
-	if r.onlyTasksWithEstimatedTime != nil {
-		localVarQueryParams.Add("onlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
-	}
-	if r.onlyStarredProjects != nil {
-		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
-	}
-	if r.nestSubTasks != nil {
-		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.matchAllProjectTags != nil {
-		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
-	}
-	if r.matchAllProjectTagIds != nil {
-		localVarQueryParams.Add("matchAllProjectTagIds", parameterToString(*r.matchAllProjectTagIds, ""))
-	}
-	if r.matchAllExcludedTags != nil {
-		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
-	}
-	if r.isReportDownload != nil {
-		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
-	}
-	if r.includeUntaggedTasks != nil {
-		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
-	}
-	if r.includeToday != nil {
-		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
-	}
-	if r.includeTeamUserIds != nil {
-		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
-	}
-	if r.includeTasksWithoutDueDates != nil {
-		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
-	}
-	if r.includeTasksWithCards != nil {
-		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
-	}
-	if r.includeTasksFromDeletedLists != nil {
-		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
-	}
-	if r.includeReminders != nil {
-		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
-	}
-	if r.includeLoggedTime != nil {
-		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
-	}
-	if r.includeCustomFields != nil {
-		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
-	}
-	if r.includeCrmDealIds != nil {
-		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
-	}
-	if r.includeCompletedTasks != nil {
-		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
-	}
-	if r.includeCompletedSubtasks != nil {
-		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
-	}
-	if r.includeCompanyUserIds != nil {
-		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
-	}
-	if r.includeBlockedTasks != nil {
-		localVarQueryParams.Add("includeBlockedTasks", parameterToString(*r.includeBlockedTasks, ""))
-	}
-	if r.includeAssigneeTeams != nil {
-		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
-	}
-	if r.includeAssigneeCompanies != nil {
-		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
-	}
-	if r.includeArchivedProjects != nil {
-		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
-	}
-	if r.ignoreStartDates != nil {
-		localVarQueryParams.Add("ignoreStartDates", parameterToString(*r.ignoreStartDates, ""))
-	}
-	if r.getSubTasks != nil {
-		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
-	}
-	if r.getFiles != nil {
-		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
-	}
-	if r.allowTemplateTasks != nil {
-		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
-	}
-	if r.tasklistId != nil {
-		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
-	}
-	if r.taskIdList != nil {
-		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
-	}
-	if r.tags != nil {
-		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.skipCrmDealIds != nil {
-		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
-	}
-	if r.responsiblePartyIds != nil {
-		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
-	}
-	if r.projectTagIds != nil {
-		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
-	}
-	if r.projectOwnerIds != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
-	}
-	if r.projectIds != nil {
-		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, "csv"))
-	}
-	if r.projectHealths != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
-	}
-	if r.projectHealth != nil {
-		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
-	}
-	if r.projectCompanyIds != nil {
-		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
-	}
-	if r.projectCategoryIds != nil {
-		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
-	}
-	if r.projectCategoryId != nil {
-		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId, "csv"))
-	}
-	if r.followerIds != nil {
-		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, "csv"))
-	}
-	if r.filterText != nil {
-		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, "csv"))
-	}
-	if r.filterBoardColumnIds != nil {
-		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
-	}
-	if r.excludeTagIds != nil {
-		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
-	}
-	if r.crmDealIds != nil {
-		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
-	}
-	if r.creatorIds != nil {
-		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	if r.assigneeTeamIds != nil {
-		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
-	}
-	if r.assigneeCompanyIds != nil {
-		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdTimeRequest struct {
-	ctx              _context.Context
-	ApiService       *CFPortApiService
-	updatedAfterDate *string
-	toDate           *string
-	sortOrder        *string
-	sortBy           *string
-	permission       *string
-	invoicedType     *string
-	fromDate         *string
-	billableType     *string
-	ticketId         *int32
-	projectId        *int32
-	pageSize         *int32
-	page             *int32
-	invoiceId        *int32
-	includeTimelogId *int32
-	showDeleted      *bool
-	matchAllTags     *bool
-	includeTags      *bool
-	getTotals        *bool
-	userId           *[]int32
-	taskTagIds       *[]int32
-	tagIds           *[]int32
-	companyId        *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.toDate = &toDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.sortBy = &sortBy
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.permission = &permission
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.invoicedType = &invoicedType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.fromDate = &fromDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.billableType = &billableType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.ticketId = &ticketId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.invoiceId = &invoiceId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.includeTimelogId = &includeTimelogId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.getTotals = &getTotals
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.taskTagIds = &taskTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	r.companyId = &companyId
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdTimeExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdTime APICall_GET_projects_id_time_entries
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdTimeRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTime(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdTimeRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdTimeRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTimeExecute(r ApiGETProjectsApiV2ProjectsProjectIdTimeRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdTime")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/time"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.toDate != nil {
-		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sortBy != nil {
-		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
-	}
-	if r.permission != nil {
-		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
-	}
-	if r.invoicedType != nil {
-		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
-	}
-	if r.fromDate != nil {
-		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
-	}
-	if r.billableType != nil {
-		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
-	}
-	if r.ticketId != nil {
-		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.invoiceId != nil {
-		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
-	}
-	if r.includeTimelogId != nil {
-		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.getTotals != nil {
-		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
-	}
-	if r.taskTagIds != nil {
-		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest struct {
-	ctx              _context.Context
-	ApiService       *CFPortApiService
-	updatedAfterDate *string
-	toDate           *string
-	sortOrder        *string
-	sortBy           *string
-	permission       *string
-	invoicedType     *string
-	fromDate         *string
-	billableType     *string
-	ticketId         *int32
-	projectId        *int32
-	pageSize         *int32
-	page             *int32
-	invoiceId        *int32
-	includeTimelogId *int32
-	showDeleted      *bool
-	matchAllTags     *bool
-	includeTags      *bool
-	getTotals        *bool
-	userId           *[]int32
-	taskTagIds       *[]int32
-	tagIds           *[]int32
-	companyId        *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.toDate = &toDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.sortBy = &sortBy
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.permission = &permission
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.invoicedType = &invoicedType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.fromDate = &fromDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.billableType = &billableType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.ticketId = &ticketId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.invoiceId = &invoiceId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.includeTimelogId = &includeTimelogId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.getTotals = &getTotals
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.taskTagIds = &taskTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	r.companyId = &companyId
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdTimeEntriesExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdTimeEntries APICall_GET_projects_id_time_entries
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTimeEntries(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTimeEntriesExecute(r ApiGETProjectsApiV2ProjectsProjectIdTimeEntriesRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdTimeEntries")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/time_entries"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.toDate != nil {
-		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sortBy != nil {
-		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
-	}
-	if r.permission != nil {
-		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
-	}
-	if r.invoicedType != nil {
-		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
-	}
-	if r.fromDate != nil {
-		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
-	}
-	if r.billableType != nil {
-		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
-	}
-	if r.ticketId != nil {
-		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.invoiceId != nil {
-		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
-	}
-	if r.includeTimelogId != nil {
-		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.getTotals != nil {
-		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
-	}
-	if r.taskTagIds != nil {
-		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest struct {
-	ctx              _context.Context
-	ApiService       *CFPortApiService
-	updatedAfterDate *string
-	toDate           *string
-	sortOrder        *string
-	sortBy           *string
-	permission       *string
-	invoicedType     *string
-	fromDate         *string
-	billableType     *string
-	ticketId         *int32
-	projectId        *int32
-	pageSize         *int32
-	page             *int32
-	invoiceId        *int32
-	includeTimelogId *int32
-	showDeleted      *bool
-	matchAllTags     *bool
-	includeTags      *bool
-	getTotals        *bool
-	userId           *[]int32
-	taskTagIds       *[]int32
-	tagIds           *[]int32
-	companyId        *[]int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.toDate = &toDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.sortOrder = &sortOrder
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.sortBy = &sortBy
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.permission = &permission
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.invoicedType = &invoicedType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.fromDate = &fromDate
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.billableType = &billableType
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.ticketId = &ticketId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.invoiceId = &invoiceId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.includeTimelogId = &includeTimelogId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.includeTags = &includeTags
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.getTotals = &getTotals
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.taskTagIds = &taskTagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	r.companyId = &companyId
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjectIdTimelogsExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjectIdTimelogs APICall_GET_projects_id_time_entries
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTimelogs(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest {
-	return ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjectIdTimelogsExecute(r ApiGETProjectsApiV2ProjectsProjectIdTimelogsRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjectIdTimelogs")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projectId/timelogs"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.toDate != nil {
-		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
-	}
-	if r.sortOrder != nil {
-		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
-	}
-	if r.sortBy != nil {
-		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
-	}
-	if r.permission != nil {
-		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
-	}
-	if r.invoicedType != nil {
-		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
-	}
-	if r.fromDate != nil {
-		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
-	}
-	if r.billableType != nil {
-		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
-	}
-	if r.ticketId != nil {
-		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.invoiceId != nil {
-		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
-	}
-	if r.includeTimelogId != nil {
-		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.includeTags != nil {
-		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
-	}
-	if r.getTotals != nil {
-		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
-	}
-	if r.taskTagIds != nil {
-		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.companyId != nil {
-		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest struct {
-	ctx        _context.Context
-	ApiService *CFPortApiService
-	projectId  *int32
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest {
-	r.projectId = &projectId
-	return r
-}
-
-func (r ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2ProjectsProjejctIdAssingLaterRolesExecute(r)
-}
-
-/*
- * GETProjectsApiV2ProjectsProjejctIdAssingLaterRoles Get assign later roles
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjejctIdAssingLaterRoles(ctx _context.Context) ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest {
-	return ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest{
-		ApiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
- * Execute executes the request
- */
-func (a *CFPortApiService) GETProjectsApiV2ProjectsProjejctIdAssingLaterRolesExecute(r ApiGETProjectsApiV2ProjectsProjejctIdAssingLaterRolesRequest) (*_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsProjejctIdAssingLaterRoles")
-	if err != nil {
-		return nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v2/projects/:projejctId/assing_later_roles"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -9718,9 +7708,9 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsProjejctIdAssingLaterRolesExe
 }
 
 type ApiGETProjectsApiV2ProjectsStarredRequest struct {
-	ctx            _context.Context
-	ApiService     *CFPortApiService
-	dataSet        *string
+	ctx _context.Context
+	ApiService *CFPortApiService
+	dataSet *string
 	includeUpdates *bool
 }
 
@@ -9745,7 +7735,7 @@ func (r ApiGETProjectsApiV2ProjectsStarredRequest) Execute() (*_nethttp.Response
 func (a *CFPortApiService) GETProjectsApiV2ProjectsStarred(ctx _context.Context) ApiGETProjectsApiV2ProjectsStarredRequest {
 	return ApiGETProjectsApiV2ProjectsStarredRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -9824,21 +7814,21 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsStarredExecute(r ApiGETProjec
 }
 
 type ApiGETProjectsApiV2ProjectsTemplatesRequest struct {
-	ctx                 _context.Context
-	ApiService          *CFPortApiService
-	searchTerm          *string
-	orderMode           *string
-	orderBy             *string
-	userId              *int32
-	pageSize            *int32
-	page                *int32
+	ctx _context.Context
+	ApiService *CFPortApiService
+	searchTerm *string
+	orderMode *string
+	orderBy *string
+	userId *int32
+	pageSize *int32
+	page *int32
 	matchAllProjectTags *bool
 	includeProjectOwner *bool
-	getTruePermissions  *bool
-	getPermissions      *bool
-	projectTagIds       *[]int32
-	projectOwnerIds     *[]int32
-	filterTagIds        *[]int32
+	getTruePermissions *bool
+	getPermissions *bool
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	filterTagIds *[]int32
 }
 
 func (r ApiGETProjectsApiV2ProjectsTemplatesRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2ProjectsTemplatesRequest {
@@ -9906,7 +7896,7 @@ func (r ApiGETProjectsApiV2ProjectsTemplatesRequest) Execute() (*_nethttp.Respon
 func (a *CFPortApiService) GETProjectsApiV2ProjectsTemplates(ctx _context.Context) ApiGETProjectsApiV2ProjectsTemplatesRequest {
 	return ApiGETProjectsApiV2ProjectsTemplatesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -10018,14 +8008,14 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsTemplatesExecute(r ApiGETProj
 }
 
 type ApiGETProjectsApiV2ProjectsTimeTotalRequest struct {
-	ctx           _context.Context
-	ApiService    *CFPortApiService
-	toDate        *string
+	ctx _context.Context
+	ApiService *CFPortApiService
+	toDate *string
 	projectStatus *string
-	fromDate      *string
-	userId        *int32
-	pageSize      *int32
-	page          *int32
+	fromDate *string
+	userId *int32
+	pageSize *int32
+	page *int32
 }
 
 func (r ApiGETProjectsApiV2ProjectsTimeTotalRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsTimeTotalRequest {
@@ -10065,7 +8055,7 @@ func (r ApiGETProjectsApiV2ProjectsTimeTotalRequest) Execute() (*_nethttp.Respon
 func (a *CFPortApiService) GETProjectsApiV2ProjectsTimeTotal(ctx _context.Context) ApiGETProjectsApiV2ProjectsTimeTotalRequest {
 	return ApiGETProjectsApiV2ProjectsTimeTotalRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -10155,42 +8145,3926 @@ func (a *CFPortApiService) GETProjectsApiV2ProjectsTimeTotalExecute(r ApiGETProj
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2QuicksearchRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	searchTerm              *string
-	dateupdated             *string
-	timeout                 *int32
-	projectId               *int32
-	pageSize                *int32
-	page                    *int32
-	dayLimit                *int32
-	useSmartSearch          *bool
-	skipES                  *bool
-	searchWithTags          *bool
-	searchTeams             *bool
-	searchTasks             *bool
-	searchTasklists         *bool
-	searchProjects          *bool
-	searchPeople            *bool
-	searchNotebooks         *bool
-	searchMilestones        *bool
-	searchMessages          *bool
-	searchLinks             *bool
-	searchFiles             *bool
-	searchCompanies         *bool
-	searchComments          *bool
-	searchArchivedMessages  *bool
-	searchAllProjects       *bool
-	returnExtras            *bool
-	matchAllTags            *bool
-	includeTags             *bool
-	includeCompletedItems   *bool
-	includeCompanyInSearch  *bool
+type ApiGETProjectsApiV2ProjectsprojectIdRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	userId *int32
+	projectId *int32
+	showDeleted *bool
+	onlyCustomFieldValues *bool
+	includeUpdates *bool
+	includeTags *bool
+	includeProjectOwner *bool
+	includePeople *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	getTruePermissions *bool
+	getPermissions *bool
+	getNotificationSettings *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
+	projectOwnerIds *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) UserId(userId int32) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) OnlyCustomFieldValues(onlyCustomFieldValues bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.onlyCustomFieldValues = &onlyCustomFieldValues
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) IncludeUpdates(includeUpdates bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.includeUpdates = &includeUpdates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) IncludeProjectOwner(includeProjectOwner bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.includeProjectOwner = &includeProjectOwner
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.includePeople = &includePeople
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.includeCrmDealIds = &includeCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getTruePermissions = &getTruePermissions
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getPermissions = &getPermissions
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getNotificationSettings = &getNotificationSettings
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getEmailAddress = &getEmailAddress
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getDateInfo = &getDateInfo
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.getActivePages = &getActivePages
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.formatMarkdown = &formatMarkdown
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectId Returns the project defaults
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectId(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdExecute(r ApiGETProjectsApiV2ProjectsprojectIdRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectId")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.onlyCustomFieldValues != nil {
+		localVarQueryParams.Add("onlyCustomFieldValues", parameterToString(*r.onlyCustomFieldValues, ""))
+	}
+	if r.includeUpdates != nil {
+		localVarQueryParams.Add("includeUpdates", parameterToString(*r.includeUpdates, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includeProjectOwner != nil {
+		localVarQueryParams.Add("includeProjectOwner", parameterToString(*r.includeProjectOwner, ""))
+	}
+	if r.includePeople != nil {
+		localVarQueryParams.Add("includePeople", parameterToString(*r.includePeople, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCrmDealIds != nil {
+		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
+	}
+	if r.getTruePermissions != nil {
+		localVarQueryParams.Add("getTruePermissions", parameterToString(*r.getTruePermissions, ""))
+	}
+	if r.getPermissions != nil {
+		localVarQueryParams.Add("getPermissions", parameterToString(*r.getPermissions, ""))
+	}
+	if r.getNotificationSettings != nil {
+		localVarQueryParams.Add("getNotificationSettings", parameterToString(*r.getNotificationSettings, ""))
+	}
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	if r.getEmailAddress != nil {
+		localVarQueryParams.Add("getEmailAddress", parameterToString(*r.getEmailAddress, ""))
+	}
+	if r.getDateInfo != nil {
+		localVarQueryParams.Add("getDateInfo", parameterToString(*r.getDateInfo, ""))
+	}
+	if r.getActivePages != nil {
+		localVarQueryParams.Add("getActivePages", parameterToString(*r.getActivePages, ""))
+	}
+	if r.formatMarkdown != nil {
+		localVarQueryParams.Add("formatMarkdown", parameterToString(*r.formatMarkdown, ""))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	permission *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	ticketId *int32
+	projectId *int32
+	pageSize *int32
+	page *int32
+	invoiceId *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	matchAllTags *bool
+	includeTags *bool
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	companyId *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.toDate = &toDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.sortBy = &sortBy
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.permission = &permission
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.invoicedType = &invoicedType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.fromDate = &fromDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.billableType = &billableType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.ticketId = &ticketId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.invoiceId = &invoiceId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.includeTimelogId = &includeTimelogId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.getTotals = &getTotals
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.taskTagIds = &taskTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	r.companyId = &companyId
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdBillingTimeExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdBillingTime APICall_GET_projects_id_time_entries
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdBillingTime(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdBillingTimeExecute(r ApiGETProjectsApiV2ProjectsprojectIdBillingTimeRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdBillingTime")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/billing/time"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.toDate != nil {
+		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.permission != nil {
+		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
+	}
+	if r.invoicedType != nil {
+		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
+	}
+	if r.fromDate != nil {
+		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
+	}
+	if r.billableType != nil {
+		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
+	}
+	if r.ticketId != nil {
+		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.invoiceId != nil {
+		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
+	}
+	if r.includeTimelogId != nil {
+		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.getTotals != nil {
+		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
+	}
+	if r.taskTagIds != nil {
+		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	subCodeType *int32
+	projectId *int32
+	categoryId *int32
+	setup *bool
+	getSubCode *bool
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) SubCodeType(subCodeType int32) ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest {
+	r.subCodeType = &subCodeType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) CategoryId(categoryId int32) ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest {
+	r.categoryId = &categoryId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) Setup(setup bool) ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest {
+	r.setup = &setup
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) GetSubCode(getSubCode bool) ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest {
+	r.getSubCode = &getSubCode
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdEmailaddressExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdEmailaddress Returns the details for the account you’re currently logged in with.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdEmailaddress(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdEmailaddressExecute(r ApiGETProjectsApiV2ProjectsprojectIdEmailaddressRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdEmailaddress")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/emailaddress"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.subCodeType != nil {
+		localVarQueryParams.Add("subCodeType", parameterToString(*r.subCodeType, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.categoryId != nil {
+		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, ""))
+	}
+	if r.setup != nil {
+		localVarQueryParams.Add("setup", parameterToString(*r.setup, ""))
+	}
+	if r.getSubCode != nil {
+		localVarQueryParams.Add("getSubCode", parameterToString(*r.getSubCode, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId int32
+	updatedAfterDateTime *string
+	updatedAfterDate *string
+	type_ *string
+	sortOrder *string
+	sort *string
+	searchTerm *string
+	projectType *string
+	inviteStatus *string
+	firstLetter *string
+	emailAddress *string
+	dataSet *string
+	projectId2 *int32
+	projectCompanyId *int32
+	pageSize *int32
+	page *int32
+	excludeProjectId *int32
+	showDeleted *bool
+	returnTeams *bool
+	returnProjectIds *bool
+	returnLetters *bool
+	ownerCompanyFirst *bool
+	onlyids *bool
+	includeTags *bool
+	includeObservers *bool
+	includeContacts *bool
+	includeCompanyDetails *bool
+	includeClockIn *bool
+	includeClients *bool
+	groupByCompany *bool
+	getProjectRoles *bool
+	getCounts *bool
+	fullprofile *bool
+	countOnly *bool
+	userIds *[]int32
+	companyId *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) UpdatedAfterDateTime(updatedAfterDateTime string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.updatedAfterDateTime = &updatedAfterDateTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) Type_(type_ string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.type_ = &type_
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.sort = &sort
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ProjectType(projectType string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.projectType = &projectType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) InviteStatus(inviteStatus string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.inviteStatus = &inviteStatus
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) FirstLetter(firstLetter string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.firstLetter = &firstLetter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) EmailAddress(emailAddress string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.emailAddress = &emailAddress
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ProjectId2(projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.projectId2 = &projectId2
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ProjectCompanyId(projectCompanyId int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.projectCompanyId = &projectCompanyId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ExcludeProjectId(excludeProjectId int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.excludeProjectId = &excludeProjectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ReturnTeams(returnTeams bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.returnTeams = &returnTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ReturnProjectIds(returnProjectIds bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.returnProjectIds = &returnProjectIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) ReturnLetters(returnLetters bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.returnLetters = &returnLetters
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) OwnerCompanyFirst(ownerCompanyFirst bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.ownerCompanyFirst = &ownerCompanyFirst
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) Onlyids(onlyids bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.onlyids = &onlyids
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) IncludeObservers(includeObservers bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.includeObservers = &includeObservers
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) IncludeContacts(includeContacts bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.includeContacts = &includeContacts
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) IncludeCompanyDetails(includeCompanyDetails bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.includeCompanyDetails = &includeCompanyDetails
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) IncludeClockIn(includeClockIn bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.includeClockIn = &includeClockIn
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) IncludeClients(includeClients bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.includeClients = &includeClients
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) GroupByCompany(groupByCompany bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.groupByCompany = &groupByCompany
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) GetProjectRoles(getProjectRoles bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.getProjectRoles = &getProjectRoles
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) GetCounts(getCounts bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.getCounts = &getCounts
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) Fullprofile(fullprofile bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.fullprofile = &fullprofile
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) CountOnly(countOnly bool) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.countOnly = &countOnly
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) UserIds(userIds []int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.userIds = &userIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	r.companyId = &companyId
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdPeopleExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdPeople Retrieves all of the people in a given project.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdPeople(ctx _context.Context, projectId int32) ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return PeopleResponse
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdPeopleExecute(r ApiGETProjectsApiV2ProjectsprojectIdPeopleRequest) (PeopleResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PeopleResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdPeople")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/people"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDateTime != nil {
+		localVarQueryParams.Add("updatedAfterDateTime", parameterToString(*r.updatedAfterDateTime, ""))
+	}
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.type_ != nil {
+		localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.projectType != nil {
+		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
+	}
+	if r.inviteStatus != nil {
+		localVarQueryParams.Add("inviteStatus", parameterToString(*r.inviteStatus, ""))
+	}
+	if r.firstLetter != nil {
+		localVarQueryParams.Add("firstLetter", parameterToString(*r.firstLetter, ""))
+	}
+	if r.emailAddress != nil {
+		localVarQueryParams.Add("emailAddress", parameterToString(*r.emailAddress, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.projectId2 != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId2, ""))
+	}
+	if r.projectCompanyId != nil {
+		localVarQueryParams.Add("projectCompanyId", parameterToString(*r.projectCompanyId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.excludeProjectId != nil {
+		localVarQueryParams.Add("excludeProjectId", parameterToString(*r.excludeProjectId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.returnTeams != nil {
+		localVarQueryParams.Add("returnTeams", parameterToString(*r.returnTeams, ""))
+	}
+	if r.returnProjectIds != nil {
+		localVarQueryParams.Add("returnProjectIds", parameterToString(*r.returnProjectIds, ""))
+	}
+	if r.returnLetters != nil {
+		localVarQueryParams.Add("returnLetters", parameterToString(*r.returnLetters, ""))
+	}
+	if r.ownerCompanyFirst != nil {
+		localVarQueryParams.Add("ownerCompanyFirst", parameterToString(*r.ownerCompanyFirst, ""))
+	}
+	if r.onlyids != nil {
+		localVarQueryParams.Add("onlyids", parameterToString(*r.onlyids, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.includeObservers != nil {
+		localVarQueryParams.Add("includeObservers", parameterToString(*r.includeObservers, ""))
+	}
+	if r.includeContacts != nil {
+		localVarQueryParams.Add("includeContacts", parameterToString(*r.includeContacts, ""))
+	}
+	if r.includeCompanyDetails != nil {
+		localVarQueryParams.Add("includeCompanyDetails", parameterToString(*r.includeCompanyDetails, ""))
+	}
+	if r.includeClockIn != nil {
+		localVarQueryParams.Add("includeClockIn", parameterToString(*r.includeClockIn, ""))
+	}
+	if r.includeClients != nil {
+		localVarQueryParams.Add("includeClients", parameterToString(*r.includeClients, ""))
+	}
+	if r.groupByCompany != nil {
+		localVarQueryParams.Add("groupByCompany", parameterToString(*r.groupByCompany, ""))
+	}
+	if r.getProjectRoles != nil {
+		localVarQueryParams.Add("getProjectRoles", parameterToString(*r.getProjectRoles, ""))
+	}
+	if r.getCounts != nil {
+		localVarQueryParams.Add("getCounts", parameterToString(*r.getCounts, ""))
+	}
+	if r.fullprofile != nil {
+		localVarQueryParams.Add("fullprofile", parameterToString(*r.fullprofile, ""))
+	}
+	if r.countOnly != nil {
+		localVarQueryParams.Add("countOnly", parameterToString(*r.countOnly, ""))
+	}
+	if r.userIds != nil {
+		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	include *string
+	projectId *int32
+	pageSize *int32
+	page *int32
+	dependentTaskId *int32
+	onlyDependencies *bool
+	onlyBasicFields *bool
+	onlyActionable *bool
+	includeDependencies *bool
+	getRecursively *bool
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) Include(include string) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) DependentTaskId(dependentTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.dependentTaskId = &dependentTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) OnlyDependencies(onlyDependencies bool) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.onlyDependencies = &onlyDependencies
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) OnlyBasicFields(onlyBasicFields bool) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.onlyBasicFields = &onlyBasicFields
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) OnlyActionable(onlyActionable bool) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.onlyActionable = &onlyActionable
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) IncludeDependencies(includeDependencies bool) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.includeDependencies = &includeDependencies
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) GetRecursively(getRecursively bool) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	r.getRecursively = &getRecursively
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdPredecessorsExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdPredecessors Get Predecessor
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdPredecessors(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdPredecessorsExecute(r ApiGETProjectsApiV2ProjectsprojectIdPredecessorsRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdPredecessors")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/predecessors"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.dependentTaskId != nil {
+		localVarQueryParams.Add("dependentTaskId", parameterToString(*r.dependentTaskId, ""))
+	}
+	if r.onlyDependencies != nil {
+		localVarQueryParams.Add("onlyDependencies", parameterToString(*r.onlyDependencies, ""))
+	}
+	if r.onlyBasicFields != nil {
+		localVarQueryParams.Add("onlyBasicFields", parameterToString(*r.onlyBasicFields, ""))
+	}
+	if r.onlyActionable != nil {
+		localVarQueryParams.Add("onlyActionable", parameterToString(*r.onlyActionable, ""))
+	}
+	if r.includeDependencies != nil {
+		localVarQueryParams.Add("includeDependencies", parameterToString(*r.includeDependencies, ""))
+	}
+	if r.getRecursively != nil {
+		localVarQueryParams.Add("getRecursively", parameterToString(*r.getRecursively, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId int32
+	filterText *string
+	aPIReturnType *string
+	pageSize *int32
+	page *int32
+	getEmoji *bool
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) FilterText(filterText string) ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest {
+	r.filterText = &filterText
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) APIReturnType(aPIReturnType string) ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest {
+	r.aPIReturnType = &aPIReturnType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest {
+	r.getEmoji = &getEmoji
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdSummaryExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdSummary APICall_GET_summary
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdSummary(ctx _context.Context, projectId int32) ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdSummaryExecute(r ApiGETProjectsApiV2ProjectsprojectIdSummaryRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdSummary")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/summary"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.filterText != nil {
+		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, ""))
+	}
+	if r.aPIReturnType != nil {
+		localVarQueryParams.Add("APIReturnType", parameterToString(*r.aPIReturnType, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.getEmoji != nil {
+		localVarQueryParams.Add("getEmoji", parameterToString(*r.getEmoji, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
+	includeTasksFromDeletedLists *bool
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
 	includeArchivedProjects *bool
-	basicSearch             *bool
-	tags                    *[]string
-	tagIds                  *[]int32
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId2 *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Today(today string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.today = &today
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.startDate = &startDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.sort = &sort
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectStatus = &projectStatus
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Priority(priority string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.priority = &priority
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Include(include string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Filter(filter string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.filter = &filter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.endDate = &endDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.deletedAfterDate = &deletedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) DateCode(dateCode string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.dateCode = &dateCode
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.createdFilter = &createdFilter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.createdDateCode = &createdDateCode
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.createdBeforeDate = &createdBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.createdAfterDate = &createdAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.completedBeforeDate = &completedBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.completedAfterDate = &completedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Callback(callback string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.callback = &callback
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.taskId = &taskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.parentTaskId = &parentTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.offsetCount = &offsetCount
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeTaskId = &includeTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.useAllProjects = &useAllProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.starredProjectsOnly = &starredProjectsOnly
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.showCompletedLists = &showCompletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.onlyUntaggedTasks = &onlyUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.onlyTasksWithTickets = &onlyTasksWithTickets
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.nestSubTasks = &nestSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.matchAllProjectTagIds = &matchAllProjectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.matchAllExcludedTags = &matchAllExcludedTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeUntaggedTasks = &includeUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeToday = &includeToday
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeTeamUserIds = &includeTeamUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeTasksWithCards = &includeTasksWithCards
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeReminders = &includeReminders
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeLoggedTime = &includeLoggedTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeCrmDealIds = &includeCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeCompletedTasks = &includeCompletedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeCompletedSubtasks = &includeCompletedSubtasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeCompanyUserIds = &includeCompanyUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeBlockedTasks = &includeBlockedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeAssigneeTeams = &includeAssigneeTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeAssigneeCompanies = &includeAssigneeCompanies
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.ignoreStartDates = &ignoreStartDates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.getSubTasks = &getSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.getFiles = &getFiles
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.allowTemplateTasks = &allowTemplateTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.tasklistId = &tasklistId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.taskIdList = &taskIdList
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Tags(tags []string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.tags = &tags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.skipCrmDealIds = &skipCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.responsiblePartyIds = &responsiblePartyIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectId2(projectId2 []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectId2 = &projectId2
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.projectCategoryId = &projectCategoryId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.followerIds = &followerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) FilterText(filterText []string) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.filterText = &filterText
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.filterBoardColumnIds = &filterBoardColumnIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.excludeTagIds = &excludeTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.crmDealIds = &crmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.creatorIds = &creatorIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.companyId = &companyId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.assigneeTeamIds = &assigneeTeamIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	r.assigneeCompanyIds = &assigneeCompanyIds
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdTaskidsExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdTaskids Get Tasks
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTaskids(ctx _context.Context, projectId int32) ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTaskidsExecute(r ApiGETProjectsApiV2ProjectsprojectIdTaskidsRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdTaskids")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/taskids"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.today != nil {
+		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
+	}
+	if r.startDate != nil {
+		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.reportFormat != nil {
+		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectStatus != nil {
+		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
+	}
+	if r.priority != nil {
+		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+	}
+	if r.endDate != nil {
+		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
+	}
+	if r.deletedAfterDate != nil {
+		localVarQueryParams.Add("deletedAfterDate", parameterToString(*r.deletedAfterDate, ""))
+	}
+	if r.dateCode != nil {
+		localVarQueryParams.Add("dateCode", parameterToString(*r.dateCode, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.createdFilter != nil {
+		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
+	}
+	if r.createdDateCode != nil {
+		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
+	}
+	if r.createdBeforeDate != nil {
+		localVarQueryParams.Add("createdBeforeDate", parameterToString(*r.createdBeforeDate, ""))
+	}
+	if r.createdAfterDate != nil {
+		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
+	}
+	if r.completedBeforeDate != nil {
+		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
+	}
+	if r.completedAfterDate != nil {
+		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
+	}
+	if r.callback != nil {
+		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
+	}
+	if r.taskId != nil {
+		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
+	}
+	if r.parentTaskId != nil {
+		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.offsetCount != nil {
+		localVarQueryParams.Add("offsetCount", parameterToString(*r.offsetCount, ""))
+	}
+	if r.includeTaskId != nil {
+		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
+	}
+	if r.useStartDatesForTodaysTasks != nil {
+		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
+	}
+	if r.useAllProjects != nil {
+		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
+	}
+	if r.starredProjectsOnly != nil {
+		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.showCompletedLists != nil {
+		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
+	}
+	if r.onlyUntaggedTasks != nil {
+		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
+	}
+	if r.onlyTasksWithUnreadComments != nil {
+		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
+	}
+	if r.onlyTasksWithTickets != nil {
+		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
+	}
+	if r.onlyTasksWithEstimatedTime != nil {
+		localVarQueryParams.Add("onlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.nestSubTasks != nil {
+		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.matchAllProjectTagIds != nil {
+		localVarQueryParams.Add("matchAllProjectTagIds", parameterToString(*r.matchAllProjectTagIds, ""))
+	}
+	if r.matchAllExcludedTags != nil {
+		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
+	}
+	if r.isReportDownload != nil {
+		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUntaggedTasks != nil {
+		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
+	}
+	if r.includeToday != nil {
+		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
+	}
+	if r.includeTeamUserIds != nil {
+		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
+	}
+	if r.includeTasksWithoutDueDates != nil {
+		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
+	}
+	if r.includeTasksWithCards != nil {
+		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
+	}
+	if r.includeTasksFromDeletedLists != nil {
+		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
+	}
+	if r.includeReminders != nil {
+		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
+	}
+	if r.includeLoggedTime != nil {
+		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCrmDealIds != nil {
+		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
+	}
+	if r.includeCompletedTasks != nil {
+		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
+	}
+	if r.includeCompletedSubtasks != nil {
+		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
+	}
+	if r.includeCompanyUserIds != nil {
+		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
+	}
+	if r.includeBlockedTasks != nil {
+		localVarQueryParams.Add("includeBlockedTasks", parameterToString(*r.includeBlockedTasks, ""))
+	}
+	if r.includeAssigneeTeams != nil {
+		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
+	}
+	if r.includeAssigneeCompanies != nil {
+		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.ignoreStartDates != nil {
+		localVarQueryParams.Add("ignoreStartDates", parameterToString(*r.ignoreStartDates, ""))
+	}
+	if r.getSubTasks != nil {
+		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
+	}
+	if r.getFiles != nil {
+		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
+	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
+	if r.allowTemplateTasks != nil {
+		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
+	}
+	if r.tasklistId != nil {
+		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
+	}
+	if r.taskIdList != nil {
+		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.skipCrmDealIds != nil {
+		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
+	}
+	if r.responsiblePartyIds != nil {
+		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectId2 != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId2, "csv"))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.projectCategoryId != nil {
+		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId, "csv"))
+	}
+	if r.followerIds != nil {
+		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, "csv"))
+	}
+	if r.filterText != nil {
+		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, "csv"))
+	}
+	if r.filterBoardColumnIds != nil {
+		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
+	}
+	if r.excludeTagIds != nil {
+		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
+	}
+	if r.crmDealIds != nil {
+		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
+	}
+	if r.creatorIds != nil {
+		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	if r.assigneeTeamIds != nil {
+		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
+	}
+	if r.assigneeCompanyIds != nil {
+		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdTasksRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
+	includeTasksFromDeletedLists *bool
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId2 *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Today(today string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.today = &today
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) StartDate(startDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.startDate = &startDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Sort(sort string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.sort = &sort
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectStatus = &projectStatus
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Priority(priority string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.priority = &priority
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Include(include string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Filter(filter string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.filter = &filter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) EndDate(endDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.endDate = &endDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.deletedAfterDate = &deletedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.dateCode = &dateCode
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.dataSet = &dataSet
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.createdFilter = &createdFilter
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.createdDateCode = &createdDateCode
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.createdBeforeDate = &createdBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.createdAfterDate = &createdAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.completedBeforeDate = &completedBeforeDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.completedAfterDate = &completedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Callback(callback string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.callback = &callback
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.taskId = &taskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.parentTaskId = &parentTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.offsetCount = &offsetCount
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeTaskId = &includeTaskId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.useAllProjects = &useAllProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.starredProjectsOnly = &starredProjectsOnly
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.showCompletedLists = &showCompletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.onlyUntaggedTasks = &onlyUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.onlyTasksWithTickets = &onlyTasksWithTickets
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.nestSubTasks = &nestSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.matchAllProjectTagIds = &matchAllProjectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.matchAllExcludedTags = &matchAllExcludedTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeUntaggedTasks = &includeUntaggedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeToday = &includeToday
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeTeamUserIds = &includeTeamUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeTasksWithCards = &includeTasksWithCards
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeReminders = &includeReminders
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeLoggedTime = &includeLoggedTime
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeCrmDealIds = &includeCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeCompletedTasks = &includeCompletedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeCompletedSubtasks = &includeCompletedSubtasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeCompanyUserIds = &includeCompanyUserIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeBlockedTasks = &includeBlockedTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeAssigneeTeams = &includeAssigneeTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeAssigneeCompanies = &includeAssigneeCompanies
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.ignoreStartDates = &ignoreStartDates
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.getSubTasks = &getSubTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.getFiles = &getFiles
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.allowTemplateTasks = &allowTemplateTasks
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.tasklistId = &tasklistId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.taskIdList = &taskIdList
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Tags(tags []string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.tags = &tags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.skipCrmDealIds = &skipCrmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.responsiblePartyIds = &responsiblePartyIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectId2(projectId2 []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectId2 = &projectId2
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectHealth = &projectHealth
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.projectCategoryId = &projectCategoryId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.followerIds = &followerIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.filterText = &filterText
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.filterBoardColumnIds = &filterBoardColumnIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.excludeTagIds = &excludeTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.crmDealIds = &crmDealIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.creatorIds = &creatorIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.companyId = &companyId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.assigneeTeamIds = &assigneeTeamIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	r.assigneeCompanyIds = &assigneeCompanyIds
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdTasksExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdTasks Get Tasks
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiGETProjectsApiV2ProjectsprojectIdTasksRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTasks(ctx _context.Context, projectId int32) ApiGETProjectsApiV2ProjectsprojectIdTasksRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdTasksRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTasksExecute(r ApiGETProjectsApiV2ProjectsprojectIdTasksRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdTasks")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/tasks"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.today != nil {
+		localVarQueryParams.Add("today", parameterToString(*r.today, ""))
+	}
+	if r.startDate != nil {
+		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sort != nil {
+		localVarQueryParams.Add("sort", parameterToString(*r.sort, ""))
+	}
+	if r.reportFormat != nil {
+		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectStatus != nil {
+		localVarQueryParams.Add("projectStatus", parameterToString(*r.projectStatus, ""))
+	}
+	if r.priority != nil {
+		localVarQueryParams.Add("priority", parameterToString(*r.priority, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+	}
+	if r.endDate != nil {
+		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
+	}
+	if r.deletedAfterDate != nil {
+		localVarQueryParams.Add("deletedAfterDate", parameterToString(*r.deletedAfterDate, ""))
+	}
+	if r.dateCode != nil {
+		localVarQueryParams.Add("dateCode", parameterToString(*r.dateCode, ""))
+	}
+	if r.dataSet != nil {
+		localVarQueryParams.Add("dataSet", parameterToString(*r.dataSet, ""))
+	}
+	if r.createdFilter != nil {
+		localVarQueryParams.Add("createdFilter", parameterToString(*r.createdFilter, ""))
+	}
+	if r.createdDateCode != nil {
+		localVarQueryParams.Add("createdDateCode", parameterToString(*r.createdDateCode, ""))
+	}
+	if r.createdBeforeDate != nil {
+		localVarQueryParams.Add("createdBeforeDate", parameterToString(*r.createdBeforeDate, ""))
+	}
+	if r.createdAfterDate != nil {
+		localVarQueryParams.Add("createdAfterDate", parameterToString(*r.createdAfterDate, ""))
+	}
+	if r.completedBeforeDate != nil {
+		localVarQueryParams.Add("completedBeforeDate", parameterToString(*r.completedBeforeDate, ""))
+	}
+	if r.completedAfterDate != nil {
+		localVarQueryParams.Add("completedAfterDate", parameterToString(*r.completedAfterDate, ""))
+	}
+	if r.callback != nil {
+		localVarQueryParams.Add("callback", parameterToString(*r.callback, ""))
+	}
+	if r.taskId != nil {
+		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
+	}
+	if r.parentTaskId != nil {
+		localVarQueryParams.Add("parentTaskId", parameterToString(*r.parentTaskId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.offsetCount != nil {
+		localVarQueryParams.Add("offsetCount", parameterToString(*r.offsetCount, ""))
+	}
+	if r.includeTaskId != nil {
+		localVarQueryParams.Add("includeTaskId", parameterToString(*r.includeTaskId, ""))
+	}
+	if r.useStartDatesForTodaysTasks != nil {
+		localVarQueryParams.Add("useStartDatesForTodaysTasks", parameterToString(*r.useStartDatesForTodaysTasks, ""))
+	}
+	if r.useAllProjects != nil {
+		localVarQueryParams.Add("useAllProjects", parameterToString(*r.useAllProjects, ""))
+	}
+	if r.starredProjectsOnly != nil {
+		localVarQueryParams.Add("starredProjectsOnly", parameterToString(*r.starredProjectsOnly, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.showCompletedLists != nil {
+		localVarQueryParams.Add("showCompletedLists", parameterToString(*r.showCompletedLists, ""))
+	}
+	if r.onlyUntaggedTasks != nil {
+		localVarQueryParams.Add("onlyUntaggedTasks", parameterToString(*r.onlyUntaggedTasks, ""))
+	}
+	if r.onlyTasksWithUnreadComments != nil {
+		localVarQueryParams.Add("onlyTasksWithUnreadComments", parameterToString(*r.onlyTasksWithUnreadComments, ""))
+	}
+	if r.onlyTasksWithTickets != nil {
+		localVarQueryParams.Add("onlyTasksWithTickets", parameterToString(*r.onlyTasksWithTickets, ""))
+	}
+	if r.onlyTasksWithEstimatedTime != nil {
+		localVarQueryParams.Add("onlyTasksWithEstimatedTime", parameterToString(*r.onlyTasksWithEstimatedTime, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.nestSubTasks != nil {
+		localVarQueryParams.Add("nestSubTasks", parameterToString(*r.nestSubTasks, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.matchAllProjectTagIds != nil {
+		localVarQueryParams.Add("matchAllProjectTagIds", parameterToString(*r.matchAllProjectTagIds, ""))
+	}
+	if r.matchAllExcludedTags != nil {
+		localVarQueryParams.Add("matchAllExcludedTags", parameterToString(*r.matchAllExcludedTags, ""))
+	}
+	if r.isReportDownload != nil {
+		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeUntaggedTasks != nil {
+		localVarQueryParams.Add("includeUntaggedTasks", parameterToString(*r.includeUntaggedTasks, ""))
+	}
+	if r.includeToday != nil {
+		localVarQueryParams.Add("includeToday", parameterToString(*r.includeToday, ""))
+	}
+	if r.includeTeamUserIds != nil {
+		localVarQueryParams.Add("includeTeamUserIds", parameterToString(*r.includeTeamUserIds, ""))
+	}
+	if r.includeTasksWithoutDueDates != nil {
+		localVarQueryParams.Add("includeTasksWithoutDueDates", parameterToString(*r.includeTasksWithoutDueDates, ""))
+	}
+	if r.includeTasksWithCards != nil {
+		localVarQueryParams.Add("includeTasksWithCards", parameterToString(*r.includeTasksWithCards, ""))
+	}
+	if r.includeTasksFromDeletedLists != nil {
+		localVarQueryParams.Add("includeTasksFromDeletedLists", parameterToString(*r.includeTasksFromDeletedLists, ""))
+	}
+	if r.includeReminders != nil {
+		localVarQueryParams.Add("includeReminders", parameterToString(*r.includeReminders, ""))
+	}
+	if r.includeLoggedTime != nil {
+		localVarQueryParams.Add("includeLoggedTime", parameterToString(*r.includeLoggedTime, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCrmDealIds != nil {
+		localVarQueryParams.Add("includeCrmDealIds", parameterToString(*r.includeCrmDealIds, ""))
+	}
+	if r.includeCompletedTasks != nil {
+		localVarQueryParams.Add("includeCompletedTasks", parameterToString(*r.includeCompletedTasks, ""))
+	}
+	if r.includeCompletedSubtasks != nil {
+		localVarQueryParams.Add("includeCompletedSubtasks", parameterToString(*r.includeCompletedSubtasks, ""))
+	}
+	if r.includeCompanyUserIds != nil {
+		localVarQueryParams.Add("includeCompanyUserIds", parameterToString(*r.includeCompanyUserIds, ""))
+	}
+	if r.includeBlockedTasks != nil {
+		localVarQueryParams.Add("includeBlockedTasks", parameterToString(*r.includeBlockedTasks, ""))
+	}
+	if r.includeAssigneeTeams != nil {
+		localVarQueryParams.Add("includeAssigneeTeams", parameterToString(*r.includeAssigneeTeams, ""))
+	}
+	if r.includeAssigneeCompanies != nil {
+		localVarQueryParams.Add("includeAssigneeCompanies", parameterToString(*r.includeAssigneeCompanies, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.ignoreStartDates != nil {
+		localVarQueryParams.Add("ignoreStartDates", parameterToString(*r.ignoreStartDates, ""))
+	}
+	if r.getSubTasks != nil {
+		localVarQueryParams.Add("getSubTasks", parameterToString(*r.getSubTasks, ""))
+	}
+	if r.getFiles != nil {
+		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
+	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
+	if r.allowTemplateTasks != nil {
+		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
+	}
+	if r.tasklistId != nil {
+		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
+	}
+	if r.taskIdList != nil {
+		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
+	}
+	if r.tags != nil {
+		localVarQueryParams.Add("tags", parameterToString(*r.tags, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.skipCrmDealIds != nil {
+		localVarQueryParams.Add("skipCrmDealIds", parameterToString(*r.skipCrmDealIds, "csv"))
+	}
+	if r.responsiblePartyIds != nil {
+		localVarQueryParams.Add("responsiblePartyIds", parameterToString(*r.responsiblePartyIds, "csv"))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectId2 != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId2, "csv"))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, "csv"))
+	}
+	if r.projectHealth != nil {
+		localVarQueryParams.Add("projectHealth", parameterToString(*r.projectHealth, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.projectCategoryId != nil {
+		localVarQueryParams.Add("projectCategoryId", parameterToString(*r.projectCategoryId, "csv"))
+	}
+	if r.followerIds != nil {
+		localVarQueryParams.Add("follower-ids", parameterToString(*r.followerIds, "csv"))
+	}
+	if r.filterText != nil {
+		localVarQueryParams.Add("filterText", parameterToString(*r.filterText, "csv"))
+	}
+	if r.filterBoardColumnIds != nil {
+		localVarQueryParams.Add("filterBoardColumnIds", parameterToString(*r.filterBoardColumnIds, "csv"))
+	}
+	if r.excludeTagIds != nil {
+		localVarQueryParams.Add("excludeTagIds", parameterToString(*r.excludeTagIds, "csv"))
+	}
+	if r.crmDealIds != nil {
+		localVarQueryParams.Add("crmDealIds", parameterToString(*r.crmDealIds, "csv"))
+	}
+	if r.creatorIds != nil {
+		localVarQueryParams.Add("creatorIds", parameterToString(*r.creatorIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	if r.assigneeTeamIds != nil {
+		localVarQueryParams.Add("assigneeTeamIds", parameterToString(*r.assigneeTeamIds, "csv"))
+	}
+	if r.assigneeCompanyIds != nil {
+		localVarQueryParams.Add("assigneeCompanyIds", parameterToString(*r.assigneeCompanyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdTimeRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	permission *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	ticketId *int32
+	projectId *int32
+	pageSize *int32
+	page *int32
+	invoiceId *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	matchAllTags *bool
+	includeTags *bool
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	companyId *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.toDate = &toDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.sortBy = &sortBy
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.permission = &permission
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.invoicedType = &invoicedType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.fromDate = &fromDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.billableType = &billableType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.ticketId = &ticketId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.invoiceId = &invoiceId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.includeTimelogId = &includeTimelogId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.getTotals = &getTotals
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.taskTagIds = &taskTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	r.companyId = &companyId
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdTimeExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdTime APICall_GET_projects_id_time_entries
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdTimeRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTime(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdTimeRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdTimeRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTimeExecute(r ApiGETProjectsApiV2ProjectsprojectIdTimeRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdTime")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/time"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.toDate != nil {
+		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.permission != nil {
+		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
+	}
+	if r.invoicedType != nil {
+		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
+	}
+	if r.fromDate != nil {
+		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
+	}
+	if r.billableType != nil {
+		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
+	}
+	if r.ticketId != nil {
+		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.invoiceId != nil {
+		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
+	}
+	if r.includeTimelogId != nil {
+		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.getTotals != nil {
+		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
+	}
+	if r.taskTagIds != nil {
+		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	permission *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	ticketId *int32
+	projectId *int32
+	pageSize *int32
+	page *int32
+	invoiceId *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	matchAllTags *bool
+	includeTags *bool
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	companyId *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.toDate = &toDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.sortBy = &sortBy
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.permission = &permission
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.invoicedType = &invoicedType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.fromDate = &fromDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.billableType = &billableType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.ticketId = &ticketId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.invoiceId = &invoiceId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.includeTimelogId = &includeTimelogId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.getTotals = &getTotals
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.taskTagIds = &taskTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	r.companyId = &companyId
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdTimeEntriesExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdTimeEntries APICall_GET_projects_id_time_entries
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTimeEntries(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTimeEntriesExecute(r ApiGETProjectsApiV2ProjectsprojectIdTimeEntriesRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdTimeEntries")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/time_entries"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.toDate != nil {
+		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.permission != nil {
+		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
+	}
+	if r.invoicedType != nil {
+		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
+	}
+	if r.fromDate != nil {
+		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
+	}
+	if r.billableType != nil {
+		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
+	}
+	if r.ticketId != nil {
+		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.invoiceId != nil {
+		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
+	}
+	if r.includeTimelogId != nil {
+		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.getTotals != nil {
+		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
+	}
+	if r.taskTagIds != nil {
+		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projectId2 int32
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	permission *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	ticketId *int32
+	projectId *int32
+	pageSize *int32
+	page *int32
+	invoiceId *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	matchAllTags *bool
+	includeTags *bool
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	companyId *[]int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) ToDate(toDate string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.toDate = &toDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.sortOrder = &sortOrder
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) SortBy(sortBy string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.sortBy = &sortBy
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) Permission(permission string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.permission = &permission
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.invoicedType = &invoicedType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) FromDate(fromDate string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.fromDate = &fromDate
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) BillableType(billableType string) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.billableType = &billableType
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) TicketId(ticketId int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.ticketId = &ticketId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) Page(page int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) InvoiceId(invoiceId int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.invoiceId = &invoiceId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.includeTimelogId = &includeTimelogId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.includeTags = &includeTags
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.getTotals = &getTotals
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) UserId(userId []int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.taskTagIds = &taskTagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	r.companyId = &companyId
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojectIdTimelogsExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojectIdTimelogs APICall_GET_projects_id_time_entries
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId2
+ * @return ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTimelogs(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest {
+	return ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId2: projectId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojectIdTimelogsExecute(r ApiGETProjectsApiV2ProjectsprojectIdTimelogsRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojectIdTimelogs")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projectId}/timelogs"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.toDate != nil {
+		localVarQueryParams.Add("toDate", parameterToString(*r.toDate, ""))
+	}
+	if r.sortOrder != nil {
+		localVarQueryParams.Add("sortOrder", parameterToString(*r.sortOrder, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sortBy", parameterToString(*r.sortBy, ""))
+	}
+	if r.permission != nil {
+		localVarQueryParams.Add("permission", parameterToString(*r.permission, ""))
+	}
+	if r.invoicedType != nil {
+		localVarQueryParams.Add("invoicedType", parameterToString(*r.invoicedType, ""))
+	}
+	if r.fromDate != nil {
+		localVarQueryParams.Add("fromDate", parameterToString(*r.fromDate, ""))
+	}
+	if r.billableType != nil {
+		localVarQueryParams.Add("billableType", parameterToString(*r.billableType, ""))
+	}
+	if r.ticketId != nil {
+		localVarQueryParams.Add("ticketId", parameterToString(*r.ticketId, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.invoiceId != nil {
+		localVarQueryParams.Add("invoiceId", parameterToString(*r.invoiceId, ""))
+	}
+	if r.includeTimelogId != nil {
+		localVarQueryParams.Add("includeTimelogId", parameterToString(*r.includeTimelogId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.includeTags != nil {
+		localVarQueryParams.Add("includeTags", parameterToString(*r.includeTags, ""))
+	}
+	if r.getTotals != nil {
+		localVarQueryParams.Add("getTotals", parameterToString(*r.getTotals, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, "csv"))
+	}
+	if r.taskTagIds != nil {
+		localVarQueryParams.Add("taskTagIds", parameterToString(*r.taskTagIds, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.companyId != nil {
+		localVarQueryParams.Add("companyId", parameterToString(*r.companyId, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	projejctId int32
+	projectId *int32
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest) ProjectId(projectId int32) ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest {
+	r.projectId = &projectId
+	return r
+}
+
+func (r ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2ProjectsprojejctIdAssingLaterRolesExecute(r)
+}
+
+/*
+ * GETProjectsApiV2ProjectsprojejctIdAssingLaterRoles Get assign later roles
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projejctId
+ * @return ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojejctIdAssingLaterRoles(ctx _context.Context, projejctId int32) ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest {
+	return ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest{
+		ApiService: a,
+		ctx: ctx,
+		projejctId: projejctId,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *CFPortApiService) GETProjectsApiV2ProjectsprojejctIdAssingLaterRolesExecute(r ApiGETProjectsApiV2ProjectsprojejctIdAssingLaterRolesRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2ProjectsprojejctIdAssingLaterRoles")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v2/projects/{projejctId}/assing_later_roles"
+	localVarPath = strings.Replace(localVarPath, "{"+"projejctId"+"}", _neturl.PathEscape(parameterToString(r.projejctId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV2QuicksearchRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	searchTerm *string
+	dateupdated *string
+	timeout *int32
+	projectId *int32
+	pageSize *int32
+	page *int32
+	dayLimit *int32
+	useSmartSearch *bool
+	skipES *bool
+	searchWithTags *bool
+	searchTeams *bool
+	searchTasks *bool
+	searchTasklists *bool
+	searchProjects *bool
+	searchPeople *bool
+	searchNotebooks *bool
+	searchMilestones *bool
+	searchMessages *bool
+	searchLinks *bool
+	searchFiles *bool
+	searchCompanies *bool
+	searchComments *bool
+	searchArchivedMessages *bool
+	searchAllProjects *bool
+	returnExtras *bool
+	matchAllTags *bool
+	includeTags *bool
+	includeCompletedItems *bool
+	includeCompanyInSearch *bool
+	includeArchivedProjects *bool
+	eventsInUTC *bool
+	basicSearch *bool
+	tags *[]string
+	tagIds *[]int32
 }
 
 func (r ApiGETProjectsApiV2QuicksearchRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV2QuicksearchRequest {
@@ -10313,6 +12187,10 @@ func (r ApiGETProjectsApiV2QuicksearchRequest) IncludeArchivedProjects(includeAr
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
+func (r ApiGETProjectsApiV2QuicksearchRequest) EventsInUTC(eventsInUTC bool) ApiGETProjectsApiV2QuicksearchRequest {
+	r.eventsInUTC = &eventsInUTC
+	return r
+}
 func (r ApiGETProjectsApiV2QuicksearchRequest) BasicSearch(basicSearch bool) ApiGETProjectsApiV2QuicksearchRequest {
 	r.basicSearch = &basicSearch
 	return r
@@ -10338,7 +12216,7 @@ func (r ApiGETProjectsApiV2QuicksearchRequest) Execute() (*_nethttp.Response, er
 func (a *CFPortApiService) GETProjectsApiV2Quicksearch(ctx _context.Context) ApiGETProjectsApiV2QuicksearchRequest {
 	return ApiGETProjectsApiV2QuicksearchRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -10455,6 +12333,9 @@ func (a *CFPortApiService) GETProjectsApiV2QuicksearchExecute(r ApiGETProjectsAp
 	if r.includeArchivedProjects != nil {
 		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
 	}
+	if r.eventsInUTC != nil {
+		localVarQueryParams.Add("eventsInUTC", parameterToString(*r.eventsInUTC, ""))
+	}
 	if r.basicSearch != nil {
 		localVarQueryParams.Add("basicSearch", parameterToString(*r.basicSearch, ""))
 	}
@@ -10510,38 +12391,38 @@ func (a *CFPortApiService) GETProjectsApiV2QuicksearchExecute(r ApiGETProjectsAp
 }
 
 type ApiGETProjectsApiV2SummaryRequest struct {
-	ctx                         _context.Context
-	ApiService                  *CFPortApiService
-	timeRangeStart              *string
-	timeRangeEnd                *string
-	status                      *string
-	set                         *string
-	projectStatus               *string
-	get                         *string
-	eventsRange                 *int32
+	ctx _context.Context
+	ApiService *CFPortApiService
+	timeRangeStart *string
+	timeRangeEnd *string
+	status *string
+	set *string
+	projectStatus *string
+	get *string
+	eventsRange *int32
 	useStartDatesForTodaysTasks *bool
-	unreadMessagesMineOnly      *bool
-	unreadCommentsMineOnly      *bool
-	onlyStarredProjects         *bool
-	matchAllTags                *bool
-	matchAllProjectTags         *bool
-	includeArchivedProjects     *bool
-	userId                      *[]int32
-	timeLoggedByUserId          *[]int32
-	taskAssigneeUserId          *[]int32
-	projectTagIds               *[]int32
-	projectOwnerIds             *[]int32
-	projectIds                  *[]int32
-	projectId                   *[]int32
-	projectHealths              *[]int32
-	projectHealth               *[]int32
-	projectCompanyIds           *[]int32
-	projectCategoryIds          *[]int32
-	milestoneAssigneeUserId     *[]int32
-	filterTagIds                *[]int32
-	companyId                   *[]int32
-	categoryId                  *[]int32
-	assigneeUserId              *[]int32
+	unreadMessagesMineOnly *bool
+	unreadCommentsMineOnly *bool
+	onlyStarredProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	includeArchivedProjects *bool
+	userId *[]int32
+	timeLoggedByUserId *[]int32
+	taskAssigneeUserId *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	milestoneAssigneeUserId *[]int32
+	filterTagIds *[]int32
+	companyId *[]int32
+	categoryId *[]int32
+	assigneeUserId *[]int32
 }
 
 func (r ApiGETProjectsApiV2SummaryRequest) TimeRangeStart(timeRangeStart string) ApiGETProjectsApiV2SummaryRequest {
@@ -10677,7 +12558,7 @@ func (r ApiGETProjectsApiV2SummaryRequest) Execute() (*_nethttp.Response, error)
 func (a *CFPortApiService) GETProjectsApiV2Summary(ctx _context.Context) ApiGETProjectsApiV2SummaryRequest {
 	return ApiGETProjectsApiV2SummaryRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -10839,97 +12720,100 @@ func (a *CFPortApiService) GETProjectsApiV2SummaryExecute(r ApiGETProjectsApiV2S
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasklistsObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
+type ApiGETProjectsApiV2TasklistsobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
 	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
 }
 
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.objectId = &objectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.includePeople = &includePeople
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getTruePermissions = &getTruePermissions
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getPermissions = &getPermissions
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getNotificationSettings = &getNotificationSettings
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getEmoji = &getEmoji
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getEmailAddress = &getEmailAddress
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getDateInfo = &getDateInfo
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.getActivePages = &getActivePages
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
 	r.formatMarkdown = &formatMarkdown
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasklistsObjectIdProjectExecute(r)
+func (r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TasklistsobjectIdProjectExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasklistsObjectIdProject Get the project for the tasklist
+ * GETProjectsApiV2TasklistsobjectIdProject Get the project for the tasklist
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasklistsObjectIdProjectRequest
+ * @param objectId2
+ * @return ApiGETProjectsApiV2TasklistsobjectIdProjectRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasklistsObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2TasklistsObjectIdProjectRequest {
-	return ApiGETProjectsApiV2TasklistsObjectIdProjectRequest{
+func (a *CFPortApiService) GETProjectsApiV2TasklistsobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2TasklistsobjectIdProjectRequest {
+	return ApiGETProjectsApiV2TasklistsobjectIdProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		objectId2: objectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasklistsObjectIdProjectExecute(r ApiGETProjectsApiV2TasklistsObjectIdProjectRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TasklistsobjectIdProjectExecute(r ApiGETProjectsApiV2TasklistsobjectIdProjectRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -10938,12 +12822,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsObjectIdProjectExecute(r Api
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasklistsObjectIdProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasklistsobjectIdProject")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasklists/:objectId/project"
+	localVarPath := localBasePath + "/projects/api/v2/tasklists/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -11033,472 +12918,480 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsObjectIdProjectExecute(r Api
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
+type ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	tasklistId int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
 	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId2 *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Today(today string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Today(today string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.today = &today
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) StartDate(startDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) StartDate(startDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Sort(sort string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Sort(sort string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Priority(priority string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Priority(priority string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.priority = &priority
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Include(include string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Include(include string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Filter(filter string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Filter(filter string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) EndDate(endDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) EndDate(endDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.deletedAfterDate = &deletedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) DateCode(dateCode string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) DateCode(dateCode string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.dateCode = &dateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) DataSet(dataSet string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) DataSet(dataSet string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.createdFilter = &createdFilter
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.createdDateCode = &createdDateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.createdBeforeDate = &createdBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.completedBeforeDate = &completedBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.completedAfterDate = &completedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Callback(callback string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Callback(callback string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.callback = &callback
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) TaskId(taskId int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) TaskId(taskId int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Page(page int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Page(page int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.offsetCount = &offsetCount
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeTaskId = &includeTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.useAllProjects = &useAllProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.starredProjectsOnly = &starredProjectsOnly
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.showCompletedLists = &showCompletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.onlyUntaggedTasks = &onlyUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.onlyTasksWithTickets = &onlyTasksWithTickets
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.nestSubTasks = &nestSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.matchAllExcludedTags = &matchAllExcludedTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeUntaggedTasks = &includeUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeTeamUserIds = &includeTeamUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeTasksWithCards = &includeTasksWithCards
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeReminders = &includeReminders
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeLoggedTime = &includeLoggedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeCrmDealIds = &includeCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeCompanyUserIds = &includeCompanyUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeBlockedTasks = &includeBlockedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeAssigneeTeams = &includeAssigneeTeams
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeAssigneeCompanies = &includeAssigneeCompanies
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.getSubTasks = &getSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.getFiles = &getFiles
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
-	r.tasklistId = &tasklistId
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) TasklistId2(tasklistId2 []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
+	r.tasklistId2 = &tasklistId2
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.taskIdList = &taskIdList
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Tags(tags []string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Tags(tags []string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.skipCrmDealIds = &skipCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.responsiblePartyIds = &responsiblePartyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.followerIds = &followerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) FilterText(filterText []string) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) FilterText(filterText []string) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.filterText = &filterText
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.filterBoardColumnIds = &filterBoardColumnIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.excludeTagIds = &excludeTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.crmDealIds = &crmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.companyId = &companyId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.assigneeTeamIds = &assigneeTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
 	r.assigneeCompanyIds = &assigneeCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasklistsTasklistIdTaskidsExecute(r)
+func (r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskliststasklistIdTaskidsExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasklistsTasklistIdTaskids Get Tasks
+ * GETProjectsApiV2TaskliststasklistIdTaskids Get Tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest
+ * @param tasklistId
+ * @return ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTaskids(ctx _context.Context) ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest {
-	return ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskliststasklistIdTaskids(ctx _context.Context, tasklistId int32) ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest {
+	return ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		tasklistId: tasklistId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTaskidsExecute(r ApiGETProjectsApiV2TasklistsTasklistIdTaskidsRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskliststasklistIdTaskidsExecute(r ApiGETProjectsApiV2TaskliststasklistIdTaskidsRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -11507,12 +13400,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTaskidsExecute(r A
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasklistsTasklistIdTaskids")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskliststasklistIdTaskids")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasklists/:tasklistId/taskids"
+	localVarPath := localBasePath + "/projects/api/v2/tasklists/{tasklistId}/taskids"
+	localVarPath = strings.Replace(localVarPath, "{"+"tasklistId"+"}", _neturl.PathEscape(parameterToString(r.tasklistId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -11707,11 +13601,14 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTaskidsExecute(r A
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
 	}
-	if r.tasklistId != nil {
-		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
+	if r.tasklistId2 != nil {
+		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId2, "csv"))
 	}
 	if r.taskIdList != nil {
 		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
@@ -11827,472 +13724,480 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTaskidsExecute(r A
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
+type ApiGETProjectsApiV2TaskliststasklistIdTasksRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	tasklistId int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
 	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId2 *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Today(today string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Today(today string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.today = &today
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) StartDate(startDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) StartDate(startDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Sort(sort string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Sort(sort string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Priority(priority string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Priority(priority string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.priority = &priority
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Include(include string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Include(include string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Filter(filter string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Filter(filter string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) EndDate(endDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) EndDate(endDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.deletedAfterDate = &deletedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.dateCode = &dateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.createdFilter = &createdFilter
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.createdDateCode = &createdDateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.createdBeforeDate = &createdBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.completedBeforeDate = &completedBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.completedAfterDate = &completedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Callback(callback string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Callback(callback string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.callback = &callback
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Page(page int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Page(page int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.offsetCount = &offsetCount
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeTaskId = &includeTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.useAllProjects = &useAllProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.starredProjectsOnly = &starredProjectsOnly
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.showCompletedLists = &showCompletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.onlyUntaggedTasks = &onlyUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.onlyTasksWithTickets = &onlyTasksWithTickets
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.nestSubTasks = &nestSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.matchAllExcludedTags = &matchAllExcludedTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeUntaggedTasks = &includeUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeTeamUserIds = &includeTeamUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeTasksWithCards = &includeTasksWithCards
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeReminders = &includeReminders
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeLoggedTime = &includeLoggedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeCrmDealIds = &includeCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeCompanyUserIds = &includeCompanyUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeBlockedTasks = &includeBlockedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeAssigneeTeams = &includeAssigneeTeams
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeAssigneeCompanies = &includeAssigneeCompanies
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.getSubTasks = &getSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.getFiles = &getFiles
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
-	r.tasklistId = &tasklistId
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) TasklistId2(tasklistId2 []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
+	r.tasklistId2 = &tasklistId2
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.taskIdList = &taskIdList
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Tags(tags []string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Tags(tags []string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.skipCrmDealIds = &skipCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.responsiblePartyIds = &responsiblePartyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.followerIds = &followerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.filterText = &filterText
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.filterBoardColumnIds = &filterBoardColumnIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.excludeTagIds = &excludeTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.crmDealIds = &crmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.companyId = &companyId
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.assigneeTeamIds = &assigneeTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
 	r.assigneeCompanyIds = &assigneeCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasklistsTasklistIdTasksExecute(r)
+func (r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskliststasklistIdTasksExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasklistsTasklistIdTasks Get Tasks
+ * GETProjectsApiV2TaskliststasklistIdTasks Get Tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest
+ * @param tasklistId
+ * @return ApiGETProjectsApiV2TaskliststasklistIdTasksRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTasks(ctx _context.Context) ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest {
-	return ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskliststasklistIdTasks(ctx _context.Context, tasklistId int32) ApiGETProjectsApiV2TaskliststasklistIdTasksRequest {
+	return ApiGETProjectsApiV2TaskliststasklistIdTasksRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		tasklistId: tasklistId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTasksExecute(r ApiGETProjectsApiV2TasklistsTasklistIdTasksRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskliststasklistIdTasksExecute(r ApiGETProjectsApiV2TaskliststasklistIdTasksRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -12301,12 +14206,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTasksExecute(r Api
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasklistsTasklistIdTasks")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskliststasklistIdTasks")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasklists/:tasklistId/tasks"
+	localVarPath := localBasePath + "/projects/api/v2/tasklists/{tasklistId}/tasks"
+	localVarPath = strings.Replace(localVarPath, "{"+"tasklistId"+"}", _neturl.PathEscape(parameterToString(r.tasklistId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -12501,11 +14407,14 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTasksExecute(r Api
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
 	}
-	if r.tasklistId != nil {
-		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, "csv"))
+	if r.tasklistId2 != nil {
+		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId2, "csv"))
 	}
 	if r.taskIdList != nil {
 		localVarQueryParams.Add("taskIdList", parameterToString(*r.taskIdList, "csv"))
@@ -12622,96 +14531,97 @@ func (a *CFPortApiService) GETProjectsApiV2TasklistsTasklistIdTasksExecute(r Api
 }
 
 type ApiGETProjectsApiV2TasksRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
 	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
 }
 
 func (r ApiGETProjectsApiV2TasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TasksRequest {
@@ -12966,6 +14876,10 @@ func (r ApiGETProjectsApiV2TasksRequest) GetFiles(getFiles bool) ApiGETProjectsA
 	r.getFiles = &getFiles
 	return r
 }
+func (r ApiGETProjectsApiV2TasksRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2TasksRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
 func (r ApiGETProjectsApiV2TasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TasksRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
@@ -13079,7 +14993,7 @@ func (r ApiGETProjectsApiV2TasksRequest) Execute() (*_nethttp.Response, error) {
 func (a *CFPortApiService) GETProjectsApiV2Tasks(ctx _context.Context) ApiGETProjectsApiV2TasksRequest {
 	return ApiGETProjectsApiV2TasksRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -13295,6 +15209,9 @@ func (a *CFPortApiService) GETProjectsApiV2TasksExecute(r ApiGETProjectsApiV2Tas
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
 	}
@@ -13415,72 +15332,85 @@ func (a *CFPortApiService) GETProjectsApiV2TasksExecute(r ApiGETProjectsApiV2Tas
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest struct {
-	ctx                 _context.Context
-	ApiService          *CFPortApiService
-	projectId           *int32
-	nextPageToken       *int32
-	dependentTaskId     *int32
-	onlyDependencies    *bool
-	onlyBasicFields     *bool
-	onlyActionable      *bool
+type ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	dependentTaskId2 int32
+	include *string
+	projectId *int32
+	pageSize *int32
+	page *int32
+	dependentTaskId *int32
+	onlyDependencies *bool
+	onlyBasicFields *bool
+	onlyActionable *bool
 	includeDependencies *bool
-	getRecursively      *bool
+	getRecursively *bool
 }
 
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) Include(include string) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) ProjectId(projectId int32) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) NextPageToken(nextPageToken int32) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
-	r.nextPageToken = &nextPageToken
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
+	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) DependentTaskId(dependentTaskId int32) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) Page(page int32) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) DependentTaskId(dependentTaskId int32) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.dependentTaskId = &dependentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) OnlyDependencies(onlyDependencies bool) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) OnlyDependencies(onlyDependencies bool) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.onlyDependencies = &onlyDependencies
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) OnlyBasicFields(onlyBasicFields bool) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) OnlyBasicFields(onlyBasicFields bool) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.onlyBasicFields = &onlyBasicFields
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) OnlyActionable(onlyActionable bool) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) OnlyActionable(onlyActionable bool) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.onlyActionable = &onlyActionable
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) IncludeDependencies(includeDependencies bool) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) IncludeDependencies(includeDependencies bool) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.includeDependencies = &includeDependencies
 	return r
 }
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) GetRecursively(getRecursively bool) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) GetRecursively(getRecursively bool) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
 	r.getRecursively = &getRecursively
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksDependentTaskIdPredecessorsExecute(r)
+func (r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TasksdependentTaskIdPredecessorsExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksDependentTaskIdPredecessors Get Predecessor
+ * GETProjectsApiV2TasksdependentTaskIdPredecessors Get Predecessor
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest
+ * @param dependentTaskId2
+ * @return ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksDependentTaskIdPredecessors(ctx _context.Context) ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest {
-	return ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest{
+func (a *CFPortApiService) GETProjectsApiV2TasksdependentTaskIdPredecessors(ctx _context.Context, dependentTaskId2 int32) ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest {
+	return ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		dependentTaskId2: dependentTaskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksDependentTaskIdPredecessorsExecute(r ApiGETProjectsApiV2TasksDependentTaskIdPredecessorsRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TasksdependentTaskIdPredecessorsExecute(r ApiGETProjectsApiV2TasksdependentTaskIdPredecessorsRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -13489,22 +15419,29 @@ func (a *CFPortApiService) GETProjectsApiV2TasksDependentTaskIdPredecessorsExecu
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksDependentTaskIdPredecessors")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksdependentTaskIdPredecessors")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:dependentTaskId/predecessors"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{dependentTaskId}/predecessors"
+	localVarPath = strings.Replace(localVarPath, "{"+"dependentTaskId"+"}", _neturl.PathEscape(parameterToString(r.dependentTaskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, ""))
+	}
 	if r.projectId != nil {
 		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
 	}
-	if r.nextPageToken != nil {
-		localVarQueryParams.Add("nextPageToken", parameterToString(*r.nextPageToken, ""))
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
 	}
 	if r.dependentTaskId != nil {
 		localVarQueryParams.Add("dependentTaskId", parameterToString(*r.dependentTaskId, ""))
@@ -13569,97 +15506,100 @@ func (a *CFPortApiService) GETProjectsApiV2TasksDependentTaskIdPredecessorsExecu
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksObjectIdProjectRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	userId                  *int32
-	objectId                *int32
-	showDeleted             *bool
-	includeTags             *bool
-	includePeople           *bool
-	getTruePermissions      *bool
-	getPermissions          *bool
+type ApiGETProjectsApiV2TasksobjectIdProjectRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	objectId2 int32
+	userId *int32
+	objectId *int32
+	showDeleted *bool
+	includeTags *bool
+	includePeople *bool
+	getTruePermissions *bool
+	getPermissions *bool
 	getNotificationSettings *bool
-	getEmoji                *bool
-	getEmailAddress         *bool
-	getDateInfo             *bool
-	getActivePages          *bool
-	formatMarkdown          *bool
+	getEmoji *bool
+	getEmailAddress *bool
+	getDateInfo *bool
+	getActivePages *bool
+	formatMarkdown *bool
 }
 
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) UserId(userId int32) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) ObjectId(objectId int32) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.objectId = &objectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) IncludePeople(includePeople bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.includePeople = &includePeople
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetTruePermissions(getTruePermissions bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getTruePermissions = &getTruePermissions
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetPermissions(getPermissions bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getPermissions = &getPermissions
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetNotificationSettings(getNotificationSettings bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getNotificationSettings = &getNotificationSettings
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetEmoji(getEmoji bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getEmoji = &getEmoji
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetEmailAddress(getEmailAddress bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getEmailAddress = &getEmailAddress
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetDateInfo(getDateInfo bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getDateInfo = &getDateInfo
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) GetActivePages(getActivePages bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.getActivePages = &getActivePages
 	return r
 }
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) FormatMarkdown(formatMarkdown bool) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
 	r.formatMarkdown = &formatMarkdown
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksObjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksObjectIdProjectExecute(r)
+func (r ApiGETProjectsApiV2TasksobjectIdProjectRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TasksobjectIdProjectExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksObjectIdProject Get the project for the task
+ * GETProjectsApiV2TasksobjectIdProject Get the project for the task
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksObjectIdProjectRequest
+ * @param objectId2
+ * @return ApiGETProjectsApiV2TasksobjectIdProjectRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksObjectIdProject(ctx _context.Context) ApiGETProjectsApiV2TasksObjectIdProjectRequest {
-	return ApiGETProjectsApiV2TasksObjectIdProjectRequest{
+func (a *CFPortApiService) GETProjectsApiV2TasksobjectIdProject(ctx _context.Context, objectId2 int32) ApiGETProjectsApiV2TasksobjectIdProjectRequest {
+	return ApiGETProjectsApiV2TasksobjectIdProjectRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		objectId2: objectId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksObjectIdProjectExecute(r ApiGETProjectsApiV2TasksObjectIdProjectRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TasksobjectIdProjectExecute(r ApiGETProjectsApiV2TasksobjectIdProjectRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -13668,12 +15608,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasksObjectIdProjectExecute(r ApiGETP
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksObjectIdProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksobjectIdProject")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:objectId/project"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{objectId}/project"
+	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", _neturl.PathEscape(parameterToString(r.objectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -13763,472 +15704,480 @@ func (a *CFPortApiService) GETProjectsApiV2TasksObjectIdProjectExecute(r ApiGETP
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksTaskIdRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
+type ApiGETProjectsApiV2TaskstaskIdRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
 	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Today(today string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Today(today string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.today = &today
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) StartDate(startDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) StartDate(startDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Sort(sort string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Sort(sort string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Priority(priority string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Priority(priority string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.priority = &priority
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Include(include string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Include(include string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Filter(filter string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Filter(filter string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) EndDate(endDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) EndDate(endDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.deletedAfterDate = &deletedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) DateCode(dateCode string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) DateCode(dateCode string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.dateCode = &dateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) DataSet(dataSet string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) DataSet(dataSet string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.createdFilter = &createdFilter
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.createdDateCode = &createdDateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.createdBeforeDate = &createdBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.completedBeforeDate = &completedBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.completedAfterDate = &completedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Callback(callback string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Callback(callback string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.callback = &callback
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) TaskId(taskId int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) TaskId(taskId int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Page(page int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Page(page int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.offsetCount = &offsetCount
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeTaskId = &includeTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.useAllProjects = &useAllProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.starredProjectsOnly = &starredProjectsOnly
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.showCompletedLists = &showCompletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.onlyUntaggedTasks = &onlyUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.onlyTasksWithTickets = &onlyTasksWithTickets
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.nestSubTasks = &nestSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.matchAllExcludedTags = &matchAllExcludedTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeUntaggedTasks = &includeUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeTeamUserIds = &includeTeamUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeTasksWithCards = &includeTasksWithCards
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeReminders = &includeReminders
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeLoggedTime = &includeLoggedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeCrmDealIds = &includeCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeCompanyUserIds = &includeCompanyUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeBlockedTasks = &includeBlockedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeAssigneeTeams = &includeAssigneeTeams
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeAssigneeCompanies = &includeAssigneeCompanies
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.getSubTasks = &getSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.getFiles = &getFiles
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2TaskstaskIdRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.taskIdList = &taskIdList
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Tags(tags []string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Tags(tags []string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.skipCrmDealIds = &skipCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.responsiblePartyIds = &responsiblePartyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.followerIds = &followerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) FilterText(filterText []string) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) FilterText(filterText []string) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.filterText = &filterText
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.filterBoardColumnIds = &filterBoardColumnIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.excludeTagIds = &excludeTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.crmDealIds = &crmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.companyId = &companyId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.assigneeTeamIds = &assigneeTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TasksTaskIdRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TaskstaskIdRequest {
 	r.assigneeCompanyIds = &assigneeCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksTaskIdExecute(r)
+func (r ApiGETProjectsApiV2TaskstaskIdRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskstaskIdExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksTaskId Get Tasks
+ * GETProjectsApiV2TaskstaskId Get Tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksTaskIdRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV2TaskstaskIdRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskId(ctx _context.Context) ApiGETProjectsApiV2TasksTaskIdRequest {
-	return ApiGETProjectsApiV2TasksTaskIdRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskId(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2TaskstaskIdRequest {
+	return ApiGETProjectsApiV2TaskstaskIdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdExecute(r ApiGETProjectsApiV2TasksTaskIdRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdExecute(r ApiGETProjectsApiV2TaskstaskIdRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -14237,12 +16186,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdExecute(r ApiGETProjectsAp
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksTaskId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskstaskId")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:taskId"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{taskId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -14437,6 +16387,9 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdExecute(r ApiGETProjectsAp
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
 	}
@@ -14557,37 +16510,40 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdExecute(r ApiGETProjectsAp
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest struct {
-	ctx        _context.Context
+type ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest struct {
+	ctx _context.Context
 	ApiService *CFPortApiService
-	taskID     *int32
+	taskId int32
+	taskID *int32
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest) TaskID(taskID int32) ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest) TaskID(taskID int32) ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest {
 	r.taskID = &taskID
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksTaskIdEstimatedtimeExecute(r)
+func (r ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskstaskIdEstimatedtimeExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksTaskIdEstimatedtime Will return the total for all sub-tasks
+ * GETProjectsApiV2TaskstaskIdEstimatedtime Will return the total for all sub-tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest
+ * @param taskId
+ * @return ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdEstimatedtime(ctx _context.Context) ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest {
-	return ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdEstimatedtime(ctx _context.Context, taskId int32) ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest {
+	return ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdEstimatedtimeExecute(r ApiGETProjectsApiV2TasksTaskIdEstimatedtimeRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdEstimatedtimeExecute(r ApiGETProjectsApiV2TaskstaskIdEstimatedtimeRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -14596,12 +16552,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdEstimatedtimeExecute(r Api
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksTaskIdEstimatedtime")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskstaskIdEstimatedtime")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:taskId/estimatedtime"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{taskId}/estimatedtime"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -14655,472 +16612,480 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdEstimatedtimeExecute(r Api
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksTaskIdSubtasksRequest struct {
-	ctx                          _context.Context
-	ApiService                   *CFPortApiService
-	updatedAfterDate             *string
-	today                        *string
-	startDate                    *string
-	sortOrder                    *string
-	sort                         *string
-	reportFormat                 *string
-	projectStatus                *string
-	priority                     *string
-	include                      *string
-	filter                       *string
-	endDate                      *string
-	deletedAfterDate             *string
-	dateCode                     *string
-	dataSet                      *string
-	createdFilter                *string
-	createdDateCode              *string
-	createdBeforeDate            *string
-	createdAfterDate             *string
-	completedBeforeDate          *string
-	completedAfterDate           *string
-	callback                     *string
-	taskId                       *int32
-	parentTaskId                 *int32
-	pageSize                     *int32
-	page                         *int32
-	offsetCount                  *int32
-	includeTaskId                *int32
-	useStartDatesForTodaysTasks  *bool
-	useAllProjects               *bool
-	starredProjectsOnly          *bool
-	showDeleted                  *bool
-	showCompletedLists           *bool
-	onlyUntaggedTasks            *bool
-	onlyTasksWithUnreadComments  *bool
-	onlyTasksWithTickets         *bool
-	onlyTasksWithEstimatedTime   *bool
-	onlyStarredProjects          *bool
-	nestSubTasks                 *bool
-	matchAllTags                 *bool
-	matchAllProjectTags          *bool
-	matchAllProjectTagIds        *bool
-	matchAllExcludedTags         *bool
-	isReportDownload             *bool
-	includeUntaggedTasks         *bool
-	includeToday                 *bool
-	includeTeamUserIds           *bool
-	includeTasksWithoutDueDates  *bool
-	includeTasksWithCards        *bool
+type ApiGETProjectsApiV2TaskstaskIdSubtasksRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	updatedAfterDate *string
+	today *string
+	startDate *string
+	sortOrder *string
+	sort *string
+	reportFormat *string
+	projectStatus *string
+	priority *string
+	include *string
+	filter *string
+	endDate *string
+	deletedAfterDate *string
+	dateCode *string
+	dataSet *string
+	createdFilter *string
+	createdDateCode *string
+	createdBeforeDate *string
+	createdAfterDate *string
+	completedBeforeDate *string
+	completedAfterDate *string
+	callback *string
+	taskId *int32
+	parentTaskId *int32
+	pageSize *int32
+	page *int32
+	offsetCount *int32
+	includeTaskId *int32
+	useStartDatesForTodaysTasks *bool
+	useAllProjects *bool
+	starredProjectsOnly *bool
+	showDeleted *bool
+	showCompletedLists *bool
+	onlyUntaggedTasks *bool
+	onlyTasksWithUnreadComments *bool
+	onlyTasksWithTickets *bool
+	onlyTasksWithEstimatedTime *bool
+	onlyStarredProjects *bool
+	nestSubTasks *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	matchAllExcludedTags *bool
+	isReportDownload *bool
+	includeUntaggedTasks *bool
+	includeToday *bool
+	includeTeamUserIds *bool
+	includeTasksWithoutDueDates *bool
+	includeTasksWithCards *bool
 	includeTasksFromDeletedLists *bool
-	includeReminders             *bool
-	includeLoggedTime            *bool
-	includeCustomFields          *bool
-	includeCrmDealIds            *bool
-	includeCompletedTasks        *bool
-	includeCompletedSubtasks     *bool
-	includeCompanyUserIds        *bool
-	includeBlockedTasks          *bool
-	includeAssigneeTeams         *bool
-	includeAssigneeCompanies     *bool
-	includeArchivedProjects      *bool
-	ignoreStartDates             *bool
-	getSubTasks                  *bool
-	getFiles                     *bool
-	allowTemplateTasks           *bool
-	tasklistId                   *[]int32
-	taskIdList                   *[]int32
-	tags                         *[]string
-	tagIds                       *[]int32
-	skipCrmDealIds               *[]int32
-	responsiblePartyIds          *[]int32
-	projectTagIds                *[]int32
-	projectOwnerIds              *[]int32
-	projectIds                   *[]int32
-	projectId                    *[]int32
-	projectHealths               *[]int32
-	projectHealth                *[]int32
-	projectCompanyIds            *[]int32
-	projectCategoryIds           *[]int32
-	projectCategoryId            *[]int32
-	followerIds                  *[]int32
-	filterText                   *[]string
-	filterBoardColumnIds         *[]int32
-	excludeTagIds                *[]int32
-	crmDealIds                   *[]int32
-	creatorIds                   *[]int32
-	companyId                    *[]int32
-	assigneeTeamIds              *[]int32
-	assigneeCompanyIds           *[]int32
+	includeReminders *bool
+	includeLoggedTime *bool
+	includeCustomFields *bool
+	includeCrmDealIds *bool
+	includeCompletedTasks *bool
+	includeCompletedSubtasks *bool
+	includeCompanyUserIds *bool
+	includeBlockedTasks *bool
+	includeAssigneeTeams *bool
+	includeAssigneeCompanies *bool
+	includeArchivedProjects *bool
+	ignoreStartDates *bool
+	getSubTasks *bool
+	getFiles *bool
+	excludeAssigneeNotOnProjectTeams *bool
+	allowTemplateTasks *bool
+	tasklistId *[]int32
+	taskIdList *[]int32
+	tags *[]string
+	tagIds *[]int32
+	skipCrmDealIds *[]int32
+	responsiblePartyIds *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	followerIds *[]int32
+	filterText *[]string
+	filterBoardColumnIds *[]int32
+	excludeTagIds *[]int32
+	crmDealIds *[]int32
+	creatorIds *[]int32
+	companyId *[]int32
+	assigneeTeamIds *[]int32
+	assigneeCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Today(today string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Today(today string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.today = &today
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) StartDate(startDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) StartDate(startDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Sort(sort string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Sort(sort string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Priority(priority string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Priority(priority string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.priority = &priority
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Include(include string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Include(include string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Filter(filter string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Filter(filter string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.filter = &filter
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) EndDate(endDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) EndDate(endDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) DeletedAfterDate(deletedAfterDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.deletedAfterDate = &deletedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) DateCode(dateCode string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.dateCode = &dateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) DataSet(dataSet string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.dataSet = &dataSet
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CreatedFilter(createdFilter string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.createdFilter = &createdFilter
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CreatedDateCode(createdDateCode string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.createdDateCode = &createdDateCode
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CreatedBeforeDate(createdBeforeDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.createdBeforeDate = &createdBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CreatedAfterDate(createdAfterDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.createdAfterDate = &createdAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CompletedBeforeDate(completedBeforeDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.completedBeforeDate = &completedBeforeDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CompletedAfterDate(completedAfterDate string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.completedAfterDate = &completedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Callback(callback string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Callback(callback string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.callback = &callback
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) TaskId(taskId int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ParentTaskId(parentTaskId int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Page(page int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Page(page int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) OffsetCount(offsetCount int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.offsetCount = &offsetCount
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeTaskId(includeTaskId int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeTaskId = &includeTaskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.useStartDatesForTodaysTasks = &useStartDatesForTodaysTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) UseAllProjects(useAllProjects bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.useAllProjects = &useAllProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) StarredProjectsOnly(starredProjectsOnly bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.starredProjectsOnly = &starredProjectsOnly
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ShowCompletedLists(showCompletedLists bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.showCompletedLists = &showCompletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) OnlyUntaggedTasks(onlyUntaggedTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.onlyUntaggedTasks = &onlyUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) OnlyTasksWithUnreadComments(onlyTasksWithUnreadComments bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.onlyTasksWithUnreadComments = &onlyTasksWithUnreadComments
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) OnlyTasksWithTickets(onlyTasksWithTickets bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.onlyTasksWithTickets = &onlyTasksWithTickets
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) OnlyTasksWithEstimatedTime(onlyTasksWithEstimatedTime bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.onlyTasksWithEstimatedTime = &onlyTasksWithEstimatedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) NestSubTasks(nestSubTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.nestSubTasks = &nestSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) MatchAllExcludedTags(matchAllExcludedTags bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.matchAllExcludedTags = &matchAllExcludedTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeUntaggedTasks(includeUntaggedTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeUntaggedTasks = &includeUntaggedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeToday(includeToday bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeToday = &includeToday
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeTeamUserIds(includeTeamUserIds bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeTeamUserIds = &includeTeamUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeTasksWithoutDueDates(includeTasksWithoutDueDates bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeTasksWithoutDueDates = &includeTasksWithoutDueDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeTasksWithCards(includeTasksWithCards bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeTasksWithCards = &includeTasksWithCards
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeTasksFromDeletedLists(includeTasksFromDeletedLists bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeTasksFromDeletedLists = &includeTasksFromDeletedLists
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeReminders(includeReminders bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeReminders = &includeReminders
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeLoggedTime(includeLoggedTime bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeLoggedTime = &includeLoggedTime
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeCrmDealIds(includeCrmDealIds bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeCrmDealIds = &includeCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeCompletedTasks(includeCompletedTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeCompletedTasks = &includeCompletedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeCompanyUserIds(includeCompanyUserIds bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeCompanyUserIds = &includeCompanyUserIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeBlockedTasks(includeBlockedTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeBlockedTasks = &includeBlockedTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeAssigneeTeams(includeAssigneeTeams bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeAssigneeTeams = &includeAssigneeTeams
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeAssigneeCompanies(includeAssigneeCompanies bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeAssigneeCompanies = &includeAssigneeCompanies
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) IgnoreStartDates(ignoreStartDates bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.ignoreStartDates = &ignoreStartDates
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) GetSubTasks(getSubTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.getSubTasks = &getSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) GetFiles(getFiles bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.getFiles = &getFiles
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ExcludeAssigneeNotOnProjectTeams(excludeAssigneeNotOnProjectTeams bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
+	r.excludeAssigneeNotOnProjectTeams = &excludeAssigneeNotOnProjectTeams
+	return r
+}
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) AllowTemplateTasks(allowTemplateTasks bool) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.allowTemplateTasks = &allowTemplateTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) TasklistId(tasklistId []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) TaskIdList(taskIdList []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.taskIdList = &taskIdList
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Tags(tags []string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Tags(tags []string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.tags = &tags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) SkipCrmDealIds(skipCrmDealIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.skipCrmDealIds = &skipCrmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ResponsiblePartyIds(responsiblePartyIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.responsiblePartyIds = &responsiblePartyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) FollowerIds(followerIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.followerIds = &followerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) FilterText(filterText []string) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.filterText = &filterText
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) FilterBoardColumnIds(filterBoardColumnIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.filterBoardColumnIds = &filterBoardColumnIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) ExcludeTagIds(excludeTagIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.excludeTagIds = &excludeTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CrmDealIds(crmDealIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.crmDealIds = &crmDealIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CreatorIds(creatorIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.creatorIds = &creatorIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.companyId = &companyId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) AssigneeTeamIds(assigneeTeamIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.assigneeTeamIds = &assigneeTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) AssigneeCompanyIds(assigneeCompanyIds []int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
 	r.assigneeCompanyIds = &assigneeCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksTaskIdSubtasksExecute(r)
+func (r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskstaskIdSubtasksExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksTaskIdSubtasks Get Tasks
+ * GETProjectsApiV2TaskstaskIdSubtasks Get Tasks
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksTaskIdSubtasksRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV2TaskstaskIdSubtasksRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdSubtasks(ctx _context.Context) ApiGETProjectsApiV2TasksTaskIdSubtasksRequest {
-	return ApiGETProjectsApiV2TasksTaskIdSubtasksRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdSubtasks(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2TaskstaskIdSubtasksRequest {
+	return ApiGETProjectsApiV2TaskstaskIdSubtasksRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdSubtasksExecute(r ApiGETProjectsApiV2TasksTaskIdSubtasksRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdSubtasksExecute(r ApiGETProjectsApiV2TaskstaskIdSubtasksRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -15129,12 +17094,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdSubtasksExecute(r ApiGETPr
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksTaskIdSubtasks")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskstaskIdSubtasks")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:taskId/subtasks"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{taskId}/subtasks"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -15329,6 +17295,9 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdSubtasksExecute(r ApiGETPr
 	if r.getFiles != nil {
 		localVarQueryParams.Add("getFiles", parameterToString(*r.getFiles, ""))
 	}
+	if r.excludeAssigneeNotOnProjectTeams != nil {
+		localVarQueryParams.Add("excludeAssigneeNotOnProjectTeams", parameterToString(*r.excludeAssigneeNotOnProjectTeams, ""))
+	}
 	if r.allowTemplateTasks != nil {
 		localVarQueryParams.Add("allowTemplateTasks", parameterToString(*r.allowTemplateTasks, ""))
 	}
@@ -15449,77 +17418,80 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdSubtasksExecute(r ApiGETPr
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksTaskIdTimeRequest struct {
-	ctx                      _context.Context
-	ApiService               *CFPortApiService
-	sortOrder                *string
-	taskId                   *int32
-	pageSize                 *int32
-	page                     *int32
-	includeTimelogId         *int32
-	includeTags              *bool
-	includeSubTasks          *bool
+type ApiGETProjectsApiV2TaskstaskIdTimeRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	sortOrder *string
+	taskId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	includeTags *bool
+	includeSubTasks *bool
 	includeCompletedSubtasks *bool
-	getTotals                *bool
+	getTotals *bool
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) TaskId(taskId int32) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) TaskId(taskId int32) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) Page(page int32) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) Page(page int32) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.includeTimelogId = &includeTimelogId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.includeSubTasks = &includeSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
 	r.getTotals = &getTotals
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdTimeRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksTaskIdTimeExecute(r)
+func (r ApiGETProjectsApiV2TaskstaskIdTimeRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskstaskIdTimeExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksTaskIdTime APICall_GET_todo_items_id_time_entries
+ * GETProjectsApiV2TaskstaskIdTime APICall_GET_todo_items_id_time_entries
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksTaskIdTimeRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV2TaskstaskIdTimeRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTime(ctx _context.Context) ApiGETProjectsApiV2TasksTaskIdTimeRequest {
-	return ApiGETProjectsApiV2TasksTaskIdTimeRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdTime(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2TaskstaskIdTimeRequest {
+	return ApiGETProjectsApiV2TaskstaskIdTimeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeExecute(r ApiGETProjectsApiV2TasksTaskIdTimeRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdTimeExecute(r ApiGETProjectsApiV2TaskstaskIdTimeRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -15528,12 +17500,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeExecute(r ApiGETProjec
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksTaskIdTime")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskstaskIdTime")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:taskId/time"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{taskId}/time"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -15611,77 +17584,80 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeExecute(r ApiGETProjec
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest struct {
-	ctx                      _context.Context
-	ApiService               *CFPortApiService
-	sortOrder                *string
-	taskId                   *int32
-	pageSize                 *int32
-	page                     *int32
-	includeTimelogId         *int32
-	includeTags              *bool
-	includeSubTasks          *bool
+type ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	sortOrder *string
+	taskId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	includeTags *bool
+	includeSubTasks *bool
 	includeCompletedSubtasks *bool
-	getTotals                *bool
+	getTotals *bool
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) TaskId(taskId int32) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) TaskId(taskId int32) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) Page(page int32) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) Page(page int32) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.includeTimelogId = &includeTimelogId
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.includeSubTasks = &includeSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
 	r.getTotals = &getTotals
 	return r
 }
 
-func (r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TasksTaskIdTimeEntriesExecute(r)
+func (r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TaskstaskIdTimeEntriesExecute(r)
 }
 
 /*
- * GETProjectsApiV2TasksTaskIdTimeEntries APICall_GET_todo_items_id_time_entries
+ * GETProjectsApiV2TaskstaskIdTimeEntries APICall_GET_todo_items_id_time_entries
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeEntries(ctx _context.Context) ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest {
-	return ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest{
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdTimeEntries(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest {
+	return ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeEntriesExecute(r ApiGETProjectsApiV2TasksTaskIdTimeEntriesRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TaskstaskIdTimeEntriesExecute(r ApiGETProjectsApiV2TaskstaskIdTimeEntriesRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -15690,12 +17666,13 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeEntriesExecute(r ApiGE
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TasksTaskIdTimeEntries")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TaskstaskIdTimeEntries")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/tasks/:taskId/time_entries"
+	localVarPath := localBasePath + "/projects/api/v2/tasks/{taskId}/time_entries"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -15774,45 +17751,44 @@ func (a *CFPortApiService) GETProjectsApiV2TasksTaskIdTimeEntriesExecute(r ApiGE
 }
 
 type ApiGETProjectsApiV2TimeRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	updatedAfterDate        *string
-	toDate                  *string
-	sortOrder               *string
-	sortBy                  *string
-	projectStatus           *string
-	invoicedType            *string
-	fromDate                *string
-	billableType            *string
-	timeLogId               *int32
-	ticketId                *int32
-	pageSize                *int32
-	page                    *int32
-	includeTimelogId        *int32
-	showDeleted             *bool
-	onlyStarredProjects     *bool
-	matchAllTags            *bool
-	matchAllProjectTags     *bool
-	matchAllProjectTagIds   *bool
-	includeTags             *bool
-	includeMainTask         *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	projectStatus *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	timeLogId *int32
+	ticketId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	onlyStarredProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	includeTags *bool
+	includeMainTask *bool
 	includeArchivedProjects *bool
-	getTotals               *bool
-	userId                  *[]int32
-	taskTagIds              *[]int32
-	tagIds                  *[]int32
-	projectsFromCompanyId   *[]int32
-	projectsFromCompanyId2  *[]int32
-	projectTagIds           *[]int32
-	projectOwnerIds         *[]int32
-	projectIds              *[]int32
-	projectId               *[]int32
-	projectHealths          *[]int32
-	projectHealth           *[]int32
-	projectCompanyIds       *[]int32
-	projectCategoryIds      *[]int32
-	projectCategoryId       *[]int32
-	companyId               *[]int32
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	projectsFromCompanyId *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	companyId *[]int32
 }
 
 func (r ApiGETProjectsApiV2TimeRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TimeRequest {
@@ -15919,10 +17895,6 @@ func (r ApiGETProjectsApiV2TimeRequest) ProjectsFromCompanyId(projectsFromCompan
 	r.projectsFromCompanyId = &projectsFromCompanyId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeRequest) ProjectsFromCompanyId2(projectsFromCompanyId2 []int32) ApiGETProjectsApiV2TimeRequest {
-	r.projectsFromCompanyId2 = &projectsFromCompanyId2
-	return r
-}
 func (r ApiGETProjectsApiV2TimeRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TimeRequest {
 	r.projectTagIds = &projectTagIds
 	return r
@@ -15976,7 +17948,7 @@ func (r ApiGETProjectsApiV2TimeRequest) Execute() (*_nethttp.Response, error) {
 func (a *CFPortApiService) GETProjectsApiV2Time(ctx _context.Context) ApiGETProjectsApiV2TimeRequest {
 	return ApiGETProjectsApiV2TimeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -16081,9 +18053,6 @@ func (a *CFPortApiService) GETProjectsApiV2TimeExecute(r ApiGETProjectsApiV2Time
 	if r.projectsFromCompanyId != nil {
 		localVarQueryParams.Add("projectsFromCompanyId", parameterToString(*r.projectsFromCompanyId, "csv"))
 	}
-	if r.projectsFromCompanyId2 != nil {
-		localVarQueryParams.Add("projects-from-companyId", parameterToString(*r.projectsFromCompanyId2, "csv"))
-	}
 	if r.projectTagIds != nil {
 		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
 	}
@@ -16160,45 +18129,44 @@ func (a *CFPortApiService) GETProjectsApiV2TimeExecute(r ApiGETProjectsApiV2Time
 }
 
 type ApiGETProjectsApiV2TimeEntriesRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	updatedAfterDate        *string
-	toDate                  *string
-	sortOrder               *string
-	sortBy                  *string
-	projectStatus           *string
-	invoicedType            *string
-	fromDate                *string
-	billableType            *string
-	timeLogId               *int32
-	ticketId                *int32
-	pageSize                *int32
-	page                    *int32
-	includeTimelogId        *int32
-	showDeleted             *bool
-	onlyStarredProjects     *bool
-	matchAllTags            *bool
-	matchAllProjectTags     *bool
-	matchAllProjectTagIds   *bool
-	includeTags             *bool
-	includeMainTask         *bool
+	ctx _context.Context
+	ApiService *CFPortApiService
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	projectStatus *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	timeLogId *int32
+	ticketId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	onlyStarredProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	includeTags *bool
+	includeMainTask *bool
 	includeArchivedProjects *bool
-	getTotals               *bool
-	userId                  *[]int32
-	taskTagIds              *[]int32
-	tagIds                  *[]int32
-	projectsFromCompanyId   *[]int32
-	projectsFromCompanyId2  *[]int32
-	projectTagIds           *[]int32
-	projectOwnerIds         *[]int32
-	projectIds              *[]int32
-	projectId               *[]int32
-	projectHealths          *[]int32
-	projectHealth           *[]int32
-	projectCompanyIds       *[]int32
-	projectCategoryIds      *[]int32
-	projectCategoryId       *[]int32
-	companyId               *[]int32
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	projectsFromCompanyId *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	companyId *[]int32
 }
 
 func (r ApiGETProjectsApiV2TimeEntriesRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TimeEntriesRequest {
@@ -16305,10 +18273,6 @@ func (r ApiGETProjectsApiV2TimeEntriesRequest) ProjectsFromCompanyId(projectsFro
 	r.projectsFromCompanyId = &projectsFromCompanyId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesRequest) ProjectsFromCompanyId2(projectsFromCompanyId2 []int32) ApiGETProjectsApiV2TimeEntriesRequest {
-	r.projectsFromCompanyId2 = &projectsFromCompanyId2
-	return r
-}
 func (r ApiGETProjectsApiV2TimeEntriesRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TimeEntriesRequest {
 	r.projectTagIds = &projectTagIds
 	return r
@@ -16362,7 +18326,7 @@ func (r ApiGETProjectsApiV2TimeEntriesRequest) Execute() (*_nethttp.Response, er
 func (a *CFPortApiService) GETProjectsApiV2TimeEntries(ctx _context.Context) ApiGETProjectsApiV2TimeEntriesRequest {
 	return ApiGETProjectsApiV2TimeEntriesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -16467,9 +18431,6 @@ func (a *CFPortApiService) GETProjectsApiV2TimeEntriesExecute(r ApiGETProjectsAp
 	if r.projectsFromCompanyId != nil {
 		localVarQueryParams.Add("projectsFromCompanyId", parameterToString(*r.projectsFromCompanyId, "csv"))
 	}
-	if r.projectsFromCompanyId2 != nil {
-		localVarQueryParams.Add("projects-from-companyId", parameterToString(*r.projectsFromCompanyId2, "csv"))
-	}
 	if r.projectTagIds != nil {
 		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
 	}
@@ -16546,18 +18507,18 @@ func (a *CFPortApiService) GETProjectsApiV2TimeEntriesExecute(r ApiGETProjectsAp
 }
 
 type ApiGETProjectsApiV2TimeEntriesMeRequest struct {
-	ctx         _context.Context
-	ApiService  *CFPortApiService
-	toDate      *string
-	sortOrder   *string
-	fromDate    *string
-	ticketId    *int32
-	pageSize    *int32
-	page        *int32
+	ctx _context.Context
+	ApiService *CFPortApiService
+	toDate *string
+	sortOrder *string
+	fromDate *string
+	ticketId *int32
+	pageSize *int32
+	page *int32
 	showDeleted *bool
 	includeTags *bool
-	getTotals   *bool
-	userId      *[]int32
+	getTotals *bool
+	userId *[]int32
 }
 
 func (r ApiGETProjectsApiV2TimeEntriesMeRequest) ToDate(toDate string) ApiGETProjectsApiV2TimeEntriesMeRequest {
@@ -16613,7 +18574,7 @@ func (r ApiGETProjectsApiV2TimeEntriesMeRequest) Execute() (*_nethttp.Response, 
 func (a *CFPortApiService) GETProjectsApiV2TimeEntriesMe(ctx _context.Context) ApiGETProjectsApiV2TimeEntriesMeRequest {
 	return ApiGETProjectsApiV2TimeEntriesMeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -16715,217 +18676,215 @@ func (a *CFPortApiService) GETProjectsApiV2TimeEntriesMeExecute(r ApiGETProjects
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	updatedAfterDate        *string
-	toDate                  *string
-	sortOrder               *string
-	sortBy                  *string
-	projectStatus           *string
-	invoicedType            *string
-	fromDate                *string
-	billableType            *string
-	timeLogId               *int32
-	ticketId                *int32
-	pageSize                *int32
-	page                    *int32
-	includeTimelogId        *int32
-	showDeleted             *bool
-	onlyStarredProjects     *bool
-	matchAllTags            *bool
-	matchAllProjectTags     *bool
-	matchAllProjectTagIds   *bool
-	includeTags             *bool
-	includeMainTask         *bool
+type ApiGETProjectsApiV2TimeEntriestimeLogIdRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	timeLogId2 int32
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	projectStatus *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	timeLogId *int32
+	ticketId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	onlyStarredProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	includeTags *bool
+	includeMainTask *bool
 	includeArchivedProjects *bool
-	getTotals               *bool
-	userId                  *[]int32
-	taskTagIds              *[]int32
-	tagIds                  *[]int32
-	projectsFromCompanyId   *[]int32
-	projectsFromCompanyId2  *[]int32
-	projectTagIds           *[]int32
-	projectOwnerIds         *[]int32
-	projectIds              *[]int32
-	projectId               *[]int32
-	projectHealths          *[]int32
-	projectHealth           *[]int32
-	projectCompanyIds       *[]int32
-	projectCategoryIds      *[]int32
-	projectCategoryId       *[]int32
-	companyId               *[]int32
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	projectsFromCompanyId *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	companyId *[]int32
 }
 
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ToDate(toDate string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ToDate(toDate string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.toDate = &toDate
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) SortBy(sortBy string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) SortBy(sortBy string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.sortBy = &sortBy
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.invoicedType = &invoicedType
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) FromDate(fromDate string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) FromDate(fromDate string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.fromDate = &fromDate
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) BillableType(billableType string) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) BillableType(billableType string) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.billableType = &billableType
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) TimeLogId(timeLogId int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) TimeLogId(timeLogId int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.timeLogId = &timeLogId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) TicketId(ticketId int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) TicketId(ticketId int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.ticketId = &ticketId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) Page(page int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) Page(page int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.includeTimelogId = &includeTimelogId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) IncludeMainTask(includeMainTask bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) IncludeMainTask(includeMainTask bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.includeMainTask = &includeMainTask
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.getTotals = &getTotals
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) UserId(userId []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) UserId(userId []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.taskTagIds = &taskTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectsFromCompanyId = &projectsFromCompanyId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectsFromCompanyId2(projectsFromCompanyId2 []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
-	r.projectsFromCompanyId2 = &projectsFromCompanyId2
-	return r
-}
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
 	r.companyId = &companyId
 	return r
 }
 
-func (r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TimeEntriesTimeLogIdExecute(r)
+func (r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TimeEntriestimeLogIdExecute(r)
 }
 
 /*
- * GETProjectsApiV2TimeEntriesTimeLogId Get time entries for a timelogId
+ * GETProjectsApiV2TimeEntriestimeLogId Get time entries for a timelogId
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest
+ * @param timeLogId2
+ * @return ApiGETProjectsApiV2TimeEntriestimeLogIdRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TimeEntriesTimeLogId(ctx _context.Context) ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest {
-	return ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest{
+func (a *CFPortApiService) GETProjectsApiV2TimeEntriestimeLogId(ctx _context.Context, timeLogId2 int32) ApiGETProjectsApiV2TimeEntriestimeLogIdRequest {
+	return ApiGETProjectsApiV2TimeEntriestimeLogIdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		timeLogId2: timeLogId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TimeEntriesTimeLogIdExecute(r ApiGETProjectsApiV2TimeEntriesTimeLogIdRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TimeEntriestimeLogIdExecute(r ApiGETProjectsApiV2TimeEntriestimeLogIdRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -16934,12 +18893,13 @@ func (a *CFPortApiService) GETProjectsApiV2TimeEntriesTimeLogIdExecute(r ApiGETP
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TimeEntriesTimeLogId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TimeEntriestimeLogId")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/time_entries/:timeLogId"
+	localVarPath := localBasePath + "/projects/api/v2/time_entries/{timeLogId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"timeLogId"+"}", _neturl.PathEscape(parameterToString(r.timeLogId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -17023,9 +18983,6 @@ func (a *CFPortApiService) GETProjectsApiV2TimeEntriesTimeLogIdExecute(r ApiGETP
 	if r.projectsFromCompanyId != nil {
 		localVarQueryParams.Add("projectsFromCompanyId", parameterToString(*r.projectsFromCompanyId, "csv"))
 	}
-	if r.projectsFromCompanyId2 != nil {
-		localVarQueryParams.Add("projects-from-companyId", parameterToString(*r.projectsFromCompanyId2, "csv"))
-	}
 	if r.projectTagIds != nil {
 		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
 	}
@@ -17102,18 +19059,18 @@ func (a *CFPortApiService) GETProjectsApiV2TimeEntriesTimeLogIdExecute(r ApiGETP
 }
 
 type ApiGETProjectsApiV2TimeMeRequest struct {
-	ctx         _context.Context
-	ApiService  *CFPortApiService
-	toDate      *string
-	sortOrder   *string
-	fromDate    *string
-	ticketId    *int32
-	pageSize    *int32
-	page        *int32
+	ctx _context.Context
+	ApiService *CFPortApiService
+	toDate *string
+	sortOrder *string
+	fromDate *string
+	ticketId *int32
+	pageSize *int32
+	page *int32
 	showDeleted *bool
 	includeTags *bool
-	getTotals   *bool
-	userId      *[]int32
+	getTotals *bool
+	userId *[]int32
 }
 
 func (r ApiGETProjectsApiV2TimeMeRequest) ToDate(toDate string) ApiGETProjectsApiV2TimeMeRequest {
@@ -17169,7 +19126,7 @@ func (r ApiGETProjectsApiV2TimeMeRequest) Execute() (*_nethttp.Response, error) 
 func (a *CFPortApiService) GETProjectsApiV2TimeMe(ctx _context.Context) ApiGETProjectsApiV2TimeMeRequest {
 	return ApiGETProjectsApiV2TimeMeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
@@ -17271,217 +19228,215 @@ func (a *CFPortApiService) GETProjectsApiV2TimeMeExecute(r ApiGETProjectsApiV2Ti
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TimeTimeLogIdRequest struct {
-	ctx                     _context.Context
-	ApiService              *CFPortApiService
-	updatedAfterDate        *string
-	toDate                  *string
-	sortOrder               *string
-	sortBy                  *string
-	projectStatus           *string
-	invoicedType            *string
-	fromDate                *string
-	billableType            *string
-	timeLogId               *int32
-	ticketId                *int32
-	pageSize                *int32
-	page                    *int32
-	includeTimelogId        *int32
-	showDeleted             *bool
-	onlyStarredProjects     *bool
-	matchAllTags            *bool
-	matchAllProjectTags     *bool
-	matchAllProjectTagIds   *bool
-	includeTags             *bool
-	includeMainTask         *bool
+type ApiGETProjectsApiV2TimetimeLogIdRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	timeLogId2 int32
+	updatedAfterDate *string
+	toDate *string
+	sortOrder *string
+	sortBy *string
+	projectStatus *string
+	invoicedType *string
+	fromDate *string
+	billableType *string
+	timeLogId *int32
+	ticketId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	showDeleted *bool
+	onlyStarredProjects *bool
+	matchAllTags *bool
+	matchAllProjectTags *bool
+	matchAllProjectTagIds *bool
+	includeTags *bool
+	includeMainTask *bool
 	includeArchivedProjects *bool
-	getTotals               *bool
-	userId                  *[]int32
-	taskTagIds              *[]int32
-	tagIds                  *[]int32
-	projectsFromCompanyId   *[]int32
-	projectsFromCompanyId2  *[]int32
-	projectTagIds           *[]int32
-	projectOwnerIds         *[]int32
-	projectIds              *[]int32
-	projectId               *[]int32
-	projectHealths          *[]int32
-	projectHealth           *[]int32
-	projectCompanyIds       *[]int32
-	projectCategoryIds      *[]int32
-	projectCategoryId       *[]int32
-	companyId               *[]int32
+	getTotals *bool
+	userId *[]int32
+	taskTagIds *[]int32
+	tagIds *[]int32
+	projectsFromCompanyId *[]int32
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectId *[]int32
+	projectHealths *[]int32
+	projectHealth *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	projectCategoryId *[]int32
+	companyId *[]int32
 }
 
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) UpdatedAfterDate(updatedAfterDate string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.updatedAfterDate = &updatedAfterDate
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ToDate(toDate string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ToDate(toDate string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.toDate = &toDate
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) SortBy(sortBy string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) SortBy(sortBy string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.sortBy = &sortBy
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.invoicedType = &invoicedType
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) FromDate(fromDate string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) FromDate(fromDate string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.fromDate = &fromDate
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) BillableType(billableType string) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) BillableType(billableType string) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.billableType = &billableType
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) TimeLogId(timeLogId int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) TimeLogId(timeLogId int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.timeLogId = &timeLogId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) TicketId(ticketId int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) TicketId(ticketId int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.ticketId = &ticketId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) Page(page int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) Page(page int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.includeTimelogId = &includeTimelogId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) MatchAllProjectTagIds(matchAllProjectTagIds bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.matchAllProjectTagIds = &matchAllProjectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) IncludeMainTask(includeMainTask bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) IncludeMainTask(includeMainTask bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.includeMainTask = &includeMainTask
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.getTotals = &getTotals
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) UserId(userId []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) UserId(userId []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.taskTagIds = &taskTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) TagIds(tagIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectsFromCompanyId = &projectsFromCompanyId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectsFromCompanyId2(projectsFromCompanyId2 []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
-	r.projectsFromCompanyId2 = &projectsFromCompanyId2
-	return r
-}
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectId(projectId []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectHealths(projectHealths []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectHealth(projectHealth []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectHealth = &projectHealth
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) ProjectCategoryId(projectCategoryId []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.projectCategoryId = &projectCategoryId
 	return r
 }
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TimeTimeLogIdRequest {
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) CompanyId(companyId []int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
 	r.companyId = &companyId
 	return r
 }
 
-func (r ApiGETProjectsApiV2TimeTimeLogIdRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TimeTimeLogIdExecute(r)
+func (r ApiGETProjectsApiV2TimetimeLogIdRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TimetimeLogIdExecute(r)
 }
 
 /*
- * GETProjectsApiV2TimeTimeLogId Get timelog for a timelogId
+ * GETProjectsApiV2TimetimeLogId Get timelog for a timelogId
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TimeTimeLogIdRequest
+ * @param timeLogId2
+ * @return ApiGETProjectsApiV2TimetimeLogIdRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TimeTimeLogId(ctx _context.Context) ApiGETProjectsApiV2TimeTimeLogIdRequest {
-	return ApiGETProjectsApiV2TimeTimeLogIdRequest{
+func (a *CFPortApiService) GETProjectsApiV2TimetimeLogId(ctx _context.Context, timeLogId2 int32) ApiGETProjectsApiV2TimetimeLogIdRequest {
+	return ApiGETProjectsApiV2TimetimeLogIdRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		timeLogId2: timeLogId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TimeTimeLogIdExecute(r ApiGETProjectsApiV2TimeTimeLogIdRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TimetimeLogIdExecute(r ApiGETProjectsApiV2TimetimeLogIdRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -17490,12 +19445,13 @@ func (a *CFPortApiService) GETProjectsApiV2TimeTimeLogIdExecute(r ApiGETProjects
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TimeTimeLogId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TimetimeLogId")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/time/:timeLogId"
+	localVarPath := localBasePath + "/projects/api/v2/time/{timeLogId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"timeLogId"+"}", _neturl.PathEscape(parameterToString(r.timeLogId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -17579,9 +19535,6 @@ func (a *CFPortApiService) GETProjectsApiV2TimeTimeLogIdExecute(r ApiGETProjects
 	if r.projectsFromCompanyId != nil {
 		localVarQueryParams.Add("projectsFromCompanyId", parameterToString(*r.projectsFromCompanyId, "csv"))
 	}
-	if r.projectsFromCompanyId2 != nil {
-		localVarQueryParams.Add("projects-from-companyId", parameterToString(*r.projectsFromCompanyId2, "csv"))
-	}
 	if r.projectTagIds != nil {
 		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
 	}
@@ -17657,77 +19610,80 @@ func (a *CFPortApiService) GETProjectsApiV2TimeTimeLogIdExecute(r ApiGETProjects
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest struct {
-	ctx                      _context.Context
-	ApiService               *CFPortApiService
-	sortOrder                *string
-	taskId                   *int32
-	pageSize                 *int32
-	page                     *int32
-	includeTimelogId         *int32
-	includeTags              *bool
-	includeSubTasks          *bool
+type ApiGETProjectsApiV2TodoItemstaskIdTimeRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	sortOrder *string
+	taskId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	includeTags *bool
+	includeSubTasks *bool
 	includeCompletedSubtasks *bool
-	getTotals                *bool
+	getTotals *bool
 }
 
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) TaskId(taskId int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) TaskId(taskId int32) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) Page(page int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) Page(page int32) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.includeTimelogId = &includeTimelogId
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.includeSubTasks = &includeSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
 	r.getTotals = &getTotals
 	return r
 }
 
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TodoItemsTaskIdTimeExecute(r)
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TodoItemstaskIdTimeExecute(r)
 }
 
 /*
- * GETProjectsApiV2TodoItemsTaskIdTime APICall_GET_todo_items_id_time_entries
+ * GETProjectsApiV2TodoItemstaskIdTime APICall_GET_todo_items_id_time_entries
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV2TodoItemstaskIdTimeRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTime(ctx _context.Context) ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest {
-	return ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest{
+func (a *CFPortApiService) GETProjectsApiV2TodoItemstaskIdTime(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2TodoItemstaskIdTimeRequest {
+	return ApiGETProjectsApiV2TodoItemstaskIdTimeRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTimeExecute(r ApiGETProjectsApiV2TodoItemsTaskIdTimeRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TodoItemstaskIdTimeExecute(r ApiGETProjectsApiV2TodoItemstaskIdTimeRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -17736,12 +19692,13 @@ func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTimeExecute(r ApiGETPr
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TodoItemsTaskIdTime")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TodoItemstaskIdTime")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/todo_items/:taskId/time"
+	localVarPath := localBasePath + "/projects/api/v2/todo_items/{taskId}/time"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -17819,77 +19776,80 @@ func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTimeExecute(r ApiGETPr
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest struct {
-	ctx                      _context.Context
-	ApiService               *CFPortApiService
-	sortOrder                *string
-	taskId                   *int32
-	pageSize                 *int32
-	page                     *int32
-	includeTimelogId         *int32
-	includeTags              *bool
-	includeSubTasks          *bool
+type ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest struct {
+	ctx _context.Context
+	ApiService *CFPortApiService
+	taskId2 int32
+	sortOrder *string
+	taskId *int32
+	pageSize *int32
+	page *int32
+	includeTimelogId *int32
+	includeTags *bool
+	includeSubTasks *bool
 	includeCompletedSubtasks *bool
-	getTotals                *bool
+	getTotals *bool
 }
 
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) SortOrder(sortOrder string) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.sortOrder = &sortOrder
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) TaskId(taskId int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) TaskId(taskId int32) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) PageSize(pageSize int32) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) Page(page int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) Page(page int32) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) IncludeTimelogId(includeTimelogId int32) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.includeTimelogId = &includeTimelogId
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) IncludeTags(includeTags bool) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.includeTags = &includeTags
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) IncludeSubTasks(includeSubTasks bool) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.includeSubTasks = &includeSubTasks
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) IncludeCompletedSubtasks(includeCompletedSubtasks bool) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.includeCompletedSubtasks = &includeCompletedSubtasks
 	return r
 }
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) GetTotals(getTotals bool) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
 	r.getTotals = &getTotals
 	return r
 }
 
-func (r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV2TodoItemsTaskIdTimeEntriesExecute(r)
+func (r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV2TodoItemstaskIdTimeEntriesExecute(r)
 }
 
 /*
- * GETProjectsApiV2TodoItemsTaskIdTimeEntries APICall_GET_todo_items_id_time_entries
+ * GETProjectsApiV2TodoItemstaskIdTimeEntries APICall_GET_todo_items_id_time_entries
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest
  */
-func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTimeEntries(ctx _context.Context) ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest {
-	return ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest{
+func (a *CFPortApiService) GETProjectsApiV2TodoItemstaskIdTimeEntries(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest {
+	return ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTimeEntriesExecute(r ApiGETProjectsApiV2TodoItemsTaskIdTimeEntriesRequest) (*_nethttp.Response, error) {
+func (a *CFPortApiService) GETProjectsApiV2TodoItemstaskIdTimeEntriesExecute(r ApiGETProjectsApiV2TodoItemstaskIdTimeEntriesRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -17898,12 +19858,13 @@ func (a *CFPortApiService) GETProjectsApiV2TodoItemsTaskIdTimeEntriesExecute(r A
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TodoItemsTaskIdTimeEntries")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CFPortApiService.GETProjectsApiV2TodoItemstaskIdTimeEntries")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v2/todo_items/:taskId/time_entries"
+	localVarPath := localBasePath + "/projects/api/v2/todo_items/{taskId}/time_entries"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

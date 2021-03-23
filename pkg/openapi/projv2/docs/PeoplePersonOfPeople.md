@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **ImHandle** | Pointer to **string** |  | [optional] 
 **ImService** | Pointer to **string** |  | [optional] 
 **InOwnerCompany** | Pointer to **bool** |  | [optional] 
+**IsClientUser** | Pointer to **bool** |  | [optional] 
 **IsClockedIn** | Pointer to **bool** |  | [optional] 
 **LastActive** | Pointer to **string** |  | [optional] 
 **LastChangedOn** | Pointer to **string** |  | [optional] 
@@ -40,6 +41,7 @@ Name | Type | Description | Notes
 **LengthOfDay** | Pointer to **float32** |  | [optional] 
 **Localization** | Pointer to [**PeopleLocalization**](PeopleLocalization.md) |  | [optional] 
 **LoginCount** | Pointer to **int32** |  | [optional] 
+**MentionName** | Pointer to **string** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **Notifications** | Pointer to [**PeopleNotifications**](PeopleNotifications.md) |  | [optional] 
 **OpenId** | Pointer to **string** |  | [optional] 
@@ -793,6 +795,31 @@ SetInOwnerCompany sets InOwnerCompany field to given value.
 
 HasInOwnerCompany returns a boolean if a field has been set.
 
+### GetIsClientUser
+
+`func (o *PeoplePersonOfPeople) GetIsClientUser() bool`
+
+GetIsClientUser returns the IsClientUser field if non-nil, zero value otherwise.
+
+### GetIsClientUserOk
+
+`func (o *PeoplePersonOfPeople) GetIsClientUserOk() (*bool, bool)`
+
+GetIsClientUserOk returns a tuple with the IsClientUser field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsClientUser
+
+`func (o *PeoplePersonOfPeople) SetIsClientUser(v bool)`
+
+SetIsClientUser sets IsClientUser field to given value.
+
+### HasIsClientUser
+
+`func (o *PeoplePersonOfPeople) HasIsClientUser() bool`
+
+HasIsClientUser returns a boolean if a field has been set.
+
 ### GetIsClockedIn
 
 `func (o *PeoplePersonOfPeople) GetIsClockedIn() bool`
@@ -992,6 +1019,31 @@ SetLoginCount sets LoginCount field to given value.
 `func (o *PeoplePersonOfPeople) HasLoginCount() bool`
 
 HasLoginCount returns a boolean if a field has been set.
+
+### GetMentionName
+
+`func (o *PeoplePersonOfPeople) GetMentionName() string`
+
+GetMentionName returns the MentionName field if non-nil, zero value otherwise.
+
+### GetMentionNameOk
+
+`func (o *PeoplePersonOfPeople) GetMentionNameOk() (*string, bool)`
+
+GetMentionNameOk returns a tuple with the MentionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMentionName
+
+`func (o *PeoplePersonOfPeople) SetMentionName(v string)`
+
+SetMentionName sets MentionName field to given value.
+
+### HasMentionName
+
+`func (o *PeoplePersonOfPeople) HasMentionName() bool`
+
+HasMentionName returns a boolean if a field has been set.
 
 ### GetNotes
 

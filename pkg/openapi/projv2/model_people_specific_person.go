@@ -29,7 +29,7 @@ type PeopleSpecificPerson struct {
 	CompanyName *string `json:"companyName,omitempty"`
 	CreatedAt *string `json:"createdAt,omitempty"`
 	CurrentFeatureAnnouncement *TwdataaccountAnnouncementResponse `json:"currentFeatureAnnouncement,omitempty"`
-	DefaultFilters *map[string]interface{} `json:"defaultFilters,omitempty"`
+	DefaultFilters *map[string]TwdatausersFilterResponse `json:"defaultFilters,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
 	DocumentEditorInstalled *bool `json:"documentEditorInstalled,omitempty"`
 	EmailAddress *string `json:"emailAddress,omitempty"`
@@ -48,7 +48,7 @@ type PeopleSpecificPerson struct {
 	Impersonating *PeopleImpersonating `json:"impersonating,omitempty"`
 	InOwnerCompany *bool `json:"inOwnerCompany,omitempty"`
 	InitialPage *string `json:"initialPage,omitempty"`
-	Integrations *PeopleIntegrations `json:"integrations,omitempty"`
+	IsClientUser *bool `json:"isClientUser,omitempty"`
 	IsClockedIn *bool `json:"isClockedIn,omitempty"`
 	LastActive *string `json:"lastActive,omitempty"`
 	LastChangedOn *string `json:"lastChangedOn,omitempty"`
@@ -57,6 +57,7 @@ type PeopleSpecificPerson struct {
 	LengthOfDay *float32 `json:"lengthOfDay,omitempty"`
 	Localization *PeopleLocalization `json:"localization,omitempty"`
 	LoginCount *int32 `json:"loginCount,omitempty"`
+	MentionName *string `json:"mentionName,omitempty"`
 	Milestones *map[string]interface{} `json:"milestones,omitempty"`
 	Notes *string `json:"notes,omitempty"`
 	Notifications *PeopleNotifications `json:"notifications,omitempty"`
@@ -76,7 +77,7 @@ type PeopleSpecificPerson struct {
 	Profile *string `json:"profile,omitempty"`
 	ProfileText *string `json:"profileText,omitempty"`
 	Projects *map[string]interface{} `json:"projects,omitempty"`
-	SharedUserFilter *map[string]interface{} `json:"sharedUserFilter,omitempty"`
+	SharedUserFilter *map[string]TwdatausersFilterResponse `json:"sharedUserFilter,omitempty"`
 	SiteOwner *bool `json:"siteOwner,omitempty"`
 	Social *PeopleSocial `json:"social,omitempty"`
 	Tags *[]TwcoreTagsTag `json:"tags,omitempty"`
@@ -531,9 +532,9 @@ func (o *PeopleSpecificPerson) SetCurrentFeatureAnnouncement(v TwdataaccountAnno
 }
 
 // GetDefaultFilters returns the DefaultFilters field value if set, zero value otherwise.
-func (o *PeopleSpecificPerson) GetDefaultFilters() map[string]interface{} {
+func (o *PeopleSpecificPerson) GetDefaultFilters() map[string]TwdatausersFilterResponse {
 	if o == nil || o.DefaultFilters == nil {
-		var ret map[string]interface{}
+		var ret map[string]TwdatausersFilterResponse
 		return ret
 	}
 	return *o.DefaultFilters
@@ -541,7 +542,7 @@ func (o *PeopleSpecificPerson) GetDefaultFilters() map[string]interface{} {
 
 // GetDefaultFiltersOk returns a tuple with the DefaultFilters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeopleSpecificPerson) GetDefaultFiltersOk() (*map[string]interface{}, bool) {
+func (o *PeopleSpecificPerson) GetDefaultFiltersOk() (*map[string]TwdatausersFilterResponse, bool) {
 	if o == nil || o.DefaultFilters == nil {
 		return nil, false
 	}
@@ -557,8 +558,8 @@ func (o *PeopleSpecificPerson) HasDefaultFilters() bool {
 	return false
 }
 
-// SetDefaultFilters gets a reference to the given map[string]interface{} and assigns it to the DefaultFilters field.
-func (o *PeopleSpecificPerson) SetDefaultFilters(v map[string]interface{}) {
+// SetDefaultFilters gets a reference to the given map[string]TwdatausersFilterResponse and assigns it to the DefaultFilters field.
+func (o *PeopleSpecificPerson) SetDefaultFilters(v map[string]TwdatausersFilterResponse) {
 	o.DefaultFilters = &v
 }
 
@@ -1138,36 +1139,36 @@ func (o *PeopleSpecificPerson) SetInitialPage(v string) {
 	o.InitialPage = &v
 }
 
-// GetIntegrations returns the Integrations field value if set, zero value otherwise.
-func (o *PeopleSpecificPerson) GetIntegrations() PeopleIntegrations {
-	if o == nil || o.Integrations == nil {
-		var ret PeopleIntegrations
+// GetIsClientUser returns the IsClientUser field value if set, zero value otherwise.
+func (o *PeopleSpecificPerson) GetIsClientUser() bool {
+	if o == nil || o.IsClientUser == nil {
+		var ret bool
 		return ret
 	}
-	return *o.Integrations
+	return *o.IsClientUser
 }
 
-// GetIntegrationsOk returns a tuple with the Integrations field value if set, nil otherwise
+// GetIsClientUserOk returns a tuple with the IsClientUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeopleSpecificPerson) GetIntegrationsOk() (*PeopleIntegrations, bool) {
-	if o == nil || o.Integrations == nil {
+func (o *PeopleSpecificPerson) GetIsClientUserOk() (*bool, bool) {
+	if o == nil || o.IsClientUser == nil {
 		return nil, false
 	}
-	return o.Integrations, true
+	return o.IsClientUser, true
 }
 
-// HasIntegrations returns a boolean if a field has been set.
-func (o *PeopleSpecificPerson) HasIntegrations() bool {
-	if o != nil && o.Integrations != nil {
+// HasIsClientUser returns a boolean if a field has been set.
+func (o *PeopleSpecificPerson) HasIsClientUser() bool {
+	if o != nil && o.IsClientUser != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetIntegrations gets a reference to the given PeopleIntegrations and assigns it to the Integrations field.
-func (o *PeopleSpecificPerson) SetIntegrations(v PeopleIntegrations) {
-	o.Integrations = &v
+// SetIsClientUser gets a reference to the given bool and assigns it to the IsClientUser field.
+func (o *PeopleSpecificPerson) SetIsClientUser(v bool) {
+	o.IsClientUser = &v
 }
 
 // GetIsClockedIn returns the IsClockedIn field value if set, zero value otherwise.
@@ -1424,6 +1425,38 @@ func (o *PeopleSpecificPerson) HasLoginCount() bool {
 // SetLoginCount gets a reference to the given int32 and assigns it to the LoginCount field.
 func (o *PeopleSpecificPerson) SetLoginCount(v int32) {
 	o.LoginCount = &v
+}
+
+// GetMentionName returns the MentionName field value if set, zero value otherwise.
+func (o *PeopleSpecificPerson) GetMentionName() string {
+	if o == nil || o.MentionName == nil {
+		var ret string
+		return ret
+	}
+	return *o.MentionName
+}
+
+// GetMentionNameOk returns a tuple with the MentionName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeopleSpecificPerson) GetMentionNameOk() (*string, bool) {
+	if o == nil || o.MentionName == nil {
+		return nil, false
+	}
+	return o.MentionName, true
+}
+
+// HasMentionName returns a boolean if a field has been set.
+func (o *PeopleSpecificPerson) HasMentionName() bool {
+	if o != nil && o.MentionName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMentionName gets a reference to the given string and assigns it to the MentionName field.
+func (o *PeopleSpecificPerson) SetMentionName(v string) {
+	o.MentionName = &v
 }
 
 // GetMilestones returns the Milestones field value if set, zero value otherwise.
@@ -2035,9 +2068,9 @@ func (o *PeopleSpecificPerson) SetProjects(v map[string]interface{}) {
 }
 
 // GetSharedUserFilter returns the SharedUserFilter field value if set, zero value otherwise.
-func (o *PeopleSpecificPerson) GetSharedUserFilter() map[string]interface{} {
+func (o *PeopleSpecificPerson) GetSharedUserFilter() map[string]TwdatausersFilterResponse {
 	if o == nil || o.SharedUserFilter == nil {
-		var ret map[string]interface{}
+		var ret map[string]TwdatausersFilterResponse
 		return ret
 	}
 	return *o.SharedUserFilter
@@ -2045,7 +2078,7 @@ func (o *PeopleSpecificPerson) GetSharedUserFilter() map[string]interface{} {
 
 // GetSharedUserFilterOk returns a tuple with the SharedUserFilter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeopleSpecificPerson) GetSharedUserFilterOk() (*map[string]interface{}, bool) {
+func (o *PeopleSpecificPerson) GetSharedUserFilterOk() (*map[string]TwdatausersFilterResponse, bool) {
 	if o == nil || o.SharedUserFilter == nil {
 		return nil, false
 	}
@@ -2061,8 +2094,8 @@ func (o *PeopleSpecificPerson) HasSharedUserFilter() bool {
 	return false
 }
 
-// SetSharedUserFilter gets a reference to the given map[string]interface{} and assigns it to the SharedUserFilter field.
-func (o *PeopleSpecificPerson) SetSharedUserFilter(v map[string]interface{}) {
+// SetSharedUserFilter gets a reference to the given map[string]TwdatausersFilterResponse and assigns it to the SharedUserFilter field.
+func (o *PeopleSpecificPerson) SetSharedUserFilter(v map[string]TwdatausersFilterResponse) {
 	o.SharedUserFilter = &v
 }
 
@@ -2740,8 +2773,8 @@ func (o PeopleSpecificPerson) MarshalJSON() ([]byte, error) {
 	if o.InitialPage != nil {
 		toSerialize["initialPage"] = o.InitialPage
 	}
-	if o.Integrations != nil {
-		toSerialize["integrations"] = o.Integrations
+	if o.IsClientUser != nil {
+		toSerialize["isClientUser"] = o.IsClientUser
 	}
 	if o.IsClockedIn != nil {
 		toSerialize["isClockedIn"] = o.IsClockedIn
@@ -2766,6 +2799,9 @@ func (o PeopleSpecificPerson) MarshalJSON() ([]byte, error) {
 	}
 	if o.LoginCount != nil {
 		toSerialize["loginCount"] = o.LoginCount
+	}
+	if o.MentionName != nil {
+		toSerialize["mentionName"] = o.MentionName
 	}
 	if o.Milestones != nil {
 		toSerialize["milestones"] = o.Milestones

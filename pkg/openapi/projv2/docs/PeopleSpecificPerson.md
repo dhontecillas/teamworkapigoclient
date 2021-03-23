@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **CompanyName** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
 **CurrentFeatureAnnouncement** | Pointer to [**TwdataaccountAnnouncementResponse**](TwdataaccountAnnouncementResponse.md) |  | [optional] 
-**DefaultFilters** | Pointer to **map[string]interface{}** |  | [optional] 
+**DefaultFilters** | Pointer to [**map[string]TwdatausersFilterResponse**](TwdatausersFilterResponse.md) |  | [optional] 
 **Deleted** | Pointer to **bool** |  | [optional] 
 **DocumentEditorInstalled** | Pointer to **bool** |  | [optional] 
 **EmailAddress** | Pointer to **string** |  | [optional] 
@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 **Impersonating** | Pointer to [**PeopleImpersonating**](PeopleImpersonating.md) |  | [optional] 
 **InOwnerCompany** | Pointer to **bool** |  | [optional] 
 **InitialPage** | Pointer to **string** |  | [optional] 
-**Integrations** | Pointer to [**PeopleIntegrations**](PeopleIntegrations.md) |  | [optional] 
+**IsClientUser** | Pointer to **bool** |  | [optional] 
 **IsClockedIn** | Pointer to **bool** |  | [optional] 
 **LastActive** | Pointer to **string** |  | [optional] 
 **LastChangedOn** | Pointer to **string** |  | [optional] 
@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **LengthOfDay** | Pointer to **float32** |  | [optional] 
 **Localization** | Pointer to [**PeopleLocalization**](PeopleLocalization.md) |  | [optional] 
 **LoginCount** | Pointer to **int32** |  | [optional] 
+**MentionName** | Pointer to **string** |  | [optional] 
 **Milestones** | Pointer to **map[string]interface{}** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **Notifications** | Pointer to [**PeopleNotifications**](PeopleNotifications.md) |  | [optional] 
@@ -64,7 +65,7 @@ Name | Type | Description | Notes
 **Profile** | Pointer to **string** |  | [optional] 
 **ProfileText** | Pointer to **string** |  | [optional] 
 **Projects** | Pointer to **map[string]interface{}** |  | [optional] 
-**SharedUserFilter** | Pointer to **map[string]interface{}** |  | [optional] 
+**SharedUserFilter** | Pointer to [**map[string]TwdatausersFilterResponse**](TwdatausersFilterResponse.md) |  | [optional] 
 **SiteOwner** | Pointer to **bool** |  | [optional] 
 **Social** | Pointer to [**PeopleSocial**](PeopleSocial.md) |  | [optional] 
 **Tags** | Pointer to [**[]TwcoreTagsTag**](TwcoreTagsTag.md) |  | [optional] 
@@ -430,20 +431,20 @@ HasCurrentFeatureAnnouncement returns a boolean if a field has been set.
 
 ### GetDefaultFilters
 
-`func (o *PeopleSpecificPerson) GetDefaultFilters() map[string]interface{}`
+`func (o *PeopleSpecificPerson) GetDefaultFilters() map[string]TwdatausersFilterResponse`
 
 GetDefaultFilters returns the DefaultFilters field if non-nil, zero value otherwise.
 
 ### GetDefaultFiltersOk
 
-`func (o *PeopleSpecificPerson) GetDefaultFiltersOk() (*map[string]interface{}, bool)`
+`func (o *PeopleSpecificPerson) GetDefaultFiltersOk() (*map[string]TwdatausersFilterResponse, bool)`
 
 GetDefaultFiltersOk returns a tuple with the DefaultFilters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultFilters
 
-`func (o *PeopleSpecificPerson) SetDefaultFilters(v map[string]interface{})`
+`func (o *PeopleSpecificPerson) SetDefaultFilters(v map[string]TwdatausersFilterResponse)`
 
 SetDefaultFilters sets DefaultFilters field to given value.
 
@@ -903,30 +904,30 @@ SetInitialPage sets InitialPage field to given value.
 
 HasInitialPage returns a boolean if a field has been set.
 
-### GetIntegrations
+### GetIsClientUser
 
-`func (o *PeopleSpecificPerson) GetIntegrations() PeopleIntegrations`
+`func (o *PeopleSpecificPerson) GetIsClientUser() bool`
 
-GetIntegrations returns the Integrations field if non-nil, zero value otherwise.
+GetIsClientUser returns the IsClientUser field if non-nil, zero value otherwise.
 
-### GetIntegrationsOk
+### GetIsClientUserOk
 
-`func (o *PeopleSpecificPerson) GetIntegrationsOk() (*PeopleIntegrations, bool)`
+`func (o *PeopleSpecificPerson) GetIsClientUserOk() (*bool, bool)`
 
-GetIntegrationsOk returns a tuple with the Integrations field if it's non-nil, zero value otherwise
+GetIsClientUserOk returns a tuple with the IsClientUser field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIntegrations
+### SetIsClientUser
 
-`func (o *PeopleSpecificPerson) SetIntegrations(v PeopleIntegrations)`
+`func (o *PeopleSpecificPerson) SetIsClientUser(v bool)`
 
-SetIntegrations sets Integrations field to given value.
+SetIsClientUser sets IsClientUser field to given value.
 
-### HasIntegrations
+### HasIsClientUser
 
-`func (o *PeopleSpecificPerson) HasIntegrations() bool`
+`func (o *PeopleSpecificPerson) HasIsClientUser() bool`
 
-HasIntegrations returns a boolean if a field has been set.
+HasIsClientUser returns a boolean if a field has been set.
 
 ### GetIsClockedIn
 
@@ -1127,6 +1128,31 @@ SetLoginCount sets LoginCount field to given value.
 `func (o *PeopleSpecificPerson) HasLoginCount() bool`
 
 HasLoginCount returns a boolean if a field has been set.
+
+### GetMentionName
+
+`func (o *PeopleSpecificPerson) GetMentionName() string`
+
+GetMentionName returns the MentionName field if non-nil, zero value otherwise.
+
+### GetMentionNameOk
+
+`func (o *PeopleSpecificPerson) GetMentionNameOk() (*string, bool)`
+
+GetMentionNameOk returns a tuple with the MentionName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMentionName
+
+`func (o *PeopleSpecificPerson) SetMentionName(v string)`
+
+SetMentionName sets MentionName field to given value.
+
+### HasMentionName
+
+`func (o *PeopleSpecificPerson) HasMentionName() bool`
+
+HasMentionName returns a boolean if a field has been set.
 
 ### GetMilestones
 
@@ -1605,20 +1631,20 @@ HasProjects returns a boolean if a field has been set.
 
 ### GetSharedUserFilter
 
-`func (o *PeopleSpecificPerson) GetSharedUserFilter() map[string]interface{}`
+`func (o *PeopleSpecificPerson) GetSharedUserFilter() map[string]TwdatausersFilterResponse`
 
 GetSharedUserFilter returns the SharedUserFilter field if non-nil, zero value otherwise.
 
 ### GetSharedUserFilterOk
 
-`func (o *PeopleSpecificPerson) GetSharedUserFilterOk() (*map[string]interface{}, bool)`
+`func (o *PeopleSpecificPerson) GetSharedUserFilterOk() (*map[string]TwdatausersFilterResponse, bool)`
 
 GetSharedUserFilterOk returns a tuple with the SharedUserFilter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSharedUserFilter
 
-`func (o *PeopleSpecificPerson) SetSharedUserFilter(v map[string]interface{})`
+`func (o *PeopleSpecificPerson) SetSharedUserFilter(v map[string]TwdatausersFilterResponse)`
 
 SetSharedUserFilter sets SharedUserFilter field to given value.
 

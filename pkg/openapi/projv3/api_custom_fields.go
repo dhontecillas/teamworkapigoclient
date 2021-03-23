@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,33 +28,36 @@ var (
 // CustomFieldsApiService CustomFieldsApi service
 type CustomFieldsApiService service
 
-type ApiDELETEProjectsApiV3CustomfieldsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3CustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	customFieldId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3CustomfieldsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3CustomfieldsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3CustomfieldsIdJson Delete an existing custom field
+ * DELETEProjectsApiV3CustomfieldscustomFieldIdJson Delete an existing custom field
  * Removes a custom field.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3CustomfieldsIdJsonRequest
+ * @param customFieldId
+ * @return ApiDELETEProjectsApiV3CustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) DELETEProjectsApiV3CustomfieldsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3CustomfieldsIdJsonRequest {
-	return ApiDELETEProjectsApiV3CustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) DELETEProjectsApiV3CustomfieldscustomFieldIdJson(ctx _context.Context, customFieldId int32) ApiDELETEProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	return ApiDELETEProjectsApiV3CustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		customFieldId: customFieldId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CustomFieldsApiService) DELETEProjectsApiV3CustomfieldsIdJsonExecute(r ApiDELETEProjectsApiV3CustomfieldsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *CustomFieldsApiService) DELETEProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r ApiDELETEProjectsApiV3CustomfieldscustomFieldIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -62,12 +66,13 @@ func (a *CustomFieldsApiService) DELETEProjectsApiV3CustomfieldsIdJsonExecute(r 
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.DELETEProjectsApiV3CustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.DELETEProjectsApiV3CustomfieldscustomFieldIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -138,33 +143,39 @@ func (a *CustomFieldsApiService) DELETEProjectsApiV3CustomfieldsIdJsonExecute(r 
 	return localVarHTTPResponse, nil
 }
 
-type ApiDELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
+	customFieldId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJson Delete an existing project custom field value.
+ * DELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson Delete an existing project custom field value.
  * Removes a project custom field value.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest
+ * @param projectId
+ * @param customFieldId
+ * @return ApiDELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) DELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest {
-	return ApiDELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) DELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson(ctx _context.Context, projectId int32, customFieldId int32) ApiDELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest {
+	return ApiDELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
+		customFieldId: customFieldId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CustomFieldsApiService) DELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonExecute(r ApiDELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *CustomFieldsApiService) DELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonExecute(r ApiDELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -173,12 +184,14 @@ func (a *CustomFieldsApiService) DELETEProjectsApiV3ProjectsProjectIdCustomfield
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.DELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.DELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -249,33 +262,39 @@ func (a *CustomFieldsApiService) DELETEProjectsApiV3ProjectsProjectIdCustomfield
 	return localVarHTTPResponse, nil
 }
 
-type ApiDELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId int32
+	customFieldId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJson Delete an existing task custom field value.
+ * DELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson Delete an existing task custom field value.
  * Removes a task custom field value.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest
+ * @param taskId
+ * @param customFieldId
+ * @return ApiDELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest {
-	return ApiDELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) DELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson(ctx _context.Context, taskId int32, customFieldId int32) ApiDELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest {
+	return ApiDELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
+		customFieldId: customFieldId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CustomFieldsApiService) DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonExecute(r ApiDELETEProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *CustomFieldsApiService) DELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonExecute(r ApiDELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -284,12 +303,14 @@ func (a *CustomFieldsApiService) DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJso
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.DELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -358,286 +379,6 @@ func (a *CustomFieldsApiService) DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJso
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3CustomfieldsIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *CustomFieldsApiService
-	projectStatuses *string
-	orderMode *string
-	orderBy *string
-	entities *string
-	projectId *int32
-	projectHealths *int32
-	pageSize *int32
-	page *int32
-	showDeleted *bool
-	onlyStarredProjects *bool
-	onlySiteLevel *bool
-	matchAllProjectTags *bool
-	includeSiteLevel *bool
-	projectTagIds *[]int32
-	projectOwnerIds *[]int32
-	projectIds *[]int32
-	projectCompanyIds *[]int32
-	projectCategoryIds *[]int32
-	include *[]string
-	fieldsUsers *[]string
-	fieldsProjects *[]string
-}
-
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectStatuses = &projectStatuses
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.orderMode = &orderMode
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.orderBy = &orderBy
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) Entities(entities string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.entities = &entities
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectHealths = &projectHealths
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) Page(page int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.onlyStarredProjects = &onlyStarredProjects
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) OnlySiteLevel(onlySiteLevel bool) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.onlySiteLevel = &onlySiteLevel
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.matchAllProjectTags = &matchAllProjectTags
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) IncludeSiteLevel(includeSiteLevel bool) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.includeSiteLevel = &includeSiteLevel
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectTagIds = &projectTagIds
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectOwnerIds = &projectOwnerIds
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectIds = &projectIds
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectCompanyIds = &projectCompanyIds
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.projectCategoryIds = &projectCategoryIds
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) Include(include []string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.fieldsUsers = &fieldsUsers
-	return r
-}
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	r.fieldsProjects = &fieldsProjects
-	return r
-}
-
-func (r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) Execute() (CustomfieldResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3CustomfieldsIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3CustomfieldsIdJson Get a custom field by id.
- * This returns all details about an individual custom field.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3CustomfieldsIdJsonRequest
- */
-func (a *CustomFieldsApiService) GETProjectsApiV3CustomfieldsIdJson(ctx _context.Context) ApiGETProjectsApiV3CustomfieldsIdJsonRequest {
-	return ApiGETProjectsApiV3CustomfieldsIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return CustomfieldResponse
- */
-func (a *CustomFieldsApiService) GETProjectsApiV3CustomfieldsIdJsonExecute(r ApiGETProjectsApiV3CustomfieldsIdJsonRequest) (CustomfieldResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  CustomfieldResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3CustomfieldsIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/customfields/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.projectStatuses != nil {
-		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
-	}
-	if r.orderMode != nil {
-		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
-	}
-	if r.orderBy != nil {
-		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
-	}
-	if r.entities != nil {
-		localVarQueryParams.Add("entities", parameterToString(*r.entities, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.projectHealths != nil {
-		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.onlyStarredProjects != nil {
-		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
-	}
-	if r.onlySiteLevel != nil {
-		localVarQueryParams.Add("onlySiteLevel", parameterToString(*r.onlySiteLevel, ""))
-	}
-	if r.matchAllProjectTags != nil {
-		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
-	}
-	if r.includeSiteLevel != nil {
-		localVarQueryParams.Add("includeSiteLevel", parameterToString(*r.includeSiteLevel, ""))
-	}
-	if r.projectTagIds != nil {
-		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
-	}
-	if r.projectOwnerIds != nil {
-		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
-	}
-	if r.projectIds != nil {
-		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
-	}
-	if r.projectCompanyIds != nil {
-		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
-	}
-	if r.projectCategoryIds != nil {
-		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
-	}
-	if r.fieldsUsers != nil {
-		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
-	}
-	if r.fieldsProjects != nil {
-		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGETProjectsApiV3CustomfieldsJsonRequest struct {
@@ -919,54 +660,226 @@ func (a *CustomFieldsApiService) GETProjectsApiV3CustomfieldsJsonExecute(r ApiGE
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest struct {
+type ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	customFieldId int32
+	projectStatuses *string
+	orderMode *string
+	orderBy *string
+	entities *string
+	projectId *int32
+	projectHealths *int32
+	pageSize *int32
+	page *int32
+	showDeleted *bool
+	onlyStarredProjects *bool
+	onlySiteLevel *bool
+	matchAllProjectTags *bool
+	includeSiteLevel *bool
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	include *[]string
+	fieldsUsers *[]string
+	fieldsProjects *[]string
 }
 
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.orderMode = &orderMode
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Entities(entities string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.entities = &entities
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Page(page int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) OnlySiteLevel(onlySiteLevel bool) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.onlySiteLevel = &onlySiteLevel
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) IncludeSiteLevel(includeSiteLevel bool) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.includeSiteLevel = &includeSiteLevel
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Include(include []string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) Execute() (ProjectResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Execute() (CustomfieldResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdCustomfieldsIdJson Project custom field value.
- * Return a specific custom field value from a project.
+ * GETProjectsApiV3CustomfieldscustomFieldIdJson Get a custom field by id.
+ * This returns all details about an individual custom field.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest
+ * @param customFieldId
+ * @return ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsIdJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) GETProjectsApiV3CustomfieldscustomFieldIdJson(ctx _context.Context, customFieldId int32) ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	return ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		customFieldId: customFieldId,
 	}
 }
 
 /*
  * Execute executes the request
- * @return ProjectResponse
+ * @return CustomfieldResponse
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonExecute(r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) (ProjectResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) GETProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r ApiGETProjectsApiV3CustomfieldscustomFieldIdJsonRequest) (CustomfieldResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ProjectResponse
+		localVarReturnValue  CustomfieldResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3ProjectsProjectIdCustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3CustomfieldscustomFieldIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
+	if r.orderMode != nil {
+		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.entities != nil {
+		localVarQueryParams.Add("entities", parameterToString(*r.entities, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.onlySiteLevel != nil {
+		localVarQueryParams.Add("onlySiteLevel", parameterToString(*r.onlySiteLevel, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.includeSiteLevel != nil {
+		localVarQueryParams.Add("includeSiteLevel", parameterToString(*r.includeSiteLevel, ""))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1031,9 +944,10 @@ func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsId
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
 	updatedAfter *time.Time
 	searchTerm *string
 	reportType *string
@@ -1078,189 +992,191 @@ type ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest struct {
 	fieldsCompanies *[]string
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ReportType(reportType string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ReportType(reportType string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.reportType = &reportType
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectType(projectType string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectType(projectType string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectType = &projectType
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) MinLastActivityDate(minLastActivityDate string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) MinLastActivityDate(minLastActivityDate string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.minLastActivityDate = &minLastActivityDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) MaxLastActivityDate(maxLastActivityDate string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) MaxLastActivityDate(maxLastActivityDate string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.maxLastActivityDate = &maxLastActivityDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.onlyProjectsWithExplicitMembership = &onlyProjectsWithExplicitMembership
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.onlyArchivedProjects = &onlyArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) IncludeProjectUserInfo(includeProjectUserInfo bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) IncludeProjectUserInfo(includeProjectUserInfo bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.includeProjectUserInfo = &includeProjectUserInfo
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.includeCustomFields = &includeCustomFields
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.includeCompletedStatus = &includeCompletedStatus
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) HideObservedProjects(hideObservedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) HideObservedProjects(hideObservedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.hideObservedProjects = &hideObservedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsTags = &fieldsTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsProjectcategories(fieldsProjectcategories []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsProjectcategories(fieldsProjectcategories []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsProjectcategories = &fieldsProjectcategories
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsProjectUpdates(fieldsProjectUpdates []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsProjectUpdates(fieldsProjectUpdates []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsProjectUpdates = &fieldsProjectUpdates
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsProjectBudgets(fieldsProjectBudgets []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsProjectBudgets(fieldsProjectBudgets []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsProjectBudgets = &fieldsProjectBudgets
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsPortfolioColumns(fieldsPortfolioColumns []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsPortfolioColumns(fieldsPortfolioColumns []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsPortfolioColumns = &fieldsPortfolioColumns
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsPortfolioCards(fieldsPortfolioCards []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsPortfolioCards(fieldsPortfolioCards []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsPortfolioCards = &fieldsPortfolioCards
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsPortfolioBoards(fieldsPortfolioBoards []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsPortfolioBoards(fieldsPortfolioBoards []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsPortfolioBoards = &fieldsPortfolioBoards
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsCustomfields(fieldsCustomfields []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsCustomfields(fieldsCustomfields []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsCustomfields = &fieldsCustomfields
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsCustomfieldProjects(fieldsCustomfieldProjects []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsCustomfieldProjects(fieldsCustomfieldProjects []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsCustomfieldProjects = &fieldsCustomfieldProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) Execute() (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdCustomfieldsJsonExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) Execute() (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdCustomfieldsJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdCustomfieldsJson Project custom field values.
+ * GETProjectsApiV3ProjectsprojectIdCustomfieldsJson Project custom field values.
  * Return all custom field values from a specific project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest
+ * @param projectId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest{
+func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsprojectIdCustomfieldsJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -1268,7 +1184,7 @@ func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsJs
  * Execute executes the request
  * @return ProjectCustomFieldProjectsResponse
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsJsonExecute(r ApiGETProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsprojectIdCustomfieldsJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1278,12 +1194,13 @@ func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsJs
 		localVarReturnValue  ProjectCustomFieldProjectsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3ProjectsProjectIdCustomfieldsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3ProjectsprojectIdCustomfieldsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1478,49 +1395,57 @@ func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsProjectIdCustomfieldsJs
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
+	customFieldId int32
 }
 
 
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3TasksTaskIdCustomfieldsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) Execute() (ProjectResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3TasksTaskIdCustomfieldsIdJson Task custom field value.
- * Return a specific custom field value from a task.
+ * GETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson Project custom field value.
+ * Return a specific custom field value from a project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest
+ * @param projectId
+ * @param customFieldId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsIdJson(ctx _context.Context) ApiGETProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest {
-	return ApiGETProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson(ctx _context.Context, projectId int32, customFieldId int32) ApiGETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
+		customFieldId: customFieldId,
 	}
 }
 
 /*
  * Execute executes the request
- * @return TaskResponse
+ * @return ProjectResponse
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsIdJsonExecute(r ApiGETProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) GETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) (ProjectResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  TaskResponse
+		localVarReturnValue  ProjectResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3TasksTaskIdCustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1590,9 +1515,10 @@ func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsIdJsonEx
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest struct {
+type ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId2 int32
 	taskId *int32
 	pageSize *int32
 	page *int32
@@ -1603,53 +1529,55 @@ type ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest struct {
 	customFieldIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) TaskId(taskId int32) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) TaskId(taskId int32) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) Page(page int32) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) Page(page int32) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) Include(include []string) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) Include(include []string) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.fieldsTasks = &fieldsTasks
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) FieldsCustomfields(fieldsCustomfields []string) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) FieldsCustomfields(fieldsCustomfields []string) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.fieldsCustomfields = &fieldsCustomfields
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) FieldsCustomfieldTasks(fieldsCustomfieldTasks []string) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) FieldsCustomfieldTasks(fieldsCustomfieldTasks []string) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.fieldsCustomfieldTasks = &fieldsCustomfieldTasks
 	return r
 }
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) CustomFieldIds(customFieldIds []int32) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) CustomFieldIds(customFieldIds []int32) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.customFieldIds = &customFieldIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) Execute() (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3TasksTaskIdCustomfieldsJsonExecute(r)
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) Execute() (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TaskstaskIdCustomfieldsJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3TasksTaskIdCustomfieldsJson Task custom field values.
+ * GETProjectsApiV3TaskstaskIdCustomfieldsJson Task custom field values.
  * Return all custom field values from a specific task.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest
+ * @param taskId2
+ * @return ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsJson(ctx _context.Context) ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
-	return ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest{
+func (a *CustomFieldsApiService) GETProjectsApiV3TaskstaskIdCustomfieldsJson(ctx _context.Context, taskId2 int32) ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
+	return ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId2: taskId2,
 	}
 }
 
@@ -1657,7 +1585,7 @@ func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsJson(ctx
  * Execute executes the request
  * @return TaskCustomFieldTasksResponse
  */
-func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsJsonExecute(r ApiGETProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) GETProjectsApiV3TaskstaskIdCustomfieldsJsonExecute(r ApiGETProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1667,12 +1595,13 @@ func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsJsonExec
 		localVarReturnValue  TaskCustomFieldTasksResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3TasksTaskIdCustomfieldsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3TaskstaskIdCustomfieldsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1765,31 +1694,154 @@ func (a *CustomFieldsApiService) GETProjectsApiV3TasksTaskIdCustomfieldsJsonExec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest struct {
+type ApiGETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId int32
+	customFieldId int32
+}
+
+
+func (r ApiGETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson Task custom field value.
+ * Return a specific custom field value from a task.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param taskId
+ * @param customFieldId
+ * @return ApiGETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest
+ */
+func (a *CustomFieldsApiService) GETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson(ctx _context.Context, taskId int32, customFieldId int32) ApiGETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest {
+	return ApiGETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		taskId: taskId,
+		customFieldId: customFieldId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TaskResponse
+ */
+func (a *CustomFieldsApiService) GETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonExecute(r ApiGETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TaskResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.GETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *CustomFieldsApiService
+	customFieldId int32
 	customfieldRequest *CustomfieldRequest
 }
 
-func (r ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest) CustomfieldRequest(customfieldRequest CustomfieldRequest) ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest {
+func (r ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest) CustomfieldRequest(customfieldRequest CustomfieldRequest) ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
 	r.customfieldRequest = &customfieldRequest
 	return r
 }
 
-func (r ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest) Execute() (CustomfieldResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3CustomfieldsIdJsonExecute(r)
+func (r ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Execute() (CustomfieldResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3CustomfieldsIdJson Update an existing custom field.
+ * PATCHProjectsApiV3CustomfieldscustomFieldIdJson Update an existing custom field.
  * Updates an existing custom field.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest
+ * @param customFieldId
+ * @return ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest {
-	return ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldscustomFieldIdJson(ctx _context.Context, customFieldId int32) ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	return ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		customFieldId: customFieldId,
 	}
 }
 
@@ -1797,7 +1849,7 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldsIdJson(ctx _conte
  * Execute executes the request
  * @return CustomfieldResponse
  */
-func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldsIdJsonExecute(r ApiPATCHProjectsApiV3CustomfieldsIdJsonRequest) (CustomfieldResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r ApiPATCHProjectsApiV3CustomfieldscustomFieldIdJsonRequest) (CustomfieldResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1807,12 +1859,13 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldsIdJsonExecute(r A
 		localVarReturnValue  CustomfieldResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PATCHProjectsApiV3CustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PATCHProjectsApiV3CustomfieldscustomFieldIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1906,31 +1959,37 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3CustomfieldsIdJsonExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest struct {
+type ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
+	customFieldId int32
 	projectRequest *ProjectRequest
 }
 
-func (r ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) ProjectRequest(projectRequest ProjectRequest) ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest {
+func (r ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) ProjectRequest(projectRequest ProjectRequest) ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest {
 	r.projectRequest = &projectRequest
 	return r
 }
 
-func (r ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) Execute() (ProjectResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonExecute(r)
+func (r ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) Execute() (ProjectResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJson Update an existing project custom field value.
+ * PATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson Update an existing project custom field value.
  * Edit a project custom field value.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest
+ * @param projectId
+ * @param customFieldId
+ * @return ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest {
-	return ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson(ctx _context.Context, projectId int32, customFieldId int32) ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest {
+	return ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
+		customFieldId: customFieldId,
 	}
 }
 
@@ -1938,7 +1997,7 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsProjectIdCustomfields
  * Execute executes the request
  * @return ProjectResponse
  */
-func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonExecute(r ApiPATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJsonRequest) (ProjectResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonExecute(r ApiPATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJsonRequest) (ProjectResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1948,12 +2007,14 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsProjectIdCustomfields
 		localVarReturnValue  ProjectResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2047,31 +2108,37 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3ProjectsProjectIdCustomfields
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest struct {
+type ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId int32
+	customFieldId int32
 	taskRequest *TaskRequest
 }
 
-func (r ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest {
+func (r ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest {
 	r.taskRequest = &taskRequest
 	return r
 }
 
-func (r ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonExecute(r)
+func (r ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJson Update an existing task custom field value.
+ * PATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson Update an existing task custom field value.
  * Edit a task custom field value.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest
+ * @param taskId
+ * @param customFieldId
+ * @return ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest {
-	return ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) PATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson(ctx _context.Context, taskId int32, customFieldId int32) ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest {
+	return ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
+		customFieldId: customFieldId,
 	}
 }
 
@@ -2079,7 +2146,7 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJson
  * Execute executes the request
  * @return TaskResponse
  */
-func (a *CustomFieldsApiService) PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonExecute(r ApiPATCHProjectsApiV3TasksTaskIdCustomfieldsIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) PATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonExecute(r ApiPATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -2089,12 +2156,14 @@ func (a *CustomFieldsApiService) PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJson
 		localVarReturnValue  TaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2441,38 +2510,41 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3CustomfieldsJsonExecute(r ApiP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest struct {
+type ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
 	projectBulkDeleteRequest *ProjectBulkDeleteRequest
 }
 
-func (r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest) ProjectBulkDeleteRequest(projectBulkDeleteRequest ProjectBulkDeleteRequest) ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest {
+func (r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest) ProjectBulkDeleteRequest(projectBulkDeleteRequest ProjectBulkDeleteRequest) ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest {
 	r.projectBulkDeleteRequest = &projectBulkDeleteRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonExecute(r)
+func (r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJson Delete many project custom fields values at once.
+ * POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJson Delete many project custom fields values at once.
  * Remove many entries of project custom field values at once.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest
+ * @param projectId
+ * @return ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJson(ctx _context.Context) ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest {
-	return ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest{
+func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJson(ctx _context.Context, projectId int32) ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest {
+	return ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonExecute(r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJsonRequest) (*_nethttp.Response, error) {
+func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonExecute(r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -2481,12 +2553,13 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsB
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields/bulk/delete.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields/bulk/delete.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2562,31 +2635,34 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsB
 	return localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest struct {
+type ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
 	projectBulkUpdateRequest *ProjectBulkUpdateRequest
 }
 
-func (r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest) ProjectBulkUpdateRequest(projectBulkUpdateRequest ProjectBulkUpdateRequest) ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest {
+func (r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest) ProjectBulkUpdateRequest(projectBulkUpdateRequest ProjectBulkUpdateRequest) ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest {
 	r.projectBulkUpdateRequest = &projectBulkUpdateRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest) Execute() (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonExecute(r)
+func (r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest) Execute() (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJson Update many project custom field values at once.
+ * POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJson Update many project custom field values at once.
  * Edit many entries of project custom field values at once.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest
+ * @param projectId
+ * @return ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJson(ctx _context.Context) ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest {
-	return ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest{
+func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJson(ctx _context.Context, projectId int32) ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest {
+	return ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -2594,7 +2670,7 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsB
  * Execute executes the request
  * @return ProjectCustomFieldProjectsResponse
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonExecute(r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJsonRequest) (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonExecute(r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJsonRequest) (ProjectCustomFieldProjectsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -2604,12 +2680,13 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsB
 		localVarReturnValue  ProjectCustomFieldProjectsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields/bulk/update.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields/bulk/update.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2703,31 +2780,34 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsB
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest struct {
+type ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	projectId int32
 	projectRequest *ProjectRequest
 }
 
-func (r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) ProjectRequest(projectRequest ProjectRequest) ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
+func (r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) ProjectRequest(projectRequest ProjectRequest) ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
 	r.projectRequest = &projectRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) Execute() (ProjectResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonExecute(r)
+func (r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) Execute() (ProjectResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3ProjectsProjectIdCustomfieldsJson Add project custom field value.
+ * POSTProjectsApiV3ProjectsprojectIdCustomfieldsJson Add project custom field value.
  * Add a project custom field value.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest
+ * @param projectId
+ * @return ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsJson(ctx _context.Context) ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest {
-	return ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest{
+func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsprojectIdCustomfieldsJson(ctx _context.Context, projectId int32) ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest {
+	return ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -2735,7 +2815,7 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsJ
  * Execute executes the request
  * @return ProjectResponse
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonExecute(r ApiPOSTProjectsApiV3ProjectsProjectIdCustomfieldsJsonRequest) (ProjectResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonExecute(r ApiPOSTProjectsApiV3ProjectsprojectIdCustomfieldsJsonRequest) (ProjectResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -2745,12 +2825,13 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsJ
 		localVarReturnValue  ProjectResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3ProjectsProjectIdCustomfieldsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3ProjectsprojectIdCustomfieldsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/customfields.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/customfields.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2834,38 +2915,41 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3ProjectsProjectIdCustomfieldsJ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest struct {
+type ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId int32
 	taskBulkDeleteRequest *TaskBulkDeleteRequest
 }
 
-func (r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest) TaskBulkDeleteRequest(taskBulkDeleteRequest TaskBulkDeleteRequest) ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest {
+func (r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest) TaskBulkDeleteRequest(taskBulkDeleteRequest TaskBulkDeleteRequest) ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest {
 	r.taskBulkDeleteRequest = &taskBulkDeleteRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonExecute(r)
+func (r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJson Delete many task custom fields values at once.
+ * POSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJson Delete many task custom fields values at once.
  * Remove many entries of task custom field values at once.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest
+ * @param taskId
+ * @return ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJson(ctx _context.Context) ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest {
-	return ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest{
+func (a *CustomFieldsApiService) POSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJson(ctx _context.Context, taskId int32) ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest {
+	return ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonExecute(r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJsonRequest) (*_nethttp.Response, error) {
+func (a *CustomFieldsApiService) POSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonExecute(r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -2874,12 +2958,13 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDel
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields/bulk/delete.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields/bulk/delete.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2955,31 +3040,34 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDel
 	return localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest struct {
+type ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId int32
 	taskBulkUpdateRequest *TaskBulkUpdateRequest
 }
 
-func (r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest) TaskBulkUpdateRequest(taskBulkUpdateRequest TaskBulkUpdateRequest) ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest {
+func (r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest) TaskBulkUpdateRequest(taskBulkUpdateRequest TaskBulkUpdateRequest) ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest {
 	r.taskBulkUpdateRequest = &taskBulkUpdateRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest) Execute() (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonExecute(r)
+func (r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest) Execute() (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJson Update many task custom field values at once.
+ * POSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJson Update many task custom field values at once.
  * Edit many entries of task custom field values at once.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest
+ * @param taskId
+ * @return ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJson(ctx _context.Context) ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest {
-	return ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest{
+func (a *CustomFieldsApiService) POSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJson(ctx _context.Context, taskId int32) ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest {
+	return ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
@@ -2987,7 +3075,7 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpd
  * Execute executes the request
  * @return TaskCustomFieldTasksResponse
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonExecute(r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJsonRequest) (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) POSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonExecute(r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJsonRequest) (TaskCustomFieldTasksResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -2997,12 +3085,13 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpd
 		localVarReturnValue  TaskCustomFieldTasksResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields/bulk/update.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields/bulk/update.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3096,31 +3185,34 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest struct {
+type ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	taskId int32
 	taskRequest *TaskRequest
 }
 
-func (r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
+func (r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
 	r.taskRequest = &taskRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3TasksTaskIdCustomfieldsJsonExecute(r)
+func (r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3TaskstaskIdCustomfieldsJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3TasksTaskIdCustomfieldsJson Add task custom field value.
+ * POSTProjectsApiV3TaskstaskIdCustomfieldsJson Add task custom field value.
  * Add a task custom field value.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest
+ * @param taskId
+ * @return ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsJson(ctx _context.Context) ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest {
-	return ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest{
+func (a *CustomFieldsApiService) POSTProjectsApiV3TaskstaskIdCustomfieldsJson(ctx _context.Context, taskId int32) ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest {
+	return ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
@@ -3128,7 +3220,7 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsJson(ct
  * Execute executes the request
  * @return TaskResponse
  */
-func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsJsonExecute(r ApiPOSTProjectsApiV3TasksTaskIdCustomfieldsJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) POSTProjectsApiV3TaskstaskIdCustomfieldsJsonExecute(r ApiPOSTProjectsApiV3TaskstaskIdCustomfieldsJsonRequest) (TaskResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -3138,12 +3230,13 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsJsonExe
 		localVarReturnValue  TaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3TasksTaskIdCustomfieldsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.POSTProjectsApiV3TaskstaskIdCustomfieldsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:taskId/customfields.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}/customfields.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3227,31 +3320,34 @@ func (a *CustomFieldsApiService) POSTProjectsApiV3TasksTaskIdCustomfieldsJsonExe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3CustomfieldsIdJsonRequest struct {
+type ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CustomFieldsApiService
+	customFieldId int32
 	customfieldRequest *CustomfieldRequest
 }
 
-func (r ApiPUTProjectsApiV3CustomfieldsIdJsonRequest) CustomfieldRequest(customfieldRequest CustomfieldRequest) ApiPUTProjectsApiV3CustomfieldsIdJsonRequest {
+func (r ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest) CustomfieldRequest(customfieldRequest CustomfieldRequest) ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
 	r.customfieldRequest = &customfieldRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3CustomfieldsIdJsonRequest) Execute() (CustomfieldResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3CustomfieldsIdJsonExecute(r)
+func (r ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest) Execute() (CustomfieldResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3CustomfieldsIdJson Update an existing custom field.
+ * PUTProjectsApiV3CustomfieldscustomFieldIdJson Update an existing custom field.
  * Updates an existing custom field.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3CustomfieldsIdJsonRequest
+ * @param customFieldId
+ * @return ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest
  */
-func (a *CustomFieldsApiService) PUTProjectsApiV3CustomfieldsIdJson(ctx _context.Context) ApiPUTProjectsApiV3CustomfieldsIdJsonRequest {
-	return ApiPUTProjectsApiV3CustomfieldsIdJsonRequest{
+func (a *CustomFieldsApiService) PUTProjectsApiV3CustomfieldscustomFieldIdJson(ctx _context.Context, customFieldId int32) ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest {
+	return ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		customFieldId: customFieldId,
 	}
 }
 
@@ -3259,7 +3355,7 @@ func (a *CustomFieldsApiService) PUTProjectsApiV3CustomfieldsIdJson(ctx _context
  * Execute executes the request
  * @return CustomfieldResponse
  */
-func (a *CustomFieldsApiService) PUTProjectsApiV3CustomfieldsIdJsonExecute(r ApiPUTProjectsApiV3CustomfieldsIdJsonRequest) (CustomfieldResponse, *_nethttp.Response, error) {
+func (a *CustomFieldsApiService) PUTProjectsApiV3CustomfieldscustomFieldIdJsonExecute(r ApiPUTProjectsApiV3CustomfieldscustomFieldIdJsonRequest) (CustomfieldResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3269,12 +3365,13 @@ func (a *CustomFieldsApiService) PUTProjectsApiV3CustomfieldsIdJsonExecute(r Api
 		localVarReturnValue  CustomfieldResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PUTProjectsApiV3CustomfieldsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomFieldsApiService.PUTProjectsApiV3CustomfieldscustomFieldIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/customfields/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/customfields/{customFieldId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"customFieldId"+"}", _neturl.PathEscape(parameterToString(r.customFieldId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

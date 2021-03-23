@@ -14,10 +14,12 @@ import (
 	"encoding/json"
 )
 
-// TaskRequestTaskOptions struct for TaskRequestTaskOptions
-type TaskRequestTaskOptions struct {
+// TaskOptions Options contains any options which can be set for the task request
+type TaskOptions struct {
 	EveryoneMustDo *bool `json:"everyoneMustDo,omitempty"`
+	FireWebhook *bool `json:"fireWebhook,omitempty"`
 	IsTemplate *bool `json:"isTemplate,omitempty"`
+	LogActivity *bool `json:"logActivity,omitempty"`
 	Notify *bool `json:"notify,omitempty"`
 	ParseInlineTags *bool `json:"parseInlineTags,omitempty"`
 	PositionAfterTaskId *int32 `json:"positionAfterTaskId,omitempty"`
@@ -26,25 +28,25 @@ type TaskRequestTaskOptions struct {
 	UseNotifyViaTWIM *bool `json:"useNotifyViaTWIM,omitempty"`
 }
 
-// NewTaskRequestTaskOptions instantiates a new TaskRequestTaskOptions object
+// NewTaskOptions instantiates a new TaskOptions object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTaskRequestTaskOptions() *TaskRequestTaskOptions {
-	this := TaskRequestTaskOptions{}
+func NewTaskOptions() *TaskOptions {
+	this := TaskOptions{}
 	return &this
 }
 
-// NewTaskRequestTaskOptionsWithDefaults instantiates a new TaskRequestTaskOptions object
+// NewTaskOptionsWithDefaults instantiates a new TaskOptions object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTaskRequestTaskOptionsWithDefaults() *TaskRequestTaskOptions {
-	this := TaskRequestTaskOptions{}
+func NewTaskOptionsWithDefaults() *TaskOptions {
+	this := TaskOptions{}
 	return &this
 }
 
 // GetEveryoneMustDo returns the EveryoneMustDo field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetEveryoneMustDo() bool {
+func (o *TaskOptions) GetEveryoneMustDo() bool {
 	if o == nil || o.EveryoneMustDo == nil {
 		var ret bool
 		return ret
@@ -54,7 +56,7 @@ func (o *TaskRequestTaskOptions) GetEveryoneMustDo() bool {
 
 // GetEveryoneMustDoOk returns a tuple with the EveryoneMustDo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetEveryoneMustDoOk() (*bool, bool) {
+func (o *TaskOptions) GetEveryoneMustDoOk() (*bool, bool) {
 	if o == nil || o.EveryoneMustDo == nil {
 		return nil, false
 	}
@@ -62,7 +64,7 @@ func (o *TaskRequestTaskOptions) GetEveryoneMustDoOk() (*bool, bool) {
 }
 
 // HasEveryoneMustDo returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasEveryoneMustDo() bool {
+func (o *TaskOptions) HasEveryoneMustDo() bool {
 	if o != nil && o.EveryoneMustDo != nil {
 		return true
 	}
@@ -71,12 +73,44 @@ func (o *TaskRequestTaskOptions) HasEveryoneMustDo() bool {
 }
 
 // SetEveryoneMustDo gets a reference to the given bool and assigns it to the EveryoneMustDo field.
-func (o *TaskRequestTaskOptions) SetEveryoneMustDo(v bool) {
+func (o *TaskOptions) SetEveryoneMustDo(v bool) {
 	o.EveryoneMustDo = &v
 }
 
+// GetFireWebhook returns the FireWebhook field value if set, zero value otherwise.
+func (o *TaskOptions) GetFireWebhook() bool {
+	if o == nil || o.FireWebhook == nil {
+		var ret bool
+		return ret
+	}
+	return *o.FireWebhook
+}
+
+// GetFireWebhookOk returns a tuple with the FireWebhook field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOptions) GetFireWebhookOk() (*bool, bool) {
+	if o == nil || o.FireWebhook == nil {
+		return nil, false
+	}
+	return o.FireWebhook, true
+}
+
+// HasFireWebhook returns a boolean if a field has been set.
+func (o *TaskOptions) HasFireWebhook() bool {
+	if o != nil && o.FireWebhook != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFireWebhook gets a reference to the given bool and assigns it to the FireWebhook field.
+func (o *TaskOptions) SetFireWebhook(v bool) {
+	o.FireWebhook = &v
+}
+
 // GetIsTemplate returns the IsTemplate field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetIsTemplate() bool {
+func (o *TaskOptions) GetIsTemplate() bool {
 	if o == nil || o.IsTemplate == nil {
 		var ret bool
 		return ret
@@ -86,7 +120,7 @@ func (o *TaskRequestTaskOptions) GetIsTemplate() bool {
 
 // GetIsTemplateOk returns a tuple with the IsTemplate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetIsTemplateOk() (*bool, bool) {
+func (o *TaskOptions) GetIsTemplateOk() (*bool, bool) {
 	if o == nil || o.IsTemplate == nil {
 		return nil, false
 	}
@@ -94,7 +128,7 @@ func (o *TaskRequestTaskOptions) GetIsTemplateOk() (*bool, bool) {
 }
 
 // HasIsTemplate returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasIsTemplate() bool {
+func (o *TaskOptions) HasIsTemplate() bool {
 	if o != nil && o.IsTemplate != nil {
 		return true
 	}
@@ -103,12 +137,44 @@ func (o *TaskRequestTaskOptions) HasIsTemplate() bool {
 }
 
 // SetIsTemplate gets a reference to the given bool and assigns it to the IsTemplate field.
-func (o *TaskRequestTaskOptions) SetIsTemplate(v bool) {
+func (o *TaskOptions) SetIsTemplate(v bool) {
 	o.IsTemplate = &v
 }
 
+// GetLogActivity returns the LogActivity field value if set, zero value otherwise.
+func (o *TaskOptions) GetLogActivity() bool {
+	if o == nil || o.LogActivity == nil {
+		var ret bool
+		return ret
+	}
+	return *o.LogActivity
+}
+
+// GetLogActivityOk returns a tuple with the LogActivity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TaskOptions) GetLogActivityOk() (*bool, bool) {
+	if o == nil || o.LogActivity == nil {
+		return nil, false
+	}
+	return o.LogActivity, true
+}
+
+// HasLogActivity returns a boolean if a field has been set.
+func (o *TaskOptions) HasLogActivity() bool {
+	if o != nil && o.LogActivity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetLogActivity gets a reference to the given bool and assigns it to the LogActivity field.
+func (o *TaskOptions) SetLogActivity(v bool) {
+	o.LogActivity = &v
+}
+
 // GetNotify returns the Notify field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetNotify() bool {
+func (o *TaskOptions) GetNotify() bool {
 	if o == nil || o.Notify == nil {
 		var ret bool
 		return ret
@@ -118,7 +184,7 @@ func (o *TaskRequestTaskOptions) GetNotify() bool {
 
 // GetNotifyOk returns a tuple with the Notify field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetNotifyOk() (*bool, bool) {
+func (o *TaskOptions) GetNotifyOk() (*bool, bool) {
 	if o == nil || o.Notify == nil {
 		return nil, false
 	}
@@ -126,7 +192,7 @@ func (o *TaskRequestTaskOptions) GetNotifyOk() (*bool, bool) {
 }
 
 // HasNotify returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasNotify() bool {
+func (o *TaskOptions) HasNotify() bool {
 	if o != nil && o.Notify != nil {
 		return true
 	}
@@ -135,12 +201,12 @@ func (o *TaskRequestTaskOptions) HasNotify() bool {
 }
 
 // SetNotify gets a reference to the given bool and assigns it to the Notify field.
-func (o *TaskRequestTaskOptions) SetNotify(v bool) {
+func (o *TaskOptions) SetNotify(v bool) {
 	o.Notify = &v
 }
 
 // GetParseInlineTags returns the ParseInlineTags field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetParseInlineTags() bool {
+func (o *TaskOptions) GetParseInlineTags() bool {
 	if o == nil || o.ParseInlineTags == nil {
 		var ret bool
 		return ret
@@ -150,7 +216,7 @@ func (o *TaskRequestTaskOptions) GetParseInlineTags() bool {
 
 // GetParseInlineTagsOk returns a tuple with the ParseInlineTags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetParseInlineTagsOk() (*bool, bool) {
+func (o *TaskOptions) GetParseInlineTagsOk() (*bool, bool) {
 	if o == nil || o.ParseInlineTags == nil {
 		return nil, false
 	}
@@ -158,7 +224,7 @@ func (o *TaskRequestTaskOptions) GetParseInlineTagsOk() (*bool, bool) {
 }
 
 // HasParseInlineTags returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasParseInlineTags() bool {
+func (o *TaskOptions) HasParseInlineTags() bool {
 	if o != nil && o.ParseInlineTags != nil {
 		return true
 	}
@@ -167,12 +233,12 @@ func (o *TaskRequestTaskOptions) HasParseInlineTags() bool {
 }
 
 // SetParseInlineTags gets a reference to the given bool and assigns it to the ParseInlineTags field.
-func (o *TaskRequestTaskOptions) SetParseInlineTags(v bool) {
+func (o *TaskOptions) SetParseInlineTags(v bool) {
 	o.ParseInlineTags = &v
 }
 
 // GetPositionAfterTaskId returns the PositionAfterTaskId field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetPositionAfterTaskId() int32 {
+func (o *TaskOptions) GetPositionAfterTaskId() int32 {
 	if o == nil || o.PositionAfterTaskId == nil {
 		var ret int32
 		return ret
@@ -182,7 +248,7 @@ func (o *TaskRequestTaskOptions) GetPositionAfterTaskId() int32 {
 
 // GetPositionAfterTaskIdOk returns a tuple with the PositionAfterTaskId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetPositionAfterTaskIdOk() (*int32, bool) {
+func (o *TaskOptions) GetPositionAfterTaskIdOk() (*int32, bool) {
 	if o == nil || o.PositionAfterTaskId == nil {
 		return nil, false
 	}
@@ -190,7 +256,7 @@ func (o *TaskRequestTaskOptions) GetPositionAfterTaskIdOk() (*int32, bool) {
 }
 
 // HasPositionAfterTaskId returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasPositionAfterTaskId() bool {
+func (o *TaskOptions) HasPositionAfterTaskId() bool {
 	if o != nil && o.PositionAfterTaskId != nil {
 		return true
 	}
@@ -199,12 +265,12 @@ func (o *TaskRequestTaskOptions) HasPositionAfterTaskId() bool {
 }
 
 // SetPositionAfterTaskId gets a reference to the given int32 and assigns it to the PositionAfterTaskId field.
-func (o *TaskRequestTaskOptions) SetPositionAfterTaskId(v int32) {
+func (o *TaskOptions) SetPositionAfterTaskId(v int32) {
 	o.PositionAfterTaskId = &v
 }
 
 // GetShiftProjectDates returns the ShiftProjectDates field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetShiftProjectDates() bool {
+func (o *TaskOptions) GetShiftProjectDates() bool {
 	if o == nil || o.ShiftProjectDates == nil {
 		var ret bool
 		return ret
@@ -214,7 +280,7 @@ func (o *TaskRequestTaskOptions) GetShiftProjectDates() bool {
 
 // GetShiftProjectDatesOk returns a tuple with the ShiftProjectDates field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetShiftProjectDatesOk() (*bool, bool) {
+func (o *TaskOptions) GetShiftProjectDatesOk() (*bool, bool) {
 	if o == nil || o.ShiftProjectDates == nil {
 		return nil, false
 	}
@@ -222,7 +288,7 @@ func (o *TaskRequestTaskOptions) GetShiftProjectDatesOk() (*bool, bool) {
 }
 
 // HasShiftProjectDates returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasShiftProjectDates() bool {
+func (o *TaskOptions) HasShiftProjectDates() bool {
 	if o != nil && o.ShiftProjectDates != nil {
 		return true
 	}
@@ -231,12 +297,12 @@ func (o *TaskRequestTaskOptions) HasShiftProjectDates() bool {
 }
 
 // SetShiftProjectDates gets a reference to the given bool and assigns it to the ShiftProjectDates field.
-func (o *TaskRequestTaskOptions) SetShiftProjectDates(v bool) {
+func (o *TaskOptions) SetShiftProjectDates(v bool) {
 	o.ShiftProjectDates = &v
 }
 
 // GetUseDefaults returns the UseDefaults field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetUseDefaults() bool {
+func (o *TaskOptions) GetUseDefaults() bool {
 	if o == nil || o.UseDefaults == nil {
 		var ret bool
 		return ret
@@ -246,7 +312,7 @@ func (o *TaskRequestTaskOptions) GetUseDefaults() bool {
 
 // GetUseDefaultsOk returns a tuple with the UseDefaults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetUseDefaultsOk() (*bool, bool) {
+func (o *TaskOptions) GetUseDefaultsOk() (*bool, bool) {
 	if o == nil || o.UseDefaults == nil {
 		return nil, false
 	}
@@ -254,7 +320,7 @@ func (o *TaskRequestTaskOptions) GetUseDefaultsOk() (*bool, bool) {
 }
 
 // HasUseDefaults returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasUseDefaults() bool {
+func (o *TaskOptions) HasUseDefaults() bool {
 	if o != nil && o.UseDefaults != nil {
 		return true
 	}
@@ -263,12 +329,12 @@ func (o *TaskRequestTaskOptions) HasUseDefaults() bool {
 }
 
 // SetUseDefaults gets a reference to the given bool and assigns it to the UseDefaults field.
-func (o *TaskRequestTaskOptions) SetUseDefaults(v bool) {
+func (o *TaskOptions) SetUseDefaults(v bool) {
 	o.UseDefaults = &v
 }
 
 // GetUseNotifyViaTWIM returns the UseNotifyViaTWIM field value if set, zero value otherwise.
-func (o *TaskRequestTaskOptions) GetUseNotifyViaTWIM() bool {
+func (o *TaskOptions) GetUseNotifyViaTWIM() bool {
 	if o == nil || o.UseNotifyViaTWIM == nil {
 		var ret bool
 		return ret
@@ -278,7 +344,7 @@ func (o *TaskRequestTaskOptions) GetUseNotifyViaTWIM() bool {
 
 // GetUseNotifyViaTWIMOk returns a tuple with the UseNotifyViaTWIM field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskRequestTaskOptions) GetUseNotifyViaTWIMOk() (*bool, bool) {
+func (o *TaskOptions) GetUseNotifyViaTWIMOk() (*bool, bool) {
 	if o == nil || o.UseNotifyViaTWIM == nil {
 		return nil, false
 	}
@@ -286,7 +352,7 @@ func (o *TaskRequestTaskOptions) GetUseNotifyViaTWIMOk() (*bool, bool) {
 }
 
 // HasUseNotifyViaTWIM returns a boolean if a field has been set.
-func (o *TaskRequestTaskOptions) HasUseNotifyViaTWIM() bool {
+func (o *TaskOptions) HasUseNotifyViaTWIM() bool {
 	if o != nil && o.UseNotifyViaTWIM != nil {
 		return true
 	}
@@ -295,17 +361,23 @@ func (o *TaskRequestTaskOptions) HasUseNotifyViaTWIM() bool {
 }
 
 // SetUseNotifyViaTWIM gets a reference to the given bool and assigns it to the UseNotifyViaTWIM field.
-func (o *TaskRequestTaskOptions) SetUseNotifyViaTWIM(v bool) {
+func (o *TaskOptions) SetUseNotifyViaTWIM(v bool) {
 	o.UseNotifyViaTWIM = &v
 }
 
-func (o TaskRequestTaskOptions) MarshalJSON() ([]byte, error) {
+func (o TaskOptions) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.EveryoneMustDo != nil {
 		toSerialize["everyoneMustDo"] = o.EveryoneMustDo
 	}
+	if o.FireWebhook != nil {
+		toSerialize["fireWebhook"] = o.FireWebhook
+	}
 	if o.IsTemplate != nil {
 		toSerialize["isTemplate"] = o.IsTemplate
+	}
+	if o.LogActivity != nil {
+		toSerialize["logActivity"] = o.LogActivity
 	}
 	if o.Notify != nil {
 		toSerialize["notify"] = o.Notify
@@ -328,38 +400,38 @@ func (o TaskRequestTaskOptions) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTaskRequestTaskOptions struct {
-	value *TaskRequestTaskOptions
+type NullableTaskOptions struct {
+	value *TaskOptions
 	isSet bool
 }
 
-func (v NullableTaskRequestTaskOptions) Get() *TaskRequestTaskOptions {
+func (v NullableTaskOptions) Get() *TaskOptions {
 	return v.value
 }
 
-func (v *NullableTaskRequestTaskOptions) Set(val *TaskRequestTaskOptions) {
+func (v *NullableTaskOptions) Set(val *TaskOptions) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTaskRequestTaskOptions) IsSet() bool {
+func (v NullableTaskOptions) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTaskRequestTaskOptions) Unset() {
+func (v *NullableTaskOptions) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTaskRequestTaskOptions(val *TaskRequestTaskOptions) *NullableTaskRequestTaskOptions {
-	return &NullableTaskRequestTaskOptions{value: val, isSet: true}
+func NewNullableTaskOptions(val *TaskOptions) *NullableTaskOptions {
+	return &NullableTaskOptions{value: val, isSet: true}
 }
 
-func (v NullableTaskRequestTaskOptions) MarshalJSON() ([]byte, error) {
+func (v NullableTaskOptions) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTaskRequestTaskOptions) UnmarshalJSON(src []byte) error {
+func (v *NullableTaskOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,39 +27,42 @@ var (
 // MessagesApiService MessagesApi service
 type MessagesApiService service
 
-type ApiPATCHProjectsApiV3MessagesIdJsonRequest struct {
+type ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *MessagesApiService
+	messageId int32
 	messageRequest *MessageRequest
 }
 
-func (r ApiPATCHProjectsApiV3MessagesIdJsonRequest) MessageRequest(messageRequest MessageRequest) ApiPATCHProjectsApiV3MessagesIdJsonRequest {
+func (r ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest) MessageRequest(messageRequest MessageRequest) ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest {
 	r.messageRequest = &messageRequest
 	return r
 }
 
-func (r ApiPATCHProjectsApiV3MessagesIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3MessagesIdJsonExecute(r)
+func (r ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3MessagesmessageIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3MessagesIdJson Edit a message.
+ * PATCHProjectsApiV3MessagesmessageIdJson Edit a message.
  * Update specific fields on a message. If the property `read` is sent with the
 value `true` all posts from this message will be marked as read.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3MessagesIdJsonRequest
+ * @param messageId
+ * @return ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest
  */
-func (a *MessagesApiService) PATCHProjectsApiV3MessagesIdJson(ctx _context.Context) ApiPATCHProjectsApiV3MessagesIdJsonRequest {
-	return ApiPATCHProjectsApiV3MessagesIdJsonRequest{
+func (a *MessagesApiService) PATCHProjectsApiV3MessagesmessageIdJson(ctx _context.Context, messageId int32) ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest {
+	return ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		messageId: messageId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *MessagesApiService) PATCHProjectsApiV3MessagesIdJsonExecute(r ApiPATCHProjectsApiV3MessagesIdJsonRequest) (*_nethttp.Response, error) {
+func (a *MessagesApiService) PATCHProjectsApiV3MessagesmessageIdJsonExecute(r ApiPATCHProjectsApiV3MessagesmessageIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -67,12 +71,13 @@ func (a *MessagesApiService) PATCHProjectsApiV3MessagesIdJsonExecute(r ApiPATCHP
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessagesApiService.PATCHProjectsApiV3MessagesIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessagesApiService.PATCHProjectsApiV3MessagesmessageIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/messages/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/messages/{messageId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"messageId"+"}", _neturl.PathEscape(parameterToString(r.messageId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

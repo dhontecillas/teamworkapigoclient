@@ -4,21 +4,21 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DELETEProjectsApiV3AllocationsIdJson**](AllocationsApi.md#DELETEProjectsApiV3AllocationsIdJson) | **Delete** /projects/api/v3/allocations/:id.json | Delete an existing allocation.
-[**GETProjectsApiV3AllocationsIdJson**](AllocationsApi.md#GETProjectsApiV3AllocationsIdJson) | **Get** /projects/api/v3/allocations/:id.json | Get a specific allocation.
+[**DELETEProjectsApiV3AllocationsallocationIdJson**](AllocationsApi.md#DELETEProjectsApiV3AllocationsallocationIdJson) | **Delete** /projects/api/v3/allocations/{allocationId}.json | Delete an existing allocation.
 [**GETProjectsApiV3AllocationsJson**](AllocationsApi.md#GETProjectsApiV3AllocationsJson) | **Get** /projects/api/v3/allocations.json | Get all allocations.
-[**PATCHProjectsApiV3AllocationsIdJson**](AllocationsApi.md#PATCHProjectsApiV3AllocationsIdJson) | **Patch** /projects/api/v3/allocations/:id.json | Update an existing allocation.
+[**GETProjectsApiV3AllocationsallocationIdJson**](AllocationsApi.md#GETProjectsApiV3AllocationsallocationIdJson) | **Get** /projects/api/v3/allocations/{allocationId}.json | Get a specific allocation.
+[**PATCHProjectsApiV3AllocationsallocationIdJson**](AllocationsApi.md#PATCHProjectsApiV3AllocationsallocationIdJson) | **Patch** /projects/api/v3/allocations/{allocationId}.json | Update an existing allocation.
 [**POSTProjectsApiV3AllocationsBulkDeleteJson**](AllocationsApi.md#POSTProjectsApiV3AllocationsBulkDeleteJson) | **Post** /projects/api/v3/allocations/bulk/delete.json | Delete many allocations at once.
 [**POSTProjectsApiV3AllocationsJson**](AllocationsApi.md#POSTProjectsApiV3AllocationsJson) | **Post** /projects/api/v3/allocations.json | Create a new allocation.
-[**PUTProjectsApiV3AllocationsIdJson**](AllocationsApi.md#PUTProjectsApiV3AllocationsIdJson) | **Put** /projects/api/v3/allocations/:id.json | Update an existing allocation.
-[**PUTProjectsApiV3AllocationsIdRestoreJson**](AllocationsApi.md#PUTProjectsApiV3AllocationsIdRestoreJson) | **Put** /projects/api/v3/allocations/:id/restore.json | Restore a soft deleted allocation.
-[**PUTProjectsApiV3AllocationsIdSplitJson**](AllocationsApi.md#PUTProjectsApiV3AllocationsIdSplitJson) | **Put** /projects/api/v3/allocations/:id/split.json | Split an allocation in two
+[**PUTProjectsApiV3AllocationsallocationIdJson**](AllocationsApi.md#PUTProjectsApiV3AllocationsallocationIdJson) | **Put** /projects/api/v3/allocations/{allocationId}.json | Update an existing allocation.
+[**PUTProjectsApiV3AllocationsallocationIdRestoreJson**](AllocationsApi.md#PUTProjectsApiV3AllocationsallocationIdRestoreJson) | **Put** /projects/api/v3/allocations/{allocationId}/restore.json | Restore a soft deleted allocation.
+[**PUTProjectsApiV3AllocationsallocationIdSplitJson**](AllocationsApi.md#PUTProjectsApiV3AllocationsallocationIdSplitJson) | **Put** /projects/api/v3/allocations/{allocationId}/split.json | Split an allocation in two
 
 
 
-## DELETEProjectsApiV3AllocationsIdJson
+## DELETEProjectsApiV3AllocationsallocationIdJson
 
-> DELETEProjectsApiV3AllocationsIdJson(ctx).AllocationDeleteRequest(allocationDeleteRequest).Execute()
+> DELETEProjectsApiV3AllocationsallocationIdJson(ctx, allocationId).AllocationDeleteRequest(allocationDeleteRequest).Execute()
 
 Delete an existing allocation.
 
@@ -37,13 +37,14 @@ import (
 )
 
 func main() {
+    allocationId := int32(56) // int32 | 
     allocationDeleteRequest := *openapiclient.NewAllocationDeleteRequest() // AllocationDeleteRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AllocationsApi.DELETEProjectsApiV3AllocationsIdJson(context.Background()).AllocationDeleteRequest(allocationDeleteRequest).Execute()
+    resp, r, err := api_client.AllocationsApi.DELETEProjectsApiV3AllocationsallocationIdJson(context.Background(), allocationId).AllocationDeleteRequest(allocationDeleteRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.DELETEProjectsApiV3AllocationsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.DELETEProjectsApiV3AllocationsallocationIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -52,14 +53,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDELETEProjectsApiV3AllocationsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDELETEProjectsApiV3AllocationsallocationIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **allocationDeleteRequest** | [**AllocationDeleteRequest**](AllocationDeleteRequest.md) |  | 
 
 ### Return type
@@ -73,67 +79,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GETProjectsApiV3AllocationsIdJson
-
-> AllocationResponse GETProjectsApiV3AllocationsIdJson(ctx).Execute()
-
-Get a specific allocation.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AllocationsApi.GETProjectsApiV3AllocationsIdJson(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.GETProjectsApiV3AllocationsIdJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GETProjectsApiV3AllocationsIdJson`: AllocationResponse
-    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.GETProjectsApiV3AllocationsIdJson`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV3AllocationsIdJsonRequest struct via the builder pattern
-
-
-### Return type
-
-[**AllocationResponse**](AllocationResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -254,9 +199,79 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PATCHProjectsApiV3AllocationsIdJson
+## GETProjectsApiV3AllocationsallocationIdJson
 
-> AllocationResponse PATCHProjectsApiV3AllocationsIdJson(ctx).AllocationRequest(allocationRequest).Execute()
+> AllocationResponse GETProjectsApiV3AllocationsallocationIdJson(ctx, allocationId).Execute()
+
+Get a specific allocation.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    allocationId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.AllocationsApi.GETProjectsApiV3AllocationsallocationIdJson(context.Background(), allocationId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.GETProjectsApiV3AllocationsallocationIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3AllocationsallocationIdJson`: AllocationResponse
+    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.GETProjectsApiV3AllocationsallocationIdJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3AllocationsallocationIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AllocationResponse**](AllocationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PATCHProjectsApiV3AllocationsallocationIdJson
+
+> AllocationResponse PATCHProjectsApiV3AllocationsallocationIdJson(ctx, allocationId).AllocationRequest(allocationRequest).Execute()
 
 Update an existing allocation.
 
@@ -275,31 +290,37 @@ import (
 )
 
 func main() {
+    allocationId := int32(56) // int32 | 
     allocationRequest := *openapiclient.NewAllocationRequest() // AllocationRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AllocationsApi.PATCHProjectsApiV3AllocationsIdJson(context.Background()).AllocationRequest(allocationRequest).Execute()
+    resp, r, err := api_client.AllocationsApi.PATCHProjectsApiV3AllocationsallocationIdJson(context.Background(), allocationId).AllocationRequest(allocationRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PATCHProjectsApiV3AllocationsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PATCHProjectsApiV3AllocationsallocationIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PATCHProjectsApiV3AllocationsIdJson`: AllocationResponse
-    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PATCHProjectsApiV3AllocationsIdJson`: %v\n", resp)
+    // response from `PATCHProjectsApiV3AllocationsallocationIdJson`: AllocationResponse
+    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PATCHProjectsApiV3AllocationsallocationIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPATCHProjectsApiV3AllocationsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPATCHProjectsApiV3AllocationsallocationIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **allocationRequest** | [**AllocationRequest**](AllocationRequest.md) |  | 
 
 ### Return type
@@ -450,9 +471,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3AllocationsIdJson
+## PUTProjectsApiV3AllocationsallocationIdJson
 
-> AllocationResponse PUTProjectsApiV3AllocationsIdJson(ctx).AllocationRequest(allocationRequest).Execute()
+> AllocationResponse PUTProjectsApiV3AllocationsallocationIdJson(ctx, allocationId).AllocationRequest(allocationRequest).Execute()
 
 Update an existing allocation.
 
@@ -471,31 +492,37 @@ import (
 )
 
 func main() {
+    allocationId := int32(56) // int32 | 
     allocationRequest := *openapiclient.NewAllocationRequest() // AllocationRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AllocationsApi.PUTProjectsApiV3AllocationsIdJson(context.Background()).AllocationRequest(allocationRequest).Execute()
+    resp, r, err := api_client.AllocationsApi.PUTProjectsApiV3AllocationsallocationIdJson(context.Background(), allocationId).AllocationRequest(allocationRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PUTProjectsApiV3AllocationsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PUTProjectsApiV3AllocationsallocationIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3AllocationsIdJson`: AllocationResponse
-    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PUTProjectsApiV3AllocationsIdJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3AllocationsallocationIdJson`: AllocationResponse
+    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PUTProjectsApiV3AllocationsallocationIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3AllocationsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3AllocationsallocationIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **allocationRequest** | [**AllocationRequest**](AllocationRequest.md) |  | 
 
 ### Return type
@@ -516,9 +543,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3AllocationsIdRestoreJson
+## PUTProjectsApiV3AllocationsallocationIdRestoreJson
 
-> AllocationResponse PUTProjectsApiV3AllocationsIdRestoreJson(ctx).Execute()
+> AllocationResponse PUTProjectsApiV3AllocationsallocationIdRestoreJson(ctx, allocationId).Execute()
 
 Restore a soft deleted allocation.
 
@@ -537,26 +564,35 @@ import (
 )
 
 func main() {
+    allocationId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AllocationsApi.PUTProjectsApiV3AllocationsIdRestoreJson(context.Background()).Execute()
+    resp, r, err := api_client.AllocationsApi.PUTProjectsApiV3AllocationsallocationIdRestoreJson(context.Background(), allocationId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PUTProjectsApiV3AllocationsIdRestoreJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PUTProjectsApiV3AllocationsallocationIdRestoreJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3AllocationsIdRestoreJson`: AllocationResponse
-    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PUTProjectsApiV3AllocationsIdRestoreJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3AllocationsallocationIdRestoreJson`: AllocationResponse
+    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PUTProjectsApiV3AllocationsallocationIdRestoreJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3AllocationsIdRestoreJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
@@ -577,9 +613,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3AllocationsIdSplitJson
+## PUTProjectsApiV3AllocationsallocationIdSplitJson
 
-> AllocationAllocationsResponse PUTProjectsApiV3AllocationsIdSplitJson(ctx).AllocationSplitRequest(allocationSplitRequest).Execute()
+> AllocationAllocationsResponse PUTProjectsApiV3AllocationsallocationIdSplitJson(ctx, allocationId).AllocationSplitRequest(allocationSplitRequest).Execute()
 
 Split an allocation in two
 
@@ -598,31 +634,37 @@ import (
 )
 
 func main() {
+    allocationId := int32(56) // int32 | 
     allocationSplitRequest := *openapiclient.NewAllocationSplitRequest() // AllocationSplitRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AllocationsApi.PUTProjectsApiV3AllocationsIdSplitJson(context.Background()).AllocationSplitRequest(allocationSplitRequest).Execute()
+    resp, r, err := api_client.AllocationsApi.PUTProjectsApiV3AllocationsallocationIdSplitJson(context.Background(), allocationId).AllocationSplitRequest(allocationSplitRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PUTProjectsApiV3AllocationsIdSplitJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `AllocationsApi.PUTProjectsApiV3AllocationsallocationIdSplitJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3AllocationsIdSplitJson`: AllocationAllocationsResponse
-    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PUTProjectsApiV3AllocationsIdSplitJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3AllocationsallocationIdSplitJson`: AllocationAllocationsResponse
+    fmt.Fprintf(os.Stdout, "Response from `AllocationsApi.PUTProjectsApiV3AllocationsallocationIdSplitJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**allocationId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3AllocationsIdSplitJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **allocationSplitRequest** | [**AllocationSplitRequest**](AllocationSplitRequest.md) |  | 
 
 ### Return type

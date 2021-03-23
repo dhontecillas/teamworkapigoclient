@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3FormsIdAssigneesJson**](FormsAssigneesApi.md#GETProjectsApiV3FormsIdAssigneesJson) | **Get** /projects/api/v3/forms/:id/assignees.json | Get all assignees for a given form.
-[**PUTProjectsApiV3FormIdAssigneesJson**](FormsAssigneesApi.md#PUTProjectsApiV3FormIdAssigneesJson) | **Put** /projects/api/v3/form/:id/assignees.json | Update the existing assignees.
+[**GETProjectsApiV3FormsformIdAssigneesJson**](FormsAssigneesApi.md#GETProjectsApiV3FormsformIdAssigneesJson) | **Get** /projects/api/v3/forms/{formId}/assignees.json | Get all assignees for a given form.
+[**PUTProjectsApiV3FormformIdAssigneesJson**](FormsAssigneesApi.md#PUTProjectsApiV3FormformIdAssigneesJson) | **Put** /projects/api/v3/form/{formId}/assignees.json | Update the existing assignees.
 
 
 
-## GETProjectsApiV3FormsIdAssigneesJson
+## GETProjectsApiV3FormsformIdAssigneesJson
 
-> AssigneeFormAssigneesResponse GETProjectsApiV3FormsIdAssigneesJson(ctx).OrderMode(orderMode).UserId(userId).PageSize(pageSize).Page(page).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsFormAssignees(fieldsFormAssignees).FieldsCompanies(fieldsCompanies).Execute()
+> AssigneeFormAssigneesResponse GETProjectsApiV3FormsformIdAssigneesJson(ctx, formId).OrderMode(orderMode).UserId(userId).PageSize(pageSize).Page(page).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsFormAssignees(fieldsFormAssignees).FieldsCompanies(fieldsCompanies).Execute()
 
 Get all assignees for a given form.
 
@@ -30,6 +30,7 @@ import (
 )
 
 func main() {
+    formId := int32(56) // int32 | 
     orderMode := "orderMode_example" // string | order mode (optional) (default to "asc")
     userId := int32(56) // int32 | filter by user id (optional)
     pageSize := int32(56) // int32 | number of items in a page (optional) (default to 50)
@@ -42,27 +43,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsAssigneesApi.GETProjectsApiV3FormsIdAssigneesJson(context.Background()).OrderMode(orderMode).UserId(userId).PageSize(pageSize).Page(page).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsFormAssignees(fieldsFormAssignees).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.FormsAssigneesApi.GETProjectsApiV3FormsformIdAssigneesJson(context.Background(), formId).OrderMode(orderMode).UserId(userId).PageSize(pageSize).Page(page).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsFormAssignees(fieldsFormAssignees).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsAssigneesApi.GETProjectsApiV3FormsIdAssigneesJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsAssigneesApi.GETProjectsApiV3FormsformIdAssigneesJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3FormsIdAssigneesJson`: AssigneeFormAssigneesResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsAssigneesApi.GETProjectsApiV3FormsIdAssigneesJson`: %v\n", resp)
+    // response from `GETProjectsApiV3FormsformIdAssigneesJson`: AssigneeFormAssigneesResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsAssigneesApi.GETProjectsApiV3FormsformIdAssigneesJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3FormsIdAssigneesJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3FormsformIdAssigneesJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **orderMode** | **string** | order mode | [default to &quot;asc&quot;]
  **userId** | **int32** | filter by user id | 
  **pageSize** | **int32** | number of items in a page | [default to 50]
@@ -91,9 +97,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3FormIdAssigneesJson
+## PUTProjectsApiV3FormformIdAssigneesJson
 
-> AssigneeResponse PUTProjectsApiV3FormIdAssigneesJson(ctx).AssigneeRequest(assigneeRequest).Execute()
+> AssigneeResponse PUTProjectsApiV3FormformIdAssigneesJson(ctx, formId).AssigneeRequest(assigneeRequest).Execute()
 
 Update the existing assignees.
 
@@ -112,31 +118,37 @@ import (
 )
 
 func main() {
+    formId := int32(56) // int32 | 
     assigneeRequest := *openapiclient.NewAssigneeRequest() // AssigneeRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsAssigneesApi.PUTProjectsApiV3FormIdAssigneesJson(context.Background()).AssigneeRequest(assigneeRequest).Execute()
+    resp, r, err := api_client.FormsAssigneesApi.PUTProjectsApiV3FormformIdAssigneesJson(context.Background(), formId).AssigneeRequest(assigneeRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsAssigneesApi.PUTProjectsApiV3FormIdAssigneesJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsAssigneesApi.PUTProjectsApiV3FormformIdAssigneesJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3FormIdAssigneesJson`: AssigneeResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsAssigneesApi.PUTProjectsApiV3FormIdAssigneesJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3FormformIdAssigneesJson`: AssigneeResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsAssigneesApi.PUTProjectsApiV3FormformIdAssigneesJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3FormIdAssigneesJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3FormformIdAssigneesJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **assigneeRequest** | [**AssigneeRequest**](AssigneeRequest.md) |  | 
 
 ### Return type

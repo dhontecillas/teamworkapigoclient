@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3LockdownsIdJson**](LockdownsApi.md#GETProjectsApiV3LockdownsIdJson) | **Get** /projects/api/v3/lockdowns/:id.json | Get a specific lockdown.
+[**GETProjectsApiV3LockdownslockdownIdJson**](LockdownsApi.md#GETProjectsApiV3LockdownslockdownIdJson) | **Get** /projects/api/v3/lockdowns/{lockdownId}.json | Get a specific lockdown.
 
 
 
-## GETProjectsApiV3LockdownsIdJson
+## GETProjectsApiV3LockdownslockdownIdJson
 
-> LockdownResponse GETProjectsApiV3LockdownsIdJson(ctx).Id(id).IncludeItems(includeItems).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsMessages(fieldsMessages).FieldsLockdowns(fieldsLockdowns).FieldsLinks(fieldsLinks).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).FieldsComments(fieldsComments).Execute()
+> LockdownResponse GETProjectsApiV3LockdownslockdownIdJson(ctx, lockdownId).Id(id).IncludeItems(includeItems).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsMessages(fieldsMessages).FieldsLockdowns(fieldsLockdowns).FieldsLinks(fieldsLinks).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).FieldsComments(fieldsComments).Execute()
 
 Get a specific lockdown.
 
@@ -29,6 +29,7 @@ import (
 )
 
 func main() {
+    lockdownId := int32(56) // int32 | 
     id := int32(56) // int32 | filter by lockdown ID (optional)
     includeItems := true // bool | include items (optional)
     include := []string{"Inner_example"} // []string | include (optional)
@@ -47,27 +48,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.LockdownsApi.GETProjectsApiV3LockdownsIdJson(context.Background()).Id(id).IncludeItems(includeItems).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsMessages(fieldsMessages).FieldsLockdowns(fieldsLockdowns).FieldsLinks(fieldsLinks).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).FieldsComments(fieldsComments).Execute()
+    resp, r, err := api_client.LockdownsApi.GETProjectsApiV3LockdownslockdownIdJson(context.Background(), lockdownId).Id(id).IncludeItems(includeItems).Include(include).FieldsUsers(fieldsUsers).FieldsTeams(fieldsTeams).FieldsTasks(fieldsTasks).FieldsTasklists(fieldsTasklists).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsMessages(fieldsMessages).FieldsLockdowns(fieldsLockdowns).FieldsLinks(fieldsLinks).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).FieldsComments(fieldsComments).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LockdownsApi.GETProjectsApiV3LockdownsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LockdownsApi.GETProjectsApiV3LockdownslockdownIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3LockdownsIdJson`: LockdownResponse
-    fmt.Fprintf(os.Stdout, "Response from `LockdownsApi.GETProjectsApiV3LockdownsIdJson`: %v\n", resp)
+    // response from `GETProjectsApiV3LockdownslockdownIdJson`: LockdownResponse
+    fmt.Fprintf(os.Stdout, "Response from `LockdownsApi.GETProjectsApiV3LockdownslockdownIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**lockdownId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3LockdownsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3LockdownslockdownIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **id** | **int32** | filter by lockdown ID | 
  **includeItems** | **bool** | include items | 
  **include** | **[]string** | include | 

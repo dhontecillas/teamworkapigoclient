@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,25 +27,28 @@ var (
 // MilestoneCommentsApiService MilestoneCommentsApi service
 type MilestoneCommentsApiService service
 
-type ApiGETProjectsApiV3MilestonesIdCommentsJsonRequest struct {
+type ApiGETProjectsApiV3MilestonesmilestoneIdCommentsJsonRequest struct {
 	ctx _context.Context
 	ApiService *MilestoneCommentsApiService
+	milestoneId int32
 }
 
 
-func (r ApiGETProjectsApiV3MilestonesIdCommentsJsonRequest) Execute() (CommentCommentsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3MilestonesIdCommentsJsonExecute(r)
+func (r ApiGETProjectsApiV3MilestonesmilestoneIdCommentsJsonRequest) Execute() (CommentCommentsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3MilestonesmilestoneIdCommentsJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3MilestonesIdCommentsJson Get a list of comments for a milestone
+ * GETProjectsApiV3MilestonesmilestoneIdCommentsJson Get a list of comments for a milestone
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3MilestonesIdCommentsJsonRequest
+ * @param milestoneId
+ * @return ApiGETProjectsApiV3MilestonesmilestoneIdCommentsJsonRequest
  */
-func (a *MilestoneCommentsApiService) GETProjectsApiV3MilestonesIdCommentsJson(ctx _context.Context) ApiGETProjectsApiV3MilestonesIdCommentsJsonRequest {
-	return ApiGETProjectsApiV3MilestonesIdCommentsJsonRequest{
+func (a *MilestoneCommentsApiService) GETProjectsApiV3MilestonesmilestoneIdCommentsJson(ctx _context.Context, milestoneId int32) ApiGETProjectsApiV3MilestonesmilestoneIdCommentsJsonRequest {
+	return ApiGETProjectsApiV3MilestonesmilestoneIdCommentsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		milestoneId: milestoneId,
 	}
 }
 
@@ -52,7 +56,7 @@ func (a *MilestoneCommentsApiService) GETProjectsApiV3MilestonesIdCommentsJson(c
  * Execute executes the request
  * @return CommentCommentsResponse
  */
-func (a *MilestoneCommentsApiService) GETProjectsApiV3MilestonesIdCommentsJsonExecute(r ApiGETProjectsApiV3MilestonesIdCommentsJsonRequest) (CommentCommentsResponse, *_nethttp.Response, error) {
+func (a *MilestoneCommentsApiService) GETProjectsApiV3MilestonesmilestoneIdCommentsJsonExecute(r ApiGETProjectsApiV3MilestonesmilestoneIdCommentsJsonRequest) (CommentCommentsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -62,12 +66,13 @@ func (a *MilestoneCommentsApiService) GETProjectsApiV3MilestonesIdCommentsJsonEx
 		localVarReturnValue  CommentCommentsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneCommentsApiService.GETProjectsApiV3MilestonesIdCommentsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MilestoneCommentsApiService.GETProjectsApiV3MilestonesmilestoneIdCommentsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/milestones/:id/comments.json"
+	localVarPath := localBasePath + "/projects/api/v3/milestones/{milestoneId}/comments.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"milestoneId"+"}", _neturl.PathEscape(parameterToString(r.milestoneId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

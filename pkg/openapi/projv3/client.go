@@ -104,8 +104,6 @@ type APIClient struct {
 
 	PersonApi *PersonApiService
 
-	ProjectApi *ProjectApiService
-
 	ProjectUpdatesApi *ProjectUpdatesApiService
 
 	ProjectsApi *ProjectsApiService
@@ -171,7 +169,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.PeopleApi = (*PeopleApiService)(&c.common)
 	c.PeopleStatusApi = (*PeopleStatusApiService)(&c.common)
 	c.PersonApi = (*PersonApiService)(&c.common)
-	c.ProjectApi = (*ProjectApiService)(&c.common)
 	c.ProjectUpdatesApi = (*ProjectUpdatesApiService)(&c.common)
 	c.ProjectsApi = (*ProjectsApiService)(&c.common)
 	c.ResourceSchedulingApi = (*ResourceSchedulingApiService)(&c.common)

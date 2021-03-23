@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -4089,4 +4090,847 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsXlsxExecute(r ApiGETProject
 	}
 
 	return localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectsApiService
+	projectId int32
+}
+
+
+func (r ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3ProjectsprojectIdFeaturesorderJson Returns a project features order to display in tab
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest
+ */
+func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectFeatureOrderResponse
+ */
+func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectFeatureOrderResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.GETProjectsApiV3ProjectsprojectIdFeaturesorderJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/featuresorder.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3ProjectsprojectIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectsApiService
+	projectId int32
+	updatedAfter *time.Time
+	searchTerm *string
+	reportType *string
+	reportFormat *string
+	projectType *string
+	projectStatuses *string
+	orderMode *string
+	orderBy *string
+	minLastActivityDate *string
+	maxLastActivityDate *string
+	userId *int32
+	projectHealths *int32
+	pageSize *int32
+	page *int32
+	onlyStarredProjects *bool
+	onlyProjectsWithExplicitMembership *bool
+	onlyArchivedProjects *bool
+	matchAllProjectTags *bool
+	isReportDownload *bool
+	includeProjectUserInfo *bool
+	includeCustomFields *bool
+	includeCompletedStatus *bool
+	includeArchivedProjects *bool
+	hideObservedProjects *bool
+	projectTagIds *[]int32
+	projectOwnerIds *[]int32
+	projectIds *[]int32
+	projectCompanyIds *[]int32
+	projectCategoryIds *[]int32
+	include *[]string
+	fieldsUsers *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsProjectcategories *[]string
+	fieldsProjectUpdates *[]string
+	fieldsProjectBudgets *[]string
+	fieldsPortfolioColumns *[]string
+	fieldsPortfolioCards *[]string
+	fieldsPortfolioBoards *[]string
+	fieldsCustomfields *[]string
+	fieldsCustomfieldProjects *[]string
+	fieldsCompanies *[]string
+}
+
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.updatedAfter = &updatedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ReportType(reportType string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.reportType = &reportType
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.reportFormat = &reportFormat
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectType(projectType string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectType = &projectType
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectStatuses = &projectStatuses
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.orderMode = &orderMode
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) MinLastActivityDate(minLastActivityDate string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.minLastActivityDate = &minLastActivityDate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) MaxLastActivityDate(maxLastActivityDate string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.maxLastActivityDate = &maxLastActivityDate
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectHealths = &projectHealths
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.onlyStarredProjects = &onlyStarredProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) OnlyProjectsWithExplicitMembership(onlyProjectsWithExplicitMembership bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.onlyProjectsWithExplicitMembership = &onlyProjectsWithExplicitMembership
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) OnlyArchivedProjects(onlyArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.onlyArchivedProjects = &onlyArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.isReportDownload = &isReportDownload
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) IncludeProjectUserInfo(includeProjectUserInfo bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.includeProjectUserInfo = &includeProjectUserInfo
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) IncludeCustomFields(includeCustomFields bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.includeCustomFields = &includeCustomFields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) IncludeCompletedStatus(includeCompletedStatus bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.includeCompletedStatus = &includeCompletedStatus
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) HideObservedProjects(hideObservedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.hideObservedProjects = &hideObservedProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectTagIds = &projectTagIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectOwnerIds = &projectOwnerIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectIds = &projectIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectCompanyIds = &projectCompanyIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.projectCategoryIds = &projectCategoryIds
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsProjectcategories(fieldsProjectcategories []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsProjectcategories = &fieldsProjectcategories
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsProjectUpdates(fieldsProjectUpdates []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsProjectUpdates = &fieldsProjectUpdates
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsProjectBudgets(fieldsProjectBudgets []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsProjectBudgets = &fieldsProjectBudgets
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsPortfolioColumns(fieldsPortfolioColumns []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsPortfolioColumns = &fieldsPortfolioColumns
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsPortfolioCards(fieldsPortfolioCards []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsPortfolioCards = &fieldsPortfolioCards
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsPortfolioBoards(fieldsPortfolioBoards []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsPortfolioBoards = &fieldsPortfolioBoards
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsCustomfields(fieldsCustomfields []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsCustomfields = &fieldsCustomfields
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsCustomfieldProjects(fieldsCustomfieldProjects []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsCustomfieldProjects = &fieldsCustomfieldProjects
+	return r
+}
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	r.fieldsCompanies = &fieldsCompanies
+	return r
+}
+
+func (r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) Execute() (ProjectSingleResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3ProjectsprojectIdJson Returns a project
+ * On this endpoint you can filter by project custom fields. The syntax for the
+query parameter is the following:
+
+    projectCustomField[id][op]=value
+
+Where:
+  - [id] is the custom field ID
+  - [op] is the operator to apply when filtering, different operators are
+    allowed according to the custom field type
+  - [value] is the value to apply when filtering
+
+For example, if I want to filter a dropdown custom field with ID 10 to only
+return entries that have the value "Option1" we would do the following:
+
+    projectCustomField[10][eq]=Option1
+
+The allowed operators are:
+  - like
+  - not-like
+  - eq
+  - not
+  - lt
+  - gt
+  - any
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdJsonRequest
+ */
+func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectSingleResponse
+ */
+func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdJsonRequest) (ProjectSingleResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectSingleResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.GETProjectsApiV3ProjectsprojectIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.updatedAfter != nil {
+		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.reportType != nil {
+		localVarQueryParams.Add("reportType", parameterToString(*r.reportType, ""))
+	}
+	if r.reportFormat != nil {
+		localVarQueryParams.Add("reportFormat", parameterToString(*r.reportFormat, ""))
+	}
+	if r.projectType != nil {
+		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
+	}
+	if r.projectStatuses != nil {
+		localVarQueryParams.Add("projectStatuses", parameterToString(*r.projectStatuses, ""))
+	}
+	if r.orderMode != nil {
+		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.minLastActivityDate != nil {
+		localVarQueryParams.Add("minLastActivityDate", parameterToString(*r.minLastActivityDate, ""))
+	}
+	if r.maxLastActivityDate != nil {
+		localVarQueryParams.Add("maxLastActivityDate", parameterToString(*r.maxLastActivityDate, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.projectHealths != nil {
+		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.onlyStarredProjects != nil {
+		localVarQueryParams.Add("onlyStarredProjects", parameterToString(*r.onlyStarredProjects, ""))
+	}
+	if r.onlyProjectsWithExplicitMembership != nil {
+		localVarQueryParams.Add("onlyProjectsWithExplicitMembership", parameterToString(*r.onlyProjectsWithExplicitMembership, ""))
+	}
+	if r.onlyArchivedProjects != nil {
+		localVarQueryParams.Add("onlyArchivedProjects", parameterToString(*r.onlyArchivedProjects, ""))
+	}
+	if r.matchAllProjectTags != nil {
+		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.isReportDownload != nil {
+		localVarQueryParams.Add("isReportDownload", parameterToString(*r.isReportDownload, ""))
+	}
+	if r.includeProjectUserInfo != nil {
+		localVarQueryParams.Add("includeProjectUserInfo", parameterToString(*r.includeProjectUserInfo, ""))
+	}
+	if r.includeCustomFields != nil {
+		localVarQueryParams.Add("includeCustomFields", parameterToString(*r.includeCustomFields, ""))
+	}
+	if r.includeCompletedStatus != nil {
+		localVarQueryParams.Add("includeCompletedStatus", parameterToString(*r.includeCompletedStatus, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
+	}
+	if r.hideObservedProjects != nil {
+		localVarQueryParams.Add("hideObservedProjects", parameterToString(*r.hideObservedProjects, ""))
+	}
+	if r.projectTagIds != nil {
+		localVarQueryParams.Add("projectTagIds", parameterToString(*r.projectTagIds, "csv"))
+	}
+	if r.projectOwnerIds != nil {
+		localVarQueryParams.Add("projectOwnerIds", parameterToString(*r.projectOwnerIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
+	}
+	if r.projectCompanyIds != nil {
+		localVarQueryParams.Add("projectCompanyIds", parameterToString(*r.projectCompanyIds, "csv"))
+	}
+	if r.projectCategoryIds != nil {
+		localVarQueryParams.Add("projectCategoryIds", parameterToString(*r.projectCategoryIds, "csv"))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsProjectcategories != nil {
+		localVarQueryParams.Add("fields[projectcategories]", parameterToString(*r.fieldsProjectcategories, "csv"))
+	}
+	if r.fieldsProjectUpdates != nil {
+		localVarQueryParams.Add("fields[projectUpdates]", parameterToString(*r.fieldsProjectUpdates, "csv"))
+	}
+	if r.fieldsProjectBudgets != nil {
+		localVarQueryParams.Add("fields[projectBudgets]", parameterToString(*r.fieldsProjectBudgets, "csv"))
+	}
+	if r.fieldsPortfolioColumns != nil {
+		localVarQueryParams.Add("fields[portfolioColumns]", parameterToString(*r.fieldsPortfolioColumns, "csv"))
+	}
+	if r.fieldsPortfolioCards != nil {
+		localVarQueryParams.Add("fields[portfolioCards]", parameterToString(*r.fieldsPortfolioCards, "csv"))
+	}
+	if r.fieldsPortfolioBoards != nil {
+		localVarQueryParams.Add("fields[portfolioBoards]", parameterToString(*r.fieldsPortfolioBoards, "csv"))
+	}
+	if r.fieldsCustomfields != nil {
+		localVarQueryParams.Add("fields[customfields]", parameterToString(*r.fieldsCustomfields, "csv"))
+	}
+	if r.fieldsCustomfieldProjects != nil {
+		localVarQueryParams.Add("fields[customfieldProjects]", parameterToString(*r.fieldsCustomfieldProjects, "csv"))
+	}
+	if r.fieldsCompanies != nil {
+		localVarQueryParams.Add("fields[companies]", parameterToString(*r.fieldsCompanies, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectsApiService
+}
+
+
+func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r)
+}
+
+/*
+ * PUTProjectsApiV3ProjectsFeaturesorderJson Sets the default features order to display in tab
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest
+ */
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJson(ctx _context.Context) ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest {
+	return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectFeatureOrderResponse
+ */
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectFeatureOrderResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.PUTProjectsApiV3ProjectsFeaturesorderJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/featuresorder.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct {
+	ctx _context.Context
+	ApiService *ProjectsApiService
+	projectId int32
+}
+
+
+func (r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r)
+}
+
+/*
+ * PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson Sets the the features order to display in tab
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId
+ * @return ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest
+ */
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx _context.Context, projectId int32) ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest {
+	return ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return ProjectFeatureOrderResponse
+ */
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ProjectFeatureOrderResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/featuresorder.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }

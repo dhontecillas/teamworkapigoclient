@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3NotebooksIdCommentsJson**](NotebookCommentsApi.md#GETProjectsApiV3NotebooksIdCommentsJson) | **Get** /projects/api/v3/notebooks/:id/comments.json | Get a list of comments for a notebook
+[**GETProjectsApiV3NotebooksnotebookIdCommentsJson**](NotebookCommentsApi.md#GETProjectsApiV3NotebooksnotebookIdCommentsJson) | **Get** /projects/api/v3/notebooks/{notebookId}/comments.json | Get a list of comments for a notebook
 
 
 
-## GETProjectsApiV3NotebooksIdCommentsJson
+## GETProjectsApiV3NotebooksnotebookIdCommentsJson
 
-> CommentCommentsResponse GETProjectsApiV3NotebooksIdCommentsJson(ctx).Execute()
+> CommentCommentsResponse GETProjectsApiV3NotebooksnotebookIdCommentsJson(ctx, notebookId).Execute()
 
 Get a list of comments for a notebook
 
@@ -27,26 +27,35 @@ import (
 )
 
 func main() {
+    notebookId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.NotebookCommentsApi.GETProjectsApiV3NotebooksIdCommentsJson(context.Background()).Execute()
+    resp, r, err := api_client.NotebookCommentsApi.GETProjectsApiV3NotebooksnotebookIdCommentsJson(context.Background(), notebookId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `NotebookCommentsApi.GETProjectsApiV3NotebooksIdCommentsJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `NotebookCommentsApi.GETProjectsApiV3NotebooksnotebookIdCommentsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3NotebooksIdCommentsJson`: CommentCommentsResponse
-    fmt.Fprintf(os.Stdout, "Response from `NotebookCommentsApi.GETProjectsApiV3NotebooksIdCommentsJson`: %v\n", resp)
+    // response from `GETProjectsApiV3NotebooksnotebookIdCommentsJson`: CommentCommentsResponse
+    fmt.Fprintf(os.Stdout, "Response from `NotebookCommentsApi.GETProjectsApiV3NotebooksnotebookIdCommentsJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**notebookId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3NotebooksIdCommentsJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3NotebooksnotebookIdCommentsJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

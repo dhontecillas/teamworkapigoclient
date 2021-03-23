@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,30 +27,36 @@ var (
 // AppsSettingsApiService AppsSettingsApi service
 type AppsSettingsApiService service
 
-type ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest struct {
+type ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *AppsSettingsApiService
+	settingId int32
+	appId int32
 	settingRequest *SettingRequest
 }
 
-func (r ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest) SettingRequest(settingRequest SettingRequest) ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest {
+func (r ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest) SettingRequest(settingRequest SettingRequest) ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest {
 	r.settingRequest = &settingRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest) Execute() (SettingResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3AppsAppidSettingsSettingidJsonExecute(r)
+func (r ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest) Execute() (SettingResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3AppsappIdSettingssettingIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3AppsAppidSettingsSettingidJson Update an existing setting.
+ * PUTProjectsApiV3AppsappIdSettingssettingIdJson Update an existing setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest
+ * @param settingId
+ * @param appId
+ * @return ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest
  */
-func (a *AppsSettingsApiService) PUTProjectsApiV3AppsAppidSettingsSettingidJson(ctx _context.Context) ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest {
-	return ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest{
+func (a *AppsSettingsApiService) PUTProjectsApiV3AppsappIdSettingssettingIdJson(ctx _context.Context, settingId int32, appId int32) ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest {
+	return ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		settingId: settingId,
+		appId: appId,
 	}
 }
 
@@ -57,7 +64,7 @@ func (a *AppsSettingsApiService) PUTProjectsApiV3AppsAppidSettingsSettingidJson(
  * Execute executes the request
  * @return SettingResponse
  */
-func (a *AppsSettingsApiService) PUTProjectsApiV3AppsAppidSettingsSettingidJsonExecute(r ApiPUTProjectsApiV3AppsAppidSettingsSettingidJsonRequest) (SettingResponse, *_nethttp.Response, error) {
+func (a *AppsSettingsApiService) PUTProjectsApiV3AppsappIdSettingssettingIdJsonExecute(r ApiPUTProjectsApiV3AppsappIdSettingssettingIdJsonRequest) (SettingResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -67,12 +74,14 @@ func (a *AppsSettingsApiService) PUTProjectsApiV3AppsAppidSettingsSettingidJsonE
 		localVarReturnValue  SettingResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppsSettingsApiService.PUTProjectsApiV3AppsAppidSettingsSettingidJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppsSettingsApiService.PUTProjectsApiV3AppsappIdSettingssettingIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/apps/:appid/settings/:settingid.json"
+	localVarPath := localBasePath + "/projects/api/v3/apps/{appId}/settings/{settingId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"settingId"+"}", _neturl.PathEscape(parameterToString(r.settingId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"appId"+"}", _neturl.PathEscape(parameterToString(r.appId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

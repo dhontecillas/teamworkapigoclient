@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DELETEProjectsApiV3TagsIdJson**](TagsApi.md#DELETEProjectsApiV3TagsIdJson) | **Delete** /projects/api/v3/tags/:id.json | Deletes a tag
-[**GETProjectsApiV3TagsIdJson**](TagsApi.md#GETProjectsApiV3TagsIdJson) | **Get** /projects/api/v3/tags/:id.json | Get details of an individual tag
+[**DELETEProjectsApiV3TagstagIdJson**](TagsApi.md#DELETEProjectsApiV3TagstagIdJson) | **Delete** /projects/api/v3/tags/{tagId}.json | Deletes a tag
 [**GETProjectsApiV3TagsJson**](TagsApi.md#GETProjectsApiV3TagsJson) | **Get** /projects/api/v3/tags.json | Get all tags
-[**PATCHProjectsApiV3TagsIdJson**](TagsApi.md#PATCHProjectsApiV3TagsIdJson) | **Patch** /projects/api/v3/tags/:id.json | Update a single tag
+[**GETProjectsApiV3TagstagIdJson**](TagsApi.md#GETProjectsApiV3TagstagIdJson) | **Get** /projects/api/v3/tags/{tagId}.json | Get details of an individual tag
+[**PATCHProjectsApiV3TagstagIdJson**](TagsApi.md#PATCHProjectsApiV3TagstagIdJson) | **Patch** /projects/api/v3/tags/{tagId}.json | Update a single tag
 [**POSTProjectsApiV3TagsBulkDeleteJson**](TagsApi.md#POSTProjectsApiV3TagsBulkDeleteJson) | **Post** /projects/api/v3/tags/bulk/delete.json | Delete many tags at once
 [**POSTProjectsApiV3TagsJson**](TagsApi.md#POSTProjectsApiV3TagsJson) | **Post** /projects/api/v3/tags.json | Create a single tag
 
 
 
-## DELETEProjectsApiV3TagsIdJson
+## DELETEProjectsApiV3TagstagIdJson
 
-> DELETEProjectsApiV3TagsIdJson(ctx).Execute()
+> DELETEProjectsApiV3TagstagIdJson(ctx, tagId).Execute()
 
 Deletes a tag
 
@@ -34,12 +34,13 @@ import (
 )
 
 func main() {
+    tagId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TagsApi.DELETEProjectsApiV3TagsIdJson(context.Background()).Execute()
+    resp, r, err := api_client.TagsApi.DELETEProjectsApiV3TagstagIdJson(context.Background(), tagId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.DELETEProjectsApiV3TagsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.DELETEProjectsApiV3TagstagIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -47,77 +48,24 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tagId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDELETEProjectsApiV3TagsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDELETEProjectsApiV3TagstagIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
 
  (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GETProjectsApiV3TagsIdJson
-
-> TagResponse GETProjectsApiV3TagsIdJson(ctx).Execute()
-
-Get details of an individual tag
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TagsApi.GETProjectsApiV3TagsIdJson(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.GETProjectsApiV3TagsIdJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GETProjectsApiV3TagsIdJson`: TagResponse
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.GETProjectsApiV3TagsIdJson`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV3TagsIdJsonRequest struct via the builder pattern
-
-
-### Return type
-
-[**TagResponse**](TagResponse.md)
 
 ### Authorization
 
@@ -226,9 +174,79 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PATCHProjectsApiV3TagsIdJson
+## GETProjectsApiV3TagstagIdJson
 
-> TagResponse PATCHProjectsApiV3TagsIdJson(ctx).TagRequest(tagRequest).Execute()
+> TagResponse GETProjectsApiV3TagstagIdJson(ctx, tagId).Execute()
+
+Get details of an individual tag
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    tagId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TagsApi.GETProjectsApiV3TagstagIdJson(context.Background(), tagId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.GETProjectsApiV3TagstagIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3TagstagIdJson`: TagResponse
+    fmt.Fprintf(os.Stdout, "Response from `TagsApi.GETProjectsApiV3TagstagIdJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tagId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3TagstagIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PATCHProjectsApiV3TagstagIdJson
+
+> TagResponse PATCHProjectsApiV3TagstagIdJson(ctx, tagId).TagRequest(tagRequest).Execute()
 
 Update a single tag
 
@@ -247,31 +265,37 @@ import (
 )
 
 func main() {
+    tagId := int32(56) // int32 | 
     tagRequest := *openapiclient.NewTagRequest() // TagRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TagsApi.PATCHProjectsApiV3TagsIdJson(context.Background()).TagRequest(tagRequest).Execute()
+    resp, r, err := api_client.TagsApi.PATCHProjectsApiV3TagstagIdJson(context.Background(), tagId).TagRequest(tagRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.PATCHProjectsApiV3TagsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.PATCHProjectsApiV3TagstagIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PATCHProjectsApiV3TagsIdJson`: TagResponse
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.PATCHProjectsApiV3TagsIdJson`: %v\n", resp)
+    // response from `PATCHProjectsApiV3TagstagIdJson`: TagResponse
+    fmt.Fprintf(os.Stdout, "Response from `TagsApi.PATCHProjectsApiV3TagstagIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tagId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPATCHProjectsApiV3TagsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPATCHProjectsApiV3TagstagIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **tagRequest** | [**TagRequest**](TagRequest.md) |  | 
 
 ### Return type

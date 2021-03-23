@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -373,9 +374,10 @@ func (a *ActivityApiService) GETProjectsApiV3LatestactivityJsonExecute(r ApiGETP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest struct {
 	ctx _context.Context
 	ApiService *ActivityApiService
+	projectId2 int32
 	updatedAfter *time.Time
 	startDate *time.Time
 	sort *string
@@ -407,139 +409,141 @@ type ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest struct {
 	fieldsActivities *[]string
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) StartDate(startDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) Sort(sort string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) Sort(sort string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.sort = &sort
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) EndDate(endDate time.Time) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ActivityTypes(activityTypes string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ActivityTypes(activityTypes string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.activityTypes = &activityTypes
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) Page(page int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) Page(page int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) MaxId(maxId int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) MaxId(maxId int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.maxId = &maxId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) CatchupFromId(catchupFromId int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) CatchupFromId(catchupFromId int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.catchupFromId = &catchupFromId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) GroupCommentActivityType(groupCommentActivityType bool) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) GroupCommentActivityType(groupCommentActivityType bool) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.groupCommentActivityType = &groupCommentActivityType
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) UserIds(userIds []int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) UserIds(userIds []int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.userIds = &userIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) Include(include []string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) FieldsActivities(fieldsActivities []string) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) FieldsActivities(fieldsActivities []string) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
 	r.fieldsActivities = &fieldsActivities
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) Execute() (ActivityActivitiesResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdLatestactivityExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) Execute() (ActivityActivitiesResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdLatestactivityExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdLatestactivity List latest activity for a specific project.
+ * GETProjectsApiV3ProjectsprojectIdLatestactivity List latest activity for a specific project.
  * Lists the latest activity for a specific project. When you access a project
 you will see all the recent activity. This corresponds to that view in
 Teamwork. There is some parameters you can send in to filter your results.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest
  */
-func (a *ActivityApiService) GETProjectsApiV3ProjectsProjectIdLatestactivity(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest{
+func (a *ActivityApiService) GETProjectsApiV3ProjectsprojectIdLatestactivity(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
@@ -547,7 +551,7 @@ func (a *ActivityApiService) GETProjectsApiV3ProjectsProjectIdLatestactivity(ctx
  * Execute executes the request
  * @return ActivityActivitiesResponse
  */
-func (a *ActivityApiService) GETProjectsApiV3ProjectsProjectIdLatestactivityExecute(r ApiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest) (ActivityActivitiesResponse, *_nethttp.Response, error) {
+func (a *ActivityApiService) GETProjectsApiV3ProjectsprojectIdLatestactivityExecute(r ApiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest) (ActivityActivitiesResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -557,12 +561,13 @@ func (a *ActivityApiService) GETProjectsApiV3ProjectsProjectIdLatestactivityExec
 		localVarReturnValue  ActivityActivitiesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivityApiService.GETProjectsApiV3ProjectsProjectIdLatestactivity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivityApiService.GETProjectsApiV3ProjectsprojectIdLatestactivity")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/latestactivity"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/latestactivity"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

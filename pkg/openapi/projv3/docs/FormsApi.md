@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DELETEProjectsApiV3FormsIdJson**](FormsApi.md#DELETEProjectsApiV3FormsIdJson) | **Delete** /projects/api/v3/forms/:id.json | Delete an existing form.
-[**GETProjectsApiV3FormsIdDraftJson**](FormsApi.md#GETProjectsApiV3FormsIdDraftJson) | **Get** /projects/api/v3/forms/:id/draft.json | Get the draft version of a specific form.
-[**GETProjectsApiV3FormsIdJson**](FormsApi.md#GETProjectsApiV3FormsIdJson) | **Get** /projects/api/v3/forms/:id.json | Get a specific form.
+[**DELETEProjectsApiV3FormsformIdJson**](FormsApi.md#DELETEProjectsApiV3FormsformIdJson) | **Delete** /projects/api/v3/forms/{formId}.json | Delete an existing form.
 [**GETProjectsApiV3FormsJson**](FormsApi.md#GETProjectsApiV3FormsJson) | **Get** /projects/api/v3/forms.json | Get all forms.
-[**PATCHProjectsApiV3FormsIdJson**](FormsApi.md#PATCHProjectsApiV3FormsIdJson) | **Patch** /projects/api/v3/forms/:id.json | Update an existing form.
+[**GETProjectsApiV3FormsformIdDraftJson**](FormsApi.md#GETProjectsApiV3FormsformIdDraftJson) | **Get** /projects/api/v3/forms/{formId}/draft.json | Get the draft version of a specific form.
+[**GETProjectsApiV3FormsformIdJson**](FormsApi.md#GETProjectsApiV3FormsformIdJson) | **Get** /projects/api/v3/forms/{formId}.json | Get a specific form.
+[**PATCHProjectsApiV3FormsformIdJson**](FormsApi.md#PATCHProjectsApiV3FormsformIdJson) | **Patch** /projects/api/v3/forms/{formId}.json | Update an existing form.
 [**POSTProjectsApiV3FormsJson**](FormsApi.md#POSTProjectsApiV3FormsJson) | **Post** /projects/api/v3/forms.json | Create a new form.
 
 
 
-## DELETEProjectsApiV3FormsIdJson
+## DELETEProjectsApiV3FormsformIdJson
 
-> DELETEProjectsApiV3FormsIdJson(ctx).Execute()
+> DELETEProjectsApiV3FormsformIdJson(ctx, formId).Execute()
 
 Delete an existing form.
 
@@ -32,12 +32,13 @@ import (
 )
 
 func main() {
+    formId := int32(56) // int32 | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsApi.DELETEProjectsApiV3FormsIdJson(context.Background()).Execute()
+    resp, r, err := api_client.FormsApi.DELETEProjectsApiV3FormsformIdJson(context.Background(), formId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.DELETEProjectsApiV3FormsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.DELETEProjectsApiV3FormsformIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -45,134 +46,24 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDELETEProjectsApiV3FormsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDELETEProjectsApiV3FormsformIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type
 
  (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GETProjectsApiV3FormsIdDraftJson
-
-> FormResponse GETProjectsApiV3FormsIdDraftJson(ctx).Execute()
-
-Get the draft version of a specific form.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsApi.GETProjectsApiV3FormsIdDraftJson(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.GETProjectsApiV3FormsIdDraftJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GETProjectsApiV3FormsIdDraftJson`: FormResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsApi.GETProjectsApiV3FormsIdDraftJson`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV3FormsIdDraftJsonRequest struct via the builder pattern
-
-
-### Return type
-
-[**FormResponse**](FormResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GETProjectsApiV3FormsIdJson
-
-> FormResponse GETProjectsApiV3FormsIdJson(ctx).Execute()
-
-Get a specific form.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsApi.GETProjectsApiV3FormsIdJson(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.GETProjectsApiV3FormsIdJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GETProjectsApiV3FormsIdJson`: FormResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsApi.GETProjectsApiV3FormsIdJson`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV3FormsIdJsonRequest struct via the builder pattern
-
-
-### Return type
-
-[**FormResponse**](FormResponse.md)
 
 ### Authorization
 
@@ -249,9 +140,145 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PATCHProjectsApiV3FormsIdJson
+## GETProjectsApiV3FormsformIdDraftJson
 
-> FormResponse PATCHProjectsApiV3FormsIdJson(ctx).FormRequest(formRequest).Execute()
+> FormResponse GETProjectsApiV3FormsformIdDraftJson(ctx, formId).Execute()
+
+Get the draft version of a specific form.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    formId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.FormsApi.GETProjectsApiV3FormsformIdDraftJson(context.Background(), formId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.GETProjectsApiV3FormsformIdDraftJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3FormsformIdDraftJson`: FormResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsApi.GETProjectsApiV3FormsformIdDraftJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3FormsformIdDraftJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FormResponse**](FormResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GETProjectsApiV3FormsformIdJson
+
+> FormResponse GETProjectsApiV3FormsformIdJson(ctx, formId).Execute()
+
+Get a specific form.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    formId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.FormsApi.GETProjectsApiV3FormsformIdJson(context.Background(), formId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.GETProjectsApiV3FormsformIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GETProjectsApiV3FormsformIdJson`: FormResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsApi.GETProjectsApiV3FormsformIdJson`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV3FormsformIdJsonRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**FormResponse**](FormResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PATCHProjectsApiV3FormsformIdJson
+
+> FormResponse PATCHProjectsApiV3FormsformIdJson(ctx, formId).FormRequest(formRequest).Execute()
 
 Update an existing form.
 
@@ -268,31 +295,37 @@ import (
 )
 
 func main() {
+    formId := int32(56) // int32 | 
     formRequest := *openapiclient.NewFormRequest() // FormRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsApi.PATCHProjectsApiV3FormsIdJson(context.Background()).FormRequest(formRequest).Execute()
+    resp, r, err := api_client.FormsApi.PATCHProjectsApiV3FormsformIdJson(context.Background(), formId).FormRequest(formRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.PATCHProjectsApiV3FormsIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsApi.PATCHProjectsApiV3FormsformIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PATCHProjectsApiV3FormsIdJson`: FormResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsApi.PATCHProjectsApiV3FormsIdJson`: %v\n", resp)
+    // response from `PATCHProjectsApiV3FormsformIdJson`: FormResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsApi.PATCHProjectsApiV3FormsformIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPATCHProjectsApiV3FormsIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPATCHProjectsApiV3FormsformIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **formRequest** | [**FormRequest**](FormRequest.md) |  | 
 
 ### Return type

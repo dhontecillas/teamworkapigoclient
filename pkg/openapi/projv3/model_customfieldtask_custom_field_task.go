@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// ViewCustomFieldTask CustomFieldTask contains all the information returned from a task customfield value.
-type ViewCustomFieldTask struct {
+// CustomfieldtaskCustomFieldTask CustomFieldTask contains all the information returned from a task customfield value.
+type CustomfieldtaskCustomFieldTask struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	CreatedBy *int32 `json:"createdBy,omitempty"`
 	Customfield *ViewRelationship `json:"customfield,omitempty"`
@@ -26,25 +26,25 @@ type ViewCustomFieldTask struct {
 	Value *map[string]interface{} `json:"value,omitempty"`
 }
 
-// NewViewCustomFieldTask instantiates a new ViewCustomFieldTask object
+// NewCustomfieldtaskCustomFieldTask instantiates a new CustomfieldtaskCustomFieldTask object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewViewCustomFieldTask() *ViewCustomFieldTask {
-	this := ViewCustomFieldTask{}
+func NewCustomfieldtaskCustomFieldTask() *CustomfieldtaskCustomFieldTask {
+	this := CustomfieldtaskCustomFieldTask{}
 	return &this
 }
 
-// NewViewCustomFieldTaskWithDefaults instantiates a new ViewCustomFieldTask object
+// NewCustomfieldtaskCustomFieldTaskWithDefaults instantiates a new CustomfieldtaskCustomFieldTask object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewViewCustomFieldTaskWithDefaults() *ViewCustomFieldTask {
-	this := ViewCustomFieldTask{}
+func NewCustomfieldtaskCustomFieldTaskWithDefaults() *CustomfieldtaskCustomFieldTask {
+	this := CustomfieldtaskCustomFieldTask{}
 	return &this
 }
 
 // GetCreatedAt returns the CreatedAt field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetCreatedAt() string {
+func (o *CustomfieldtaskCustomFieldTask) GetCreatedAt() string {
 	if o == nil || o.CreatedAt == nil {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *ViewCustomFieldTask) GetCreatedAt() string {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetCreatedAtOk() (*string, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetCreatedAtOk() (*string, bool) {
 	if o == nil || o.CreatedAt == nil {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *ViewCustomFieldTask) GetCreatedAtOk() (*string, bool) {
 }
 
 // HasCreatedAt returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasCreatedAt() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasCreatedAt() bool {
 	if o != nil && o.CreatedAt != nil {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *ViewCustomFieldTask) HasCreatedAt() bool {
 }
 
 // SetCreatedAt gets a reference to the given string and assigns it to the CreatedAt field.
-func (o *ViewCustomFieldTask) SetCreatedAt(v string) {
+func (o *CustomfieldtaskCustomFieldTask) SetCreatedAt(v string) {
 	o.CreatedAt = &v
 }
 
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetCreatedBy() int32 {
+func (o *CustomfieldtaskCustomFieldTask) GetCreatedBy() int32 {
 	if o == nil || o.CreatedBy == nil {
 		var ret int32
 		return ret
@@ -86,7 +86,7 @@ func (o *ViewCustomFieldTask) GetCreatedBy() int32 {
 
 // GetCreatedByOk returns a tuple with the CreatedBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetCreatedByOk() (*int32, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetCreatedByOk() (*int32, bool) {
 	if o == nil || o.CreatedBy == nil {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *ViewCustomFieldTask) GetCreatedByOk() (*int32, bool) {
 }
 
 // HasCreatedBy returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasCreatedBy() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasCreatedBy() bool {
 	if o != nil && o.CreatedBy != nil {
 		return true
 	}
@@ -103,12 +103,12 @@ func (o *ViewCustomFieldTask) HasCreatedBy() bool {
 }
 
 // SetCreatedBy gets a reference to the given int32 and assigns it to the CreatedBy field.
-func (o *ViewCustomFieldTask) SetCreatedBy(v int32) {
+func (o *CustomfieldtaskCustomFieldTask) SetCreatedBy(v int32) {
 	o.CreatedBy = &v
 }
 
 // GetCustomfield returns the Customfield field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetCustomfield() ViewRelationship {
+func (o *CustomfieldtaskCustomFieldTask) GetCustomfield() ViewRelationship {
 	if o == nil || o.Customfield == nil {
 		var ret ViewRelationship
 		return ret
@@ -118,7 +118,7 @@ func (o *ViewCustomFieldTask) GetCustomfield() ViewRelationship {
 
 // GetCustomfieldOk returns a tuple with the Customfield field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetCustomfieldOk() (*ViewRelationship, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetCustomfieldOk() (*ViewRelationship, bool) {
 	if o == nil || o.Customfield == nil {
 		return nil, false
 	}
@@ -126,7 +126,7 @@ func (o *ViewCustomFieldTask) GetCustomfieldOk() (*ViewRelationship, bool) {
 }
 
 // HasCustomfield returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasCustomfield() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasCustomfield() bool {
 	if o != nil && o.Customfield != nil {
 		return true
 	}
@@ -135,12 +135,12 @@ func (o *ViewCustomFieldTask) HasCustomfield() bool {
 }
 
 // SetCustomfield gets a reference to the given ViewRelationship and assigns it to the Customfield field.
-func (o *ViewCustomFieldTask) SetCustomfield(v ViewRelationship) {
+func (o *CustomfieldtaskCustomFieldTask) SetCustomfield(v ViewRelationship) {
 	o.Customfield = &v
 }
 
 // GetCustomfieldId returns the CustomfieldId field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetCustomfieldId() int32 {
+func (o *CustomfieldtaskCustomFieldTask) GetCustomfieldId() int32 {
 	if o == nil || o.CustomfieldId == nil {
 		var ret int32
 		return ret
@@ -150,7 +150,7 @@ func (o *ViewCustomFieldTask) GetCustomfieldId() int32 {
 
 // GetCustomfieldIdOk returns a tuple with the CustomfieldId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetCustomfieldIdOk() (*int32, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetCustomfieldIdOk() (*int32, bool) {
 	if o == nil || o.CustomfieldId == nil {
 		return nil, false
 	}
@@ -158,7 +158,7 @@ func (o *ViewCustomFieldTask) GetCustomfieldIdOk() (*int32, bool) {
 }
 
 // HasCustomfieldId returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasCustomfieldId() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasCustomfieldId() bool {
 	if o != nil && o.CustomfieldId != nil {
 		return true
 	}
@@ -167,12 +167,12 @@ func (o *ViewCustomFieldTask) HasCustomfieldId() bool {
 }
 
 // SetCustomfieldId gets a reference to the given int32 and assigns it to the CustomfieldId field.
-func (o *ViewCustomFieldTask) SetCustomfieldId(v int32) {
+func (o *CustomfieldtaskCustomFieldTask) SetCustomfieldId(v int32) {
 	o.CustomfieldId = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetId() int32 {
+func (o *CustomfieldtaskCustomFieldTask) GetId() int32 {
 	if o == nil || o.Id == nil {
 		var ret int32
 		return ret
@@ -182,7 +182,7 @@ func (o *ViewCustomFieldTask) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetIdOk() (*int32, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetIdOk() (*int32, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -190,7 +190,7 @@ func (o *ViewCustomFieldTask) GetIdOk() (*int32, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasId() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -199,12 +199,12 @@ func (o *ViewCustomFieldTask) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *ViewCustomFieldTask) SetId(v int32) {
+func (o *CustomfieldtaskCustomFieldTask) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetTask returns the Task field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetTask() ViewRelationship {
+func (o *CustomfieldtaskCustomFieldTask) GetTask() ViewRelationship {
 	if o == nil || o.Task == nil {
 		var ret ViewRelationship
 		return ret
@@ -214,7 +214,7 @@ func (o *ViewCustomFieldTask) GetTask() ViewRelationship {
 
 // GetTaskOk returns a tuple with the Task field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetTaskOk() (*ViewRelationship, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetTaskOk() (*ViewRelationship, bool) {
 	if o == nil || o.Task == nil {
 		return nil, false
 	}
@@ -222,7 +222,7 @@ func (o *ViewCustomFieldTask) GetTaskOk() (*ViewRelationship, bool) {
 }
 
 // HasTask returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasTask() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasTask() bool {
 	if o != nil && o.Task != nil {
 		return true
 	}
@@ -231,12 +231,12 @@ func (o *ViewCustomFieldTask) HasTask() bool {
 }
 
 // SetTask gets a reference to the given ViewRelationship and assigns it to the Task field.
-func (o *ViewCustomFieldTask) SetTask(v ViewRelationship) {
+func (o *CustomfieldtaskCustomFieldTask) SetTask(v ViewRelationship) {
 	o.Task = &v
 }
 
 // GetTaskId returns the TaskId field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetTaskId() int32 {
+func (o *CustomfieldtaskCustomFieldTask) GetTaskId() int32 {
 	if o == nil || o.TaskId == nil {
 		var ret int32
 		return ret
@@ -246,7 +246,7 @@ func (o *ViewCustomFieldTask) GetTaskId() int32 {
 
 // GetTaskIdOk returns a tuple with the TaskId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetTaskIdOk() (*int32, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetTaskIdOk() (*int32, bool) {
 	if o == nil || o.TaskId == nil {
 		return nil, false
 	}
@@ -254,7 +254,7 @@ func (o *ViewCustomFieldTask) GetTaskIdOk() (*int32, bool) {
 }
 
 // HasTaskId returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasTaskId() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasTaskId() bool {
 	if o != nil && o.TaskId != nil {
 		return true
 	}
@@ -263,12 +263,12 @@ func (o *ViewCustomFieldTask) HasTaskId() bool {
 }
 
 // SetTaskId gets a reference to the given int32 and assigns it to the TaskId field.
-func (o *ViewCustomFieldTask) SetTaskId(v int32) {
+func (o *CustomfieldtaskCustomFieldTask) SetTaskId(v int32) {
 	o.TaskId = &v
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *ViewCustomFieldTask) GetValue() map[string]interface{} {
+func (o *CustomfieldtaskCustomFieldTask) GetValue() map[string]interface{} {
 	if o == nil || o.Value == nil {
 		var ret map[string]interface{}
 		return ret
@@ -278,7 +278,7 @@ func (o *ViewCustomFieldTask) GetValue() map[string]interface{} {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ViewCustomFieldTask) GetValueOk() (*map[string]interface{}, bool) {
+func (o *CustomfieldtaskCustomFieldTask) GetValueOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Value == nil {
 		return nil, false
 	}
@@ -286,7 +286,7 @@ func (o *ViewCustomFieldTask) GetValueOk() (*map[string]interface{}, bool) {
 }
 
 // HasValue returns a boolean if a field has been set.
-func (o *ViewCustomFieldTask) HasValue() bool {
+func (o *CustomfieldtaskCustomFieldTask) HasValue() bool {
 	if o != nil && o.Value != nil {
 		return true
 	}
@@ -295,11 +295,11 @@ func (o *ViewCustomFieldTask) HasValue() bool {
 }
 
 // SetValue gets a reference to the given map[string]interface{} and assigns it to the Value field.
-func (o *ViewCustomFieldTask) SetValue(v map[string]interface{}) {
+func (o *CustomfieldtaskCustomFieldTask) SetValue(v map[string]interface{}) {
 	o.Value = &v
 }
 
-func (o ViewCustomFieldTask) MarshalJSON() ([]byte, error) {
+func (o CustomfieldtaskCustomFieldTask) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CreatedAt != nil {
 		toSerialize["createdAt"] = o.CreatedAt
@@ -328,38 +328,38 @@ func (o ViewCustomFieldTask) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableViewCustomFieldTask struct {
-	value *ViewCustomFieldTask
+type NullableCustomfieldtaskCustomFieldTask struct {
+	value *CustomfieldtaskCustomFieldTask
 	isSet bool
 }
 
-func (v NullableViewCustomFieldTask) Get() *ViewCustomFieldTask {
+func (v NullableCustomfieldtaskCustomFieldTask) Get() *CustomfieldtaskCustomFieldTask {
 	return v.value
 }
 
-func (v *NullableViewCustomFieldTask) Set(val *ViewCustomFieldTask) {
+func (v *NullableCustomfieldtaskCustomFieldTask) Set(val *CustomfieldtaskCustomFieldTask) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableViewCustomFieldTask) IsSet() bool {
+func (v NullableCustomfieldtaskCustomFieldTask) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableViewCustomFieldTask) Unset() {
+func (v *NullableCustomfieldtaskCustomFieldTask) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableViewCustomFieldTask(val *ViewCustomFieldTask) *NullableViewCustomFieldTask {
-	return &NullableViewCustomFieldTask{value: val, isSet: true}
+func NewNullableCustomfieldtaskCustomFieldTask(val *CustomfieldtaskCustomFieldTask) *NullableCustomfieldtaskCustomFieldTask {
+	return &NullableCustomfieldtaskCustomFieldTask{value: val, isSet: true}
 }
 
-func (v NullableViewCustomFieldTask) MarshalJSON() ([]byte, error) {
+func (v NullableCustomfieldtaskCustomFieldTask) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableViewCustomFieldTask) UnmarshalJSON(src []byte) error {
+func (v *NullableCustomfieldtaskCustomFieldTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

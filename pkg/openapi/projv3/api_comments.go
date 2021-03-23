@@ -47,6 +47,7 @@ type ApiGETProjectsApiV3CommentsJsonRequest struct {
 	strictHTML *bool
 	onlyStarredProjects *bool
 	matchAllProjectTags *bool
+	includeArchivedProjects *bool
 	userIds *[]int32
 	projectTagIds *[]int32
 	projectOwnerIds *[]int32
@@ -133,6 +134,10 @@ func (r ApiGETProjectsApiV3CommentsJsonRequest) OnlyStarredProjects(onlyStarredP
 }
 func (r ApiGETProjectsApiV3CommentsJsonRequest) MatchAllProjectTags(matchAllProjectTags bool) ApiGETProjectsApiV3CommentsJsonRequest {
 	r.matchAllProjectTags = &matchAllProjectTags
+	return r
+}
+func (r ApiGETProjectsApiV3CommentsJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3CommentsJsonRequest {
+	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
 func (r ApiGETProjectsApiV3CommentsJsonRequest) UserIds(userIds []int32) ApiGETProjectsApiV3CommentsJsonRequest {
@@ -299,6 +304,9 @@ func (a *CommentsApiService) GETProjectsApiV3CommentsJsonExecute(r ApiGETProject
 	}
 	if r.matchAllProjectTags != nil {
 		localVarQueryParams.Add("matchAllProjectTags", parameterToString(*r.matchAllProjectTags, ""))
+	}
+	if r.includeArchivedProjects != nil {
+		localVarQueryParams.Add("includeArchivedProjects", parameterToString(*r.includeArchivedProjects, ""))
 	}
 	if r.userIds != nil {
 		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))

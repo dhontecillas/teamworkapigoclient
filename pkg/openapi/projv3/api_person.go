@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,9 +27,10 @@ var (
 // PersonApiService PersonApi service
 type PersonApiService service
 
-type ApiGETProjectsApiV3PeopleIdJsonRequest struct {
+type ApiGETProjectsApiV3PeoplepersonIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *PersonApiService
+	personId int32
 	orderMode *string
 	orderBy *string
 	pageSize *int32
@@ -38,49 +40,51 @@ type ApiGETProjectsApiV3PeopleIdJsonRequest struct {
 	fieldsCompanies *[]string
 }
 
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) Page(page int32) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) Page(page int32) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) Include(include []string) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) Include(include []string) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) Ids(ids []int32) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.ids = &ids
 	return r
 }
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3PeopleIdJsonRequest {
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 
-func (r ApiGETProjectsApiV3PeopleIdJsonRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3PeopleIdJsonExecute(r)
+func (r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) Execute() (PeopleResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3PeoplepersonIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3PeopleIdJson Returns a person
+ * GETProjectsApiV3PeoplepersonIdJson Returns a person
  * Retrieve a person record.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3PeopleIdJsonRequest
+ * @param personId
+ * @return ApiGETProjectsApiV3PeoplepersonIdJsonRequest
  */
-func (a *PersonApiService) GETProjectsApiV3PeopleIdJson(ctx _context.Context) ApiGETProjectsApiV3PeopleIdJsonRequest {
-	return ApiGETProjectsApiV3PeopleIdJsonRequest{
+func (a *PersonApiService) GETProjectsApiV3PeoplepersonIdJson(ctx _context.Context, personId int32) ApiGETProjectsApiV3PeoplepersonIdJsonRequest {
+	return ApiGETProjectsApiV3PeoplepersonIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		personId: personId,
 	}
 }
 
@@ -88,7 +92,7 @@ func (a *PersonApiService) GETProjectsApiV3PeopleIdJson(ctx _context.Context) Ap
  * Execute executes the request
  * @return PeopleResponse
  */
-func (a *PersonApiService) GETProjectsApiV3PeopleIdJsonExecute(r ApiGETProjectsApiV3PeopleIdJsonRequest) (PeopleResponse, *_nethttp.Response, error) {
+func (a *PersonApiService) GETProjectsApiV3PeoplepersonIdJsonExecute(r ApiGETProjectsApiV3PeoplepersonIdJsonRequest) (PeopleResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -98,12 +102,13 @@ func (a *PersonApiService) GETProjectsApiV3PeopleIdJsonExecute(r ApiGETProjectsA
 		localVarReturnValue  PeopleResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonApiService.GETProjectsApiV3PeopleIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonApiService.GETProjectsApiV3PeoplepersonIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/people/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/people/{personId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"personId"+"}", _neturl.PathEscape(parameterToString(r.personId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -33,6 +33,7 @@ type PeoplePermissions struct {
 	Administrator *bool `json:"administrator,omitempty"`
 	CanAccess *bool `json:"canAccess,omitempty"`
 	CanAccessBox *bool `json:"canAccessBox,omitempty"`
+	CanAccessCalendar *bool `json:"canAccessCalendar,omitempty"`
 	CanAccessDropbox *bool `json:"canAccessDropbox,omitempty"`
 	CanAccessGoogleDocs *bool `json:"canAccessGoogleDocs,omitempty"`
 	CanAccessInvoiceTracking *bool `json:"canAccessInvoiceTracking,omitempty"`
@@ -40,22 +41,30 @@ type PeoplePermissions struct {
 	CanAccessOneDriveBusiness *bool `json:"canAccessOneDriveBusiness,omitempty"`
 	CanAccessPortfolio *bool `json:"canAccessPortfolio,omitempty"`
 	CanAccessTemplates *bool `json:"canAccessTemplates,omitempty"`
+	CanAddForms *bool `json:"canAddForms,omitempty"`
 	CanAddProjects *bool `json:"canAddProjects,omitempty"`
 	CanBeAssignedToTasksAndMilestones *bool `json:"canBeAssignedToTasksAndMilestones,omitempty"`
+	CanManageCustomFields *bool `json:"canManageCustomFields,omitempty"`
 	CanManagePeople *bool `json:"canManagePeople,omitempty"`
 	CanManagePortfolio *bool `json:"canManagePortfolio,omitempty"`
 	CanManageProjectBudget *bool `json:"canManageProjectBudget,omitempty"`
 	CanManageProjectTemplates *bool `json:"canManageProjectTemplates,omitempty"`
 	CanManageRates *bool `json:"canManageRates,omitempty"`
+	CanManageReports *bool `json:"canManageReports,omitempty"`
+	CanManageSchedule *bool `json:"canManageSchedule,omitempty"`
 	CanReceiveEmail *bool `json:"canReceiveEmail,omitempty"`
+	CanViewForms *bool `json:"canViewForms,omitempty"`
 	CanViewProjectBudget *bool `json:"canViewProjectBudget,omitempty"`
 	CanViewProjectMembers *bool `json:"canViewProjectMembers,omitempty"`
 	CanViewProjectTemplates *bool `json:"canViewProjectTemplates,omitempty"`
 	CanViewRates *bool `json:"canViewRates,omitempty"`
+	CanViewReports *bool `json:"canViewReports,omitempty"`
+	CanViewSchedule *bool `json:"canViewSchedule,omitempty"`
 	EditAllTasks *bool `json:"editAllTasks,omitempty"`
 	HasAccessToNewProjects *bool `json:"hasAccessToNewProjects,omitempty"`
 	IsArchived *bool `json:"isArchived,omitempty"`
 	IsObserving *bool `json:"isObserving,omitempty"`
+	ManageCustomFields *bool `json:"manageCustomFields,omitempty"`
 	NotifyDefaults *PeopleNotifyDefaults `json:"notifyDefaults,omitempty"`
 	ProjectAdministrator *bool `json:"projectAdministrator,omitempty"`
 	SetPrivacy *bool `json:"setPrivacy,omitempty"`
@@ -568,6 +577,38 @@ func (o *PeoplePermissions) SetCanAccessBox(v bool) {
 	o.CanAccessBox = &v
 }
 
+// GetCanAccessCalendar returns the CanAccessCalendar field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanAccessCalendar() bool {
+	if o == nil || o.CanAccessCalendar == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanAccessCalendar
+}
+
+// GetCanAccessCalendarOk returns a tuple with the CanAccessCalendar field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanAccessCalendarOk() (*bool, bool) {
+	if o == nil || o.CanAccessCalendar == nil {
+		return nil, false
+	}
+	return o.CanAccessCalendar, true
+}
+
+// HasCanAccessCalendar returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanAccessCalendar() bool {
+	if o != nil && o.CanAccessCalendar != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanAccessCalendar gets a reference to the given bool and assigns it to the CanAccessCalendar field.
+func (o *PeoplePermissions) SetCanAccessCalendar(v bool) {
+	o.CanAccessCalendar = &v
+}
+
 // GetCanAccessDropbox returns the CanAccessDropbox field value if set, zero value otherwise.
 func (o *PeoplePermissions) GetCanAccessDropbox() bool {
 	if o == nil || o.CanAccessDropbox == nil {
@@ -792,6 +833,38 @@ func (o *PeoplePermissions) SetCanAccessTemplates(v bool) {
 	o.CanAccessTemplates = &v
 }
 
+// GetCanAddForms returns the CanAddForms field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanAddForms() bool {
+	if o == nil || o.CanAddForms == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanAddForms
+}
+
+// GetCanAddFormsOk returns a tuple with the CanAddForms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanAddFormsOk() (*bool, bool) {
+	if o == nil || o.CanAddForms == nil {
+		return nil, false
+	}
+	return o.CanAddForms, true
+}
+
+// HasCanAddForms returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanAddForms() bool {
+	if o != nil && o.CanAddForms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanAddForms gets a reference to the given bool and assigns it to the CanAddForms field.
+func (o *PeoplePermissions) SetCanAddForms(v bool) {
+	o.CanAddForms = &v
+}
+
 // GetCanAddProjects returns the CanAddProjects field value if set, zero value otherwise.
 func (o *PeoplePermissions) GetCanAddProjects() bool {
 	if o == nil || o.CanAddProjects == nil {
@@ -854,6 +927,38 @@ func (o *PeoplePermissions) HasCanBeAssignedToTasksAndMilestones() bool {
 // SetCanBeAssignedToTasksAndMilestones gets a reference to the given bool and assigns it to the CanBeAssignedToTasksAndMilestones field.
 func (o *PeoplePermissions) SetCanBeAssignedToTasksAndMilestones(v bool) {
 	o.CanBeAssignedToTasksAndMilestones = &v
+}
+
+// GetCanManageCustomFields returns the CanManageCustomFields field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanManageCustomFields() bool {
+	if o == nil || o.CanManageCustomFields == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanManageCustomFields
+}
+
+// GetCanManageCustomFieldsOk returns a tuple with the CanManageCustomFields field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanManageCustomFieldsOk() (*bool, bool) {
+	if o == nil || o.CanManageCustomFields == nil {
+		return nil, false
+	}
+	return o.CanManageCustomFields, true
+}
+
+// HasCanManageCustomFields returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanManageCustomFields() bool {
+	if o != nil && o.CanManageCustomFields != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanManageCustomFields gets a reference to the given bool and assigns it to the CanManageCustomFields field.
+func (o *PeoplePermissions) SetCanManageCustomFields(v bool) {
+	o.CanManageCustomFields = &v
 }
 
 // GetCanManagePeople returns the CanManagePeople field value if set, zero value otherwise.
@@ -1016,6 +1121,70 @@ func (o *PeoplePermissions) SetCanManageRates(v bool) {
 	o.CanManageRates = &v
 }
 
+// GetCanManageReports returns the CanManageReports field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanManageReports() bool {
+	if o == nil || o.CanManageReports == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanManageReports
+}
+
+// GetCanManageReportsOk returns a tuple with the CanManageReports field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanManageReportsOk() (*bool, bool) {
+	if o == nil || o.CanManageReports == nil {
+		return nil, false
+	}
+	return o.CanManageReports, true
+}
+
+// HasCanManageReports returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanManageReports() bool {
+	if o != nil && o.CanManageReports != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanManageReports gets a reference to the given bool and assigns it to the CanManageReports field.
+func (o *PeoplePermissions) SetCanManageReports(v bool) {
+	o.CanManageReports = &v
+}
+
+// GetCanManageSchedule returns the CanManageSchedule field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanManageSchedule() bool {
+	if o == nil || o.CanManageSchedule == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanManageSchedule
+}
+
+// GetCanManageScheduleOk returns a tuple with the CanManageSchedule field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanManageScheduleOk() (*bool, bool) {
+	if o == nil || o.CanManageSchedule == nil {
+		return nil, false
+	}
+	return o.CanManageSchedule, true
+}
+
+// HasCanManageSchedule returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanManageSchedule() bool {
+	if o != nil && o.CanManageSchedule != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanManageSchedule gets a reference to the given bool and assigns it to the CanManageSchedule field.
+func (o *PeoplePermissions) SetCanManageSchedule(v bool) {
+	o.CanManageSchedule = &v
+}
+
 // GetCanReceiveEmail returns the CanReceiveEmail field value if set, zero value otherwise.
 func (o *PeoplePermissions) GetCanReceiveEmail() bool {
 	if o == nil || o.CanReceiveEmail == nil {
@@ -1046,6 +1215,38 @@ func (o *PeoplePermissions) HasCanReceiveEmail() bool {
 // SetCanReceiveEmail gets a reference to the given bool and assigns it to the CanReceiveEmail field.
 func (o *PeoplePermissions) SetCanReceiveEmail(v bool) {
 	o.CanReceiveEmail = &v
+}
+
+// GetCanViewForms returns the CanViewForms field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanViewForms() bool {
+	if o == nil || o.CanViewForms == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanViewForms
+}
+
+// GetCanViewFormsOk returns a tuple with the CanViewForms field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanViewFormsOk() (*bool, bool) {
+	if o == nil || o.CanViewForms == nil {
+		return nil, false
+	}
+	return o.CanViewForms, true
+}
+
+// HasCanViewForms returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanViewForms() bool {
+	if o != nil && o.CanViewForms != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanViewForms gets a reference to the given bool and assigns it to the CanViewForms field.
+func (o *PeoplePermissions) SetCanViewForms(v bool) {
+	o.CanViewForms = &v
 }
 
 // GetCanViewProjectBudget returns the CanViewProjectBudget field value if set, zero value otherwise.
@@ -1176,6 +1377,70 @@ func (o *PeoplePermissions) SetCanViewRates(v bool) {
 	o.CanViewRates = &v
 }
 
+// GetCanViewReports returns the CanViewReports field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanViewReports() bool {
+	if o == nil || o.CanViewReports == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanViewReports
+}
+
+// GetCanViewReportsOk returns a tuple with the CanViewReports field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanViewReportsOk() (*bool, bool) {
+	if o == nil || o.CanViewReports == nil {
+		return nil, false
+	}
+	return o.CanViewReports, true
+}
+
+// HasCanViewReports returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanViewReports() bool {
+	if o != nil && o.CanViewReports != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanViewReports gets a reference to the given bool and assigns it to the CanViewReports field.
+func (o *PeoplePermissions) SetCanViewReports(v bool) {
+	o.CanViewReports = &v
+}
+
+// GetCanViewSchedule returns the CanViewSchedule field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetCanViewSchedule() bool {
+	if o == nil || o.CanViewSchedule == nil {
+		var ret bool
+		return ret
+	}
+	return *o.CanViewSchedule
+}
+
+// GetCanViewScheduleOk returns a tuple with the CanViewSchedule field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetCanViewScheduleOk() (*bool, bool) {
+	if o == nil || o.CanViewSchedule == nil {
+		return nil, false
+	}
+	return o.CanViewSchedule, true
+}
+
+// HasCanViewSchedule returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasCanViewSchedule() bool {
+	if o != nil && o.CanViewSchedule != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCanViewSchedule gets a reference to the given bool and assigns it to the CanViewSchedule field.
+func (o *PeoplePermissions) SetCanViewSchedule(v bool) {
+	o.CanViewSchedule = &v
+}
+
 // GetEditAllTasks returns the EditAllTasks field value if set, zero value otherwise.
 func (o *PeoplePermissions) GetEditAllTasks() bool {
 	if o == nil || o.EditAllTasks == nil {
@@ -1302,6 +1567,38 @@ func (o *PeoplePermissions) HasIsObserving() bool {
 // SetIsObserving gets a reference to the given bool and assigns it to the IsObserving field.
 func (o *PeoplePermissions) SetIsObserving(v bool) {
 	o.IsObserving = &v
+}
+
+// GetManageCustomFields returns the ManageCustomFields field value if set, zero value otherwise.
+func (o *PeoplePermissions) GetManageCustomFields() bool {
+	if o == nil || o.ManageCustomFields == nil {
+		var ret bool
+		return ret
+	}
+	return *o.ManageCustomFields
+}
+
+// GetManageCustomFieldsOk returns a tuple with the ManageCustomFields field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePermissions) GetManageCustomFieldsOk() (*bool, bool) {
+	if o == nil || o.ManageCustomFields == nil {
+		return nil, false
+	}
+	return o.ManageCustomFields, true
+}
+
+// HasManageCustomFields returns a boolean if a field has been set.
+func (o *PeoplePermissions) HasManageCustomFields() bool {
+	if o != nil && o.ManageCustomFields != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetManageCustomFields gets a reference to the given bool and assigns it to the ManageCustomFields field.
+func (o *PeoplePermissions) SetManageCustomFields(v bool) {
+	o.ManageCustomFields = &v
 }
 
 // GetNotifyDefaults returns the NotifyDefaults field value if set, zero value otherwise.
@@ -1767,6 +2064,9 @@ func (o PeoplePermissions) MarshalJSON() ([]byte, error) {
 	if o.CanAccessBox != nil {
 		toSerialize["canAccessBox"] = o.CanAccessBox
 	}
+	if o.CanAccessCalendar != nil {
+		toSerialize["canAccessCalendar"] = o.CanAccessCalendar
+	}
 	if o.CanAccessDropbox != nil {
 		toSerialize["canAccessDropbox"] = o.CanAccessDropbox
 	}
@@ -1788,11 +2088,17 @@ func (o PeoplePermissions) MarshalJSON() ([]byte, error) {
 	if o.CanAccessTemplates != nil {
 		toSerialize["canAccessTemplates"] = o.CanAccessTemplates
 	}
+	if o.CanAddForms != nil {
+		toSerialize["canAddForms"] = o.CanAddForms
+	}
 	if o.CanAddProjects != nil {
 		toSerialize["canAddProjects"] = o.CanAddProjects
 	}
 	if o.CanBeAssignedToTasksAndMilestones != nil {
 		toSerialize["canBeAssignedToTasksAndMilestones"] = o.CanBeAssignedToTasksAndMilestones
+	}
+	if o.CanManageCustomFields != nil {
+		toSerialize["canManageCustomFields"] = o.CanManageCustomFields
 	}
 	if o.CanManagePeople != nil {
 		toSerialize["canManagePeople"] = o.CanManagePeople
@@ -1809,8 +2115,17 @@ func (o PeoplePermissions) MarshalJSON() ([]byte, error) {
 	if o.CanManageRates != nil {
 		toSerialize["canManageRates"] = o.CanManageRates
 	}
+	if o.CanManageReports != nil {
+		toSerialize["canManageReports"] = o.CanManageReports
+	}
+	if o.CanManageSchedule != nil {
+		toSerialize["canManageSchedule"] = o.CanManageSchedule
+	}
 	if o.CanReceiveEmail != nil {
 		toSerialize["canReceiveEmail"] = o.CanReceiveEmail
+	}
+	if o.CanViewForms != nil {
+		toSerialize["canViewForms"] = o.CanViewForms
 	}
 	if o.CanViewProjectBudget != nil {
 		toSerialize["canViewProjectBudget"] = o.CanViewProjectBudget
@@ -1824,6 +2139,12 @@ func (o PeoplePermissions) MarshalJSON() ([]byte, error) {
 	if o.CanViewRates != nil {
 		toSerialize["canViewRates"] = o.CanViewRates
 	}
+	if o.CanViewReports != nil {
+		toSerialize["canViewReports"] = o.CanViewReports
+	}
+	if o.CanViewSchedule != nil {
+		toSerialize["canViewSchedule"] = o.CanViewSchedule
+	}
 	if o.EditAllTasks != nil {
 		toSerialize["editAllTasks"] = o.EditAllTasks
 	}
@@ -1835,6 +2156,9 @@ func (o PeoplePermissions) MarshalJSON() ([]byte, error) {
 	}
 	if o.IsObserving != nil {
 		toSerialize["isObserving"] = o.IsObserving
+	}
+	if o.ManageCustomFields != nil {
+		toSerialize["manageCustomFields"] = o.ManageCustomFields
 	}
 	if o.NotifyDefaults != nil {
 		toSerialize["notifyDefaults"] = o.NotifyDefaults

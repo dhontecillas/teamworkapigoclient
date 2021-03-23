@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,14 +27,17 @@ var (
 // FormsPublicApiService FormsPublicApi service
 type FormsPublicApiService service
 
-type ApiGETProjectsApiV3FormsPublicTokenJsonRequest struct {
+type ApiGETProjectsApiV3FormsPublictokenJsonRequest struct {
 	ctx _context.Context
 	ApiService *FormsPublicApiService
+	token int32
 	orderMode *string
+	hostObjectType *string
 	contentState *string
 	userId *int32
 	pageSize *int32
 	page *int32
+	hostObjectId *int32
 	projectIds *[]int32
 	include *[]string
 	fieldsUsers *[]string
@@ -41,61 +45,71 @@ type ApiGETProjectsApiV3FormsPublicTokenJsonRequest struct {
 	fieldsForms *[]string
 }
 
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) ContentState(contentState string) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) HostObjectType(hostObjectType string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
+	r.hostObjectType = &hostObjectType
+	return r
+}
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) ContentState(contentState string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.contentState = &contentState
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) UserId(userId int32) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) UserId(userId int32) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) Page(page int32) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) Page(page int32) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) HostObjectId(hostObjectId int32) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
+	r.hostObjectId = &hostObjectId
+	return r
+}
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) Include(include []string) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) Include(include []string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) FieldsForms(fieldsForms []string) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) FieldsForms(fieldsForms []string) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
 	r.fieldsForms = &fieldsForms
 	return r
 }
 
-func (r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) Execute() (FormPublicResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FormsPublicTokenJsonExecute(r)
+func (r ApiGETProjectsApiV3FormsPublictokenJsonRequest) Execute() (FormPublicResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FormsPublictokenJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3FormsPublicTokenJson Get a forms via its token.
+ * GETProjectsApiV3FormsPublictokenJson Get a forms via its token.
  * This endpoint does not require authentication.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FormsPublicTokenJsonRequest
+ * @param token
+ * @return ApiGETProjectsApiV3FormsPublictokenJsonRequest
  */
-func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJson(ctx _context.Context) ApiGETProjectsApiV3FormsPublicTokenJsonRequest {
-	return ApiGETProjectsApiV3FormsPublicTokenJsonRequest{
+func (a *FormsPublicApiService) GETProjectsApiV3FormsPublictokenJson(ctx _context.Context, token int32) ApiGETProjectsApiV3FormsPublictokenJsonRequest {
+	return ApiGETProjectsApiV3FormsPublictokenJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		token: token,
 	}
 }
 
@@ -103,7 +117,7 @@ func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJson(ctx _contex
  * Execute executes the request
  * @return FormPublicResponse
  */
-func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJsonExecute(r ApiGETProjectsApiV3FormsPublicTokenJsonRequest) (FormPublicResponse, *_nethttp.Response, error) {
+func (a *FormsPublicApiService) GETProjectsApiV3FormsPublictokenJsonExecute(r ApiGETProjectsApiV3FormsPublictokenJsonRequest) (FormPublicResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -113,12 +127,13 @@ func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJsonExecute(r Ap
 		localVarReturnValue  FormPublicResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsPublicApiService.GETProjectsApiV3FormsPublicTokenJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsPublicApiService.GETProjectsApiV3FormsPublictokenJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/forms/public/:token.json"
+	localVarPath := localBasePath + "/projects/api/v3/forms/public/{token}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"token"+"}", _neturl.PathEscape(parameterToString(r.token, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -126,6 +141,9 @@ func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJsonExecute(r Ap
 
 	if r.orderMode != nil {
 		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.hostObjectType != nil {
+		localVarQueryParams.Add("hostObject.type", parameterToString(*r.hostObjectType, ""))
 	}
 	if r.contentState != nil {
 		localVarQueryParams.Add("content.state", parameterToString(*r.contentState, ""))
@@ -138,6 +156,9 @@ func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJsonExecute(r Ap
 	}
 	if r.page != nil {
 		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.hostObjectId != nil {
+		localVarQueryParams.Add("hostObject.id", parameterToString(*r.hostObjectId, ""))
 	}
 	if r.projectIds != nil {
 		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
@@ -208,31 +229,34 @@ func (a *FormsPublicApiService) GETProjectsApiV3FormsPublicTokenJsonExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest struct {
+type ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest struct {
 	ctx _context.Context
 	ApiService *FormsPublicApiService
+	token int32
 	formSubmissionRequest *FormSubmissionRequest
 }
 
-func (r ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest) FormSubmissionRequest(formSubmissionRequest FormSubmissionRequest) ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest {
+func (r ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest) FormSubmissionRequest(formSubmissionRequest FormSubmissionRequest) ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest {
 	r.formSubmissionRequest = &formSubmissionRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest) Execute() (FormFormsResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3FormsPublicTokenSubmitJsonExecute(r)
+func (r ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest) Execute() (FormFormsResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3FormsPublictokenSubmitJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3FormsPublicTokenSubmitJson Submit a form response
+ * POSTProjectsApiV3FormsPublictokenSubmitJson Submit a form response
  * This endpoint does not require authentication.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest
+ * @param token
+ * @return ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest
  */
-func (a *FormsPublicApiService) POSTProjectsApiV3FormsPublicTokenSubmitJson(ctx _context.Context) ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest {
-	return ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest{
+func (a *FormsPublicApiService) POSTProjectsApiV3FormsPublictokenSubmitJson(ctx _context.Context, token int32) ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest {
+	return ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		token: token,
 	}
 }
 
@@ -240,7 +264,7 @@ func (a *FormsPublicApiService) POSTProjectsApiV3FormsPublicTokenSubmitJson(ctx 
  * Execute executes the request
  * @return FormFormsResponse
  */
-func (a *FormsPublicApiService) POSTProjectsApiV3FormsPublicTokenSubmitJsonExecute(r ApiPOSTProjectsApiV3FormsPublicTokenSubmitJsonRequest) (FormFormsResponse, *_nethttp.Response, error) {
+func (a *FormsPublicApiService) POSTProjectsApiV3FormsPublictokenSubmitJsonExecute(r ApiPOSTProjectsApiV3FormsPublictokenSubmitJsonRequest) (FormFormsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -250,12 +274,13 @@ func (a *FormsPublicApiService) POSTProjectsApiV3FormsPublicTokenSubmitJsonExecu
 		localVarReturnValue  FormFormsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsPublicApiService.POSTProjectsApiV3FormsPublicTokenSubmitJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsPublicApiService.POSTProjectsApiV3FormsPublictokenSubmitJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/forms/public/:token/submit.json"
+	localVarPath := localBasePath + "/projects/api/v3/forms/public/{token}/submit.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"token"+"}", _neturl.PathEscape(parameterToString(r.token, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

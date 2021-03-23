@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,25 +27,28 @@ var (
 // FileCommentsApiService FileCommentsApi service
 type FileCommentsApiService service
 
-type ApiGETProjectsApiV3FilesIdCommentsJsonRequest struct {
+type ApiGETProjectsApiV3FilesfileIdCommentsJsonRequest struct {
 	ctx _context.Context
 	ApiService *FileCommentsApiService
+	fileId int32
 }
 
 
-func (r ApiGETProjectsApiV3FilesIdCommentsJsonRequest) Execute() (CommentCommentsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FilesIdCommentsJsonExecute(r)
+func (r ApiGETProjectsApiV3FilesfileIdCommentsJsonRequest) Execute() (CommentCommentsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FilesfileIdCommentsJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3FilesIdCommentsJson Get a list of comments for a file
+ * GETProjectsApiV3FilesfileIdCommentsJson Get a list of comments for a file
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FilesIdCommentsJsonRequest
+ * @param fileId
+ * @return ApiGETProjectsApiV3FilesfileIdCommentsJsonRequest
  */
-func (a *FileCommentsApiService) GETProjectsApiV3FilesIdCommentsJson(ctx _context.Context) ApiGETProjectsApiV3FilesIdCommentsJsonRequest {
-	return ApiGETProjectsApiV3FilesIdCommentsJsonRequest{
+func (a *FileCommentsApiService) GETProjectsApiV3FilesfileIdCommentsJson(ctx _context.Context, fileId int32) ApiGETProjectsApiV3FilesfileIdCommentsJsonRequest {
+	return ApiGETProjectsApiV3FilesfileIdCommentsJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		fileId: fileId,
 	}
 }
 
@@ -52,7 +56,7 @@ func (a *FileCommentsApiService) GETProjectsApiV3FilesIdCommentsJson(ctx _contex
  * Execute executes the request
  * @return CommentCommentsResponse
  */
-func (a *FileCommentsApiService) GETProjectsApiV3FilesIdCommentsJsonExecute(r ApiGETProjectsApiV3FilesIdCommentsJsonRequest) (CommentCommentsResponse, *_nethttp.Response, error) {
+func (a *FileCommentsApiService) GETProjectsApiV3FilesfileIdCommentsJsonExecute(r ApiGETProjectsApiV3FilesfileIdCommentsJsonRequest) (CommentCommentsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -62,12 +66,13 @@ func (a *FileCommentsApiService) GETProjectsApiV3FilesIdCommentsJsonExecute(r Ap
 		localVarReturnValue  CommentCommentsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileCommentsApiService.GETProjectsApiV3FilesIdCommentsJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FileCommentsApiService.GETProjectsApiV3FilesfileIdCommentsJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/files/:id/comments.json"
+	localVarPath := localBasePath + "/projects/api/v3/files/{fileId}/comments.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", _neturl.PathEscape(parameterToString(r.fileId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

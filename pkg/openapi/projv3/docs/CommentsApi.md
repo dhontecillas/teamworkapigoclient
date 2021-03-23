@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GETProjectsApiV3CommentsJson
 
-> CommentCommentsResponse GETProjectsApiV3CommentsJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).PublishedStartDate(publishedStartDate).PublishedEndDate(publishedEndDate).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ObjectTypes(objectTypes).ObjectType(objectType).CommentStatus(commentStatus).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).StrictHTML(strictHTML).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).ObjectIds(objectIds).NotifiedUserIds(notifiedUserIds).Include(include).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsProjects(fieldsProjects).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsLinks(fieldsLinks).FieldsFileversions(fieldsFileversions).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).Execute()
+> CommentCommentsResponse GETProjectsApiV3CommentsJson(ctx).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).PublishedStartDate(publishedStartDate).PublishedEndDate(publishedEndDate).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ObjectTypes(objectTypes).ObjectType(objectType).CommentStatus(commentStatus).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).StrictHTML(strictHTML).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IncludeArchivedProjects(includeArchivedProjects).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).ObjectIds(objectIds).NotifiedUserIds(notifiedUserIds).Include(include).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsProjects(fieldsProjects).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsLinks(fieldsLinks).FieldsFileversions(fieldsFileversions).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).Execute()
 
 Get a list of comments
 
@@ -45,6 +45,7 @@ func main() {
     strictHTML := true // bool | use strict html filtering for content (optional) (default to false)
     onlyStarredProjects := true // bool | filter by starred projects only (optional)
     matchAllProjectTags := true // bool | match all project tags (optional)
+    includeArchivedProjects := true // bool | include archived projects (optional)
     userIds := []int32{int32(123)} // []int32 | filter by user ids (optional)
     projectTagIds := []int32{int32(123)} // []int32 | filter by project tag ids (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 | filter by project owner ids (optional)
@@ -66,7 +67,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CommentsApi.GETProjectsApiV3CommentsJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).PublishedStartDate(publishedStartDate).PublishedEndDate(publishedEndDate).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ObjectTypes(objectTypes).ObjectType(objectType).CommentStatus(commentStatus).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).StrictHTML(strictHTML).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).ObjectIds(objectIds).NotifiedUserIds(notifiedUserIds).Include(include).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsProjects(fieldsProjects).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsLinks(fieldsLinks).FieldsFileversions(fieldsFileversions).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.CommentsApi.GETProjectsApiV3CommentsJson(context.Background()).UpdatedAfterDate(updatedAfterDate).UpdatedAfter(updatedAfter).SearchTerm(searchTerm).PublishedStartDate(publishedStartDate).PublishedEndDate(publishedEndDate).ProjectStatuses(projectStatuses).OrderMode(orderMode).OrderBy(orderBy).ObjectTypes(objectTypes).ObjectType(objectType).CommentStatus(commentStatus).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).StrictHTML(strictHTML).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IncludeArchivedProjects(includeArchivedProjects).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).ObjectIds(objectIds).NotifiedUserIds(notifiedUserIds).Include(include).FieldsUsers(fieldsUsers).FieldsTasks(fieldsTasks).FieldsProjects(fieldsProjects).FieldsNotebooks(fieldsNotebooks).FieldsMilestones(fieldsMilestones).FieldsLinks(fieldsLinks).FieldsFileversions(fieldsFileversions).FieldsFiles(fieldsFiles).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CommentsApi.GETProjectsApiV3CommentsJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -104,6 +105,7 @@ Name | Type | Description  | Notes
  **strictHTML** | **bool** | use strict html filtering for content | [default to false]
  **onlyStarredProjects** | **bool** | filter by starred projects only | 
  **matchAllProjectTags** | **bool** | match all project tags | 
+ **includeArchivedProjects** | **bool** | include archived projects | 
  **userIds** | **[]int32** | filter by user ids | 
  **projectTagIds** | **[]int32** | filter by project tag ids | 
  **projectOwnerIds** | **[]int32** | filter by project owner ids | 

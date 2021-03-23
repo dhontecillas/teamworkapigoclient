@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,34 +28,37 @@ var (
 // TagsApiService TagsApi service
 type TagsApiService service
 
-type ApiDELETEProjectsApiV3TagsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3TagstagIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *TagsApiService
+	tagId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3TagsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3TagsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3TagstagIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3TagstagIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3TagsIdJson Deletes a tag
+ * DELETEProjectsApiV3TagstagIdJson Deletes a tag
  * Removes a tag. If there's no tag with the given ID the status code 409
 (CONFLICT) will be returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3TagsIdJsonRequest
+ * @param tagId
+ * @return ApiDELETEProjectsApiV3TagstagIdJsonRequest
  */
-func (a *TagsApiService) DELETEProjectsApiV3TagsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3TagsIdJsonRequest {
-	return ApiDELETEProjectsApiV3TagsIdJsonRequest{
+func (a *TagsApiService) DELETEProjectsApiV3TagstagIdJson(ctx _context.Context, tagId int32) ApiDELETEProjectsApiV3TagstagIdJsonRequest {
+	return ApiDELETEProjectsApiV3TagstagIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		tagId: tagId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TagsApiService) DELETEProjectsApiV3TagsIdJsonExecute(r ApiDELETEProjectsApiV3TagsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *TagsApiService) DELETEProjectsApiV3TagstagIdJsonExecute(r ApiDELETEProjectsApiV3TagstagIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -63,12 +67,13 @@ func (a *TagsApiService) DELETEProjectsApiV3TagsIdJsonExecute(r ApiDELETEProject
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.DELETEProjectsApiV3TagsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.DELETEProjectsApiV3TagstagIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tags/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/tags/{tagId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"tagId"+"}", _neturl.PathEscape(parameterToString(r.tagId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -137,118 +142,6 @@ func (a *TagsApiService) DELETEProjectsApiV3TagsIdJsonExecute(r ApiDELETEProject
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3TagsIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *TagsApiService
-}
-
-
-func (r ApiGETProjectsApiV3TagsIdJsonRequest) Execute() (TagResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3TagsIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3TagsIdJson Get details of an individual tag
- * Return a specific tag.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3TagsIdJsonRequest
- */
-func (a *TagsApiService) GETProjectsApiV3TagsIdJson(ctx _context.Context) ApiGETProjectsApiV3TagsIdJsonRequest {
-	return ApiGETProjectsApiV3TagsIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return TagResponse
- */
-func (a *TagsApiService) GETProjectsApiV3TagsIdJsonExecute(r ApiGETProjectsApiV3TagsIdJsonRequest) (TagResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  TagResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.GETProjectsApiV3TagsIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/tags/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGETProjectsApiV3TagsJsonRequest struct {
@@ -474,32 +367,29 @@ func (a *TagsApiService) GETProjectsApiV3TagsJsonExecute(r ApiGETProjectsApiV3Ta
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3TagsIdJsonRequest struct {
+type ApiGETProjectsApiV3TagstagIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *TagsApiService
-	tagRequest *TagRequest
+	tagId int32
 }
 
-func (r ApiPATCHProjectsApiV3TagsIdJsonRequest) TagRequest(tagRequest TagRequest) ApiPATCHProjectsApiV3TagsIdJsonRequest {
-	r.tagRequest = &tagRequest
-	return r
-}
 
-func (r ApiPATCHProjectsApiV3TagsIdJsonRequest) Execute() (TagResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3TagsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3TagstagIdJsonRequest) Execute() (TagResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TagstagIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3TagsIdJson Update a single tag
- * Updates a existing tag. If there's already a tag with the same changed name
-in the installation, it will be returned the status code 409 (CONFLICT).
+ * GETProjectsApiV3TagstagIdJson Get details of an individual tag
+ * Return a specific tag.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3TagsIdJsonRequest
+ * @param tagId
+ * @return ApiGETProjectsApiV3TagstagIdJsonRequest
  */
-func (a *TagsApiService) PATCHProjectsApiV3TagsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3TagsIdJsonRequest {
-	return ApiPATCHProjectsApiV3TagsIdJsonRequest{
+func (a *TagsApiService) GETProjectsApiV3TagstagIdJson(ctx _context.Context, tagId int32) ApiGETProjectsApiV3TagstagIdJsonRequest {
+	return ApiGETProjectsApiV3TagstagIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		tagId: tagId,
 	}
 }
 
@@ -507,7 +397,129 @@ func (a *TagsApiService) PATCHProjectsApiV3TagsIdJson(ctx _context.Context) ApiP
  * Execute executes the request
  * @return TagResponse
  */
-func (a *TagsApiService) PATCHProjectsApiV3TagsIdJsonExecute(r ApiPATCHProjectsApiV3TagsIdJsonRequest) (TagResponse, *_nethttp.Response, error) {
+func (a *TagsApiService) GETProjectsApiV3TagstagIdJsonExecute(r ApiGETProjectsApiV3TagstagIdJsonRequest) (TagResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TagResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.GETProjectsApiV3TagstagIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tags/{tagId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"tagId"+"}", _neturl.PathEscape(parameterToString(r.tagId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPATCHProjectsApiV3TagstagIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *TagsApiService
+	tagId int32
+	tagRequest *TagRequest
+}
+
+func (r ApiPATCHProjectsApiV3TagstagIdJsonRequest) TagRequest(tagRequest TagRequest) ApiPATCHProjectsApiV3TagstagIdJsonRequest {
+	r.tagRequest = &tagRequest
+	return r
+}
+
+func (r ApiPATCHProjectsApiV3TagstagIdJsonRequest) Execute() (TagResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3TagstagIdJsonExecute(r)
+}
+
+/*
+ * PATCHProjectsApiV3TagstagIdJson Update a single tag
+ * Updates a existing tag. If there's already a tag with the same changed name
+in the installation, it will be returned the status code 409 (CONFLICT).
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param tagId
+ * @return ApiPATCHProjectsApiV3TagstagIdJsonRequest
+ */
+func (a *TagsApiService) PATCHProjectsApiV3TagstagIdJson(ctx _context.Context, tagId int32) ApiPATCHProjectsApiV3TagstagIdJsonRequest {
+	return ApiPATCHProjectsApiV3TagstagIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		tagId: tagId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TagResponse
+ */
+func (a *TagsApiService) PATCHProjectsApiV3TagstagIdJsonExecute(r ApiPATCHProjectsApiV3TagstagIdJsonRequest) (TagResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -517,12 +529,13 @@ func (a *TagsApiService) PATCHProjectsApiV3TagsIdJsonExecute(r ApiPATCHProjectsA
 		localVarReturnValue  TagResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.PATCHProjectsApiV3TagsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.PATCHProjectsApiV3TagstagIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tags/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/tags/{tagId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"tagId"+"}", _neturl.PathEscape(parameterToString(r.tagId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

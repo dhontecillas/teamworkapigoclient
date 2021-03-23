@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,9 +27,10 @@ var (
 // LockdownsApiService LockdownsApi service
 type LockdownsApiService service
 
-type ApiGETProjectsApiV3LockdownsIdJsonRequest struct {
+type ApiGETProjectsApiV3LockdownslockdownIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *LockdownsApiService
+	lockdownId int32
 	id *int32
 	includeItems *bool
 	include *[]string
@@ -46,81 +48,83 @@ type ApiGETProjectsApiV3LockdownsIdJsonRequest struct {
 	fieldsComments *[]string
 }
 
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) Id(id int32) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) Id(id int32) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.id = &id
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) IncludeItems(includeItems bool) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) IncludeItems(includeItems bool) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.includeItems = &includeItems
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) Include(include []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) Include(include []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsTeams = &fieldsTeams
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsTasks = &fieldsTasks
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsTasklists = &fieldsTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsNotebooks(fieldsNotebooks []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsNotebooks(fieldsNotebooks []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsNotebooks = &fieldsNotebooks
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsMilestones(fieldsMilestones []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsMilestones = &fieldsMilestones
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsMessages(fieldsMessages []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsMessages(fieldsMessages []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsMessages = &fieldsMessages
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsLockdowns(fieldsLockdowns []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsLockdowns(fieldsLockdowns []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsLockdowns = &fieldsLockdowns
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsLinks(fieldsLinks []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsLinks(fieldsLinks []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsLinks = &fieldsLinks
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsFiles(fieldsFiles []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsFiles(fieldsFiles []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsFiles = &fieldsFiles
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) FieldsComments(fieldsComments []string) ApiGETProjectsApiV3LockdownsIdJsonRequest {
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) FieldsComments(fieldsComments []string) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
 	r.fieldsComments = &fieldsComments
 	return r
 }
 
-func (r ApiGETProjectsApiV3LockdownsIdJsonRequest) Execute() (LockdownResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3LockdownsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) Execute() (LockdownResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3LockdownslockdownIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3LockdownsIdJson Get a specific lockdown.
+ * GETProjectsApiV3LockdownslockdownIdJson Get a specific lockdown.
  * Retrieve a lockdown information.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3LockdownsIdJsonRequest
+ * @param lockdownId
+ * @return ApiGETProjectsApiV3LockdownslockdownIdJsonRequest
  */
-func (a *LockdownsApiService) GETProjectsApiV3LockdownsIdJson(ctx _context.Context) ApiGETProjectsApiV3LockdownsIdJsonRequest {
-	return ApiGETProjectsApiV3LockdownsIdJsonRequest{
+func (a *LockdownsApiService) GETProjectsApiV3LockdownslockdownIdJson(ctx _context.Context, lockdownId int32) ApiGETProjectsApiV3LockdownslockdownIdJsonRequest {
+	return ApiGETProjectsApiV3LockdownslockdownIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		lockdownId: lockdownId,
 	}
 }
 
@@ -128,7 +132,7 @@ func (a *LockdownsApiService) GETProjectsApiV3LockdownsIdJson(ctx _context.Conte
  * Execute executes the request
  * @return LockdownResponse
  */
-func (a *LockdownsApiService) GETProjectsApiV3LockdownsIdJsonExecute(r ApiGETProjectsApiV3LockdownsIdJsonRequest) (LockdownResponse, *_nethttp.Response, error) {
+func (a *LockdownsApiService) GETProjectsApiV3LockdownslockdownIdJsonExecute(r ApiGETProjectsApiV3LockdownslockdownIdJsonRequest) (LockdownResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -138,12 +142,13 @@ func (a *LockdownsApiService) GETProjectsApiV3LockdownsIdJsonExecute(r ApiGETPro
 		localVarReturnValue  LockdownResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LockdownsApiService.GETProjectsApiV3LockdownsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LockdownsApiService.GETProjectsApiV3LockdownslockdownIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/lockdowns/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/lockdowns/{lockdownId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"lockdownId"+"}", _neturl.PathEscape(parameterToString(r.lockdownId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

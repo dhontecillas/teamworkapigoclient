@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DailyReportDaysFilter** | Pointer to **int32** |  | [optional] 
 **DailyReportEventsType** | Pointer to **string** |  | [optional] 
+**DailyReportIncludeStartDate** | Pointer to **bool** |  | [optional] 
 **DailyReportSortBy** | Pointer to **string** |  | [optional] 
 **NotifyOnAddedAsFollower** | Pointer to **bool** |  | [optional] 
 **NotifyOnStatusUpdate** | Pointer to **bool** |  | [optional] 
@@ -86,6 +87,31 @@ SetDailyReportEventsType sets DailyReportEventsType field to given value.
 `func (o *PeopleNotifications) HasDailyReportEventsType() bool`
 
 HasDailyReportEventsType returns a boolean if a field has been set.
+
+### GetDailyReportIncludeStartDate
+
+`func (o *PeopleNotifications) GetDailyReportIncludeStartDate() bool`
+
+GetDailyReportIncludeStartDate returns the DailyReportIncludeStartDate field if non-nil, zero value otherwise.
+
+### GetDailyReportIncludeStartDateOk
+
+`func (o *PeopleNotifications) GetDailyReportIncludeStartDateOk() (*bool, bool)`
+
+GetDailyReportIncludeStartDateOk returns a tuple with the DailyReportIncludeStartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDailyReportIncludeStartDate
+
+`func (o *PeopleNotifications) SetDailyReportIncludeStartDate(v bool)`
+
+SetDailyReportIncludeStartDate sets DailyReportIncludeStartDate field to given value.
+
+### HasDailyReportIncludeStartDate
+
+`func (o *PeopleNotifications) HasDailyReportIncludeStartDate() bool`
+
+HasDailyReportIncludeStartDate returns a boolean if a field has been set.
 
 ### GetDailyReportSortBy
 

@@ -14,8 +14,6 @@ docs/PeopleAuthData.md
 docs/PeopleCompany.md
 docs/PeopleCompanyResponse.md
 docs/PeopleImpersonating.md
-docs/PeopleIntegrationEnabled.md
-docs/PeopleIntegrations.md
 docs/PeopleLocalization.md
 docs/PeopleNotifications.md
 docs/PeopleNotifyDefaults.md
@@ -31,6 +29,7 @@ docs/PeopleWorkingHoursEntry.md
 docs/TwcoreTagsTag.md
 docs/TwcoreusersbaseAccount.md
 docs/TwdataaccountAnnouncementResponse.md
+docs/TwdatausersFilterResponse.md
 git_push.sh
 go.mod
 go.sum
@@ -39,8 +38,6 @@ model_people_auth_data.go
 model_people_company.go
 model_people_company_response.go
 model_people_impersonating.go
-model_people_integration_enabled.go
-model_people_integrations.go
 model_people_localization.go
 model_people_notifications.go
 model_people_notify_defaults.go
@@ -56,5 +53,6 @@ model_people_working_hours_entry.go
 model_twcore_tags_tag.go
 model_twcoreusersbase_account.go
 model_twdataaccount_announcement_response.go
+model_twdatausers_filter_response.go
 response.go
 utils.go

@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,26 +27,29 @@ var (
 // CompanyApiService CompanyApi service
 type CompanyApiService service
 
-type ApiGETProjectsApiV3CompaniesIdJsonRequest struct {
+type ApiGETProjectsApiV3CompaniescompanyIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *CompanyApiService
+	companyId int32
 }
 
 
-func (r ApiGETProjectsApiV3CompaniesIdJsonRequest) Execute() (CompanyResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3CompaniesIdJsonExecute(r)
+func (r ApiGETProjectsApiV3CompaniescompanyIdJsonRequest) Execute() (CompanyResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3CompaniescompanyIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3CompaniesIdJson Get a specific company.
+ * GETProjectsApiV3CompaniescompanyIdJson Get a specific company.
  * Retrieves a company by id.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3CompaniesIdJsonRequest
+ * @param companyId
+ * @return ApiGETProjectsApiV3CompaniescompanyIdJsonRequest
  */
-func (a *CompanyApiService) GETProjectsApiV3CompaniesIdJson(ctx _context.Context) ApiGETProjectsApiV3CompaniesIdJsonRequest {
-	return ApiGETProjectsApiV3CompaniesIdJsonRequest{
+func (a *CompanyApiService) GETProjectsApiV3CompaniescompanyIdJson(ctx _context.Context, companyId int32) ApiGETProjectsApiV3CompaniescompanyIdJsonRequest {
+	return ApiGETProjectsApiV3CompaniescompanyIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		companyId: companyId,
 	}
 }
 
@@ -53,7 +57,7 @@ func (a *CompanyApiService) GETProjectsApiV3CompaniesIdJson(ctx _context.Context
  * Execute executes the request
  * @return CompanyResponse
  */
-func (a *CompanyApiService) GETProjectsApiV3CompaniesIdJsonExecute(r ApiGETProjectsApiV3CompaniesIdJsonRequest) (CompanyResponse, *_nethttp.Response, error) {
+func (a *CompanyApiService) GETProjectsApiV3CompaniescompanyIdJsonExecute(r ApiGETProjectsApiV3CompaniescompanyIdJsonRequest) (CompanyResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -63,12 +67,13 @@ func (a *CompanyApiService) GETProjectsApiV3CompaniesIdJsonExecute(r ApiGETProje
 		localVarReturnValue  CompanyResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompanyApiService.GETProjectsApiV3CompaniesIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CompanyApiService.GETProjectsApiV3CompaniescompanyIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/companies/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/companies/{companyId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"companyId"+"}", _neturl.PathEscape(parameterToString(r.companyId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PATCHProjectsApiV3MessagesIdJson**](MessagesApi.md#PATCHProjectsApiV3MessagesIdJson) | **Patch** /projects/api/v3/messages/:id.json | Edit a message.
+[**PATCHProjectsApiV3MessagesmessageIdJson**](MessagesApi.md#PATCHProjectsApiV3MessagesmessageIdJson) | **Patch** /projects/api/v3/messages/{messageId}.json | Edit a message.
 
 
 
-## PATCHProjectsApiV3MessagesIdJson
+## PATCHProjectsApiV3MessagesmessageIdJson
 
-> PATCHProjectsApiV3MessagesIdJson(ctx).MessageRequest(messageRequest).Execute()
+> PATCHProjectsApiV3MessagesmessageIdJson(ctx, messageId).MessageRequest(messageRequest).Execute()
 
 Edit a message.
 
@@ -29,13 +29,14 @@ import (
 )
 
 func main() {
+    messageId := int32(56) // int32 | 
     messageRequest := *openapiclient.NewMessageRequest() // MessageRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.MessagesApi.PATCHProjectsApiV3MessagesIdJson(context.Background()).MessageRequest(messageRequest).Execute()
+    resp, r, err := api_client.MessagesApi.PATCHProjectsApiV3MessagesmessageIdJson(context.Background(), messageId).MessageRequest(messageRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessagesApi.PATCHProjectsApiV3MessagesIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MessagesApi.PATCHProjectsApiV3MessagesmessageIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -44,14 +45,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**messageId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPATCHProjectsApiV3MessagesIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPATCHProjectsApiV3MessagesmessageIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **messageRequest** | [**MessageRequest**](MessageRequest.md) |  | 
 
 ### Return type

@@ -18,6 +18,7 @@ import (
 type AssigneeResponse struct {
 	Assignees *[]ViewFormAssignee `json:"assignees,omitempty"`
 	Errors *[]ApierrorsBulkError `json:"errors,omitempty"`
+	Included *AssigneeFormAssigneesResponseIncluded `json:"included,omitempty"`
 }
 
 // NewAssigneeResponse instantiates a new AssigneeResponse object
@@ -101,6 +102,38 @@ func (o *AssigneeResponse) SetErrors(v []ApierrorsBulkError) {
 	o.Errors = &v
 }
 
+// GetIncluded returns the Included field value if set, zero value otherwise.
+func (o *AssigneeResponse) GetIncluded() AssigneeFormAssigneesResponseIncluded {
+	if o == nil || o.Included == nil {
+		var ret AssigneeFormAssigneesResponseIncluded
+		return ret
+	}
+	return *o.Included
+}
+
+// GetIncludedOk returns a tuple with the Included field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssigneeResponse) GetIncludedOk() (*AssigneeFormAssigneesResponseIncluded, bool) {
+	if o == nil || o.Included == nil {
+		return nil, false
+	}
+	return o.Included, true
+}
+
+// HasIncluded returns a boolean if a field has been set.
+func (o *AssigneeResponse) HasIncluded() bool {
+	if o != nil && o.Included != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIncluded gets a reference to the given AssigneeFormAssigneesResponseIncluded and assigns it to the Included field.
+func (o *AssigneeResponse) SetIncluded(v AssigneeFormAssigneesResponseIncluded) {
+	o.Included = &v
+}
+
 func (o AssigneeResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Assignees != nil {
@@ -108,6 +141,9 @@ func (o AssigneeResponse) MarshalJSON() ([]byte, error) {
 	}
 	if o.Errors != nil {
 		toSerialize["errors"] = o.Errors
+	}
+	if o.Included != nil {
+		toSerialize["included"] = o.Included
 	}
 	return json.Marshal(toSerialize)
 }

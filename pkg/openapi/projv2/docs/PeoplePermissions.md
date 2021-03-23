@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Administrator** | Pointer to **bool** | used when retrieving a specific person | [optional] 
 **CanAccess** | Pointer to **bool** |  | [optional] 
 **CanAccessBox** | Pointer to **bool** |  | [optional] 
+**CanAccessCalendar** | Pointer to **bool** |  | [optional] 
 **CanAccessDropbox** | Pointer to **bool** |  | [optional] 
 **CanAccessGoogleDocs** | Pointer to **bool** |  | [optional] 
 **CanAccessInvoiceTracking** | Pointer to **bool** |  | [optional] 
@@ -26,22 +27,30 @@ Name | Type | Description | Notes
 **CanAccessOneDriveBusiness** | Pointer to **bool** |  | [optional] 
 **CanAccessPortfolio** | Pointer to **bool** |  | [optional] 
 **CanAccessTemplates** | Pointer to **bool** |  | [optional] 
+**CanAddForms** | Pointer to **bool** |  | [optional] 
 **CanAddProjects** | Pointer to **bool** |  | [optional] 
 **CanBeAssignedToTasksAndMilestones** | Pointer to **bool** |  | [optional] 
+**CanManageCustomFields** | Pointer to **bool** |  | [optional] 
 **CanManagePeople** | Pointer to **bool** |  | [optional] 
 **CanManagePortfolio** | Pointer to **bool** |  | [optional] 
 **CanManageProjectBudget** | Pointer to **bool** |  | [optional] 
 **CanManageProjectTemplates** | Pointer to **bool** |  | [optional] 
 **CanManageRates** | Pointer to **bool** |  | [optional] 
+**CanManageReports** | Pointer to **bool** |  | [optional] 
+**CanManageSchedule** | Pointer to **bool** |  | [optional] 
 **CanReceiveEmail** | Pointer to **bool** |  | [optional] 
+**CanViewForms** | Pointer to **bool** |  | [optional] 
 **CanViewProjectBudget** | Pointer to **bool** |  | [optional] 
 **CanViewProjectMembers** | Pointer to **bool** |  | [optional] 
 **CanViewProjectTemplates** | Pointer to **bool** |  | [optional] 
 **CanViewRates** | Pointer to **bool** |  | [optional] 
+**CanViewReports** | Pointer to **bool** |  | [optional] 
+**CanViewSchedule** | Pointer to **bool** |  | [optional] 
 **EditAllTasks** | Pointer to **bool** |  | [optional] 
 **HasAccessToNewProjects** | Pointer to **bool** |  | [optional] 
 **IsArchived** | Pointer to **bool** |  | [optional] 
 **IsObserving** | Pointer to **bool** |  | [optional] 
+**ManageCustomFields** | Pointer to **bool** |  | [optional] 
 **NotifyDefaults** | Pointer to [**PeopleNotifyDefaults**](PeopleNotifyDefaults.md) |  | [optional] 
 **ProjectAdministrator** | Pointer to **bool** |  | [optional] 
 **SetPrivacy** | Pointer to **bool** |  | [optional] 
@@ -450,6 +459,31 @@ SetCanAccessBox sets CanAccessBox field to given value.
 
 HasCanAccessBox returns a boolean if a field has been set.
 
+### GetCanAccessCalendar
+
+`func (o *PeoplePermissions) GetCanAccessCalendar() bool`
+
+GetCanAccessCalendar returns the CanAccessCalendar field if non-nil, zero value otherwise.
+
+### GetCanAccessCalendarOk
+
+`func (o *PeoplePermissions) GetCanAccessCalendarOk() (*bool, bool)`
+
+GetCanAccessCalendarOk returns a tuple with the CanAccessCalendar field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanAccessCalendar
+
+`func (o *PeoplePermissions) SetCanAccessCalendar(v bool)`
+
+SetCanAccessCalendar sets CanAccessCalendar field to given value.
+
+### HasCanAccessCalendar
+
+`func (o *PeoplePermissions) HasCanAccessCalendar() bool`
+
+HasCanAccessCalendar returns a boolean if a field has been set.
+
 ### GetCanAccessDropbox
 
 `func (o *PeoplePermissions) GetCanAccessDropbox() bool`
@@ -625,6 +659,31 @@ SetCanAccessTemplates sets CanAccessTemplates field to given value.
 
 HasCanAccessTemplates returns a boolean if a field has been set.
 
+### GetCanAddForms
+
+`func (o *PeoplePermissions) GetCanAddForms() bool`
+
+GetCanAddForms returns the CanAddForms field if non-nil, zero value otherwise.
+
+### GetCanAddFormsOk
+
+`func (o *PeoplePermissions) GetCanAddFormsOk() (*bool, bool)`
+
+GetCanAddFormsOk returns a tuple with the CanAddForms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanAddForms
+
+`func (o *PeoplePermissions) SetCanAddForms(v bool)`
+
+SetCanAddForms sets CanAddForms field to given value.
+
+### HasCanAddForms
+
+`func (o *PeoplePermissions) HasCanAddForms() bool`
+
+HasCanAddForms returns a boolean if a field has been set.
+
 ### GetCanAddProjects
 
 `func (o *PeoplePermissions) GetCanAddProjects() bool`
@@ -674,6 +733,31 @@ SetCanBeAssignedToTasksAndMilestones sets CanBeAssignedToTasksAndMilestones fiel
 `func (o *PeoplePermissions) HasCanBeAssignedToTasksAndMilestones() bool`
 
 HasCanBeAssignedToTasksAndMilestones returns a boolean if a field has been set.
+
+### GetCanManageCustomFields
+
+`func (o *PeoplePermissions) GetCanManageCustomFields() bool`
+
+GetCanManageCustomFields returns the CanManageCustomFields field if non-nil, zero value otherwise.
+
+### GetCanManageCustomFieldsOk
+
+`func (o *PeoplePermissions) GetCanManageCustomFieldsOk() (*bool, bool)`
+
+GetCanManageCustomFieldsOk returns a tuple with the CanManageCustomFields field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanManageCustomFields
+
+`func (o *PeoplePermissions) SetCanManageCustomFields(v bool)`
+
+SetCanManageCustomFields sets CanManageCustomFields field to given value.
+
+### HasCanManageCustomFields
+
+`func (o *PeoplePermissions) HasCanManageCustomFields() bool`
+
+HasCanManageCustomFields returns a boolean if a field has been set.
 
 ### GetCanManagePeople
 
@@ -800,6 +884,56 @@ SetCanManageRates sets CanManageRates field to given value.
 
 HasCanManageRates returns a boolean if a field has been set.
 
+### GetCanManageReports
+
+`func (o *PeoplePermissions) GetCanManageReports() bool`
+
+GetCanManageReports returns the CanManageReports field if non-nil, zero value otherwise.
+
+### GetCanManageReportsOk
+
+`func (o *PeoplePermissions) GetCanManageReportsOk() (*bool, bool)`
+
+GetCanManageReportsOk returns a tuple with the CanManageReports field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanManageReports
+
+`func (o *PeoplePermissions) SetCanManageReports(v bool)`
+
+SetCanManageReports sets CanManageReports field to given value.
+
+### HasCanManageReports
+
+`func (o *PeoplePermissions) HasCanManageReports() bool`
+
+HasCanManageReports returns a boolean if a field has been set.
+
+### GetCanManageSchedule
+
+`func (o *PeoplePermissions) GetCanManageSchedule() bool`
+
+GetCanManageSchedule returns the CanManageSchedule field if non-nil, zero value otherwise.
+
+### GetCanManageScheduleOk
+
+`func (o *PeoplePermissions) GetCanManageScheduleOk() (*bool, bool)`
+
+GetCanManageScheduleOk returns a tuple with the CanManageSchedule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanManageSchedule
+
+`func (o *PeoplePermissions) SetCanManageSchedule(v bool)`
+
+SetCanManageSchedule sets CanManageSchedule field to given value.
+
+### HasCanManageSchedule
+
+`func (o *PeoplePermissions) HasCanManageSchedule() bool`
+
+HasCanManageSchedule returns a boolean if a field has been set.
+
 ### GetCanReceiveEmail
 
 `func (o *PeoplePermissions) GetCanReceiveEmail() bool`
@@ -824,6 +958,31 @@ SetCanReceiveEmail sets CanReceiveEmail field to given value.
 `func (o *PeoplePermissions) HasCanReceiveEmail() bool`
 
 HasCanReceiveEmail returns a boolean if a field has been set.
+
+### GetCanViewForms
+
+`func (o *PeoplePermissions) GetCanViewForms() bool`
+
+GetCanViewForms returns the CanViewForms field if non-nil, zero value otherwise.
+
+### GetCanViewFormsOk
+
+`func (o *PeoplePermissions) GetCanViewFormsOk() (*bool, bool)`
+
+GetCanViewFormsOk returns a tuple with the CanViewForms field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanViewForms
+
+`func (o *PeoplePermissions) SetCanViewForms(v bool)`
+
+SetCanViewForms sets CanViewForms field to given value.
+
+### HasCanViewForms
+
+`func (o *PeoplePermissions) HasCanViewForms() bool`
+
+HasCanViewForms returns a boolean if a field has been set.
 
 ### GetCanViewProjectBudget
 
@@ -925,6 +1084,56 @@ SetCanViewRates sets CanViewRates field to given value.
 
 HasCanViewRates returns a boolean if a field has been set.
 
+### GetCanViewReports
+
+`func (o *PeoplePermissions) GetCanViewReports() bool`
+
+GetCanViewReports returns the CanViewReports field if non-nil, zero value otherwise.
+
+### GetCanViewReportsOk
+
+`func (o *PeoplePermissions) GetCanViewReportsOk() (*bool, bool)`
+
+GetCanViewReportsOk returns a tuple with the CanViewReports field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanViewReports
+
+`func (o *PeoplePermissions) SetCanViewReports(v bool)`
+
+SetCanViewReports sets CanViewReports field to given value.
+
+### HasCanViewReports
+
+`func (o *PeoplePermissions) HasCanViewReports() bool`
+
+HasCanViewReports returns a boolean if a field has been set.
+
+### GetCanViewSchedule
+
+`func (o *PeoplePermissions) GetCanViewSchedule() bool`
+
+GetCanViewSchedule returns the CanViewSchedule field if non-nil, zero value otherwise.
+
+### GetCanViewScheduleOk
+
+`func (o *PeoplePermissions) GetCanViewScheduleOk() (*bool, bool)`
+
+GetCanViewScheduleOk returns a tuple with the CanViewSchedule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCanViewSchedule
+
+`func (o *PeoplePermissions) SetCanViewSchedule(v bool)`
+
+SetCanViewSchedule sets CanViewSchedule field to given value.
+
+### HasCanViewSchedule
+
+`func (o *PeoplePermissions) HasCanViewSchedule() bool`
+
+HasCanViewSchedule returns a boolean if a field has been set.
+
 ### GetEditAllTasks
 
 `func (o *PeoplePermissions) GetEditAllTasks() bool`
@@ -1024,6 +1233,31 @@ SetIsObserving sets IsObserving field to given value.
 `func (o *PeoplePermissions) HasIsObserving() bool`
 
 HasIsObserving returns a boolean if a field has been set.
+
+### GetManageCustomFields
+
+`func (o *PeoplePermissions) GetManageCustomFields() bool`
+
+GetManageCustomFields returns the ManageCustomFields field if non-nil, zero value otherwise.
+
+### GetManageCustomFieldsOk
+
+`func (o *PeoplePermissions) GetManageCustomFieldsOk() (*bool, bool)`
+
+GetManageCustomFieldsOk returns a tuple with the ManageCustomFields field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManageCustomFields
+
+`func (o *PeoplePermissions) SetManageCustomFields(v bool)`
+
+SetManageCustomFields sets ManageCustomFields field to given value.
+
+### HasManageCustomFields
+
+`func (o *PeoplePermissions) HasManageCustomFields() bool`
+
+HasManageCustomFields returns a boolean if a field has been set.
 
 ### GetNotifyDefaults
 

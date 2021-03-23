@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,38 +28,41 @@ var (
 // TimeTrackingApiService TimeTrackingApi service
 type TimeTrackingApiService service
 
-type ApiDELETEProjectsApiV3MeTimersIdJsonRequest struct {
+type ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	timerId int32
 	timerDeleteRequest *TimerDeleteRequest
 }
 
-func (r ApiDELETEProjectsApiV3MeTimersIdJsonRequest) TimerDeleteRequest(timerDeleteRequest TimerDeleteRequest) ApiDELETEProjectsApiV3MeTimersIdJsonRequest {
+func (r ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest) TimerDeleteRequest(timerDeleteRequest TimerDeleteRequest) ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest {
 	r.timerDeleteRequest = &timerDeleteRequest
 	return r
 }
 
-func (r ApiDELETEProjectsApiV3MeTimersIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3MeTimersIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3MeTimerstimerIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3MeTimersIdJson Delete a timer by ID
+ * DELETEProjectsApiV3MeTimerstimerIdJson Delete a timer by ID
  * Delete an existing timer.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3MeTimersIdJsonRequest
+ * @param timerId
+ * @return ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest
  */
-func (a *TimeTrackingApiService) DELETEProjectsApiV3MeTimersIdJson(ctx _context.Context) ApiDELETEProjectsApiV3MeTimersIdJsonRequest {
-	return ApiDELETEProjectsApiV3MeTimersIdJsonRequest{
+func (a *TimeTrackingApiService) DELETEProjectsApiV3MeTimerstimerIdJson(ctx _context.Context, timerId int32) ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest {
+	return ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		timerId: timerId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TimeTrackingApiService) DELETEProjectsApiV3MeTimersIdJsonExecute(r ApiDELETEProjectsApiV3MeTimersIdJsonRequest) (*_nethttp.Response, error) {
+func (a *TimeTrackingApiService) DELETEProjectsApiV3MeTimerstimerIdJsonExecute(r ApiDELETEProjectsApiV3MeTimerstimerIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -67,12 +71,13 @@ func (a *TimeTrackingApiService) DELETEProjectsApiV3MeTimersIdJsonExecute(r ApiD
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.DELETEProjectsApiV3MeTimersIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.DELETEProjectsApiV3MeTimerstimerIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/me/timers/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/me/timers/{timerId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -148,9 +153,10 @@ func (a *TimeTrackingApiService) DELETEProjectsApiV3MeTimersIdJsonExecute(r ApiD
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest struct {
+type ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	allocationId int32
 	updatedAfter *time.Time
 	startDate *string
 	selectedColumns *string
@@ -168,7 +174,7 @@ type ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest struct {
 	projectHealths *int32
 	pageSize *int32
 	page *int32
-	allocationId *int32
+	allocationId2 *int32
 	showDeleted *bool
 	onlyStarredProjects *bool
 	matchAllTags *bool
@@ -194,186 +200,188 @@ type ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) SelectedColumns(selectedColumns string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) SelectedColumns(selectedColumns string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.selectedColumns = &selectedColumns
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.invoicedType = &invoicedType
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) BillableType(billableType string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) BillableType(billableType string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.billableType = &billableType
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) TicketId(ticketId int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) TicketId(ticketId int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.ticketId = &ticketId
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) Page(page int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) Page(page int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) AllocationId(allocationId int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
-	r.allocationId = &allocationId
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) AllocationId2(allocationId2 int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
+	r.allocationId2 = &allocationId2
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.taskTagIds = &taskTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectsFromCompanyId = &projectsFromCompanyId
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) Include(include []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) Include(include []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) FieldsTimelogs(fieldsTimelogs []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) FieldsTimelogs(fieldsTimelogs []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.fieldsTimelogs = &fieldsTimelogs
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.fieldsTasks = &fieldsTasks
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.fieldsTasklists = &fieldsTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.fieldsTags = &fieldsTags
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.companyIds = &companyIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) Execute() (TimelogTimelogsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3AllocationsAllocationIdTimeJsonExecute(r)
+func (r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) Execute() (TimelogTimelogsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3AllocationsallocationIdTimeJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3AllocationsAllocationIdTimeJson Get time entries for a specific allocation
+ * GETProjectsApiV3AllocationsallocationIdTimeJson Get time entries for a specific allocation
  * Return logged time entries for a specific allocation. Only the time entries that
 the logged-in user can access will be returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest
+ * @param allocationId
+ * @return ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest
  */
-func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsAllocationIdTimeJson(ctx _context.Context) ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest {
-	return ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest{
+func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsallocationIdTimeJson(ctx _context.Context, allocationId int32) ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest {
+	return ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		allocationId: allocationId,
 	}
 }
 
@@ -381,7 +389,7 @@ func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsAllocationIdTimeJson
  * Execute executes the request
  * @return TimelogTimelogsResponse
  */
-func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsAllocationIdTimeJsonExecute(r ApiGETProjectsApiV3AllocationsAllocationIdTimeJsonRequest) (TimelogTimelogsResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsallocationIdTimeJsonExecute(r ApiGETProjectsApiV3AllocationsallocationIdTimeJsonRequest) (TimelogTimelogsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -391,12 +399,13 @@ func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsAllocationIdTimeJson
 		localVarReturnValue  TimelogTimelogsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3AllocationsAllocationIdTimeJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3AllocationsallocationIdTimeJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:allocationId/time.json"
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}/time.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -453,8 +462,8 @@ func (a *TimeTrackingApiService) GETProjectsApiV3AllocationsAllocationIdTimeJson
 	if r.page != nil {
 		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
 	}
-	if r.allocationId != nil {
-		localVarQueryParams.Add("allocationId", parameterToString(*r.allocationId, ""))
+	if r.allocationId2 != nil {
+		localVarQueryParams.Add("allocationId", parameterToString(*r.allocationId2, ""))
 	}
 	if r.showDeleted != nil {
 		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
@@ -819,9 +828,10 @@ func (a *TimeTrackingApiService) GETProjectsApiV3MeTimersJsonExecute(r ApiGETPro
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	projectId int32
 	updatedAfter *time.Time
 	startDate *string
 	selectedColumns *string
@@ -835,7 +845,7 @@ type ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest struct {
 	billableType *string
 	ticketId *int32
 	tasklistId *int32
-	projectId *int32
+	projectId2 *int32
 	projectHealths *int32
 	pageSize *int32
 	page *int32
@@ -865,186 +875,188 @@ type ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest struct {
 	assignedToCompanyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.updatedAfter = &updatedAfter
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.startDate = &startDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) SelectedColumns(selectedColumns string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) SelectedColumns(selectedColumns string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.selectedColumns = &selectedColumns
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ReportFormat(reportFormat string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.reportFormat = &reportFormat
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.orderBy = &orderBy
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) InvoicedType(invoicedType string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.invoicedType = &invoicedType
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.endDate = &endDate
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) BillableType(billableType string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) BillableType(billableType string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.billableType = &billableType
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) TicketId(ticketId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) TicketId(ticketId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.ticketId = &ticketId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
-	r.projectId = &projectId
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectId2(projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
+	r.projectId2 = &projectId2
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) Page(page int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) AllocationId(allocationId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) AllocationId(allocationId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.allocationId = &allocationId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) IsReportDownload(isReportDownload bool) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.isReportDownload = &isReportDownload
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) IncludeArchivedProjects(includeArchivedProjects bool) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.includeArchivedProjects = &includeArchivedProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) TaskTagIds(taskTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.taskTagIds = &taskTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.tagIds = &tagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectsFromCompanyId(projectsFromCompanyId []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectsFromCompanyId = &projectsFromCompanyId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) FieldsTimelogs(fieldsTimelogs []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) FieldsTimelogs(fieldsTimelogs []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.fieldsTimelogs = &fieldsTimelogs
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.fieldsTasks = &fieldsTasks
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.fieldsTasklists = &fieldsTasklists
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.fieldsTags = &fieldsTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.companyIds = &companyIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) AssignedToUserIds(assignedToUserIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.assignedToUserIds = &assignedToUserIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) AssignedToTeamIds(assignedToTeamIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.assignedToTeamIds = &assignedToTeamIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) AssignedToCompanyIds(assignedToCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
 	r.assignedToCompanyIds = &assignedToCompanyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) Execute() (TimelogTimelogsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdTimeJsonExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) Execute() (TimelogTimelogsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdTimeJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdTimeJson Get time entries for a specific project
+ * GETProjectsApiV3ProjectsprojectIdTimeJson Get time entries for a specific project
  * Return logged time entries for a specific project. Only the time entries that
 the logged-in user can access will be returned.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest
+ * @param projectId
+ * @return ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest
  */
-func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest{
+func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsprojectIdTimeJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId: projectId,
 	}
 }
 
@@ -1052,7 +1064,7 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJson(ctx _
  * Execute executes the request
  * @return TimelogTimelogsResponse
  */
-func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJsonExecute(r ApiGETProjectsApiV3ProjectsProjectIdTimeJsonRequest) (TimelogTimelogsResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsprojectIdTimeJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdTimeJsonRequest) (TimelogTimelogsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1062,12 +1074,13 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJsonExecut
 		localVarReturnValue  TimelogTimelogsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3ProjectsProjectIdTimeJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3ProjectsprojectIdTimeJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/time.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/time.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1112,8 +1125,8 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJsonExecut
 	if r.tasklistId != nil {
 		localVarQueryParams.Add("tasklistId", parameterToString(*r.tasklistId, ""))
 	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	if r.projectId2 != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId2, ""))
 	}
 	if r.projectHealths != nil {
 		localVarQueryParams.Add("projectHealths", parameterToString(*r.projectHealths, ""))
@@ -1259,9 +1272,10 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeJsonExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	projectId2 int32
 	projectStatuses *string
 	projectStatus *string
 	userId *int32
@@ -1281,88 +1295,90 @@ type ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest struct {
 	companyIds *[]int32
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectStatuses(projectStatuses string) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectStatuses = &projectStatuses
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectStatus(projectStatus string) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectStatus = &projectStatus
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) UserId(userId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) TasklistId(tasklistId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.tasklistId = &tasklistId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) TaskId(taskId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) TaskId(taskId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.taskId = &taskId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectHealths(projectHealths int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectHealths = &projectHealths
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) DeskTicketId(deskTicketId int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) DeskTicketId(deskTicketId int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.deskTicketId = &deskTicketId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) OnlyStarredProjects(onlyStarredProjects bool) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.onlyStarredProjects = &onlyStarredProjects
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.matchAllTags = &matchAllTags
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) UserIds(userIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) UserIds(userIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.userIds = &userIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectTagIds(projectTagIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectTagIds = &projectTagIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectOwnerIds(projectOwnerIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectOwnerIds = &projectOwnerIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectIds = &projectIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectCompanyIds(projectCompanyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectCompanyIds = &projectCompanyIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) ProjectCategoryIds(projectCategoryIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.projectCategoryIds = &projectCategoryIds
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
 	r.companyIds = &companyIds
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) Execute() (TimelogTotalsResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsProjectIdTimeTotalJsonExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) Execute() (TimelogTotalsResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdTimeTotalJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsProjectIdTimeTotalJson Get timelog totals.
+ * GETProjectsApiV3ProjectsprojectIdTimeTotalJson Get timelog totals.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest
  */
-func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeTotalJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest {
-	return ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest{
+func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsprojectIdTimeTotalJson(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
@@ -1370,7 +1386,7 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeTotalJson(
  * Execute executes the request
  * @return TimelogTotalsResponse
  */
-func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeTotalJsonExecute(r ApiGETProjectsApiV3ProjectsProjectIdTimeTotalJsonRequest) (TimelogTotalsResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsprojectIdTimeTotalJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdTimeTotalJsonRequest) (TimelogTotalsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1380,12 +1396,13 @@ func (a *TimeTrackingApiService) GETProjectsApiV3ProjectsProjectIdTimeTotalJsonE
 		localVarReturnValue  TimelogTotalsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3ProjectsProjectIdTimeTotalJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3ProjectsprojectIdTimeTotalJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:projectId/time/total.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/time/total.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2191,182 +2208,6 @@ func (a *TimeTrackingApiService) GETProjectsApiV3TimeTotalJsonExecute(r ApiGETPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3TimersIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *TimeTrackingApiService
-	userId *int32
-	showDeleted *bool
-	include *[]string
-	fieldsUsers *[]string
-	fieldsTimers *[]string
-	fieldsTasks *[]string
-	fieldsTasklists *[]string
-	fieldsProjects *[]string
-}
-
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) UserId(userId int32) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) Include(include []string) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.fieldsUsers = &fieldsUsers
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) FieldsTimers(fieldsTimers []string) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.fieldsTimers = &fieldsTimers
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.fieldsTasks = &fieldsTasks
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.fieldsTasklists = &fieldsTasklists
-	return r
-}
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3TimersIdJsonRequest {
-	r.fieldsProjects = &fieldsProjects
-	return r
-}
-
-func (r ApiGETProjectsApiV3TimersIdJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3TimersIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3TimersIdJson Get a specific timer
- * Will get a timer with with a specific ID
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3TimersIdJsonRequest
- */
-func (a *TimeTrackingApiService) GETProjectsApiV3TimersIdJson(ctx _context.Context) ApiGETProjectsApiV3TimersIdJsonRequest {
-	return ApiGETProjectsApiV3TimersIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return TimerResponse
- */
-func (a *TimeTrackingApiService) GETProjectsApiV3TimersIdJsonExecute(r ApiGETProjectsApiV3TimersIdJsonRequest) (TimerResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  TimerResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3TimersIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/timers/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
-	}
-	if r.fieldsUsers != nil {
-		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
-	}
-	if r.fieldsTimers != nil {
-		localVarQueryParams.Add("fields[timers]", parameterToString(*r.fieldsTimers, "csv"))
-	}
-	if r.fieldsTasks != nil {
-		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
-	}
-	if r.fieldsTasklists != nil {
-		localVarQueryParams.Add("fields[tasklists]", parameterToString(*r.fieldsTasklists, "csv"))
-	}
-	if r.fieldsProjects != nil {
-		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiGETProjectsApiV3TimersJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
@@ -2600,6 +2441,186 @@ func (a *TimeTrackingApiService) GETProjectsApiV3TimersJsonExecute(r ApiGETProje
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGETProjectsApiV3TimerstimerIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *TimeTrackingApiService
+	timerId int32
+	userId *int32
+	showDeleted *bool
+	include *[]string
+	fieldsUsers *[]string
+	fieldsTimers *[]string
+	fieldsTasks *[]string
+	fieldsTasklists *[]string
+	fieldsProjects *[]string
+}
+
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) UserId(userId int32) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) Include(include []string) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) FieldsTimers(fieldsTimers []string) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.fieldsTimers = &fieldsTimers
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.fieldsTasks = &fieldsTasks
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) FieldsTasklists(fieldsTasklists []string) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.fieldsTasklists = &fieldsTasklists
+	return r
+}
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+
+func (r ApiGETProjectsApiV3TimerstimerIdJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TimerstimerIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3TimerstimerIdJson Get a specific timer
+ * Will get a timer with with a specific ID
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param timerId
+ * @return ApiGETProjectsApiV3TimerstimerIdJsonRequest
+ */
+func (a *TimeTrackingApiService) GETProjectsApiV3TimerstimerIdJson(ctx _context.Context, timerId int32) ApiGETProjectsApiV3TimerstimerIdJsonRequest {
+	return ApiGETProjectsApiV3TimerstimerIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		timerId: timerId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TimerResponse
+ */
+func (a *TimeTrackingApiService) GETProjectsApiV3TimerstimerIdJsonExecute(r ApiGETProjectsApiV3TimerstimerIdJsonRequest) (TimerResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TimerResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.GETProjectsApiV3TimerstimerIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/timers/{timerId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTimers != nil {
+		localVarQueryParams.Add("fields[timers]", parameterToString(*r.fieldsTimers, "csv"))
+	}
+	if r.fieldsTasks != nil {
+		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
+	}
+	if r.fieldsTasklists != nil {
+		localVarQueryParams.Add("fields[tasklists]", parameterToString(*r.fieldsTasklists, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPOSTProjectsApiV3MeTimersJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
@@ -2732,27 +2753,30 @@ func (a *TimeTrackingApiService) POSTProjectsApiV3MeTimersJsonExecute(r ApiPOSTP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3MeTimersIdCompleteJsonRequest struct {
+type ApiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	timerId int32
 }
 
 
-func (r ApiPUTProjectsApiV3MeTimersIdCompleteJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3MeTimersIdCompleteJsonExecute(r)
+func (r ApiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3MeTimerstimerIdCompleteJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3MeTimersIdCompleteJson Complete a timer by ID
+ * PUTProjectsApiV3MeTimerstimerIdCompleteJson Complete a timer by ID
  * Complete an existing timer. If the timer is currently running, it is paused to create
 the timelog entry. When the timelog is created, the timer is deleted.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3MeTimersIdCompleteJsonRequest
+ * @param timerId
+ * @return ApiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdCompleteJson(ctx _context.Context) ApiPUTProjectsApiV3MeTimersIdCompleteJsonRequest {
-	return ApiPUTProjectsApiV3MeTimersIdCompleteJsonRequest{
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdCompleteJson(ctx _context.Context, timerId int32) ApiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest {
+	return ApiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		timerId: timerId,
 	}
 }
 
@@ -2760,7 +2784,7 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdCompleteJson(ctx _con
  * Execute executes the request
  * @return TimerResponse
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdCompleteJsonExecute(r ApiPUTProjectsApiV3MeTimersIdCompleteJsonRequest) (TimerResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdCompleteJsonExecute(r ApiPUTProjectsApiV3MeTimerstimerIdCompleteJsonRequest) (TimerResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2770,12 +2794,13 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdCompleteJsonExecute(r
 		localVarReturnValue  TimerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimersIdCompleteJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimerstimerIdCompleteJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/me/timers/:id/complete.json"
+	localVarPath := localBasePath + "/projects/api/v3/me/timers/{timerId}/complete.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2855,31 +2880,34 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdCompleteJsonExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3MeTimersIdJsonRequest struct {
+type ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	timerId int32
 	timerRequest *TimerRequest
 }
 
-func (r ApiPUTProjectsApiV3MeTimersIdJsonRequest) TimerRequest(timerRequest TimerRequest) ApiPUTProjectsApiV3MeTimersIdJsonRequest {
+func (r ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest) TimerRequest(timerRequest TimerRequest) ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest {
 	r.timerRequest = &timerRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3MeTimersIdJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3MeTimersIdJsonExecute(r)
+func (r ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3MeTimerstimerIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3MeTimersIdJson Edits a timer
+ * PUTProjectsApiV3MeTimerstimerIdJson Edits a timer
  * Edits the fields of a timer.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3MeTimersIdJsonRequest
+ * @param timerId
+ * @return ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdJson(ctx _context.Context) ApiPUTProjectsApiV3MeTimersIdJsonRequest {
-	return ApiPUTProjectsApiV3MeTimersIdJsonRequest{
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdJson(ctx _context.Context, timerId int32) ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest {
+	return ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		timerId: timerId,
 	}
 }
 
@@ -2887,7 +2915,7 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdJson(ctx _context.Con
  * Execute executes the request
  * @return TimerResponse
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdJsonExecute(r ApiPUTProjectsApiV3MeTimersIdJsonRequest) (TimerResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdJsonExecute(r ApiPUTProjectsApiV3MeTimerstimerIdJsonRequest) (TimerResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -2897,12 +2925,13 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdJsonExecute(r ApiPUTP
 		localVarReturnValue  TimerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimersIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimerstimerIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/me/timers/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/me/timers/{timerId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2987,26 +3016,29 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdJsonExecute(r ApiPUTP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3MeTimersIdPauseJsonRequest struct {
+type ApiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	timerId int32
 }
 
 
-func (r ApiPUTProjectsApiV3MeTimersIdPauseJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3MeTimersIdPauseJsonExecute(r)
+func (r ApiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3MeTimerstimerIdPauseJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3MeTimersIdPauseJson Pause a timer by ID
+ * PUTProjectsApiV3MeTimerstimerIdPauseJson Pause a timer by ID
  * Pause an existing timer.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3MeTimersIdPauseJsonRequest
+ * @param timerId
+ * @return ApiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdPauseJson(ctx _context.Context) ApiPUTProjectsApiV3MeTimersIdPauseJsonRequest {
-	return ApiPUTProjectsApiV3MeTimersIdPauseJsonRequest{
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdPauseJson(ctx _context.Context, timerId int32) ApiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest {
+	return ApiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		timerId: timerId,
 	}
 }
 
@@ -3014,7 +3046,7 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdPauseJson(ctx _contex
  * Execute executes the request
  * @return TimerResponse
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdPauseJsonExecute(r ApiPUTProjectsApiV3MeTimersIdPauseJsonRequest) (TimerResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdPauseJsonExecute(r ApiPUTProjectsApiV3MeTimerstimerIdPauseJsonRequest) (TimerResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3024,12 +3056,13 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdPauseJsonExecute(r Ap
 		localVarReturnValue  TimerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimersIdPauseJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimerstimerIdPauseJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/me/timers/:id/pause.json"
+	localVarPath := localBasePath + "/projects/api/v3/me/timers/{timerId}/pause.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3109,26 +3142,29 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdPauseJsonExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3MeTimersIdResumeJsonRequest struct {
+type ApiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	timerId int32
 }
 
 
-func (r ApiPUTProjectsApiV3MeTimersIdResumeJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3MeTimersIdResumeJsonExecute(r)
+func (r ApiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest) Execute() (TimerResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3MeTimerstimerIdResumeJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3MeTimersIdResumeJson Resume a timer by ID
+ * PUTProjectsApiV3MeTimerstimerIdResumeJson Resume a timer by ID
  * Resume an existing timer. If other timers are currently running, those timers are paused before resuming.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3MeTimersIdResumeJsonRequest
+ * @param timerId
+ * @return ApiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdResumeJson(ctx _context.Context) ApiPUTProjectsApiV3MeTimersIdResumeJsonRequest {
-	return ApiPUTProjectsApiV3MeTimersIdResumeJsonRequest{
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdResumeJson(ctx _context.Context, timerId int32) ApiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest {
+	return ApiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		timerId: timerId,
 	}
 }
 
@@ -3136,7 +3172,7 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdResumeJson(ctx _conte
  * Execute executes the request
  * @return TimerResponse
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdResumeJsonExecute(r ApiPUTProjectsApiV3MeTimersIdResumeJsonRequest) (TimerResponse, *_nethttp.Response, error) {
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdResumeJsonExecute(r ApiPUTProjectsApiV3MeTimerstimerIdResumeJsonRequest) (TimerResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3146,12 +3182,13 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdResumeJsonExecute(r A
 		localVarReturnValue  TimerResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimersIdResumeJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimerstimerIdResumeJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/me/timers/:id/resume.json"
+	localVarPath := localBasePath + "/projects/api/v3/me/timers/{timerId}/resume.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3231,33 +3268,36 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdResumeJsonExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest struct {
+type ApiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest struct {
 	ctx _context.Context
 	ApiService *TimeTrackingApiService
+	timerId int32
 }
 
 
-func (r ApiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3MeTimersIdUndeleteJsonExecute(r)
+func (r ApiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3MeTimerstimerIdUndeleteJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3MeTimersIdUndeleteJson Undelete a timer by ID
+ * PUTProjectsApiV3MeTimerstimerIdUndeleteJson Undelete a timer by ID
  * Undelete an existing timer.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest
+ * @param timerId
+ * @return ApiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdUndeleteJson(ctx _context.Context) ApiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest {
-	return ApiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest{
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdUndeleteJson(ctx _context.Context, timerId int32) ApiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest {
+	return ApiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		timerId: timerId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdUndeleteJsonExecute(r ApiPUTProjectsApiV3MeTimersIdUndeleteJsonRequest) (*_nethttp.Response, error) {
+func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimerstimerIdUndeleteJsonExecute(r ApiPUTProjectsApiV3MeTimerstimerIdUndeleteJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -3266,12 +3306,13 @@ func (a *TimeTrackingApiService) PUTProjectsApiV3MeTimersIdUndeleteJsonExecute(r
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimersIdUndeleteJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeTrackingApiService.PUTProjectsApiV3MeTimerstimerIdUndeleteJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/me/timers/:id/undelete.json"
+	localVarPath := localBasePath + "/projects/api/v3/me/timers/{timerId}/undelete.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"timerId"+"}", _neturl.PathEscape(parameterToString(r.timerId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

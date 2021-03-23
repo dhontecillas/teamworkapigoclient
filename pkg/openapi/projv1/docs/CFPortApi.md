@@ -6,17 +6,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GETProjectsApiV1Completedtasks**](CFPortApi.md#GETProjectsApiV1Completedtasks) | **Get** /projects/api/v1/completedtasks | Will return the completed tasks
 [**GETProjectsApiV1PendingfilesPresignedurl**](CFPortApi.md#GETProjectsApiV1PendingfilesPresignedurl) | **Get** /projects/api/v1/pendingfiles/presignedurl | Get Presigned Url for Pending files
-[**GETProjectsApiV1ProjectProjectIdCompletedtasks**](CFPortApi.md#GETProjectsApiV1ProjectProjectIdCompletedtasks) | **Get** /projects/api/v1/project/:projectId/completedtasks | Will return the project completed tasks
-[**GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks**](CFPortApi.md#GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks) | **Get** /projects/api/v1/projectcategories/:projectCategoryId/tasks | Will return the tasks
+[**GETProjectsApiV1ProjectcategoriesprojectCategoryIdTasks**](CFPortApi.md#GETProjectsApiV1ProjectcategoriesprojectCategoryIdTasks) | **Get** /projects/api/v1/projectcategories/{projectCategoryId}/tasks | Will return the tasks
+[**GETProjectsApiV1ProjectprojectIdCompletedtasks**](CFPortApi.md#GETProjectsApiV1ProjectprojectIdCompletedtasks) | **Get** /projects/api/v1/project/{projectId}/completedtasks | Will return the project completed tasks
 [**GETProjectsApiV1Projects**](CFPortApi.md#GETProjectsApiV1Projects) | **Get** /projects/api/v1/projects | Get Projects (APICall_GET_projects)
-[**GETProjectsApiV1ProjectsProjectIdTasklists**](CFPortApi.md#GETProjectsApiV1ProjectsProjectIdTasklists) | **Get** /projects/api/v1/projects/:projectId/tasklists | Get tasklists
-[**GETProjectsApiV1ProjectsProjectIdTasks**](CFPortApi.md#GETProjectsApiV1ProjectsProjectIdTasks) | **Get** /projects/api/v1/projects/:projectId/tasks | Will return the tasks
+[**GETProjectsApiV1ProjectsprojectIdTasklists**](CFPortApi.md#GETProjectsApiV1ProjectsprojectIdTasklists) | **Get** /projects/api/v1/projects/{projectId}/tasklists | Get tasklists
+[**GETProjectsApiV1ProjectsprojectIdTasks**](CFPortApi.md#GETProjectsApiV1ProjectsprojectIdTasks) | **Get** /projects/api/v1/projects/{projectId}/tasks | Will return the tasks
 [**GETProjectsApiV1Tasklists**](CFPortApi.md#GETProjectsApiV1Tasklists) | **Get** /projects/api/v1/tasklists | Get tasklists
-[**GETProjectsApiV1TasklistsTasklistId**](CFPortApi.md#GETProjectsApiV1TasklistsTasklistId) | **Get** /projects/api/v1/tasklists/:tasklistId | Get tasklists
-[**GETProjectsApiV1TasklistsTasklistIdTasks**](CFPortApi.md#GETProjectsApiV1TasklistsTasklistIdTasks) | **Get** /projects/api/v1/tasklists/:tasklistId/tasks | Will return the tasks
+[**GETProjectsApiV1TaskliststasklistId**](CFPortApi.md#GETProjectsApiV1TaskliststasklistId) | **Get** /projects/api/v1/tasklists/{tasklistId} | Get tasklists
+[**GETProjectsApiV1TaskliststasklistIdTasks**](CFPortApi.md#GETProjectsApiV1TaskliststasklistIdTasks) | **Get** /projects/api/v1/tasklists/{tasklistId}/tasks | Will return the tasks
 [**GETProjectsApiV1Tasks**](CFPortApi.md#GETProjectsApiV1Tasks) | **Get** /projects/api/v1/tasks | Will return the tasks
-[**GETProjectsApiV1TasksTaskId**](CFPortApi.md#GETProjectsApiV1TasksTaskId) | **Get** /projects/api/v1/tasks/:taskId | Will return the tasks
-[**GETProjectsApiV1TasksTaskIdSubtasks**](CFPortApi.md#GETProjectsApiV1TasksTaskIdSubtasks) | **Get** /projects/api/v1/tasks/:taskId/subtasks | Will return the tasks
+[**GETProjectsApiV1TaskstaskId**](CFPortApi.md#GETProjectsApiV1TaskstaskId) | **Get** /projects/api/v1/tasks/{taskId} | Will return the tasks
+[**GETProjectsApiV1TaskstaskIdDependents**](CFPortApi.md#GETProjectsApiV1TaskstaskIdDependents) | **Get** /projects/api/v1/tasks/{taskId}/dependents | Will return the tasks dependents tasks
+[**GETProjectsApiV1TaskstaskIdPredecessors**](CFPortApi.md#GETProjectsApiV1TaskstaskIdPredecessors) | **Get** /projects/api/v1/tasks/{taskId}/predecessors | Will return the tasks predecessor tasks
+[**GETProjectsApiV1TaskstaskIdSubtasks**](CFPortApi.md#GETProjectsApiV1TaskstaskIdSubtasks) | **Get** /projects/api/v1/tasks/{taskId}/subtasks | Will return the tasks
 [**GETProjectsApiV1Time**](CFPortApi.md#GETProjectsApiV1Time) | **Get** /projects/api/v1/time | APICall_GET_time_entries
 [**GETProjectsApiV1TimeEntries**](CFPortApi.md#GETProjectsApiV1TimeEntries) | **Get** /projects/api/v1/time_entries | APICall_GET_time_entries
 [**POSTProjectsApiV1Pendingfiles**](CFPortApi.md#POSTProjectsApiV1Pendingfiles) | **Post** /projects/api/v1/pendingfiles | Posts a pending file
@@ -231,9 +233,189 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1ProjectProjectIdCompletedtasks
+## GETProjectsApiV1ProjectcategoriesprojectCategoryIdTasks
 
-> GETProjectsApiV1ProjectProjectIdCompletedtasks(ctx).UpdatedAfterDate(updatedAfterDate).Type_(type_).StartDate(startDate).SortOrder(sortOrder).SortBy(sortBy).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatus(projectStatus).Priority(priority).FilterBy(filterBy).EndDate(endDate).DateType(dateType).UserId(userId).PageSize(pageSize).Page(page).StarredProjectsOnly(starredProjectsOnly).OnlyUntaggedTasks(onlyUntaggedTasks).OnlyTasksWithTickets(onlyTasksWithTickets).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).MatchAllExcludedTags(matchAllExcludedTags).IsReportDownload(isReportDownload).IncludeTags(includeTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).TagIds(tagIds).ResponsiblePartyIds(responsiblePartyIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).FollowerIds(followerIds).ExcludeTagIds(excludeTagIds).CreatorIds(creatorIds).CompletedByIds(completedByIds).AssigneeTeamIds(assigneeTeamIds).AssigneeCompanyIds(assigneeCompanyIds).Execute()
+> GETProjectsApiV1ProjectcategoriesprojectCategoryIdTasks(ctx, projectCategoryId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+
+Will return the tasks
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    projectCategoryId := int32(56) // int32 | 
+    updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
+    today := "today_example" // string |  (optional)
+    tagIds := "tagIds_example" // string |  (optional)
+    startDate := "startDate_example" // string |  (optional)
+    sort := "sort_example" // string |  (optional)
+    responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
+    projectStatus := "projectStatus_example" // string |  (optional)
+    include := "include_example" // string |  (optional)
+    followedByUserIds := "followedByUserIds_example" // string |  (optional)
+    filter := "filter_example" // string |  (optional)
+    endDate := "endDate_example" // string |  (optional)
+    dataSet := "dataSet_example" // string |  (optional)
+    creatorIds := "creatorIds_example" // string |  (optional)
+    createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
+    createdAfterDate := "createdAfterDate_example" // string |  (optional)
+    completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
+    completedAfterDate := "completedAfterDate_example" // string |  (optional)
+    callback := "callback_example" // string |  (optional)
+    tasklistId := int32(56) // int32 |  (optional)
+    taskId := int32(56) // int32 |  (optional)
+    projectCategoryId2 := int32(56) // int32 |  (optional)
+    parentTaskId := int32(56) // int32 |  (optional)
+    pageSize := int32(56) // int32 |  (optional)
+    page := int32(56) // int32 |  (optional)
+    includeTaskId := int32(56) // int32 |  (optional)
+    companyId := int32(56) // int32 |  (optional)
+    useStartDatesForTodaysTasks := true // bool |  (optional)
+    useAllProjects := true // bool |  (optional)
+    starredProjectsOnly := true // bool |  (optional)
+    showDeleted := true // bool |  (optional)
+    showCompletedLists := true // bool |  (optional)
+    onlyStarredProjects := true // bool |  (optional)
+    onlyArchivedProjects := true // bool |  (optional)
+    nestSubTasks := true // bool |  (optional)
+    matchAllProjectTags := true // bool |  (optional)
+    includeUntaggedTasks := true // bool |  (optional)
+    includeToday := true // bool |  (optional)
+    includeTasksWithoutDueDates := true // bool |  (optional)
+    includeTasksFromDeletedLists := true // bool |  (optional)
+    includeReminders := true // bool |  (optional)
+    includeLoggedTime := true // bool |  (optional)
+    includeCompletedTasks := true // bool |  (optional)
+    includeCompletedSubtasks := true // bool |  (optional)
+    includeCompletedPredecessors := true // bool |  (optional)
+    includeArchivedProjects := true // bool |  (optional)
+    ignoreStartDates := true // bool |  (optional)
+    getSubTasks := true // bool |  (optional)
+    getFiles := true // bool |  (optional)
+    countOnly := true // bool |  (optional)
+    allowTemplateTasks := true // bool |  (optional)
+    projectTagIds := []int32{int32(123)} // []int32 |  (optional)
+    projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
+    projectIds := []int32{int32(123)} // []int32 |  (optional)
+    projectId := []int32{int32(123)} // []int32 | project *filters (optional)
+    projectHealths := []int32{int32(123)} // []int32 |  (optional)
+    projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
+    projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectcategoriesprojectCategoryIdTasks(context.Background(), projectCategoryId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectcategoriesprojectCategoryIdTasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectCategoryId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectcategoriesprojectCategoryIdTasksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updatedAfterDate** | **string** |  | 
+ **today** | **string** |  | 
+ **tagIds** | **string** |  | 
+ **startDate** | **string** |  | 
+ **sort** | **string** |  | 
+ **responsiblePartyIds** | **string** |  | 
+ **projectStatus** | **string** |  | 
+ **include** | **string** |  | 
+ **followedByUserIds** | **string** |  | 
+ **filter** | **string** |  | 
+ **endDate** | **string** |  | 
+ **dataSet** | **string** |  | 
+ **creatorIds** | **string** |  | 
+ **createdBeforeDate** | **string** |  | 
+ **createdAfterDate** | **string** |  | 
+ **completedBeforeDate** | **string** |  | 
+ **completedAfterDate** | **string** |  | 
+ **callback** | **string** |  | 
+ **tasklistId** | **int32** |  | 
+ **taskId** | **int32** |  | 
+ **projectCategoryId2** | **int32** |  | 
+ **parentTaskId** | **int32** |  | 
+ **pageSize** | **int32** |  | 
+ **page** | **int32** |  | 
+ **includeTaskId** | **int32** |  | 
+ **companyId** | **int32** |  | 
+ **useStartDatesForTodaysTasks** | **bool** |  | 
+ **useAllProjects** | **bool** |  | 
+ **starredProjectsOnly** | **bool** |  | 
+ **showDeleted** | **bool** |  | 
+ **showCompletedLists** | **bool** |  | 
+ **onlyStarredProjects** | **bool** |  | 
+ **onlyArchivedProjects** | **bool** |  | 
+ **nestSubTasks** | **bool** |  | 
+ **matchAllProjectTags** | **bool** |  | 
+ **includeUntaggedTasks** | **bool** |  | 
+ **includeToday** | **bool** |  | 
+ **includeTasksWithoutDueDates** | **bool** |  | 
+ **includeTasksFromDeletedLists** | **bool** |  | 
+ **includeReminders** | **bool** |  | 
+ **includeLoggedTime** | **bool** |  | 
+ **includeCompletedTasks** | **bool** |  | 
+ **includeCompletedSubtasks** | **bool** |  | 
+ **includeCompletedPredecessors** | **bool** |  | 
+ **includeArchivedProjects** | **bool** |  | 
+ **ignoreStartDates** | **bool** |  | 
+ **getSubTasks** | **bool** |  | 
+ **getFiles** | **bool** |  | 
+ **countOnly** | **bool** |  | 
+ **allowTemplateTasks** | **bool** |  | 
+ **projectTagIds** | **[]int32** |  | 
+ **projectOwnerIds** | **[]int32** |  | 
+ **projectIds** | **[]int32** |  | 
+ **projectId** | **[]int32** | project *filters | 
+ **projectHealths** | **[]int32** |  | 
+ **projectCompanyIds** | **[]int32** |  | 
+ **projectCategoryIds** | **[]int32** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GETProjectsApiV1ProjectprojectIdCompletedtasks
+
+> GETProjectsApiV1ProjectprojectIdCompletedtasks(ctx, projectId).UpdatedAfterDate(updatedAfterDate).Type_(type_).StartDate(startDate).SortOrder(sortOrder).SortBy(sortBy).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatus(projectStatus).Priority(priority).FilterBy(filterBy).EndDate(endDate).DateType(dateType).UserId(userId).PageSize(pageSize).Page(page).StarredProjectsOnly(starredProjectsOnly).OnlyUntaggedTasks(onlyUntaggedTasks).OnlyTasksWithTickets(onlyTasksWithTickets).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).MatchAllExcludedTags(matchAllExcludedTags).IsReportDownload(isReportDownload).IncludeTags(includeTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).TagIds(tagIds).ResponsiblePartyIds(responsiblePartyIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).FollowerIds(followerIds).ExcludeTagIds(excludeTagIds).CreatorIds(creatorIds).CompletedByIds(completedByIds).AssigneeTeamIds(assigneeTeamIds).AssigneeCompanyIds(assigneeCompanyIds).Execute()
 
 Will return the project completed tasks
 
@@ -250,6 +432,7 @@ import (
 )
 
 func main() {
+    projectId := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     type_ := "type__example" // string |  (optional)
     startDate := "startDate_example" // string |  (optional)
@@ -282,7 +465,7 @@ func main() {
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectId := []int32{int32(123)} // []int32 | project filters (optional)
+    projectId2 := []int32{int32(123)} // []int32 | project filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
@@ -295,9 +478,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectProjectIdCompletedtasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Type_(type_).StartDate(startDate).SortOrder(sortOrder).SortBy(sortBy).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatus(projectStatus).Priority(priority).FilterBy(filterBy).EndDate(endDate).DateType(dateType).UserId(userId).PageSize(pageSize).Page(page).StarredProjectsOnly(starredProjectsOnly).OnlyUntaggedTasks(onlyUntaggedTasks).OnlyTasksWithTickets(onlyTasksWithTickets).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).MatchAllExcludedTags(matchAllExcludedTags).IsReportDownload(isReportDownload).IncludeTags(includeTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).TagIds(tagIds).ResponsiblePartyIds(responsiblePartyIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).FollowerIds(followerIds).ExcludeTagIds(excludeTagIds).CreatorIds(creatorIds).CompletedByIds(completedByIds).AssigneeTeamIds(assigneeTeamIds).AssigneeCompanyIds(assigneeCompanyIds).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectprojectIdCompletedtasks(context.Background(), projectId).UpdatedAfterDate(updatedAfterDate).Type_(type_).StartDate(startDate).SortOrder(sortOrder).SortBy(sortBy).SearchTerm(searchTerm).ReportFormat(reportFormat).ProjectStatus(projectStatus).Priority(priority).FilterBy(filterBy).EndDate(endDate).DateType(dateType).UserId(userId).PageSize(pageSize).Page(page).StarredProjectsOnly(starredProjectsOnly).OnlyUntaggedTasks(onlyUntaggedTasks).OnlyTasksWithTickets(onlyTasksWithTickets).OnlyStarredProjects(onlyStarredProjects).MatchAllTags(matchAllTags).MatchAllProjectTags(matchAllProjectTags).MatchAllExcludedTags(matchAllExcludedTags).IsReportDownload(isReportDownload).IncludeTags(includeTags).IncludeAssigneeTeams(includeAssigneeTeams).IncludeAssigneeCompanies(includeAssigneeCompanies).IncludeArchivedProjects(includeArchivedProjects).TagIds(tagIds).ResponsiblePartyIds(responsiblePartyIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).FollowerIds(followerIds).ExcludeTagIds(excludeTagIds).CreatorIds(creatorIds).CompletedByIds(completedByIds).AssigneeTeamIds(assigneeTeamIds).AssigneeCompanyIds(assigneeCompanyIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectProjectIdCompletedtasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectprojectIdCompletedtasks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -306,14 +489,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectProjectIdCompletedtasksRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectprojectIdCompletedtasksRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **type_** | **string** |  | 
  **startDate** | **string** |  | 
@@ -346,7 +534,7 @@ Name | Type | Description  | Notes
  **projectTagIds** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectId** | **[]int32** | project filters | 
+ **projectId2** | **[]int32** | project filters | 
  **projectHealths** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
@@ -356,262 +544,6 @@ Name | Type | Description  | Notes
  **completedByIds** | **[]int32** |  | 
  **assigneeTeamIds** | **[]int32** |  | 
  **assigneeCompanyIds** | **[]int32** |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks
-
-> GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
-
-Will return the tasks
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
-    today := "today_example" // string |  (optional)
-    tagIds := "tagIds_example" // string |  (optional)
-    tagIds2 := "tagIds_example" // string |  (optional)
-    startdate := "startdate_example" // string |  (optional)
-    startDate := "startDate_example" // string |  (optional)
-    sort := "sort_example" // string |  (optional)
-    sort2 := "sort_example" // string |  (optional)
-    responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
-    responsiblePartyId := "responsiblePartyId_example" // string |  (optional)
-    projectStatus := "projectStatus_example" // string |  (optional)
-    projectStatus2 := "projectStatus_example" // string |  (optional)
-    include := "include_example" // string |  (optional)
-    followerIds := "followerIds_example" // string |  (optional)
-    followedByUserIds := "followedByUserIds_example" // string |  (optional)
-    filter := "filter_example" // string |  (optional)
-    filter2 := "filter_example" // string |  (optional)
-    enddate := "enddate_example" // string |  (optional)
-    endDate := "endDate_example" // string |  (optional)
-    dataSet := "dataSet_example" // string |  (optional)
-    dataSet2 := "dataSet_example" // string |  (optional)
-    creatorIds := "creatorIds_example" // string |  (optional)
-    createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
-    createdAfterDate := "createdAfterDate_example" // string |  (optional)
-    completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
-    completedBeforeDate2 := "completedBeforeDate_example" // string |  (optional)
-    completedAfterDate := "completedAfterDate_example" // string |  (optional)
-    completedAfterDate2 := "completedAfterDate_example" // string |  (optional)
-    callback := "callback_example" // string |  (optional)
-    tasklistId := int32(56) // int32 |  (optional)
-    taskId := int32(56) // int32 |  (optional)
-    projectCategoryId := int32(56) // int32 |  (optional)
-    projectCategoryId2 := int32(56) // int32 |  (optional)
-    parentTaskId := int32(56) // int32 |  (optional)
-    pageSize := int32(56) // int32 |  (optional)
-    page := int32(56) // int32 |  (optional)
-    includeTaskId := int32(56) // int32 |  (optional)
-    includeTaskId2 := int32(56) // int32 |  (optional)
-    companyId := int32(56) // int32 |  (optional)
-    companyId2 := int32(56) // int32 |  (optional)
-    useStartDatesForTodaysTasks := true // bool |  (optional)
-    useAllProjects := true // bool |  (optional)
-    useAllProjects2 := true // bool |  (optional)
-    starredProjectsOnly := true // bool |  (optional)
-    starredProjectsOnly2 := true // bool |  (optional)
-    showDeleted := true // bool |  (optional)
-    showDeleted2 := true // bool |  (optional)
-    showCompletedLists := true // bool |  (optional)
-    showCompletedLists2 := true // bool |  (optional)
-    onlyStarredProjects := true // bool |  (optional)
-    onlyStarredProjects2 := true // bool |  (optional)
-    onlyArchivedProjects := true // bool |  (optional)
-    onlyArchivedProjects2 := true // bool |  (optional)
-    nestSubTasks := true // bool |  (optional)
-    nestSubTasks2 := true // bool |  (optional)
-    matchAllProjectTags := true // bool |  (optional)
-    matchAllProjectTags2 := true // bool |  (optional)
-    includeUntaggedTasks := true // bool |  (optional)
-    includeUntaggedTasks2 := true // bool |  (optional)
-    includeToday := true // bool |  (optional)
-    includeToday2 := true // bool |  (optional)
-    includeTasksWithoutDueDates := true // bool |  (optional)
-    includeTasksFromDeletedLists := true // bool |  (optional)
-    includeTasksFromDeletedLists2 := true // bool |  (optional)
-    includeReminders := true // bool |  (optional)
-    includeReminders2 := true // bool |  (optional)
-    includeLoggedTime := true // bool |  (optional)
-    includeLoggedTime2 := true // bool |  (optional)
-    includeCompletedTasks := true // bool |  (optional)
-    includeCompletedTasks2 := true // bool |  (optional)
-    includeCompletedSubtasks := true // bool |  (optional)
-    includeCompletedSubtasks2 := true // bool |  (optional)
-    includeCompletedPredecessors := true // bool |  (optional)
-    includeCompletedPredecessors2 := true // bool |  (optional)
-    includeArchivedProjects := true // bool |  (optional)
-    includeArchivedProjects2 := true // bool |  (optional)
-    ignoreStartDates := true // bool |  (optional)
-    getSubTasks := true // bool |  (optional)
-    getSubTasks2 := true // bool |  (optional)
-    getFiles := true // bool |  (optional)
-    getFiles2 := true // bool |  (optional)
-    countOnly := true // bool |  (optional)
-    countOnly2 := true // bool |  (optional)
-    allowTemplateTasks := true // bool |  (optional)
-    projectTagIds := []int32{int32(123)} // []int32 |  (optional)
-    projectTagIds2 := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds2 := []int32{int32(123)} // []int32 |  (optional)
-    projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectIds2 := []int32{int32(123)} // []int32 |  (optional)
-    projectId := []int32{int32(123)} // []int32 | project *filters (optional)
-    projectId2 := []int32{int32(123)} // []int32 | project *filters (optional)
-    projectHealths := []int32{int32(123)} // []int32 |  (optional)
-    projectHealths2 := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds2 := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds2 := []int32{int32(123)} // []int32 |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectcategoriesProjectCategoryIdTasks``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectcategoriesProjectCategoryIdTasksRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **updatedAfterDate** | **string** |  | 
- **today** | **string** |  | 
- **tagIds** | **string** |  | 
- **tagIds2** | **string** |  | 
- **startdate** | **string** |  | 
- **startDate** | **string** |  | 
- **sort** | **string** |  | 
- **sort2** | **string** |  | 
- **responsiblePartyIds** | **string** |  | 
- **responsiblePartyId** | **string** |  | 
- **projectStatus** | **string** |  | 
- **projectStatus2** | **string** |  | 
- **include** | **string** |  | 
- **followerIds** | **string** |  | 
- **followedByUserIds** | **string** |  | 
- **filter** | **string** |  | 
- **filter2** | **string** |  | 
- **enddate** | **string** |  | 
- **endDate** | **string** |  | 
- **dataSet** | **string** |  | 
- **dataSet2** | **string** |  | 
- **creatorIds** | **string** |  | 
- **createdBeforeDate** | **string** |  | 
- **createdAfterDate** | **string** |  | 
- **completedBeforeDate** | **string** |  | 
- **completedBeforeDate2** | **string** |  | 
- **completedAfterDate** | **string** |  | 
- **completedAfterDate2** | **string** |  | 
- **callback** | **string** |  | 
- **tasklistId** | **int32** |  | 
- **taskId** | **int32** |  | 
- **projectCategoryId** | **int32** |  | 
- **projectCategoryId2** | **int32** |  | 
- **parentTaskId** | **int32** |  | 
- **pageSize** | **int32** |  | 
- **page** | **int32** |  | 
- **includeTaskId** | **int32** |  | 
- **includeTaskId2** | **int32** |  | 
- **companyId** | **int32** |  | 
- **companyId2** | **int32** |  | 
- **useStartDatesForTodaysTasks** | **bool** |  | 
- **useAllProjects** | **bool** |  | 
- **useAllProjects2** | **bool** |  | 
- **starredProjectsOnly** | **bool** |  | 
- **starredProjectsOnly2** | **bool** |  | 
- **showDeleted** | **bool** |  | 
- **showDeleted2** | **bool** |  | 
- **showCompletedLists** | **bool** |  | 
- **showCompletedLists2** | **bool** |  | 
- **onlyStarredProjects** | **bool** |  | 
- **onlyStarredProjects2** | **bool** |  | 
- **onlyArchivedProjects** | **bool** |  | 
- **onlyArchivedProjects2** | **bool** |  | 
- **nestSubTasks** | **bool** |  | 
- **nestSubTasks2** | **bool** |  | 
- **matchAllProjectTags** | **bool** |  | 
- **matchAllProjectTags2** | **bool** |  | 
- **includeUntaggedTasks** | **bool** |  | 
- **includeUntaggedTasks2** | **bool** |  | 
- **includeToday** | **bool** |  | 
- **includeToday2** | **bool** |  | 
- **includeTasksWithoutDueDates** | **bool** |  | 
- **includeTasksFromDeletedLists** | **bool** |  | 
- **includeTasksFromDeletedLists2** | **bool** |  | 
- **includeReminders** | **bool** |  | 
- **includeReminders2** | **bool** |  | 
- **includeLoggedTime** | **bool** |  | 
- **includeLoggedTime2** | **bool** |  | 
- **includeCompletedTasks** | **bool** |  | 
- **includeCompletedTasks2** | **bool** |  | 
- **includeCompletedSubtasks** | **bool** |  | 
- **includeCompletedSubtasks2** | **bool** |  | 
- **includeCompletedPredecessors** | **bool** |  | 
- **includeCompletedPredecessors2** | **bool** |  | 
- **includeArchivedProjects** | **bool** |  | 
- **includeArchivedProjects2** | **bool** |  | 
- **ignoreStartDates** | **bool** |  | 
- **getSubTasks** | **bool** |  | 
- **getSubTasks2** | **bool** |  | 
- **getFiles** | **bool** |  | 
- **getFiles2** | **bool** |  | 
- **countOnly** | **bool** |  | 
- **countOnly2** | **bool** |  | 
- **allowTemplateTasks** | **bool** |  | 
- **projectTagIds** | **[]int32** |  | 
- **projectTagIds2** | **[]int32** |  | 
- **projectOwnerIds** | **[]int32** |  | 
- **projectOwnerIds2** | **[]int32** |  | 
- **projectIds** | **[]int32** |  | 
- **projectIds2** | **[]int32** |  | 
- **projectId** | **[]int32** | project *filters | 
- **projectId2** | **[]int32** | project *filters | 
- **projectHealths** | **[]int32** |  | 
- **projectHealths2** | **[]int32** |  | 
- **projectCompanyIds** | **[]int32** |  | 
- **projectCompanyIds2** | **[]int32** |  | 
- **projectCategoryIds** | **[]int32** |  | 
- **projectCategoryIds2** | **[]int32** |  | 
 
 ### Return type
 
@@ -793,9 +725,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1ProjectsProjectIdTasklists
+## GETProjectsApiV1ProjectsprojectIdTasklists
 
-> GETProjectsApiV1ProjectsProjectIdTasklists(ctx).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+> GETProjectsApiV1ProjectsprojectIdTasklists(ctx, projectId).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Get tasklists
 
@@ -812,6 +744,7 @@ import (
 )
 
 func main() {
+    projectId := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     status := "status_example" // string |  (optional)
     status2 := "status_example" // string |  (optional)
@@ -835,6 +768,7 @@ func main() {
     onlyArchivedProjects := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
     includeTags := true // bool |  (optional)
+    includeCustomFields := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
     getTasks := true // bool |  (optional)
     getOverdueCount := true // bool |  (optional)
@@ -846,16 +780,16 @@ func main() {
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectId := []int32{int32(123)} // []int32 | project filters (optional)
+    projectId2 := []int32{int32(123)} // []int32 | project filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectsProjectIdTasklists(context.Background()).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectsprojectIdTasklists(context.Background(), projectId).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectsProjectIdTasklists``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectsprojectIdTasklists``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -864,14 +798,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectsProjectIdTasklistsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectsprojectIdTasklistsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **status** | **string** |  | 
  **status2** | **string** |  | 
@@ -895,6 +834,7 @@ Name | Type | Description  | Notes
  **onlyArchivedProjects** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
  **includeTags** | **bool** |  | 
+ **includeCustomFields** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
  **getTasks** | **bool** |  | 
  **getOverdueCount** | **bool** |  | 
@@ -906,7 +846,7 @@ Name | Type | Description  | Notes
  **projectTagIds** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectId** | **[]int32** | project filters | 
+ **projectId2** | **[]int32** | project filters | 
  **projectHealths** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
@@ -929,9 +869,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1ProjectsProjectIdTasks
+## GETProjectsApiV1ProjectsprojectIdTasks
 
-> GETProjectsApiV1ProjectsProjectIdTasks(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+> GETProjectsApiV1ProjectsprojectIdTasks(ctx, projectId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Will return the tasks
 
@@ -948,110 +888,70 @@ import (
 )
 
 func main() {
+    projectId := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     today := "today_example" // string |  (optional)
     tagIds := "tagIds_example" // string |  (optional)
-    tagIds2 := "tagIds_example" // string |  (optional)
-    startdate := "startdate_example" // string |  (optional)
     startDate := "startDate_example" // string |  (optional)
     sort := "sort_example" // string |  (optional)
-    sort2 := "sort_example" // string |  (optional)
     responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
-    responsiblePartyId := "responsiblePartyId_example" // string |  (optional)
     projectStatus := "projectStatus_example" // string |  (optional)
-    projectStatus2 := "projectStatus_example" // string |  (optional)
     include := "include_example" // string |  (optional)
-    followerIds := "followerIds_example" // string |  (optional)
     followedByUserIds := "followedByUserIds_example" // string |  (optional)
     filter := "filter_example" // string |  (optional)
-    filter2 := "filter_example" // string |  (optional)
-    enddate := "enddate_example" // string |  (optional)
     endDate := "endDate_example" // string |  (optional)
     dataSet := "dataSet_example" // string |  (optional)
-    dataSet2 := "dataSet_example" // string |  (optional)
     creatorIds := "creatorIds_example" // string |  (optional)
     createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
     createdAfterDate := "createdAfterDate_example" // string |  (optional)
     completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
-    completedBeforeDate2 := "completedBeforeDate_example" // string |  (optional)
     completedAfterDate := "completedAfterDate_example" // string |  (optional)
-    completedAfterDate2 := "completedAfterDate_example" // string |  (optional)
     callback := "callback_example" // string |  (optional)
     tasklistId := int32(56) // int32 |  (optional)
     taskId := int32(56) // int32 |  (optional)
     projectCategoryId := int32(56) // int32 |  (optional)
-    projectCategoryId2 := int32(56) // int32 |  (optional)
     parentTaskId := int32(56) // int32 |  (optional)
     pageSize := int32(56) // int32 |  (optional)
     page := int32(56) // int32 |  (optional)
     includeTaskId := int32(56) // int32 |  (optional)
-    includeTaskId2 := int32(56) // int32 |  (optional)
     companyId := int32(56) // int32 |  (optional)
-    companyId2 := int32(56) // int32 |  (optional)
     useStartDatesForTodaysTasks := true // bool |  (optional)
     useAllProjects := true // bool |  (optional)
-    useAllProjects2 := true // bool |  (optional)
     starredProjectsOnly := true // bool |  (optional)
-    starredProjectsOnly2 := true // bool |  (optional)
     showDeleted := true // bool |  (optional)
-    showDeleted2 := true // bool |  (optional)
     showCompletedLists := true // bool |  (optional)
-    showCompletedLists2 := true // bool |  (optional)
     onlyStarredProjects := true // bool |  (optional)
-    onlyStarredProjects2 := true // bool |  (optional)
     onlyArchivedProjects := true // bool |  (optional)
-    onlyArchivedProjects2 := true // bool |  (optional)
     nestSubTasks := true // bool |  (optional)
-    nestSubTasks2 := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
-    matchAllProjectTags2 := true // bool |  (optional)
     includeUntaggedTasks := true // bool |  (optional)
-    includeUntaggedTasks2 := true // bool |  (optional)
     includeToday := true // bool |  (optional)
-    includeToday2 := true // bool |  (optional)
     includeTasksWithoutDueDates := true // bool |  (optional)
     includeTasksFromDeletedLists := true // bool |  (optional)
-    includeTasksFromDeletedLists2 := true // bool |  (optional)
     includeReminders := true // bool |  (optional)
-    includeReminders2 := true // bool |  (optional)
     includeLoggedTime := true // bool |  (optional)
-    includeLoggedTime2 := true // bool |  (optional)
     includeCompletedTasks := true // bool |  (optional)
-    includeCompletedTasks2 := true // bool |  (optional)
     includeCompletedSubtasks := true // bool |  (optional)
-    includeCompletedSubtasks2 := true // bool |  (optional)
     includeCompletedPredecessors := true // bool |  (optional)
-    includeCompletedPredecessors2 := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
-    includeArchivedProjects2 := true // bool |  (optional)
     ignoreStartDates := true // bool |  (optional)
     getSubTasks := true // bool |  (optional)
-    getSubTasks2 := true // bool |  (optional)
     getFiles := true // bool |  (optional)
-    getFiles2 := true // bool |  (optional)
     countOnly := true // bool |  (optional)
-    countOnly2 := true // bool |  (optional)
     allowTemplateTasks := true // bool |  (optional)
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
-    projectTagIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectIds2 := []int32{int32(123)} // []int32 |  (optional)
-    projectId := []int32{int32(123)} // []int32 | project *filters (optional)
     projectId2 := []int32{int32(123)} // []int32 | project *filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
-    projectHealths2 := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds2 := []int32{int32(123)} // []int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectsProjectIdTasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1ProjectsprojectIdTasks(context.Background(), projectId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectsProjectIdTasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1ProjectsprojectIdTasks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1060,112 +960,76 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectsProjectIdTasksRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1ProjectsprojectIdTasksRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **today** | **string** |  | 
  **tagIds** | **string** |  | 
- **tagIds2** | **string** |  | 
- **startdate** | **string** |  | 
  **startDate** | **string** |  | 
  **sort** | **string** |  | 
- **sort2** | **string** |  | 
  **responsiblePartyIds** | **string** |  | 
- **responsiblePartyId** | **string** |  | 
  **projectStatus** | **string** |  | 
- **projectStatus2** | **string** |  | 
  **include** | **string** |  | 
- **followerIds** | **string** |  | 
  **followedByUserIds** | **string** |  | 
  **filter** | **string** |  | 
- **filter2** | **string** |  | 
- **enddate** | **string** |  | 
  **endDate** | **string** |  | 
  **dataSet** | **string** |  | 
- **dataSet2** | **string** |  | 
  **creatorIds** | **string** |  | 
  **createdBeforeDate** | **string** |  | 
  **createdAfterDate** | **string** |  | 
  **completedBeforeDate** | **string** |  | 
- **completedBeforeDate2** | **string** |  | 
  **completedAfterDate** | **string** |  | 
- **completedAfterDate2** | **string** |  | 
  **callback** | **string** |  | 
  **tasklistId** | **int32** |  | 
  **taskId** | **int32** |  | 
  **projectCategoryId** | **int32** |  | 
- **projectCategoryId2** | **int32** |  | 
  **parentTaskId** | **int32** |  | 
  **pageSize** | **int32** |  | 
  **page** | **int32** |  | 
  **includeTaskId** | **int32** |  | 
- **includeTaskId2** | **int32** |  | 
  **companyId** | **int32** |  | 
- **companyId2** | **int32** |  | 
  **useStartDatesForTodaysTasks** | **bool** |  | 
  **useAllProjects** | **bool** |  | 
- **useAllProjects2** | **bool** |  | 
  **starredProjectsOnly** | **bool** |  | 
- **starredProjectsOnly2** | **bool** |  | 
  **showDeleted** | **bool** |  | 
- **showDeleted2** | **bool** |  | 
  **showCompletedLists** | **bool** |  | 
- **showCompletedLists2** | **bool** |  | 
  **onlyStarredProjects** | **bool** |  | 
- **onlyStarredProjects2** | **bool** |  | 
  **onlyArchivedProjects** | **bool** |  | 
- **onlyArchivedProjects2** | **bool** |  | 
  **nestSubTasks** | **bool** |  | 
- **nestSubTasks2** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
- **matchAllProjectTags2** | **bool** |  | 
  **includeUntaggedTasks** | **bool** |  | 
- **includeUntaggedTasks2** | **bool** |  | 
  **includeToday** | **bool** |  | 
- **includeToday2** | **bool** |  | 
  **includeTasksWithoutDueDates** | **bool** |  | 
  **includeTasksFromDeletedLists** | **bool** |  | 
- **includeTasksFromDeletedLists2** | **bool** |  | 
  **includeReminders** | **bool** |  | 
- **includeReminders2** | **bool** |  | 
  **includeLoggedTime** | **bool** |  | 
- **includeLoggedTime2** | **bool** |  | 
  **includeCompletedTasks** | **bool** |  | 
- **includeCompletedTasks2** | **bool** |  | 
  **includeCompletedSubtasks** | **bool** |  | 
- **includeCompletedSubtasks2** | **bool** |  | 
  **includeCompletedPredecessors** | **bool** |  | 
- **includeCompletedPredecessors2** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
- **includeArchivedProjects2** | **bool** |  | 
  **ignoreStartDates** | **bool** |  | 
  **getSubTasks** | **bool** |  | 
- **getSubTasks2** | **bool** |  | 
  **getFiles** | **bool** |  | 
- **getFiles2** | **bool** |  | 
  **countOnly** | **bool** |  | 
- **countOnly2** | **bool** |  | 
  **allowTemplateTasks** | **bool** |  | 
  **projectTagIds** | **[]int32** |  | 
- **projectTagIds2** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
- **projectOwnerIds2** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectIds2** | **[]int32** |  | 
- **projectId** | **[]int32** | project *filters | 
  **projectId2** | **[]int32** | project *filters | 
  **projectHealths** | **[]int32** |  | 
- **projectHealths2** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
- **projectCompanyIds2** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
- **projectCategoryIds2** | **[]int32** |  | 
 
 ### Return type
 
@@ -1187,7 +1051,7 @@ No authorization required
 
 ## GETProjectsApiV1Tasklists
 
-> GETProjectsApiV1Tasklists(ctx).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+> GETProjectsApiV1Tasklists(ctx).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Get tasklists
 
@@ -1227,6 +1091,7 @@ func main() {
     onlyArchivedProjects := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
     includeTags := true // bool |  (optional)
+    includeCustomFields := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
     getTasks := true // bool |  (optional)
     getOverdueCount := true // bool |  (optional)
@@ -1245,7 +1110,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1Tasklists(context.Background()).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1Tasklists(context.Background()).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1Tasklists``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1287,6 +1152,7 @@ Name | Type | Description  | Notes
  **onlyArchivedProjects** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
  **includeTags** | **bool** |  | 
+ **includeCustomFields** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
  **getTasks** | **bool** |  | 
  **getOverdueCount** | **bool** |  | 
@@ -1321,9 +1187,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1TasklistsTasklistId
+## GETProjectsApiV1TaskliststasklistId
 
-> GETProjectsApiV1TasklistsTasklistId(ctx).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+> GETProjectsApiV1TaskliststasklistId(ctx, tasklistId2).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Get tasklists
 
@@ -1340,6 +1206,7 @@ import (
 )
 
 func main() {
+    tasklistId2 := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     status := "status_example" // string |  (optional)
     status2 := "status_example" // string |  (optional)
@@ -1363,6 +1230,7 @@ func main() {
     onlyArchivedProjects := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
     includeTags := true // bool |  (optional)
+    includeCustomFields := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
     getTasks := true // bool |  (optional)
     getOverdueCount := true // bool |  (optional)
@@ -1381,9 +1249,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TasklistsTasklistId(context.Background()).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TaskliststasklistId(context.Background(), tasklistId2).UpdatedAfterDate(updatedAfterDate).Status(status).Status2(status2).SortBy(sortBy).SearchTerm(searchTerm).ProjectStatus(projectStatus).FilterText(filterText).Filter(filter).DataSet(dataSet).UserId(userId).TasklistId(tasklistId).ResponsiblePartyId(responsiblePartyId).PageSize(pageSize).Page(page).OnlyUnattachedExceptMilestoneId(onlyUnattachedExceptMilestoneId).ShowPrivate(showPrivate).ShowMilestones(showMilestones).ShowDeleted(showDeleted).ShowCompleted(showCompleted).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).MatchAllProjectTags(matchAllProjectTags).IncludeTags(includeTags).IncludeCustomFields(includeCustomFields).IncludeArchivedProjects(includeArchivedProjects).GetTasks(getTasks).GetOverdueCount(getOverdueCount).GetNewTaskDefaults(getNewTaskDefaults).GetEmptyLists(getEmptyLists).GetDLMs(getDLMs).GetCompletedCount(getCompletedCount).GetCategoryPath(getCategoryPath).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TasklistsTasklistId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TaskliststasklistId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1392,14 +1260,19 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tasklistId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1TasklistsTasklistIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1TaskliststasklistIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **status** | **string** |  | 
  **status2** | **string** |  | 
@@ -1423,6 +1296,7 @@ Name | Type | Description  | Notes
  **onlyArchivedProjects** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
  **includeTags** | **bool** |  | 
+ **includeCustomFields** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
  **getTasks** | **bool** |  | 
  **getOverdueCount** | **bool** |  | 
@@ -1457,9 +1331,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1TasklistsTasklistIdTasks
+## GETProjectsApiV1TaskliststasklistIdTasks
 
-> GETProjectsApiV1TasklistsTasklistIdTasks(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+> GETProjectsApiV1TaskliststasklistIdTasks(ctx, tasklistId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId2(tasklistId2).TaskId(taskId).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Will return the tasks
 
@@ -1476,110 +1350,70 @@ import (
 )
 
 func main() {
+    tasklistId := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     today := "today_example" // string |  (optional)
     tagIds := "tagIds_example" // string |  (optional)
-    tagIds2 := "tagIds_example" // string |  (optional)
-    startdate := "startdate_example" // string |  (optional)
     startDate := "startDate_example" // string |  (optional)
     sort := "sort_example" // string |  (optional)
-    sort2 := "sort_example" // string |  (optional)
     responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
-    responsiblePartyId := "responsiblePartyId_example" // string |  (optional)
     projectStatus := "projectStatus_example" // string |  (optional)
-    projectStatus2 := "projectStatus_example" // string |  (optional)
     include := "include_example" // string |  (optional)
-    followerIds := "followerIds_example" // string |  (optional)
     followedByUserIds := "followedByUserIds_example" // string |  (optional)
     filter := "filter_example" // string |  (optional)
-    filter2 := "filter_example" // string |  (optional)
-    enddate := "enddate_example" // string |  (optional)
     endDate := "endDate_example" // string |  (optional)
     dataSet := "dataSet_example" // string |  (optional)
-    dataSet2 := "dataSet_example" // string |  (optional)
     creatorIds := "creatorIds_example" // string |  (optional)
     createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
     createdAfterDate := "createdAfterDate_example" // string |  (optional)
     completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
-    completedBeforeDate2 := "completedBeforeDate_example" // string |  (optional)
     completedAfterDate := "completedAfterDate_example" // string |  (optional)
-    completedAfterDate2 := "completedAfterDate_example" // string |  (optional)
     callback := "callback_example" // string |  (optional)
-    tasklistId := int32(56) // int32 |  (optional)
+    tasklistId2 := int32(56) // int32 |  (optional)
     taskId := int32(56) // int32 |  (optional)
     projectCategoryId := int32(56) // int32 |  (optional)
-    projectCategoryId2 := int32(56) // int32 |  (optional)
     parentTaskId := int32(56) // int32 |  (optional)
     pageSize := int32(56) // int32 |  (optional)
     page := int32(56) // int32 |  (optional)
     includeTaskId := int32(56) // int32 |  (optional)
-    includeTaskId2 := int32(56) // int32 |  (optional)
     companyId := int32(56) // int32 |  (optional)
-    companyId2 := int32(56) // int32 |  (optional)
     useStartDatesForTodaysTasks := true // bool |  (optional)
     useAllProjects := true // bool |  (optional)
-    useAllProjects2 := true // bool |  (optional)
     starredProjectsOnly := true // bool |  (optional)
-    starredProjectsOnly2 := true // bool |  (optional)
     showDeleted := true // bool |  (optional)
-    showDeleted2 := true // bool |  (optional)
     showCompletedLists := true // bool |  (optional)
-    showCompletedLists2 := true // bool |  (optional)
     onlyStarredProjects := true // bool |  (optional)
-    onlyStarredProjects2 := true // bool |  (optional)
     onlyArchivedProjects := true // bool |  (optional)
-    onlyArchivedProjects2 := true // bool |  (optional)
     nestSubTasks := true // bool |  (optional)
-    nestSubTasks2 := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
-    matchAllProjectTags2 := true // bool |  (optional)
     includeUntaggedTasks := true // bool |  (optional)
-    includeUntaggedTasks2 := true // bool |  (optional)
     includeToday := true // bool |  (optional)
-    includeToday2 := true // bool |  (optional)
     includeTasksWithoutDueDates := true // bool |  (optional)
     includeTasksFromDeletedLists := true // bool |  (optional)
-    includeTasksFromDeletedLists2 := true // bool |  (optional)
     includeReminders := true // bool |  (optional)
-    includeReminders2 := true // bool |  (optional)
     includeLoggedTime := true // bool |  (optional)
-    includeLoggedTime2 := true // bool |  (optional)
     includeCompletedTasks := true // bool |  (optional)
-    includeCompletedTasks2 := true // bool |  (optional)
     includeCompletedSubtasks := true // bool |  (optional)
-    includeCompletedSubtasks2 := true // bool |  (optional)
     includeCompletedPredecessors := true // bool |  (optional)
-    includeCompletedPredecessors2 := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
-    includeArchivedProjects2 := true // bool |  (optional)
     ignoreStartDates := true // bool |  (optional)
     getSubTasks := true // bool |  (optional)
-    getSubTasks2 := true // bool |  (optional)
     getFiles := true // bool |  (optional)
-    getFiles2 := true // bool |  (optional)
     countOnly := true // bool |  (optional)
-    countOnly2 := true // bool |  (optional)
     allowTemplateTasks := true // bool |  (optional)
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
-    projectTagIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectId := []int32{int32(123)} // []int32 | project *filters (optional)
-    projectId2 := []int32{int32(123)} // []int32 | project *filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
-    projectHealths2 := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds2 := []int32{int32(123)} // []int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TasklistsTasklistIdTasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TaskliststasklistIdTasks(context.Background(), tasklistId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId2(tasklistId2).TaskId(taskId).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TasklistsTasklistIdTasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TaskliststasklistIdTasks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1588,112 +1422,76 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tasklistId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1TasklistsTasklistIdTasksRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1TaskliststasklistIdTasksRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **today** | **string** |  | 
  **tagIds** | **string** |  | 
- **tagIds2** | **string** |  | 
- **startdate** | **string** |  | 
  **startDate** | **string** |  | 
  **sort** | **string** |  | 
- **sort2** | **string** |  | 
  **responsiblePartyIds** | **string** |  | 
- **responsiblePartyId** | **string** |  | 
  **projectStatus** | **string** |  | 
- **projectStatus2** | **string** |  | 
  **include** | **string** |  | 
- **followerIds** | **string** |  | 
  **followedByUserIds** | **string** |  | 
  **filter** | **string** |  | 
- **filter2** | **string** |  | 
- **enddate** | **string** |  | 
  **endDate** | **string** |  | 
  **dataSet** | **string** |  | 
- **dataSet2** | **string** |  | 
  **creatorIds** | **string** |  | 
  **createdBeforeDate** | **string** |  | 
  **createdAfterDate** | **string** |  | 
  **completedBeforeDate** | **string** |  | 
- **completedBeforeDate2** | **string** |  | 
  **completedAfterDate** | **string** |  | 
- **completedAfterDate2** | **string** |  | 
  **callback** | **string** |  | 
- **tasklistId** | **int32** |  | 
+ **tasklistId2** | **int32** |  | 
  **taskId** | **int32** |  | 
  **projectCategoryId** | **int32** |  | 
- **projectCategoryId2** | **int32** |  | 
  **parentTaskId** | **int32** |  | 
  **pageSize** | **int32** |  | 
  **page** | **int32** |  | 
  **includeTaskId** | **int32** |  | 
- **includeTaskId2** | **int32** |  | 
  **companyId** | **int32** |  | 
- **companyId2** | **int32** |  | 
  **useStartDatesForTodaysTasks** | **bool** |  | 
  **useAllProjects** | **bool** |  | 
- **useAllProjects2** | **bool** |  | 
  **starredProjectsOnly** | **bool** |  | 
- **starredProjectsOnly2** | **bool** |  | 
  **showDeleted** | **bool** |  | 
- **showDeleted2** | **bool** |  | 
  **showCompletedLists** | **bool** |  | 
- **showCompletedLists2** | **bool** |  | 
  **onlyStarredProjects** | **bool** |  | 
- **onlyStarredProjects2** | **bool** |  | 
  **onlyArchivedProjects** | **bool** |  | 
- **onlyArchivedProjects2** | **bool** |  | 
  **nestSubTasks** | **bool** |  | 
- **nestSubTasks2** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
- **matchAllProjectTags2** | **bool** |  | 
  **includeUntaggedTasks** | **bool** |  | 
- **includeUntaggedTasks2** | **bool** |  | 
  **includeToday** | **bool** |  | 
- **includeToday2** | **bool** |  | 
  **includeTasksWithoutDueDates** | **bool** |  | 
  **includeTasksFromDeletedLists** | **bool** |  | 
- **includeTasksFromDeletedLists2** | **bool** |  | 
  **includeReminders** | **bool** |  | 
- **includeReminders2** | **bool** |  | 
  **includeLoggedTime** | **bool** |  | 
- **includeLoggedTime2** | **bool** |  | 
  **includeCompletedTasks** | **bool** |  | 
- **includeCompletedTasks2** | **bool** |  | 
  **includeCompletedSubtasks** | **bool** |  | 
- **includeCompletedSubtasks2** | **bool** |  | 
  **includeCompletedPredecessors** | **bool** |  | 
- **includeCompletedPredecessors2** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
- **includeArchivedProjects2** | **bool** |  | 
  **ignoreStartDates** | **bool** |  | 
  **getSubTasks** | **bool** |  | 
- **getSubTasks2** | **bool** |  | 
  **getFiles** | **bool** |  | 
- **getFiles2** | **bool** |  | 
  **countOnly** | **bool** |  | 
- **countOnly2** | **bool** |  | 
  **allowTemplateTasks** | **bool** |  | 
  **projectTagIds** | **[]int32** |  | 
- **projectTagIds2** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
- **projectOwnerIds2** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectIds2** | **[]int32** |  | 
  **projectId** | **[]int32** | project *filters | 
- **projectId2** | **[]int32** | project *filters | 
  **projectHealths** | **[]int32** |  | 
- **projectHealths2** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
- **projectCompanyIds2** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
- **projectCategoryIds2** | **[]int32** |  | 
 
 ### Return type
 
@@ -1715,7 +1513,7 @@ No authorization required
 
 ## GETProjectsApiV1Tasks
 
-> GETProjectsApiV1Tasks(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+> GETProjectsApiV1Tasks(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Will return the tasks
 
@@ -1735,105 +1533,64 @@ func main() {
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     today := "today_example" // string |  (optional)
     tagIds := "tagIds_example" // string |  (optional)
-    tagIds2 := "tagIds_example" // string |  (optional)
-    startdate := "startdate_example" // string |  (optional)
     startDate := "startDate_example" // string |  (optional)
     sort := "sort_example" // string |  (optional)
-    sort2 := "sort_example" // string |  (optional)
     responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
-    responsiblePartyId := "responsiblePartyId_example" // string |  (optional)
     projectStatus := "projectStatus_example" // string |  (optional)
-    projectStatus2 := "projectStatus_example" // string |  (optional)
     include := "include_example" // string |  (optional)
-    followerIds := "followerIds_example" // string |  (optional)
     followedByUserIds := "followedByUserIds_example" // string |  (optional)
     filter := "filter_example" // string |  (optional)
-    filter2 := "filter_example" // string |  (optional)
-    enddate := "enddate_example" // string |  (optional)
     endDate := "endDate_example" // string |  (optional)
     dataSet := "dataSet_example" // string |  (optional)
-    dataSet2 := "dataSet_example" // string |  (optional)
     creatorIds := "creatorIds_example" // string |  (optional)
     createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
     createdAfterDate := "createdAfterDate_example" // string |  (optional)
     completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
-    completedBeforeDate2 := "completedBeforeDate_example" // string |  (optional)
     completedAfterDate := "completedAfterDate_example" // string |  (optional)
-    completedAfterDate2 := "completedAfterDate_example" // string |  (optional)
     callback := "callback_example" // string |  (optional)
     tasklistId := int32(56) // int32 |  (optional)
     taskId := int32(56) // int32 |  (optional)
     projectCategoryId := int32(56) // int32 |  (optional)
-    projectCategoryId2 := int32(56) // int32 |  (optional)
     parentTaskId := int32(56) // int32 |  (optional)
     pageSize := int32(56) // int32 |  (optional)
     page := int32(56) // int32 |  (optional)
     includeTaskId := int32(56) // int32 |  (optional)
-    includeTaskId2 := int32(56) // int32 |  (optional)
     companyId := int32(56) // int32 |  (optional)
-    companyId2 := int32(56) // int32 |  (optional)
     useStartDatesForTodaysTasks := true // bool |  (optional)
     useAllProjects := true // bool |  (optional)
-    useAllProjects2 := true // bool |  (optional)
     starredProjectsOnly := true // bool |  (optional)
-    starredProjectsOnly2 := true // bool |  (optional)
     showDeleted := true // bool |  (optional)
-    showDeleted2 := true // bool |  (optional)
     showCompletedLists := true // bool |  (optional)
-    showCompletedLists2 := true // bool |  (optional)
     onlyStarredProjects := true // bool |  (optional)
-    onlyStarredProjects2 := true // bool |  (optional)
     onlyArchivedProjects := true // bool |  (optional)
-    onlyArchivedProjects2 := true // bool |  (optional)
     nestSubTasks := true // bool |  (optional)
-    nestSubTasks2 := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
-    matchAllProjectTags2 := true // bool |  (optional)
     includeUntaggedTasks := true // bool |  (optional)
-    includeUntaggedTasks2 := true // bool |  (optional)
     includeToday := true // bool |  (optional)
-    includeToday2 := true // bool |  (optional)
     includeTasksWithoutDueDates := true // bool |  (optional)
     includeTasksFromDeletedLists := true // bool |  (optional)
-    includeTasksFromDeletedLists2 := true // bool |  (optional)
     includeReminders := true // bool |  (optional)
-    includeReminders2 := true // bool |  (optional)
     includeLoggedTime := true // bool |  (optional)
-    includeLoggedTime2 := true // bool |  (optional)
     includeCompletedTasks := true // bool |  (optional)
-    includeCompletedTasks2 := true // bool |  (optional)
     includeCompletedSubtasks := true // bool |  (optional)
-    includeCompletedSubtasks2 := true // bool |  (optional)
     includeCompletedPredecessors := true // bool |  (optional)
-    includeCompletedPredecessors2 := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
-    includeArchivedProjects2 := true // bool |  (optional)
     ignoreStartDates := true // bool |  (optional)
     getSubTasks := true // bool |  (optional)
-    getSubTasks2 := true // bool |  (optional)
     getFiles := true // bool |  (optional)
-    getFiles2 := true // bool |  (optional)
     countOnly := true // bool |  (optional)
-    countOnly2 := true // bool |  (optional)
     allowTemplateTasks := true // bool |  (optional)
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
-    projectTagIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectId := []int32{int32(123)} // []int32 | project *filters (optional)
-    projectId2 := []int32{int32(123)} // []int32 | project *filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
-    projectHealths2 := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds2 := []int32{int32(123)} // []int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1Tasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1Tasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1Tasks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1855,101 +1612,60 @@ Name | Type | Description  | Notes
  **updatedAfterDate** | **string** |  | 
  **today** | **string** |  | 
  **tagIds** | **string** |  | 
- **tagIds2** | **string** |  | 
- **startdate** | **string** |  | 
  **startDate** | **string** |  | 
  **sort** | **string** |  | 
- **sort2** | **string** |  | 
  **responsiblePartyIds** | **string** |  | 
- **responsiblePartyId** | **string** |  | 
  **projectStatus** | **string** |  | 
- **projectStatus2** | **string** |  | 
  **include** | **string** |  | 
- **followerIds** | **string** |  | 
  **followedByUserIds** | **string** |  | 
  **filter** | **string** |  | 
- **filter2** | **string** |  | 
- **enddate** | **string** |  | 
  **endDate** | **string** |  | 
  **dataSet** | **string** |  | 
- **dataSet2** | **string** |  | 
  **creatorIds** | **string** |  | 
  **createdBeforeDate** | **string** |  | 
  **createdAfterDate** | **string** |  | 
  **completedBeforeDate** | **string** |  | 
- **completedBeforeDate2** | **string** |  | 
  **completedAfterDate** | **string** |  | 
- **completedAfterDate2** | **string** |  | 
  **callback** | **string** |  | 
  **tasklistId** | **int32** |  | 
  **taskId** | **int32** |  | 
  **projectCategoryId** | **int32** |  | 
- **projectCategoryId2** | **int32** |  | 
  **parentTaskId** | **int32** |  | 
  **pageSize** | **int32** |  | 
  **page** | **int32** |  | 
  **includeTaskId** | **int32** |  | 
- **includeTaskId2** | **int32** |  | 
  **companyId** | **int32** |  | 
- **companyId2** | **int32** |  | 
  **useStartDatesForTodaysTasks** | **bool** |  | 
  **useAllProjects** | **bool** |  | 
- **useAllProjects2** | **bool** |  | 
  **starredProjectsOnly** | **bool** |  | 
- **starredProjectsOnly2** | **bool** |  | 
  **showDeleted** | **bool** |  | 
- **showDeleted2** | **bool** |  | 
  **showCompletedLists** | **bool** |  | 
- **showCompletedLists2** | **bool** |  | 
  **onlyStarredProjects** | **bool** |  | 
- **onlyStarredProjects2** | **bool** |  | 
  **onlyArchivedProjects** | **bool** |  | 
- **onlyArchivedProjects2** | **bool** |  | 
  **nestSubTasks** | **bool** |  | 
- **nestSubTasks2** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
- **matchAllProjectTags2** | **bool** |  | 
  **includeUntaggedTasks** | **bool** |  | 
- **includeUntaggedTasks2** | **bool** |  | 
  **includeToday** | **bool** |  | 
- **includeToday2** | **bool** |  | 
  **includeTasksWithoutDueDates** | **bool** |  | 
  **includeTasksFromDeletedLists** | **bool** |  | 
- **includeTasksFromDeletedLists2** | **bool** |  | 
  **includeReminders** | **bool** |  | 
- **includeReminders2** | **bool** |  | 
  **includeLoggedTime** | **bool** |  | 
- **includeLoggedTime2** | **bool** |  | 
  **includeCompletedTasks** | **bool** |  | 
- **includeCompletedTasks2** | **bool** |  | 
  **includeCompletedSubtasks** | **bool** |  | 
- **includeCompletedSubtasks2** | **bool** |  | 
  **includeCompletedPredecessors** | **bool** |  | 
- **includeCompletedPredecessors2** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
- **includeArchivedProjects2** | **bool** |  | 
  **ignoreStartDates** | **bool** |  | 
  **getSubTasks** | **bool** |  | 
- **getSubTasks2** | **bool** |  | 
  **getFiles** | **bool** |  | 
- **getFiles2** | **bool** |  | 
  **countOnly** | **bool** |  | 
- **countOnly2** | **bool** |  | 
  **allowTemplateTasks** | **bool** |  | 
  **projectTagIds** | **[]int32** |  | 
- **projectTagIds2** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
- **projectOwnerIds2** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectIds2** | **[]int32** |  | 
  **projectId** | **[]int32** | project *filters | 
- **projectId2** | **[]int32** | project *filters | 
  **projectHealths** | **[]int32** |  | 
- **projectHealths2** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
- **projectCompanyIds2** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
- **projectCategoryIds2** | **[]int32** |  | 
 
 ### Return type
 
@@ -1969,9 +1685,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1TasksTaskId
+## GETProjectsApiV1TaskstaskId
 
-> GETProjectsApiV1TasksTaskId(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+> GETProjectsApiV1TaskstaskId(ctx, taskId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId2(taskId2).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Will return the tasks
 
@@ -1988,110 +1704,70 @@ import (
 )
 
 func main() {
+    taskId := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     today := "today_example" // string |  (optional)
     tagIds := "tagIds_example" // string |  (optional)
-    tagIds2 := "tagIds_example" // string |  (optional)
-    startdate := "startdate_example" // string |  (optional)
     startDate := "startDate_example" // string |  (optional)
     sort := "sort_example" // string |  (optional)
-    sort2 := "sort_example" // string |  (optional)
     responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
-    responsiblePartyId := "responsiblePartyId_example" // string |  (optional)
     projectStatus := "projectStatus_example" // string |  (optional)
-    projectStatus2 := "projectStatus_example" // string |  (optional)
     include := "include_example" // string |  (optional)
-    followerIds := "followerIds_example" // string |  (optional)
     followedByUserIds := "followedByUserIds_example" // string |  (optional)
     filter := "filter_example" // string |  (optional)
-    filter2 := "filter_example" // string |  (optional)
-    enddate := "enddate_example" // string |  (optional)
     endDate := "endDate_example" // string |  (optional)
     dataSet := "dataSet_example" // string |  (optional)
-    dataSet2 := "dataSet_example" // string |  (optional)
     creatorIds := "creatorIds_example" // string |  (optional)
     createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
     createdAfterDate := "createdAfterDate_example" // string |  (optional)
     completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
-    completedBeforeDate2 := "completedBeforeDate_example" // string |  (optional)
     completedAfterDate := "completedAfterDate_example" // string |  (optional)
-    completedAfterDate2 := "completedAfterDate_example" // string |  (optional)
     callback := "callback_example" // string |  (optional)
     tasklistId := int32(56) // int32 |  (optional)
-    taskId := int32(56) // int32 |  (optional)
+    taskId2 := int32(56) // int32 |  (optional)
     projectCategoryId := int32(56) // int32 |  (optional)
-    projectCategoryId2 := int32(56) // int32 |  (optional)
     parentTaskId := int32(56) // int32 |  (optional)
     pageSize := int32(56) // int32 |  (optional)
     page := int32(56) // int32 |  (optional)
     includeTaskId := int32(56) // int32 |  (optional)
-    includeTaskId2 := int32(56) // int32 |  (optional)
     companyId := int32(56) // int32 |  (optional)
-    companyId2 := int32(56) // int32 |  (optional)
     useStartDatesForTodaysTasks := true // bool |  (optional)
     useAllProjects := true // bool |  (optional)
-    useAllProjects2 := true // bool |  (optional)
     starredProjectsOnly := true // bool |  (optional)
-    starredProjectsOnly2 := true // bool |  (optional)
     showDeleted := true // bool |  (optional)
-    showDeleted2 := true // bool |  (optional)
     showCompletedLists := true // bool |  (optional)
-    showCompletedLists2 := true // bool |  (optional)
     onlyStarredProjects := true // bool |  (optional)
-    onlyStarredProjects2 := true // bool |  (optional)
     onlyArchivedProjects := true // bool |  (optional)
-    onlyArchivedProjects2 := true // bool |  (optional)
     nestSubTasks := true // bool |  (optional)
-    nestSubTasks2 := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
-    matchAllProjectTags2 := true // bool |  (optional)
     includeUntaggedTasks := true // bool |  (optional)
-    includeUntaggedTasks2 := true // bool |  (optional)
     includeToday := true // bool |  (optional)
-    includeToday2 := true // bool |  (optional)
     includeTasksWithoutDueDates := true // bool |  (optional)
     includeTasksFromDeletedLists := true // bool |  (optional)
-    includeTasksFromDeletedLists2 := true // bool |  (optional)
     includeReminders := true // bool |  (optional)
-    includeReminders2 := true // bool |  (optional)
     includeLoggedTime := true // bool |  (optional)
-    includeLoggedTime2 := true // bool |  (optional)
     includeCompletedTasks := true // bool |  (optional)
-    includeCompletedTasks2 := true // bool |  (optional)
     includeCompletedSubtasks := true // bool |  (optional)
-    includeCompletedSubtasks2 := true // bool |  (optional)
     includeCompletedPredecessors := true // bool |  (optional)
-    includeCompletedPredecessors2 := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
-    includeArchivedProjects2 := true // bool |  (optional)
     ignoreStartDates := true // bool |  (optional)
     getSubTasks := true // bool |  (optional)
-    getSubTasks2 := true // bool |  (optional)
     getFiles := true // bool |  (optional)
-    getFiles2 := true // bool |  (optional)
     countOnly := true // bool |  (optional)
-    countOnly2 := true // bool |  (optional)
     allowTemplateTasks := true // bool |  (optional)
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
-    projectTagIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectId := []int32{int32(123)} // []int32 | project *filters (optional)
-    projectId2 := []int32{int32(123)} // []int32 | project *filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
-    projectHealths2 := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds2 := []int32{int32(123)} // []int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TasksTaskId(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TaskstaskId(context.Background(), taskId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId2(taskId2).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TasksTaskId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TaskstaskId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -2100,112 +1776,76 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1TasksTaskIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1TaskstaskIdRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **today** | **string** |  | 
  **tagIds** | **string** |  | 
- **tagIds2** | **string** |  | 
- **startdate** | **string** |  | 
  **startDate** | **string** |  | 
  **sort** | **string** |  | 
- **sort2** | **string** |  | 
  **responsiblePartyIds** | **string** |  | 
- **responsiblePartyId** | **string** |  | 
  **projectStatus** | **string** |  | 
- **projectStatus2** | **string** |  | 
  **include** | **string** |  | 
- **followerIds** | **string** |  | 
  **followedByUserIds** | **string** |  | 
  **filter** | **string** |  | 
- **filter2** | **string** |  | 
- **enddate** | **string** |  | 
  **endDate** | **string** |  | 
  **dataSet** | **string** |  | 
- **dataSet2** | **string** |  | 
  **creatorIds** | **string** |  | 
  **createdBeforeDate** | **string** |  | 
  **createdAfterDate** | **string** |  | 
  **completedBeforeDate** | **string** |  | 
- **completedBeforeDate2** | **string** |  | 
  **completedAfterDate** | **string** |  | 
- **completedAfterDate2** | **string** |  | 
  **callback** | **string** |  | 
  **tasklistId** | **int32** |  | 
- **taskId** | **int32** |  | 
+ **taskId2** | **int32** |  | 
  **projectCategoryId** | **int32** |  | 
- **projectCategoryId2** | **int32** |  | 
  **parentTaskId** | **int32** |  | 
  **pageSize** | **int32** |  | 
  **page** | **int32** |  | 
  **includeTaskId** | **int32** |  | 
- **includeTaskId2** | **int32** |  | 
  **companyId** | **int32** |  | 
- **companyId2** | **int32** |  | 
  **useStartDatesForTodaysTasks** | **bool** |  | 
  **useAllProjects** | **bool** |  | 
- **useAllProjects2** | **bool** |  | 
  **starredProjectsOnly** | **bool** |  | 
- **starredProjectsOnly2** | **bool** |  | 
  **showDeleted** | **bool** |  | 
- **showDeleted2** | **bool** |  | 
  **showCompletedLists** | **bool** |  | 
- **showCompletedLists2** | **bool** |  | 
  **onlyStarredProjects** | **bool** |  | 
- **onlyStarredProjects2** | **bool** |  | 
  **onlyArchivedProjects** | **bool** |  | 
- **onlyArchivedProjects2** | **bool** |  | 
  **nestSubTasks** | **bool** |  | 
- **nestSubTasks2** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
- **matchAllProjectTags2** | **bool** |  | 
  **includeUntaggedTasks** | **bool** |  | 
- **includeUntaggedTasks2** | **bool** |  | 
  **includeToday** | **bool** |  | 
- **includeToday2** | **bool** |  | 
  **includeTasksWithoutDueDates** | **bool** |  | 
  **includeTasksFromDeletedLists** | **bool** |  | 
- **includeTasksFromDeletedLists2** | **bool** |  | 
  **includeReminders** | **bool** |  | 
- **includeReminders2** | **bool** |  | 
  **includeLoggedTime** | **bool** |  | 
- **includeLoggedTime2** | **bool** |  | 
  **includeCompletedTasks** | **bool** |  | 
- **includeCompletedTasks2** | **bool** |  | 
  **includeCompletedSubtasks** | **bool** |  | 
- **includeCompletedSubtasks2** | **bool** |  | 
  **includeCompletedPredecessors** | **bool** |  | 
- **includeCompletedPredecessors2** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
- **includeArchivedProjects2** | **bool** |  | 
  **ignoreStartDates** | **bool** |  | 
  **getSubTasks** | **bool** |  | 
- **getSubTasks2** | **bool** |  | 
  **getFiles** | **bool** |  | 
- **getFiles2** | **bool** |  | 
  **countOnly** | **bool** |  | 
- **countOnly2** | **bool** |  | 
  **allowTemplateTasks** | **bool** |  | 
  **projectTagIds** | **[]int32** |  | 
- **projectTagIds2** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
- **projectOwnerIds2** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectIds2** | **[]int32** |  | 
  **projectId** | **[]int32** | project *filters | 
- **projectId2** | **[]int32** | project *filters | 
  **projectHealths** | **[]int32** |  | 
- **projectHealths2** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
- **projectCompanyIds2** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
- **projectCategoryIds2** | **[]int32** |  | 
 
 ### Return type
 
@@ -2225,9 +1865,141 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV1TasksTaskIdSubtasks
+## GETProjectsApiV1TaskstaskIdDependents
 
-> GETProjectsApiV1TasksTaskIdSubtasks(ctx).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+> GETProjectsApiV1TaskstaskIdDependents(ctx, taskId).Execute()
+
+Will return the tasks dependents tasks
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    taskId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TaskstaskIdDependents(context.Background(), taskId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TaskstaskIdDependents``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV1TaskstaskIdDependentsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GETProjectsApiV1TaskstaskIdPredecessors
+
+> GETProjectsApiV1TaskstaskIdPredecessors(ctx, taskId).Execute()
+
+Will return the tasks predecessor tasks
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    taskId := int32(56) // int32 | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TaskstaskIdPredecessors(context.Background(), taskId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TaskstaskIdPredecessors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGETProjectsApiV1TaskstaskIdPredecessorsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GETProjectsApiV1TaskstaskIdSubtasks
+
+> GETProjectsApiV1TaskstaskIdSubtasks(ctx, taskId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId2(taskId2).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
 
 Will return the tasks
 
@@ -2244,110 +2016,70 @@ import (
 )
 
 func main() {
+    taskId := int32(56) // int32 | 
     updatedAfterDate := "updatedAfterDate_example" // string |  (optional)
     today := "today_example" // string |  (optional)
     tagIds := "tagIds_example" // string |  (optional)
-    tagIds2 := "tagIds_example" // string |  (optional)
-    startdate := "startdate_example" // string |  (optional)
     startDate := "startDate_example" // string |  (optional)
     sort := "sort_example" // string |  (optional)
-    sort2 := "sort_example" // string |  (optional)
     responsiblePartyIds := "responsiblePartyIds_example" // string |  (optional)
-    responsiblePartyId := "responsiblePartyId_example" // string |  (optional)
     projectStatus := "projectStatus_example" // string |  (optional)
-    projectStatus2 := "projectStatus_example" // string |  (optional)
     include := "include_example" // string |  (optional)
-    followerIds := "followerIds_example" // string |  (optional)
     followedByUserIds := "followedByUserIds_example" // string |  (optional)
     filter := "filter_example" // string |  (optional)
-    filter2 := "filter_example" // string |  (optional)
-    enddate := "enddate_example" // string |  (optional)
     endDate := "endDate_example" // string |  (optional)
     dataSet := "dataSet_example" // string |  (optional)
-    dataSet2 := "dataSet_example" // string |  (optional)
     creatorIds := "creatorIds_example" // string |  (optional)
     createdBeforeDate := "createdBeforeDate_example" // string |  (optional)
     createdAfterDate := "createdAfterDate_example" // string |  (optional)
     completedBeforeDate := "completedBeforeDate_example" // string |  (optional)
-    completedBeforeDate2 := "completedBeforeDate_example" // string |  (optional)
     completedAfterDate := "completedAfterDate_example" // string |  (optional)
-    completedAfterDate2 := "completedAfterDate_example" // string |  (optional)
     callback := "callback_example" // string |  (optional)
     tasklistId := int32(56) // int32 |  (optional)
-    taskId := int32(56) // int32 |  (optional)
+    taskId2 := int32(56) // int32 |  (optional)
     projectCategoryId := int32(56) // int32 |  (optional)
-    projectCategoryId2 := int32(56) // int32 |  (optional)
     parentTaskId := int32(56) // int32 |  (optional)
     pageSize := int32(56) // int32 |  (optional)
     page := int32(56) // int32 |  (optional)
     includeTaskId := int32(56) // int32 |  (optional)
-    includeTaskId2 := int32(56) // int32 |  (optional)
     companyId := int32(56) // int32 |  (optional)
-    companyId2 := int32(56) // int32 |  (optional)
     useStartDatesForTodaysTasks := true // bool |  (optional)
     useAllProjects := true // bool |  (optional)
-    useAllProjects2 := true // bool |  (optional)
     starredProjectsOnly := true // bool |  (optional)
-    starredProjectsOnly2 := true // bool |  (optional)
     showDeleted := true // bool |  (optional)
-    showDeleted2 := true // bool |  (optional)
     showCompletedLists := true // bool |  (optional)
-    showCompletedLists2 := true // bool |  (optional)
     onlyStarredProjects := true // bool |  (optional)
-    onlyStarredProjects2 := true // bool |  (optional)
     onlyArchivedProjects := true // bool |  (optional)
-    onlyArchivedProjects2 := true // bool |  (optional)
     nestSubTasks := true // bool |  (optional)
-    nestSubTasks2 := true // bool |  (optional)
     matchAllProjectTags := true // bool |  (optional)
-    matchAllProjectTags2 := true // bool |  (optional)
     includeUntaggedTasks := true // bool |  (optional)
-    includeUntaggedTasks2 := true // bool |  (optional)
     includeToday := true // bool |  (optional)
-    includeToday2 := true // bool |  (optional)
     includeTasksWithoutDueDates := true // bool |  (optional)
     includeTasksFromDeletedLists := true // bool |  (optional)
-    includeTasksFromDeletedLists2 := true // bool |  (optional)
     includeReminders := true // bool |  (optional)
-    includeReminders2 := true // bool |  (optional)
     includeLoggedTime := true // bool |  (optional)
-    includeLoggedTime2 := true // bool |  (optional)
     includeCompletedTasks := true // bool |  (optional)
-    includeCompletedTasks2 := true // bool |  (optional)
     includeCompletedSubtasks := true // bool |  (optional)
-    includeCompletedSubtasks2 := true // bool |  (optional)
     includeCompletedPredecessors := true // bool |  (optional)
-    includeCompletedPredecessors2 := true // bool |  (optional)
     includeArchivedProjects := true // bool |  (optional)
-    includeArchivedProjects2 := true // bool |  (optional)
     ignoreStartDates := true // bool |  (optional)
     getSubTasks := true // bool |  (optional)
-    getSubTasks2 := true // bool |  (optional)
     getFiles := true // bool |  (optional)
-    getFiles2 := true // bool |  (optional)
     countOnly := true // bool |  (optional)
-    countOnly2 := true // bool |  (optional)
     allowTemplateTasks := true // bool |  (optional)
     projectTagIds := []int32{int32(123)} // []int32 |  (optional)
-    projectTagIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectOwnerIds := []int32{int32(123)} // []int32 |  (optional)
-    projectOwnerIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectIds := []int32{int32(123)} // []int32 |  (optional)
-    projectIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectId := []int32{int32(123)} // []int32 | project *filters (optional)
-    projectId2 := []int32{int32(123)} // []int32 | project *filters (optional)
     projectHealths := []int32{int32(123)} // []int32 |  (optional)
-    projectHealths2 := []int32{int32(123)} // []int32 |  (optional)
     projectCompanyIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCompanyIds2 := []int32{int32(123)} // []int32 |  (optional)
     projectCategoryIds := []int32{int32(123)} // []int32 |  (optional)
-    projectCategoryIds2 := []int32{int32(123)} // []int32 |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TasksTaskIdSubtasks(context.Background()).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).TagIds2(tagIds2).Startdate(startdate).StartDate(startDate).Sort(sort).Sort2(sort2).ResponsiblePartyIds(responsiblePartyIds).ResponsiblePartyId(responsiblePartyId).ProjectStatus(projectStatus).ProjectStatus2(projectStatus2).Include(include).FollowerIds(followerIds).FollowedByUserIds(followedByUserIds).Filter(filter).Filter2(filter2).Enddate(enddate).EndDate(endDate).DataSet(dataSet).DataSet2(dataSet2).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedBeforeDate2(completedBeforeDate2).CompletedAfterDate(completedAfterDate).CompletedAfterDate2(completedAfterDate2).Callback(callback).TasklistId(tasklistId).TaskId(taskId).ProjectCategoryId(projectCategoryId).ProjectCategoryId2(projectCategoryId2).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).IncludeTaskId2(includeTaskId2).CompanyId(companyId).CompanyId2(companyId2).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).UseAllProjects2(useAllProjects2).StarredProjectsOnly(starredProjectsOnly).StarredProjectsOnly2(starredProjectsOnly2).ShowDeleted(showDeleted).ShowDeleted2(showDeleted2).ShowCompletedLists(showCompletedLists).ShowCompletedLists2(showCompletedLists2).OnlyStarredProjects(onlyStarredProjects).OnlyStarredProjects2(onlyStarredProjects2).OnlyArchivedProjects(onlyArchivedProjects).OnlyArchivedProjects2(onlyArchivedProjects2).NestSubTasks(nestSubTasks).NestSubTasks2(nestSubTasks2).MatchAllProjectTags(matchAllProjectTags).MatchAllProjectTags2(matchAllProjectTags2).IncludeUntaggedTasks(includeUntaggedTasks).IncludeUntaggedTasks2(includeUntaggedTasks2).IncludeToday(includeToday).IncludeToday2(includeToday2).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeTasksFromDeletedLists2(includeTasksFromDeletedLists2).IncludeReminders(includeReminders).IncludeReminders2(includeReminders2).IncludeLoggedTime(includeLoggedTime).IncludeLoggedTime2(includeLoggedTime2).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedTasks2(includeCompletedTasks2).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedSubtasks2(includeCompletedSubtasks2).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeCompletedPredecessors2(includeCompletedPredecessors2).IncludeArchivedProjects(includeArchivedProjects).IncludeArchivedProjects2(includeArchivedProjects2).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetSubTasks2(getSubTasks2).GetFiles(getFiles).GetFiles2(getFiles2).CountOnly(countOnly).CountOnly2(countOnly2).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectTagIds2(projectTagIds2).ProjectOwnerIds(projectOwnerIds).ProjectOwnerIds2(projectOwnerIds2).ProjectIds(projectIds).ProjectIds2(projectIds2).ProjectId(projectId).ProjectId2(projectId2).ProjectHealths(projectHealths).ProjectHealths2(projectHealths2).ProjectCompanyIds(projectCompanyIds).ProjectCompanyIds2(projectCompanyIds2).ProjectCategoryIds(projectCategoryIds).ProjectCategoryIds2(projectCategoryIds2).Execute()
+    resp, r, err := api_client.CFPortApi.GETProjectsApiV1TaskstaskIdSubtasks(context.Background(), taskId).UpdatedAfterDate(updatedAfterDate).Today(today).TagIds(tagIds).StartDate(startDate).Sort(sort).ResponsiblePartyIds(responsiblePartyIds).ProjectStatus(projectStatus).Include(include).FollowedByUserIds(followedByUserIds).Filter(filter).EndDate(endDate).DataSet(dataSet).CreatorIds(creatorIds).CreatedBeforeDate(createdBeforeDate).CreatedAfterDate(createdAfterDate).CompletedBeforeDate(completedBeforeDate).CompletedAfterDate(completedAfterDate).Callback(callback).TasklistId(tasklistId).TaskId2(taskId2).ProjectCategoryId(projectCategoryId).ParentTaskId(parentTaskId).PageSize(pageSize).Page(page).IncludeTaskId(includeTaskId).CompanyId(companyId).UseStartDatesForTodaysTasks(useStartDatesForTodaysTasks).UseAllProjects(useAllProjects).StarredProjectsOnly(starredProjectsOnly).ShowDeleted(showDeleted).ShowCompletedLists(showCompletedLists).OnlyStarredProjects(onlyStarredProjects).OnlyArchivedProjects(onlyArchivedProjects).NestSubTasks(nestSubTasks).MatchAllProjectTags(matchAllProjectTags).IncludeUntaggedTasks(includeUntaggedTasks).IncludeToday(includeToday).IncludeTasksWithoutDueDates(includeTasksWithoutDueDates).IncludeTasksFromDeletedLists(includeTasksFromDeletedLists).IncludeReminders(includeReminders).IncludeLoggedTime(includeLoggedTime).IncludeCompletedTasks(includeCompletedTasks).IncludeCompletedSubtasks(includeCompletedSubtasks).IncludeCompletedPredecessors(includeCompletedPredecessors).IncludeArchivedProjects(includeArchivedProjects).IgnoreStartDates(ignoreStartDates).GetSubTasks(getSubTasks).GetFiles(getFiles).CountOnly(countOnly).AllowTemplateTasks(allowTemplateTasks).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectIds(projectIds).ProjectId(projectId).ProjectHealths(projectHealths).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TasksTaskIdSubtasks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CFPortApi.GETProjectsApiV1TaskstaskIdSubtasks``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -2356,112 +2088,76 @@ func main() {
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**taskId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV1TasksTaskIdSubtasksRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV1TaskstaskIdSubtasksRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfterDate** | **string** |  | 
  **today** | **string** |  | 
  **tagIds** | **string** |  | 
- **tagIds2** | **string** |  | 
- **startdate** | **string** |  | 
  **startDate** | **string** |  | 
  **sort** | **string** |  | 
- **sort2** | **string** |  | 
  **responsiblePartyIds** | **string** |  | 
- **responsiblePartyId** | **string** |  | 
  **projectStatus** | **string** |  | 
- **projectStatus2** | **string** |  | 
  **include** | **string** |  | 
- **followerIds** | **string** |  | 
  **followedByUserIds** | **string** |  | 
  **filter** | **string** |  | 
- **filter2** | **string** |  | 
- **enddate** | **string** |  | 
  **endDate** | **string** |  | 
  **dataSet** | **string** |  | 
- **dataSet2** | **string** |  | 
  **creatorIds** | **string** |  | 
  **createdBeforeDate** | **string** |  | 
  **createdAfterDate** | **string** |  | 
  **completedBeforeDate** | **string** |  | 
- **completedBeforeDate2** | **string** |  | 
  **completedAfterDate** | **string** |  | 
- **completedAfterDate2** | **string** |  | 
  **callback** | **string** |  | 
  **tasklistId** | **int32** |  | 
- **taskId** | **int32** |  | 
+ **taskId2** | **int32** |  | 
  **projectCategoryId** | **int32** |  | 
- **projectCategoryId2** | **int32** |  | 
  **parentTaskId** | **int32** |  | 
  **pageSize** | **int32** |  | 
  **page** | **int32** |  | 
  **includeTaskId** | **int32** |  | 
- **includeTaskId2** | **int32** |  | 
  **companyId** | **int32** |  | 
- **companyId2** | **int32** |  | 
  **useStartDatesForTodaysTasks** | **bool** |  | 
  **useAllProjects** | **bool** |  | 
- **useAllProjects2** | **bool** |  | 
  **starredProjectsOnly** | **bool** |  | 
- **starredProjectsOnly2** | **bool** |  | 
  **showDeleted** | **bool** |  | 
- **showDeleted2** | **bool** |  | 
  **showCompletedLists** | **bool** |  | 
- **showCompletedLists2** | **bool** |  | 
  **onlyStarredProjects** | **bool** |  | 
- **onlyStarredProjects2** | **bool** |  | 
  **onlyArchivedProjects** | **bool** |  | 
- **onlyArchivedProjects2** | **bool** |  | 
  **nestSubTasks** | **bool** |  | 
- **nestSubTasks2** | **bool** |  | 
  **matchAllProjectTags** | **bool** |  | 
- **matchAllProjectTags2** | **bool** |  | 
  **includeUntaggedTasks** | **bool** |  | 
- **includeUntaggedTasks2** | **bool** |  | 
  **includeToday** | **bool** |  | 
- **includeToday2** | **bool** |  | 
  **includeTasksWithoutDueDates** | **bool** |  | 
  **includeTasksFromDeletedLists** | **bool** |  | 
- **includeTasksFromDeletedLists2** | **bool** |  | 
  **includeReminders** | **bool** |  | 
- **includeReminders2** | **bool** |  | 
  **includeLoggedTime** | **bool** |  | 
- **includeLoggedTime2** | **bool** |  | 
  **includeCompletedTasks** | **bool** |  | 
- **includeCompletedTasks2** | **bool** |  | 
  **includeCompletedSubtasks** | **bool** |  | 
- **includeCompletedSubtasks2** | **bool** |  | 
  **includeCompletedPredecessors** | **bool** |  | 
- **includeCompletedPredecessors2** | **bool** |  | 
  **includeArchivedProjects** | **bool** |  | 
- **includeArchivedProjects2** | **bool** |  | 
  **ignoreStartDates** | **bool** |  | 
  **getSubTasks** | **bool** |  | 
- **getSubTasks2** | **bool** |  | 
  **getFiles** | **bool** |  | 
- **getFiles2** | **bool** |  | 
  **countOnly** | **bool** |  | 
- **countOnly2** | **bool** |  | 
  **allowTemplateTasks** | **bool** |  | 
  **projectTagIds** | **[]int32** |  | 
- **projectTagIds2** | **[]int32** |  | 
  **projectOwnerIds** | **[]int32** |  | 
- **projectOwnerIds2** | **[]int32** |  | 
  **projectIds** | **[]int32** |  | 
- **projectIds2** | **[]int32** |  | 
  **projectId** | **[]int32** | project *filters | 
- **projectId2** | **[]int32** | project *filters | 
  **projectHealths** | **[]int32** |  | 
- **projectHealths2** | **[]int32** |  | 
  **projectCompanyIds** | **[]int32** |  | 
- **projectCompanyIds2** | **[]int32** |  | 
  **projectCategoryIds** | **[]int32** |  | 
- **projectCategoryIds2** | **[]int32** |  | 
 
 ### Return type
 

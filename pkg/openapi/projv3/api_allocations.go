@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,39 +27,42 @@ var (
 // AllocationsApiService AllocationsApi service
 type AllocationsApiService service
 
-type ApiDELETEProjectsApiV3AllocationsIdJsonRequest struct {
+type ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *AllocationsApiService
+	allocationId int32
 	allocationDeleteRequest *AllocationDeleteRequest
 }
 
-func (r ApiDELETEProjectsApiV3AllocationsIdJsonRequest) AllocationDeleteRequest(allocationDeleteRequest AllocationDeleteRequest) ApiDELETEProjectsApiV3AllocationsIdJsonRequest {
+func (r ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest) AllocationDeleteRequest(allocationDeleteRequest AllocationDeleteRequest) ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest {
 	r.allocationDeleteRequest = &allocationDeleteRequest
 	return r
 }
 
-func (r ApiDELETEProjectsApiV3AllocationsIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3AllocationsIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3AllocationsallocationIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3AllocationsIdJson Delete an existing allocation.
+ * DELETEProjectsApiV3AllocationsallocationIdJson Delete an existing allocation.
  * Removes an allocation. It's still possible to recover the allocation. To
 remove a allocation definitely provide the "hardDelete" flag.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3AllocationsIdJsonRequest
+ * @param allocationId
+ * @return ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest
  */
-func (a *AllocationsApiService) DELETEProjectsApiV3AllocationsIdJson(ctx _context.Context) ApiDELETEProjectsApiV3AllocationsIdJsonRequest {
-	return ApiDELETEProjectsApiV3AllocationsIdJsonRequest{
+func (a *AllocationsApiService) DELETEProjectsApiV3AllocationsallocationIdJson(ctx _context.Context, allocationId int32) ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest {
+	return ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		allocationId: allocationId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *AllocationsApiService) DELETEProjectsApiV3AllocationsIdJsonExecute(r ApiDELETEProjectsApiV3AllocationsIdJsonRequest) (*_nethttp.Response, error) {
+func (a *AllocationsApiService) DELETEProjectsApiV3AllocationsallocationIdJsonExecute(r ApiDELETEProjectsApiV3AllocationsallocationIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -67,12 +71,13 @@ func (a *AllocationsApiService) DELETEProjectsApiV3AllocationsIdJsonExecute(r Ap
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.DELETEProjectsApiV3AllocationsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.DELETEProjectsApiV3AllocationsallocationIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -146,128 +151,6 @@ func (a *AllocationsApiService) DELETEProjectsApiV3AllocationsIdJsonExecute(r Ap
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3AllocationsIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *AllocationsApiService
-}
-
-
-func (r ApiGETProjectsApiV3AllocationsIdJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3AllocationsIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3AllocationsIdJson Get a specific allocation.
- * Retrieve an allocation by the identifier.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3AllocationsIdJsonRequest
- */
-func (a *AllocationsApiService) GETProjectsApiV3AllocationsIdJson(ctx _context.Context) ApiGETProjectsApiV3AllocationsIdJsonRequest {
-	return ApiGETProjectsApiV3AllocationsIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return AllocationResponse
- */
-func (a *AllocationsApiService) GETProjectsApiV3AllocationsIdJsonExecute(r ApiGETProjectsApiV3AllocationsIdJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  AllocationResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.GETProjectsApiV3AllocationsIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiGETProjectsApiV3AllocationsJsonRequest struct {
@@ -609,34 +492,29 @@ func (a *AllocationsApiService) GETProjectsApiV3AllocationsJsonExecute(r ApiGETP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3AllocationsIdJsonRequest struct {
+type ApiGETProjectsApiV3AllocationsallocationIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *AllocationsApiService
-	allocationRequest *AllocationRequest
+	allocationId int32
 }
 
-func (r ApiPATCHProjectsApiV3AllocationsIdJsonRequest) AllocationRequest(allocationRequest AllocationRequest) ApiPATCHProjectsApiV3AllocationsIdJsonRequest {
-	r.allocationRequest = &allocationRequest
-	return r
-}
 
-func (r ApiPATCHProjectsApiV3AllocationsIdJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3AllocationsIdJsonExecute(r)
+func (r ApiGETProjectsApiV3AllocationsallocationIdJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3AllocationsallocationIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3AllocationsIdJson Update an existing allocation.
- * Updates an existing allocation for resource scheduling. If the allocation
-start/end date conflicts with another allocation on the same project an error
-will be returned. You can bypass this error with the "ignoreCollisions"
-field.
+ * GETProjectsApiV3AllocationsallocationIdJson Get a specific allocation.
+ * Retrieve an allocation by the identifier.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3AllocationsIdJsonRequest
+ * @param allocationId
+ * @return ApiGETProjectsApiV3AllocationsallocationIdJsonRequest
  */
-func (a *AllocationsApiService) PATCHProjectsApiV3AllocationsIdJson(ctx _context.Context) ApiPATCHProjectsApiV3AllocationsIdJsonRequest {
-	return ApiPATCHProjectsApiV3AllocationsIdJsonRequest{
+func (a *AllocationsApiService) GETProjectsApiV3AllocationsallocationIdJson(ctx _context.Context, allocationId int32) ApiGETProjectsApiV3AllocationsallocationIdJsonRequest {
+	return ApiGETProjectsApiV3AllocationsallocationIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		allocationId: allocationId,
 	}
 }
 
@@ -644,7 +522,141 @@ func (a *AllocationsApiService) PATCHProjectsApiV3AllocationsIdJson(ctx _context
  * Execute executes the request
  * @return AllocationResponse
  */
-func (a *AllocationsApiService) PATCHProjectsApiV3AllocationsIdJsonExecute(r ApiPATCHProjectsApiV3AllocationsIdJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
+func (a *AllocationsApiService) GETProjectsApiV3AllocationsallocationIdJsonExecute(r ApiGETProjectsApiV3AllocationsallocationIdJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AllocationResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.GETProjectsApiV3AllocationsallocationIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest struct {
+	ctx _context.Context
+	ApiService *AllocationsApiService
+	allocationId int32
+	allocationRequest *AllocationRequest
+}
+
+func (r ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest) AllocationRequest(allocationRequest AllocationRequest) ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest {
+	r.allocationRequest = &allocationRequest
+	return r
+}
+
+func (r ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3AllocationsallocationIdJsonExecute(r)
+}
+
+/*
+ * PATCHProjectsApiV3AllocationsallocationIdJson Update an existing allocation.
+ * Updates an existing allocation for resource scheduling. If the allocation
+start/end date conflicts with another allocation on the same project an error
+will be returned. You can bypass this error with the "ignoreCollisions"
+field.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param allocationId
+ * @return ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest
+ */
+func (a *AllocationsApiService) PATCHProjectsApiV3AllocationsallocationIdJson(ctx _context.Context, allocationId int32) ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest {
+	return ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		allocationId: allocationId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return AllocationResponse
+ */
+func (a *AllocationsApiService) PATCHProjectsApiV3AllocationsallocationIdJsonExecute(r ApiPATCHProjectsApiV3AllocationsallocationIdJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -654,12 +666,13 @@ func (a *AllocationsApiService) PATCHProjectsApiV3AllocationsIdJsonExecute(r Api
 		localVarReturnValue  AllocationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PATCHProjectsApiV3AllocationsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PATCHProjectsApiV3AllocationsallocationIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1009,34 +1022,37 @@ func (a *AllocationsApiService) POSTProjectsApiV3AllocationsJsonExecute(r ApiPOS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3AllocationsIdJsonRequest struct {
+type ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *AllocationsApiService
+	allocationId int32
 	allocationRequest *AllocationRequest
 }
 
-func (r ApiPUTProjectsApiV3AllocationsIdJsonRequest) AllocationRequest(allocationRequest AllocationRequest) ApiPUTProjectsApiV3AllocationsIdJsonRequest {
+func (r ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest) AllocationRequest(allocationRequest AllocationRequest) ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest {
 	r.allocationRequest = &allocationRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3AllocationsIdJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3AllocationsIdJsonExecute(r)
+func (r ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3AllocationsallocationIdJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3AllocationsIdJson Update an existing allocation.
+ * PUTProjectsApiV3AllocationsallocationIdJson Update an existing allocation.
  * Updates an existing allocation for resource scheduling. If the allocation
 start/end date conflicts with another allocation on the same project an error
 will be returned. You can bypass this error with the "ignoreCollisions"
 field.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3AllocationsIdJsonRequest
+ * @param allocationId
+ * @return ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest
  */
-func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdJson(ctx _context.Context) ApiPUTProjectsApiV3AllocationsIdJsonRequest {
-	return ApiPUTProjectsApiV3AllocationsIdJsonRequest{
+func (a *AllocationsApiService) PUTProjectsApiV3AllocationsallocationIdJson(ctx _context.Context, allocationId int32) ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest {
+	return ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		allocationId: allocationId,
 	}
 }
 
@@ -1044,7 +1060,7 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdJson(ctx _context.C
  * Execute executes the request
  * @return AllocationResponse
  */
-func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdJsonExecute(r ApiPUTProjectsApiV3AllocationsIdJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
+func (a *AllocationsApiService) PUTProjectsApiV3AllocationsallocationIdJsonExecute(r ApiPUTProjectsApiV3AllocationsallocationIdJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1054,12 +1070,13 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdJsonExecute(r ApiPU
 		localVarReturnValue  AllocationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PUTProjectsApiV3AllocationsIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PUTProjectsApiV3AllocationsallocationIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1153,26 +1170,29 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdJsonExecute(r ApiPU
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3AllocationsIdRestoreJsonRequest struct {
+type ApiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest struct {
 	ctx _context.Context
 	ApiService *AllocationsApiService
+	allocationId int32
 }
 
 
-func (r ApiPUTProjectsApiV3AllocationsIdRestoreJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3AllocationsIdRestoreJsonExecute(r)
+func (r ApiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest) Execute() (AllocationResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3AllocationsallocationIdRestoreJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3AllocationsIdRestoreJson Restore a soft deleted allocation.
+ * PUTProjectsApiV3AllocationsallocationIdRestoreJson Restore a soft deleted allocation.
  * Restore an allocation by the identifier.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3AllocationsIdRestoreJsonRequest
+ * @param allocationId
+ * @return ApiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest
  */
-func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdRestoreJson(ctx _context.Context) ApiPUTProjectsApiV3AllocationsIdRestoreJsonRequest {
-	return ApiPUTProjectsApiV3AllocationsIdRestoreJsonRequest{
+func (a *AllocationsApiService) PUTProjectsApiV3AllocationsallocationIdRestoreJson(ctx _context.Context, allocationId int32) ApiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest {
+	return ApiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		allocationId: allocationId,
 	}
 }
 
@@ -1180,7 +1200,7 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdRestoreJson(ctx _co
  * Execute executes the request
  * @return AllocationResponse
  */
-func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdRestoreJsonExecute(r ApiPUTProjectsApiV3AllocationsIdRestoreJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
+func (a *AllocationsApiService) PUTProjectsApiV3AllocationsallocationIdRestoreJsonExecute(r ApiPUTProjectsApiV3AllocationsallocationIdRestoreJsonRequest) (AllocationResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1190,12 +1210,13 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdRestoreJsonExecute(
 		localVarReturnValue  AllocationResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PUTProjectsApiV3AllocationsIdRestoreJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PUTProjectsApiV3AllocationsallocationIdRestoreJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:id/restore.json"
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}/restore.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1275,31 +1296,34 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdRestoreJsonExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest struct {
+type ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest struct {
 	ctx _context.Context
 	ApiService *AllocationsApiService
+	allocationId int32
 	allocationSplitRequest *AllocationSplitRequest
 }
 
-func (r ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest) AllocationSplitRequest(allocationSplitRequest AllocationSplitRequest) ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest {
+func (r ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest) AllocationSplitRequest(allocationSplitRequest AllocationSplitRequest) ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest {
 	r.allocationSplitRequest = &allocationSplitRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest) Execute() (AllocationAllocationsResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3AllocationsIdSplitJsonExecute(r)
+func (r ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest) Execute() (AllocationAllocationsResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3AllocationsallocationIdSplitJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3AllocationsIdSplitJson Split an allocation in two
+ * PUTProjectsApiV3AllocationsallocationIdSplitJson Split an allocation in two
  * Split an allocation by the identifier.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest
+ * @param allocationId
+ * @return ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest
  */
-func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdSplitJson(ctx _context.Context) ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest {
-	return ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest{
+func (a *AllocationsApiService) PUTProjectsApiV3AllocationsallocationIdSplitJson(ctx _context.Context, allocationId int32) ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest {
+	return ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		allocationId: allocationId,
 	}
 }
 
@@ -1307,7 +1331,7 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdSplitJson(ctx _cont
  * Execute executes the request
  * @return AllocationAllocationsResponse
  */
-func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdSplitJsonExecute(r ApiPUTProjectsApiV3AllocationsIdSplitJsonRequest) (AllocationAllocationsResponse, *_nethttp.Response, error) {
+func (a *AllocationsApiService) PUTProjectsApiV3AllocationsallocationIdSplitJsonExecute(r ApiPUTProjectsApiV3AllocationsallocationIdSplitJsonRequest) (AllocationAllocationsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -1317,12 +1341,13 @@ func (a *AllocationsApiService) PUTProjectsApiV3AllocationsIdSplitJsonExecute(r 
 		localVarReturnValue  AllocationAllocationsResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PUTProjectsApiV3AllocationsIdSplitJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AllocationsApiService.PUTProjectsApiV3AllocationsallocationIdSplitJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/allocations/:id/split.json"
+	localVarPath := localBasePath + "/projects/api/v3/allocations/{allocationId}/split.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"allocationId"+"}", _neturl.PathEscape(parameterToString(r.allocationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

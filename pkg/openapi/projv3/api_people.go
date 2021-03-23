@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -339,175 +340,6 @@ func (a *PeopleApiService) GETProjectsApiV3PeopleMetricsPerformanceJsonExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest struct {
-	ctx _context.Context
-	ApiService *PeopleApiService
-	startDate *string
-	endDate *string
-	userId *int32
-	include *[]string
-	fieldsUsers *[]string
-	fieldsProjects *[]string
-	fieldsAvailability *[]string
-}
-
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.startDate = &startDate
-	return r
-}
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.endDate = &endDate
-	return r
-}
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) UserId(userId int32) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.userId = &userId
-	return r
-}
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) Include(include []string) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.fieldsUsers = &fieldsUsers
-	return r
-}
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.fieldsProjects = &fieldsProjects
-	return r
-}
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) FieldsAvailability(fieldsAvailability []string) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	r.fieldsAvailability = &fieldsAvailability
-	return r
-}
-
-func (r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) Execute() (AvailabilityResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3PeopleUserIdAvailabilityJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3PeopleUserIdAvailabilityJson Return the user availability.
- * Verify the user working hours and events marked as unavailable to calculate
-the availability in the provided range.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest
- */
-func (a *PeopleApiService) GETProjectsApiV3PeopleUserIdAvailabilityJson(ctx _context.Context) ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest {
-	return ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return AvailabilityResponse
- */
-func (a *PeopleApiService) GETProjectsApiV3PeopleUserIdAvailabilityJsonExecute(r ApiGETProjectsApiV3PeopleUserIdAvailabilityJsonRequest) (AvailabilityResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  AvailabilityResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PeopleApiService.GETProjectsApiV3PeopleUserIdAvailabilityJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/people/:userId/availability.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.startDate != nil {
-		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
-	}
-	if r.endDate != nil {
-		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
-	}
-	if r.userId != nil {
-		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
-	}
-	if r.fieldsUsers != nil {
-		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
-	}
-	if r.fieldsProjects != nil {
-		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
-	}
-	if r.fieldsAvailability != nil {
-		localVarQueryParams.Add("fields[availability]", parameterToString(*r.fieldsAvailability, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiGETProjectsApiV3PeopleUtilizationJsonRequest struct {
 	ctx _context.Context
 	ApiService *PeopleApiService
@@ -519,10 +351,15 @@ type ApiGETProjectsApiV3PeopleUtilizationJsonRequest struct {
 	endDate *string
 	pageSize *int32
 	page *int32
+	includeCollaborators *bool
+	includeClients *bool
 	userIds *[]int32
+	teamIds *[]int32
+	projectIds *[]int32
 	include *[]string
 	fieldsUtilizations *[]string
 	fieldsUsers *[]string
+	companyIds *[]int32
 }
 
 func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
@@ -557,8 +394,24 @@ func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) Page(page int32) ApiGET
 	r.page = &page
 	return r
 }
+func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) IncludeCollaborators(includeCollaborators bool) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
+	r.includeCollaborators = &includeCollaborators
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) IncludeClients(includeClients bool) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
+	r.includeClients = &includeClients
+	return r
+}
 func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) UserIds(userIds []int32) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
 	r.userIds = &userIds
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) TeamIds(teamIds []int32) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
+	r.teamIds = &teamIds
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) ProjectIds(projectIds []int32) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
+	r.projectIds = &projectIds
 	return r
 }
 func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) Include(include []string) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
@@ -571,6 +424,10 @@ func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) FieldsUtilizations(fiel
 }
 func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
 	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleUtilizationJsonRequest) CompanyIds(companyIds []int32) ApiGETProjectsApiV3PeopleUtilizationJsonRequest {
+	r.companyIds = &companyIds
 	return r
 }
 
@@ -640,8 +497,20 @@ func (a *PeopleApiService) GETProjectsApiV3PeopleUtilizationJsonExecute(r ApiGET
 	if r.page != nil {
 		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
 	}
+	if r.includeCollaborators != nil {
+		localVarQueryParams.Add("includeCollaborators", parameterToString(*r.includeCollaborators, ""))
+	}
+	if r.includeClients != nil {
+		localVarQueryParams.Add("includeClients", parameterToString(*r.includeClients, ""))
+	}
 	if r.userIds != nil {
 		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
+	}
+	if r.teamIds != nil {
+		localVarQueryParams.Add("teamIds", parameterToString(*r.teamIds, "csv"))
+	}
+	if r.projectIds != nil {
+		localVarQueryParams.Add("projectIds", parameterToString(*r.projectIds, "csv"))
 	}
 	if r.include != nil {
 		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
@@ -651,6 +520,182 @@ func (a *PeopleApiService) GETProjectsApiV3PeopleUtilizationJsonExecute(r ApiGET
 	}
 	if r.fieldsUsers != nil {
 		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.companyIds != nil {
+		localVarQueryParams.Add("companyIds", parameterToString(*r.companyIds, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest struct {
+	ctx _context.Context
+	ApiService *PeopleApiService
+	userId2 int32
+	startDate *string
+	endDate *string
+	userId *int32
+	include *[]string
+	fieldsUsers *[]string
+	fieldsProjects *[]string
+	fieldsAvailability *[]string
+}
+
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) StartDate(startDate string) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.startDate = &startDate
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) EndDate(endDate string) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.endDate = &endDate
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) UserId(userId int32) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.userId = &userId
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) Include(include []string) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) FieldsAvailability(fieldsAvailability []string) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	r.fieldsAvailability = &fieldsAvailability
+	return r
+}
+
+func (r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) Execute() (AvailabilityResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3PeopleuserIdAvailabilityJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3PeopleuserIdAvailabilityJson Return the user availability.
+ * Verify the user working hours and events marked as unavailable to calculate
+the availability in the provided range.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param userId2
+ * @return ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest
+ */
+func (a *PeopleApiService) GETProjectsApiV3PeopleuserIdAvailabilityJson(ctx _context.Context, userId2 int32) ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest {
+	return ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		userId2: userId2,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return AvailabilityResponse
+ */
+func (a *PeopleApiService) GETProjectsApiV3PeopleuserIdAvailabilityJsonExecute(r ApiGETProjectsApiV3PeopleuserIdAvailabilityJsonRequest) (AvailabilityResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AvailabilityResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PeopleApiService.GETProjectsApiV3PeopleuserIdAvailabilityJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/people/{userId}/availability.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(r.userId2, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.startDate != nil {
+		localVarQueryParams.Add("startDate", parameterToString(*r.startDate, ""))
+	}
+	if r.endDate != nil {
+		localVarQueryParams.Add("endDate", parameterToString(*r.endDate, ""))
+	}
+	if r.userId != nil {
+		localVarQueryParams.Add("userId", parameterToString(*r.userId, ""))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsAvailability != nil {
+		localVarQueryParams.Add("fields[availability]", parameterToString(*r.fieldsAvailability, "csv"))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

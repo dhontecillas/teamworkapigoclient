@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Predecessors** | Pointer to [**[]TaskPredecessor**](TaskPredecessor.md) |  | [optional] 
 **Tags** | Pointer to [**[]TagTag**](TagTag.md) |  | [optional] 
 **Task** | Pointer to [**TaskTask**](TaskTask.md) |  | [optional] 
-**TaskOptions** | Pointer to [**TaskRequestTaskOptions**](TaskRequestTaskOptions.md) |  | [optional] 
+**TaskOptions** | Pointer to [**TaskOptions**](TaskOptions.md) |  | [optional] 
 
 ## Methods
 
@@ -183,20 +183,20 @@ HasTask returns a boolean if a field has been set.
 
 ### GetTaskOptions
 
-`func (o *TaskRequest) GetTaskOptions() TaskRequestTaskOptions`
+`func (o *TaskRequest) GetTaskOptions() TaskOptions`
 
 GetTaskOptions returns the TaskOptions field if non-nil, zero value otherwise.
 
 ### GetTaskOptionsOk
 
-`func (o *TaskRequest) GetTaskOptionsOk() (*TaskRequestTaskOptions, bool)`
+`func (o *TaskRequest) GetTaskOptionsOk() (*TaskOptions, bool)`
 
 GetTaskOptionsOk returns a tuple with the TaskOptions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTaskOptions
 
-`func (o *TaskRequest) SetTaskOptions(v TaskRequestTaskOptions)`
+`func (o *TaskRequest) SetTaskOptions(v TaskOptions)`
 
 SetTaskOptions sets TaskOptions field to given value.
 

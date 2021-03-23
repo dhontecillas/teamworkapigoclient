@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GETProjectsApiV3PeopleIdJson**](PersonApi.md#GETProjectsApiV3PeopleIdJson) | **Get** /projects/api/v3/people/:id.json | Returns a person
+[**GETProjectsApiV3PeoplepersonIdJson**](PersonApi.md#GETProjectsApiV3PeoplepersonIdJson) | **Get** /projects/api/v3/people/{personId}.json | Returns a person
 
 
 
-## GETProjectsApiV3PeopleIdJson
+## GETProjectsApiV3PeoplepersonIdJson
 
-> PeopleResponse GETProjectsApiV3PeopleIdJson(ctx).OrderMode(orderMode).OrderBy(orderBy).PageSize(pageSize).Page(page).Include(include).Ids(ids).FieldsCompanies(fieldsCompanies).Execute()
+> PeopleResponse GETProjectsApiV3PeoplepersonIdJson(ctx, personId).OrderMode(orderMode).OrderBy(orderBy).PageSize(pageSize).Page(page).Include(include).Ids(ids).FieldsCompanies(fieldsCompanies).Execute()
 
 Returns a person
 
@@ -29,6 +29,7 @@ import (
 )
 
 func main() {
+    personId := int32(56) // int32 | 
     orderMode := "orderMode_example" // string | order mode (optional) (default to "asc")
     orderBy := "orderBy_example" // string | order by (optional) (default to "name")
     pageSize := int32(56) // int32 | number of items in a page (not used when generating reports) (optional) (default to 50)
@@ -39,27 +40,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.PersonApi.GETProjectsApiV3PeopleIdJson(context.Background()).OrderMode(orderMode).OrderBy(orderBy).PageSize(pageSize).Page(page).Include(include).Ids(ids).FieldsCompanies(fieldsCompanies).Execute()
+    resp, r, err := api_client.PersonApi.GETProjectsApiV3PeoplepersonIdJson(context.Background(), personId).OrderMode(orderMode).OrderBy(orderBy).PageSize(pageSize).Page(page).Include(include).Ids(ids).FieldsCompanies(fieldsCompanies).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PersonApi.GETProjectsApiV3PeopleIdJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PersonApi.GETProjectsApiV3PeoplepersonIdJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3PeopleIdJson`: PeopleResponse
-    fmt.Fprintf(os.Stdout, "Response from `PersonApi.GETProjectsApiV3PeopleIdJson`: %v\n", resp)
+    // response from `GETProjectsApiV3PeoplepersonIdJson`: PeopleResponse
+    fmt.Fprintf(os.Stdout, "Response from `PersonApi.GETProjectsApiV3PeoplepersonIdJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**personId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3PeopleIdJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3PeoplepersonIdJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **orderMode** | **string** | order mode | [default to &quot;asc&quot;]
  **orderBy** | **string** | order by | [default to &quot;name&quot;]
  **pageSize** | **int32** | number of items in a page (not used when generating reports) | [default to 50]

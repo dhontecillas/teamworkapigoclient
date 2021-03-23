@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PATCHProjectsApiV3FormsIdTokenJson**](FormsTokenApi.md#PATCHProjectsApiV3FormsIdTokenJson) | **Patch** /projects/api/v3/forms/:id/token.json | Update an existing token.
-[**PUTProjectsApiV3FormsIdTokenRefreshJson**](FormsTokenApi.md#PUTProjectsApiV3FormsIdTokenRefreshJson) | **Put** /projects/api/v3/forms/:id/token/refresh.json | Refresh the value of a token
+[**PATCHProjectsApiV3FormsformIdTokenJson**](FormsTokenApi.md#PATCHProjectsApiV3FormsformIdTokenJson) | **Patch** /projects/api/v3/forms/{formId}/token.json | Update an existing token.
+[**PUTProjectsApiV3FormsformIdTokenRefreshJson**](FormsTokenApi.md#PUTProjectsApiV3FormsformIdTokenRefreshJson) | **Put** /projects/api/v3/forms/{formId}/token/refresh.json | Refresh the value of a token
 
 
 
-## PATCHProjectsApiV3FormsIdTokenJson
+## PATCHProjectsApiV3FormsformIdTokenJson
 
-> TokenResponse PATCHProjectsApiV3FormsIdTokenJson(ctx).TokenRequest(tokenRequest).Execute()
+> TokenResponse PATCHProjectsApiV3FormsformIdTokenJson(ctx, formId).TokenRequest(tokenRequest).Execute()
 
 Update an existing token.
 
@@ -30,31 +30,37 @@ import (
 )
 
 func main() {
+    formId := int32(56) // int32 | 
     tokenRequest := *openapiclient.NewTokenRequest() // TokenRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsTokenApi.PATCHProjectsApiV3FormsIdTokenJson(context.Background()).TokenRequest(tokenRequest).Execute()
+    resp, r, err := api_client.FormsTokenApi.PATCHProjectsApiV3FormsformIdTokenJson(context.Background(), formId).TokenRequest(tokenRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsTokenApi.PATCHProjectsApiV3FormsIdTokenJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsTokenApi.PATCHProjectsApiV3FormsformIdTokenJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PATCHProjectsApiV3FormsIdTokenJson`: TokenResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsTokenApi.PATCHProjectsApiV3FormsIdTokenJson`: %v\n", resp)
+    // response from `PATCHProjectsApiV3FormsformIdTokenJson`: TokenResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsTokenApi.PATCHProjectsApiV3FormsformIdTokenJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPATCHProjectsApiV3FormsIdTokenJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPATCHProjectsApiV3FormsformIdTokenJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **tokenRequest** | [**TokenRequest**](TokenRequest.md) |  | 
 
 ### Return type
@@ -75,9 +81,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3FormsIdTokenRefreshJson
+## PUTProjectsApiV3FormsformIdTokenRefreshJson
 
-> TokenResponse PUTProjectsApiV3FormsIdTokenRefreshJson(ctx).TokenRequest(tokenRequest).Execute()
+> TokenResponse PUTProjectsApiV3FormsformIdTokenRefreshJson(ctx, formId).TokenRequest(tokenRequest).Execute()
 
 Refresh the value of a token
 
@@ -96,31 +102,37 @@ import (
 )
 
 func main() {
+    formId := int32(56) // int32 | 
     tokenRequest := *openapiclient.NewTokenRequest() // TokenRequest | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.FormsTokenApi.PUTProjectsApiV3FormsIdTokenRefreshJson(context.Background()).TokenRequest(tokenRequest).Execute()
+    resp, r, err := api_client.FormsTokenApi.PUTProjectsApiV3FormsformIdTokenRefreshJson(context.Background(), formId).TokenRequest(tokenRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FormsTokenApi.PUTProjectsApiV3FormsIdTokenRefreshJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FormsTokenApi.PUTProjectsApiV3FormsformIdTokenRefreshJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3FormsIdTokenRefreshJson`: TokenResponse
-    fmt.Fprintf(os.Stdout, "Response from `FormsTokenApi.PUTProjectsApiV3FormsIdTokenRefreshJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3FormsformIdTokenRefreshJson`: TokenResponse
+    fmt.Fprintf(os.Stdout, "Response from `FormsTokenApi.PUTProjectsApiV3FormsformIdTokenRefreshJson`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**formId** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3FormsIdTokenRefreshJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3FormsformIdTokenRefreshJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **tokenRequest** | [**TokenRequest**](TokenRequest.md) |  | 
 
 ### Return type

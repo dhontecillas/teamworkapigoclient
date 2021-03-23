@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,9 +27,10 @@ var (
 // FormsAssigneesApiService FormsAssigneesApi service
 type FormsAssigneesApiService service
 
-type ApiGETProjectsApiV3FormsIdAssigneesJsonRequest struct {
+type ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest struct {
 	ctx _context.Context
 	ApiService *FormsAssigneesApiService
+	formId int32
 	orderMode *string
 	userId *int32
 	pageSize *int32
@@ -40,57 +42,59 @@ type ApiGETProjectsApiV3FormsIdAssigneesJsonRequest struct {
 	fieldsCompanies *[]string
 }
 
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.orderMode = &orderMode
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) UserId(userId int32) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) UserId(userId int32) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.userId = &userId
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) Page(page int32) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) Page(page int32) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) Include(include []string) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) Include(include []string) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) FieldsTeams(fieldsTeams []string) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.fieldsTeams = &fieldsTeams
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) FieldsFormAssignees(fieldsFormAssignees []string) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) FieldsFormAssignees(fieldsFormAssignees []string) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.fieldsFormAssignees = &fieldsFormAssignees
 	return r
 }
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) FieldsCompanies(fieldsCompanies []string) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
 	r.fieldsCompanies = &fieldsCompanies
 	return r
 }
 
-func (r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) Execute() (AssigneeFormAssigneesResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FormsIdAssigneesJsonExecute(r)
+func (r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) Execute() (AssigneeFormAssigneesResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FormsformIdAssigneesJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3FormsIdAssigneesJson Get all assignees for a given form.
+ * GETProjectsApiV3FormsformIdAssigneesJson Get all assignees for a given form.
  * Get all assignees for a given form.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FormsIdAssigneesJsonRequest
+ * @param formId
+ * @return ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest
  */
-func (a *FormsAssigneesApiService) GETProjectsApiV3FormsIdAssigneesJson(ctx _context.Context) ApiGETProjectsApiV3FormsIdAssigneesJsonRequest {
-	return ApiGETProjectsApiV3FormsIdAssigneesJsonRequest{
+func (a *FormsAssigneesApiService) GETProjectsApiV3FormsformIdAssigneesJson(ctx _context.Context, formId int32) ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest {
+	return ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		formId: formId,
 	}
 }
 
@@ -98,7 +102,7 @@ func (a *FormsAssigneesApiService) GETProjectsApiV3FormsIdAssigneesJson(ctx _con
  * Execute executes the request
  * @return AssigneeFormAssigneesResponse
  */
-func (a *FormsAssigneesApiService) GETProjectsApiV3FormsIdAssigneesJsonExecute(r ApiGETProjectsApiV3FormsIdAssigneesJsonRequest) (AssigneeFormAssigneesResponse, *_nethttp.Response, error) {
+func (a *FormsAssigneesApiService) GETProjectsApiV3FormsformIdAssigneesJsonExecute(r ApiGETProjectsApiV3FormsformIdAssigneesJsonRequest) (AssigneeFormAssigneesResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -108,12 +112,13 @@ func (a *FormsAssigneesApiService) GETProjectsApiV3FormsIdAssigneesJsonExecute(r
 		localVarReturnValue  AssigneeFormAssigneesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsAssigneesApiService.GETProjectsApiV3FormsIdAssigneesJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsAssigneesApiService.GETProjectsApiV3FormsformIdAssigneesJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/forms/:id/assignees.json"
+	localVarPath := localBasePath + "/projects/api/v3/forms/{formId}/assignees.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"formId"+"}", _neturl.PathEscape(parameterToString(r.formId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -200,23 +205,24 @@ func (a *FormsAssigneesApiService) GETProjectsApiV3FormsIdAssigneesJsonExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3FormIdAssigneesJsonRequest struct {
+type ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest struct {
 	ctx _context.Context
 	ApiService *FormsAssigneesApiService
+	formId int32
 	assigneeRequest *AssigneeRequest
 }
 
-func (r ApiPUTProjectsApiV3FormIdAssigneesJsonRequest) AssigneeRequest(assigneeRequest AssigneeRequest) ApiPUTProjectsApiV3FormIdAssigneesJsonRequest {
+func (r ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest) AssigneeRequest(assigneeRequest AssigneeRequest) ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest {
 	r.assigneeRequest = &assigneeRequest
 	return r
 }
 
-func (r ApiPUTProjectsApiV3FormIdAssigneesJsonRequest) Execute() (AssigneeResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3FormIdAssigneesJsonExecute(r)
+func (r ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest) Execute() (AssigneeResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3FormformIdAssigneesJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3FormIdAssigneesJson Update the existing assignees.
+ * PUTProjectsApiV3FormformIdAssigneesJson Update the existing assignees.
  * Replace the current assignees. An empty list deletes.
 
 If some of the assignees are found to error, the correct
@@ -229,12 +235,14 @@ a 404.
 If every assignee is found to be invalid, or a mix of invalid
 and doesn't exist, the response will be a 400.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3FormIdAssigneesJsonRequest
+ * @param formId
+ * @return ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest
  */
-func (a *FormsAssigneesApiService) PUTProjectsApiV3FormIdAssigneesJson(ctx _context.Context) ApiPUTProjectsApiV3FormIdAssigneesJsonRequest {
-	return ApiPUTProjectsApiV3FormIdAssigneesJsonRequest{
+func (a *FormsAssigneesApiService) PUTProjectsApiV3FormformIdAssigneesJson(ctx _context.Context, formId int32) ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest {
+	return ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		formId: formId,
 	}
 }
 
@@ -242,7 +250,7 @@ func (a *FormsAssigneesApiService) PUTProjectsApiV3FormIdAssigneesJson(ctx _cont
  * Execute executes the request
  * @return AssigneeResponse
  */
-func (a *FormsAssigneesApiService) PUTProjectsApiV3FormIdAssigneesJsonExecute(r ApiPUTProjectsApiV3FormIdAssigneesJsonRequest) (AssigneeResponse, *_nethttp.Response, error) {
+func (a *FormsAssigneesApiService) PUTProjectsApiV3FormformIdAssigneesJsonExecute(r ApiPUTProjectsApiV3FormformIdAssigneesJsonRequest) (AssigneeResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -252,12 +260,13 @@ func (a *FormsAssigneesApiService) PUTProjectsApiV3FormIdAssigneesJsonExecute(r 
 		localVarReturnValue  AssigneeResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsAssigneesApiService.PUTProjectsApiV3FormIdAssigneesJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FormsAssigneesApiService.PUTProjectsApiV3FormformIdAssigneesJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/form/:id/assignees.json"
+	localVarPath := localBasePath + "/projects/api/v3/form/{formId}/assignees.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"formId"+"}", _neturl.PathEscape(parameterToString(r.formId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

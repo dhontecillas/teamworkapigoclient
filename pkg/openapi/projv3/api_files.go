@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,33 +28,36 @@ var (
 // FilesApiService FilesApi service
 type FilesApiService service
 
-type ApiDELETEProjectsApiV3FilesIdJsonRequest struct {
+type ApiDELETEProjectsApiV3FilesfileIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *FilesApiService
+	fileId int32
 }
 
 
-func (r ApiDELETEProjectsApiV3FilesIdJsonRequest) Execute() (*_nethttp.Response, error) {
-	return r.ApiService.DELETEProjectsApiV3FilesIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3FilesfileIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3FilesfileIdJsonExecute(r)
 }
 
 /*
- * DELETEProjectsApiV3FilesIdJson Delete an existing file and it's versions.
+ * DELETEProjectsApiV3FilesfileIdJson Delete an existing file and it's versions.
  * Delete an existing file including all the file versions.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiDELETEProjectsApiV3FilesIdJsonRequest
+ * @param fileId
+ * @return ApiDELETEProjectsApiV3FilesfileIdJsonRequest
  */
-func (a *FilesApiService) DELETEProjectsApiV3FilesIdJson(ctx _context.Context) ApiDELETEProjectsApiV3FilesIdJsonRequest {
-	return ApiDELETEProjectsApiV3FilesIdJsonRequest{
+func (a *FilesApiService) DELETEProjectsApiV3FilesfileIdJson(ctx _context.Context, fileId int32) ApiDELETEProjectsApiV3FilesfileIdJsonRequest {
+	return ApiDELETEProjectsApiV3FilesfileIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		fileId: fileId,
 	}
 }
 
 /*
  * Execute executes the request
  */
-func (a *FilesApiService) DELETEProjectsApiV3FilesIdJsonExecute(r ApiDELETEProjectsApiV3FilesIdJsonRequest) (*_nethttp.Response, error) {
+func (a *FilesApiService) DELETEProjectsApiV3FilesfileIdJsonExecute(r ApiDELETEProjectsApiV3FilesfileIdJsonRequest) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -62,12 +66,13 @@ func (a *FilesApiService) DELETEProjectsApiV3FilesIdJsonExecute(r ApiDELETEProje
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.DELETEProjectsApiV3FilesIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.DELETEProjectsApiV3FilesfileIdJson")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/files/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/files/{fileId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", _neturl.PathEscape(parameterToString(r.fileId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -367,456 +372,6 @@ func (a *FilesApiService) GETProjectsApiV3FilesChangesJsonExecute(r ApiGETProjec
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGETProjectsApiV3FilesIdJsonRequest struct {
-	ctx _context.Context
-	ApiService *FilesApiService
-	uploadedStartDate *string
-	uploadedEndDate *string
-	updatedAfterDate *time.Time
-	updatedAfter *time.Time
-	status *string
-	searchTerm *string
-	projectType *string
-	orderMode *string
-	orderBy *string
-	versionId *int32
-	version *int32
-	taskId *int32
-	projectId *int32
-	pageSize *int32
-	page *int32
-	id *int32
-	categoryId *int32
-	skipInternalFiles *bool
-	skipExternalFiles *bool
-	showDeleted *bool
-	searchAllFields *bool
-	matchAllTags *bool
-	lockedOnly *bool
-	getVersions *bool
-	getVersionReactions *bool
-	getRelatedItems *bool
-	getReactions *bool
-	getLikes *bool
-	getComments *bool
-	fromDocumentEditor *bool
-	versionIds *[]int32
-	userIds *[]int32
-	tagIds *[]int32
-	include *[]string
-	fieldsUsers *[]string
-	fieldsTasks *[]string
-	fieldsTags *[]string
-	fieldsProjects *[]string
-	fieldsMessages *[]string
-	fieldsFileCategories *[]string
-	fieldsComments *[]string
-}
-
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) UploadedStartDate(uploadedStartDate string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.uploadedStartDate = &uploadedStartDate
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) UploadedEndDate(uploadedEndDate string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.uploadedEndDate = &uploadedEndDate
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.updatedAfterDate = &updatedAfterDate
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.updatedAfter = &updatedAfter
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) Status(status string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.status = &status
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.searchTerm = &searchTerm
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) ProjectType(projectType string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.projectType = &projectType
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.orderMode = &orderMode
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.orderBy = &orderBy
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) VersionId(versionId int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.versionId = &versionId
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) Version(version int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.version = &version
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) TaskId(taskId int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.taskId = &taskId
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.projectId = &projectId
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.pageSize = &pageSize
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) Page(page int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.page = &page
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) Id(id int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.id = &id
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) CategoryId(categoryId int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.categoryId = &categoryId
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) SkipInternalFiles(skipInternalFiles bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.skipInternalFiles = &skipInternalFiles
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) SkipExternalFiles(skipExternalFiles bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.skipExternalFiles = &skipExternalFiles
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.showDeleted = &showDeleted
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) SearchAllFields(searchAllFields bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.searchAllFields = &searchAllFields
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.matchAllTags = &matchAllTags
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) LockedOnly(lockedOnly bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.lockedOnly = &lockedOnly
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) GetVersions(getVersions bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.getVersions = &getVersions
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) GetVersionReactions(getVersionReactions bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.getVersionReactions = &getVersionReactions
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) GetRelatedItems(getRelatedItems bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.getRelatedItems = &getRelatedItems
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) GetReactions(getReactions bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.getReactions = &getReactions
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) GetLikes(getLikes bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.getLikes = &getLikes
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) GetComments(getComments bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.getComments = &getComments
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FromDocumentEditor(fromDocumentEditor bool) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fromDocumentEditor = &fromDocumentEditor
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) VersionIds(versionIds []int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.versionIds = &versionIds
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) UserIds(userIds []int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.userIds = &userIds
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.tagIds = &tagIds
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) Include(include []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.include = &include
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsUsers = &fieldsUsers
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsTasks = &fieldsTasks
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsTags = &fieldsTags
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsProjects = &fieldsProjects
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsMessages(fieldsMessages []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsMessages = &fieldsMessages
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsFileCategories(fieldsFileCategories []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsFileCategories = &fieldsFileCategories
-	return r
-}
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) FieldsComments(fieldsComments []string) ApiGETProjectsApiV3FilesIdJsonRequest {
-	r.fieldsComments = &fieldsComments
-	return r
-}
-
-func (r ApiGETProjectsApiV3FilesIdJsonRequest) Execute() (FileResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FilesIdJsonExecute(r)
-}
-
-/*
- * GETProjectsApiV3FilesIdJson Get a specific file.
- * Get a single file by project file id.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FilesIdJsonRequest
- */
-func (a *FilesApiService) GETProjectsApiV3FilesIdJson(ctx _context.Context) ApiGETProjectsApiV3FilesIdJsonRequest {
-	return ApiGETProjectsApiV3FilesIdJsonRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-/*
- * Execute executes the request
- * @return FileResponse
- */
-func (a *FilesApiService) GETProjectsApiV3FilesIdJsonExecute(r ApiGETProjectsApiV3FilesIdJsonRequest) (FileResponse, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  FileResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.GETProjectsApiV3FilesIdJson")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/projects/api/v3/files/:id.json"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.uploadedStartDate != nil {
-		localVarQueryParams.Add("uploadedStartDate", parameterToString(*r.uploadedStartDate, ""))
-	}
-	if r.uploadedEndDate != nil {
-		localVarQueryParams.Add("uploadedEndDate", parameterToString(*r.uploadedEndDate, ""))
-	}
-	if r.updatedAfterDate != nil {
-		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
-	}
-	if r.updatedAfter != nil {
-		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
-	}
-	if r.status != nil {
-		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
-	}
-	if r.searchTerm != nil {
-		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
-	}
-	if r.projectType != nil {
-		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
-	}
-	if r.orderMode != nil {
-		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
-	}
-	if r.orderBy != nil {
-		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
-	}
-	if r.versionId != nil {
-		localVarQueryParams.Add("versionId", parameterToString(*r.versionId, ""))
-	}
-	if r.version != nil {
-		localVarQueryParams.Add("version", parameterToString(*r.version, ""))
-	}
-	if r.taskId != nil {
-		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
-	}
-	if r.projectId != nil {
-		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
-	}
-	if r.pageSize != nil {
-		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
-	}
-	if r.page != nil {
-		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
-	}
-	if r.id != nil {
-		localVarQueryParams.Add("id", parameterToString(*r.id, ""))
-	}
-	if r.categoryId != nil {
-		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, ""))
-	}
-	if r.skipInternalFiles != nil {
-		localVarQueryParams.Add("skipInternalFiles", parameterToString(*r.skipInternalFiles, ""))
-	}
-	if r.skipExternalFiles != nil {
-		localVarQueryParams.Add("skipExternalFiles", parameterToString(*r.skipExternalFiles, ""))
-	}
-	if r.showDeleted != nil {
-		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
-	}
-	if r.searchAllFields != nil {
-		localVarQueryParams.Add("searchAllFields", parameterToString(*r.searchAllFields, ""))
-	}
-	if r.matchAllTags != nil {
-		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
-	}
-	if r.lockedOnly != nil {
-		localVarQueryParams.Add("lockedOnly", parameterToString(*r.lockedOnly, ""))
-	}
-	if r.getVersions != nil {
-		localVarQueryParams.Add("getVersions", parameterToString(*r.getVersions, ""))
-	}
-	if r.getVersionReactions != nil {
-		localVarQueryParams.Add("getVersionReactions", parameterToString(*r.getVersionReactions, ""))
-	}
-	if r.getRelatedItems != nil {
-		localVarQueryParams.Add("getRelatedItems", parameterToString(*r.getRelatedItems, ""))
-	}
-	if r.getReactions != nil {
-		localVarQueryParams.Add("getReactions", parameterToString(*r.getReactions, ""))
-	}
-	if r.getLikes != nil {
-		localVarQueryParams.Add("getLikes", parameterToString(*r.getLikes, ""))
-	}
-	if r.getComments != nil {
-		localVarQueryParams.Add("getComments", parameterToString(*r.getComments, ""))
-	}
-	if r.fromDocumentEditor != nil {
-		localVarQueryParams.Add("fromDocumentEditor", parameterToString(*r.fromDocumentEditor, ""))
-	}
-	if r.versionIds != nil {
-		localVarQueryParams.Add("versionIds", parameterToString(*r.versionIds, "csv"))
-	}
-	if r.userIds != nil {
-		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.include != nil {
-		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
-	}
-	if r.fieldsUsers != nil {
-		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
-	}
-	if r.fieldsTasks != nil {
-		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
-	}
-	if r.fieldsTags != nil {
-		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
-	}
-	if r.fieldsProjects != nil {
-		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
-	}
-	if r.fieldsMessages != nil {
-		localVarQueryParams.Add("fields[messages]", parameterToString(*r.fieldsMessages, "csv"))
-	}
-	if r.fieldsFileCategories != nil {
-		localVarQueryParams.Add("fields[fileCategories]", parameterToString(*r.fieldsFileCategories, "csv"))
-	}
-	if r.fieldsComments != nil {
-		localVarQueryParams.Add("fields[comments]", parameterToString(*r.fieldsComments, "csv"))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ViewErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1427,9 +982,464 @@ func (a *FilesApiService) GETProjectsApiV3FilesUsageJsonExecute(r ApiGETProjects
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3FileversionIdJsonRequest struct {
+type ApiGETProjectsApiV3FilesfileIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *FilesApiService
+	fileId int32
+	uploadedStartDate *string
+	uploadedEndDate *string
+	updatedAfterDate *time.Time
+	updatedAfter *time.Time
+	status *string
+	searchTerm *string
+	projectType *string
+	orderMode *string
+	orderBy *string
+	versionId *int32
+	version *int32
+	taskId *int32
+	projectId *int32
+	pageSize *int32
+	page *int32
+	id *int32
+	categoryId *int32
+	skipInternalFiles *bool
+	skipExternalFiles *bool
+	showDeleted *bool
+	searchAllFields *bool
+	matchAllTags *bool
+	lockedOnly *bool
+	getVersions *bool
+	getVersionReactions *bool
+	getRelatedItems *bool
+	getReactions *bool
+	getLikes *bool
+	getComments *bool
+	fromDocumentEditor *bool
+	versionIds *[]int32
+	userIds *[]int32
+	tagIds *[]int32
+	include *[]string
+	fieldsUsers *[]string
+	fieldsTasks *[]string
+	fieldsTags *[]string
+	fieldsProjects *[]string
+	fieldsMessages *[]string
+	fieldsFileCategories *[]string
+	fieldsComments *[]string
+}
+
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) UploadedStartDate(uploadedStartDate string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.uploadedStartDate = &uploadedStartDate
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) UploadedEndDate(uploadedEndDate string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.uploadedEndDate = &uploadedEndDate
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) UpdatedAfterDate(updatedAfterDate time.Time) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.updatedAfterDate = &updatedAfterDate
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) UpdatedAfter(updatedAfter time.Time) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.updatedAfter = &updatedAfter
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) Status(status string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.status = &status
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.searchTerm = &searchTerm
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) ProjectType(projectType string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.projectType = &projectType
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) OrderMode(orderMode string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.orderMode = &orderMode
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) OrderBy(orderBy string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.orderBy = &orderBy
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) VersionId(versionId int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.versionId = &versionId
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) Version(version int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.version = &version
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) TaskId(taskId int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.taskId = &taskId
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.projectId = &projectId
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.pageSize = &pageSize
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) Page(page int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.page = &page
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) Id(id int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.id = &id
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) CategoryId(categoryId int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.categoryId = &categoryId
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) SkipInternalFiles(skipInternalFiles bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.skipInternalFiles = &skipInternalFiles
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) SkipExternalFiles(skipExternalFiles bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.skipExternalFiles = &skipExternalFiles
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.showDeleted = &showDeleted
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) SearchAllFields(searchAllFields bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.searchAllFields = &searchAllFields
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) MatchAllTags(matchAllTags bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.matchAllTags = &matchAllTags
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) LockedOnly(lockedOnly bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.lockedOnly = &lockedOnly
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) GetVersions(getVersions bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.getVersions = &getVersions
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) GetVersionReactions(getVersionReactions bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.getVersionReactions = &getVersionReactions
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) GetRelatedItems(getRelatedItems bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.getRelatedItems = &getRelatedItems
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) GetReactions(getReactions bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.getReactions = &getReactions
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) GetLikes(getLikes bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.getLikes = &getLikes
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) GetComments(getComments bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.getComments = &getComments
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FromDocumentEditor(fromDocumentEditor bool) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fromDocumentEditor = &fromDocumentEditor
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) VersionIds(versionIds []int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.versionIds = &versionIds
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) UserIds(userIds []int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.userIds = &userIds
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) TagIds(tagIds []int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.tagIds = &tagIds
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) Include(include []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.include = &include
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsUsers = &fieldsUsers
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsTasks(fieldsTasks []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsTasks = &fieldsTasks
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsTags(fieldsTags []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsTags = &fieldsTags
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsProjects = &fieldsProjects
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsMessages(fieldsMessages []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsMessages = &fieldsMessages
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsFileCategories(fieldsFileCategories []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsFileCategories = &fieldsFileCategories
+	return r
+}
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) FieldsComments(fieldsComments []string) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	r.fieldsComments = &fieldsComments
+	return r
+}
+
+func (r ApiGETProjectsApiV3FilesfileIdJsonRequest) Execute() (FileResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FilesfileIdJsonExecute(r)
+}
+
+/*
+ * GETProjectsApiV3FilesfileIdJson Get a specific file.
+ * Get a single file by project file id.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param fileId
+ * @return ApiGETProjectsApiV3FilesfileIdJsonRequest
+ */
+func (a *FilesApiService) GETProjectsApiV3FilesfileIdJson(ctx _context.Context, fileId int32) ApiGETProjectsApiV3FilesfileIdJsonRequest {
+	return ApiGETProjectsApiV3FilesfileIdJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		fileId: fileId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return FileResponse
+ */
+func (a *FilesApiService) GETProjectsApiV3FilesfileIdJsonExecute(r ApiGETProjectsApiV3FilesfileIdJsonRequest) (FileResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  FileResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.GETProjectsApiV3FilesfileIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/files/{fileId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", _neturl.PathEscape(parameterToString(r.fileId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.uploadedStartDate != nil {
+		localVarQueryParams.Add("uploadedStartDate", parameterToString(*r.uploadedStartDate, ""))
+	}
+	if r.uploadedEndDate != nil {
+		localVarQueryParams.Add("uploadedEndDate", parameterToString(*r.uploadedEndDate, ""))
+	}
+	if r.updatedAfterDate != nil {
+		localVarQueryParams.Add("updatedAfterDate", parameterToString(*r.updatedAfterDate, ""))
+	}
+	if r.updatedAfter != nil {
+		localVarQueryParams.Add("updatedAfter", parameterToString(*r.updatedAfter, ""))
+	}
+	if r.status != nil {
+		localVarQueryParams.Add("status", parameterToString(*r.status, ""))
+	}
+	if r.searchTerm != nil {
+		localVarQueryParams.Add("searchTerm", parameterToString(*r.searchTerm, ""))
+	}
+	if r.projectType != nil {
+		localVarQueryParams.Add("projectType", parameterToString(*r.projectType, ""))
+	}
+	if r.orderMode != nil {
+		localVarQueryParams.Add("orderMode", parameterToString(*r.orderMode, ""))
+	}
+	if r.orderBy != nil {
+		localVarQueryParams.Add("orderBy", parameterToString(*r.orderBy, ""))
+	}
+	if r.versionId != nil {
+		localVarQueryParams.Add("versionId", parameterToString(*r.versionId, ""))
+	}
+	if r.version != nil {
+		localVarQueryParams.Add("version", parameterToString(*r.version, ""))
+	}
+	if r.taskId != nil {
+		localVarQueryParams.Add("taskId", parameterToString(*r.taskId, ""))
+	}
+	if r.projectId != nil {
+		localVarQueryParams.Add("projectId", parameterToString(*r.projectId, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("pageSize", parameterToString(*r.pageSize, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.id != nil {
+		localVarQueryParams.Add("id", parameterToString(*r.id, ""))
+	}
+	if r.categoryId != nil {
+		localVarQueryParams.Add("categoryId", parameterToString(*r.categoryId, ""))
+	}
+	if r.skipInternalFiles != nil {
+		localVarQueryParams.Add("skipInternalFiles", parameterToString(*r.skipInternalFiles, ""))
+	}
+	if r.skipExternalFiles != nil {
+		localVarQueryParams.Add("skipExternalFiles", parameterToString(*r.skipExternalFiles, ""))
+	}
+	if r.showDeleted != nil {
+		localVarQueryParams.Add("showDeleted", parameterToString(*r.showDeleted, ""))
+	}
+	if r.searchAllFields != nil {
+		localVarQueryParams.Add("searchAllFields", parameterToString(*r.searchAllFields, ""))
+	}
+	if r.matchAllTags != nil {
+		localVarQueryParams.Add("matchAllTags", parameterToString(*r.matchAllTags, ""))
+	}
+	if r.lockedOnly != nil {
+		localVarQueryParams.Add("lockedOnly", parameterToString(*r.lockedOnly, ""))
+	}
+	if r.getVersions != nil {
+		localVarQueryParams.Add("getVersions", parameterToString(*r.getVersions, ""))
+	}
+	if r.getVersionReactions != nil {
+		localVarQueryParams.Add("getVersionReactions", parameterToString(*r.getVersionReactions, ""))
+	}
+	if r.getRelatedItems != nil {
+		localVarQueryParams.Add("getRelatedItems", parameterToString(*r.getRelatedItems, ""))
+	}
+	if r.getReactions != nil {
+		localVarQueryParams.Add("getReactions", parameterToString(*r.getReactions, ""))
+	}
+	if r.getLikes != nil {
+		localVarQueryParams.Add("getLikes", parameterToString(*r.getLikes, ""))
+	}
+	if r.getComments != nil {
+		localVarQueryParams.Add("getComments", parameterToString(*r.getComments, ""))
+	}
+	if r.fromDocumentEditor != nil {
+		localVarQueryParams.Add("fromDocumentEditor", parameterToString(*r.fromDocumentEditor, ""))
+	}
+	if r.versionIds != nil {
+		localVarQueryParams.Add("versionIds", parameterToString(*r.versionIds, "csv"))
+	}
+	if r.userIds != nil {
+		localVarQueryParams.Add("userIds", parameterToString(*r.userIds, "csv"))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.include != nil {
+		localVarQueryParams.Add("include", parameterToString(*r.include, "csv"))
+	}
+	if r.fieldsUsers != nil {
+		localVarQueryParams.Add("fields[users]", parameterToString(*r.fieldsUsers, "csv"))
+	}
+	if r.fieldsTasks != nil {
+		localVarQueryParams.Add("fields[tasks]", parameterToString(*r.fieldsTasks, "csv"))
+	}
+	if r.fieldsTags != nil {
+		localVarQueryParams.Add("fields[tags]", parameterToString(*r.fieldsTags, "csv"))
+	}
+	if r.fieldsProjects != nil {
+		localVarQueryParams.Add("fields[projects]", parameterToString(*r.fieldsProjects, "csv"))
+	}
+	if r.fieldsMessages != nil {
+		localVarQueryParams.Add("fields[messages]", parameterToString(*r.fieldsMessages, "csv"))
+	}
+	if r.fieldsFileCategories != nil {
+		localVarQueryParams.Add("fields[fileCategories]", parameterToString(*r.fieldsFileCategories, "csv"))
+	}
+	if r.fieldsComments != nil {
+		localVarQueryParams.Add("fields[comments]", parameterToString(*r.fieldsComments, "csv"))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGETProjectsApiV3FileversionidJsonRequest struct {
+	ctx _context.Context
+	ApiService *FilesApiService
+	id2 int32
 	id *int32
 	getReactions *bool
 	include *[]string
@@ -1438,45 +1448,47 @@ type ApiGETProjectsApiV3FileversionIdJsonRequest struct {
 	fieldsFiles *[]string
 }
 
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) Id(id int32) ApiGETProjectsApiV3FileversionIdJsonRequest {
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) Id(id int32) ApiGETProjectsApiV3FileversionidJsonRequest {
 	r.id = &id
 	return r
 }
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) GetReactions(getReactions bool) ApiGETProjectsApiV3FileversionIdJsonRequest {
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) GetReactions(getReactions bool) ApiGETProjectsApiV3FileversionidJsonRequest {
 	r.getReactions = &getReactions
 	return r
 }
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) Include(include []string) ApiGETProjectsApiV3FileversionIdJsonRequest {
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) Include(include []string) ApiGETProjectsApiV3FileversionidJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FileversionIdJsonRequest {
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3FileversionidJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3FileversionIdJsonRequest {
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3FileversionidJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) FieldsFiles(fieldsFiles []string) ApiGETProjectsApiV3FileversionIdJsonRequest {
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) FieldsFiles(fieldsFiles []string) ApiGETProjectsApiV3FileversionidJsonRequest {
 	r.fieldsFiles = &fieldsFiles
 	return r
 }
 
-func (r ApiGETProjectsApiV3FileversionIdJsonRequest) Execute() (FileversionResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3FileversionIdJsonExecute(r)
+func (r ApiGETProjectsApiV3FileversionidJsonRequest) Execute() (FileversionResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3FileversionidJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3FileversionIdJson Get a specific fileversion.
+ * GETProjectsApiV3FileversionidJson Get a specific fileversion.
  * Retrieve a fileversion by id.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3FileversionIdJsonRequest
+ * @param id2
+ * @return ApiGETProjectsApiV3FileversionidJsonRequest
  */
-func (a *FilesApiService) GETProjectsApiV3FileversionIdJson(ctx _context.Context) ApiGETProjectsApiV3FileversionIdJsonRequest {
-	return ApiGETProjectsApiV3FileversionIdJsonRequest{
+func (a *FilesApiService) GETProjectsApiV3FileversionidJson(ctx _context.Context, id2 int32) ApiGETProjectsApiV3FileversionidJsonRequest {
+	return ApiGETProjectsApiV3FileversionidJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		id2: id2,
 	}
 }
 
@@ -1484,7 +1496,7 @@ func (a *FilesApiService) GETProjectsApiV3FileversionIdJson(ctx _context.Context
  * Execute executes the request
  * @return FileversionResponse
  */
-func (a *FilesApiService) GETProjectsApiV3FileversionIdJsonExecute(r ApiGETProjectsApiV3FileversionIdJsonRequest) (FileversionResponse, *_nethttp.Response, error) {
+func (a *FilesApiService) GETProjectsApiV3FileversionidJsonExecute(r ApiGETProjectsApiV3FileversionidJsonRequest) (FileversionResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1494,12 +1506,13 @@ func (a *FilesApiService) GETProjectsApiV3FileversionIdJsonExecute(r ApiGETProje
 		localVarReturnValue  FileversionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.GETProjectsApiV3FileversionIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.GETProjectsApiV3FileversionidJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/fileversion/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/fileversion/{id}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.PathEscape(parameterToString(r.id2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1587,41 +1600,44 @@ func (a *FilesApiService) GETProjectsApiV3FileversionIdJsonExecute(r ApiGETProje
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest struct {
 	ctx _context.Context
 	ApiService *FilesApiService
+	projectId2 int32
 	projectId *int32
 	include *[]string
 	fieldsProjects *[]string
 }
 
-func (r ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest) ProjectId(projectId int32) ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest {
 	r.projectId = &projectId
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest) Include(include []string) ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest {
+func (r ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest) FieldsProjects(fieldsProjects []string) ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest {
 	r.fieldsProjects = &fieldsProjects
 	return r
 }
 
-func (r ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest) Execute() (FileUsageResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsIdFilesUsageJsonExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest) Execute() (FileUsageResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdFilesUsageJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsIdFilesUsageJson Retrieve file usage on a project
+ * GETProjectsApiV3ProjectsprojectIdFilesUsageJson Retrieve file usage on a project
  * Retrieves all file space used on account for a specific project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest
+ * @param projectId2
+ * @return ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest
  */
-func (a *FilesApiService) GETProjectsApiV3ProjectsIdFilesUsageJson(ctx _context.Context) ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest {
-	return ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest{
+func (a *FilesApiService) GETProjectsApiV3ProjectsprojectIdFilesUsageJson(ctx _context.Context, projectId2 int32) ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectId2: projectId2,
 	}
 }
 
@@ -1629,7 +1645,7 @@ func (a *FilesApiService) GETProjectsApiV3ProjectsIdFilesUsageJson(ctx _context.
  * Execute executes the request
  * @return FileUsageResponse
  */
-func (a *FilesApiService) GETProjectsApiV3ProjectsIdFilesUsageJsonExecute(r ApiGETProjectsApiV3ProjectsIdFilesUsageJsonRequest) (FileUsageResponse, *_nethttp.Response, error) {
+func (a *FilesApiService) GETProjectsApiV3ProjectsprojectIdFilesUsageJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdFilesUsageJsonRequest) (FileUsageResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1639,12 +1655,13 @@ func (a *FilesApiService) GETProjectsApiV3ProjectsIdFilesUsageJsonExecute(r ApiG
 		localVarReturnValue  FileUsageResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.GETProjectsApiV3ProjectsIdFilesUsageJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.GETProjectsApiV3ProjectsprojectIdFilesUsageJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/:id/files/usage.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/files/usage.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1733,31 +1750,34 @@ func (a *FilesApiService) GETProjectsApiV3ProjectsIdFilesUsageJsonExecute(r ApiG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPATCHProjectsApiV3FilesIdJsonRequest struct {
+type ApiPATCHProjectsApiV3FilesfileIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *FilesApiService
+	fileId int32
 	fileRequest *FileRequest
 }
 
-func (r ApiPATCHProjectsApiV3FilesIdJsonRequest) FileRequest(fileRequest FileRequest) ApiPATCHProjectsApiV3FilesIdJsonRequest {
+func (r ApiPATCHProjectsApiV3FilesfileIdJsonRequest) FileRequest(fileRequest FileRequest) ApiPATCHProjectsApiV3FilesfileIdJsonRequest {
 	r.fileRequest = &fileRequest
 	return r
 }
 
-func (r ApiPATCHProjectsApiV3FilesIdJsonRequest) Execute() (FileResponse, *_nethttp.Response, error) {
-	return r.ApiService.PATCHProjectsApiV3FilesIdJsonExecute(r)
+func (r ApiPATCHProjectsApiV3FilesfileIdJsonRequest) Execute() (FileResponse, *_nethttp.Response, error) {
+	return r.ApiService.PATCHProjectsApiV3FilesfileIdJsonExecute(r)
 }
 
 /*
- * PATCHProjectsApiV3FilesIdJson Update an existing file
+ * PATCHProjectsApiV3FilesfileIdJson Update an existing file
  * Updates an existing file.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPATCHProjectsApiV3FilesIdJsonRequest
+ * @param fileId
+ * @return ApiPATCHProjectsApiV3FilesfileIdJsonRequest
  */
-func (a *FilesApiService) PATCHProjectsApiV3FilesIdJson(ctx _context.Context) ApiPATCHProjectsApiV3FilesIdJsonRequest {
-	return ApiPATCHProjectsApiV3FilesIdJsonRequest{
+func (a *FilesApiService) PATCHProjectsApiV3FilesfileIdJson(ctx _context.Context, fileId int32) ApiPATCHProjectsApiV3FilesfileIdJsonRequest {
+	return ApiPATCHProjectsApiV3FilesfileIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		fileId: fileId,
 	}
 }
 
@@ -1765,7 +1785,7 @@ func (a *FilesApiService) PATCHProjectsApiV3FilesIdJson(ctx _context.Context) Ap
  * Execute executes the request
  * @return FileResponse
  */
-func (a *FilesApiService) PATCHProjectsApiV3FilesIdJsonExecute(r ApiPATCHProjectsApiV3FilesIdJsonRequest) (FileResponse, *_nethttp.Response, error) {
+func (a *FilesApiService) PATCHProjectsApiV3FilesfileIdJsonExecute(r ApiPATCHProjectsApiV3FilesfileIdJsonRequest) (FileResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1775,12 +1795,13 @@ func (a *FilesApiService) PATCHProjectsApiV3FilesIdJsonExecute(r ApiPATCHProject
 		localVarReturnValue  FileResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.PATCHProjectsApiV3FilesIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.PATCHProjectsApiV3FilesfileIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/files/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/files/{fileId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", _neturl.PathEscape(parameterToString(r.fileId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2005,31 +2026,34 @@ func (a *FilesApiService) POSTProjectsApiV3FilesArchiveJsonExecute(r ApiPOSTProj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest struct {
+type ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *FilesApiService
+	projectFileId int32
 	fileversionRequest *FileversionRequest
 }
 
-func (r ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest) FileversionRequest(fileversionRequest FileversionRequest) ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest {
+func (r ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest) FileversionRequest(fileversionRequest FileversionRequest) ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest {
 	r.fileversionRequest = &fileversionRequest
 	return r
 }
 
-func (r ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest) Execute() (FileversionResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3FilesProjectFileIdJsonExecute(r)
+func (r ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest) Execute() (FileversionResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3FilesprojectFileIdJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3FilesProjectFileIdJson Create a new fileversion for the project file id.
+ * POSTProjectsApiV3FilesprojectFileIdJson Create a new fileversion for the project file id.
  * Creates a new fileversion for the project file id specified.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest
+ * @param projectFileId
+ * @return ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest
  */
-func (a *FilesApiService) POSTProjectsApiV3FilesProjectFileIdJson(ctx _context.Context) ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest {
-	return ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest{
+func (a *FilesApiService) POSTProjectsApiV3FilesprojectFileIdJson(ctx _context.Context, projectFileId int32) ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest {
+	return ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		projectFileId: projectFileId,
 	}
 }
 
@@ -2037,7 +2061,7 @@ func (a *FilesApiService) POSTProjectsApiV3FilesProjectFileIdJson(ctx _context.C
  * Execute executes the request
  * @return FileversionResponse
  */
-func (a *FilesApiService) POSTProjectsApiV3FilesProjectFileIdJsonExecute(r ApiPOSTProjectsApiV3FilesProjectFileIdJsonRequest) (FileversionResponse, *_nethttp.Response, error) {
+func (a *FilesApiService) POSTProjectsApiV3FilesprojectFileIdJsonExecute(r ApiPOSTProjectsApiV3FilesprojectFileIdJsonRequest) (FileversionResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -2047,12 +2071,13 @@ func (a *FilesApiService) POSTProjectsApiV3FilesProjectFileIdJsonExecute(r ApiPO
 		localVarReturnValue  FileversionResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.POSTProjectsApiV3FilesProjectFileIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesApiService.POSTProjectsApiV3FilesprojectFileIdJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/files/:projectFileId.json"
+	localVarPath := localBasePath + "/projects/api/v3/files/{projectFileId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectFileId"+"}", _neturl.PathEscape(parameterToString(r.projectFileId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

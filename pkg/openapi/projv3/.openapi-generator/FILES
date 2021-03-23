@@ -31,7 +31,6 @@ api_notebooks.go
 api_people.go
 api_people_status.go
 api_person.go
-api_project.go
 api_project_updates.go
 api_projects.go
 api_resource_scheduling.go
@@ -111,6 +110,7 @@ docs/CustomfieldCustomField.md
 docs/CustomfieldCustomFieldsResponse.md
 docs/CustomfieldRequest.md
 docs/CustomfieldResponse.md
+docs/CustomfieldtaskCustomFieldTask.md
 docs/DashboardUserDashboardsResponse.md
 docs/DashboardUserDashboardsResponseIncluded.md
 docs/DashboardsApi.md
@@ -201,7 +201,6 @@ docs/PlannerWorkloadPlannerCapacity.md
 docs/PlannerWorkloadPlannerCapacityTask.md
 docs/PlannerWorkloadPlannersResponse.md
 docs/PlannerWorkloadPlannersResponseIncluded.md
-docs/ProjectApi.md
 docs/ProjectBulkDeleteRequest.md
 docs/ProjectBulkUpdateRequest.md
 docs/ProjectCustomFieldProject.md
@@ -264,12 +263,15 @@ docs/TagsApi.md
 docs/TaskBulkDeleteRequest.md
 docs/TaskBulkUpdateRequest.md
 docs/TaskCard.md
+docs/TaskCommonOptions.md
 docs/TaskCustomFieldTask.md
 docs/TaskCustomFieldTasksResponse.md
 docs/TaskCustomFieldTasksResponseIncluded.md
+docs/TaskDeleteRequest.md
 docs/TaskEditCustomFieldTask.md
 docs/TaskFile.md
 docs/TaskListsApi.md
+docs/TaskOptions.md
 docs/TaskPendingFile.md
 docs/TaskPredecessor.md
 docs/TaskReminder.md
@@ -277,7 +279,6 @@ docs/TaskRepeatOptions.md
 docs/TaskRequest.md
 docs/TaskRequestAttachmentOptions.md
 docs/TaskRequestAttachments.md
-docs/TaskRequestTaskOptions.md
 docs/TaskResponse.md
 docs/TaskResponseIncluded.md
 docs/TaskTask.md
@@ -317,7 +318,6 @@ docs/ViewContent.md
 docs/ViewCountry.md
 docs/ViewCustomField.md
 docs/ViewCustomFieldProject.md
-docs/ViewCustomFieldTask.md
 docs/ViewError.md
 docs/ViewErrorResponse.md
 docs/ViewFilePermissions.md
@@ -451,6 +451,7 @@ model_customfield_custom_field.go
 model_customfield_custom_fields_response.go
 model_customfield_request.go
 model_customfield_response.go
+model_customfieldtask_custom_field_task.go
 model_dashboard_user_dashboards_response.go
 model_dashboard_user_dashboards_response_included.go
 model_deadline_milestone_metric_deadline.go
@@ -580,11 +581,14 @@ model_tag_tags_response.go
 model_task_bulk_delete_request.go
 model_task_bulk_update_request.go
 model_task_card.go
+model_task_common_options.go
 model_task_custom_field_task.go
 model_task_custom_field_tasks_response.go
 model_task_custom_field_tasks_response_included.go
+model_task_delete_request.go
 model_task_edit_custom_field_task.go
 model_task_file.go
+model_task_options.go
 model_task_pending_file.go
 model_task_predecessor.go
 model_task_reminder.go
@@ -592,7 +596,6 @@ model_task_repeat_options.go
 model_task_request.go
 model_task_request_attachment_options.go
 model_task_request_attachments.go
-model_task_request_task_options.go
 model_task_response.go
 model_task_response_included.go
 model_task_task.go
@@ -630,7 +633,6 @@ model_view_content.go
 model_view_country.go
 model_view_custom_field.go
 model_view_custom_field_project.go
-model_view_custom_field_task.go
 model_view_error.go
 model_view_error_response.go
 model_view_file_permissions.go

@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -402,9 +403,10 @@ func (a *PeopleStatusApiService) GETProjectsApiV3StatusesTimelineJsonExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest struct {
+type ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest struct {
 	ctx _context.Context
 	ApiService *PeopleStatusApiService
+	teamId2 int32
 	searchTerm *string
 	teamId *int32
 	pageSize *int32
@@ -415,54 +417,56 @@ type ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest struct {
 	fieldsUsers *[]string
 }
 
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) SearchTerm(searchTerm string) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.searchTerm = &searchTerm
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) TeamId(teamId int32) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) TeamId(teamId int32) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.teamId = &teamId
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) PageSize(pageSize int32) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) Page(page int32) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) Page(page int32) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.page = &page
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) ShowDeleted(showDeleted bool) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.showDeleted = &showDeleted
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) IncludeSubteams(includeSubteams bool) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) IncludeSubteams(includeSubteams bool) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.includeSubteams = &includeSubteams
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) Include(include []string) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) Include(include []string) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.include = &include
 	return r
 }
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) FieldsUsers(fieldsUsers []string) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
 	r.fieldsUsers = &fieldsUsers
 	return r
 }
 
-func (r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) Execute() (StatusTimelineResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3TeamsTeamIdStatusesTimelineJsonExecute(r)
+func (r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) Execute() (StatusTimelineResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TeamsteamIdStatusesTimelineJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3TeamsTeamIdStatusesTimelineJson Get statuses timeline for a specific team
+ * GETProjectsApiV3TeamsteamIdStatusesTimelineJson Get statuses timeline for a specific team
  * Return people statuses from a specific team that the logged-in user can
 access.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest
+ * @param teamId2
+ * @return ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest
  */
-func (a *PeopleStatusApiService) GETProjectsApiV3TeamsTeamIdStatusesTimelineJson(ctx _context.Context) ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest {
-	return ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest{
+func (a *PeopleStatusApiService) GETProjectsApiV3TeamsteamIdStatusesTimelineJson(ctx _context.Context, teamId2 int32) ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest {
+	return ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		teamId2: teamId2,
 	}
 }
 
@@ -470,7 +474,7 @@ func (a *PeopleStatusApiService) GETProjectsApiV3TeamsTeamIdStatusesTimelineJson
  * Execute executes the request
  * @return StatusTimelineResponse
  */
-func (a *PeopleStatusApiService) GETProjectsApiV3TeamsTeamIdStatusesTimelineJsonExecute(r ApiGETProjectsApiV3TeamsTeamIdStatusesTimelineJsonRequest) (StatusTimelineResponse, *_nethttp.Response, error) {
+func (a *PeopleStatusApiService) GETProjectsApiV3TeamsteamIdStatusesTimelineJsonExecute(r ApiGETProjectsApiV3TeamsteamIdStatusesTimelineJsonRequest) (StatusTimelineResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -480,12 +484,13 @@ func (a *PeopleStatusApiService) GETProjectsApiV3TeamsTeamIdStatusesTimelineJson
 		localVarReturnValue  StatusTimelineResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PeopleStatusApiService.GETProjectsApiV3TeamsTeamIdStatusesTimelineJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PeopleStatusApiService.GETProjectsApiV3TeamsteamIdStatusesTimelineJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/teams/:teamId/statuses/timeline.json"
+	localVarPath := localBasePath + "/projects/api/v3/teams/{teamId}/statuses/timeline.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"teamId"+"}", _neturl.PathEscape(parameterToString(r.teamId2, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

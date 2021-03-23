@@ -16,6 +16,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"strings"
 	"time"
 )
 
@@ -27,49 +28,51 @@ var (
 // TasksApiService TasksApi service
 type TasksApiService service
 
-type ApiGETProjectsApiV3TasksIdJsonRequest struct {
+type ApiDELETEProjectsApiV3TaskstaskIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *TasksApiService
+	taskId int32
 }
 
 
-func (r ApiGETProjectsApiV3TasksIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3TasksIdJsonExecute(r)
+func (r ApiDELETEProjectsApiV3TaskstaskIdJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.DELETEProjectsApiV3TaskstaskIdJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3TasksIdJson Get a specific task.
- * Returns the information about a specific task.
+ * DELETEProjectsApiV3TaskstaskIdJson Delete an existing task.
+ * Delete a task and its subtasks.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiGETProjectsApiV3TasksIdJsonRequest
+ * @param taskId
+ * @return ApiDELETEProjectsApiV3TaskstaskIdJsonRequest
  */
-func (a *TasksApiService) GETProjectsApiV3TasksIdJson(ctx _context.Context) ApiGETProjectsApiV3TasksIdJsonRequest {
-	return ApiGETProjectsApiV3TasksIdJsonRequest{
+func (a *TasksApiService) DELETEProjectsApiV3TaskstaskIdJson(ctx _context.Context, taskId int32) ApiDELETEProjectsApiV3TaskstaskIdJsonRequest {
+	return ApiDELETEProjectsApiV3TaskstaskIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
 /*
  * Execute executes the request
- * @return TaskResponse
  */
-func (a *TasksApiService) GETProjectsApiV3TasksIdJsonExecute(r ApiGETProjectsApiV3TasksIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+func (a *TasksApiService) DELETEProjectsApiV3TaskstaskIdJsonExecute(r ApiDELETEProjectsApiV3TaskstaskIdJsonRequest) (*_nethttp.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  TaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.GETProjectsApiV3TasksIdJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.DELETEProjectsApiV3TaskstaskIdJson")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasks/:id.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -94,19 +97,19 @@ func (a *TasksApiService) GETProjectsApiV3TasksIdJsonExecute(r ApiGETProjectsApi
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return localVarReturnValue, nil, err
+		return nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
+		return localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -119,24 +122,25 @@ func (a *TasksApiService) GETProjectsApiV3TasksIdJsonExecute(r ApiGETProjectsApi
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
+				return localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
+			return localVarHTTPResponse, newErr
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
 	}
 
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
+	return localVarHTTPResponse, nil
 }
 
 type ApiGETProjectsApiV3TasksJsonRequest struct {
@@ -1234,31 +1238,29 @@ func (a *TasksApiService) GETProjectsApiV3TasksMetricsLateJsonExecute(r ApiGETPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest struct {
+type ApiGETProjectsApiV3TaskstaskIdJsonRequest struct {
 	ctx _context.Context
 	ApiService *TasksApiService
-	taskRequest *TaskRequest
+	taskId int32
 }
 
-func (r ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest {
-	r.taskRequest = &taskRequest
-	return r
-}
 
-func (r ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
-	return r.ApiService.POSTProjectsApiV3TasklistsTasklistIdTasksJsonExecute(r)
+func (r ApiGETProjectsApiV3TaskstaskIdJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3TaskstaskIdJsonExecute(r)
 }
 
 /*
- * POSTProjectsApiV3TasklistsTasklistIdTasksJson Creates a task.
- * Create a new task in the provided task list.
+ * GETProjectsApiV3TaskstaskIdJson Get a specific task.
+ * Returns the information about a specific task.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest
+ * @param taskId
+ * @return ApiGETProjectsApiV3TaskstaskIdJsonRequest
  */
-func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJson(ctx _context.Context) ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest {
-	return ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest{
+func (a *TasksApiService) GETProjectsApiV3TaskstaskIdJson(ctx _context.Context, taskId int32) ApiGETProjectsApiV3TaskstaskIdJsonRequest {
+	return ApiGETProjectsApiV3TaskstaskIdJsonRequest{
 		ApiService: a,
 		ctx: ctx,
+		taskId: taskId,
 	}
 }
 
@@ -1266,7 +1268,128 @@ func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJson(ctx _con
  * Execute executes the request
  * @return TaskResponse
  */
-func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJsonExecute(r ApiPOSTProjectsApiV3TasklistsTasklistIdTasksJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+func (a *TasksApiService) GETProjectsApiV3TaskstaskIdJsonExecute(r ApiGETProjectsApiV3TaskstaskIdJsonRequest) (TaskResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  TaskResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.GETProjectsApiV3TaskstaskIdJson")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tasks/{taskId}.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"taskId"+"}", _neturl.PathEscape(parameterToString(r.taskId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest struct {
+	ctx _context.Context
+	ApiService *TasksApiService
+	tasklistId int32
+	taskRequest *TaskRequest
+}
+
+func (r ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest) TaskRequest(taskRequest TaskRequest) ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest {
+	r.taskRequest = &taskRequest
+	return r
+}
+
+func (r ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest) Execute() (TaskResponse, *_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3TaskliststasklistIdTasksJsonExecute(r)
+}
+
+/*
+ * POSTProjectsApiV3TaskliststasklistIdTasksJson Creates a task.
+ * Create a new task in the provided task list.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param tasklistId
+ * @return ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest
+ */
+func (a *TasksApiService) POSTProjectsApiV3TaskliststasklistIdTasksJson(ctx _context.Context, tasklistId int32) ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest {
+	return ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+		tasklistId: tasklistId,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return TaskResponse
+ */
+func (a *TasksApiService) POSTProjectsApiV3TaskliststasklistIdTasksJsonExecute(r ApiPOSTProjectsApiV3TaskliststasklistIdTasksJsonRequest) (TaskResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1276,12 +1399,13 @@ func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJsonExecute(r
 		localVarReturnValue  TaskResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.POSTProjectsApiV3TasklistsTasklistIdTasksJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.POSTProjectsApiV3TaskliststasklistIdTasksJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/tasklists/:tasklistId/tasks.json"
+	localVarPath := localBasePath + "/projects/api/v3/tasklists/{tasklistId}/tasks.json"
+	localVarPath = strings.Replace(localVarPath, "{"+"tasklistId"+"}", _neturl.PathEscape(parameterToString(r.tasklistId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1363,4 +1487,125 @@ func (a *TasksApiService) POSTProjectsApiV3TasklistsTasklistIdTasksJsonExecute(r
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest struct {
+	ctx _context.Context
+	ApiService *TasksApiService
+	taskDeleteRequest *TaskDeleteRequest
+}
+
+func (r ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest) TaskDeleteRequest(taskDeleteRequest TaskDeleteRequest) ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest {
+	r.taskDeleteRequest = &taskDeleteRequest
+	return r
+}
+
+func (r ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest) Execute() (*_nethttp.Response, error) {
+	return r.ApiService.POSTProjectsApiV3TasksBulkDeleteJsonExecute(r)
+}
+
+/*
+ * POSTProjectsApiV3TasksBulkDeleteJson Delete many tasks at once.
+ * Delete several tasks and their subtasks.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @return ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest
+ */
+func (a *TasksApiService) POSTProjectsApiV3TasksBulkDeleteJson(ctx _context.Context) ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest {
+	return ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+/*
+ * Execute executes the request
+ */
+func (a *TasksApiService) POSTProjectsApiV3TasksBulkDeleteJsonExecute(r ApiPOSTProjectsApiV3TasksBulkDeleteJsonRequest) (*_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksApiService.POSTProjectsApiV3TasksBulkDeleteJson")
+	if err != nil {
+		return nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/projects/api/v3/tasks/bulk/delete.json"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+	if r.taskDeleteRequest == nil {
+		return nil, reportError("taskDeleteRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.taskDeleteRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ViewErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

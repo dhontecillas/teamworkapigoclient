@@ -79,37 +79,38 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ActivityApi* | [**GETProjectsApiV3LatestactivityJson**](docs/ActivityApi.md#getprojectsapiv3latestactivityjson) | **Get** /projects/api/v3/latestactivity.json | Latest activity (all projects)
-*ActivityApi* | [**GETProjectsApiV3ProjectsProjectIdLatestactivity**](docs/ActivityApi.md#getprojectsapiv3projectsprojectidlatestactivity) | **Get** /projects/api/v3/projects/:projectId/latestactivity | List latest activity for a specific project.
-*AllocationsApi* | [**DELETEProjectsApiV3AllocationsIdJson**](docs/AllocationsApi.md#deleteprojectsapiv3allocationsidjson) | **Delete** /projects/api/v3/allocations/:id.json | Delete an existing allocation.
-*AllocationsApi* | [**GETProjectsApiV3AllocationsIdJson**](docs/AllocationsApi.md#getprojectsapiv3allocationsidjson) | **Get** /projects/api/v3/allocations/:id.json | Get a specific allocation.
+*ActivityApi* | [**GETProjectsApiV3ProjectsprojectIdLatestactivity**](docs/ActivityApi.md#getprojectsapiv3projectsprojectidlatestactivity) | **Get** /projects/api/v3/projects/{projectId}/latestactivity | List latest activity for a specific project.
+*AllocationsApi* | [**DELETEProjectsApiV3AllocationsallocationIdJson**](docs/AllocationsApi.md#deleteprojectsapiv3allocationsallocationidjson) | **Delete** /projects/api/v3/allocations/{allocationId}.json | Delete an existing allocation.
 *AllocationsApi* | [**GETProjectsApiV3AllocationsJson**](docs/AllocationsApi.md#getprojectsapiv3allocationsjson) | **Get** /projects/api/v3/allocations.json | Get all allocations.
-*AllocationsApi* | [**PATCHProjectsApiV3AllocationsIdJson**](docs/AllocationsApi.md#patchprojectsapiv3allocationsidjson) | **Patch** /projects/api/v3/allocations/:id.json | Update an existing allocation.
+*AllocationsApi* | [**GETProjectsApiV3AllocationsallocationIdJson**](docs/AllocationsApi.md#getprojectsapiv3allocationsallocationidjson) | **Get** /projects/api/v3/allocations/{allocationId}.json | Get a specific allocation.
+*AllocationsApi* | [**PATCHProjectsApiV3AllocationsallocationIdJson**](docs/AllocationsApi.md#patchprojectsapiv3allocationsallocationidjson) | **Patch** /projects/api/v3/allocations/{allocationId}.json | Update an existing allocation.
 *AllocationsApi* | [**POSTProjectsApiV3AllocationsBulkDeleteJson**](docs/AllocationsApi.md#postprojectsapiv3allocationsbulkdeletejson) | **Post** /projects/api/v3/allocations/bulk/delete.json | Delete many allocations at once.
 *AllocationsApi* | [**POSTProjectsApiV3AllocationsJson**](docs/AllocationsApi.md#postprojectsapiv3allocationsjson) | **Post** /projects/api/v3/allocations.json | Create a new allocation.
-*AllocationsApi* | [**PUTProjectsApiV3AllocationsIdJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsidjson) | **Put** /projects/api/v3/allocations/:id.json | Update an existing allocation.
-*AllocationsApi* | [**PUTProjectsApiV3AllocationsIdRestoreJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsidrestorejson) | **Put** /projects/api/v3/allocations/:id/restore.json | Restore a soft deleted allocation.
-*AllocationsApi* | [**PUTProjectsApiV3AllocationsIdSplitJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsidsplitjson) | **Put** /projects/api/v3/allocations/:id/split.json | Split an allocation in two
-*AppsApi* | [**GETProjectsApiV3AppsIdJson**](docs/AppsApi.md#getprojectsapiv3appsidjson) | **Get** /projects/api/v3/apps/:id.json | Get a specific app.
+*AllocationsApi* | [**PUTProjectsApiV3AllocationsallocationIdJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsallocationidjson) | **Put** /projects/api/v3/allocations/{allocationId}.json | Update an existing allocation.
+*AllocationsApi* | [**PUTProjectsApiV3AllocationsallocationIdRestoreJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsallocationidrestorejson) | **Put** /projects/api/v3/allocations/{allocationId}/restore.json | Restore a soft deleted allocation.
+*AllocationsApi* | [**PUTProjectsApiV3AllocationsallocationIdSplitJson**](docs/AllocationsApi.md#putprojectsapiv3allocationsallocationidsplitjson) | **Put** /projects/api/v3/allocations/{allocationId}/split.json | Split an allocation in two
 *AppsApi* | [**GETProjectsApiV3AppsJson**](docs/AppsApi.md#getprojectsapiv3appsjson) | **Get** /projects/api/v3/apps.json | Get all apps.
-*AppsApi* | [**POSTProjectsApiV3AppsAppidInstallJson**](docs/AppsApi.md#postprojectsapiv3appsappidinstalljson) | **Post** /projects/api/v3/apps/:appid/install.json | Install an app onto an installation
-*AppsApi* | [**POSTProjectsApiV3AppsIdUninstallJson**](docs/AppsApi.md#postprojectsapiv3appsiduninstalljson) | **Post** /projects/api/v3/apps/:id/uninstall.json | Uninstall an app from an installation
-*AppsSettingsApi* | [**PUTProjectsApiV3AppsAppidSettingsSettingidJson**](docs/AppsSettingsApi.md#putprojectsapiv3appsappidsettingssettingidjson) | **Put** /projects/api/v3/apps/:appid/settings/:settingid.json | Update an existing setting.
-*BETAApi* | [**GETProjectsApiV3ColumnsIdJson**](docs/BETAApi.md#getprojectsapiv3columnsidjson) | **Get** /projects/api/v3/columns/:id.json | Get a specific column.
+*AppsApi* | [**GETProjectsApiV3AppsappIdJson**](docs/AppsApi.md#getprojectsapiv3appsappidjson) | **Get** /projects/api/v3/apps/{appId}.json | Get a specific app.
+*AppsApi* | [**POSTProjectsApiV3AppsappIdInstallJson**](docs/AppsApi.md#postprojectsapiv3appsappidinstalljson) | **Post** /projects/api/v3/apps/{appId}/install.json | Install an app onto an installation
+*AppsApi* | [**POSTProjectsApiV3AppsappIdUninstallJson**](docs/AppsApi.md#postprojectsapiv3appsappiduninstalljson) | **Post** /projects/api/v3/apps/{appId}/uninstall.json | Uninstall an app from an installation
+*AppsSettingsApi* | [**PUTProjectsApiV3AppsappIdSettingssettingIdJson**](docs/AppsSettingsApi.md#putprojectsapiv3appsappidsettingssettingidjson) | **Put** /projects/api/v3/apps/{appId}/settings/{settingId}.json | Update an existing setting.
+*BETAApi* | [**GETProjectsApiV3ColumnscolumnIdJson**](docs/BETAApi.md#getprojectsapiv3columnscolumnidjson) | **Get** /projects/api/v3/columns/{columnId}.json | Get a specific column.
+*BETAApi* | [**GETProjectsApiV3CostsUsersuserIdJson**](docs/BETAApi.md#getprojectsapiv3costsusersuseridjson) | **Get** /projects/api/v3/costs/users/{userId}.json | Get a specific usercost.
 *BETAApi* | [**GETProjectsApiV3RatesInstallationJson**](docs/BETAApi.md#getprojectsapiv3ratesinstallationjson) | **Get** /projects/api/v3/rates/installation.json | Get an installation default rate.
 *BETAApi* | [**GETProjectsApiV3RatesInstallationUsersJson**](docs/BETAApi.md#getprojectsapiv3ratesinstallationusersjson) | **Get** /projects/api/v3/rates/installation/users.json | Get a specific rates.
-*BETAApi* | [**GETProjectsApiV3RatesProjectsProjectIdJson**](docs/BETAApi.md#getprojectsapiv3ratesprojectsprojectidjson) | **Get** /projects/api/v3/rates/projects/:projectId.json | Get a projects default rate.
-*BETAApi* | [**GETProjectsApiV3RatesUserUserIdJson**](docs/BETAApi.md#getprojectsapiv3ratesuseruseridjson) | **Get** /projects/api/v3/rates/user/:userId.json | Get a user default rate.
-*BETAApi* | [**PUTProjectsApiV3CostsUsersIdJson**](docs/BETAApi.md#putprojectsapiv3costsusersidjson) | **Put** /projects/api/v3/costs/users/:id.json | set a usercost.
+*BETAApi* | [**GETProjectsApiV3RatesProjectsprojectIdJson**](docs/BETAApi.md#getprojectsapiv3ratesprojectsprojectidjson) | **Get** /projects/api/v3/rates/projects/{projectId}.json | Get a projects default rate.
+*BETAApi* | [**GETProjectsApiV3RatesUseruserIdJson**](docs/BETAApi.md#getprojectsapiv3ratesuseruseridjson) | **Get** /projects/api/v3/rates/user/{userId}.json | Get a user default rate.
+*BETAApi* | [**PUTProjectsApiV3CostsUsersuserIdJson**](docs/BETAApi.md#putprojectsapiv3costsusersuseridjson) | **Put** /projects/api/v3/costs/users/{userId}.json | set a usercost.
 *BETAApi* | [**PUTProjectsApiV3RatesInstallationJson**](docs/BETAApi.md#putprojectsapiv3ratesinstallationjson) | **Put** /projects/api/v3/rates/installation.json | set an installation default rate.
-*BETAApi* | [**PUTProjectsApiV3RatesProjectsProjectIdJson**](docs/BETAApi.md#putprojectsapiv3ratesprojectsprojectidjson) | **Put** /projects/api/v3/rates/projects/:projectId.json | set a project default rate.
-*BETAApi* | [**PUTProjectsApiV3RatesUsersUserIdJson**](docs/BETAApi.md#putprojectsapiv3ratesusersuseridjson) | **Put** /projects/api/v3/rates/users/:userId.json | set a user default rate.
-*BudgetsApi* | [**DELETEProjectsApiV3BudgetNotificationsIdJson**](docs/BudgetsApi.md#deleteprojectsapiv3budgetnotificationsidjson) | **Delete** /projects/api/v3/budget/notifications/:id.json | Delete an existing notification.
+*BETAApi* | [**PUTProjectsApiV3RatesProjectsprojectIdJson**](docs/BETAApi.md#putprojectsapiv3ratesprojectsprojectidjson) | **Put** /projects/api/v3/rates/projects/{projectId}.json | set a project default rate.
+*BETAApi* | [**PUTProjectsApiV3RatesUsersuserIdJson**](docs/BETAApi.md#putprojectsapiv3ratesusersuseridjson) | **Put** /projects/api/v3/rates/users/{userId}.json | set a user default rate.
+*BudgetsApi* | [**DELETEProjectsApiV3BudgetNotificationsnotificationIdJson**](docs/BudgetsApi.md#deleteprojectsapiv3budgetnotificationsnotificationidjson) | **Delete** /projects/api/v3/budget/notifications/{notificationId}.json | Delete an existing notification.
 *BudgetsApi* | [**DELETEProjectsApiV3BudgetsidJson**](docs/BudgetsApi.md#deleteprojectsapiv3budgetsidjson) | **Delete** /projects/api/v3/budgets/{id}.json | Delete an existing budget.
 *BudgetsApi* | [**GETProjectsApiV3BudgetsJson**](docs/BudgetsApi.md#getprojectsapiv3budgetsjson) | **Get** /projects/api/v3/budgets.json | Get all budgets.
 *BudgetsApi* | [**GETProjectsApiV3BudgetsidJson**](docs/BudgetsApi.md#getprojectsapiv3budgetsidjson) | **Get** /projects/api/v3/budgets/{id}.json | Get a specific budget.
 *BudgetsApi* | [**GETProjectsApiV3BudgetsidUsagesJson**](docs/BudgetsApi.md#getprojectsapiv3budgetsidusagesjson) | **Get** /projects/api/v3/budgets/{id}/usages.json | Get daily budget capacity used.
 *BudgetsApi* | [**GETProjectsApiV3ProjectsBudgetsUsagesJson**](docs/BudgetsApi.md#getprojectsapiv3projectsbudgetsusagesjson) | **Get** /projects/api/v3/projects/budgets/usages.json | Get the budgets usages for a set of projects
-*BudgetsApi* | [**PATCHProjectsApiV3BudgetNotificationsIdJson**](docs/BudgetsApi.md#patchprojectsapiv3budgetnotificationsidjson) | **Patch** /projects/api/v3/budget/notifications/:id.json | Update an existing notification.
+*BudgetsApi* | [**PATCHProjectsApiV3BudgetNotificationsnotificationIdJson**](docs/BudgetsApi.md#patchprojectsapiv3budgetnotificationsnotificationidjson) | **Patch** /projects/api/v3/budget/notifications/{notificationId}.json | Update an existing notification.
 *BudgetsApi* | [**PATCHProjectsApiV3BudgetsidJson**](docs/BudgetsApi.md#patchprojectsapiv3budgetsidjson) | **Patch** /projects/api/v3/budgets/{id}.json | Update an existing budget.
 *BudgetsApi* | [**POSTProjectsApiV3BudgetsBulkDeleteJson**](docs/BudgetsApi.md#postprojectsapiv3budgetsbulkdeletejson) | **Post** /projects/api/v3/budgets/bulk/delete.json | Delete many budgets at once.
 *BudgetsApi* | [**POSTProjectsApiV3BudgetsJson**](docs/BudgetsApi.md#postprojectsapiv3budgetsjson) | **Post** /projects/api/v3/budgets.json | Create a new budget.
@@ -120,91 +121,87 @@ Class | Method | HTTP request | Description
 *CalendarEventsApi* | [**GETProjectsApiV3CalendarEventsXlsx**](docs/CalendarEventsApi.md#getprojectsapiv3calendareventsxlsx) | **Get** /projects/api/v3/calendar/events.xlsx | Generate agenda report in XLSX format
 *CategoriesApi* | [**GETProjectsApiV3ProjectsTeamworkCategoriesJson**](docs/CategoriesApi.md#getprojectsapiv3projectsteamworkcategoriesjson) | **Get** /projects/api/v3/projects/teamwork/categories.json | Returns a list of teamwork project categories
 *CommentsApi* | [**GETProjectsApiV3CommentsJson**](docs/CommentsApi.md#getprojectsapiv3commentsjson) | **Get** /projects/api/v3/comments.json | Get a list of comments
-*CompanyApi* | [**GETProjectsApiV3CompaniesIdJson**](docs/CompanyApi.md#getprojectsapiv3companiesidjson) | **Get** /projects/api/v3/companies/:id.json | Get a specific company.
-*CustomFieldsApi* | [**DELETEProjectsApiV3CustomfieldsIdJson**](docs/CustomFieldsApi.md#deleteprojectsapiv3customfieldsidjson) | **Delete** /projects/api/v3/customfields/:id.json | Delete an existing custom field
-*CustomFieldsApi* | [**DELETEProjectsApiV3ProjectsProjectIdCustomfieldsIdJson**](docs/CustomFieldsApi.md#deleteprojectsapiv3projectsprojectidcustomfieldsidjson) | **Delete** /projects/api/v3/projects/:projectId/customfields/:id.json | Delete an existing project custom field value.
-*CustomFieldsApi* | [**DELETEProjectsApiV3TasksTaskIdCustomfieldsIdJson**](docs/CustomFieldsApi.md#deleteprojectsapiv3taskstaskidcustomfieldsidjson) | **Delete** /projects/api/v3/tasks/:taskId/customfields/:id.json | Delete an existing task custom field value.
-*CustomFieldsApi* | [**GETProjectsApiV3CustomfieldsIdJson**](docs/CustomFieldsApi.md#getprojectsapiv3customfieldsidjson) | **Get** /projects/api/v3/customfields/:id.json | Get a custom field by id.
+*CompanyApi* | [**GETProjectsApiV3CompaniescompanyIdJson**](docs/CompanyApi.md#getprojectsapiv3companiescompanyidjson) | **Get** /projects/api/v3/companies/{companyId}.json | Get a specific company.
+*CustomFieldsApi* | [**DELETEProjectsApiV3CustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#deleteprojectsapiv3customfieldscustomfieldidjson) | **Delete** /projects/api/v3/customfields/{customFieldId}.json | Delete an existing custom field
+*CustomFieldsApi* | [**DELETEProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#deleteprojectsapiv3projectsprojectidcustomfieldscustomfieldidjson) | **Delete** /projects/api/v3/projects/{projectId}/customfields/{customFieldId}.json | Delete an existing project custom field value.
+*CustomFieldsApi* | [**DELETEProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#deleteprojectsapiv3taskstaskidcustomfieldscustomfieldidjson) | **Delete** /projects/api/v3/tasks/{taskId}/customfields/{customFieldId}.json | Delete an existing task custom field value.
 *CustomFieldsApi* | [**GETProjectsApiV3CustomfieldsJson**](docs/CustomFieldsApi.md#getprojectsapiv3customfieldsjson) | **Get** /projects/api/v3/customfields.json | Get all custom fields
-*CustomFieldsApi* | [**GETProjectsApiV3ProjectsProjectIdCustomfieldsIdJson**](docs/CustomFieldsApi.md#getprojectsapiv3projectsprojectidcustomfieldsidjson) | **Get** /projects/api/v3/projects/:projectId/customfields/:id.json | Project custom field value.
-*CustomFieldsApi* | [**GETProjectsApiV3ProjectsProjectIdCustomfieldsJson**](docs/CustomFieldsApi.md#getprojectsapiv3projectsprojectidcustomfieldsjson) | **Get** /projects/api/v3/projects/:projectId/customfields.json | Project custom field values.
-*CustomFieldsApi* | [**GETProjectsApiV3TasksTaskIdCustomfieldsIdJson**](docs/CustomFieldsApi.md#getprojectsapiv3taskstaskidcustomfieldsidjson) | **Get** /projects/api/v3/tasks/:taskId/customfields/:id.json | Task custom field value.
-*CustomFieldsApi* | [**GETProjectsApiV3TasksTaskIdCustomfieldsJson**](docs/CustomFieldsApi.md#getprojectsapiv3taskstaskidcustomfieldsjson) | **Get** /projects/api/v3/tasks/:taskId/customfields.json | Task custom field values.
-*CustomFieldsApi* | [**PATCHProjectsApiV3CustomfieldsIdJson**](docs/CustomFieldsApi.md#patchprojectsapiv3customfieldsidjson) | **Patch** /projects/api/v3/customfields/:id.json | Update an existing custom field.
-*CustomFieldsApi* | [**PATCHProjectsApiV3ProjectsProjectIdCustomfieldsIdJson**](docs/CustomFieldsApi.md#patchprojectsapiv3projectsprojectidcustomfieldsidjson) | **Patch** /projects/api/v3/projects/:projectId/customfields/:id.json | Update an existing project custom field value.
-*CustomFieldsApi* | [**PATCHProjectsApiV3TasksTaskIdCustomfieldsIdJson**](docs/CustomFieldsApi.md#patchprojectsapiv3taskstaskidcustomfieldsidjson) | **Patch** /projects/api/v3/tasks/:taskId/customfields/:id.json | Update an existing task custom field value.
+*CustomFieldsApi* | [**GETProjectsApiV3CustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#getprojectsapiv3customfieldscustomfieldidjson) | **Get** /projects/api/v3/customfields/{customFieldId}.json | Get a custom field by id.
+*CustomFieldsApi* | [**GETProjectsApiV3ProjectsprojectIdCustomfieldsJson**](docs/CustomFieldsApi.md#getprojectsapiv3projectsprojectidcustomfieldsjson) | **Get** /projects/api/v3/projects/{projectId}/customfields.json | Project custom field values.
+*CustomFieldsApi* | [**GETProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#getprojectsapiv3projectsprojectidcustomfieldscustomfieldidjson) | **Get** /projects/api/v3/projects/{projectId}/customfields/{customFieldId}.json | Project custom field value.
+*CustomFieldsApi* | [**GETProjectsApiV3TaskstaskIdCustomfieldsJson**](docs/CustomFieldsApi.md#getprojectsapiv3taskstaskidcustomfieldsjson) | **Get** /projects/api/v3/tasks/{taskId}/customfields.json | Task custom field values.
+*CustomFieldsApi* | [**GETProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#getprojectsapiv3taskstaskidcustomfieldscustomfieldidjson) | **Get** /projects/api/v3/tasks/{taskId}/customfields/{customFieldId}.json | Task custom field value.
+*CustomFieldsApi* | [**PATCHProjectsApiV3CustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#patchprojectsapiv3customfieldscustomfieldidjson) | **Patch** /projects/api/v3/customfields/{customFieldId}.json | Update an existing custom field.
+*CustomFieldsApi* | [**PATCHProjectsApiV3ProjectsprojectIdCustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#patchprojectsapiv3projectsprojectidcustomfieldscustomfieldidjson) | **Patch** /projects/api/v3/projects/{projectId}/customfields/{customFieldId}.json | Update an existing project custom field value.
+*CustomFieldsApi* | [**PATCHProjectsApiV3TaskstaskIdCustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#patchprojectsapiv3taskstaskidcustomfieldscustomfieldidjson) | **Patch** /projects/api/v3/tasks/{taskId}/customfields/{customFieldId}.json | Update an existing task custom field value.
 *CustomFieldsApi* | [**POSTProjectsApiV3CustomfieldsBulkDeleteJson**](docs/CustomFieldsApi.md#postprojectsapiv3customfieldsbulkdeletejson) | **Post** /projects/api/v3/customfields/bulk/delete.json | Delete many custom fields at once
 *CustomFieldsApi* | [**POSTProjectsApiV3CustomfieldsJson**](docs/CustomFieldsApi.md#postprojectsapiv3customfieldsjson) | **Post** /projects/api/v3/customfields.json | Create a new custom field
-*CustomFieldsApi* | [**POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkDeleteJson**](docs/CustomFieldsApi.md#postprojectsapiv3projectsprojectidcustomfieldsbulkdeletejson) | **Post** /projects/api/v3/projects/:projectId/customfields/bulk/delete.json | Delete many project custom fields values at once.
-*CustomFieldsApi* | [**POSTProjectsApiV3ProjectsProjectIdCustomfieldsBulkUpdateJson**](docs/CustomFieldsApi.md#postprojectsapiv3projectsprojectidcustomfieldsbulkupdatejson) | **Post** /projects/api/v3/projects/:projectId/customfields/bulk/update.json | Update many project custom field values at once.
-*CustomFieldsApi* | [**POSTProjectsApiV3ProjectsProjectIdCustomfieldsJson**](docs/CustomFieldsApi.md#postprojectsapiv3projectsprojectidcustomfieldsjson) | **Post** /projects/api/v3/projects/:projectId/customfields.json | Add project custom field value.
-*CustomFieldsApi* | [**POSTProjectsApiV3TasksTaskIdCustomfieldsBulkDeleteJson**](docs/CustomFieldsApi.md#postprojectsapiv3taskstaskidcustomfieldsbulkdeletejson) | **Post** /projects/api/v3/tasks/:taskId/customfields/bulk/delete.json | Delete many task custom fields values at once.
-*CustomFieldsApi* | [**POSTProjectsApiV3TasksTaskIdCustomfieldsBulkUpdateJson**](docs/CustomFieldsApi.md#postprojectsapiv3taskstaskidcustomfieldsbulkupdatejson) | **Post** /projects/api/v3/tasks/:taskId/customfields/bulk/update.json | Update many task custom field values at once.
-*CustomFieldsApi* | [**POSTProjectsApiV3TasksTaskIdCustomfieldsJson**](docs/CustomFieldsApi.md#postprojectsapiv3taskstaskidcustomfieldsjson) | **Post** /projects/api/v3/tasks/:taskId/customfields.json | Add task custom field value.
-*CustomFieldsApi* | [**PUTProjectsApiV3CustomfieldsIdJson**](docs/CustomFieldsApi.md#putprojectsapiv3customfieldsidjson) | **Put** /projects/api/v3/customfields/:id.json | Update an existing custom field.
+*CustomFieldsApi* | [**POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkDeleteJson**](docs/CustomFieldsApi.md#postprojectsapiv3projectsprojectidcustomfieldsbulkdeletejson) | **Post** /projects/api/v3/projects/{projectId}/customfields/bulk/delete.json | Delete many project custom fields values at once.
+*CustomFieldsApi* | [**POSTProjectsApiV3ProjectsprojectIdCustomfieldsBulkUpdateJson**](docs/CustomFieldsApi.md#postprojectsapiv3projectsprojectidcustomfieldsbulkupdatejson) | **Post** /projects/api/v3/projects/{projectId}/customfields/bulk/update.json | Update many project custom field values at once.
+*CustomFieldsApi* | [**POSTProjectsApiV3ProjectsprojectIdCustomfieldsJson**](docs/CustomFieldsApi.md#postprojectsapiv3projectsprojectidcustomfieldsjson) | **Post** /projects/api/v3/projects/{projectId}/customfields.json | Add project custom field value.
+*CustomFieldsApi* | [**POSTProjectsApiV3TaskstaskIdCustomfieldsBulkDeleteJson**](docs/CustomFieldsApi.md#postprojectsapiv3taskstaskidcustomfieldsbulkdeletejson) | **Post** /projects/api/v3/tasks/{taskId}/customfields/bulk/delete.json | Delete many task custom fields values at once.
+*CustomFieldsApi* | [**POSTProjectsApiV3TaskstaskIdCustomfieldsBulkUpdateJson**](docs/CustomFieldsApi.md#postprojectsapiv3taskstaskidcustomfieldsbulkupdatejson) | **Post** /projects/api/v3/tasks/{taskId}/customfields/bulk/update.json | Update many task custom field values at once.
+*CustomFieldsApi* | [**POSTProjectsApiV3TaskstaskIdCustomfieldsJson**](docs/CustomFieldsApi.md#postprojectsapiv3taskstaskidcustomfieldsjson) | **Post** /projects/api/v3/tasks/{taskId}/customfields.json | Add task custom field value.
+*CustomFieldsApi* | [**PUTProjectsApiV3CustomfieldscustomFieldIdJson**](docs/CustomFieldsApi.md#putprojectsapiv3customfieldscustomfieldidjson) | **Put** /projects/api/v3/customfields/{customFieldId}.json | Update an existing custom field.
 *DashboardsApi* | [**GETProjectsApiV3DashboardsJson**](docs/DashboardsApi.md#getprojectsapiv3dashboardsjson) | **Get** /projects/api/v3/dashboards.json | Get all dashboards
-*FileCommentsApi* | [**GETProjectsApiV3FilesIdCommentsJson**](docs/FileCommentsApi.md#getprojectsapiv3filesidcommentsjson) | **Get** /projects/api/v3/files/:id/comments.json | Get a list of comments for a file
-*FilesApi* | [**DELETEProjectsApiV3FilesIdJson**](docs/FilesApi.md#deleteprojectsapiv3filesidjson) | **Delete** /projects/api/v3/files/:id.json | Delete an existing file and it&#39;s versions.
+*FileCommentsApi* | [**GETProjectsApiV3FilesfileIdCommentsJson**](docs/FileCommentsApi.md#getprojectsapiv3filesfileidcommentsjson) | **Get** /projects/api/v3/files/{fileId}/comments.json | Get a list of comments for a file
+*FilesApi* | [**DELETEProjectsApiV3FilesfileIdJson**](docs/FilesApi.md#deleteprojectsapiv3filesfileidjson) | **Delete** /projects/api/v3/files/{fileId}.json | Delete an existing file and it&#39;s versions.
 *FilesApi* | [**GETProjectsApiV3FilesAvailableJson**](docs/FilesApi.md#getprojectsapiv3filesavailablejson) | **Get** /projects/api/v3/files/available.json | Retrieves available space on account
 *FilesApi* | [**GETProjectsApiV3FilesChangesJson**](docs/FilesApi.md#getprojectsapiv3fileschangesjson) | **Get** /projects/api/v3/files/changes.json | Get all recently changed files.
-*FilesApi* | [**GETProjectsApiV3FilesIdJson**](docs/FilesApi.md#getprojectsapiv3filesidjson) | **Get** /projects/api/v3/files/:id.json | Get a specific file.
 *FilesApi* | [**GETProjectsApiV3FilesJson**](docs/FilesApi.md#getprojectsapiv3filesjson) | **Get** /projects/api/v3/files.json | Get a list of files.
 *FilesApi* | [**GETProjectsApiV3FilesUsageJson**](docs/FilesApi.md#getprojectsapiv3filesusagejson) | **Get** /projects/api/v3/files/usage.json | Retrieve file usage on account
-*FilesApi* | [**GETProjectsApiV3FileversionIdJson**](docs/FilesApi.md#getprojectsapiv3fileversionidjson) | **Get** /projects/api/v3/fileversion/:id.json | Get a specific fileversion.
-*FilesApi* | [**GETProjectsApiV3ProjectsIdFilesUsageJson**](docs/FilesApi.md#getprojectsapiv3projectsidfilesusagejson) | **Get** /projects/api/v3/projects/:id/files/usage.json | Retrieve file usage on a project
-*FilesApi* | [**PATCHProjectsApiV3FilesIdJson**](docs/FilesApi.md#patchprojectsapiv3filesidjson) | **Patch** /projects/api/v3/files/:id.json | Update an existing file
+*FilesApi* | [**GETProjectsApiV3FilesfileIdJson**](docs/FilesApi.md#getprojectsapiv3filesfileidjson) | **Get** /projects/api/v3/files/{fileId}.json | Get a specific file.
+*FilesApi* | [**GETProjectsApiV3FileversionidJson**](docs/FilesApi.md#getprojectsapiv3fileversionidjson) | **Get** /projects/api/v3/fileversion/{id}.json | Get a specific fileversion.
+*FilesApi* | [**GETProjectsApiV3ProjectsprojectIdFilesUsageJson**](docs/FilesApi.md#getprojectsapiv3projectsprojectidfilesusagejson) | **Get** /projects/api/v3/projects/{projectId}/files/usage.json | Retrieve file usage on a project
+*FilesApi* | [**PATCHProjectsApiV3FilesfileIdJson**](docs/FilesApi.md#patchprojectsapiv3filesfileidjson) | **Patch** /projects/api/v3/files/{fileId}.json | Update an existing file
 *FilesApi* | [**POSTProjectsApiV3FilesArchiveJson**](docs/FilesApi.md#postprojectsapiv3filesarchivejson) | **Post** /projects/api/v3/files/archive.json | Returns an URL for multiple files
-*FilesApi* | [**POSTProjectsApiV3FilesProjectFileIdJson**](docs/FilesApi.md#postprojectsapiv3filesprojectfileidjson) | **Post** /projects/api/v3/files/:projectFileId.json | Create a new fileversion for the project file id.
-*FormsApi* | [**DELETEProjectsApiV3FormsIdJson**](docs/FormsApi.md#deleteprojectsapiv3formsidjson) | **Delete** /projects/api/v3/forms/:id.json | Delete an existing form.
-*FormsApi* | [**GETProjectsApiV3FormsIdDraftJson**](docs/FormsApi.md#getprojectsapiv3formsiddraftjson) | **Get** /projects/api/v3/forms/:id/draft.json | Get the draft version of a specific form.
-*FormsApi* | [**GETProjectsApiV3FormsIdJson**](docs/FormsApi.md#getprojectsapiv3formsidjson) | **Get** /projects/api/v3/forms/:id.json | Get a specific form.
+*FilesApi* | [**POSTProjectsApiV3FilesprojectFileIdJson**](docs/FilesApi.md#postprojectsapiv3filesprojectfileidjson) | **Post** /projects/api/v3/files/{projectFileId}.json | Create a new fileversion for the project file id.
+*FormsApi* | [**DELETEProjectsApiV3FormsformIdJson**](docs/FormsApi.md#deleteprojectsapiv3formsformidjson) | **Delete** /projects/api/v3/forms/{formId}.json | Delete an existing form.
 *FormsApi* | [**GETProjectsApiV3FormsJson**](docs/FormsApi.md#getprojectsapiv3formsjson) | **Get** /projects/api/v3/forms.json | Get all forms.
-*FormsApi* | [**PATCHProjectsApiV3FormsIdJson**](docs/FormsApi.md#patchprojectsapiv3formsidjson) | **Patch** /projects/api/v3/forms/:id.json | Update an existing form.
+*FormsApi* | [**GETProjectsApiV3FormsformIdDraftJson**](docs/FormsApi.md#getprojectsapiv3formsformiddraftjson) | **Get** /projects/api/v3/forms/{formId}/draft.json | Get the draft version of a specific form.
+*FormsApi* | [**GETProjectsApiV3FormsformIdJson**](docs/FormsApi.md#getprojectsapiv3formsformidjson) | **Get** /projects/api/v3/forms/{formId}.json | Get a specific form.
+*FormsApi* | [**PATCHProjectsApiV3FormsformIdJson**](docs/FormsApi.md#patchprojectsapiv3formsformidjson) | **Patch** /projects/api/v3/forms/{formId}.json | Update an existing form.
 *FormsApi* | [**POSTProjectsApiV3FormsJson**](docs/FormsApi.md#postprojectsapiv3formsjson) | **Post** /projects/api/v3/forms.json | Create a new form.
-*FormsAssigneesApi* | [**GETProjectsApiV3FormsIdAssigneesJson**](docs/FormsAssigneesApi.md#getprojectsapiv3formsidassigneesjson) | **Get** /projects/api/v3/forms/:id/assignees.json | Get all assignees for a given form.
-*FormsAssigneesApi* | [**PUTProjectsApiV3FormIdAssigneesJson**](docs/FormsAssigneesApi.md#putprojectsapiv3formidassigneesjson) | **Put** /projects/api/v3/form/:id/assignees.json | Update the existing assignees.
-*FormsPublicApi* | [**GETProjectsApiV3FormsPublicTokenJson**](docs/FormsPublicApi.md#getprojectsapiv3formspublictokenjson) | **Get** /projects/api/v3/forms/public/:token.json | Get a forms via its token.
-*FormsPublicApi* | [**POSTProjectsApiV3FormsPublicTokenSubmitJson**](docs/FormsPublicApi.md#postprojectsapiv3formspublictokensubmitjson) | **Post** /projects/api/v3/forms/public/:token/submit.json | Submit a form response
-*FormsTokenApi* | [**PATCHProjectsApiV3FormsIdTokenJson**](docs/FormsTokenApi.md#patchprojectsapiv3formsidtokenjson) | **Patch** /projects/api/v3/forms/:id/token.json | Update an existing token.
-*FormsTokenApi* | [**PUTProjectsApiV3FormsIdTokenRefreshJson**](docs/FormsTokenApi.md#putprojectsapiv3formsidtokenrefreshjson) | **Put** /projects/api/v3/forms/:id/token/refresh.json | Refresh the value of a token
+*FormsAssigneesApi* | [**GETProjectsApiV3FormsformIdAssigneesJson**](docs/FormsAssigneesApi.md#getprojectsapiv3formsformidassigneesjson) | **Get** /projects/api/v3/forms/{formId}/assignees.json | Get all assignees for a given form.
+*FormsAssigneesApi* | [**PUTProjectsApiV3FormformIdAssigneesJson**](docs/FormsAssigneesApi.md#putprojectsapiv3formformidassigneesjson) | **Put** /projects/api/v3/form/{formId}/assignees.json | Update the existing assignees.
+*FormsPublicApi* | [**GETProjectsApiV3FormsPublictokenJson**](docs/FormsPublicApi.md#getprojectsapiv3formspublictokenjson) | **Get** /projects/api/v3/forms/public/{token}.json | Get a forms via its token.
+*FormsPublicApi* | [**POSTProjectsApiV3FormsPublictokenSubmitJson**](docs/FormsPublicApi.md#postprojectsapiv3formspublictokensubmitjson) | **Post** /projects/api/v3/forms/public/{token}/submit.json | Submit a form response
+*FormsTokenApi* | [**PATCHProjectsApiV3FormsformIdTokenJson**](docs/FormsTokenApi.md#patchprojectsapiv3formsformidtokenjson) | **Patch** /projects/api/v3/forms/{formId}/token.json | Update an existing token.
+*FormsTokenApi* | [**PUTProjectsApiV3FormsformIdTokenRefreshJson**](docs/FormsTokenApi.md#putprojectsapiv3formsformidtokenrefreshjson) | **Put** /projects/api/v3/forms/{formId}/token/refresh.json | Refresh the value of a token
 *ImportersApi* | [**GETProjectsApiV3ImporterStatsJson**](docs/ImportersApi.md#getprojectsapiv3importerstatsjson) | **Get** /projects/api/v3/importer/stats.json | Get stats about Importers
-*LockdownsApi* | [**GETProjectsApiV3LockdownsIdJson**](docs/LockdownsApi.md#getprojectsapiv3lockdownsidjson) | **Get** /projects/api/v3/lockdowns/:id.json | Get a specific lockdown.
-*MessagesApi* | [**PATCHProjectsApiV3MessagesIdJson**](docs/MessagesApi.md#patchprojectsapiv3messagesidjson) | **Patch** /projects/api/v3/messages/:id.json | Edit a message.
-*MilestoneCommentsApi* | [**GETProjectsApiV3MilestonesIdCommentsJson**](docs/MilestoneCommentsApi.md#getprojectsapiv3milestonesidcommentsjson) | **Get** /projects/api/v3/milestones/:id/comments.json | Get a list of comments for a milestone
+*LockdownsApi* | [**GETProjectsApiV3LockdownslockdownIdJson**](docs/LockdownsApi.md#getprojectsapiv3lockdownslockdownidjson) | **Get** /projects/api/v3/lockdowns/{lockdownId}.json | Get a specific lockdown.
+*MessagesApi* | [**PATCHProjectsApiV3MessagesmessageIdJson**](docs/MessagesApi.md#patchprojectsapiv3messagesmessageidjson) | **Patch** /projects/api/v3/messages/{messageId}.json | Edit a message.
+*MilestoneCommentsApi* | [**GETProjectsApiV3MilestonesmilestoneIdCommentsJson**](docs/MilestoneCommentsApi.md#getprojectsapiv3milestonesmilestoneidcommentsjson) | **Get** /projects/api/v3/milestones/{milestoneId}/comments.json | Get a list of comments for a milestone
 *MilestonesApi* | [**GETProjectsApiV3MilestonesCsv**](docs/MilestonesApi.md#getprojectsapiv3milestonescsv) | **Get** /projects/api/v3/milestones.csv | Generate milestone report in CSV format
 *MilestonesApi* | [**GETProjectsApiV3MilestonesHtml**](docs/MilestonesApi.md#getprojectsapiv3milestoneshtml) | **Get** /projects/api/v3/milestones.html | Generate milestone report in HTML format
-*MilestonesApi* | [**GETProjectsApiV3MilestonesIdJson**](docs/MilestonesApi.md#getprojectsapiv3milestonesidjson) | **Get** /projects/api/v3/milestones/:id.json | Get a milestone by id.
 *MilestonesApi* | [**GETProjectsApiV3MilestonesJson**](docs/MilestonesApi.md#getprojectsapiv3milestonesjson) | **Get** /projects/api/v3/milestones.json | Get all milestones
 *MilestonesApi* | [**GETProjectsApiV3MilestonesMetricsDeadlinesJson**](docs/MilestonesApi.md#getprojectsapiv3milestonesmetricsdeadlinesjson) | **Get** /projects/api/v3/milestones/metrics/deadlines.json | Get milestones by due date in a time range
 *MilestonesApi* | [**GETProjectsApiV3MilestonesPdf**](docs/MilestonesApi.md#getprojectsapiv3milestonespdf) | **Get** /projects/api/v3/milestones.pdf | Generate milestone report in PDF format
 *MilestonesApi* | [**GETProjectsApiV3MilestonesXlsx**](docs/MilestonesApi.md#getprojectsapiv3milestonesxlsx) | **Get** /projects/api/v3/milestones.xlsx | Generate milestone report in XLSX format
-*MilestonesApi* | [**GETProjectsApiV3ProjectsProjectIdMilestonesJson**](docs/MilestonesApi.md#getprojectsapiv3projectsprojectidmilestonesjson) | **Get** /projects/api/v3/projects/:projectId/milestones.json | Get milestones in a project
-*NotebookCommentsApi* | [**GETProjectsApiV3NotebooksIdCommentsJson**](docs/NotebookCommentsApi.md#getprojectsapiv3notebooksidcommentsjson) | **Get** /projects/api/v3/notebooks/:id/comments.json | Get a list of comments for a notebook
-*NotebooksApi* | [**DELETEProjectsApiV3NotebooksIdJson**](docs/NotebooksApi.md#deleteprojectsapiv3notebooksidjson) | **Delete** /projects/api/v3/notebooks/:id.json | Delete an existing notebook.
-*NotebooksApi* | [**DELETEProjectsApiV3NotebooksIdVersionsJson**](docs/NotebooksApi.md#deleteprojectsapiv3notebooksidversionsjson) | **Delete** /projects/api/v3/notebooks/:id/versions.json | Delete notebook versions.
-*NotebooksApi* | [**GETProjectsApiV3NotebooksIdCompareJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksidcomparejson) | **Get** /projects/api/v3/notebooks/:id/compare.json | Compare 2 notebook versions
-*NotebooksApi* | [**GETProjectsApiV3NotebooksIdJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksidjson) | **Get** /projects/api/v3/notebooks/:id.json | Get a specific notebook.
-*NotebooksApi* | [**GETProjectsApiV3NotebooksIdVersionsJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksidversionsjson) | **Get** /projects/api/v3/notebooks/:id/versions.json | Get notebook versions
+*MilestonesApi* | [**GETProjectsApiV3MilestonesmilestonIdJson**](docs/MilestonesApi.md#getprojectsapiv3milestonesmilestonidjson) | **Get** /projects/api/v3/milestones/{milestonId}.json | Get a milestone by id.
+*MilestonesApi* | [**GETProjectsApiV3ProjectsprojectIdMilestonesJson**](docs/MilestonesApi.md#getprojectsapiv3projectsprojectidmilestonesjson) | **Get** /projects/api/v3/projects/{projectId}/milestones.json | Get milestones in a project
+*NotebookCommentsApi* | [**GETProjectsApiV3NotebooksnotebookIdCommentsJson**](docs/NotebookCommentsApi.md#getprojectsapiv3notebooksnotebookidcommentsjson) | **Get** /projects/api/v3/notebooks/{notebookId}/comments.json | Get a list of comments for a notebook
+*NotebooksApi* | [**DELETEProjectsApiV3NotebooksnotebookIdJson**](docs/NotebooksApi.md#deleteprojectsapiv3notebooksnotebookidjson) | **Delete** /projects/api/v3/notebooks/{notebookId}.json | Delete an existing notebook.
+*NotebooksApi* | [**DELETEProjectsApiV3NotebooksnotebookIdVersionsJson**](docs/NotebooksApi.md#deleteprojectsapiv3notebooksnotebookidversionsjson) | **Delete** /projects/api/v3/notebooks/{notebookId}/versions.json | Delete notebook versions.
 *NotebooksApi* | [**GETProjectsApiV3NotebooksJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksjson) | **Get** /projects/api/v3/notebooks.json | Get a list of notebooks.
-*NotebooksApi* | [**GETProjectsApiV3NotebooksNIdVersionsVIdJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksnidversionsvidjson) | **Get** /projects/api/v3/notebooks/:nId/versions/:vId.json | Get a notebook version
-*NotebooksApi* | [**PATCHProjectsApiV3NotebooksIdJson**](docs/NotebooksApi.md#patchprojectsapiv3notebooksidjson) | **Patch** /projects/api/v3/notebooks/:id.json | Edits a notebook
-*NotebooksApi* | [**POSTProjectsApiV3ProjectsProjectIdNotebooksJson**](docs/NotebooksApi.md#postprojectsapiv3projectsprojectidnotebooksjson) | **Post** /projects/api/v3/projects/:projectId/notebooks.json | Create a new notebook.
-*NotebooksApi* | [**PUTProjectsApiV3NotebooksIdLockJson**](docs/NotebooksApi.md#putprojectsapiv3notebooksidlockjson) | **Put** /projects/api/v3/notebooks/:id/lock.json | Lock a notebook
-*NotebooksApi* | [**PUTProjectsApiV3NotebooksIdUnlockJson**](docs/NotebooksApi.md#putprojectsapiv3notebooksidunlockjson) | **Put** /projects/api/v3/notebooks/:id/unlock.json | Unlock a notebook
+*NotebooksApi* | [**GETProjectsApiV3NotebooksnotebookIdCompareJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksnotebookidcomparejson) | **Get** /projects/api/v3/notebooks/{notebookId}/compare.json | Compare 2 notebook versions
+*NotebooksApi* | [**GETProjectsApiV3NotebooksnotebookIdJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksnotebookidjson) | **Get** /projects/api/v3/notebooks/{notebookId}.json | Get a specific notebook.
+*NotebooksApi* | [**GETProjectsApiV3NotebooksnotebookIdVersionsJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksnotebookidversionsjson) | **Get** /projects/api/v3/notebooks/{notebookId}/versions.json | Get notebook versions
+*NotebooksApi* | [**GETProjectsApiV3NotebooksnotebookIdVersionsversionIdJson**](docs/NotebooksApi.md#getprojectsapiv3notebooksnotebookidversionsversionidjson) | **Get** /projects/api/v3/notebooks/{notebookId}/versions/{versionId}.json | Get a notebook version
+*NotebooksApi* | [**PATCHProjectsApiV3NotebooksnotebookIdJson**](docs/NotebooksApi.md#patchprojectsapiv3notebooksnotebookidjson) | **Patch** /projects/api/v3/notebooks/{notebookId}.json | Edits a notebook
+*NotebooksApi* | [**POSTProjectsApiV3ProjectsprojectIdNotebooksJson**](docs/NotebooksApi.md#postprojectsapiv3projectsprojectidnotebooksjson) | **Post** /projects/api/v3/projects/{projectId}/notebooks.json | Create a new notebook.
+*NotebooksApi* | [**PUTProjectsApiV3NotebooksnotebookIdLockJson**](docs/NotebooksApi.md#putprojectsapiv3notebooksnotebookidlockjson) | **Put** /projects/api/v3/notebooks/{notebookId}/lock.json | Lock a notebook
+*NotebooksApi* | [**PUTProjectsApiV3NotebooksnotebookIdUnlockJson**](docs/NotebooksApi.md#putprojectsapiv3notebooksnotebookidunlockjson) | **Put** /projects/api/v3/notebooks/{notebookId}/unlock.json | Unlock a notebook
 *PeopleApi* | [**GETProjectsApiV3PeopleJson**](docs/PeopleApi.md#getprojectsapiv3peoplejson) | **Get** /projects/api/v3/people.json | Returns a list of people
 *PeopleApi* | [**GETProjectsApiV3PeopleMetricsPerformanceJson**](docs/PeopleApi.md#getprojectsapiv3peoplemetricsperformancejson) | **Get** /projects/api/v3/people/metrics/performance.json | Performance of users completing the most tasks
-*PeopleApi* | [**GETProjectsApiV3PeopleUserIdAvailabilityJson**](docs/PeopleApi.md#getprojectsapiv3peopleuseridavailabilityjson) | **Get** /projects/api/v3/people/:userId/availability.json | Return the user availability.
 *PeopleApi* | [**GETProjectsApiV3PeopleUtilizationJson**](docs/PeopleApi.md#getprojectsapiv3peopleutilizationjson) | **Get** /projects/api/v3/people/utilization.json | Return the user utilization.
+*PeopleApi* | [**GETProjectsApiV3PeopleuserIdAvailabilityJson**](docs/PeopleApi.md#getprojectsapiv3peopleuseridavailabilityjson) | **Get** /projects/api/v3/people/{userId}/availability.json | Return the user availability.
 *PeopleStatusApi* | [**GETProjectsApiV3StatusesJson**](docs/PeopleStatusApi.md#getprojectsapiv3statusesjson) | **Get** /projects/api/v3/statuses.json | Get all statuses
 *PeopleStatusApi* | [**GETProjectsApiV3StatusesTimelineJson**](docs/PeopleStatusApi.md#getprojectsapiv3statusestimelinejson) | **Get** /projects/api/v3/statuses/timeline.json | Get the people statuses timeline.
-*PeopleStatusApi* | [**GETProjectsApiV3TeamsTeamIdStatusesTimelineJson**](docs/PeopleStatusApi.md#getprojectsapiv3teamsteamidstatusestimelinejson) | **Get** /projects/api/v3/teams/:teamId/statuses/timeline.json | Get statuses timeline for a specific team
-*PersonApi* | [**GETProjectsApiV3PeopleIdJson**](docs/PersonApi.md#getprojectsapiv3peopleidjson) | **Get** /projects/api/v3/people/:id.json | Returns a person
-*ProjectApi* | [**GETProjectsApiV3ProjectsIdFeaturesorderJson**](docs/ProjectApi.md#getprojectsapiv3projectsidfeaturesorderjson) | **Get** /projects/api/v3/projects/:id/featuresorder.json | Returns a project features order to display in tab
-*ProjectApi* | [**GETProjectsApiV3ProjectsIdJson**](docs/ProjectApi.md#getprojectsapiv3projectsidjson) | **Get** /projects/api/v3/projects/:id.json | Returns a project
-*ProjectApi* | [**PUTProjectsApiV3ProjectsFeaturesorderJson**](docs/ProjectApi.md#putprojectsapiv3projectsfeaturesorderjson) | **Put** /projects/api/v3/projects/featuresorder.json | Sets the default features order to display in tab
-*ProjectApi* | [**PUTProjectsApiV3ProjectsIdFeaturesorderJson**](docs/ProjectApi.md#putprojectsapiv3projectsidfeaturesorderjson) | **Put** /projects/api/v3/projects/:id/featuresorder.json | Sets the the features order to display in tab
-*ProjectUpdatesApi* | [**GETProjectsApiV3ProjectsProjectIdsUpdatesJson**](docs/ProjectUpdatesApi.md#getprojectsapiv3projectsprojectidsupdatesjson) | **Get** /projects/api/v3/projects/:projectIds/updates.json | Get all updates from a specific project
+*PeopleStatusApi* | [**GETProjectsApiV3TeamsteamIdStatusesTimelineJson**](docs/PeopleStatusApi.md#getprojectsapiv3teamsteamidstatusestimelinejson) | **Get** /projects/api/v3/teams/{teamId}/statuses/timeline.json | Get statuses timeline for a specific team
+*PersonApi* | [**GETProjectsApiV3PeoplepersonIdJson**](docs/PersonApi.md#getprojectsapiv3peoplepersonidjson) | **Get** /projects/api/v3/people/{personId}.json | Returns a person
 *ProjectUpdatesApi* | [**GETProjectsApiV3ProjectsUpdatesJson**](docs/ProjectUpdatesApi.md#getprojectsapiv3projectsupdatesjson) | **Get** /projects/api/v3/projects/updates.json | Get all project updates
+*ProjectUpdatesApi* | [**GETProjectsApiV3ProjectsprojectIdsUpdatesJson**](docs/ProjectUpdatesApi.md#getprojectsapiv3projectsprojectidsupdatesjson) | **Get** /projects/api/v3/projects/{projectIds}/updates.json | Get all updates from a specific project
 *ProjectsApi* | [**GETProjectsApiV3ProjectsCsv**](docs/ProjectsApi.md#getprojectsapiv3projectscsv) | **Get** /projects/api/v3/projects.csv | Generate project report in CSV format
 *ProjectsApi* | [**GETProjectsApiV3ProjectsHtml**](docs/ProjectsApi.md#getprojectsapiv3projectshtml) | **Get** /projects/api/v3/projects.html | Generate project report in HTML format
 *ProjectsApi* | [**GETProjectsApiV3ProjectsJson**](docs/ProjectsApi.md#getprojectsapiv3projectsjson) | **Get** /projects/api/v3/projects.json | Returns a list of projects
@@ -218,42 +215,48 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**GETProjectsApiV3ProjectsTeamworkSamplesJson**](docs/ProjectsApi.md#getprojectsapiv3projectsteamworksamplesjson) | **Get** /projects/api/v3/projects/teamwork/samples.json | Returns a list of teamwork sample projects
 *ProjectsApi* | [**GETProjectsApiV3ProjectsTemplatesJson**](docs/ProjectsApi.md#getprojectsapiv3projectstemplatesjson) | **Get** /projects/api/v3/projects/templates.json | Returns a list of projects templates
 *ProjectsApi* | [**GETProjectsApiV3ProjectsXlsx**](docs/ProjectsApi.md#getprojectsapiv3projectsxlsx) | **Get** /projects/api/v3/projects.xlsx | Generate project report in XLSX format
+*ProjectsApi* | [**GETProjectsApiV3ProjectsprojectIdFeaturesorderJson**](docs/ProjectsApi.md#getprojectsapiv3projectsprojectidfeaturesorderjson) | **Get** /projects/api/v3/projects/{projectId}/featuresorder.json | Returns a project features order to display in tab
+*ProjectsApi* | [**GETProjectsApiV3ProjectsprojectIdJson**](docs/ProjectsApi.md#getprojectsapiv3projectsprojectidjson) | **Get** /projects/api/v3/projects/{projectId}.json | Returns a project
+*ProjectsApi* | [**PUTProjectsApiV3ProjectsFeaturesorderJson**](docs/ProjectsApi.md#putprojectsapiv3projectsfeaturesorderjson) | **Put** /projects/api/v3/projects/featuresorder.json | Sets the default features order to display in tab
+*ProjectsApi* | [**PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson**](docs/ProjectsApi.md#putprojectsapiv3projectsprojectidfeaturesorderjson) | **Put** /projects/api/v3/projects/{projectId}/featuresorder.json | Sets the the features order to display in tab
 *ResourceSchedulingApi* | [**GETProjectsApiV3SchedulePeopleJson**](docs/ResourceSchedulingApi.md#getprojectsapiv3schedulepeoplejson) | **Get** /projects/api/v3/schedule/people.json | Return the summary for users&#39; allocations.
 *ResourceSchedulingApi* | [**GETProjectsApiV3ScheduleProjectsJson**](docs/ResourceSchedulingApi.md#getprojectsapiv3scheduleprojectsjson) | **Get** /projects/api/v3/schedule/projects.json | Return the summary for projects&#39; allocations.
-*RisksApi* | [**GETProjectsApiV3ProjectsProjectIdRisks**](docs/RisksApi.md#getprojectsapiv3projectsprojectidrisks) | **Get** /projects/api/v3/projects/:projectId/risks | Get risks for a specific project
+*RisksApi* | [**GETProjectsApiV3ProjectsprojectIdRisks**](docs/RisksApi.md#getprojectsapiv3projectsprojectidrisks) | **Get** /projects/api/v3/projects/{projectId}/risks | Get risks for a specific project
 *RisksApi* | [**GETProjectsApiV3RisksJson**](docs/RisksApi.md#getprojectsapiv3risksjson) | **Get** /projects/api/v3/risks.json | Get all risks
 *SummaryApi* | [**GETProjectsApiV3ProjectsprojectIdSummaryJson**](docs/SummaryApi.md#getprojectsapiv3projectsprojectidsummaryjson) | **Get** /projects/api/v3/projects/{projectId}/summary.json | Get project summary dashboard
 *SummaryApi* | [**GETProjectsApiV3SummaryJson**](docs/SummaryApi.md#getprojectsapiv3summaryjson) | **Get** /projects/api/v3/summary.json | Get installation summary dashboard
-*TagsApi* | [**DELETEProjectsApiV3TagsIdJson**](docs/TagsApi.md#deleteprojectsapiv3tagsidjson) | **Delete** /projects/api/v3/tags/:id.json | Deletes a tag
-*TagsApi* | [**GETProjectsApiV3TagsIdJson**](docs/TagsApi.md#getprojectsapiv3tagsidjson) | **Get** /projects/api/v3/tags/:id.json | Get details of an individual tag
+*TagsApi* | [**DELETEProjectsApiV3TagstagIdJson**](docs/TagsApi.md#deleteprojectsapiv3tagstagidjson) | **Delete** /projects/api/v3/tags/{tagId}.json | Deletes a tag
 *TagsApi* | [**GETProjectsApiV3TagsJson**](docs/TagsApi.md#getprojectsapiv3tagsjson) | **Get** /projects/api/v3/tags.json | Get all tags
-*TagsApi* | [**PATCHProjectsApiV3TagsIdJson**](docs/TagsApi.md#patchprojectsapiv3tagsidjson) | **Patch** /projects/api/v3/tags/:id.json | Update a single tag
+*TagsApi* | [**GETProjectsApiV3TagstagIdJson**](docs/TagsApi.md#getprojectsapiv3tagstagidjson) | **Get** /projects/api/v3/tags/{tagId}.json | Get details of an individual tag
+*TagsApi* | [**PATCHProjectsApiV3TagstagIdJson**](docs/TagsApi.md#patchprojectsapiv3tagstagidjson) | **Patch** /projects/api/v3/tags/{tagId}.json | Update a single tag
 *TagsApi* | [**POSTProjectsApiV3TagsBulkDeleteJson**](docs/TagsApi.md#postprojectsapiv3tagsbulkdeletejson) | **Post** /projects/api/v3/tags/bulk/delete.json | Delete many tags at once
 *TagsApi* | [**POSTProjectsApiV3TagsJson**](docs/TagsApi.md#postprojectsapiv3tagsjson) | **Post** /projects/api/v3/tags.json | Create a single tag
-*TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsCsv**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistscsv) | **Get** /projects/api/v3/projects/:projectId/tasklists.csv | Generate tasklist report in CSV format
-*TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsHtml**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistshtml) | **Get** /projects/api/v3/projects/:projectId/tasklists.html | Generate tasklist report in HTML format
-*TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsPdf**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistspdf) | **Get** /projects/api/v3/projects/:projectId/tasklists.pdf | Generate tasklist report in PDF format
-*TaskListsApi* | [**GETProjectsApiV3ProjectsProjectIdTasklistsXlsx**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistsxlsx) | **Get** /projects/api/v3/projects/:projectId/tasklists.xlsx | Generate tasklist report in XLSX format
-*TasksApi* | [**GETProjectsApiV3TasksIdJson**](docs/TasksApi.md#getprojectsapiv3tasksidjson) | **Get** /projects/api/v3/tasks/:id.json | Get a specific task.
+*TaskListsApi* | [**GETProjectsApiV3ProjectsprojectIdTasklistsCsv**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistscsv) | **Get** /projects/api/v3/projects/{projectId}/tasklists.csv | Generate tasklist report in CSV format
+*TaskListsApi* | [**GETProjectsApiV3ProjectsprojectIdTasklistsHtml**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistshtml) | **Get** /projects/api/v3/projects/{projectId}/tasklists.html | Generate tasklist report in HTML format
+*TaskListsApi* | [**GETProjectsApiV3ProjectsprojectIdTasklistsPdf**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistspdf) | **Get** /projects/api/v3/projects/{projectId}/tasklists.pdf | Generate tasklist report in PDF format
+*TaskListsApi* | [**GETProjectsApiV3ProjectsprojectIdTasklistsXlsx**](docs/TaskListsApi.md#getprojectsapiv3projectsprojectidtasklistsxlsx) | **Get** /projects/api/v3/projects/{projectId}/tasklists.xlsx | Generate tasklist report in XLSX format
+*TasksApi* | [**DELETEProjectsApiV3TaskstaskIdJson**](docs/TasksApi.md#deleteprojectsapiv3taskstaskidjson) | **Delete** /projects/api/v3/tasks/{taskId}.json | Delete an existing task.
 *TasksApi* | [**GETProjectsApiV3TasksJson**](docs/TasksApi.md#getprojectsapiv3tasksjson) | **Get** /projects/api/v3/tasks.json | Get all tasks.
 *TasksApi* | [**GETProjectsApiV3TasksMetricsCompleteJson**](docs/TasksApi.md#getprojectsapiv3tasksmetricscompletejson) | **Get** /projects/api/v3/tasks/metrics/complete.json | Total count of completed tasks
 *TasksApi* | [**GETProjectsApiV3TasksMetricsLateJson**](docs/TasksApi.md#getprojectsapiv3tasksmetricslatejson) | **Get** /projects/api/v3/tasks/metrics/late.json | Get total count of late tasks
-*TasksApi* | [**POSTProjectsApiV3TasklistsTasklistIdTasksJson**](docs/TasksApi.md#postprojectsapiv3taskliststasklistidtasksjson) | **Post** /projects/api/v3/tasklists/:tasklistId/tasks.json | Creates a task.
-*TimeTrackingApi* | [**DELETEProjectsApiV3MeTimersIdJson**](docs/TimeTrackingApi.md#deleteprojectsapiv3metimersidjson) | **Delete** /projects/api/v3/me/timers/:id.json | Delete a timer by ID
-*TimeTrackingApi* | [**GETProjectsApiV3AllocationsAllocationIdTimeJson**](docs/TimeTrackingApi.md#getprojectsapiv3allocationsallocationidtimejson) | **Get** /projects/api/v3/allocations/:allocationId/time.json | Get time entries for a specific allocation
+*TasksApi* | [**GETProjectsApiV3TaskstaskIdJson**](docs/TasksApi.md#getprojectsapiv3taskstaskidjson) | **Get** /projects/api/v3/tasks/{taskId}.json | Get a specific task.
+*TasksApi* | [**POSTProjectsApiV3TaskliststasklistIdTasksJson**](docs/TasksApi.md#postprojectsapiv3taskliststasklistidtasksjson) | **Post** /projects/api/v3/tasklists/{tasklistId}/tasks.json | Creates a task.
+*TasksApi* | [**POSTProjectsApiV3TasksBulkDeleteJson**](docs/TasksApi.md#postprojectsapiv3tasksbulkdeletejson) | **Post** /projects/api/v3/tasks/bulk/delete.json | Delete many tasks at once.
+*TimeTrackingApi* | [**DELETEProjectsApiV3MeTimerstimerIdJson**](docs/TimeTrackingApi.md#deleteprojectsapiv3metimerstimeridjson) | **Delete** /projects/api/v3/me/timers/{timerId}.json | Delete a timer by ID
+*TimeTrackingApi* | [**GETProjectsApiV3AllocationsallocationIdTimeJson**](docs/TimeTrackingApi.md#getprojectsapiv3allocationsallocationidtimejson) | **Get** /projects/api/v3/allocations/{allocationId}/time.json | Get time entries for a specific allocation
 *TimeTrackingApi* | [**GETProjectsApiV3MeTimersJson**](docs/TimeTrackingApi.md#getprojectsapiv3metimersjson) | **Get** /projects/api/v3/me/timers.json | Get all your running timers
-*TimeTrackingApi* | [**GETProjectsApiV3ProjectsProjectIdTimeJson**](docs/TimeTrackingApi.md#getprojectsapiv3projectsprojectidtimejson) | **Get** /projects/api/v3/projects/:projectId/time.json | Get time entries for a specific project
-*TimeTrackingApi* | [**GETProjectsApiV3ProjectsProjectIdTimeTotalJson**](docs/TimeTrackingApi.md#getprojectsapiv3projectsprojectidtimetotaljson) | **Get** /projects/api/v3/projects/:projectId/time/total.json | Get timelog totals.
+*TimeTrackingApi* | [**GETProjectsApiV3ProjectsprojectIdTimeJson**](docs/TimeTrackingApi.md#getprojectsapiv3projectsprojectidtimejson) | **Get** /projects/api/v3/projects/{projectId}/time.json | Get time entries for a specific project
+*TimeTrackingApi* | [**GETProjectsApiV3ProjectsprojectIdTimeTotalJson**](docs/TimeTrackingApi.md#getprojectsapiv3projectsprojectidtimetotaljson) | **Get** /projects/api/v3/projects/{projectId}/time/total.json | Get timelog totals.
 *TimeTrackingApi* | [**GETProjectsApiV3TimeJson**](docs/TimeTrackingApi.md#getprojectsapiv3timejson) | **Get** /projects/api/v3/time.json | Get all time entries
 *TimeTrackingApi* | [**GETProjectsApiV3TimeTotalJson**](docs/TimeTrackingApi.md#getprojectsapiv3timetotaljson) | **Get** /projects/api/v3/time/total.json | Get timelog totals.
-*TimeTrackingApi* | [**GETProjectsApiV3TimersIdJson**](docs/TimeTrackingApi.md#getprojectsapiv3timersidjson) | **Get** /projects/api/v3/timers/:id.json | Get a specific timer
 *TimeTrackingApi* | [**GETProjectsApiV3TimersJson**](docs/TimeTrackingApi.md#getprojectsapiv3timersjson) | **Get** /projects/api/v3/timers.json | Get all running timers
+*TimeTrackingApi* | [**GETProjectsApiV3TimerstimerIdJson**](docs/TimeTrackingApi.md#getprojectsapiv3timerstimeridjson) | **Get** /projects/api/v3/timers/{timerId}.json | Get a specific timer
 *TimeTrackingApi* | [**POSTProjectsApiV3MeTimersJson**](docs/TimeTrackingApi.md#postprojectsapiv3metimersjson) | **Post** /projects/api/v3/me/timers.json | Create a new timer
-*TimeTrackingApi* | [**PUTProjectsApiV3MeTimersIdCompleteJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimersidcompletejson) | **Put** /projects/api/v3/me/timers/:id/complete.json | Complete a timer by ID
-*TimeTrackingApi* | [**PUTProjectsApiV3MeTimersIdJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimersidjson) | **Put** /projects/api/v3/me/timers/:id.json | Edits a timer
-*TimeTrackingApi* | [**PUTProjectsApiV3MeTimersIdPauseJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimersidpausejson) | **Put** /projects/api/v3/me/timers/:id/pause.json | Pause a timer by ID
-*TimeTrackingApi* | [**PUTProjectsApiV3MeTimersIdResumeJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimersidresumejson) | **Put** /projects/api/v3/me/timers/:id/resume.json | Resume a timer by ID
-*TimeTrackingApi* | [**PUTProjectsApiV3MeTimersIdUndeleteJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimersidundeletejson) | **Put** /projects/api/v3/me/timers/:id/undelete.json | Undelete a timer by ID
+*TimeTrackingApi* | [**PUTProjectsApiV3MeTimerstimerIdCompleteJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimerstimeridcompletejson) | **Put** /projects/api/v3/me/timers/{timerId}/complete.json | Complete a timer by ID
+*TimeTrackingApi* | [**PUTProjectsApiV3MeTimerstimerIdJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimerstimeridjson) | **Put** /projects/api/v3/me/timers/{timerId}.json | Edits a timer
+*TimeTrackingApi* | [**PUTProjectsApiV3MeTimerstimerIdPauseJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimerstimeridpausejson) | **Put** /projects/api/v3/me/timers/{timerId}/pause.json | Pause a timer by ID
+*TimeTrackingApi* | [**PUTProjectsApiV3MeTimerstimerIdResumeJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimerstimeridresumejson) | **Put** /projects/api/v3/me/timers/{timerId}/resume.json | Resume a timer by ID
+*TimeTrackingApi* | [**PUTProjectsApiV3MeTimerstimerIdUndeleteJson**](docs/TimeTrackingApi.md#putprojectsapiv3metimerstimeridundeletejson) | **Put** /projects/api/v3/me/timers/{timerId}/undelete.json | Undelete a timer by ID
 *WorkloadApi* | [**GETProjectsApiV3WorkloadCsv**](docs/WorkloadApi.md#getprojectsapiv3workloadcsv) | **Get** /projects/api/v3/workload.csv | Generate workload report in CSV format
 *WorkloadApi* | [**GETProjectsApiV3WorkloadHtml**](docs/WorkloadApi.md#getprojectsapiv3workloadhtml) | **Get** /projects/api/v3/workload.html | Generate workload report in HTML format
 *WorkloadApi* | [**GETProjectsApiV3WorkloadPdf**](docs/WorkloadApi.md#getprojectsapiv3workloadpdf) | **Get** /projects/api/v3/workload.pdf | Generate workload report in PDF format
@@ -319,6 +322,7 @@ Class | Method | HTTP request | Description
  - [CustomfieldCustomFieldsResponse](docs/CustomfieldCustomFieldsResponse.md)
  - [CustomfieldRequest](docs/CustomfieldRequest.md)
  - [CustomfieldResponse](docs/CustomfieldResponse.md)
+ - [CustomfieldtaskCustomFieldTask](docs/CustomfieldtaskCustomFieldTask.md)
  - [DashboardUserDashboardsResponse](docs/DashboardUserDashboardsResponse.md)
  - [DashboardUserDashboardsResponseIncluded](docs/DashboardUserDashboardsResponseIncluded.md)
  - [DeadlineMilestoneMetricDeadline](docs/DeadlineMilestoneMetricDeadline.md)
@@ -448,11 +452,14 @@ Class | Method | HTTP request | Description
  - [TaskBulkDeleteRequest](docs/TaskBulkDeleteRequest.md)
  - [TaskBulkUpdateRequest](docs/TaskBulkUpdateRequest.md)
  - [TaskCard](docs/TaskCard.md)
+ - [TaskCommonOptions](docs/TaskCommonOptions.md)
  - [TaskCustomFieldTask](docs/TaskCustomFieldTask.md)
  - [TaskCustomFieldTasksResponse](docs/TaskCustomFieldTasksResponse.md)
  - [TaskCustomFieldTasksResponseIncluded](docs/TaskCustomFieldTasksResponseIncluded.md)
+ - [TaskDeleteRequest](docs/TaskDeleteRequest.md)
  - [TaskEditCustomFieldTask](docs/TaskEditCustomFieldTask.md)
  - [TaskFile](docs/TaskFile.md)
+ - [TaskOptions](docs/TaskOptions.md)
  - [TaskPendingFile](docs/TaskPendingFile.md)
  - [TaskPredecessor](docs/TaskPredecessor.md)
  - [TaskReminder](docs/TaskReminder.md)
@@ -460,7 +467,6 @@ Class | Method | HTTP request | Description
  - [TaskRequest](docs/TaskRequest.md)
  - [TaskRequestAttachmentOptions](docs/TaskRequestAttachmentOptions.md)
  - [TaskRequestAttachments](docs/TaskRequestAttachments.md)
- - [TaskRequestTaskOptions](docs/TaskRequestTaskOptions.md)
  - [TaskResponse](docs/TaskResponse.md)
  - [TaskResponseIncluded](docs/TaskResponseIncluded.md)
  - [TaskTask](docs/TaskTask.md)
@@ -498,7 +504,6 @@ Class | Method | HTTP request | Description
  - [ViewCountry](docs/ViewCountry.md)
  - [ViewCustomField](docs/ViewCustomField.md)
  - [ViewCustomFieldProject](docs/ViewCustomFieldProject.md)
- - [ViewCustomFieldTask](docs/ViewCustomFieldTask.md)
  - [ViewError](docs/ViewError.md)
  - [ViewErrorResponse](docs/ViewErrorResponse.md)
  - [ViewFilePermissions](docs/ViewFilePermissions.md)

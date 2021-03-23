@@ -44,6 +44,7 @@ type PeoplePersonOfPeople struct {
 	ImHandle *string `json:"imHandle,omitempty"`
 	ImService *string `json:"imService,omitempty"`
 	InOwnerCompany *bool `json:"inOwnerCompany,omitempty"`
+	IsClientUser *bool `json:"isClientUser,omitempty"`
 	IsClockedIn *bool `json:"isClockedIn,omitempty"`
 	LastActive *string `json:"lastActive,omitempty"`
 	LastChangedOn *string `json:"lastChangedOn,omitempty"`
@@ -52,6 +53,7 @@ type PeoplePersonOfPeople struct {
 	LengthOfDay *float32 `json:"lengthOfDay,omitempty"`
 	Localization *PeopleLocalization `json:"localization,omitempty"`
 	LoginCount *int32 `json:"loginCount,omitempty"`
+	MentionName *string `json:"mentionName,omitempty"`
 	Notes *string `json:"notes,omitempty"`
 	Notifications *PeopleNotifications `json:"notifications,omitempty"`
 	OpenId *string `json:"openId,omitempty"`
@@ -1000,6 +1002,38 @@ func (o *PeoplePersonOfPeople) SetInOwnerCompany(v bool) {
 	o.InOwnerCompany = &v
 }
 
+// GetIsClientUser returns the IsClientUser field value if set, zero value otherwise.
+func (o *PeoplePersonOfPeople) GetIsClientUser() bool {
+	if o == nil || o.IsClientUser == nil {
+		var ret bool
+		return ret
+	}
+	return *o.IsClientUser
+}
+
+// GetIsClientUserOk returns a tuple with the IsClientUser field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePersonOfPeople) GetIsClientUserOk() (*bool, bool) {
+	if o == nil || o.IsClientUser == nil {
+		return nil, false
+	}
+	return o.IsClientUser, true
+}
+
+// HasIsClientUser returns a boolean if a field has been set.
+func (o *PeoplePersonOfPeople) HasIsClientUser() bool {
+	if o != nil && o.IsClientUser != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIsClientUser gets a reference to the given bool and assigns it to the IsClientUser field.
+func (o *PeoplePersonOfPeople) SetIsClientUser(v bool) {
+	o.IsClientUser = &v
+}
+
 // GetIsClockedIn returns the IsClockedIn field value if set, zero value otherwise.
 func (o *PeoplePersonOfPeople) GetIsClockedIn() bool {
 	if o == nil || o.IsClockedIn == nil {
@@ -1254,6 +1288,38 @@ func (o *PeoplePersonOfPeople) HasLoginCount() bool {
 // SetLoginCount gets a reference to the given int32 and assigns it to the LoginCount field.
 func (o *PeoplePersonOfPeople) SetLoginCount(v int32) {
 	o.LoginCount = &v
+}
+
+// GetMentionName returns the MentionName field value if set, zero value otherwise.
+func (o *PeoplePersonOfPeople) GetMentionName() string {
+	if o == nil || o.MentionName == nil {
+		var ret string
+		return ret
+	}
+	return *o.MentionName
+}
+
+// GetMentionNameOk returns a tuple with the MentionName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeoplePersonOfPeople) GetMentionNameOk() (*string, bool) {
+	if o == nil || o.MentionName == nil {
+		return nil, false
+	}
+	return o.MentionName, true
+}
+
+// HasMentionName returns a boolean if a field has been set.
+func (o *PeoplePersonOfPeople) HasMentionName() bool {
+	if o != nil && o.MentionName != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMentionName gets a reference to the given string and assigns it to the MentionName field.
+func (o *PeoplePersonOfPeople) SetMentionName(v string) {
+	o.MentionName = &v
 }
 
 // GetNotes returns the Notes field value if set, zero value otherwise.
@@ -2398,6 +2464,9 @@ func (o PeoplePersonOfPeople) MarshalJSON() ([]byte, error) {
 	if o.InOwnerCompany != nil {
 		toSerialize["inOwnerCompany"] = o.InOwnerCompany
 	}
+	if o.IsClientUser != nil {
+		toSerialize["isClientUser"] = o.IsClientUser
+	}
 	if o.IsClockedIn != nil {
 		toSerialize["isClockedIn"] = o.IsClockedIn
 	}
@@ -2421,6 +2490,9 @@ func (o PeoplePersonOfPeople) MarshalJSON() ([]byte, error) {
 	}
 	if o.LoginCount != nil {
 		toSerialize["loginCount"] = o.LoginCount
+	}
+	if o.MentionName != nil {
+		toSerialize["mentionName"] = o.MentionName
 	}
 	if o.Notes != nil {
 		toSerialize["notes"] = o.Notes

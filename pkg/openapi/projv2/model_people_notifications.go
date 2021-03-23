@@ -18,6 +18,7 @@ import (
 type PeopleNotifications struct {
 	DailyReportDaysFilter *int32 `json:"dailyReportDaysFilter,omitempty"`
 	DailyReportEventsType *string `json:"dailyReportEventsType,omitempty"`
+	DailyReportIncludeStartDate *bool `json:"dailyReportIncludeStartDate,omitempty"`
 	DailyReportSortBy *string `json:"dailyReportSortBy,omitempty"`
 	NotifyOnAddedAsFollower *bool `json:"notifyOnAddedAsFollower,omitempty"`
 	NotifyOnStatusUpdate *bool `json:"notifyOnStatusUpdate,omitempty"`
@@ -110,6 +111,38 @@ func (o *PeopleNotifications) HasDailyReportEventsType() bool {
 // SetDailyReportEventsType gets a reference to the given string and assigns it to the DailyReportEventsType field.
 func (o *PeopleNotifications) SetDailyReportEventsType(v string) {
 	o.DailyReportEventsType = &v
+}
+
+// GetDailyReportIncludeStartDate returns the DailyReportIncludeStartDate field value if set, zero value otherwise.
+func (o *PeopleNotifications) GetDailyReportIncludeStartDate() bool {
+	if o == nil || o.DailyReportIncludeStartDate == nil {
+		var ret bool
+		return ret
+	}
+	return *o.DailyReportIncludeStartDate
+}
+
+// GetDailyReportIncludeStartDateOk returns a tuple with the DailyReportIncludeStartDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PeopleNotifications) GetDailyReportIncludeStartDateOk() (*bool, bool) {
+	if o == nil || o.DailyReportIncludeStartDate == nil {
+		return nil, false
+	}
+	return o.DailyReportIncludeStartDate, true
+}
+
+// HasDailyReportIncludeStartDate returns a boolean if a field has been set.
+func (o *PeopleNotifications) HasDailyReportIncludeStartDate() bool {
+	if o != nil && o.DailyReportIncludeStartDate != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDailyReportIncludeStartDate gets a reference to the given bool and assigns it to the DailyReportIncludeStartDate field.
+func (o *PeopleNotifications) SetDailyReportIncludeStartDate(v bool) {
+	o.DailyReportIncludeStartDate = &v
 }
 
 // GetDailyReportSortBy returns the DailyReportSortBy field value if set, zero value otherwise.
@@ -471,6 +504,9 @@ func (o PeopleNotifications) MarshalJSON() ([]byte, error) {
 	}
 	if o.DailyReportEventsType != nil {
 		toSerialize["dailyReportEventsType"] = o.DailyReportEventsType
+	}
+	if o.DailyReportIncludeStartDate != nil {
+		toSerialize["dailyReportIncludeStartDate"] = o.DailyReportIncludeStartDate
 	}
 	if o.DailyReportSortBy != nil {
 		toSerialize["dailyReportSortBy"] = o.DailyReportSortBy

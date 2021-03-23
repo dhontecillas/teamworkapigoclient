@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GETProjectsApiV3LatestactivityJson**](ActivityApi.md#GETProjectsApiV3LatestactivityJson) | **Get** /projects/api/v3/latestactivity.json | Latest activity (all projects)
-[**GETProjectsApiV3ProjectsProjectIdLatestactivity**](ActivityApi.md#GETProjectsApiV3ProjectsProjectIdLatestactivity) | **Get** /projects/api/v3/projects/:projectId/latestactivity | List latest activity for a specific project.
+[**GETProjectsApiV3ProjectsprojectIdLatestactivity**](ActivityApi.md#GETProjectsApiV3ProjectsprojectIdLatestactivity) | **Get** /projects/api/v3/projects/{projectId}/latestactivity | List latest activity for a specific project.
 
 
 
@@ -132,9 +132,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsProjectIdLatestactivity
+## GETProjectsApiV3ProjectsprojectIdLatestactivity
 
-> ActivityActivitiesResponse GETProjectsApiV3ProjectsProjectIdLatestactivity(ctx).UpdatedAfter(updatedAfter).StartDate(startDate).Sort(sort).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).EndDate(endDate).ActivityTypes(activityTypes).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).MaxId(maxId).CatchupFromId(catchupFromId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IncludeArchivedProjects(includeArchivedProjects).GroupCommentActivityType(groupCommentActivityType).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).FieldsActivities(fieldsActivities).Execute()
+> ActivityActivitiesResponse GETProjectsApiV3ProjectsprojectIdLatestactivity(ctx, projectId2).UpdatedAfter(updatedAfter).StartDate(startDate).Sort(sort).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).EndDate(endDate).ActivityTypes(activityTypes).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).MaxId(maxId).CatchupFromId(catchupFromId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IncludeArchivedProjects(includeArchivedProjects).GroupCommentActivityType(groupCommentActivityType).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).FieldsActivities(fieldsActivities).Execute()
 
 List latest activity for a specific project.
 
@@ -154,6 +154,7 @@ import (
 )
 
 func main() {
+    projectId2 := int32(56) // int32 | 
     updatedAfter := time.Now() // time.Time | filter by updated after date (optional)
     startDate := time.Now() // time.Time | filter by start datetime (optional)
     sort := "sort_example" // string | sort by (optional)
@@ -186,27 +187,32 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ActivityApi.GETProjectsApiV3ProjectsProjectIdLatestactivity(context.Background()).UpdatedAfter(updatedAfter).StartDate(startDate).Sort(sort).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).EndDate(endDate).ActivityTypes(activityTypes).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).MaxId(maxId).CatchupFromId(catchupFromId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IncludeArchivedProjects(includeArchivedProjects).GroupCommentActivityType(groupCommentActivityType).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).FieldsActivities(fieldsActivities).Execute()
+    resp, r, err := api_client.ActivityApi.GETProjectsApiV3ProjectsprojectIdLatestactivity(context.Background(), projectId2).UpdatedAfter(updatedAfter).StartDate(startDate).Sort(sort).ProjectStatuses(projectStatuses).ProjectStatus(projectStatus).OrderMode(orderMode).EndDate(endDate).ActivityTypes(activityTypes).ProjectId(projectId).ProjectHealths(projectHealths).PageSize(pageSize).Page(page).MaxId(maxId).CatchupFromId(catchupFromId).ShowDeleted(showDeleted).OnlyStarredProjects(onlyStarredProjects).MatchAllProjectTags(matchAllProjectTags).IncludeArchivedProjects(includeArchivedProjects).GroupCommentActivityType(groupCommentActivityType).UserIds(userIds).ProjectTagIds(projectTagIds).ProjectOwnerIds(projectOwnerIds).ProjectCompanyIds(projectCompanyIds).ProjectCategoryIds(projectCategoryIds).Include(include).FieldsUsers(fieldsUsers).FieldsProjects(fieldsProjects).FieldsCompanies(fieldsCompanies).FieldsActivities(fieldsActivities).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ActivityApi.GETProjectsApiV3ProjectsProjectIdLatestactivity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ActivityApi.GETProjectsApiV3ProjectsprojectIdLatestactivity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3ProjectsProjectIdLatestactivity`: ActivityActivitiesResponse
-    fmt.Fprintf(os.Stdout, "Response from `ActivityApi.GETProjectsApiV3ProjectsProjectIdLatestactivity`: %v\n", resp)
+    // response from `GETProjectsApiV3ProjectsprojectIdLatestactivity`: ActivityActivitiesResponse
+    fmt.Fprintf(os.Stdout, "Response from `ActivityApi.GETProjectsApiV3ProjectsprojectIdLatestactivity`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId2** | **int32** |  | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsProjectIdLatestactivityRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdLatestactivityRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **updatedAfter** | **time.Time** | filter by updated after date | 
  **startDate** | **time.Time** | filter by start datetime | 
  **sort** | **string** | sort by | 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Assignees** | Pointer to [**[]ViewFormAssignee**](ViewFormAssignee.md) |  | [optional] 
-**Errors** | Pointer to [**[]ApierrorsBulkError**](ApierrorsBulkError.md) |  | [optional] 
+**Errors** | Pointer to [**[]ErrorsBulkError**](ErrorsBulkError.md) |  | [optional] 
 **Included** | Pointer to [**AssigneeFormAssigneesResponseIncluded**](AssigneeFormAssigneesResponseIncluded.md) |  | [optional] 
 
 ## Methods
@@ -54,20 +54,20 @@ HasAssignees returns a boolean if a field has been set.
 
 ### GetErrors
 
-`func (o *AssigneeResponse) GetErrors() []ApierrorsBulkError`
+`func (o *AssigneeResponse) GetErrors() []ErrorsBulkError`
 
 GetErrors returns the Errors field if non-nil, zero value otherwise.
 
 ### GetErrorsOk
 
-`func (o *AssigneeResponse) GetErrorsOk() (*[]ApierrorsBulkError, bool)`
+`func (o *AssigneeResponse) GetErrorsOk() (*[]ErrorsBulkError, bool)`
 
 GetErrorsOk returns a tuple with the Errors field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetErrors
 
-`func (o *AssigneeResponse) SetErrors(v []ApierrorsBulkError)`
+`func (o *AssigneeResponse) SetErrors(v []ErrorsBulkError)`
 
 SetErrors sets Errors field to given value.
 

@@ -17,7 +17,7 @@ import (
 // PeopleSpecificPerson struct for PeopleSpecificPerson
 type PeopleSpecificPerson struct {
 	APIEnabled *bool `json:"APIEnabled,omitempty"`
-	Accounts *[]TwcoreusersbaseAccount `json:"accounts,omitempty"`
+	Accounts *[]UsersbaseAccount `json:"accounts,omitempty"`
 	Address *PeopleAddress `json:"address,omitempty"`
 	Administrator *bool `json:"administrator,omitempty"`
 	Auth *PeopleAuthData `json:"auth,omitempty"`
@@ -28,7 +28,7 @@ type PeopleSpecificPerson struct {
 	CompanyId *int32 `json:"companyId,omitempty"`
 	CompanyName *string `json:"companyName,omitempty"`
 	CreatedAt *string `json:"createdAt,omitempty"`
-	CurrentFeatureAnnouncement *TwdataaccountAnnouncementResponse `json:"currentFeatureAnnouncement,omitempty"`
+	CurrentFeatureAnnouncement *AccountAnnouncementResponse `json:"currentFeatureAnnouncement,omitempty"`
 	DefaultFilters *map[string]TwdatausersFilterResponse `json:"defaultFilters,omitempty"`
 	Deleted *bool `json:"deleted,omitempty"`
 	DocumentEditorInstalled *bool `json:"documentEditorInstalled,omitempty"`
@@ -80,7 +80,7 @@ type PeopleSpecificPerson struct {
 	SharedUserFilter *map[string]TwdatausersFilterResponse `json:"sharedUserFilter,omitempty"`
 	SiteOwner *bool `json:"siteOwner,omitempty"`
 	Social *PeopleSocial `json:"social,omitempty"`
-	Tags *[]TwcoreTagsTag `json:"tags,omitempty"`
+	Tags *[]TagsTag `json:"tags,omitempty"`
 	Tasks *map[string]interface{} `json:"tasks,omitempty"`
 	Teams *[]string `json:"teams,omitempty"`
 	TeamsCount *int32 `json:"teamsCount,omitempty"`
@@ -148,9 +148,9 @@ func (o *PeopleSpecificPerson) SetAPIEnabled(v bool) {
 }
 
 // GetAccounts returns the Accounts field value if set, zero value otherwise.
-func (o *PeopleSpecificPerson) GetAccounts() []TwcoreusersbaseAccount {
+func (o *PeopleSpecificPerson) GetAccounts() []UsersbaseAccount {
 	if o == nil || o.Accounts == nil {
-		var ret []TwcoreusersbaseAccount
+		var ret []UsersbaseAccount
 		return ret
 	}
 	return *o.Accounts
@@ -158,7 +158,7 @@ func (o *PeopleSpecificPerson) GetAccounts() []TwcoreusersbaseAccount {
 
 // GetAccountsOk returns a tuple with the Accounts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeopleSpecificPerson) GetAccountsOk() (*[]TwcoreusersbaseAccount, bool) {
+func (o *PeopleSpecificPerson) GetAccountsOk() (*[]UsersbaseAccount, bool) {
 	if o == nil || o.Accounts == nil {
 		return nil, false
 	}
@@ -174,8 +174,8 @@ func (o *PeopleSpecificPerson) HasAccounts() bool {
 	return false
 }
 
-// SetAccounts gets a reference to the given []TwcoreusersbaseAccount and assigns it to the Accounts field.
-func (o *PeopleSpecificPerson) SetAccounts(v []TwcoreusersbaseAccount) {
+// SetAccounts gets a reference to the given []UsersbaseAccount and assigns it to the Accounts field.
+func (o *PeopleSpecificPerson) SetAccounts(v []UsersbaseAccount) {
 	o.Accounts = &v
 }
 
@@ -500,9 +500,9 @@ func (o *PeopleSpecificPerson) SetCreatedAt(v string) {
 }
 
 // GetCurrentFeatureAnnouncement returns the CurrentFeatureAnnouncement field value if set, zero value otherwise.
-func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncement() TwdataaccountAnnouncementResponse {
+func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncement() AccountAnnouncementResponse {
 	if o == nil || o.CurrentFeatureAnnouncement == nil {
-		var ret TwdataaccountAnnouncementResponse
+		var ret AccountAnnouncementResponse
 		return ret
 	}
 	return *o.CurrentFeatureAnnouncement
@@ -510,7 +510,7 @@ func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncement() TwdataaccountAnno
 
 // GetCurrentFeatureAnnouncementOk returns a tuple with the CurrentFeatureAnnouncement field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncementOk() (*TwdataaccountAnnouncementResponse, bool) {
+func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncementOk() (*AccountAnnouncementResponse, bool) {
 	if o == nil || o.CurrentFeatureAnnouncement == nil {
 		return nil, false
 	}
@@ -526,8 +526,8 @@ func (o *PeopleSpecificPerson) HasCurrentFeatureAnnouncement() bool {
 	return false
 }
 
-// SetCurrentFeatureAnnouncement gets a reference to the given TwdataaccountAnnouncementResponse and assigns it to the CurrentFeatureAnnouncement field.
-func (o *PeopleSpecificPerson) SetCurrentFeatureAnnouncement(v TwdataaccountAnnouncementResponse) {
+// SetCurrentFeatureAnnouncement gets a reference to the given AccountAnnouncementResponse and assigns it to the CurrentFeatureAnnouncement field.
+func (o *PeopleSpecificPerson) SetCurrentFeatureAnnouncement(v AccountAnnouncementResponse) {
 	o.CurrentFeatureAnnouncement = &v
 }
 
@@ -2164,9 +2164,9 @@ func (o *PeopleSpecificPerson) SetSocial(v PeopleSocial) {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *PeopleSpecificPerson) GetTags() []TwcoreTagsTag {
+func (o *PeopleSpecificPerson) GetTags() []TagsTag {
 	if o == nil || o.Tags == nil {
-		var ret []TwcoreTagsTag
+		var ret []TagsTag
 		return ret
 	}
 	return *o.Tags
@@ -2174,7 +2174,7 @@ func (o *PeopleSpecificPerson) GetTags() []TwcoreTagsTag {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeopleSpecificPerson) GetTagsOk() (*[]TwcoreTagsTag, bool) {
+func (o *PeopleSpecificPerson) GetTagsOk() (*[]TagsTag, bool) {
 	if o == nil || o.Tags == nil {
 		return nil, false
 	}
@@ -2190,8 +2190,8 @@ func (o *PeopleSpecificPerson) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []TwcoreTagsTag and assigns it to the Tags field.
-func (o *PeopleSpecificPerson) SetTags(v []TwcoreTagsTag) {
+// SetTags gets a reference to the given []TagsTag and assigns it to the Tags field.
+func (o *PeopleSpecificPerson) SetTags(v []TagsTag) {
 	o.Tags = &v
 }
 

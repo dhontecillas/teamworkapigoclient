@@ -1,4 +1,4 @@
-# TwcoreTagsTag
+# TagsTag
 
 ## Properties
 
@@ -11,120 +11,120 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewTwcoreTagsTag
+### NewTagsTag
 
-`func NewTwcoreTagsTag() *TwcoreTagsTag`
+`func NewTagsTag() *TagsTag`
 
-NewTwcoreTagsTag instantiates a new TwcoreTagsTag object
+NewTagsTag instantiates a new TagsTag object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewTwcoreTagsTagWithDefaults
+### NewTagsTagWithDefaults
 
-`func NewTwcoreTagsTagWithDefaults() *TwcoreTagsTag`
+`func NewTagsTagWithDefaults() *TagsTag`
 
-NewTwcoreTagsTagWithDefaults instantiates a new TwcoreTagsTag object
+NewTagsTagWithDefaults instantiates a new TagsTag object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetColor
 
-`func (o *TwcoreTagsTag) GetColor() string`
+`func (o *TagsTag) GetColor() string`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *TwcoreTagsTag) GetColorOk() (*string, bool)`
+`func (o *TagsTag) GetColorOk() (*string, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *TwcoreTagsTag) SetColor(v string)`
+`func (o *TagsTag) SetColor(v string)`
 
 SetColor sets Color field to given value.
 
 ### HasColor
 
-`func (o *TwcoreTagsTag) HasColor() bool`
+`func (o *TagsTag) HasColor() bool`
 
 HasColor returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *TwcoreTagsTag) GetId() int32`
+`func (o *TagsTag) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *TwcoreTagsTag) GetIdOk() (*int32, bool)`
+`func (o *TagsTag) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *TwcoreTagsTag) SetId(v int32)`
+`func (o *TagsTag) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *TwcoreTagsTag) HasId() bool`
+`func (o *TagsTag) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetName
 
-`func (o *TwcoreTagsTag) GetName() string`
+`func (o *TagsTag) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *TwcoreTagsTag) GetNameOk() (*string, bool)`
+`func (o *TagsTag) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *TwcoreTagsTag) SetName(v string)`
+`func (o *TagsTag) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *TwcoreTagsTag) HasName() bool`
+`func (o *TagsTag) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 ### GetProjectId
 
-`func (o *TwcoreTagsTag) GetProjectId() int32`
+`func (o *TagsTag) GetProjectId() int32`
 
 GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
 ### GetProjectIdOk
 
-`func (o *TwcoreTagsTag) GetProjectIdOk() (*int32, bool)`
+`func (o *TagsTag) GetProjectIdOk() (*int32, bool)`
 
 GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectId
 
-`func (o *TwcoreTagsTag) SetProjectId(v int32)`
+`func (o *TagsTag) SetProjectId(v int32)`
 
 SetProjectId sets ProjectId field to given value.
 
 ### HasProjectId
 
-`func (o *TwcoreTagsTag) HasProjectId() bool`
+`func (o *TagsTag) HasProjectId() bool`
 
 HasProjectId returns a boolean if a field has been set.
 

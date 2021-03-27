@@ -16,7 +16,7 @@ import (
 
 // TaskCustomFieldTasksResponse CustomFieldTasksResponse contains information about a group of task custom field values.
 type TaskCustomFieldTasksResponse struct {
-	CustomfieldTasks *[]TaskCustomFieldTask `json:"customfieldTasks,omitempty"`
+	CustomfieldTasks *[]ViewCustomFieldTask `json:"customfieldTasks,omitempty"`
 	Included *TaskCustomFieldTasksResponseIncluded `json:"included,omitempty"`
 	Meta *ViewMeta `json:"meta,omitempty"`
 }
@@ -39,9 +39,9 @@ func NewTaskCustomFieldTasksResponseWithDefaults() *TaskCustomFieldTasksResponse
 }
 
 // GetCustomfieldTasks returns the CustomfieldTasks field value if set, zero value otherwise.
-func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasks() []TaskCustomFieldTask {
+func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasks() []ViewCustomFieldTask {
 	if o == nil || o.CustomfieldTasks == nil {
-		var ret []TaskCustomFieldTask
+		var ret []ViewCustomFieldTask
 		return ret
 	}
 	return *o.CustomfieldTasks
@@ -49,7 +49,7 @@ func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasks() []TaskCustomFieldTa
 
 // GetCustomfieldTasksOk returns a tuple with the CustomfieldTasks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasksOk() (*[]TaskCustomFieldTask, bool) {
+func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasksOk() (*[]ViewCustomFieldTask, bool) {
 	if o == nil || o.CustomfieldTasks == nil {
 		return nil, false
 	}
@@ -65,8 +65,8 @@ func (o *TaskCustomFieldTasksResponse) HasCustomfieldTasks() bool {
 	return false
 }
 
-// SetCustomfieldTasks gets a reference to the given []TaskCustomFieldTask and assigns it to the CustomfieldTasks field.
-func (o *TaskCustomFieldTasksResponse) SetCustomfieldTasks(v []TaskCustomFieldTask) {
+// SetCustomfieldTasks gets a reference to the given []ViewCustomFieldTask and assigns it to the CustomfieldTasks field.
+func (o *TaskCustomFieldTasksResponse) SetCustomfieldTasks(v []ViewCustomFieldTask) {
 	o.CustomfieldTasks = &v
 }
 

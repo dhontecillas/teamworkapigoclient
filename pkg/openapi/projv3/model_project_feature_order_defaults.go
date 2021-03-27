@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// ProjectFeatureOrder FeatureOrder is the payload used to set the project features order as we want to appear in the UI tabs selection
-type ProjectFeatureOrder struct {
+// ProjectFeatureOrderDefaults FeatureOrderDefaults is the payload used to set the defaults for all projects feature order, and allows to also update the projects that have an explicitly set defaults
+type ProjectFeatureOrderDefaults struct {
 	Billing *int32 `json:"billing,omitempty"`
 	Board *int32 `json:"board,omitempty"`
 	Comments *int32 `json:"comments,omitempty"`
@@ -35,25 +35,25 @@ type ProjectFeatureOrder struct {
 	Time *int32 `json:"time,omitempty"`
 }
 
-// NewProjectFeatureOrder instantiates a new ProjectFeatureOrder object
+// NewProjectFeatureOrderDefaults instantiates a new ProjectFeatureOrderDefaults object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectFeatureOrder() *ProjectFeatureOrder {
-	this := ProjectFeatureOrder{}
+func NewProjectFeatureOrderDefaults() *ProjectFeatureOrderDefaults {
+	this := ProjectFeatureOrderDefaults{}
 	return &this
 }
 
-// NewProjectFeatureOrderWithDefaults instantiates a new ProjectFeatureOrder object
+// NewProjectFeatureOrderDefaultsWithDefaults instantiates a new ProjectFeatureOrderDefaults object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewProjectFeatureOrderWithDefaults() *ProjectFeatureOrder {
-	this := ProjectFeatureOrder{}
+func NewProjectFeatureOrderDefaultsWithDefaults() *ProjectFeatureOrderDefaults {
+	this := ProjectFeatureOrderDefaults{}
 	return &this
 }
 
 // GetBilling returns the Billing field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetBilling() int32 {
+func (o *ProjectFeatureOrderDefaults) GetBilling() int32 {
 	if o == nil || o.Billing == nil {
 		var ret int32
 		return ret
@@ -63,7 +63,7 @@ func (o *ProjectFeatureOrder) GetBilling() int32 {
 
 // GetBillingOk returns a tuple with the Billing field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetBillingOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetBillingOk() (*int32, bool) {
 	if o == nil || o.Billing == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *ProjectFeatureOrder) GetBillingOk() (*int32, bool) {
 }
 
 // HasBilling returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasBilling() bool {
+func (o *ProjectFeatureOrderDefaults) HasBilling() bool {
 	if o != nil && o.Billing != nil {
 		return true
 	}
@@ -80,12 +80,12 @@ func (o *ProjectFeatureOrder) HasBilling() bool {
 }
 
 // SetBilling gets a reference to the given int32 and assigns it to the Billing field.
-func (o *ProjectFeatureOrder) SetBilling(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetBilling(v int32) {
 	o.Billing = &v
 }
 
 // GetBoard returns the Board field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetBoard() int32 {
+func (o *ProjectFeatureOrderDefaults) GetBoard() int32 {
 	if o == nil || o.Board == nil {
 		var ret int32
 		return ret
@@ -95,7 +95,7 @@ func (o *ProjectFeatureOrder) GetBoard() int32 {
 
 // GetBoardOk returns a tuple with the Board field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetBoardOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetBoardOk() (*int32, bool) {
 	if o == nil || o.Board == nil {
 		return nil, false
 	}
@@ -103,7 +103,7 @@ func (o *ProjectFeatureOrder) GetBoardOk() (*int32, bool) {
 }
 
 // HasBoard returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasBoard() bool {
+func (o *ProjectFeatureOrderDefaults) HasBoard() bool {
 	if o != nil && o.Board != nil {
 		return true
 	}
@@ -112,12 +112,12 @@ func (o *ProjectFeatureOrder) HasBoard() bool {
 }
 
 // SetBoard gets a reference to the given int32 and assigns it to the Board field.
-func (o *ProjectFeatureOrder) SetBoard(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetBoard(v int32) {
 	o.Board = &v
 }
 
 // GetComments returns the Comments field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetComments() int32 {
+func (o *ProjectFeatureOrderDefaults) GetComments() int32 {
 	if o == nil || o.Comments == nil {
 		var ret int32
 		return ret
@@ -127,7 +127,7 @@ func (o *ProjectFeatureOrder) GetComments() int32 {
 
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetCommentsOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetCommentsOk() (*int32, bool) {
 	if o == nil || o.Comments == nil {
 		return nil, false
 	}
@@ -135,7 +135,7 @@ func (o *ProjectFeatureOrder) GetCommentsOk() (*int32, bool) {
 }
 
 // HasComments returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasComments() bool {
+func (o *ProjectFeatureOrderDefaults) HasComments() bool {
 	if o != nil && o.Comments != nil {
 		return true
 	}
@@ -144,12 +144,12 @@ func (o *ProjectFeatureOrder) HasComments() bool {
 }
 
 // SetComments gets a reference to the given int32 and assigns it to the Comments field.
-func (o *ProjectFeatureOrder) SetComments(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetComments(v int32) {
 	o.Comments = &v
 }
 
 // GetDashboard returns the Dashboard field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetDashboard() int32 {
+func (o *ProjectFeatureOrderDefaults) GetDashboard() int32 {
 	if o == nil || o.Dashboard == nil {
 		var ret int32
 		return ret
@@ -159,7 +159,7 @@ func (o *ProjectFeatureOrder) GetDashboard() int32 {
 
 // GetDashboardOk returns a tuple with the Dashboard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetDashboardOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetDashboardOk() (*int32, bool) {
 	if o == nil || o.Dashboard == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *ProjectFeatureOrder) GetDashboardOk() (*int32, bool) {
 }
 
 // HasDashboard returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasDashboard() bool {
+func (o *ProjectFeatureOrderDefaults) HasDashboard() bool {
 	if o != nil && o.Dashboard != nil {
 		return true
 	}
@@ -176,12 +176,12 @@ func (o *ProjectFeatureOrder) HasDashboard() bool {
 }
 
 // SetDashboard gets a reference to the given int32 and assigns it to the Dashboard field.
-func (o *ProjectFeatureOrder) SetDashboard(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetDashboard(v int32) {
 	o.Dashboard = &v
 }
 
 // GetFiles returns the Files field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetFiles() int32 {
+func (o *ProjectFeatureOrderDefaults) GetFiles() int32 {
 	if o == nil || o.Files == nil {
 		var ret int32
 		return ret
@@ -191,7 +191,7 @@ func (o *ProjectFeatureOrder) GetFiles() int32 {
 
 // GetFilesOk returns a tuple with the Files field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetFilesOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetFilesOk() (*int32, bool) {
 	if o == nil || o.Files == nil {
 		return nil, false
 	}
@@ -199,7 +199,7 @@ func (o *ProjectFeatureOrder) GetFilesOk() (*int32, bool) {
 }
 
 // HasFiles returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasFiles() bool {
+func (o *ProjectFeatureOrderDefaults) HasFiles() bool {
 	if o != nil && o.Files != nil {
 		return true
 	}
@@ -208,12 +208,12 @@ func (o *ProjectFeatureOrder) HasFiles() bool {
 }
 
 // SetFiles gets a reference to the given int32 and assigns it to the Files field.
-func (o *ProjectFeatureOrder) SetFiles(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetFiles(v int32) {
 	o.Files = &v
 }
 
 // GetGantt returns the Gantt field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetGantt() int32 {
+func (o *ProjectFeatureOrderDefaults) GetGantt() int32 {
 	if o == nil || o.Gantt == nil {
 		var ret int32
 		return ret
@@ -223,7 +223,7 @@ func (o *ProjectFeatureOrder) GetGantt() int32 {
 
 // GetGanttOk returns a tuple with the Gantt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetGanttOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetGanttOk() (*int32, bool) {
 	if o == nil || o.Gantt == nil {
 		return nil, false
 	}
@@ -231,7 +231,7 @@ func (o *ProjectFeatureOrder) GetGanttOk() (*int32, bool) {
 }
 
 // HasGantt returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasGantt() bool {
+func (o *ProjectFeatureOrderDefaults) HasGantt() bool {
 	if o != nil && o.Gantt != nil {
 		return true
 	}
@@ -240,12 +240,12 @@ func (o *ProjectFeatureOrder) HasGantt() bool {
 }
 
 // SetGantt gets a reference to the given int32 and assigns it to the Gantt field.
-func (o *ProjectFeatureOrder) SetGantt(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetGantt(v int32) {
 	o.Gantt = &v
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetLinks() int32 {
+func (o *ProjectFeatureOrderDefaults) GetLinks() int32 {
 	if o == nil || o.Links == nil {
 		var ret int32
 		return ret
@@ -255,7 +255,7 @@ func (o *ProjectFeatureOrder) GetLinks() int32 {
 
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetLinksOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetLinksOk() (*int32, bool) {
 	if o == nil || o.Links == nil {
 		return nil, false
 	}
@@ -263,7 +263,7 @@ func (o *ProjectFeatureOrder) GetLinksOk() (*int32, bool) {
 }
 
 // HasLinks returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasLinks() bool {
+func (o *ProjectFeatureOrderDefaults) HasLinks() bool {
 	if o != nil && o.Links != nil {
 		return true
 	}
@@ -272,12 +272,12 @@ func (o *ProjectFeatureOrder) HasLinks() bool {
 }
 
 // SetLinks gets a reference to the given int32 and assigns it to the Links field.
-func (o *ProjectFeatureOrder) SetLinks(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetLinks(v int32) {
 	o.Links = &v
 }
 
 // GetList returns the List field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetList() int32 {
+func (o *ProjectFeatureOrderDefaults) GetList() int32 {
 	if o == nil || o.List == nil {
 		var ret int32
 		return ret
@@ -287,7 +287,7 @@ func (o *ProjectFeatureOrder) GetList() int32 {
 
 // GetListOk returns a tuple with the List field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetListOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetListOk() (*int32, bool) {
 	if o == nil || o.List == nil {
 		return nil, false
 	}
@@ -295,7 +295,7 @@ func (o *ProjectFeatureOrder) GetListOk() (*int32, bool) {
 }
 
 // HasList returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasList() bool {
+func (o *ProjectFeatureOrderDefaults) HasList() bool {
 	if o != nil && o.List != nil {
 		return true
 	}
@@ -304,12 +304,12 @@ func (o *ProjectFeatureOrder) HasList() bool {
 }
 
 // SetList gets a reference to the given int32 and assigns it to the List field.
-func (o *ProjectFeatureOrder) SetList(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetList(v int32) {
 	o.List = &v
 }
 
 // GetMessages returns the Messages field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetMessages() int32 {
+func (o *ProjectFeatureOrderDefaults) GetMessages() int32 {
 	if o == nil || o.Messages == nil {
 		var ret int32
 		return ret
@@ -319,7 +319,7 @@ func (o *ProjectFeatureOrder) GetMessages() int32 {
 
 // GetMessagesOk returns a tuple with the Messages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetMessagesOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetMessagesOk() (*int32, bool) {
 	if o == nil || o.Messages == nil {
 		return nil, false
 	}
@@ -327,7 +327,7 @@ func (o *ProjectFeatureOrder) GetMessagesOk() (*int32, bool) {
 }
 
 // HasMessages returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasMessages() bool {
+func (o *ProjectFeatureOrderDefaults) HasMessages() bool {
 	if o != nil && o.Messages != nil {
 		return true
 	}
@@ -336,12 +336,12 @@ func (o *ProjectFeatureOrder) HasMessages() bool {
 }
 
 // SetMessages gets a reference to the given int32 and assigns it to the Messages field.
-func (o *ProjectFeatureOrder) SetMessages(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetMessages(v int32) {
 	o.Messages = &v
 }
 
 // GetMilestones returns the Milestones field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetMilestones() int32 {
+func (o *ProjectFeatureOrderDefaults) GetMilestones() int32 {
 	if o == nil || o.Milestones == nil {
 		var ret int32
 		return ret
@@ -351,7 +351,7 @@ func (o *ProjectFeatureOrder) GetMilestones() int32 {
 
 // GetMilestonesOk returns a tuple with the Milestones field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetMilestonesOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetMilestonesOk() (*int32, bool) {
 	if o == nil || o.Milestones == nil {
 		return nil, false
 	}
@@ -359,7 +359,7 @@ func (o *ProjectFeatureOrder) GetMilestonesOk() (*int32, bool) {
 }
 
 // HasMilestones returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasMilestones() bool {
+func (o *ProjectFeatureOrderDefaults) HasMilestones() bool {
 	if o != nil && o.Milestones != nil {
 		return true
 	}
@@ -368,12 +368,12 @@ func (o *ProjectFeatureOrder) HasMilestones() bool {
 }
 
 // SetMilestones gets a reference to the given int32 and assigns it to the Milestones field.
-func (o *ProjectFeatureOrder) SetMilestones(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetMilestones(v int32) {
 	o.Milestones = &v
 }
 
 // GetNotebooks returns the Notebooks field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetNotebooks() int32 {
+func (o *ProjectFeatureOrderDefaults) GetNotebooks() int32 {
 	if o == nil || o.Notebooks == nil {
 		var ret int32
 		return ret
@@ -383,7 +383,7 @@ func (o *ProjectFeatureOrder) GetNotebooks() int32 {
 
 // GetNotebooksOk returns a tuple with the Notebooks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetNotebooksOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetNotebooksOk() (*int32, bool) {
 	if o == nil || o.Notebooks == nil {
 		return nil, false
 	}
@@ -391,7 +391,7 @@ func (o *ProjectFeatureOrder) GetNotebooksOk() (*int32, bool) {
 }
 
 // HasNotebooks returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasNotebooks() bool {
+func (o *ProjectFeatureOrderDefaults) HasNotebooks() bool {
 	if o != nil && o.Notebooks != nil {
 		return true
 	}
@@ -400,12 +400,12 @@ func (o *ProjectFeatureOrder) HasNotebooks() bool {
 }
 
 // SetNotebooks gets a reference to the given int32 and assigns it to the Notebooks field.
-func (o *ProjectFeatureOrder) SetNotebooks(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetNotebooks(v int32) {
 	o.Notebooks = &v
 }
 
 // GetNumVisibleTabs returns the NumVisibleTabs field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetNumVisibleTabs() int32 {
+func (o *ProjectFeatureOrderDefaults) GetNumVisibleTabs() int32 {
 	if o == nil || o.NumVisibleTabs == nil {
 		var ret int32
 		return ret
@@ -415,7 +415,7 @@ func (o *ProjectFeatureOrder) GetNumVisibleTabs() int32 {
 
 // GetNumVisibleTabsOk returns a tuple with the NumVisibleTabs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetNumVisibleTabsOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetNumVisibleTabsOk() (*int32, bool) {
 	if o == nil || o.NumVisibleTabs == nil {
 		return nil, false
 	}
@@ -423,7 +423,7 @@ func (o *ProjectFeatureOrder) GetNumVisibleTabsOk() (*int32, bool) {
 }
 
 // HasNumVisibleTabs returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasNumVisibleTabs() bool {
+func (o *ProjectFeatureOrderDefaults) HasNumVisibleTabs() bool {
 	if o != nil && o.NumVisibleTabs != nil {
 		return true
 	}
@@ -432,12 +432,12 @@ func (o *ProjectFeatureOrder) HasNumVisibleTabs() bool {
 }
 
 // SetNumVisibleTabs gets a reference to the given int32 and assigns it to the NumVisibleTabs field.
-func (o *ProjectFeatureOrder) SetNumVisibleTabs(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetNumVisibleTabs(v int32) {
 	o.NumVisibleTabs = &v
 }
 
 // GetPeople returns the People field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetPeople() int32 {
+func (o *ProjectFeatureOrderDefaults) GetPeople() int32 {
 	if o == nil || o.People == nil {
 		var ret int32
 		return ret
@@ -447,7 +447,7 @@ func (o *ProjectFeatureOrder) GetPeople() int32 {
 
 // GetPeopleOk returns a tuple with the People field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetPeopleOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetPeopleOk() (*int32, bool) {
 	if o == nil || o.People == nil {
 		return nil, false
 	}
@@ -455,7 +455,7 @@ func (o *ProjectFeatureOrder) GetPeopleOk() (*int32, bool) {
 }
 
 // HasPeople returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasPeople() bool {
+func (o *ProjectFeatureOrderDefaults) HasPeople() bool {
 	if o != nil && o.People != nil {
 		return true
 	}
@@ -464,12 +464,12 @@ func (o *ProjectFeatureOrder) HasPeople() bool {
 }
 
 // SetPeople gets a reference to the given int32 and assigns it to the People field.
-func (o *ProjectFeatureOrder) SetPeople(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetPeople(v int32) {
 	o.People = &v
 }
 
 // GetRisks returns the Risks field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetRisks() int32 {
+func (o *ProjectFeatureOrderDefaults) GetRisks() int32 {
 	if o == nil || o.Risks == nil {
 		var ret int32
 		return ret
@@ -479,7 +479,7 @@ func (o *ProjectFeatureOrder) GetRisks() int32 {
 
 // GetRisksOk returns a tuple with the Risks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetRisksOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetRisksOk() (*int32, bool) {
 	if o == nil || o.Risks == nil {
 		return nil, false
 	}
@@ -487,7 +487,7 @@ func (o *ProjectFeatureOrder) GetRisksOk() (*int32, bool) {
 }
 
 // HasRisks returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasRisks() bool {
+func (o *ProjectFeatureOrderDefaults) HasRisks() bool {
 	if o != nil && o.Risks != nil {
 		return true
 	}
@@ -496,12 +496,12 @@ func (o *ProjectFeatureOrder) HasRisks() bool {
 }
 
 // SetRisks gets a reference to the given int32 and assigns it to the Risks field.
-func (o *ProjectFeatureOrder) SetRisks(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetRisks(v int32) {
 	o.Risks = &v
 }
 
 // GetSettings returns the Settings field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetSettings() int32 {
+func (o *ProjectFeatureOrderDefaults) GetSettings() int32 {
 	if o == nil || o.Settings == nil {
 		var ret int32
 		return ret
@@ -511,7 +511,7 @@ func (o *ProjectFeatureOrder) GetSettings() int32 {
 
 // GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetSettingsOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetSettingsOk() (*int32, bool) {
 	if o == nil || o.Settings == nil {
 		return nil, false
 	}
@@ -519,7 +519,7 @@ func (o *ProjectFeatureOrder) GetSettingsOk() (*int32, bool) {
 }
 
 // HasSettings returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasSettings() bool {
+func (o *ProjectFeatureOrderDefaults) HasSettings() bool {
 	if o != nil && o.Settings != nil {
 		return true
 	}
@@ -528,12 +528,12 @@ func (o *ProjectFeatureOrder) HasSettings() bool {
 }
 
 // SetSettings gets a reference to the given int32 and assigns it to the Settings field.
-func (o *ProjectFeatureOrder) SetSettings(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetSettings(v int32) {
 	o.Settings = &v
 }
 
 // GetTable returns the Table field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetTable() int32 {
+func (o *ProjectFeatureOrderDefaults) GetTable() int32 {
 	if o == nil || o.Table == nil {
 		var ret int32
 		return ret
@@ -543,7 +543,7 @@ func (o *ProjectFeatureOrder) GetTable() int32 {
 
 // GetTableOk returns a tuple with the Table field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetTableOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetTableOk() (*int32, bool) {
 	if o == nil || o.Table == nil {
 		return nil, false
 	}
@@ -551,7 +551,7 @@ func (o *ProjectFeatureOrder) GetTableOk() (*int32, bool) {
 }
 
 // HasTable returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasTable() bool {
+func (o *ProjectFeatureOrderDefaults) HasTable() bool {
 	if o != nil && o.Table != nil {
 		return true
 	}
@@ -560,12 +560,12 @@ func (o *ProjectFeatureOrder) HasTable() bool {
 }
 
 // SetTable gets a reference to the given int32 and assigns it to the Table field.
-func (o *ProjectFeatureOrder) SetTable(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetTable(v int32) {
 	o.Table = &v
 }
 
 // GetTime returns the Time field value if set, zero value otherwise.
-func (o *ProjectFeatureOrder) GetTime() int32 {
+func (o *ProjectFeatureOrderDefaults) GetTime() int32 {
 	if o == nil || o.Time == nil {
 		var ret int32
 		return ret
@@ -575,7 +575,7 @@ func (o *ProjectFeatureOrder) GetTime() int32 {
 
 // GetTimeOk returns a tuple with the Time field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectFeatureOrder) GetTimeOk() (*int32, bool) {
+func (o *ProjectFeatureOrderDefaults) GetTimeOk() (*int32, bool) {
 	if o == nil || o.Time == nil {
 		return nil, false
 	}
@@ -583,7 +583,7 @@ func (o *ProjectFeatureOrder) GetTimeOk() (*int32, bool) {
 }
 
 // HasTime returns a boolean if a field has been set.
-func (o *ProjectFeatureOrder) HasTime() bool {
+func (o *ProjectFeatureOrderDefaults) HasTime() bool {
 	if o != nil && o.Time != nil {
 		return true
 	}
@@ -592,11 +592,11 @@ func (o *ProjectFeatureOrder) HasTime() bool {
 }
 
 // SetTime gets a reference to the given int32 and assigns it to the Time field.
-func (o *ProjectFeatureOrder) SetTime(v int32) {
+func (o *ProjectFeatureOrderDefaults) SetTime(v int32) {
 	o.Time = &v
 }
 
-func (o ProjectFeatureOrder) MarshalJSON() ([]byte, error) {
+func (o ProjectFeatureOrderDefaults) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Billing != nil {
 		toSerialize["billing"] = o.Billing
@@ -652,38 +652,38 @@ func (o ProjectFeatureOrder) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableProjectFeatureOrder struct {
-	value *ProjectFeatureOrder
+type NullableProjectFeatureOrderDefaults struct {
+	value *ProjectFeatureOrderDefaults
 	isSet bool
 }
 
-func (v NullableProjectFeatureOrder) Get() *ProjectFeatureOrder {
+func (v NullableProjectFeatureOrderDefaults) Get() *ProjectFeatureOrderDefaults {
 	return v.value
 }
 
-func (v *NullableProjectFeatureOrder) Set(val *ProjectFeatureOrder) {
+func (v *NullableProjectFeatureOrderDefaults) Set(val *ProjectFeatureOrderDefaults) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableProjectFeatureOrder) IsSet() bool {
+func (v NullableProjectFeatureOrderDefaults) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableProjectFeatureOrder) Unset() {
+func (v *NullableProjectFeatureOrderDefaults) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableProjectFeatureOrder(val *ProjectFeatureOrder) *NullableProjectFeatureOrder {
-	return &NullableProjectFeatureOrder{value: val, isSet: true}
+func NewNullableProjectFeatureOrderDefaults(val *ProjectFeatureOrderDefaults) *NullableProjectFeatureOrderDefaults {
+	return &NullableProjectFeatureOrderDefaults{value: val, isSet: true}
 }
 
-func (v NullableProjectFeatureOrder) MarshalJSON() ([]byte, error) {
+func (v NullableProjectFeatureOrderDefaults) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableProjectFeatureOrder) UnmarshalJSON(src []byte) error {
+func (v *NullableProjectFeatureOrderDefaults) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

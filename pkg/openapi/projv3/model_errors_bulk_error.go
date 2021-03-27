@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// ApierrorsBulkError BulkError stores details related to an error on an api request that we may want to present to the user, but do not wish to cancel the request over
-type ApierrorsBulkError struct {
+// ErrorsBulkError BulkError stores details related to an error on an api request that we may want to present to the user, but do not wish to cancel the request over
+type ErrorsBulkError struct {
 	Code *string `json:"code,omitempty"`
 	Detail *string `json:"detail,omitempty"`
 	Id *map[string]interface{} `json:"id,omitempty"`
@@ -25,25 +25,25 @@ type ApierrorsBulkError struct {
 	Title *string `json:"title,omitempty"`
 }
 
-// NewApierrorsBulkError instantiates a new ApierrorsBulkError object
+// NewErrorsBulkError instantiates a new ErrorsBulkError object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApierrorsBulkError() *ApierrorsBulkError {
-	this := ApierrorsBulkError{}
+func NewErrorsBulkError() *ErrorsBulkError {
+	this := ErrorsBulkError{}
 	return &this
 }
 
-// NewApierrorsBulkErrorWithDefaults instantiates a new ApierrorsBulkError object
+// NewErrorsBulkErrorWithDefaults instantiates a new ErrorsBulkError object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewApierrorsBulkErrorWithDefaults() *ApierrorsBulkError {
-	this := ApierrorsBulkError{}
+func NewErrorsBulkErrorWithDefaults() *ErrorsBulkError {
+	this := ErrorsBulkError{}
 	return &this
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetCode() string {
+func (o *ErrorsBulkError) GetCode() string {
 	if o == nil || o.Code == nil {
 		var ret string
 		return ret
@@ -53,7 +53,7 @@ func (o *ApierrorsBulkError) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetCodeOk() (*string, bool) {
+func (o *ErrorsBulkError) GetCodeOk() (*string, bool) {
 	if o == nil || o.Code == nil {
 		return nil, false
 	}
@@ -61,7 +61,7 @@ func (o *ApierrorsBulkError) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasCode() bool {
+func (o *ErrorsBulkError) HasCode() bool {
 	if o != nil && o.Code != nil {
 		return true
 	}
@@ -70,12 +70,12 @@ func (o *ApierrorsBulkError) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *ApierrorsBulkError) SetCode(v string) {
+func (o *ErrorsBulkError) SetCode(v string) {
 	o.Code = &v
 }
 
 // GetDetail returns the Detail field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetDetail() string {
+func (o *ErrorsBulkError) GetDetail() string {
 	if o == nil || o.Detail == nil {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *ApierrorsBulkError) GetDetail() string {
 
 // GetDetailOk returns a tuple with the Detail field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetDetailOk() (*string, bool) {
+func (o *ErrorsBulkError) GetDetailOk() (*string, bool) {
 	if o == nil || o.Detail == nil {
 		return nil, false
 	}
@@ -93,7 +93,7 @@ func (o *ApierrorsBulkError) GetDetailOk() (*string, bool) {
 }
 
 // HasDetail returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasDetail() bool {
+func (o *ErrorsBulkError) HasDetail() bool {
 	if o != nil && o.Detail != nil {
 		return true
 	}
@@ -102,12 +102,12 @@ func (o *ApierrorsBulkError) HasDetail() bool {
 }
 
 // SetDetail gets a reference to the given string and assigns it to the Detail field.
-func (o *ApierrorsBulkError) SetDetail(v string) {
+func (o *ErrorsBulkError) SetDetail(v string) {
 	o.Detail = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetId() map[string]interface{} {
+func (o *ErrorsBulkError) GetId() map[string]interface{} {
 	if o == nil || o.Id == nil {
 		var ret map[string]interface{}
 		return ret
@@ -117,7 +117,7 @@ func (o *ApierrorsBulkError) GetId() map[string]interface{} {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetIdOk() (*map[string]interface{}, bool) {
+func (o *ErrorsBulkError) GetIdOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *ApierrorsBulkError) GetIdOk() (*map[string]interface{}, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasId() bool {
+func (o *ErrorsBulkError) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -134,12 +134,12 @@ func (o *ApierrorsBulkError) HasId() bool {
 }
 
 // SetId gets a reference to the given map[string]interface{} and assigns it to the Id field.
-func (o *ApierrorsBulkError) SetId(v map[string]interface{}) {
+func (o *ErrorsBulkError) SetId(v map[string]interface{}) {
 	o.Id = &v
 }
 
 // GetMeta returns the Meta field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetMeta() map[string]interface{} {
+func (o *ErrorsBulkError) GetMeta() map[string]interface{} {
 	if o == nil || o.Meta == nil {
 		var ret map[string]interface{}
 		return ret
@@ -149,7 +149,7 @@ func (o *ApierrorsBulkError) GetMeta() map[string]interface{} {
 
 // GetMetaOk returns a tuple with the Meta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetMetaOk() (*map[string]interface{}, bool) {
+func (o *ErrorsBulkError) GetMetaOk() (*map[string]interface{}, bool) {
 	if o == nil || o.Meta == nil {
 		return nil, false
 	}
@@ -157,7 +157,7 @@ func (o *ApierrorsBulkError) GetMetaOk() (*map[string]interface{}, bool) {
 }
 
 // HasMeta returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasMeta() bool {
+func (o *ErrorsBulkError) HasMeta() bool {
 	if o != nil && o.Meta != nil {
 		return true
 	}
@@ -166,12 +166,12 @@ func (o *ApierrorsBulkError) HasMeta() bool {
 }
 
 // SetMeta gets a reference to the given map[string]interface{} and assigns it to the Meta field.
-func (o *ApierrorsBulkError) SetMeta(v map[string]interface{}) {
+func (o *ErrorsBulkError) SetMeta(v map[string]interface{}) {
 	o.Meta = &v
 }
 
 // GetSource returns the Source field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetSource() string {
+func (o *ErrorsBulkError) GetSource() string {
 	if o == nil || o.Source == nil {
 		var ret string
 		return ret
@@ -181,7 +181,7 @@ func (o *ApierrorsBulkError) GetSource() string {
 
 // GetSourceOk returns a tuple with the Source field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetSourceOk() (*string, bool) {
+func (o *ErrorsBulkError) GetSourceOk() (*string, bool) {
 	if o == nil || o.Source == nil {
 		return nil, false
 	}
@@ -189,7 +189,7 @@ func (o *ApierrorsBulkError) GetSourceOk() (*string, bool) {
 }
 
 // HasSource returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasSource() bool {
+func (o *ErrorsBulkError) HasSource() bool {
 	if o != nil && o.Source != nil {
 		return true
 	}
@@ -198,12 +198,12 @@ func (o *ApierrorsBulkError) HasSource() bool {
 }
 
 // SetSource gets a reference to the given string and assigns it to the Source field.
-func (o *ApierrorsBulkError) SetSource(v string) {
+func (o *ErrorsBulkError) SetSource(v string) {
 	o.Source = &v
 }
 
 // GetStatusCode returns the StatusCode field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetStatusCode() int32 {
+func (o *ErrorsBulkError) GetStatusCode() int32 {
 	if o == nil || o.StatusCode == nil {
 		var ret int32
 		return ret
@@ -213,7 +213,7 @@ func (o *ApierrorsBulkError) GetStatusCode() int32 {
 
 // GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetStatusCodeOk() (*int32, bool) {
+func (o *ErrorsBulkError) GetStatusCodeOk() (*int32, bool) {
 	if o == nil || o.StatusCode == nil {
 		return nil, false
 	}
@@ -221,7 +221,7 @@ func (o *ApierrorsBulkError) GetStatusCodeOk() (*int32, bool) {
 }
 
 // HasStatusCode returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasStatusCode() bool {
+func (o *ErrorsBulkError) HasStatusCode() bool {
 	if o != nil && o.StatusCode != nil {
 		return true
 	}
@@ -230,12 +230,12 @@ func (o *ApierrorsBulkError) HasStatusCode() bool {
 }
 
 // SetStatusCode gets a reference to the given int32 and assigns it to the StatusCode field.
-func (o *ApierrorsBulkError) SetStatusCode(v int32) {
+func (o *ErrorsBulkError) SetStatusCode(v int32) {
 	o.StatusCode = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *ApierrorsBulkError) GetTitle() string {
+func (o *ErrorsBulkError) GetTitle() string {
 	if o == nil || o.Title == nil {
 		var ret string
 		return ret
@@ -245,7 +245,7 @@ func (o *ApierrorsBulkError) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApierrorsBulkError) GetTitleOk() (*string, bool) {
+func (o *ErrorsBulkError) GetTitleOk() (*string, bool) {
 	if o == nil || o.Title == nil {
 		return nil, false
 	}
@@ -253,7 +253,7 @@ func (o *ApierrorsBulkError) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *ApierrorsBulkError) HasTitle() bool {
+func (o *ErrorsBulkError) HasTitle() bool {
 	if o != nil && o.Title != nil {
 		return true
 	}
@@ -262,11 +262,11 @@ func (o *ApierrorsBulkError) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *ApierrorsBulkError) SetTitle(v string) {
+func (o *ErrorsBulkError) SetTitle(v string) {
 	o.Title = &v
 }
 
-func (o ApierrorsBulkError) MarshalJSON() ([]byte, error) {
+func (o ErrorsBulkError) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Code != nil {
 		toSerialize["code"] = o.Code
@@ -292,38 +292,38 @@ func (o ApierrorsBulkError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableApierrorsBulkError struct {
-	value *ApierrorsBulkError
+type NullableErrorsBulkError struct {
+	value *ErrorsBulkError
 	isSet bool
 }
 
-func (v NullableApierrorsBulkError) Get() *ApierrorsBulkError {
+func (v NullableErrorsBulkError) Get() *ErrorsBulkError {
 	return v.value
 }
 
-func (v *NullableApierrorsBulkError) Set(val *ApierrorsBulkError) {
+func (v *NullableErrorsBulkError) Set(val *ErrorsBulkError) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableApierrorsBulkError) IsSet() bool {
+func (v NullableErrorsBulkError) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableApierrorsBulkError) Unset() {
+func (v *NullableErrorsBulkError) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableApierrorsBulkError(val *ApierrorsBulkError) *NullableApierrorsBulkError {
-	return &NullableApierrorsBulkError{value: val, isSet: true}
+func NewNullableErrorsBulkError(val *ErrorsBulkError) *NullableErrorsBulkError {
+	return &NullableErrorsBulkError{value: val, isSet: true}
 }
 
-func (v NullableApierrorsBulkError) MarshalJSON() ([]byte, error) {
+func (v NullableErrorsBulkError) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableApierrorsBulkError) UnmarshalJSON(src []byte) error {
+func (v *NullableErrorsBulkError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// TwcoreusersbaseAccount struct for TwcoreusersbaseAccount
-type TwcoreusersbaseAccount struct {
+// UsersbaseAccount struct for UsersbaseAccount
+type UsersbaseAccount struct {
 	Email *string `json:"email,omitempty"`
 	FavIcon *string `json:"favIcon,omitempty"`
 	Id *int32 `json:"id,omitempty"`
@@ -26,25 +26,25 @@ type TwcoreusersbaseAccount struct {
 	Userid *int32 `json:"userid,omitempty"`
 }
 
-// NewTwcoreusersbaseAccount instantiates a new TwcoreusersbaseAccount object
+// NewUsersbaseAccount instantiates a new UsersbaseAccount object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTwcoreusersbaseAccount() *TwcoreusersbaseAccount {
-	this := TwcoreusersbaseAccount{}
+func NewUsersbaseAccount() *UsersbaseAccount {
+	this := UsersbaseAccount{}
 	return &this
 }
 
-// NewTwcoreusersbaseAccountWithDefaults instantiates a new TwcoreusersbaseAccount object
+// NewUsersbaseAccountWithDefaults instantiates a new UsersbaseAccount object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTwcoreusersbaseAccountWithDefaults() *TwcoreusersbaseAccount {
-	this := TwcoreusersbaseAccount{}
+func NewUsersbaseAccountWithDefaults() *UsersbaseAccount {
+	this := UsersbaseAccount{}
 	return &this
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetEmail() string {
+func (o *UsersbaseAccount) GetEmail() string {
 	if o == nil || o.Email == nil {
 		var ret string
 		return ret
@@ -54,7 +54,7 @@ func (o *TwcoreusersbaseAccount) GetEmail() string {
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetEmailOk() (*string, bool) {
+func (o *UsersbaseAccount) GetEmailOk() (*string, bool) {
 	if o == nil || o.Email == nil {
 		return nil, false
 	}
@@ -62,7 +62,7 @@ func (o *TwcoreusersbaseAccount) GetEmailOk() (*string, bool) {
 }
 
 // HasEmail returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasEmail() bool {
+func (o *UsersbaseAccount) HasEmail() bool {
 	if o != nil && o.Email != nil {
 		return true
 	}
@@ -71,12 +71,12 @@ func (o *TwcoreusersbaseAccount) HasEmail() bool {
 }
 
 // SetEmail gets a reference to the given string and assigns it to the Email field.
-func (o *TwcoreusersbaseAccount) SetEmail(v string) {
+func (o *UsersbaseAccount) SetEmail(v string) {
 	o.Email = &v
 }
 
 // GetFavIcon returns the FavIcon field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetFavIcon() string {
+func (o *UsersbaseAccount) GetFavIcon() string {
 	if o == nil || o.FavIcon == nil {
 		var ret string
 		return ret
@@ -86,7 +86,7 @@ func (o *TwcoreusersbaseAccount) GetFavIcon() string {
 
 // GetFavIconOk returns a tuple with the FavIcon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetFavIconOk() (*string, bool) {
+func (o *UsersbaseAccount) GetFavIconOk() (*string, bool) {
 	if o == nil || o.FavIcon == nil {
 		return nil, false
 	}
@@ -94,7 +94,7 @@ func (o *TwcoreusersbaseAccount) GetFavIconOk() (*string, bool) {
 }
 
 // HasFavIcon returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasFavIcon() bool {
+func (o *UsersbaseAccount) HasFavIcon() bool {
 	if o != nil && o.FavIcon != nil {
 		return true
 	}
@@ -103,12 +103,12 @@ func (o *TwcoreusersbaseAccount) HasFavIcon() bool {
 }
 
 // SetFavIcon gets a reference to the given string and assigns it to the FavIcon field.
-func (o *TwcoreusersbaseAccount) SetFavIcon(v string) {
+func (o *UsersbaseAccount) SetFavIcon(v string) {
 	o.FavIcon = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetId() int32 {
+func (o *UsersbaseAccount) GetId() int32 {
 	if o == nil || o.Id == nil {
 		var ret int32
 		return ret
@@ -118,7 +118,7 @@ func (o *TwcoreusersbaseAccount) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetIdOk() (*int32, bool) {
+func (o *UsersbaseAccount) GetIdOk() (*int32, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -126,7 +126,7 @@ func (o *TwcoreusersbaseAccount) GetIdOk() (*int32, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasId() bool {
+func (o *UsersbaseAccount) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -135,12 +135,12 @@ func (o *TwcoreusersbaseAccount) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *TwcoreusersbaseAccount) SetId(v int32) {
+func (o *UsersbaseAccount) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetIslinked returns the Islinked field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetIslinked() bool {
+func (o *UsersbaseAccount) GetIslinked() bool {
 	if o == nil || o.Islinked == nil {
 		var ret bool
 		return ret
@@ -150,7 +150,7 @@ func (o *TwcoreusersbaseAccount) GetIslinked() bool {
 
 // GetIslinkedOk returns a tuple with the Islinked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetIslinkedOk() (*bool, bool) {
+func (o *UsersbaseAccount) GetIslinkedOk() (*bool, bool) {
 	if o == nil || o.Islinked == nil {
 		return nil, false
 	}
@@ -158,7 +158,7 @@ func (o *TwcoreusersbaseAccount) GetIslinkedOk() (*bool, bool) {
 }
 
 // HasIslinked returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasIslinked() bool {
+func (o *UsersbaseAccount) HasIslinked() bool {
 	if o != nil && o.Islinked != nil {
 		return true
 	}
@@ -167,12 +167,12 @@ func (o *TwcoreusersbaseAccount) HasIslinked() bool {
 }
 
 // SetIslinked gets a reference to the given bool and assigns it to the Islinked field.
-func (o *TwcoreusersbaseAccount) SetIslinked(v bool) {
+func (o *UsersbaseAccount) SetIslinked(v bool) {
 	o.Islinked = &v
 }
 
 // GetLink returns the Link field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetLink() string {
+func (o *UsersbaseAccount) GetLink() string {
 	if o == nil || o.Link == nil {
 		var ret string
 		return ret
@@ -182,7 +182,7 @@ func (o *TwcoreusersbaseAccount) GetLink() string {
 
 // GetLinkOk returns a tuple with the Link field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetLinkOk() (*string, bool) {
+func (o *UsersbaseAccount) GetLinkOk() (*string, bool) {
 	if o == nil || o.Link == nil {
 		return nil, false
 	}
@@ -190,7 +190,7 @@ func (o *TwcoreusersbaseAccount) GetLinkOk() (*string, bool) {
 }
 
 // HasLink returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasLink() bool {
+func (o *UsersbaseAccount) HasLink() bool {
 	if o != nil && o.Link != nil {
 		return true
 	}
@@ -199,12 +199,12 @@ func (o *TwcoreusersbaseAccount) HasLink() bool {
 }
 
 // SetLink gets a reference to the given string and assigns it to the Link field.
-func (o *TwcoreusersbaseAccount) SetLink(v string) {
+func (o *UsersbaseAccount) SetLink(v string) {
 	o.Link = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetName() string {
+func (o *UsersbaseAccount) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -214,7 +214,7 @@ func (o *TwcoreusersbaseAccount) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetNameOk() (*string, bool) {
+func (o *UsersbaseAccount) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -222,7 +222,7 @@ func (o *TwcoreusersbaseAccount) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasName() bool {
+func (o *UsersbaseAccount) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -231,12 +231,12 @@ func (o *TwcoreusersbaseAccount) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *TwcoreusersbaseAccount) SetName(v string) {
+func (o *UsersbaseAccount) SetName(v string) {
 	o.Name = &v
 }
 
 // GetShard returns the Shard field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetShard() int32 {
+func (o *UsersbaseAccount) GetShard() int32 {
 	if o == nil || o.Shard == nil {
 		var ret int32
 		return ret
@@ -246,7 +246,7 @@ func (o *TwcoreusersbaseAccount) GetShard() int32 {
 
 // GetShardOk returns a tuple with the Shard field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetShardOk() (*int32, bool) {
+func (o *UsersbaseAccount) GetShardOk() (*int32, bool) {
 	if o == nil || o.Shard == nil {
 		return nil, false
 	}
@@ -254,7 +254,7 @@ func (o *TwcoreusersbaseAccount) GetShardOk() (*int32, bool) {
 }
 
 // HasShard returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasShard() bool {
+func (o *UsersbaseAccount) HasShard() bool {
 	if o != nil && o.Shard != nil {
 		return true
 	}
@@ -263,12 +263,12 @@ func (o *TwcoreusersbaseAccount) HasShard() bool {
 }
 
 // SetShard gets a reference to the given int32 and assigns it to the Shard field.
-func (o *TwcoreusersbaseAccount) SetShard(v int32) {
+func (o *UsersbaseAccount) SetShard(v int32) {
 	o.Shard = &v
 }
 
 // GetUserid returns the Userid field value if set, zero value otherwise.
-func (o *TwcoreusersbaseAccount) GetUserid() int32 {
+func (o *UsersbaseAccount) GetUserid() int32 {
 	if o == nil || o.Userid == nil {
 		var ret int32
 		return ret
@@ -278,7 +278,7 @@ func (o *TwcoreusersbaseAccount) GetUserid() int32 {
 
 // GetUseridOk returns a tuple with the Userid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreusersbaseAccount) GetUseridOk() (*int32, bool) {
+func (o *UsersbaseAccount) GetUseridOk() (*int32, bool) {
 	if o == nil || o.Userid == nil {
 		return nil, false
 	}
@@ -286,7 +286,7 @@ func (o *TwcoreusersbaseAccount) GetUseridOk() (*int32, bool) {
 }
 
 // HasUserid returns a boolean if a field has been set.
-func (o *TwcoreusersbaseAccount) HasUserid() bool {
+func (o *UsersbaseAccount) HasUserid() bool {
 	if o != nil && o.Userid != nil {
 		return true
 	}
@@ -295,11 +295,11 @@ func (o *TwcoreusersbaseAccount) HasUserid() bool {
 }
 
 // SetUserid gets a reference to the given int32 and assigns it to the Userid field.
-func (o *TwcoreusersbaseAccount) SetUserid(v int32) {
+func (o *UsersbaseAccount) SetUserid(v int32) {
 	o.Userid = &v
 }
 
-func (o TwcoreusersbaseAccount) MarshalJSON() ([]byte, error) {
+func (o UsersbaseAccount) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Email != nil {
 		toSerialize["email"] = o.Email
@@ -328,38 +328,38 @@ func (o TwcoreusersbaseAccount) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTwcoreusersbaseAccount struct {
-	value *TwcoreusersbaseAccount
+type NullableUsersbaseAccount struct {
+	value *UsersbaseAccount
 	isSet bool
 }
 
-func (v NullableTwcoreusersbaseAccount) Get() *TwcoreusersbaseAccount {
+func (v NullableUsersbaseAccount) Get() *UsersbaseAccount {
 	return v.value
 }
 
-func (v *NullableTwcoreusersbaseAccount) Set(val *TwcoreusersbaseAccount) {
+func (v *NullableUsersbaseAccount) Set(val *UsersbaseAccount) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTwcoreusersbaseAccount) IsSet() bool {
+func (v NullableUsersbaseAccount) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTwcoreusersbaseAccount) Unset() {
+func (v *NullableUsersbaseAccount) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTwcoreusersbaseAccount(val *TwcoreusersbaseAccount) *NullableTwcoreusersbaseAccount {
-	return &NullableTwcoreusersbaseAccount{value: val, isSet: true}
+func NewNullableUsersbaseAccount(val *UsersbaseAccount) *NullableUsersbaseAccount {
+	return &NullableUsersbaseAccount{value: val, isSet: true}
 }
 
-func (v NullableTwcoreusersbaseAccount) MarshalJSON() ([]byte, error) {
+func (v NullableUsersbaseAccount) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTwcoreusersbaseAccount) UnmarshalJSON(src []byte) error {
+func (v *NullableUsersbaseAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

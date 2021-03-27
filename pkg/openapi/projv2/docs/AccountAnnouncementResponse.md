@@ -1,4 +1,4 @@
-# TwdataaccountAnnouncementResponse
+# AccountAnnouncementResponse
 
 ## Properties
 
@@ -18,295 +18,295 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewTwdataaccountAnnouncementResponse
+### NewAccountAnnouncementResponse
 
-`func NewTwdataaccountAnnouncementResponse() *TwdataaccountAnnouncementResponse`
+`func NewAccountAnnouncementResponse() *AccountAnnouncementResponse`
 
-NewTwdataaccountAnnouncementResponse instantiates a new TwdataaccountAnnouncementResponse object
+NewAccountAnnouncementResponse instantiates a new AccountAnnouncementResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewTwdataaccountAnnouncementResponseWithDefaults
+### NewAccountAnnouncementResponseWithDefaults
 
-`func NewTwdataaccountAnnouncementResponseWithDefaults() *TwdataaccountAnnouncementResponse`
+`func NewAccountAnnouncementResponseWithDefaults() *AccountAnnouncementResponse`
 
-NewTwdataaccountAnnouncementResponseWithDefaults instantiates a new TwdataaccountAnnouncementResponse object
+NewAccountAnnouncementResponseWithDefaults instantiates a new AccountAnnouncementResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetCalloutImage
 
-`func (o *TwdataaccountAnnouncementResponse) GetCalloutImage() string`
+`func (o *AccountAnnouncementResponse) GetCalloutImage() string`
 
 GetCalloutImage returns the CalloutImage field if non-nil, zero value otherwise.
 
 ### GetCalloutImageOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetCalloutImageOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetCalloutImageOk() (*string, bool)`
 
 GetCalloutImageOk returns a tuple with the CalloutImage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCalloutImage
 
-`func (o *TwdataaccountAnnouncementResponse) SetCalloutImage(v string)`
+`func (o *AccountAnnouncementResponse) SetCalloutImage(v string)`
 
 SetCalloutImage sets CalloutImage field to given value.
 
 ### HasCalloutImage
 
-`func (o *TwdataaccountAnnouncementResponse) HasCalloutImage() bool`
+`func (o *AccountAnnouncementResponse) HasCalloutImage() bool`
 
 HasCalloutImage returns a boolean if a field has been set.
 
 ### GetCode
 
-`func (o *TwdataaccountAnnouncementResponse) GetCode() string`
+`func (o *AccountAnnouncementResponse) GetCode() string`
 
 GetCode returns the Code field if non-nil, zero value otherwise.
 
 ### GetCodeOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetCodeOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetCodeOk() (*string, bool)`
 
 GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCode
 
-`func (o *TwdataaccountAnnouncementResponse) SetCode(v string)`
+`func (o *AccountAnnouncementResponse) SetCode(v string)`
 
 SetCode sets Code field to given value.
 
 ### HasCode
 
-`func (o *TwdataaccountAnnouncementResponse) HasCode() bool`
+`func (o *AccountAnnouncementResponse) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
 
 ### GetDate
 
-`func (o *TwdataaccountAnnouncementResponse) GetDate() string`
+`func (o *AccountAnnouncementResponse) GetDate() string`
 
 GetDate returns the Date field if non-nil, zero value otherwise.
 
 ### GetDateOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetDateOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetDateOk() (*string, bool)`
 
 GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDate
 
-`func (o *TwdataaccountAnnouncementResponse) SetDate(v string)`
+`func (o *AccountAnnouncementResponse) SetDate(v string)`
 
 SetDate sets Date field to given value.
 
 ### HasDate
 
-`func (o *TwdataaccountAnnouncementResponse) HasDate() bool`
+`func (o *AccountAnnouncementResponse) HasDate() bool`
 
 HasDate returns a boolean if a field has been set.
 
 ### GetHtml
 
-`func (o *TwdataaccountAnnouncementResponse) GetHtml() string`
+`func (o *AccountAnnouncementResponse) GetHtml() string`
 
 GetHtml returns the Html field if non-nil, zero value otherwise.
 
 ### GetHtmlOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetHtmlOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetHtmlOk() (*string, bool)`
 
 GetHtmlOk returns a tuple with the Html field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHtml
 
-`func (o *TwdataaccountAnnouncementResponse) SetHtml(v string)`
+`func (o *AccountAnnouncementResponse) SetHtml(v string)`
 
 SetHtml sets Html field to given value.
 
 ### HasHtml
 
-`func (o *TwdataaccountAnnouncementResponse) HasHtml() bool`
+`func (o *AccountAnnouncementResponse) HasHtml() bool`
 
 HasHtml returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *TwdataaccountAnnouncementResponse) GetId() int32`
+`func (o *AccountAnnouncementResponse) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetIdOk() (*int32, bool)`
+`func (o *AccountAnnouncementResponse) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *TwdataaccountAnnouncementResponse) SetId(v int32)`
+`func (o *AccountAnnouncementResponse) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *TwdataaccountAnnouncementResponse) HasId() bool`
+`func (o *AccountAnnouncementResponse) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetIsRead
 
-`func (o *TwdataaccountAnnouncementResponse) GetIsRead() bool`
+`func (o *AccountAnnouncementResponse) GetIsRead() bool`
 
 GetIsRead returns the IsRead field if non-nil, zero value otherwise.
 
 ### GetIsReadOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetIsReadOk() (*bool, bool)`
+`func (o *AccountAnnouncementResponse) GetIsReadOk() (*bool, bool)`
 
 GetIsReadOk returns a tuple with the IsRead field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsRead
 
-`func (o *TwdataaccountAnnouncementResponse) SetIsRead(v bool)`
+`func (o *AccountAnnouncementResponse) SetIsRead(v bool)`
 
 SetIsRead sets IsRead field to given value.
 
 ### HasIsRead
 
-`func (o *TwdataaccountAnnouncementResponse) HasIsRead() bool`
+`func (o *AccountAnnouncementResponse) HasIsRead() bool`
 
 HasIsRead returns a boolean if a field has been set.
 
 ### GetLink
 
-`func (o *TwdataaccountAnnouncementResponse) GetLink() string`
+`func (o *AccountAnnouncementResponse) GetLink() string`
 
 GetLink returns the Link field if non-nil, zero value otherwise.
 
 ### GetLinkOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetLinkOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetLinkOk() (*string, bool)`
 
 GetLinkOk returns a tuple with the Link field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLink
 
-`func (o *TwdataaccountAnnouncementResponse) SetLink(v string)`
+`func (o *AccountAnnouncementResponse) SetLink(v string)`
 
 SetLink sets Link field to given value.
 
 ### HasLink
 
-`func (o *TwdataaccountAnnouncementResponse) HasLink() bool`
+`func (o *AccountAnnouncementResponse) HasLink() bool`
 
 HasLink returns a boolean if a field has been set.
 
 ### GetLinkText
 
-`func (o *TwdataaccountAnnouncementResponse) GetLinkText() string`
+`func (o *AccountAnnouncementResponse) GetLinkText() string`
 
 GetLinkText returns the LinkText field if non-nil, zero value otherwise.
 
 ### GetLinkTextOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetLinkTextOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetLinkTextOk() (*string, bool)`
 
 GetLinkTextOk returns a tuple with the LinkText field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinkText
 
-`func (o *TwdataaccountAnnouncementResponse) SetLinkText(v string)`
+`func (o *AccountAnnouncementResponse) SetLinkText(v string)`
 
 SetLinkText sets LinkText field to given value.
 
 ### HasLinkText
 
-`func (o *TwdataaccountAnnouncementResponse) HasLinkText() bool`
+`func (o *AccountAnnouncementResponse) HasLinkText() bool`
 
 HasLinkText returns a boolean if a field has been set.
 
 ### GetText
 
-`func (o *TwdataaccountAnnouncementResponse) GetText() string`
+`func (o *AccountAnnouncementResponse) GetText() string`
 
 GetText returns the Text field if non-nil, zero value otherwise.
 
 ### GetTextOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetTextOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetTextOk() (*string, bool)`
 
 GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetText
 
-`func (o *TwdataaccountAnnouncementResponse) SetText(v string)`
+`func (o *AccountAnnouncementResponse) SetText(v string)`
 
 SetText sets Text field to given value.
 
 ### HasText
 
-`func (o *TwdataaccountAnnouncementResponse) HasText() bool`
+`func (o *AccountAnnouncementResponse) HasText() bool`
 
 HasText returns a boolean if a field has been set.
 
 ### GetTitle
 
-`func (o *TwdataaccountAnnouncementResponse) GetTitle() string`
+`func (o *AccountAnnouncementResponse) GetTitle() string`
 
 GetTitle returns the Title field if non-nil, zero value otherwise.
 
 ### GetTitleOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetTitleOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetTitleOk() (*string, bool)`
 
 GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTitle
 
-`func (o *TwdataaccountAnnouncementResponse) SetTitle(v string)`
+`func (o *AccountAnnouncementResponse) SetTitle(v string)`
 
 SetTitle sets Title field to given value.
 
 ### HasTitle
 
-`func (o *TwdataaccountAnnouncementResponse) HasTitle() bool`
+`func (o *AccountAnnouncementResponse) HasTitle() bool`
 
 HasTitle returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *TwdataaccountAnnouncementResponse) GetType() string`
+`func (o *AccountAnnouncementResponse) GetType() string`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *TwdataaccountAnnouncementResponse) GetTypeOk() (*string, bool)`
+`func (o *AccountAnnouncementResponse) GetTypeOk() (*string, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *TwdataaccountAnnouncementResponse) SetType(v string)`
+`func (o *AccountAnnouncementResponse) SetType(v string)`
 
 SetType sets Type field to given value.
 
 ### HasType
 
-`func (o *TwdataaccountAnnouncementResponse) HasType() bool`
+`func (o *AccountAnnouncementResponse) HasType() bool`
 
 HasType returns a boolean if a field has been set.
 

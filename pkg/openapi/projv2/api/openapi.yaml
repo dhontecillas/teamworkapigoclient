@@ -10070,7 +10070,7 @@ paths:
       - CFPort
 components:
   schemas:
-    twdataaccount.AnnouncementResponse:
+    account.AnnouncementResponse:
       example:
         date: date
         calloutImage: calloutImage
@@ -11327,7 +11327,7 @@ components:
           $ref: '#/components/schemas/people.social'
         tags:
           items:
-            $ref: '#/components/schemas/twcoreTags.Tag'
+            $ref: '#/components/schemas/tags.Tag'
           type: array
         teams:
           items:
@@ -13450,7 +13450,7 @@ components:
           type: boolean
         accounts:
           items:
-            $ref: '#/components/schemas/twcoreusersbase.Account'
+            $ref: '#/components/schemas/usersbase.Account'
           type: array
         address:
           $ref: '#/components/schemas/people.address'
@@ -13473,7 +13473,7 @@ components:
         createdAt:
           type: string
         currentFeatureAnnouncement:
-          $ref: '#/components/schemas/twdataaccount.AnnouncementResponse'
+          $ref: '#/components/schemas/account.AnnouncementResponse'
         defaultFilters:
           additionalProperties:
             $ref: '#/components/schemas/twdatausers.FilterResponse'
@@ -13585,7 +13585,7 @@ components:
           $ref: '#/components/schemas/people.social'
         tags:
           items:
-            $ref: '#/components/schemas/twcoreTags.Tag'
+            $ref: '#/components/schemas/tags.Tag'
           type: array
         tasks:
           properties: {}
@@ -13693,7 +13693,7 @@ components:
           type: string
       title: workingHoursEntry
       type: object
-    twcoreTags.Tag:
+    tags.Tag:
       example:
         color: color
         name: name
@@ -13773,7 +13773,7 @@ components:
           type: integer
       title: FilterResponse
       type: object
-    twcoreusersbase.Account:
+    usersbase.Account:
       example:
         favIcon: favIcon
         link: link

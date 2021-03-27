@@ -23,7 +23,7 @@ type TaskTask struct {
 	CreatedAt *string `json:"createdAt,omitempty"`
 	CreatedBy *int32 `json:"createdBy,omitempty"`
 	CrmDealIds *[]int32 `json:"crmDealIds,omitempty"`
-	CustomFields *[]CustomfieldtaskCustomFieldTask `json:"customFields,omitempty"`
+	CustomFields *[]TaskCustomFieldTask `json:"customFields,omitempty"`
 	Description *string `json:"description,omitempty"`
 	// Date unmarshals represents a Unified API Spec date format.
 	DueAt *map[string]interface{} `json:"dueAt,omitempty"`
@@ -287,9 +287,9 @@ func (o *TaskTask) SetCrmDealIds(v []int32) {
 }
 
 // GetCustomFields returns the CustomFields field value if set, zero value otherwise.
-func (o *TaskTask) GetCustomFields() []CustomfieldtaskCustomFieldTask {
+func (o *TaskTask) GetCustomFields() []TaskCustomFieldTask {
 	if o == nil || o.CustomFields == nil {
-		var ret []CustomfieldtaskCustomFieldTask
+		var ret []TaskCustomFieldTask
 		return ret
 	}
 	return *o.CustomFields
@@ -297,7 +297,7 @@ func (o *TaskTask) GetCustomFields() []CustomfieldtaskCustomFieldTask {
 
 // GetCustomFieldsOk returns a tuple with the CustomFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TaskTask) GetCustomFieldsOk() (*[]CustomfieldtaskCustomFieldTask, bool) {
+func (o *TaskTask) GetCustomFieldsOk() (*[]TaskCustomFieldTask, bool) {
 	if o == nil || o.CustomFields == nil {
 		return nil, false
 	}
@@ -313,8 +313,8 @@ func (o *TaskTask) HasCustomFields() bool {
 	return false
 }
 
-// SetCustomFields gets a reference to the given []CustomfieldtaskCustomFieldTask and assigns it to the CustomFields field.
-func (o *TaskTask) SetCustomFields(v []CustomfieldtaskCustomFieldTask) {
+// SetCustomFields gets a reference to the given []TaskCustomFieldTask and assigns it to the CustomFields field.
+func (o *TaskTask) SetCustomFields(v []TaskCustomFieldTask) {
 	o.CustomFields = &v
 }
 

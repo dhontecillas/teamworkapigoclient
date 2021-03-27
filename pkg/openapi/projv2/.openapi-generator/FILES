@@ -7,6 +7,7 @@ api_cf_port.go
 api_default.go
 client.go
 configuration.go
+docs/AccountAnnouncementResponse.md
 docs/CFPortApi.md
 docs/DefaultApi.md
 docs/PeopleAddress.md
@@ -26,13 +27,13 @@ docs/PeopleSocial.md
 docs/PeopleSpecificPerson.md
 docs/PeopleWorkingHours.md
 docs/PeopleWorkingHoursEntry.md
-docs/TwcoreTagsTag.md
-docs/TwcoreusersbaseAccount.md
-docs/TwdataaccountAnnouncementResponse.md
+docs/TagsTag.md
 docs/TwdatausersFilterResponse.md
+docs/UsersbaseAccount.md
 git_push.sh
 go.mod
 go.sum
+model_account_announcement_response.go
 model_people_address.go
 model_people_auth_data.go
 model_people_company.go
@@ -50,9 +51,8 @@ model_people_social.go
 model_people_specific_person.go
 model_people_working_hours.go
 model_people_working_hours_entry.go
-model_twcore_tags_tag.go
-model_twcoreusersbase_account.go
-model_twdataaccount_announcement_response.go
+model_tags_tag.go
 model_twdatausers_filter_response.go
+model_usersbase_account.go
 response.go
 utils.go

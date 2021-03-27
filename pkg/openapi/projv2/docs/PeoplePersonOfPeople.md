@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 **Projects** | Pointer to **[]int32** |  | [optional] 
 **SiteOwner** | Pointer to **bool** |  | [optional] 
 **Social** | Pointer to [**PeopleSocial**](PeopleSocial.md) |  | [optional] 
-**Tags** | Pointer to [**[]TwcoreTagsTag**](TwcoreTagsTag.md) |  | [optional] 
+**Tags** | Pointer to [**[]TagsTag**](TagsTag.md) |  | [optional] 
 **Teams** | Pointer to **[]string** |  | [optional] 
 **TextFormat** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
@@ -1522,20 +1522,20 @@ HasSocial returns a boolean if a field has been set.
 
 ### GetTags
 
-`func (o *PeoplePersonOfPeople) GetTags() []TwcoreTagsTag`
+`func (o *PeoplePersonOfPeople) GetTags() []TagsTag`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *PeoplePersonOfPeople) GetTagsOk() (*[]TwcoreTagsTag, bool)`
+`func (o *PeoplePersonOfPeople) GetTagsOk() (*[]TagsTag, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *PeoplePersonOfPeople) SetTags(v []TwcoreTagsTag)`
+`func (o *PeoplePersonOfPeople) SetTags(v []TagsTag)`
 
 SetTags sets Tags field to given value.
 

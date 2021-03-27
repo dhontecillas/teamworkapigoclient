@@ -4694,8 +4694,13 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdJsonExecute(r ApiG
 type ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectsApiService
+	projectFeatureOrderDefaults *ProjectFeatureOrderDefaults
 }
 
+func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) ProjectFeatureOrderDefaults(projectFeatureOrderDefaults ProjectFeatureOrderDefaults) ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest {
+	r.projectFeatureOrderDefaults = &projectFeatureOrderDefaults
+	return r
+}
 
 func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
 	return r.ApiService.PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r)
@@ -4703,6 +4708,9 @@ func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) Execute() (ProjectF
 
 /*
  * PUTProjectsApiV3ProjectsFeaturesorderJson Sets the default features order to display in tab
+ * Each field must have an index, from 0 to numFeatures -1
+without repeated numbers to provide the order
+to display the features
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest
  */
@@ -4737,9 +4745,12 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if r.projectFeatureOrderDefaults == nil {
+		return localVarReturnValue, nil, reportError("projectFeatureOrderDefaults is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4755,6 +4766,8 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectFeatureOrderDefaults
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4815,8 +4828,13 @@ type ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectsApiService
 	projectId int32
+	projectFeatureOrder *ProjectFeatureOrder
 }
 
+func (r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) ProjectFeatureOrder(projectFeatureOrder ProjectFeatureOrder) ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest {
+	r.projectFeatureOrder = &projectFeatureOrder
+	return r
+}
 
 func (r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
 	return r.ApiService.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r)
@@ -4824,6 +4842,9 @@ func (r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) Execute() 
 
 /*
  * PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson Sets the the features order to display in tab
+ * Each field must have an index, from 0 to numFeatures -1
+without repeated numbers to provide the order
+to display the features
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId
  * @return ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest
@@ -4861,9 +4882,12 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonE
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if r.projectFeatureOrder == nil {
+		return localVarReturnValue, nil, reportError("projectFeatureOrder is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -4879,6 +4903,8 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonE
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.projectFeatureOrder
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

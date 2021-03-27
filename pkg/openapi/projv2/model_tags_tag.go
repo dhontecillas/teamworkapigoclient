@@ -14,33 +14,33 @@ import (
 	"encoding/json"
 )
 
-// TwcoreTagsTag struct for TwcoreTagsTag
-type TwcoreTagsTag struct {
+// TagsTag struct for TagsTag
+type TagsTag struct {
 	Color *string `json:"color,omitempty"`
 	Id *int32 `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`
 	ProjectId *int32 `json:"projectId,omitempty"`
 }
 
-// NewTwcoreTagsTag instantiates a new TwcoreTagsTag object
+// NewTagsTag instantiates a new TagsTag object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTwcoreTagsTag() *TwcoreTagsTag {
-	this := TwcoreTagsTag{}
+func NewTagsTag() *TagsTag {
+	this := TagsTag{}
 	return &this
 }
 
-// NewTwcoreTagsTagWithDefaults instantiates a new TwcoreTagsTag object
+// NewTagsTagWithDefaults instantiates a new TagsTag object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTwcoreTagsTagWithDefaults() *TwcoreTagsTag {
-	this := TwcoreTagsTag{}
+func NewTagsTagWithDefaults() *TagsTag {
+	this := TagsTag{}
 	return &this
 }
 
 // GetColor returns the Color field value if set, zero value otherwise.
-func (o *TwcoreTagsTag) GetColor() string {
+func (o *TagsTag) GetColor() string {
 	if o == nil || o.Color == nil {
 		var ret string
 		return ret
@@ -50,7 +50,7 @@ func (o *TwcoreTagsTag) GetColor() string {
 
 // GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreTagsTag) GetColorOk() (*string, bool) {
+func (o *TagsTag) GetColorOk() (*string, bool) {
 	if o == nil || o.Color == nil {
 		return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *TwcoreTagsTag) GetColorOk() (*string, bool) {
 }
 
 // HasColor returns a boolean if a field has been set.
-func (o *TwcoreTagsTag) HasColor() bool {
+func (o *TagsTag) HasColor() bool {
 	if o != nil && o.Color != nil {
 		return true
 	}
@@ -67,12 +67,12 @@ func (o *TwcoreTagsTag) HasColor() bool {
 }
 
 // SetColor gets a reference to the given string and assigns it to the Color field.
-func (o *TwcoreTagsTag) SetColor(v string) {
+func (o *TagsTag) SetColor(v string) {
 	o.Color = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *TwcoreTagsTag) GetId() int32 {
+func (o *TagsTag) GetId() int32 {
 	if o == nil || o.Id == nil {
 		var ret int32
 		return ret
@@ -82,7 +82,7 @@ func (o *TwcoreTagsTag) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreTagsTag) GetIdOk() (*int32, bool) {
+func (o *TagsTag) GetIdOk() (*int32, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *TwcoreTagsTag) GetIdOk() (*int32, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *TwcoreTagsTag) HasId() bool {
+func (o *TagsTag) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -99,12 +99,12 @@ func (o *TwcoreTagsTag) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *TwcoreTagsTag) SetId(v int32) {
+func (o *TagsTag) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
-func (o *TwcoreTagsTag) GetName() string {
+func (o *TagsTag) GetName() string {
 	if o == nil || o.Name == nil {
 		var ret string
 		return ret
@@ -114,7 +114,7 @@ func (o *TwcoreTagsTag) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreTagsTag) GetNameOk() (*string, bool) {
+func (o *TagsTag) GetNameOk() (*string, bool) {
 	if o == nil || o.Name == nil {
 		return nil, false
 	}
@@ -122,7 +122,7 @@ func (o *TwcoreTagsTag) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *TwcoreTagsTag) HasName() bool {
+func (o *TagsTag) HasName() bool {
 	if o != nil && o.Name != nil {
 		return true
 	}
@@ -131,12 +131,12 @@ func (o *TwcoreTagsTag) HasName() bool {
 }
 
 // SetName gets a reference to the given string and assigns it to the Name field.
-func (o *TwcoreTagsTag) SetName(v string) {
+func (o *TagsTag) SetName(v string) {
 	o.Name = &v
 }
 
 // GetProjectId returns the ProjectId field value if set, zero value otherwise.
-func (o *TwcoreTagsTag) GetProjectId() int32 {
+func (o *TagsTag) GetProjectId() int32 {
 	if o == nil || o.ProjectId == nil {
 		var ret int32
 		return ret
@@ -146,7 +146,7 @@ func (o *TwcoreTagsTag) GetProjectId() int32 {
 
 // GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwcoreTagsTag) GetProjectIdOk() (*int32, bool) {
+func (o *TagsTag) GetProjectIdOk() (*int32, bool) {
 	if o == nil || o.ProjectId == nil {
 		return nil, false
 	}
@@ -154,7 +154,7 @@ func (o *TwcoreTagsTag) GetProjectIdOk() (*int32, bool) {
 }
 
 // HasProjectId returns a boolean if a field has been set.
-func (o *TwcoreTagsTag) HasProjectId() bool {
+func (o *TagsTag) HasProjectId() bool {
 	if o != nil && o.ProjectId != nil {
 		return true
 	}
@@ -163,11 +163,11 @@ func (o *TwcoreTagsTag) HasProjectId() bool {
 }
 
 // SetProjectId gets a reference to the given int32 and assigns it to the ProjectId field.
-func (o *TwcoreTagsTag) SetProjectId(v int32) {
+func (o *TagsTag) SetProjectId(v int32) {
 	o.ProjectId = &v
 }
 
-func (o TwcoreTagsTag) MarshalJSON() ([]byte, error) {
+func (o TagsTag) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Color != nil {
 		toSerialize["color"] = o.Color
@@ -184,38 +184,38 @@ func (o TwcoreTagsTag) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTwcoreTagsTag struct {
-	value *TwcoreTagsTag
+type NullableTagsTag struct {
+	value *TagsTag
 	isSet bool
 }
 
-func (v NullableTwcoreTagsTag) Get() *TwcoreTagsTag {
+func (v NullableTagsTag) Get() *TagsTag {
 	return v.value
 }
 
-func (v *NullableTwcoreTagsTag) Set(val *TwcoreTagsTag) {
+func (v *NullableTagsTag) Set(val *TagsTag) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTwcoreTagsTag) IsSet() bool {
+func (v NullableTagsTag) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTwcoreTagsTag) Unset() {
+func (v *NullableTagsTag) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTwcoreTagsTag(val *TwcoreTagsTag) *NullableTwcoreTagsTag {
-	return &NullableTwcoreTagsTag{value: val, isSet: true}
+func NewNullableTagsTag(val *TagsTag) *NullableTagsTag {
+	return &NullableTagsTag{value: val, isSet: true}
 }
 
-func (v NullableTwcoreTagsTag) MarshalJSON() ([]byte, error) {
+func (v NullableTagsTag) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTwcoreTagsTag) UnmarshalJSON(src []byte) error {
+func (v *NullableTagsTag) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

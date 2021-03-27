@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// TaskCommonOptions CommonOptions contains common options
+// TaskCommonOptions CommonOptions contains any options common to most task endpoints
 type TaskCommonOptions struct {
 	FireWebhook *bool `json:"fireWebhook,omitempty"`
 	LogActivity *bool `json:"logActivity,omitempty"`

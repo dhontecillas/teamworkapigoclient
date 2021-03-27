@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 )
 
-// TwdataaccountAnnouncementResponse struct for TwdataaccountAnnouncementResponse
-type TwdataaccountAnnouncementResponse struct {
+// AccountAnnouncementResponse struct for AccountAnnouncementResponse
+type AccountAnnouncementResponse struct {
 	CalloutImage *string `json:"calloutImage,omitempty"`
 	Code *string `json:"code,omitempty"`
 	Date *string `json:"date,omitempty"`
@@ -29,25 +29,25 @@ type TwdataaccountAnnouncementResponse struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// NewTwdataaccountAnnouncementResponse instantiates a new TwdataaccountAnnouncementResponse object
+// NewAccountAnnouncementResponse instantiates a new AccountAnnouncementResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTwdataaccountAnnouncementResponse() *TwdataaccountAnnouncementResponse {
-	this := TwdataaccountAnnouncementResponse{}
+func NewAccountAnnouncementResponse() *AccountAnnouncementResponse {
+	this := AccountAnnouncementResponse{}
 	return &this
 }
 
-// NewTwdataaccountAnnouncementResponseWithDefaults instantiates a new TwdataaccountAnnouncementResponse object
+// NewAccountAnnouncementResponseWithDefaults instantiates a new AccountAnnouncementResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTwdataaccountAnnouncementResponseWithDefaults() *TwdataaccountAnnouncementResponse {
-	this := TwdataaccountAnnouncementResponse{}
+func NewAccountAnnouncementResponseWithDefaults() *AccountAnnouncementResponse {
+	this := AccountAnnouncementResponse{}
 	return &this
 }
 
 // GetCalloutImage returns the CalloutImage field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetCalloutImage() string {
+func (o *AccountAnnouncementResponse) GetCalloutImage() string {
 	if o == nil || o.CalloutImage == nil {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *TwdataaccountAnnouncementResponse) GetCalloutImage() string {
 
 // GetCalloutImageOk returns a tuple with the CalloutImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetCalloutImageOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetCalloutImageOk() (*string, bool) {
 	if o == nil || o.CalloutImage == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *TwdataaccountAnnouncementResponse) GetCalloutImageOk() (*string, bool) 
 }
 
 // HasCalloutImage returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasCalloutImage() bool {
+func (o *AccountAnnouncementResponse) HasCalloutImage() bool {
 	if o != nil && o.CalloutImage != nil {
 		return true
 	}
@@ -74,12 +74,12 @@ func (o *TwdataaccountAnnouncementResponse) HasCalloutImage() bool {
 }
 
 // SetCalloutImage gets a reference to the given string and assigns it to the CalloutImage field.
-func (o *TwdataaccountAnnouncementResponse) SetCalloutImage(v string) {
+func (o *AccountAnnouncementResponse) SetCalloutImage(v string) {
 	o.CalloutImage = &v
 }
 
 // GetCode returns the Code field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetCode() string {
+func (o *AccountAnnouncementResponse) GetCode() string {
 	if o == nil || o.Code == nil {
 		var ret string
 		return ret
@@ -89,7 +89,7 @@ func (o *TwdataaccountAnnouncementResponse) GetCode() string {
 
 // GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetCodeOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetCodeOk() (*string, bool) {
 	if o == nil || o.Code == nil {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *TwdataaccountAnnouncementResponse) GetCodeOk() (*string, bool) {
 }
 
 // HasCode returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasCode() bool {
+func (o *AccountAnnouncementResponse) HasCode() bool {
 	if o != nil && o.Code != nil {
 		return true
 	}
@@ -106,12 +106,12 @@ func (o *TwdataaccountAnnouncementResponse) HasCode() bool {
 }
 
 // SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *TwdataaccountAnnouncementResponse) SetCode(v string) {
+func (o *AccountAnnouncementResponse) SetCode(v string) {
 	o.Code = &v
 }
 
 // GetDate returns the Date field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetDate() string {
+func (o *AccountAnnouncementResponse) GetDate() string {
 	if o == nil || o.Date == nil {
 		var ret string
 		return ret
@@ -121,7 +121,7 @@ func (o *TwdataaccountAnnouncementResponse) GetDate() string {
 
 // GetDateOk returns a tuple with the Date field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetDateOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetDateOk() (*string, bool) {
 	if o == nil || o.Date == nil {
 		return nil, false
 	}
@@ -129,7 +129,7 @@ func (o *TwdataaccountAnnouncementResponse) GetDateOk() (*string, bool) {
 }
 
 // HasDate returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasDate() bool {
+func (o *AccountAnnouncementResponse) HasDate() bool {
 	if o != nil && o.Date != nil {
 		return true
 	}
@@ -138,12 +138,12 @@ func (o *TwdataaccountAnnouncementResponse) HasDate() bool {
 }
 
 // SetDate gets a reference to the given string and assigns it to the Date field.
-func (o *TwdataaccountAnnouncementResponse) SetDate(v string) {
+func (o *AccountAnnouncementResponse) SetDate(v string) {
 	o.Date = &v
 }
 
 // GetHtml returns the Html field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetHtml() string {
+func (o *AccountAnnouncementResponse) GetHtml() string {
 	if o == nil || o.Html == nil {
 		var ret string
 		return ret
@@ -153,7 +153,7 @@ func (o *TwdataaccountAnnouncementResponse) GetHtml() string {
 
 // GetHtmlOk returns a tuple with the Html field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetHtmlOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetHtmlOk() (*string, bool) {
 	if o == nil || o.Html == nil {
 		return nil, false
 	}
@@ -161,7 +161,7 @@ func (o *TwdataaccountAnnouncementResponse) GetHtmlOk() (*string, bool) {
 }
 
 // HasHtml returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasHtml() bool {
+func (o *AccountAnnouncementResponse) HasHtml() bool {
 	if o != nil && o.Html != nil {
 		return true
 	}
@@ -170,12 +170,12 @@ func (o *TwdataaccountAnnouncementResponse) HasHtml() bool {
 }
 
 // SetHtml gets a reference to the given string and assigns it to the Html field.
-func (o *TwdataaccountAnnouncementResponse) SetHtml(v string) {
+func (o *AccountAnnouncementResponse) SetHtml(v string) {
 	o.Html = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetId() int32 {
+func (o *AccountAnnouncementResponse) GetId() int32 {
 	if o == nil || o.Id == nil {
 		var ret int32
 		return ret
@@ -185,7 +185,7 @@ func (o *TwdataaccountAnnouncementResponse) GetId() int32 {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetIdOk() (*int32, bool) {
+func (o *AccountAnnouncementResponse) GetIdOk() (*int32, bool) {
 	if o == nil || o.Id == nil {
 		return nil, false
 	}
@@ -193,7 +193,7 @@ func (o *TwdataaccountAnnouncementResponse) GetIdOk() (*int32, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasId() bool {
+func (o *AccountAnnouncementResponse) HasId() bool {
 	if o != nil && o.Id != nil {
 		return true
 	}
@@ -202,12 +202,12 @@ func (o *TwdataaccountAnnouncementResponse) HasId() bool {
 }
 
 // SetId gets a reference to the given int32 and assigns it to the Id field.
-func (o *TwdataaccountAnnouncementResponse) SetId(v int32) {
+func (o *AccountAnnouncementResponse) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetIsRead returns the IsRead field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetIsRead() bool {
+func (o *AccountAnnouncementResponse) GetIsRead() bool {
 	if o == nil || o.IsRead == nil {
 		var ret bool
 		return ret
@@ -217,7 +217,7 @@ func (o *TwdataaccountAnnouncementResponse) GetIsRead() bool {
 
 // GetIsReadOk returns a tuple with the IsRead field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetIsReadOk() (*bool, bool) {
+func (o *AccountAnnouncementResponse) GetIsReadOk() (*bool, bool) {
 	if o == nil || o.IsRead == nil {
 		return nil, false
 	}
@@ -225,7 +225,7 @@ func (o *TwdataaccountAnnouncementResponse) GetIsReadOk() (*bool, bool) {
 }
 
 // HasIsRead returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasIsRead() bool {
+func (o *AccountAnnouncementResponse) HasIsRead() bool {
 	if o != nil && o.IsRead != nil {
 		return true
 	}
@@ -234,12 +234,12 @@ func (o *TwdataaccountAnnouncementResponse) HasIsRead() bool {
 }
 
 // SetIsRead gets a reference to the given bool and assigns it to the IsRead field.
-func (o *TwdataaccountAnnouncementResponse) SetIsRead(v bool) {
+func (o *AccountAnnouncementResponse) SetIsRead(v bool) {
 	o.IsRead = &v
 }
 
 // GetLink returns the Link field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetLink() string {
+func (o *AccountAnnouncementResponse) GetLink() string {
 	if o == nil || o.Link == nil {
 		var ret string
 		return ret
@@ -249,7 +249,7 @@ func (o *TwdataaccountAnnouncementResponse) GetLink() string {
 
 // GetLinkOk returns a tuple with the Link field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetLinkOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetLinkOk() (*string, bool) {
 	if o == nil || o.Link == nil {
 		return nil, false
 	}
@@ -257,7 +257,7 @@ func (o *TwdataaccountAnnouncementResponse) GetLinkOk() (*string, bool) {
 }
 
 // HasLink returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasLink() bool {
+func (o *AccountAnnouncementResponse) HasLink() bool {
 	if o != nil && o.Link != nil {
 		return true
 	}
@@ -266,12 +266,12 @@ func (o *TwdataaccountAnnouncementResponse) HasLink() bool {
 }
 
 // SetLink gets a reference to the given string and assigns it to the Link field.
-func (o *TwdataaccountAnnouncementResponse) SetLink(v string) {
+func (o *AccountAnnouncementResponse) SetLink(v string) {
 	o.Link = &v
 }
 
 // GetLinkText returns the LinkText field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetLinkText() string {
+func (o *AccountAnnouncementResponse) GetLinkText() string {
 	if o == nil || o.LinkText == nil {
 		var ret string
 		return ret
@@ -281,7 +281,7 @@ func (o *TwdataaccountAnnouncementResponse) GetLinkText() string {
 
 // GetLinkTextOk returns a tuple with the LinkText field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetLinkTextOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetLinkTextOk() (*string, bool) {
 	if o == nil || o.LinkText == nil {
 		return nil, false
 	}
@@ -289,7 +289,7 @@ func (o *TwdataaccountAnnouncementResponse) GetLinkTextOk() (*string, bool) {
 }
 
 // HasLinkText returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasLinkText() bool {
+func (o *AccountAnnouncementResponse) HasLinkText() bool {
 	if o != nil && o.LinkText != nil {
 		return true
 	}
@@ -298,12 +298,12 @@ func (o *TwdataaccountAnnouncementResponse) HasLinkText() bool {
 }
 
 // SetLinkText gets a reference to the given string and assigns it to the LinkText field.
-func (o *TwdataaccountAnnouncementResponse) SetLinkText(v string) {
+func (o *AccountAnnouncementResponse) SetLinkText(v string) {
 	o.LinkText = &v
 }
 
 // GetText returns the Text field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetText() string {
+func (o *AccountAnnouncementResponse) GetText() string {
 	if o == nil || o.Text == nil {
 		var ret string
 		return ret
@@ -313,7 +313,7 @@ func (o *TwdataaccountAnnouncementResponse) GetText() string {
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetTextOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetTextOk() (*string, bool) {
 	if o == nil || o.Text == nil {
 		return nil, false
 	}
@@ -321,7 +321,7 @@ func (o *TwdataaccountAnnouncementResponse) GetTextOk() (*string, bool) {
 }
 
 // HasText returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasText() bool {
+func (o *AccountAnnouncementResponse) HasText() bool {
 	if o != nil && o.Text != nil {
 		return true
 	}
@@ -330,12 +330,12 @@ func (o *TwdataaccountAnnouncementResponse) HasText() bool {
 }
 
 // SetText gets a reference to the given string and assigns it to the Text field.
-func (o *TwdataaccountAnnouncementResponse) SetText(v string) {
+func (o *AccountAnnouncementResponse) SetText(v string) {
 	o.Text = &v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetTitle() string {
+func (o *AccountAnnouncementResponse) GetTitle() string {
 	if o == nil || o.Title == nil {
 		var ret string
 		return ret
@@ -345,7 +345,7 @@ func (o *TwdataaccountAnnouncementResponse) GetTitle() string {
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetTitleOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetTitleOk() (*string, bool) {
 	if o == nil || o.Title == nil {
 		return nil, false
 	}
@@ -353,7 +353,7 @@ func (o *TwdataaccountAnnouncementResponse) GetTitleOk() (*string, bool) {
 }
 
 // HasTitle returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasTitle() bool {
+func (o *AccountAnnouncementResponse) HasTitle() bool {
 	if o != nil && o.Title != nil {
 		return true
 	}
@@ -362,12 +362,12 @@ func (o *TwdataaccountAnnouncementResponse) HasTitle() bool {
 }
 
 // SetTitle gets a reference to the given string and assigns it to the Title field.
-func (o *TwdataaccountAnnouncementResponse) SetTitle(v string) {
+func (o *AccountAnnouncementResponse) SetTitle(v string) {
 	o.Title = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *TwdataaccountAnnouncementResponse) GetType() string {
+func (o *AccountAnnouncementResponse) GetType() string {
 	if o == nil || o.Type == nil {
 		var ret string
 		return ret
@@ -377,7 +377,7 @@ func (o *TwdataaccountAnnouncementResponse) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TwdataaccountAnnouncementResponse) GetTypeOk() (*string, bool) {
+func (o *AccountAnnouncementResponse) GetTypeOk() (*string, bool) {
 	if o == nil || o.Type == nil {
 		return nil, false
 	}
@@ -385,7 +385,7 @@ func (o *TwdataaccountAnnouncementResponse) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *TwdataaccountAnnouncementResponse) HasType() bool {
+func (o *AccountAnnouncementResponse) HasType() bool {
 	if o != nil && o.Type != nil {
 		return true
 	}
@@ -394,11 +394,11 @@ func (o *TwdataaccountAnnouncementResponse) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *TwdataaccountAnnouncementResponse) SetType(v string) {
+func (o *AccountAnnouncementResponse) SetType(v string) {
 	o.Type = &v
 }
 
-func (o TwdataaccountAnnouncementResponse) MarshalJSON() ([]byte, error) {
+func (o AccountAnnouncementResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.CalloutImage != nil {
 		toSerialize["calloutImage"] = o.CalloutImage
@@ -436,38 +436,38 @@ func (o TwdataaccountAnnouncementResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableTwdataaccountAnnouncementResponse struct {
-	value *TwdataaccountAnnouncementResponse
+type NullableAccountAnnouncementResponse struct {
+	value *AccountAnnouncementResponse
 	isSet bool
 }
 
-func (v NullableTwdataaccountAnnouncementResponse) Get() *TwdataaccountAnnouncementResponse {
+func (v NullableAccountAnnouncementResponse) Get() *AccountAnnouncementResponse {
 	return v.value
 }
 
-func (v *NullableTwdataaccountAnnouncementResponse) Set(val *TwdataaccountAnnouncementResponse) {
+func (v *NullableAccountAnnouncementResponse) Set(val *AccountAnnouncementResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTwdataaccountAnnouncementResponse) IsSet() bool {
+func (v NullableAccountAnnouncementResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTwdataaccountAnnouncementResponse) Unset() {
+func (v *NullableAccountAnnouncementResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTwdataaccountAnnouncementResponse(val *TwdataaccountAnnouncementResponse) *NullableTwdataaccountAnnouncementResponse {
-	return &NullableTwdataaccountAnnouncementResponse{value: val, isSet: true}
+func NewNullableAccountAnnouncementResponse(val *AccountAnnouncementResponse) *NullableAccountAnnouncementResponse {
+	return &NullableAccountAnnouncementResponse{value: val, isSet: true}
 }
 
-func (v NullableTwdataaccountAnnouncementResponse) MarshalJSON() ([]byte, error) {
+func (v NullableAccountAnnouncementResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTwdataaccountAnnouncementResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableAccountAnnouncementResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

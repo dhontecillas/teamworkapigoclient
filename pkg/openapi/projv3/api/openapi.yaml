@@ -15183,6 +15183,10 @@ paths:
       tags:
       - Projects
     put:
+      description: |-
+        Each field must have an index, from 0 to numFeatures -1
+        without repeated numbers to provide the order
+        to display the features
       operationId: PUT_projects_api_v3_projects_{projectId}_featuresorder.json
       parameters:
       - in: path
@@ -15190,6 +15194,12 @@ paths:
         required: true
         schema:
           type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/project.FeatureOrder'
+        required: true
       responses:
         "200":
           content:
@@ -15212,6 +15222,7 @@ paths:
       summary: Sets the the features order to display in tab
       tags:
       - Projects
+      x-codegen-request-body-name: project.FeatureOrder
   /projects/api/v3/projects/{projectId}/files/usage.json:
     get:
       description: Retrieves all file space used on account for a specific project.
@@ -18964,7 +18975,17 @@ paths:
       - Budgets
   /projects/api/v3/projects/featuresorder.json:
     put:
+      description: |-
+        Each field must have an index, from 0 to numFeatures -1
+        without repeated numbers to provide the order
+        to display the features
       operationId: PUT_projects_api_v3_projects_featuresorder.json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/project.FeatureOrderDefaults'
+        required: true
       responses:
         "200":
           content:
@@ -18987,6 +19008,7 @@ paths:
       summary: Sets the default features order to display in tab
       tags:
       - Projects
+      x-codegen-request-body-name: project.FeatureOrderDefaults
   /projects/api/v3/projects/metrics/active.json:
     get:
       description: Return the number of active projects that the logged-in user can
@@ -27265,6 +27287,17 @@ components:
           $ref: '#/components/schemas/app_AppsResponse_included'
       title: Response
       type: object
+    arg.CustomField:
+      description: CustomField stores the id, value and operator of the custom field.
+      properties:
+        ID:
+          type: integer
+        Operator:
+          type: string
+        Value:
+          type: string
+      title: CustomField
+      type: object
     assignee.FormAssignee:
       description: FormAssignee contains all the information returned from a assignee.
       properties:
@@ -27687,7 +27720,7 @@ components:
           type: array
         errors:
           items:
-            $ref: '#/components/schemas/apierrors.BulkError'
+            $ref: '#/components/schemas/errors.BulkError'
           type: array
         included:
           $ref: '#/components/schemas/assignee_FormAssigneesResponse_included'
@@ -30703,7 +30736,7 @@ components:
           type: array
       title: MilestoneMetricDeadlinesResponse
       type: object
-    apierrors.BulkError:
+    errors.BulkError:
       description: |-
         BulkError stores details related to an error on an api request that
         we may want to present to the user, but do not wish to cancel the
@@ -37155,29 +37188,27 @@ components:
       type: object
     project.FeatureOrder:
       description: |-
-        FeatureOrder contains the information of the feature
-        order to display in the UI for a project.
+        FeatureOrder is the payload used to set
+        the project features order as we want to appear
+        in the UI tabs selection
       example:
         settings: 1
         comments: 1
-        numVisibleTabs: 1
-        list: 2
+        numVisibleTabs: 7
+        list: 9
         gantt: 2
         people: 1
         billing: 0
-        risks: 7
-        notebooks: 1
+        risks: 1
+        notebooks: 4
         files: 5
-        messages: 4
-        links: 3
-        id: 7
-        installationId: 9
-        time: 5
-        milestones: 7
-        projectId: 6
+        messages: 3
+        links: 7
+        time: 7
+        milestones: 2
         board: 6
         dashboard: 5
-        table: 4
+        table: 6
       properties:
         billing:
           type: integer
@@ -37190,10 +37221,6 @@ components:
         files:
           type: integer
         gantt:
-          type: integer
-        id:
-          type: integer
-        installationId:
           type: integer
         links:
           type: integer
@@ -37209,8 +37236,6 @@ components:
           type: integer
         people:
           type: integer
-        projectId:
-          type: integer
         risks:
           type: integer
         settings:
@@ -37221,6 +37246,49 @@ components:
           type: integer
       title: FeatureOrder
       type: object
+    project.FeatureOrderDefaults:
+      description: |-
+        FeatureOrderDefaults is the payload used to set
+        the defaults for all projects feature order, and
+        allows to also update the projects that have
+        an explicitly set defaults
+      properties:
+        billing:
+          type: integer
+        board:
+          type: integer
+        comments:
+          type: integer
+        dashboard:
+          type: integer
+        files:
+          type: integer
+        gantt:
+          type: integer
+        links:
+          type: integer
+        list:
+          type: integer
+        messages:
+          type: integer
+        milestones:
+          type: integer
+        notebooks:
+          type: integer
+        numVisibleTabs:
+          type: integer
+        people:
+          type: integer
+        risks:
+          type: integer
+        settings:
+          type: integer
+        table:
+          type: integer
+        time:
+          type: integer
+      title: FeatureOrderDefaults
+      type: object
     project.FeatureOrderResponse:
       description: |-
         FeatureOrderResponse is the api response containing
@@ -37229,24 +37297,21 @@ components:
         featureOrder:
           settings: 1
           comments: 1
-          numVisibleTabs: 1
-          list: 2
+          numVisibleTabs: 7
+          list: 9
           gantt: 2
           people: 1
           billing: 0
-          risks: 7
-          notebooks: 1
+          risks: 1
+          notebooks: 4
           files: 5
-          messages: 4
-          links: 3
-          id: 7
-          installationId: 9
-          time: 5
-          milestones: 7
-          projectId: 6
+          messages: 3
+          links: 7
+          time: 7
+          milestones: 2
           board: 6
           dashboard: 5
-          table: 4
+          table: 6
       properties:
         featureOrder:
           $ref: '#/components/schemas/project.FeatureOrder'
@@ -40398,11 +40463,19 @@ components:
           type: integer
       title: Card
       type: object
+    task.CommonOptions:
+      description: CommonOptions contains any options common to most task endpoints
+      properties:
+        fireWebhook:
+          type: boolean
+        logActivity:
+          type: boolean
+        useNotifyViaTWIM:
+          type: boolean
+      title: CommonOptions
+      type: object
     task.CustomFieldTask:
       description: CustomFieldTask contains all the information returned from a customfield.
-      example:
-        customfieldId: 0
-        value: '{}'
       properties:
         customfieldId:
           type: integer
@@ -40416,10 +40489,34 @@ components:
         task custom field values.
       example:
         customfieldTasks:
-        - customfieldId: 0
+        - createdAt: createdAt
+          customfieldId: 6
+          customfield:
+            meta: '{}'
+            id: 0
+            type: type
+          task:
+            meta: '{}'
+            id: 0
+            type: type
+          createdBy: 0
+          id: 1
           value: '{}'
-        - customfieldId: 0
+          taskId: 5
+        - createdAt: createdAt
+          customfieldId: 6
+          customfield:
+            meta: '{}'
+            id: 0
+            type: type
+          task:
+            meta: '{}'
+            id: 0
+            type: type
+          createdBy: 0
+          id: 1
           value: '{}'
+          taskId: 5
         meta:
           page:
             count: 6
@@ -40546,7 +40643,7 @@ components:
       properties:
         customfieldTasks:
           items:
-            $ref: '#/components/schemas/task.CustomFieldTask'
+            $ref: '#/components/schemas/view.CustomFieldTask'
           type: array
         included:
           $ref: '#/components/schemas/task_CustomFieldTasksResponse_included'
@@ -40586,17 +40683,6 @@ components:
         id:
           type: integer
       title: File
-      type: object
-    task.CommonOptions:
-      description: CommonOptions contains common options
-      properties:
-        fireWebhook:
-          type: boolean
-        logActivity:
-          type: boolean
-        useNotifyViaTWIM:
-          type: boolean
-      title: CommonOptions
       type: object
     task.Options:
       description: |-
@@ -41254,7 +41340,7 @@ components:
           type: array
         customFields:
           items:
-            $ref: '#/components/schemas/customfieldtask.CustomFieldTask'
+            $ref: '#/components/schemas/task.CustomFieldTask'
           type: array
         description:
           type: string
@@ -44413,10 +44499,25 @@ components:
           type: object
       title: CustomFieldProject
       type: object
-    customfieldtask.CustomFieldTask:
+    view.CustomFieldTask:
       description: |-
         CustomFieldTask contains all the information returned from a task customfield
         value.
+      example:
+        createdAt: createdAt
+        customfieldId: 6
+        customfield:
+          meta: '{}'
+          id: 0
+          type: type
+        task:
+          meta: '{}'
+          id: 0
+          type: type
+        createdBy: 0
+        id: 1
+        value: '{}'
+        taskId: 5
       properties:
         createdAt:
           type: string

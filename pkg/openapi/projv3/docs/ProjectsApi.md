@@ -1683,9 +1683,11 @@ No authorization required
 
 ## PUTProjectsApiV3ProjectsFeaturesorderJson
 
-> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsFeaturesorderJson(ctx).Execute()
+> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsFeaturesorderJson(ctx).ProjectFeatureOrderDefaults(projectFeatureOrderDefaults).Execute()
 
 Sets the default features order to display in tab
+
+
 
 ### Example
 
@@ -1700,10 +1702,11 @@ import (
 )
 
 func main() {
+    projectFeatureOrderDefaults := *openapiclient.NewProjectFeatureOrderDefaults() // ProjectFeatureOrderDefaults | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsFeaturesorderJson(context.Background()).Execute()
+    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsFeaturesorderJson(context.Background()).ProjectFeatureOrderDefaults(projectFeatureOrderDefaults).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.PUTProjectsApiV3ProjectsFeaturesorderJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1715,12 +1718,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectFeatureOrderDefaults** | [**ProjectFeatureOrderDefaults**](ProjectFeatureOrderDefaults.md) |  | 
 
 ### Return type
 
@@ -1732,7 +1739,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1742,9 +1749,11 @@ No authorization required
 
 ## PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson
 
-> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx, projectId).Execute()
+> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx, projectId).ProjectFeatureOrder(projectFeatureOrder).Execute()
 
 Sets the the features order to display in tab
+
+
 
 ### Example
 
@@ -1760,10 +1769,11 @@ import (
 
 func main() {
     projectId := int32(56) // int32 | 
+    projectFeatureOrder := *openapiclient.NewProjectFeatureOrder() // ProjectFeatureOrder | 
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(context.Background(), projectId).Execute()
+    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(context.Background(), projectId).ProjectFeatureOrder(projectFeatureOrder).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1789,6 +1799,7 @@ Other parameters are passed through a pointer to a apiPUTProjectsApiV3Projectspr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **projectFeatureOrder** | [**ProjectFeatureOrder**](ProjectFeatureOrder.md) |  | 
 
 ### Return type
 
@@ -1800,7 +1811,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

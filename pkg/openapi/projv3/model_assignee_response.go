@@ -17,7 +17,7 @@ import (
 // AssigneeResponse Response contains information about a specific assignee.
 type AssigneeResponse struct {
 	Assignees *[]ViewFormAssignee `json:"assignees,omitempty"`
-	Errors *[]ApierrorsBulkError `json:"errors,omitempty"`
+	Errors *[]ErrorsBulkError `json:"errors,omitempty"`
 	Included *AssigneeFormAssigneesResponseIncluded `json:"included,omitempty"`
 }
 
@@ -71,9 +71,9 @@ func (o *AssigneeResponse) SetAssignees(v []ViewFormAssignee) {
 }
 
 // GetErrors returns the Errors field value if set, zero value otherwise.
-func (o *AssigneeResponse) GetErrors() []ApierrorsBulkError {
+func (o *AssigneeResponse) GetErrors() []ErrorsBulkError {
 	if o == nil || o.Errors == nil {
-		var ret []ApierrorsBulkError
+		var ret []ErrorsBulkError
 		return ret
 	}
 	return *o.Errors
@@ -81,7 +81,7 @@ func (o *AssigneeResponse) GetErrors() []ApierrorsBulkError {
 
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AssigneeResponse) GetErrorsOk() (*[]ApierrorsBulkError, bool) {
+func (o *AssigneeResponse) GetErrorsOk() (*[]ErrorsBulkError, bool) {
 	if o == nil || o.Errors == nil {
 		return nil, false
 	}
@@ -97,8 +97,8 @@ func (o *AssigneeResponse) HasErrors() bool {
 	return false
 }
 
-// SetErrors gets a reference to the given []ApierrorsBulkError and assigns it to the Errors field.
-func (o *AssigneeResponse) SetErrors(v []ApierrorsBulkError) {
+// SetErrors gets a reference to the given []ErrorsBulkError and assigns it to the Errors field.
+func (o *AssigneeResponse) SetErrors(v []ErrorsBulkError) {
 	o.Errors = &v
 }
 

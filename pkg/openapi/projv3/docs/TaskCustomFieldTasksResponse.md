@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomfieldTasks** | Pointer to [**[]TaskCustomFieldTask**](TaskCustomFieldTask.md) |  | [optional] 
+**CustomfieldTasks** | Pointer to [**[]ViewCustomFieldTask**](ViewCustomFieldTask.md) |  | [optional] 
 **Included** | Pointer to [**TaskCustomFieldTasksResponseIncluded**](TaskCustomFieldTasksResponseIncluded.md) |  | [optional] 
 **Meta** | Pointer to [**ViewMeta**](ViewMeta.md) |  | [optional] 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCustomfieldTasks
 
-`func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasks() []TaskCustomFieldTask`
+`func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasks() []ViewCustomFieldTask`
 
 GetCustomfieldTasks returns the CustomfieldTasks field if non-nil, zero value otherwise.
 
 ### GetCustomfieldTasksOk
 
-`func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasksOk() (*[]TaskCustomFieldTask, bool)`
+`func (o *TaskCustomFieldTasksResponse) GetCustomfieldTasksOk() (*[]ViewCustomFieldTask, bool)`
 
 GetCustomfieldTasksOk returns a tuple with the CustomfieldTasks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomfieldTasks
 
-`func (o *TaskCustomFieldTasksResponse) SetCustomfieldTasks(v []TaskCustomFieldTask)`
+`func (o *TaskCustomFieldTasksResponse) SetCustomfieldTasks(v []ViewCustomFieldTask)`
 
 SetCustomfieldTasks sets CustomfieldTasks field to given value.
 

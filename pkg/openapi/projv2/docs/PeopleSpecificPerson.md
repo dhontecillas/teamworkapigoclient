@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **APIEnabled** | Pointer to **bool** |  | [optional] 
-**Accounts** | Pointer to [**[]TwcoreusersbaseAccount**](TwcoreusersbaseAccount.md) |  | [optional] 
+**Accounts** | Pointer to [**[]UsersbaseAccount**](UsersbaseAccount.md) |  | [optional] 
 **Address** | Pointer to [**PeopleAddress**](PeopleAddress.md) |  | [optional] 
 **Administrator** | Pointer to **bool** |  | [optional] 
 **Auth** | Pointer to [**PeopleAuthData**](PeopleAuthData.md) |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **CompanyId** | Pointer to **int32** |  | [optional] 
 **CompanyName** | Pointer to **string** |  | [optional] 
 **CreatedAt** | Pointer to **string** |  | [optional] 
-**CurrentFeatureAnnouncement** | Pointer to [**TwdataaccountAnnouncementResponse**](TwdataaccountAnnouncementResponse.md) |  | [optional] 
+**CurrentFeatureAnnouncement** | Pointer to [**AccountAnnouncementResponse**](AccountAnnouncementResponse.md) |  | [optional] 
 **DefaultFilters** | Pointer to [**map[string]TwdatausersFilterResponse**](TwdatausersFilterResponse.md) |  | [optional] 
 **Deleted** | Pointer to **bool** |  | [optional] 
 **DocumentEditorInstalled** | Pointer to **bool** |  | [optional] 
@@ -68,7 +68,7 @@ Name | Type | Description | Notes
 **SharedUserFilter** | Pointer to [**map[string]TwdatausersFilterResponse**](TwdatausersFilterResponse.md) |  | [optional] 
 **SiteOwner** | Pointer to **bool** |  | [optional] 
 **Social** | Pointer to [**PeopleSocial**](PeopleSocial.md) |  | [optional] 
-**Tags** | Pointer to [**[]TwcoreTagsTag**](TwcoreTagsTag.md) |  | [optional] 
+**Tags** | Pointer to [**[]TagsTag**](TagsTag.md) |  | [optional] 
 **Tasks** | Pointer to **map[string]interface{}** |  | [optional] 
 **Teams** | Pointer to **[]string** |  | [optional] 
 **TeamsCount** | Pointer to **int32** |  | [optional] 
@@ -131,20 +131,20 @@ HasAPIEnabled returns a boolean if a field has been set.
 
 ### GetAccounts
 
-`func (o *PeopleSpecificPerson) GetAccounts() []TwcoreusersbaseAccount`
+`func (o *PeopleSpecificPerson) GetAccounts() []UsersbaseAccount`
 
 GetAccounts returns the Accounts field if non-nil, zero value otherwise.
 
 ### GetAccountsOk
 
-`func (o *PeopleSpecificPerson) GetAccountsOk() (*[]TwcoreusersbaseAccount, bool)`
+`func (o *PeopleSpecificPerson) GetAccountsOk() (*[]UsersbaseAccount, bool)`
 
 GetAccountsOk returns a tuple with the Accounts field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccounts
 
-`func (o *PeopleSpecificPerson) SetAccounts(v []TwcoreusersbaseAccount)`
+`func (o *PeopleSpecificPerson) SetAccounts(v []UsersbaseAccount)`
 
 SetAccounts sets Accounts field to given value.
 
@@ -406,20 +406,20 @@ HasCreatedAt returns a boolean if a field has been set.
 
 ### GetCurrentFeatureAnnouncement
 
-`func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncement() TwdataaccountAnnouncementResponse`
+`func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncement() AccountAnnouncementResponse`
 
 GetCurrentFeatureAnnouncement returns the CurrentFeatureAnnouncement field if non-nil, zero value otherwise.
 
 ### GetCurrentFeatureAnnouncementOk
 
-`func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncementOk() (*TwdataaccountAnnouncementResponse, bool)`
+`func (o *PeopleSpecificPerson) GetCurrentFeatureAnnouncementOk() (*AccountAnnouncementResponse, bool)`
 
 GetCurrentFeatureAnnouncementOk returns a tuple with the CurrentFeatureAnnouncement field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCurrentFeatureAnnouncement
 
-`func (o *PeopleSpecificPerson) SetCurrentFeatureAnnouncement(v TwdataaccountAnnouncementResponse)`
+`func (o *PeopleSpecificPerson) SetCurrentFeatureAnnouncement(v AccountAnnouncementResponse)`
 
 SetCurrentFeatureAnnouncement sets CurrentFeatureAnnouncement field to given value.
 
@@ -1706,20 +1706,20 @@ HasSocial returns a boolean if a field has been set.
 
 ### GetTags
 
-`func (o *PeopleSpecificPerson) GetTags() []TwcoreTagsTag`
+`func (o *PeopleSpecificPerson) GetTags() []TagsTag`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *PeopleSpecificPerson) GetTagsOk() (*[]TwcoreTagsTag, bool)`
+`func (o *PeopleSpecificPerson) GetTagsOk() (*[]TagsTag, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *PeopleSpecificPerson) SetTags(v []TwcoreTagsTag)`
+`func (o *PeopleSpecificPerson) SetTags(v []TagsTag)`
 
 SetTags sets Tags field to given value.
 

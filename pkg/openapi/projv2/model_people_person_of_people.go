@@ -73,7 +73,7 @@ type PeoplePersonOfPeople struct {
 	Projects *[]int32 `json:"projects,omitempty"`
 	SiteOwner *bool `json:"siteOwner,omitempty"`
 	Social *PeopleSocial `json:"social,omitempty"`
-	Tags *[]TwcoreTagsTag `json:"tags,omitempty"`
+	Tags *[]TagsTag `json:"tags,omitempty"`
 	Teams *[]string `json:"teams,omitempty"`
 	TextFormat *string `json:"textFormat,omitempty"`
 	Title *string `json:"title,omitempty"`
@@ -1931,9 +1931,9 @@ func (o *PeoplePersonOfPeople) SetSocial(v PeopleSocial) {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *PeoplePersonOfPeople) GetTags() []TwcoreTagsTag {
+func (o *PeoplePersonOfPeople) GetTags() []TagsTag {
 	if o == nil || o.Tags == nil {
-		var ret []TwcoreTagsTag
+		var ret []TagsTag
 		return ret
 	}
 	return *o.Tags
@@ -1941,7 +1941,7 @@ func (o *PeoplePersonOfPeople) GetTags() []TwcoreTagsTag {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PeoplePersonOfPeople) GetTagsOk() (*[]TwcoreTagsTag, bool) {
+func (o *PeoplePersonOfPeople) GetTagsOk() (*[]TagsTag, bool) {
 	if o == nil || o.Tags == nil {
 		return nil, false
 	}
@@ -1957,8 +1957,8 @@ func (o *PeoplePersonOfPeople) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []TwcoreTagsTag and assigns it to the Tags field.
-func (o *PeoplePersonOfPeople) SetTags(v []TwcoreTagsTag) {
+// SetTags gets a reference to the given []TagsTag and assigns it to the Tags field.
+func (o *PeoplePersonOfPeople) SetTags(v []TagsTag) {
 	o.Tags = &v
 }
 

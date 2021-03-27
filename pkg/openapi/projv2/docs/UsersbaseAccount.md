@@ -1,4 +1,4 @@
-# TwcoreusersbaseAccount
+# UsersbaseAccount
 
 ## Properties
 
@@ -15,220 +15,220 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewTwcoreusersbaseAccount
+### NewUsersbaseAccount
 
-`func NewTwcoreusersbaseAccount() *TwcoreusersbaseAccount`
+`func NewUsersbaseAccount() *UsersbaseAccount`
 
-NewTwcoreusersbaseAccount instantiates a new TwcoreusersbaseAccount object
+NewUsersbaseAccount instantiates a new UsersbaseAccount object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewTwcoreusersbaseAccountWithDefaults
+### NewUsersbaseAccountWithDefaults
 
-`func NewTwcoreusersbaseAccountWithDefaults() *TwcoreusersbaseAccount`
+`func NewUsersbaseAccountWithDefaults() *UsersbaseAccount`
 
-NewTwcoreusersbaseAccountWithDefaults instantiates a new TwcoreusersbaseAccount object
+NewUsersbaseAccountWithDefaults instantiates a new UsersbaseAccount object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetEmail
 
-`func (o *TwcoreusersbaseAccount) GetEmail() string`
+`func (o *UsersbaseAccount) GetEmail() string`
 
 GetEmail returns the Email field if non-nil, zero value otherwise.
 
 ### GetEmailOk
 
-`func (o *TwcoreusersbaseAccount) GetEmailOk() (*string, bool)`
+`func (o *UsersbaseAccount) GetEmailOk() (*string, bool)`
 
 GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmail
 
-`func (o *TwcoreusersbaseAccount) SetEmail(v string)`
+`func (o *UsersbaseAccount) SetEmail(v string)`
 
 SetEmail sets Email field to given value.
 
 ### HasEmail
 
-`func (o *TwcoreusersbaseAccount) HasEmail() bool`
+`func (o *UsersbaseAccount) HasEmail() bool`
 
 HasEmail returns a boolean if a field has been set.
 
 ### GetFavIcon
 
-`func (o *TwcoreusersbaseAccount) GetFavIcon() string`
+`func (o *UsersbaseAccount) GetFavIcon() string`
 
 GetFavIcon returns the FavIcon field if non-nil, zero value otherwise.
 
 ### GetFavIconOk
 
-`func (o *TwcoreusersbaseAccount) GetFavIconOk() (*string, bool)`
+`func (o *UsersbaseAccount) GetFavIconOk() (*string, bool)`
 
 GetFavIconOk returns a tuple with the FavIcon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFavIcon
 
-`func (o *TwcoreusersbaseAccount) SetFavIcon(v string)`
+`func (o *UsersbaseAccount) SetFavIcon(v string)`
 
 SetFavIcon sets FavIcon field to given value.
 
 ### HasFavIcon
 
-`func (o *TwcoreusersbaseAccount) HasFavIcon() bool`
+`func (o *UsersbaseAccount) HasFavIcon() bool`
 
 HasFavIcon returns a boolean if a field has been set.
 
 ### GetId
 
-`func (o *TwcoreusersbaseAccount) GetId() int32`
+`func (o *UsersbaseAccount) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *TwcoreusersbaseAccount) GetIdOk() (*int32, bool)`
+`func (o *UsersbaseAccount) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *TwcoreusersbaseAccount) SetId(v int32)`
+`func (o *UsersbaseAccount) SetId(v int32)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *TwcoreusersbaseAccount) HasId() bool`
+`func (o *UsersbaseAccount) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetIslinked
 
-`func (o *TwcoreusersbaseAccount) GetIslinked() bool`
+`func (o *UsersbaseAccount) GetIslinked() bool`
 
 GetIslinked returns the Islinked field if non-nil, zero value otherwise.
 
 ### GetIslinkedOk
 
-`func (o *TwcoreusersbaseAccount) GetIslinkedOk() (*bool, bool)`
+`func (o *UsersbaseAccount) GetIslinkedOk() (*bool, bool)`
 
 GetIslinkedOk returns a tuple with the Islinked field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIslinked
 
-`func (o *TwcoreusersbaseAccount) SetIslinked(v bool)`
+`func (o *UsersbaseAccount) SetIslinked(v bool)`
 
 SetIslinked sets Islinked field to given value.
 
 ### HasIslinked
 
-`func (o *TwcoreusersbaseAccount) HasIslinked() bool`
+`func (o *UsersbaseAccount) HasIslinked() bool`
 
 HasIslinked returns a boolean if a field has been set.
 
 ### GetLink
 
-`func (o *TwcoreusersbaseAccount) GetLink() string`
+`func (o *UsersbaseAccount) GetLink() string`
 
 GetLink returns the Link field if non-nil, zero value otherwise.
 
 ### GetLinkOk
 
-`func (o *TwcoreusersbaseAccount) GetLinkOk() (*string, bool)`
+`func (o *UsersbaseAccount) GetLinkOk() (*string, bool)`
 
 GetLinkOk returns a tuple with the Link field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLink
 
-`func (o *TwcoreusersbaseAccount) SetLink(v string)`
+`func (o *UsersbaseAccount) SetLink(v string)`
 
 SetLink sets Link field to given value.
 
 ### HasLink
 
-`func (o *TwcoreusersbaseAccount) HasLink() bool`
+`func (o *UsersbaseAccount) HasLink() bool`
 
 HasLink returns a boolean if a field has been set.
 
 ### GetName
 
-`func (o *TwcoreusersbaseAccount) GetName() string`
+`func (o *UsersbaseAccount) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *TwcoreusersbaseAccount) GetNameOk() (*string, bool)`
+`func (o *UsersbaseAccount) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *TwcoreusersbaseAccount) SetName(v string)`
+`func (o *UsersbaseAccount) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *TwcoreusersbaseAccount) HasName() bool`
+`func (o *UsersbaseAccount) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 ### GetShard
 
-`func (o *TwcoreusersbaseAccount) GetShard() int32`
+`func (o *UsersbaseAccount) GetShard() int32`
 
 GetShard returns the Shard field if non-nil, zero value otherwise.
 
 ### GetShardOk
 
-`func (o *TwcoreusersbaseAccount) GetShardOk() (*int32, bool)`
+`func (o *UsersbaseAccount) GetShardOk() (*int32, bool)`
 
 GetShardOk returns a tuple with the Shard field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetShard
 
-`func (o *TwcoreusersbaseAccount) SetShard(v int32)`
+`func (o *UsersbaseAccount) SetShard(v int32)`
 
 SetShard sets Shard field to given value.
 
 ### HasShard
 
-`func (o *TwcoreusersbaseAccount) HasShard() bool`
+`func (o *UsersbaseAccount) HasShard() bool`
 
 HasShard returns a boolean if a field has been set.
 
 ### GetUserid
 
-`func (o *TwcoreusersbaseAccount) GetUserid() int32`
+`func (o *UsersbaseAccount) GetUserid() int32`
 
 GetUserid returns the Userid field if non-nil, zero value otherwise.
 
 ### GetUseridOk
 
-`func (o *TwcoreusersbaseAccount) GetUseridOk() (*int32, bool)`
+`func (o *UsersbaseAccount) GetUseridOk() (*int32, bool)`
 
 GetUseridOk returns a tuple with the Userid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserid
 
-`func (o *TwcoreusersbaseAccount) SetUserid(v int32)`
+`func (o *UsersbaseAccount) SetUserid(v int32)`
 
 SetUserid sets Userid field to given value.
 
 ### HasUserid
 
-`func (o *TwcoreusersbaseAccount) HasUserid() bool`
+`func (o *UsersbaseAccount) HasUserid() bool`
 
 HasUserid returns a boolean if a field has been set.
 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **string** |  | [optional] 
 **CreatedBy** | Pointer to **int32** |  | [optional] 
 **CrmDealIds** | Pointer to **[]int32** |  | [optional] 
-**CustomFields** | Pointer to [**[]CustomfieldtaskCustomFieldTask**](CustomfieldtaskCustomFieldTask.md) |  | [optional] 
+**CustomFields** | Pointer to [**[]TaskCustomFieldTask**](TaskCustomFieldTask.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **DueAt** | Pointer to **map[string]interface{}** | Date unmarshals represents a Unified API Spec date format. | [optional] 
 **EstimatedMinutes** | Pointer to **int32** |  | [optional] 
@@ -226,20 +226,20 @@ HasCrmDealIds returns a boolean if a field has been set.
 
 ### GetCustomFields
 
-`func (o *TaskTask) GetCustomFields() []CustomfieldtaskCustomFieldTask`
+`func (o *TaskTask) GetCustomFields() []TaskCustomFieldTask`
 
 GetCustomFields returns the CustomFields field if non-nil, zero value otherwise.
 
 ### GetCustomFieldsOk
 
-`func (o *TaskTask) GetCustomFieldsOk() (*[]CustomfieldtaskCustomFieldTask, bool)`
+`func (o *TaskTask) GetCustomFieldsOk() (*[]TaskCustomFieldTask, bool)`
 
 GetCustomFieldsOk returns a tuple with the CustomFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomFields
 
-`func (o *TaskTask) SetCustomFields(v []CustomfieldtaskCustomFieldTask)`
+`func (o *TaskTask) SetCustomFields(v []TaskCustomFieldTask)`
 
 SetCustomFields sets CustomFields field to given value.
 

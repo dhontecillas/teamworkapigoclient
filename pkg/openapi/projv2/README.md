@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccountAnnouncementResponse](docs/AccountAnnouncementResponse.md)
  - [PeopleAddress](docs/PeopleAddress.md)
  - [PeopleAuthData](docs/PeopleAuthData.md)
  - [PeopleCompany](docs/PeopleCompany.md)
@@ -162,10 +163,9 @@ Class | Method | HTTP request | Description
  - [PeopleSpecificPerson](docs/PeopleSpecificPerson.md)
  - [PeopleWorkingHours](docs/PeopleWorkingHours.md)
  - [PeopleWorkingHoursEntry](docs/PeopleWorkingHoursEntry.md)
- - [TwcoreTagsTag](docs/TwcoreTagsTag.md)
- - [TwcoreusersbaseAccount](docs/TwcoreusersbaseAccount.md)
- - [TwdataaccountAnnouncementResponse](docs/TwdataaccountAnnouncementResponse.md)
+ - [TagsTag](docs/TagsTag.md)
  - [TwdatausersFilterResponse](docs/TwdatausersFilterResponse.md)
+ - [UsersbaseAccount](docs/UsersbaseAccount.md)
 
 
 ## Documentation For Authorization

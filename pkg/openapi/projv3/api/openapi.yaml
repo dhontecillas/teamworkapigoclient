@@ -15157,9 +15157,9 @@ paths:
       - CustomFields
       x-private: true
       x-codegen-request-body-name: project.BulkUpdateRequest
-  /projects/api/v3/projects/{projectId}/featuresorder.json:
+  /projects/api/v3/projects/{projectId}/featureorder.json:
     get:
-      operationId: GET_projects_api_v3_projects_{projectId}_featuresorder.json
+      operationId: GET_projects_api_v3_projects_{projectId}_featureorder.json
       parameters:
       - in: path
         name: projectId
@@ -15187,7 +15187,7 @@ paths:
         Each field must have an index, from 0 to numFeatures -1
         without repeated numbers to provide the order
         to display the features
-      operationId: PUT_projects_api_v3_projects_{projectId}_featuresorder.json
+      operationId: PUT_projects_api_v3_projects_{projectId}_featureorder.json
       parameters:
       - in: path
         name: projectId
@@ -18973,13 +18973,13 @@ paths:
       summary: Get the budgets usages for a set of projects
       tags:
       - Budgets
-  /projects/api/v3/projects/featuresorder.json:
+  /projects/api/v3/projects/featureorder.json:
     put:
       description: |-
         Each field must have an index, from 0 to numFeatures -1
         without repeated numbers to provide the order
         to display the features
-      operationId: PUT_projects_api_v3_projects_featuresorder.json
+      operationId: PUT_projects_api_v3_projects_featureorder.json
       requestBody:
         content:
           application/json:

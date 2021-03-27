@@ -17,10 +17,10 @@ Method | HTTP request | Description
 [**GETProjectsApiV3ProjectsTeamworkSamplesJson**](ProjectsApi.md#GETProjectsApiV3ProjectsTeamworkSamplesJson) | **Get** /projects/api/v3/projects/teamwork/samples.json | Returns a list of teamwork sample projects
 [**GETProjectsApiV3ProjectsTemplatesJson**](ProjectsApi.md#GETProjectsApiV3ProjectsTemplatesJson) | **Get** /projects/api/v3/projects/templates.json | Returns a list of projects templates
 [**GETProjectsApiV3ProjectsXlsx**](ProjectsApi.md#GETProjectsApiV3ProjectsXlsx) | **Get** /projects/api/v3/projects.xlsx | Generate project report in XLSX format
-[**GETProjectsApiV3ProjectsprojectIdFeaturesorderJson**](ProjectsApi.md#GETProjectsApiV3ProjectsprojectIdFeaturesorderJson) | **Get** /projects/api/v3/projects/{projectId}/featuresorder.json | Returns a project features order to display in tab
+[**GETProjectsApiV3ProjectsprojectIdFeatureorderJson**](ProjectsApi.md#GETProjectsApiV3ProjectsprojectIdFeatureorderJson) | **Get** /projects/api/v3/projects/{projectId}/featureorder.json | Returns a project features order to display in tab
 [**GETProjectsApiV3ProjectsprojectIdJson**](ProjectsApi.md#GETProjectsApiV3ProjectsprojectIdJson) | **Get** /projects/api/v3/projects/{projectId}.json | Returns a project
-[**PUTProjectsApiV3ProjectsFeaturesorderJson**](ProjectsApi.md#PUTProjectsApiV3ProjectsFeaturesorderJson) | **Put** /projects/api/v3/projects/featuresorder.json | Sets the default features order to display in tab
-[**PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson**](ProjectsApi.md#PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson) | **Put** /projects/api/v3/projects/{projectId}/featuresorder.json | Sets the the features order to display in tab
+[**PUTProjectsApiV3ProjectsFeatureorderJson**](ProjectsApi.md#PUTProjectsApiV3ProjectsFeatureorderJson) | **Put** /projects/api/v3/projects/featureorder.json | Sets the default features order to display in tab
+[**PUTProjectsApiV3ProjectsprojectIdFeatureorderJson**](ProjectsApi.md#PUTProjectsApiV3ProjectsprojectIdFeatureorderJson) | **Put** /projects/api/v3/projects/{projectId}/featureorder.json | Sets the the features order to display in tab
 
 
 
@@ -1458,9 +1458,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GETProjectsApiV3ProjectsprojectIdFeaturesorderJson
+## GETProjectsApiV3ProjectsprojectIdFeatureorderJson
 
-> ProjectFeatureOrderResponse GETProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx, projectId).Execute()
+> ProjectFeatureOrderResponse GETProjectsApiV3ProjectsprojectIdFeatureorderJson(ctx, projectId).Execute()
 
 Returns a project features order to display in tab
 
@@ -1481,13 +1481,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsprojectIdFeaturesorderJson(context.Background(), projectId).Execute()
+    resp, r, err := api_client.ProjectsApi.GETProjectsApiV3ProjectsprojectIdFeatureorderJson(context.Background(), projectId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsprojectIdFeaturesorderJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GETProjectsApiV3ProjectsprojectIdFeatureorderJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GETProjectsApiV3ProjectsprojectIdFeaturesorderJson`: ProjectFeatureOrderResponse
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GETProjectsApiV3ProjectsprojectIdFeaturesorderJson`: %v\n", resp)
+    // response from `GETProjectsApiV3ProjectsprojectIdFeatureorderJson`: ProjectFeatureOrderResponse
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GETProjectsApiV3ProjectsprojectIdFeatureorderJson`: %v\n", resp)
 }
 ```
 
@@ -1501,7 +1501,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1681,9 +1681,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3ProjectsFeaturesorderJson
+## PUTProjectsApiV3ProjectsFeatureorderJson
 
-> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsFeaturesorderJson(ctx).ProjectFeatureOrderDefaults(projectFeatureOrderDefaults).Execute()
+> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsFeatureorderJson(ctx).ProjectFeatureOrderDefaults(projectFeatureOrderDefaults).Execute()
 
 Sets the default features order to display in tab
 
@@ -1706,13 +1706,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsFeaturesorderJson(context.Background()).ProjectFeatureOrderDefaults(projectFeatureOrderDefaults).Execute()
+    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsFeatureorderJson(context.Background()).ProjectFeatureOrderDefaults(projectFeatureOrderDefaults).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.PUTProjectsApiV3ProjectsFeaturesorderJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.PUTProjectsApiV3ProjectsFeatureorderJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3ProjectsFeaturesorderJson`: ProjectFeatureOrderResponse
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.PUTProjectsApiV3ProjectsFeaturesorderJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3ProjectsFeatureorderJson`: ProjectFeatureOrderResponse
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.PUTProjectsApiV3ProjectsFeatureorderJson`: %v\n", resp)
 }
 ```
 
@@ -1722,7 +1722,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3ProjectsFeatureorderJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -1747,9 +1747,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson
+## PUTProjectsApiV3ProjectsprojectIdFeatureorderJson
 
-> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx, projectId).ProjectFeatureOrder(projectFeatureOrder).Execute()
+> ProjectFeatureOrderResponse PUTProjectsApiV3ProjectsprojectIdFeatureorderJson(ctx, projectId).ProjectFeatureOrder(projectFeatureOrder).Execute()
 
 Sets the the features order to display in tab
 
@@ -1773,13 +1773,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(context.Background(), projectId).ProjectFeatureOrder(projectFeatureOrder).Execute()
+    resp, r, err := api_client.ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeatureorderJson(context.Background(), projectId).ProjectFeatureOrder(projectFeatureOrder).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeatureorderJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson`: ProjectFeatureOrderResponse
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson`: %v\n", resp)
+    // response from `PUTProjectsApiV3ProjectsprojectIdFeatureorderJson`: ProjectFeatureOrderResponse
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.PUTProjectsApiV3ProjectsprojectIdFeatureorderJson`: %v\n", resp)
 }
 ```
 
@@ -1793,7 +1793,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

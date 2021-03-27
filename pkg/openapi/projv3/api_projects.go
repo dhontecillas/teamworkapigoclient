@@ -4092,25 +4092,25 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsXlsxExecute(r ApiGETProject
 	return localVarHTTPResponse, nil
 }
 
-type ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct {
+type ApiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectsApiService
 	projectId int32
 }
 
 
-func (r ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
-	return r.ApiService.GETProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r)
+func (r ApiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.GETProjectsApiV3ProjectsprojectIdFeatureorderJsonExecute(r)
 }
 
 /*
- * GETProjectsApiV3ProjectsprojectIdFeaturesorderJson Returns a project features order to display in tab
+ * GETProjectsApiV3ProjectsprojectIdFeatureorderJson Returns a project features order to display in tab
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId
- * @return ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest
+ * @return ApiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest
  */
-func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest {
-	return ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest{
+func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeatureorderJson(ctx _context.Context, projectId int32) ApiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest {
+	return ApiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest{
 		ApiService: a,
 		ctx: ctx,
 		projectId: projectId,
@@ -4121,7 +4121,7 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeaturesorderJson(
  * Execute executes the request
  * @return ProjectFeatureOrderResponse
  */
-func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeatureorderJsonExecute(r ApiGETProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -4131,12 +4131,12 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdFeaturesorderJsonE
 		localVarReturnValue  ProjectFeatureOrderResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.GETProjectsApiV3ProjectsprojectIdFeaturesorderJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.GETProjectsApiV3ProjectsprojectIdFeatureorderJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/featuresorder.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/featureorder.json"
 	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4691,31 +4691,31 @@ func (a *ProjectsApiService) GETProjectsApiV3ProjectsprojectIdJsonExecute(r ApiG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest struct {
+type ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectsApiService
 	projectFeatureOrderDefaults *ProjectFeatureOrderDefaults
 }
 
-func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) ProjectFeatureOrderDefaults(projectFeatureOrderDefaults ProjectFeatureOrderDefaults) ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest {
+func (r ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest) ProjectFeatureOrderDefaults(projectFeatureOrderDefaults ProjectFeatureOrderDefaults) ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest {
 	r.projectFeatureOrderDefaults = &projectFeatureOrderDefaults
 	return r
 }
 
-func (r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r)
+func (r ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3ProjectsFeatureorderJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3ProjectsFeaturesorderJson Sets the default features order to display in tab
+ * PUTProjectsApiV3ProjectsFeatureorderJson Sets the default features order to display in tab
  * Each field must have an index, from 0 to numFeatures -1
 without repeated numbers to provide the order
 to display the features
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest
+ * @return ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest
  */
-func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJson(ctx _context.Context) ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest {
-	return ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest{
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeatureorderJson(ctx _context.Context) ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest {
+	return ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -4725,7 +4725,7 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJson(ctx _cont
  * Execute executes the request
  * @return ProjectFeatureOrderResponse
  */
-func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r ApiPUTProjectsApiV3ProjectsFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeatureorderJsonExecute(r ApiPUTProjectsApiV3ProjectsFeatureorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -4735,12 +4735,12 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r 
 		localVarReturnValue  ProjectFeatureOrderResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.PUTProjectsApiV3ProjectsFeaturesorderJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.PUTProjectsApiV3ProjectsFeatureorderJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/featuresorder.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/featureorder.json"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4824,33 +4824,33 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsFeaturesorderJsonExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest struct {
+type ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest struct {
 	ctx _context.Context
 	ApiService *ProjectsApiService
 	projectId int32
 	projectFeatureOrder *ProjectFeatureOrder
 }
 
-func (r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) ProjectFeatureOrder(projectFeatureOrder ProjectFeatureOrder) ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest {
+func (r ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest) ProjectFeatureOrder(projectFeatureOrder ProjectFeatureOrder) ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest {
 	r.projectFeatureOrder = &projectFeatureOrder
 	return r
 }
 
-func (r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
-	return r.ApiService.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r)
+func (r ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest) Execute() (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+	return r.ApiService.PUTProjectsApiV3ProjectsprojectIdFeatureorderJsonExecute(r)
 }
 
 /*
- * PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson Sets the the features order to display in tab
+ * PUTProjectsApiV3ProjectsprojectIdFeatureorderJson Sets the the features order to display in tab
  * Each field must have an index, from 0 to numFeatures -1
 without repeated numbers to provide the order
 to display the features
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId
- * @return ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest
+ * @return ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest
  */
-func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(ctx _context.Context, projectId int32) ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest {
-	return ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest{
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeatureorderJson(ctx _context.Context, projectId int32) ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest {
+	return ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest{
 		ApiService: a,
 		ctx: ctx,
 		projectId: projectId,
@@ -4861,7 +4861,7 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson(
  * Execute executes the request
  * @return ProjectFeatureOrderResponse
  */
-func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonExecute(r ApiPUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
+func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeatureorderJsonExecute(r ApiPUTProjectsApiV3ProjectsprojectIdFeatureorderJsonRequest) (ProjectFeatureOrderResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -4871,12 +4871,12 @@ func (a *ProjectsApiService) PUTProjectsApiV3ProjectsprojectIdFeaturesorderJsonE
 		localVarReturnValue  ProjectFeatureOrderResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.PUTProjectsApiV3ProjectsprojectIdFeaturesorderJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.PUTProjectsApiV3ProjectsprojectIdFeatureorderJson")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/featuresorder.json"
+	localVarPath := localBasePath + "/projects/api/v3/projects/{projectId}/featureorder.json"
 	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", _neturl.PathEscape(parameterToString(r.projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
